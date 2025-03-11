@@ -1,6 +1,5 @@
 name: ht_shared
 description: Shared utilities and models.
-version: 1.0.0
 publish_to: none
 repository: https://github.com/Headlines-Toolkit/ht-shared
 

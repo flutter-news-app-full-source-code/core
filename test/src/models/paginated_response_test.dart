@@ -73,16 +73,19 @@ void main() {
       expect(newResponse.hasMore, false);
     });
 
-     test('copyWith creates a new instance with same values if no new values provided', () {
-      const response = PaginatedResponse<int>(
-        items: [1, 2, 3],
-        cursor: 'abc',
-        hasMore: true,
-      );
-      final newResponse = response.copyWith();
-      expect(newResponse.items, [1, 2, 3]);
-      expect(newResponse.cursor, 'abc');
-      expect(newResponse.hasMore, true);
-    });
+    test(
+      'copyWith create new instance with same values if no new values provided',
+      () {
+        const response = PaginatedResponse<int>(
+          items: [1, 2, 3],
+          cursor: 'abc',
+          hasMore: true,
+        );
+        final newResponse = response.copyWith();
+        expect(newResponse.items, [1, 2, 3]);
+        expect(newResponse.cursor, 'abc');
+        expect(newResponse.hasMore, true);
+      },
+    );
   });
 }

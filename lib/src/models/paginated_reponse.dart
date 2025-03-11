@@ -25,8 +25,7 @@ class PaginatedResponse<T> extends Equatable {
   factory PaginatedResponse.fromJson(
     Map<String, dynamic> json,
     T Function(Object? json) fromJsonT,
-  ) =>
-      _$PaginatedResponseFromJson(json, fromJsonT);
+  ) => _$PaginatedResponseFromJson(json, fromJsonT);
 
   /// The list of items of type [T] in the current page.
   @JsonKey(name: 'items')
@@ -46,9 +45,7 @@ class PaginatedResponse<T> extends Equatable {
   ///
   /// The `toJsonT` parameter is a function that converts an instance of [T]
   /// to its JSON representation.
-  Map<String, dynamic> toJson(
-    Object? Function(T value) toJsonT,
-  ) =>
+  Map<String, dynamic> toJson(Object? Function(T value) toJsonT) =>
       _$PaginatedResponseToJson(this, toJsonT);
 
   @override
