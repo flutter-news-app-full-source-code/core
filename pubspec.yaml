@@ -1,7 +1,7 @@
 name: ht_shared
 description: Shared utilities and models.
 publish_to: none
-repository: https://github.com/Headlines-Toolkit/ht-shared
+repository: https://github.com/headlines-toolkit/ht-shared
 
 environment:
   sdk: ^3.7.0
