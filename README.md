@@ -11,7 +11,9 @@ Add `ht_shared` as a dependency in your `pubspec.yaml` file:
 ```**yaml**
 dependencies:
   ht_shared:
-    path: ../ht_shared # Use relative path for local development
+    git:
+      url: https://github.com/headlines-toolkit/ht-shared.git
+      ref: main
 ```
 
 ## Usage
