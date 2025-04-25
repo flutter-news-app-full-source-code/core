@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/country.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
 
 part 'source.g.dart';
