@@ -11,10 +11,7 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) => Headline(
   description: json['description'] as String?,
   url: json['url'] as String?,
   imageUrl: json['imageUrl'] as String?,
-  publishedAt:
-      json['publishedAt'] == null
-          ? null
-          : DateTime.parse(json['publishedAt'] as String),
+  publishedAt: _dateTimeFromJson(json['publishedAt'] as String?),
   source:
       json['source'] == null
           ? null
@@ -29,10 +26,11 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) => Headline(
 Map<String, dynamic> _$HeadlineToJson(Headline instance) => <String, dynamic>{
   'id': instance.id,
   'title': instance.title,
-  'description': instance.description,
-  'url': instance.url,
-  'imageUrl': instance.imageUrl,
-  'publishedAt': instance.publishedAt?.toIso8601String(),
-  'source': instance.source,
-  'category': instance.category,
+  if (instance.description case final value?) 'description': value,
+  if (instance.url case final value?) 'url': value,
+  if (instance.imageUrl case final value?) 'imageUrl': value,
+  if (instance.publishedAt?.toIso8601String() case final value?)
+    'publishedAt': value,
+  if (instance.source?.toJson() case final value?) 'source': value,
+  if (instance.category?.toJson() case final value?) 'category': value,
 };
