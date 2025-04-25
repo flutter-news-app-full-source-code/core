@@ -22,11 +22,11 @@ Source _$SourceFromJson(Map<String, dynamic> json) => Source(
 Map<String, dynamic> _$SourceToJson(Source instance) => <String, dynamic>{
   'id': instance.id,
   'name': instance.name,
-  'description': instance.description,
-  'url': instance.url,
-  'type': _$SourceTypeEnumMap[instance.type],
-  'language': instance.language,
-  'headquarters': instance.headquarters,
+  if (instance.description case final value?) 'description': value,
+  if (instance.url case final value?) 'url': value,
+  if (_$SourceTypeEnumMap[instance.type] case final value?) 'type': value,
+  if (instance.language case final value?) 'language': value,
+  if (instance.headquarters?.toJson() case final value?) 'headquarters': value,
 };
 
 const _$SourceTypeEnumMap = {

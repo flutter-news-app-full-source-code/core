@@ -50,7 +50,7 @@ enum SourceType {
 ///
 /// Represents a news source.
 /// {@endtemplate}
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class Source extends Equatable {
   /// {@macro source}
   Source({
