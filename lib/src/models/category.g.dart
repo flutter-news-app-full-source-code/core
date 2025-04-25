@@ -16,6 +16,6 @@ Category _$CategoryFromJson(Map<String, dynamic> json) => Category(
 Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
   'id': instance.id,
   'name': instance.name,
-  'description': instance.description,
-  'icon_url': instance.iconUrl,
+  if (instance.description case final value?) 'description': value,
+  if (instance.iconUrl case final value?) 'icon_url': value,
 };

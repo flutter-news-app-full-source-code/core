@@ -12,7 +12,7 @@ part 'category.g.dart';
 /// The [id] is automatically generated using UUID v4 if not provided.
 /// {@endtemplate}
 @immutable
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class Category extends Equatable {
   /// {@macro category}
   ///
