@@ -10,7 +10,11 @@ Source _$SourceFromJson(Map<String, dynamic> json) => Source(
   name: json['name'] as String,
   description: json['description'] as String?,
   url: json['url'] as String?,
-  type: $enumDecodeNullable(_$SourceTypeEnumMap, json['type']),
+  type: $enumDecodeNullable(
+    _$SourceTypeEnumMap,
+    json['type'],
+    unknownValue: JsonKey.nullForUndefinedEnumValue,
+  ),
   language: json['language'] as String?,
   headquarters:
       json['headquarters'] == null

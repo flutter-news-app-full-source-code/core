@@ -80,6 +80,9 @@ class Source extends Equatable {
   final String? url;
 
   /// The type of the source (e.g., newsAgency, blog).
+  /// If an unknown value is encountered during deserialization,
+  /// this field will be set to null.
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final SourceType? type;
 
   /// The language code of the source (e.g., 'en', 'fr').
