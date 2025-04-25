@@ -2,7 +2,6 @@ import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/category.dart';
 import 'package:ht_shared/src/models/source.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
 
@@ -32,11 +31,11 @@ class Headline extends Equatable {
     this.source,
     this.category,
     String? id,
-  })  : assert(
-          id == null || id.isNotEmpty,
-          'id cannot be an empty string', // Updated assertion message
-        ),
-        id = id ?? const Uuid().v4();
+  }) : assert(
+         id == null || id.isNotEmpty,
+         'id cannot be an empty string', // Updated assertion message
+       ),
+       id = id ?? const Uuid().v4();
 
   /// Factory method to create a [Headline] instance from a JSON map.
   factory Headline.fromJson(Map<String, dynamic> json) =>

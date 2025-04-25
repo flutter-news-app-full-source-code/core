@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:ht_shared/src/models/country.dart'; // Use direct import
-import 'package:json_annotation/json_annotation.dart'; // For CheckedFromJsonException
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
 
@@ -44,7 +41,8 @@ void main() {
       );
     });
 
-    // Explicitly testing props getter for coverage, although Equatable test covers it implicitly.
+    // Explicitly testing props getter for coverage,
+    // although Equatable test covers it implicitly.
     test('props getter returns correct list of properties', () {
       final country = createSubject(id: testId);
       // Directly access props
@@ -64,7 +62,7 @@ void main() {
 
     group('Constructor', () {
       test('works correctly', () {
-        expect(() => createSubject(), returnsNormally);
+        expect(createSubject, returnsNormally);
       });
 
       test('creates instance with provided id', () {
