@@ -28,6 +28,7 @@ class Category extends Equatable {
   final String id;
 
   /// The display name of the category.
+  @JsonKey(required: true)
   final String name;
 
   /// An optional description for the category.
