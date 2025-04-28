@@ -22,5 +22,5 @@ Map<String, dynamic> _$SuccessApiResponseToJson<T>(
   Object? Function(T value) toJsonT,
 ) => <String, dynamic>{
   'data': toJsonT(instance.data),
-  'metadata': instance.metadata?.toJson(),
+  if (instance.metadata?.toJson() case final value?) 'metadata': value,
 };

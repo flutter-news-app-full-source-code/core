@@ -16,7 +16,11 @@ part 'success_api_response.g.dart';
 /// - A list of model objects (e.g., `List<Category>`).
 /// - A paginated response object (e.g., `PaginatedResponse<Source>`).
 /// {@endtemplate}
-@JsonSerializable(genericArgumentFactories: true, explicitToJson: true)
+@JsonSerializable(
+  genericArgumentFactories: true,
+  explicitToJson: true,
+  includeIfNull: false,
+)
 class SuccessApiResponse<T> extends Equatable {
   /// {@macro success_api_response}
   const SuccessApiResponse({

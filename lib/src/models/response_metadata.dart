@@ -23,6 +23,7 @@ class ResponseMetadata extends Equatable {
       _$ResponseMetadataFromJson(json);
 
   /// An optional unique identifier for the request, useful for tracing.
+  @JsonKey(name: 'request_id')
   final String? requestId;
 
   /// An optional timestamp indicating when the response was generated.
