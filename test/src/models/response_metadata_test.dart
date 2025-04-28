@@ -1,9 +1,9 @@
-import 'package:test/test.dart';
 import 'package:ht_shared/ht_shared.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('ResponseMetadata', () {
-    final timestamp = DateTime.utc(2024, 5, 20, 10, 30, 0);
+    final timestamp = DateTime.utc(2024, 5, 20, 10, 30);
     const requestId = 'req-12345';
 
     final fullMetadata = ResponseMetadata(
@@ -16,55 +16,48 @@ void main() {
       'timestamp': timestamp.toIso8601String(),
     };
 
-    final partialMetadataRequestId = ResponseMetadata(requestId: requestId);
+    const partialMetadataRequestId = ResponseMetadata(requestId: requestId);
     final partialJsonRequestId = {'request_id': requestId}; // Corrected key
 
     final partialMetadataTimestamp = ResponseMetadata(timestamp: timestamp);
     final partialJsonTimestamp = {'timestamp': timestamp.toIso8601String()};
 
-    final emptyMetadata = ResponseMetadata();
+    const emptyMetadata = ResponseMetadata();
     final emptyJson = <String, dynamic>{};
 
     test('supports value equality', () {
       expect(
         fullMetadata,
-        equals(
-          ResponseMetadata(requestId: requestId, timestamp: timestamp),
-        ),
+        equals(ResponseMetadata(requestId: requestId, timestamp: timestamp)),
       );
-      expect(
-        fullMetadata,
-        isNot(equals(partialMetadataRequestId)),
-      );
-      expect(
-        fullMetadata,
-        isNot(equals(partialMetadataTimestamp)),
-      );
-      expect(
-        fullMetadata,
-        isNot(equals(emptyMetadata)),
-      );
+      expect(fullMetadata, isNot(equals(partialMetadataRequestId)));
+      expect(fullMetadata, isNot(equals(partialMetadataTimestamp)));
+      expect(fullMetadata, isNot(equals(emptyMetadata)));
     });
 
     test('fromJson creates correct object from full JSON', () {
       expect(ResponseMetadata.fromJson(fullJson), equals(fullMetadata));
     });
 
-    test('fromJson creates correct object from partial JSON (requestId only)',
-        () {
-      expect(
-        ResponseMetadata.fromJson(partialJsonRequestId),
-        equals(partialMetadataRequestId),
-      );
-    });
+    test(
+      'fromJson creates correct object from partial JSON (requestId only)',
+      () {
+        expect(
+          ResponseMetadata.fromJson(partialJsonRequestId),
+          equals(partialMetadataRequestId),
+        );
+      },
+    );
 
-    test('fromJson creates correct object from partial JSON (timestamp only)',
-        () {
-      expect(
-        ResponseMetadata.fromJson(partialJsonTimestamp),
-        equals(partialMetadataTimestamp),
-      );
-    });
+    test(
+      'fromJson creates correct object from partial JSON (timestamp only)',
+      () {
+        expect(
+          ResponseMetadata.fromJson(partialJsonTimestamp),
+          equals(partialMetadataTimestamp),
+        );
+      },
+    );
 
     test('fromJson creates correct object from empty JSON', () {
       expect(ResponseMetadata.fromJson(emptyJson), equals(emptyMetadata));
@@ -75,17 +68,11 @@ void main() {
     });
 
     test('toJson produces correct partial JSON (requestId only)', () {
-      expect(
-        partialMetadataRequestId.toJson(),
-        equals(partialJsonRequestId),
-      );
+      expect(partialMetadataRequestId.toJson(), equals(partialJsonRequestId));
     });
 
     test('toJson produces correct partial JSON (timestamp only)', () {
-      expect(
-        partialMetadataTimestamp.toJson(),
-        equals(partialJsonTimestamp),
-      );
+      expect(partialMetadataTimestamp.toJson(), equals(partialJsonTimestamp));
     });
 
     test('toJson produces correct empty JSON', () {
@@ -94,7 +81,7 @@ void main() {
 
     test('copyWith creates a copy with updated values', () {
       final updatedTimestamp = DateTime.utc(2025);
-      final updatedRequestId = 'req-67890';
+      const updatedRequestId = 'req-67890';
 
       expect(
         fullMetadata.copyWith(requestId: updatedRequestId),
@@ -121,10 +108,7 @@ void main() {
         ),
       );
       // Test copyWith with null to ensure it keeps original value
-      expect(
-        fullMetadata.copyWith(requestId: null),
-        equals(fullMetadata),
-      );
+      expect(fullMetadata.copyWith(), equals(fullMetadata));
     });
   });
 }

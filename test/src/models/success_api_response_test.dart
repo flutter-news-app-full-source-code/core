@@ -1,17 +1,18 @@
+//
 // ignore_for_file: prefer_const_constructors
 
 import 'package:ht_shared/ht_shared.dart';
 import 'package:test/test.dart';
 
 // Helper functions for String serialization/deserialization
-String _fromJsonString(Object? json) => json as String;
+String _fromJsonString(Object? json) => json! as String;
 Object? _toJsonString(String value) => value;
 
 void main() {
   group('SuccessApiResponse', () {
     const mockData = 'Test Data';
     final mockMetadata = ResponseMetadata(
-      timestamp: DateTime(2024, 1, 1, 12, 0, 0),
+      timestamp: DateTime(2024, 1, 1, 12),
       requestId: 'req-123',
     );
     final mockMetadataJson = {
@@ -94,7 +95,9 @@ void main() {
             equals({'data': mockData}), // If nulls are omitted
           ),
         );
-        // Based on includeIfNull: false in ResponseMetadata, null should be omitted
+        // Based on includeIfNull: false in ResponseMetadata,
+        // null should be omitted.
+        //
         // Let's refine the check based on the actual generated code behavior
         // Assuming ResponseMetadata.g.dart omits nulls
         expect(json, equals({'data': mockData}));
@@ -136,7 +139,7 @@ void main() {
         final response2 = SuccessApiResponse<String>(
           data: mockData,
           metadata: ResponseMetadata(
-            timestamp: DateTime(2024, 1, 1, 13, 0, 0), // Different time
+            timestamp: DateTime(2024, 1, 1, 13), // Different time
             requestId: 'req-456',
           ),
         );
@@ -170,7 +173,7 @@ void main() {
 
       test('copies instance updating metadata', () {
         final newMetadata = ResponseMetadata(
-          timestamp: DateTime(2025, 1, 1),
+          timestamp: DateTime(2025),
           requestId: 'new-req',
         );
         final copiedResponse = successResponse.copyWith(metadata: newMetadata);
@@ -182,7 +185,7 @@ void main() {
       test('copies instance updating both data and metadata', () {
         const newData = 'New Data Again';
         final newMetadata = ResponseMetadata(
-          timestamp: DateTime(2026, 1, 1),
+          timestamp: DateTime(2026),
           requestId: 'another-req',
         );
         final copiedResponse = successResponse.copyWith(

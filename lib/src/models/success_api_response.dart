@@ -23,10 +23,7 @@ part 'success_api_response.g.dart';
 )
 class SuccessApiResponse<T> extends Equatable {
   /// {@macro success_api_response}
-  const SuccessApiResponse({
-    required this.data,
-    this.metadata,
-  });
+  const SuccessApiResponse({required this.data, this.metadata});
 
   /// Factory method to create a [SuccessApiResponse] instance from a JSON map.
   ///
@@ -34,8 +31,7 @@ class SuccessApiResponse<T> extends Equatable {
   factory SuccessApiResponse.fromJson(
     Map<String, dynamic> json,
     T Function(Object? json) fromJsonT,
-  ) =>
-      _$SuccessApiResponseFromJson(json, fromJsonT);
+  ) => _$SuccessApiResponseFromJson(json, fromJsonT);
 
   /// The main data payload of the response.
   final T data;
@@ -54,10 +50,7 @@ class SuccessApiResponse<T> extends Equatable {
 
   /// Creates a copy of this [SuccessApiResponse] but with the given fields
   /// replaced with the new values.
-  SuccessApiResponse<T> copyWith({
-    T? data,
-    ResponseMetadata? metadata,
-  }) {
+  SuccessApiResponse<T> copyWith({T? data, ResponseMetadata? metadata}) {
     return SuccessApiResponse<T>(
       data: data ?? this.data,
       metadata: metadata ?? this.metadata,

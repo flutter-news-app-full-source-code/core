@@ -13,10 +13,7 @@ part 'response_metadata.g.dart';
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
 class ResponseMetadata extends Equatable {
   /// {@macro response_metadata}
-  const ResponseMetadata({
-    this.requestId,
-    this.timestamp,
-  });
+  const ResponseMetadata({this.requestId, this.timestamp});
 
   /// Factory method to create a [ResponseMetadata] instance from a JSON map.
   factory ResponseMetadata.fromJson(Map<String, dynamic> json) =>
@@ -37,10 +34,7 @@ class ResponseMetadata extends Equatable {
 
   /// Creates a copy of this [ResponseMetadata] but with the given fields
   /// replaced with the new values.
-  ResponseMetadata copyWith({
-    String? requestId,
-    DateTime? timestamp,
-  }) {
+  ResponseMetadata copyWith({String? requestId, DateTime? timestamp}) {
     return ResponseMetadata(
       requestId: requestId ?? this.requestId,
       timestamp: timestamp ?? this.timestamp,
