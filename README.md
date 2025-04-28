@@ -4,7 +4,7 @@
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 [![License: PolyForm Free Trial](https://img.shields.io/badge/License-PolyForm%20Free%20Trial-blue)](https://polyformproject.org/licenses/free-trial/1.0.0)
 
-A shared Dart package containing core data models for news-related entities (like headlines, sources, categories, countries) and pagination, used across the application ecosystem (Mobile App, Backend API, Web Dashboard).
+A shared Dart package containing core data models for news-related entities (like headlines, sources, categories, countries), pagination, and standardized API response structures, used across the application ecosystem (Mobile App, Backend API, Web Dashboard).
 
 ## Getting Started
 
@@ -28,6 +28,8 @@ This package provides the following core data models:
 *   **`Source`**: Represents a news source, including ID, name, description, URL, language, optional headquarters (`Country`), and a `SourceType` enum (e.g., `newsAgency`, `blog`).
 *   **`Country`**: Represents a country with an ID, ISO code, name, and flag URL.
 *   **`PaginatedResponse<T>`**: A generic class for handling paginated API responses, containing a list of items (`items`), a `cursor` for the next page, and a `hasMore` flag.
+*   **`SuccessApiResponse<T>`**: A generic wrapper for successful API responses, containing the main `data` payload (of type `T`) and optional `ResponseMetadata`.
+*   **`ResponseMetadata`**: Contains optional metadata for API responses, such as a `requestId` and `timestamp`.
 
 ## Usage
 
@@ -64,6 +66,19 @@ void main() {
   );
 
   print('Fetched ${response.items.length} headlines. More available: ${response.hasMore}');
+
+  // Example: Wrapping a response in SuccessApiResponse
+  final apiResponse = SuccessApiResponse<PaginatedResponse<Headline>>(
+    data: response,
+    metadata: ResponseMetadata(
+      requestId: 'req-abc-123',
+      timestamp: DateTime.now(),
+    ),
+  );
+
+  print('API Response Request ID: ${apiResponse.metadata?.requestId}');
+  print('API Response Data Type: ${apiResponse.data.runtimeType}');
+
 }
 
 ```
