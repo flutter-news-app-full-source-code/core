@@ -1,6 +1,6 @@
 # ht_shared
 
-![coverage: percentage](https://img.shields.io/badge/coverage-99-green)
+![coverage: percentage](https://img.shields.io/badge/coverage-94-green)
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 [![License: PolyForm Free Trial](https://img.shields.io/badge/License-PolyForm%20Free%20Trial-blue)](https://polyformproject.org/licenses/free-trial/1.0.0)
 
@@ -30,6 +30,7 @@ This package provides the following core data models:
 *   **`PaginatedResponse<T>`**: A generic class for handling paginated API responses, containing a list of items (`items`), a `cursor` for the next page, and a `hasMore` flag.
 *   **`SuccessApiResponse<T>`**: A generic wrapper for successful API responses, containing the main `data` payload (of type `T`) and optional `ResponseMetadata`.
 *   **`ResponseMetadata`**: Contains optional metadata for API responses, such as a `requestId` and `timestamp`.
+*   **`HtHttpException` Hierarchy**: A standardized set of exception classes (`NetworkException`, `BadRequestException`, `NotFoundException`, etc.) intended to be used by data client implementations to provide a consistent error contract. See the documentation within `ht_http_exception.dart` for detailed usage patterns.
 
 ## Usage
 
@@ -79,6 +80,17 @@ void main() {
   print('API Response Request ID: ${apiResponse.metadata?.requestId}');
   print('API Response Data Type: ${apiResponse.data.runtimeType}');
 
+  // Example: Catching a shared exception
+  try {
+    // Simulate an operation that might throw
+    throw NotFoundException("Item '123' could not be located.");
+  } on HtHttpException catch (e) {
+    // Handle any standard HT exception
+    print('Caught standard exception: $e');
+  } catch (e) {
+    // Handle other unexpected errors
+    print('Caught unexpected error: $e');
+  }
 }
 
 ```
