@@ -30,7 +30,7 @@ This package provides the following core data models:
 *   **`PaginatedResponse<T>`**: A generic class for handling paginated API responses, containing a list of items (`items`), a `cursor` for the next page, and a `hasMore` flag.
 *   **`SuccessApiResponse<T>`**: A generic wrapper for successful API responses, containing the main `data` payload (of type `T`) and optional `ResponseMetadata`.
 *   **`ResponseMetadata`**: Contains optional metadata for API responses, such as a `requestId` and `timestamp`.
-*   **`HtHttpException` Hierarchy**: A standardized set of exception classes (`NetworkException`, `BadRequestException`, `NotFoundException`, etc.) intended to be used by data client implementations to provide a consistent error contract. See the documentation within `ht_http_exception.dart` for detailed usage patterns.
+*   **`HtHttpException` Hierarchy**: A standardized set of exception classes (`NetworkException`, `BadRequestException`, `AuthenticationException`, `InvalidInputException`, `NotFoundException`, `OperationFailedException`, etc.) intended to be used by data client implementations to provide a consistent error contract. See the documentation within `ht_http_exception.dart` and individual exception files for detailed usage patterns.
 
 ## Usage
 
