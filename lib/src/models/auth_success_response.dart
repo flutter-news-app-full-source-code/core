@@ -15,10 +15,7 @@ part 'auth_success_response.g.dart';
 @JsonSerializable(explicitToJson: true)
 class AuthSuccessResponse extends Equatable {
   /// {@macro auth_success_response}
-  const AuthSuccessResponse({
-    required this.user,
-    required this.token,
-  });
+  const AuthSuccessResponse({required this.user, required this.token});
 
   /// Factory constructor for creating a new AuthSuccessResponse instance
   /// from a map.
@@ -40,10 +37,7 @@ class AuthSuccessResponse extends Equatable {
 
   /// Creates a copy of this AuthSuccessResponse but with the given fields
   /// replaced with the new values.
-  AuthSuccessResponse copyWith({
-    User? user,
-    String? token,
-  }) {
+  AuthSuccessResponse copyWith({User? user, String? token}) {
     return AuthSuccessResponse(
       user: user ?? this.user,
       token: token ?? this.token,
