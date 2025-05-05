@@ -1,6 +1,6 @@
 # ht_shared
 
-![coverage: percentage](https://img.shields.io/badge/coverage-93-green)
+![coverage: percentage](https://img.shields.io/badge/coverage-94-green)
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 [![License: PolyForm Free Trial](https://img.shields.io/badge/License-PolyForm%20Free%20Trial-blue)](https://polyformproject.org/licenses/free-trial/1.0.0)
 
@@ -29,6 +29,7 @@ This package provides the following core data models:
 *   **`Country`**: Represents a country with an ID, ISO code, name, and flag URL.
 *   **`User`**: Represents an authenticated user within the system.
 *   **`PaginatedResponse<T>`**: A generic class for handling paginated API responses, containing a list of items (`items`), a `cursor` for the next page, and a `hasMore` flag.
+*   **`AuthSuccessResponse`**: Represents the successful result of an authentication operation, typically containing the authenticated user details and an access token.
 *   **`SuccessApiResponse<T>`**: A generic wrapper for successful API responses, containing the main `data` payload (of type `T`) and optional `ResponseMetadata`.
 *   **`ResponseMetadata`**: Contains optional metadata for API responses, such as a `requestId` and `timestamp`.
 *   **`HtHttpException` Hierarchy**: A standardized set of exception classes (`NetworkException`, `BadRequestException`, `AuthenticationException`, `InvalidInputException`, `NotFoundException`, `OperationFailedException`, etc.) intended to be used by data client implementations to provide a consistent error contract. See the documentation within `ht_http_exception.dart` and individual exception files for detailed usage patterns.
