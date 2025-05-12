@@ -1,5 +1,6 @@
 export 'authentication_exception.dart';
 export 'bad_request_exception.dart';
+export 'conflict_exception.dart';
 export 'forbidden_exception.dart';
 export 'ht_http_exception.dart';
 export 'invalid_input_exception.dart';

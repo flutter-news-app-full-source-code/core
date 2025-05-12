@@ -32,7 +32,7 @@ This package provides the following core data models:
 *   **`AuthSuccessResponse`**: Represents the successful result of an authentication operation, typically containing the authenticated user details and an access token.
 *   **`SuccessApiResponse<T>`**: A generic wrapper for successful API responses, containing the main `data` payload (of type `T`) and optional `ResponseMetadata`.
 *   **`ResponseMetadata`**: Contains optional metadata for API responses, such as a `requestId` and `timestamp`.
-*   **`HtHttpException` Hierarchy**: A standardized set of exception classes (`NetworkException`, `BadRequestException`, `AuthenticationException`, `InvalidInputException`, `NotFoundException`, `OperationFailedException`, etc.) intended to be used by data client implementations to provide a consistent error contract. See the documentation within `ht_http_exception.dart` and individual exception files for detailed usage patterns.
+*   **`HtHttpException` Hierarchy**: A standardized set of exception classes (`NetworkException`, `BadRequestException`, `AuthenticationException`, `InvalidInputException`, `NotFoundException`, `OperationFailedException`, `ConflictException`, etc.) intended to be used by data client implementations to provide a consistent error contract. See the documentation within `ht_http_exception.dart` and individual exception files for detailed usage patterns.
 
 ## Usage
 
