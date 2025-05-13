@@ -16,5 +16,9 @@ dev_dependencies:
   build_runner: ^2.4.15
   json_serializable: ^6.9.5
   mocktail: ^1.0.4
+<<<<<<< HEAD
   test: ^1.26.1
+=======
+  test: ^1.26.0
+>>>>>>> d85d2c2 (build(deps): bump test from 1.25.15 to 1.26.0)
   very_good_analysis: ^7.0.0
