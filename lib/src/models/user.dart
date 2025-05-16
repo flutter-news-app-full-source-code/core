@@ -3,12 +3,10 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'user.g.dart';
 
-/// Represents an authenticated user within the system.
+/// Represents a user within the system.
 ///
 /// This model holds basic information about the user, including their
-/// unique identifier, email (if available), and whether they are
-/// authenticated anonymously. It also includes an [isAdmin] flag
-/// to indicate administrative privileges.
+/// unique identifier, email (if available), and their assigned [role].
 @JsonSerializable()
 class User extends Equatable {
   /// Creates a new [User] instance.
