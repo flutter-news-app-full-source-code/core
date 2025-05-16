@@ -1,3 +1,4 @@
+import 'package:ht_shared/src/models/role.dart';
 import 'package:ht_shared/src/models/user.dart';
 import 'package:test/test.dart';
 
@@ -5,70 +6,73 @@ void main() {
   group('User Model', () {
     const id = 'test-id';
     const email = 'test@example.com';
+    const standardRole = Role(name: 'standard_user');
+    const guestRole = Role(name: 'guest_user');
+    const adminRole = Role(name: 'admin');
 
     test('supports value equality', () {
       expect(
-        const User(id: id, email: email, role: 'standard_user'),
-        equals(const User(id: id, email: email, role: 'standard_user')),
+        const User(id: id, email: email, role: standardRole),
+        equals(const User(id: id, email: email, role: standardRole)),
       );
       expect(
-        const User(id: id, email: email, role: 'standard_user'),
+        const User(id: id, email: email, role: standardRole),
         isNot(
           equals(
-            const User(id: 'other-id', email: email, role: 'standard_user'),
+            const User(id: 'other-id', email: email, role: standardRole),
           ),
         ),
       );
       expect(
-        const User(id: id, email: email, role: 'standard_user'),
+        const User(id: id, email: email, role: standardRole),
         isNot(
           equals(
             const User(
               id: id,
               email: 'other@example.com',
-              role: 'standard_user',
+              role: standardRole,
             ),
           ),
         ),
       );
       expect(
-        const User(id: id, email: email, role: 'standard_user'),
-        isNot(equals(const User(id: id, email: email, role: 'guest_user'))),
+        const User(id: id, email: email, role: standardRole),
+        isNot(equals(const User(id: id, email: email, role: guestRole))),
       );
       expect(
-        const User(id: id, email: email, role: 'standard_user'),
-        isNot(equals(const User(id: id, email: email, role: 'admin'))),
+        const User(id: id, email: email, role: standardRole),
+        isNot(equals(const User(id: id, email: email, role: adminRole))),
       );
     });
 
     test('has correct toString', () {
       expect(
-        const User(id: id, email: email, role: 'standard_user').toString(),
-        equals('User(id: $id, email: $email, role: standard_user)'),
+        const User(id: id, email: email, role: standardRole).toString(),
+        equals('User(id: $id, email: $email, role: ${standardRole.toString()})'),
       );
       expect(
-        const User(id: id, role: 'guest_user').toString(),
-        equals('User(id: $id, email: null, role: guest_user)'),
+        const User(id: id, role: guestRole).toString(),
+        equals('User(id: $id, email: null, role: ${guestRole.toString()})'),
       );
       expect(
-        const User(id: id, role: 'admin').toString(),
-        equals('User(id: $id, email: null, role: admin)'),
+        const User(id: id, role: adminRole).toString(),
+        equals('User(id: $id, email: null, role: ${adminRole.toString()})'),
       );
     });
 
     // Basic test for JSON serialization - assumes build_runner generated correctly
     test('can be serialized and deserialized', () {
-      const user = User(id: id, email: email, role: 'standard_user');
+      const user = User(id: id, email: email, role: standardRole);
       final json = user.toJson();
       final deserializedUser = User.fromJson(json);
       expect(deserializedUser, equals(user));
 
-      const anonUser = User(id: id, role: 'guest_user');
+      const anonUser = User(id: id, role: guestRole);
       final anonJson = anonUser.toJson();
       final deserializedAnonUser = User.fromJson(anonJson);
       expect(deserializedAnonUser, equals(anonUser));
 
-      const adminUser = User(id: id, email: email, role: 'admin');
+      const adminUser = User(id: id, email: email, role: adminRole);
       final adminJson = adminUser.toJson();
       final deserializedAdminUser = User.fromJson(adminJson);
       expect(deserializedAdminUser, equals(adminUser));

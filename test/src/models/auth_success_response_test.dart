@@ -7,7 +7,7 @@ void main() {
     const testUser = User(
       id: 'user-123',
       email: 'test@example.com',
-      role: 'standard_user',
+      role: Role(name: 'standard_user'),
     );
     const testToken = 'sample-jwt-token';
 
@@ -94,7 +94,7 @@ void main() {
         const updatedUser = User(
           id: 'user-456',
           email: 'updated@example.com',
-          role: 'guest_user',
+          role: Role(name: 'guest_user'), // Use Role object
         );
         final copiedResponse = authSuccessResponse.copyWith(user: updatedUser);
 
@@ -115,7 +115,7 @@ void main() {
       });
 
       test('should create a copy with both user and token updated', () {
-        const updatedUser = User(id: 'user-789', role: 'guest_user');
+        const updatedUser = User(id: 'user-789', role: Role(name: 'guest_user')); // Use Role object
         const updatedToken = 'another-token-xyz';
         final copiedResponse = authSuccessResponse.copyWith(
           user: updatedUser,
@@ -137,7 +137,7 @@ void main() {
       });
 
       test('should not equate instances with different users', () {
-        const differentUser = User(id: 'diff-user', role: 'admin');
+        const differentUser = User(id: 'diff-user', role: Role(name: 'admin')); // Use Role object
         const response1 = AuthSuccessResponse(user: testUser, token: testToken);
         const response2 = AuthSuccessResponse(
           user: differentUser,

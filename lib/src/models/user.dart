@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:ht_shared/src/models/role.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'user.g.dart';
@@ -27,8 +28,8 @@ class User extends Equatable {
   /// This will be `null` for users who haven't associated an email yet.
   final String? email;
 
-  /// The role of the user (e.g., 'admin', 'standard_user', 'guest_user').
-  final String role;
+  /// The role of the user.
+  final Role role;
 
   /// Converts this User instance to JSON data.
   Map<String, dynamic> toJson() => _$UserToJson(this);
