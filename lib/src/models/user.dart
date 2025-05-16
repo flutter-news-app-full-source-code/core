@@ -11,14 +11,10 @@ part 'user.g.dart';
 class User extends Equatable {
   /// Creates a new [User] instance.
   ///
-/// Requires a unique [id] and a [role].
-/// The [email] is optional and typically present only for users
-/// who have verified their email address.
-  const User({
-    required this.id,
-    required this.role,
-    this.email,
-  });
+  /// Requires a unique [id] and a [role].
+  /// The [email] is optional and typically present only for users
+  /// who have verified their email address.
+  const User({required this.id, required this.role, this.email});
 
   /// Creates a User from JSON data.
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
