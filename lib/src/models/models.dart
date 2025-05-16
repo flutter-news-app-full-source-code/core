@@ -7,3 +7,4 @@ export 'response_metadata.dart';
 export 'source.dart';
 export 'success_api_response.dart';
 export 'user.dart';
+export 'user_role.dart';
