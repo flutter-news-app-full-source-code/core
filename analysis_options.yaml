@@ -3,3 +3,4 @@ analyzer:
   errors:
     lines_longer_than_80_chars: ignore
     no_runtimetype_tostring: ignore
+    unnecessary_null_checks: ignore

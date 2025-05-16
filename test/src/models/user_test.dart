@@ -1,14 +1,14 @@
-import 'package:ht_shared/src/models/role.dart';
 import 'package:ht_shared/src/models/user.dart';
+import 'package:ht_shared/src/models/user_role.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('User Model', () {
     const id = 'test-id';
     const email = 'test@example.com';
-    const standardRole = Role(name: 'standard_user');
-    const guestRole = Role(name: 'guest_user');
-    const adminRole = Role(name: 'admin');
+    const standardRole = UserRole.standardUser;
+    const guestRole = UserRole.guestUser;
+    const adminRole = UserRole.admin;
 
     test('supports value equality', () {
       expect(
@@ -18,20 +18,14 @@ void main() {
       expect(
         const User(id: id, email: email, role: standardRole),
         isNot(
-          equals(
-            const User(id: 'other-id', email: email, role: standardRole),
-          ),
+          equals(const User(id: 'other-id', email: email, role: standardRole)),
         ),
       );
       expect(
         const User(id: id, email: email, role: standardRole),
         isNot(
           equals(
-            const User(
-              id: id,
-              email: 'other@example.com',
-              role: standardRole,
-            ),
+            const User(id: id, email: 'other@example.com', role: standardRole),
           ),
         ),
       );
@@ -48,15 +42,15 @@ void main() {
     test('has correct toString', () {
       expect(
         const User(id: id, email: email, role: standardRole).toString(),
-        equals('User(id: $id, email: $email, role: ${standardRole.toString()})'),
+        equals('User(id: $id, email: $email, role: $standardRole)'),
       );
       expect(
         const User(id: id, role: guestRole).toString(),
-        equals('User(id: $id, email: null, role: ${guestRole.toString()})'),
+        equals('User(id: $id, email: null, role: $guestRole)'),
       );
       expect(
         const User(id: id, role: adminRole).toString(),
-        equals('User(id: $id, email: null, role: ${adminRole.toString()})'),
+        equals('User(id: $id, email: null, role: $adminRole)'),
       );
     });
 
