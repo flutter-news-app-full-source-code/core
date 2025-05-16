@@ -8,50 +8,48 @@ void main() {
 
     test('supports value equality', () {
       expect(
-        const User(id: id, email: email, isAnonymous: false, role: 'standard_user'),
+        const User(id: id, email: email, role: 'standard_user'),
         equals(
-          const User(id: id, email: email, isAnonymous: false, role: 'standard_user'),
+          const User(id: id, email: email, role: 'standard_user'),
         ),
       );
       expect(
-        const User(id: id, email: email, isAnonymous: false, role: 'standard_user'),
+        const User(id: id, email: email, role: 'standard_user'),
         isNot(
           equals(
             const User(
               id: 'other-id',
               email: email,
-              isAnonymous: false,
               role: 'standard_user',
             ),
           ),
         ),
       );
       expect(
-        const User(id: id, email: email, isAnonymous: false, role: 'standard_user'),
+        const User(id: id, email: email, role: 'standard_user'),
         isNot(
           equals(
             const User(
               id: id,
               email: 'other@example.com',
-              isAnonymous: false,
               role: 'standard_user',
             ),
           ),
         ),
       );
       expect(
-        const User(id: id, email: email, isAnonymous: false, role: 'standard_user'),
+        const User(id: id, email: email, role: 'standard_user'),
         isNot(
           equals(
-            const User(id: id, email: email, isAnonymous: true, role: 'standard_user'),
+            const User(id: id, email: email, role: 'guest_user'),
           ),
         ),
       );
        expect(
-        const User(id: id, email: email, isAnonymous: false, role: 'standard_user'),
+        const User(id: id, email: email, role: 'standard_user'),
         isNot(
           equals(
-            const User(id: id, email: email, isAnonymous: false, role: 'admin'),
+            const User(id: id, email: email, role: 'admin'),
           ),
         ),
       );
@@ -62,20 +60,19 @@ void main() {
         const User(
           id: id,
           email: email,
-          isAnonymous: false,
           role: 'standard_user',
         ).toString(),
         equals(
-          'User(id: $id, email: $email, isAnonymous: false, role: standard_user)',
+          'User(id: $id, email: $email, role: standard_user)',
         ),
       );
       expect(
-        const User(id: id, isAnonymous: true, role: 'standard_user').toString(),
-        equals('User(id: $id, email: null, isAnonymous: true, role: standard_user)'),
+        const User(id: id, role: 'guest_user').toString(),
+        equals('User(id: $id, email: null, role: guest_user)'),
       );
       expect(
-        const User(id: id, isAnonymous: false, role: 'admin').toString(),
-        equals('User(id: $id, email: null, isAnonymous: false, role: admin)'),
+        const User(id: id, role: 'admin').toString(),
+        equals('User(id: $id, email: null, role: admin)'),
       );
     });
 
@@ -84,14 +81,13 @@ void main() {
       const user = User(
         id: id,
         email: email,
-        isAnonymous: false,
         role: 'standard_user',
       );
       final json = user.toJson();
       final deserializedUser = User.fromJson(json);
       expect(deserializedUser, equals(user));
 
-      const anonUser = User(id: id, isAnonymous: true, role: 'standard_user');
+      const anonUser = User(id: id, role: 'guest_user');
       final anonJson = anonUser.toJson();
       final deserializedAnonUser = User.fromJson(anonJson);
       expect(deserializedAnonUser, equals(anonUser));
@@ -99,7 +95,6 @@ void main() {
       const adminUser = User(
         id: id,
         email: email,
-        isAnonymous: false,
         role: 'admin',
       );
       final adminJson = adminUser.toJson();
