@@ -13,13 +13,13 @@ part 'user.g.dart';
 class User extends Equatable {
   /// Creates a new [User] instance.
   ///
-  /// Requires a unique [id], an [isAnonymous] flag, and an [isAdmin] flag.
-  /// The [email] is optional and typically present only for non-anonymous
-  /// users who have verified their email address.
+/// Requires a unique [id], an [isAnonymous] flag, and a [role].
+/// The [email] is optional and typically present only for non-anonymous
+/// users who have verified their email address.
   const User({
     required this.id,
     required this.isAnonymous,
-    required this.isAdmin,
+    required this.role,
     this.email,
   });
 
@@ -41,17 +41,17 @@ class User extends Equatable {
   /// `false` otherwise.
   final bool isAnonymous;
 
-  /// Indicates whether the user has administrative privileges.
-  final bool isAdmin;
+  /// The role of the user (e.g., 'admin', 'standard_user').
+  final String role;
 
   /// Converts this User instance to JSON data.
   Map<String, dynamic> toJson() => _$UserToJson(this);
 
   @override
-  List<Object?> get props => [id, email, isAnonymous, isAdmin];
+  List<Object?> get props => [id, email, isAnonymous, role];
 
   @override
   String toString() {
-    return 'User(id: $id, email: $email, isAnonymous: $isAnonymous, isAdmin: $isAdmin)';
+    return 'User(id: $id, email: $email, isAnonymous: $isAnonymous, role: $role)';
   }
 }

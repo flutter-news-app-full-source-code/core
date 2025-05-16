@@ -8,7 +8,7 @@ void main() {
       id: 'user-123',
       email: 'test@example.com',
       isAnonymous: false,
-      isAdmin: false,
+      role: 'standard_user',
     );
     const testToken = 'sample-jwt-token';
 
@@ -96,7 +96,7 @@ void main() {
           id: 'user-456',
           email: 'updated@example.com',
           isAnonymous: true,
-          isAdmin: false,
+          role: 'standard_user',
         );
         final copiedResponse = authSuccessResponse.copyWith(user: updatedUser);
 
@@ -120,7 +120,7 @@ void main() {
         const updatedUser = User(
           id: 'user-789',
           isAnonymous: true,
-          isAdmin: false,
+          role: 'standard_user',
         );
         const updatedToken = 'another-token-xyz';
         final copiedResponse = authSuccessResponse.copyWith(
@@ -146,7 +146,7 @@ void main() {
         const differentUser = User(
           id: 'diff-user',
           isAnonymous: false,
-          isAdmin: false,
+          role: 'admin',
         );
         const response1 = AuthSuccessResponse(user: testUser, token: testToken);
         const response2 = AuthSuccessResponse(

@@ -8,50 +8,50 @@ void main() {
 
     test('supports value equality', () {
       expect(
-        const User(id: id, email: email, isAnonymous: false, isAdmin: false),
+        const User(id: id, email: email, isAnonymous: false, role: 'standard_user'),
         equals(
-          const User(id: id, email: email, isAnonymous: false, isAdmin: false),
+          const User(id: id, email: email, isAnonymous: false, role: 'standard_user'),
         ),
       );
       expect(
-        const User(id: id, email: email, isAnonymous: false, isAdmin: false),
+        const User(id: id, email: email, isAnonymous: false, role: 'standard_user'),
         isNot(
           equals(
             const User(
               id: 'other-id',
               email: email,
               isAnonymous: false,
-              isAdmin: false,
+              role: 'standard_user',
             ),
           ),
         ),
       );
       expect(
-        const User(id: id, email: email, isAnonymous: false, isAdmin: false),
+        const User(id: id, email: email, isAnonymous: false, role: 'standard_user'),
         isNot(
           equals(
             const User(
               id: id,
               email: 'other@example.com',
               isAnonymous: false,
-              isAdmin: false,
+              role: 'standard_user',
             ),
           ),
         ),
       );
       expect(
-        const User(id: id, email: email, isAnonymous: false, isAdmin: false),
+        const User(id: id, email: email, isAnonymous: false, role: 'standard_user'),
         isNot(
           equals(
-            const User(id: id, email: email, isAnonymous: true, isAdmin: false),
+            const User(id: id, email: email, isAnonymous: true, role: 'standard_user'),
           ),
         ),
       );
-      expect(
-        const User(id: id, email: email, isAnonymous: false, isAdmin: false),
+       expect(
+        const User(id: id, email: email, isAnonymous: false, role: 'standard_user'),
         isNot(
           equals(
-            const User(id: id, email: email, isAnonymous: false, isAdmin: true),
+            const User(id: id, email: email, isAnonymous: false, role: 'admin'),
           ),
         ),
       );
@@ -63,19 +63,19 @@ void main() {
           id: id,
           email: email,
           isAnonymous: false,
-          isAdmin: false,
+          role: 'standard_user',
         ).toString(),
         equals(
-          'User(id: $id, email: $email, isAnonymous: false, isAdmin: false)',
+          'User(id: $id, email: $email, isAnonymous: false, role: standard_user)',
         ),
       );
       expect(
-        const User(id: id, isAnonymous: true, isAdmin: false).toString(),
-        equals('User(id: $id, email: null, isAnonymous: true, isAdmin: false)'),
+        const User(id: id, isAnonymous: true, role: 'standard_user').toString(),
+        equals('User(id: $id, email: null, isAnonymous: true, role: standard_user)'),
       );
       expect(
-        const User(id: id, isAnonymous: false, isAdmin: true).toString(),
-        equals('User(id: $id, email: null, isAnonymous: false, isAdmin: true)'),
+        const User(id: id, isAnonymous: false, role: 'admin').toString(),
+        equals('User(id: $id, email: null, isAnonymous: false, role: admin)'),
       );
     });
 
@@ -85,13 +85,13 @@ void main() {
         id: id,
         email: email,
         isAnonymous: false,
-        isAdmin: false,
+        role: 'standard_user',
       );
       final json = user.toJson();
       final deserializedUser = User.fromJson(json);
       expect(deserializedUser, equals(user));
 
-      const anonUser = User(id: id, isAnonymous: true, isAdmin: false);
+      const anonUser = User(id: id, isAnonymous: true, role: 'standard_user');
       final anonJson = anonUser.toJson();
       final deserializedAnonUser = User.fromJson(anonJson);
       expect(deserializedAnonUser, equals(anonUser));
@@ -100,7 +100,7 @@ void main() {
         id: id,
         email: email,
         isAnonymous: false,
-        isAdmin: true,
+        role: 'admin',
       );
       final adminJson = adminUser.toJson();
       final deserializedAdminUser = User.fromJson(adminJson);
