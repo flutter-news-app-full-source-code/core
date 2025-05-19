@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:ht_shared/src/models/app-config/user_preference_limits.dart';
+import 'package:ht_shared/src/models/remote-config/user_preference_limits.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
