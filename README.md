@@ -27,6 +27,7 @@ This package provides the following core data models:
 *   **`Category`**: Represents a news category with an ID, name, and optional description and icon URL.
 *   **`Source`**: Represents a news source, including ID, name, description, URL, language, optional headquarters (`Country`), and a `SourceType` enum (e.g., `newsAgency`, `blog`).
 *   **`Country`**: Represents a country with an ID, ISO code, name, and flag URL.
+*   **`UserAppSettings`**: Represents a collection of user-specific application settings, unifying display preferences (`DisplaySettings`) and language selection (`AppLanguage`). This model is designed for management via a generic data client (`HtDataClient`).
 *   **`User`**: Represents a user within the system, including their assigned `role`.
 *   **`PaginatedResponse<T>`**: A generic class for handling paginated API responses, containing a list of items (`items`), a `cursor` for the next page, and a `hasMore` flag.
 *   **`AuthSuccessResponse`**: Represents the successful result of an authentication operation, typically containing the authenticated user details and an access token.

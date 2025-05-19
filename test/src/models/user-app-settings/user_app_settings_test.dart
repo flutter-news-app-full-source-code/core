@@ -38,9 +38,7 @@ void main() {
       expect(
         createSubject(
           id: userId,
-          displaySettings: const DisplaySettings(
-            baseTheme: AppBaseTheme.dark,
-          ),
+          displaySettings: const DisplaySettings(baseTheme: AppBaseTheme.dark),
           language: 'fr',
         ),
         equals(
@@ -66,11 +64,7 @@ void main() {
           displaySettings: customDisplaySettings,
           language: customLanguage,
         ).props,
-        equals([
-          userId,
-          customDisplaySettings,
-          customLanguage,
-        ]),
+        equals([userId, customDisplaySettings, customLanguage]),
       );
     });
 
@@ -90,9 +84,7 @@ void main() {
       test('retains old values if null is provided', () {
         final original = createSubject(
           id: userId,
-          displaySettings: const DisplaySettings(
-            baseTheme: AppBaseTheme.dark,
-          ),
+          displaySettings: const DisplaySettings(baseTheme: AppBaseTheme.dark),
           language: 'fr',
         );
         expect(original.copyWith(), equals(original));
@@ -126,7 +118,10 @@ void main() {
     group('fromJson/toJson', () {
       test('works correctly with default nested values', () {
         final json = createJson(id: userId);
-        expect(UserAppSettings.fromJson(json), equals(createSubject(id: userId)));
+        expect(
+          UserAppSettings.fromJson(json),
+          equals(createSubject(id: userId)),
+        );
       });
 
       test('works correctly with custom nested values', () {
