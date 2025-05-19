@@ -1,4 +1,4 @@
-export 'app-config/app_config_models.dart';
+export 'app-config/app-config.dart';
 export 'auth_success_response.dart';
 export 'category.dart';
 export 'country.dart';
@@ -8,7 +8,7 @@ export 'permission.dart';
 export 'response_metadata.dart';
 export 'source.dart';
 export 'success_api_response.dart';
-export 'user-app-settings/app_settings.dart';
+export 'user-app-preferences/user_app_preferences.dart';
+export 'user-app-settings/user-app-settings.dart';
 export 'user.dart';
-export 'user_content_preferences.dart';
 export 'user_role.dart';
