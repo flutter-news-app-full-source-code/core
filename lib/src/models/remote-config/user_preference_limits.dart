@@ -25,7 +25,7 @@ part 'user_preference_limits.g.dart';
 /// - Saved Headlines: The limit applies to the total number of headlines
 ///   a user can save.
 ///
-/// **Tiered Limits:**
+/// **Tiered Limits defaults:**
 /// - **Guest User:**
 ///   - Followed Items (Countries, Sources, Categories): 5 each
 ///   - Saved Headlines: 10
@@ -36,7 +36,7 @@ part 'user_preference_limits.g.dart';
 ///   - Followed Items (Countries, Sources, Categories): 30 each
 ///   - Saved Headlines: 100
 ///
-/// These limits are designed to balance performance (allowing fetching
+/// These limits are configurable to balance performance (allowing fetching
 /// full objects within these limits) and feature differentiation across tiers.
 /// Backend enforcement is crucial to prevent exceeding these limits.
 /// {@endtemplate}
