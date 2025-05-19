@@ -1,4 +1,4 @@
-export 'app-settings/app_settings.dart';
+export 'user-app-settings/app_settings.dart';
 export 'auth_success_response.dart';
 export 'category.dart';
 export 'country.dart';
