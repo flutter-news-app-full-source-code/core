@@ -1,10 +1,10 @@
 # ht_shared
 
-![coverage: percentage](https://img.shields.io/badge/coverage-93-green)
+![coverage: percentage](https://img.shields.io/badge/coverage-97-green)
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 [![License: PolyForm Free Trial](https://img.shields.io/badge/License-PolyForm%20Free%20Trial-blue)](https://polyformproject.org/licenses/free-trial/1.0.0)
 
-A shared Dart package containing core data models for news-related entities (like headlines, sources, categories, countries), pagination, and standardized API response structures, used across the application ecosystem (Mobile App, Backend API, Web Dashboard).
+A shared Dart package containing core data models for news-related entities (like headlines, sources, categories, countries), pagination, standardized API response structures, **user content preferences**, and **application configuration**, used across the application ecosystem (Mobile App, Backend API, Web Dashboard).
 
 ## Getting Started
 
@@ -27,7 +27,11 @@ This package provides the following core data models:
 *   **`Category`**: Represents a news category with an ID, name, and optional description and icon URL.
 *   **`Source`**: Represents a news source, including ID, name, description, URL, language, optional headquarters (`Country`), and a `SourceType` enum (e.g., `newsAgency`, `blog`).
 *   **`Country`**: Represents a country with an ID, ISO code, name, and flag URL.
-*   **`User`**: Represents an authenticated user within the system, including an `isAdmin` flag.
+*   **`UserContentPreferences`**: Represents a collection of user-specific content preferences, including followed countries, sources, categories, and saved headlines. This model stores full objects for these items and is subject to tiered limits based on user role.
+*   **`AppConfig`**: Represents the overall application configuration. This model serves as a central container for various configuration settings, including user preference limits, and is designed to be fetched and managed via the `HtDataClient`.
+*   **`UserPreferenceLimits`**: Defines the maximum number of items a user can follow or save, tiered by user role (Guest, Authenticated, Premium). This model is part of the `AppConfig` and is used for backend enforcement and client-side UI/UX.
+*   **`UserAppSettings`**: Represents a collection of user-specific application settings, unifying display preferences (`DisplaySettings`) and language selection (`AppLanguage`). This model is designed for management via a generic data client (`HtDataClient`).
+*   **`User`**: Represents a user within the system, including their assigned `role`.
 *   **`PaginatedResponse<T>`**: A generic class for handling paginated API responses, containing a list of items (`items`), a `cursor` for the next page, and a `hasMore` flag.
 *   **`AuthSuccessResponse`**: Represents the successful result of an authentication operation, typically containing the authenticated user details and an access token.
 *   **`SuccessApiResponse<T>`**: A generic wrapper for successful API responses, containing the main `data` payload (of type `T`) and optional `ResponseMetadata`.
@@ -51,6 +55,7 @@ void main() {
   );
 
   final headline = Headline(
+    id: 'headline-1', // Added ID for clarity in preferences example
     title: 'New Gadget Announced',
     description: 'A revolutionary new device changes everything.',
     url: 'https://techcrunch.com/news/new-gadget',
@@ -60,6 +65,48 @@ void main() {
   );
 
   print('Headline: ${headline.title} from ${headline.source?.name}');
+
+  // Example: Creating User Content Preferences
+  final userPreferences = UserContentPreferences(
+    id: 'user-abc',
+    followedCountries: [
+      Country(id: 'us', isoCode: 'US', name: 'United States', flagUrl: '...'),
+      Country(id: 'gb', isoCode: 'GB', name: 'United Kingdom', flagUrl: '...'),
+    ],
+    followedSources: [
+      source, // Using the source created above
+      Source(id: 'bbc', name: 'BBC News', type: SourceType.nationalNewsOutlet),
+    ],
+    followedCategories: [
+      Category(id: 'sports', name: 'Sports'),
+      Category(id: 'business', name: 'Business'),
+    ],
+    savedHeadlines: [
+      headline, // Saving the headline created above
+      Headline(id: 'headline-2', title: 'Another Saved Article'),
+    ],
+  );
+
+  print('\nUser ${userPreferences.id} follows ${userPreferences.followedSources.length} sources.');
+  print('User ${userPreferences.id} has ${userPreferences.savedHeadlines.length} saved headlines.');
+
+  // Example: Accessing Application Configuration and User Preference Limits
+  const appConfig = AppConfig(
+    id: 'app_config',
+    userPreferenceLimits: UserPreferenceLimits(
+      guestFollowedItemsLimit: 5,
+      guestSavedHeadlinesLimit: 10,
+      authenticatedFollowedItemsLimit: 15,
+      authenticatedSavedHeadlinesLimit: 30,
+      premiumFollowedItemsLimit: 30,
+      premiumSavedHeadlinesLimit: 100,
+    ),
+  );
+
+  print('\nApp Config ID: ${appConfig.id}');
+  print('Premium user saved headlines limit: ${appConfig.userPreferenceLimits.premiumSavedHeadlinesLimit}');
+
+  // Example: Representing a paginated response of Headlines
 
   // Example: Representing a paginated response of Headlines
   final response = PaginatedResponse<Headline>(

@@ -1,7 +1,7 @@
 //
 // ignore_for_file: lines_longer_than_80_chars
 
-import 'package:ht_shared/src/models/category.dart';
+import 'package:ht_shared/src/models/news/category.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';

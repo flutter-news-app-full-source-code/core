@@ -1,9 +1,12 @@
 import 'package:equatable/equatable.dart';
-import 'package:ht_shared/src/models/category.dart';
-import 'package:ht_shared/src/models/source.dart';
+import 'package:ht_shared/src/models/news/news.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
+
+export 'category.dart';
+export 'country.dart';
+export 'source.dart';
 
 part 'headline.g.dart';
 

@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/models/country.dart'; // Use direct import
+import 'package:ht_shared/src/models/news/country.dart'; // Use direct import
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
 
