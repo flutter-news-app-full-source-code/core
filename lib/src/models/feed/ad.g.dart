@@ -7,23 +7,23 @@ part of 'ad.dart';
 // **************************************************************************
 
 Ad _$AdFromJson(Map<String, dynamic> json) => Ad(
-  imageUrl: json['imageUrl'] as String,
-  targetUrl: json['targetUrl'] as String,
-  adType: $enumDecode(_$AdTypeEnumMap, json['adType']),
-  placement: $enumDecodeNullable(_$AdPlacementEnumMap, json['placement']),
-  id: json['id'] as String?,
-  action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
-);
+      imageUrl: json['imageUrl'] as String,
+      targetUrl: json['targetUrl'] as String,
+      adType: $enumDecode(_$AdTypeEnumMap, json['adType']),
+      action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
+      placement: $enumDecodeNullable(_$AdPlacementEnumMap, json['placement']),
+      id: json['id'] as String?,
+    );
 
 Map<String, dynamic> _$AdToJson(Ad instance) => <String, dynamic>{
-  'id': instance.id,
-  'imageUrl': instance.imageUrl,
-  'targetUrl': instance.targetUrl,
-  'adType': _$AdTypeEnumMap[instance.adType]!,
-  if (_$AdPlacementEnumMap[instance.placement] case final value?)
-    'placement': value,
-  'action': feedItemActionToJson(instance.action),
-};
+      'id': instance.id,
+      'imageUrl': instance.imageUrl,
+      'targetUrl': instance.targetUrl,
+      'adType': _$AdTypeEnumMap[instance.adType]!,
+      if (_$AdPlacementEnumMap[instance.placement] case final value?)
+        'placement': value,
+      'action': feedItemActionToJson(instance.action),
+    };
 
 const _$AdTypeEnumMap = {
   AdType.banner: 'banner',

@@ -31,26 +31,24 @@ class AppConfig extends Equatable {
     required this.id,
     UserPreferenceLimits? userPreferenceLimits,
     AdConfig? adConfig,
-  }) : userPreferenceLimits =
-           userPreferenceLimits ??
-           const UserPreferenceLimits(
-             guestFollowedItemsLimit: 5,
-             guestSavedHeadlinesLimit: 10,
-             authenticatedFollowedItemsLimit: 15,
-             authenticatedSavedHeadlinesLimit: 30,
-             premiumFollowedItemsLimit: 30,
-             premiumSavedHeadlinesLimit: 100,
-           ), // Default limits
-       adConfig =
-           adConfig ??
-           const AdConfig(
-             guestAdFrequency: 5,
-             guestAdPlacementInterval: 3,
-             authenticatedAdFrequency: 10,
-             authenticatedAdPlacementInterval: 5,
-             premiumAdFrequency: 0, // No ads for premium users by default
-             premiumAdPlacementInterval: 0,
-           ); // Default ad config
+  })  : userPreferenceLimits = userPreferenceLimits ??
+            const UserPreferenceLimits(
+              guestFollowedItemsLimit: 5,
+              guestSavedHeadlinesLimit: 10,
+              authenticatedFollowedItemsLimit: 15,
+              authenticatedSavedHeadlinesLimit: 30,
+              premiumFollowedItemsLimit: 30,
+              premiumSavedHeadlinesLimit: 100,
+            ), // Default limits
+        adConfig = adConfig ??
+            const AdConfig(
+              guestAdFrequency: 5,
+              guestAdPlacementInterval: 3,
+              authenticatedAdFrequency: 10,
+              authenticatedAdPlacementInterval: 5,
+              premiumAdFrequency: 0, // No ads for premium users by default
+              premiumAdPlacementInterval: 0,
+            ); // Default ad config
 
   /// Factory method to create an [AppConfig] instance from a JSON map.
   factory AppConfig.fromJson(Map<String, dynamic> json) =>

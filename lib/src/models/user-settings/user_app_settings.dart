@@ -24,8 +24,8 @@ class UserAppSettings extends Equatable {
     required this.id,
     DisplaySettings? displaySettings,
     AppLanguage? language,
-  }) : displaySettings = displaySettings ?? const DisplaySettings(),
-       language = language ?? 'en'; // Default language is English
+  })  : displaySettings = displaySettings ?? const DisplaySettings(),
+        language = language ?? 'en'; // Default language is English
 
   /// Factory method to create a [UserAppSettings] instance from a JSON map.
   factory UserAppSettings.fromJson(Map<String, dynamic> json) =>

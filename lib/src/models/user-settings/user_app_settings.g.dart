@@ -9,12 +9,10 @@ part of 'user_app_settings.dart';
 UserAppSettings _$UserAppSettingsFromJson(Map<String, dynamic> json) =>
     UserAppSettings(
       id: json['id'] as String,
-      displaySettings:
-          json['displaySettings'] == null
-              ? null
-              : DisplaySettings.fromJson(
-                json['displaySettings'] as Map<String, dynamic>,
-              ),
+      displaySettings: json['displaySettings'] == null
+          ? null
+          : DisplaySettings.fromJson(
+              json['displaySettings'] as Map<String, dynamic>),
       language: json['language'] as String?,
     );
 

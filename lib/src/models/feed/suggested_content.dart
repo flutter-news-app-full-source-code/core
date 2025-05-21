@@ -1,10 +1,13 @@
-import 'package:ht_shared/ht_shared.dart' show Category, Country, Headline, Source;
+import 'package:ht_shared/ht_shared.dart'
+    show Category, Country, Headline, Source;
 import 'package:ht_shared/src/models/feed/feed_item.dart';
 import 'package:ht_shared/src/models/feed/feed_item_action.dart'
     show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
 import 'package:ht_shared/src/models/feed/suggested_content_display_type.dart';
-import 'package:ht_shared/src/models/models.dart' show Category, Country, Headline, Source;
-import 'package:ht_shared/src/models/news/news.dart' show Category, Country, Headline, Source;
+import 'package:ht_shared/src/models/models.dart'
+    show Category, Country, Headline, Source;
+import 'package:ht_shared/src/models/news/news.dart'
+    show Category, Country, Headline, Source;
 import 'package:json_annotation/json_annotation.dart';
 import 'package:uuid/uuid.dart';
 
@@ -24,11 +27,12 @@ class SuggestedContent extends FeedItem {
   SuggestedContent({
     required this.displayType,
     required this.items,
-    required super.action, // Add action to constructor, this.title,
+    required super.action,
+    this.title,
     this.description,
     String? id,
-  }) : id = id ?? const Uuid().v4(),
-       super(type: 'suggested_content');
+  })  : id = id ?? const Uuid().v4(),
+        super(type: 'suggested_content');
 
   /// Factory method to create a [SuggestedContent] instance from a JSON map.
   ///
@@ -64,14 +68,14 @@ class SuggestedContent extends FeedItem {
 
   @override
   List<Object?> get props => [
-    id,
-    title,
-    description,
-    displayType,
-    items,
-    type,
-    action,
-  ];
+        id,
+        title,
+        description,
+        displayType,
+        items,
+        type,
+        action,
+      ];
 
   /// Creates a new [SuggestedContent] with updated properties.
   /// Use this to modify a [SuggestedContent] without changing the original

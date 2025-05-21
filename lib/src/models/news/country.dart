@@ -19,9 +19,10 @@ class Country extends FeedItem {
     required this.isoCode,
     required this.name,
     required this.flagUrl,
-    required super.action, // Add action to constructor, String? id,
-  }) : id = id ?? const Uuid().v4(),
-       super(type: 'country');
+    required super.action,
+    String? id,
+  })  : id = id ?? const Uuid().v4(),
+        super(type: 'country');
 
   /// Creates a Country instance from a JSON map.
   factory Country.fromJson(Map<String, dynamic> json) =>

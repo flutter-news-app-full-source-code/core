@@ -83,13 +83,13 @@ class UserPreferenceLimits extends Equatable {
 
   @override
   List<Object> get props => [
-    guestFollowedItemsLimit,
-    guestSavedHeadlinesLimit,
-    authenticatedFollowedItemsLimit,
-    authenticatedSavedHeadlinesLimit,
-    premiumFollowedItemsLimit,
-    premiumSavedHeadlinesLimit,
-  ];
+        guestFollowedItemsLimit,
+        guestSavedHeadlinesLimit,
+        authenticatedFollowedItemsLimit,
+        authenticatedSavedHeadlinesLimit,
+        premiumFollowedItemsLimit,
+        premiumSavedHeadlinesLimit,
+      ];
 
   @override
   bool get stringify => true;

@@ -10,20 +10,17 @@ DisplaySettings _$DisplaySettingsFromJson(Map<String, dynamic> json) =>
     DisplaySettings(
       baseTheme:
           $enumDecodeNullable(_$AppBaseThemeEnumMap, json['baseTheme']) ??
-          AppBaseTheme.system,
+              AppBaseTheme.system,
       accentTheme:
           $enumDecodeNullable(_$AppAccentThemeEnumMap, json['accentTheme']) ??
-          AppAccentTheme.defaultBlue,
+              AppAccentTheme.defaultBlue,
       fontFamily: json['fontFamily'] as String? ?? 'SystemDefault',
-      textScaleFactor:
-          $enumDecodeNullable(
-            _$AppTextScaleFactorEnumMap,
-            json['textScaleFactor'],
-          ) ??
+      textScaleFactor: $enumDecodeNullable(
+              _$AppTextScaleFactorEnumMap, json['textScaleFactor']) ??
           AppTextScaleFactor.medium,
       fontWeight:
           $enumDecodeNullable(_$AppFontWeightEnumMap, json['fontWeight']) ??
-          AppFontWeight.regular,
+              AppFontWeight.regular,
     );
 
 Map<String, dynamic> _$DisplaySettingsToJson(DisplaySettings instance) =>

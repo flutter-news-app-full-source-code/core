@@ -60,11 +60,11 @@ class AdConfig extends Equatable {
 
   @override
   List<Object> get props => [
-    guestAdFrequency,
-    guestAdPlacementInterval,
-    authenticatedAdFrequency,
-    authenticatedAdPlacementInterval,
-    premiumAdFrequency,
-    premiumAdPlacementInterval,
-  ];
+        guestAdFrequency,
+        guestAdPlacementInterval,
+        authenticatedAdFrequency,
+        authenticatedAdPlacementInterval,
+        premiumAdFrequency,
+        premiumAdPlacementInterval,
+      ];
 }

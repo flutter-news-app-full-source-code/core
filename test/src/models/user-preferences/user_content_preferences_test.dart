@@ -111,7 +111,8 @@ void main() {
         expect(result.savedHeadlines, isEmpty);
       });
 
-      test('returns correct instance from JSON with missing optional lists', () {
+      test('returns correct instance from JSON with missing optional lists',
+          () {
         final json = {
           'id': 'user-4',
           // Missing followedCountries, followedSources, followedCategories, savedHeadlines

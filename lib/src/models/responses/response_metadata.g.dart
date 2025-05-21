@@ -9,10 +9,9 @@ part of 'response_metadata.dart';
 ResponseMetadata _$ResponseMetadataFromJson(Map<String, dynamic> json) =>
     ResponseMetadata(
       requestId: json['request_id'] as String?,
-      timestamp:
-          json['timestamp'] == null
-              ? null
-              : DateTime.parse(json['timestamp'] as String),
+      timestamp: json['timestamp'] == null
+          ? null
+          : DateTime.parse(json['timestamp'] as String),
     );
 
 Map<String, dynamic> _$ResponseMetadataToJson(ResponseMetadata instance) =>

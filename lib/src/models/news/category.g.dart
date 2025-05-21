@@ -7,20 +7,23 @@ part of 'category.dart';
 // **************************************************************************
 
 Category _$CategoryFromJson(Map<String, dynamic> json) {
-  $checkKeys(json, requiredKeys: const ['name']);
+  $checkKeys(
+    json,
+    requiredKeys: const ['name'],
+  );
   return Category(
     name: json['name'] as String,
+    action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
     id: json['id'] as String?,
     description: json['description'] as String?,
     iconUrl: json['icon_url'] as String?,
-    action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
   );
 }
 
 Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
-  'id': instance.id,
-  'name': instance.name,
-  if (instance.description case final value?) 'description': value,
-  if (instance.iconUrl case final value?) 'icon_url': value,
-  'action': feedItemActionToJson(instance.action),
-};
+      'id': instance.id,
+      'name': instance.name,
+      if (instance.description case final value?) 'description': value,
+      if (instance.iconUrl case final value?) 'icon_url': value,
+      'action': feedItemActionToJson(instance.action),
+    };

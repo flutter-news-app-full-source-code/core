@@ -26,19 +26,20 @@ class Headline extends FeedItem {
   /// {@macro headline}
   Headline({
     required this.title,
-    required super.action, // Add action to constructor, this.description,
+    required super.action,
+    this.description,
     this.url,
     this.imageUrl,
     this.publishedAt,
     this.source,
     this.category,
     String? id,
-  }) : assert(
-         id == null || id.isNotEmpty,
-         'id cannot be an empty string', // Updated assertion message
-       ),
-       id = id ?? const Uuid().v4(),
-       super(type: 'headline');
+  })  : assert(
+          id == null || id.isNotEmpty,
+          'id cannot be an empty string', // Updated assertion message
+        ),
+        id = id ?? const Uuid().v4(),
+        super(type: 'headline');
 
   /// Factory method to create a [Headline] instance from a JSON map.
   factory Headline.fromJson(Map<String, dynamic> json) =>
@@ -81,17 +82,17 @@ class Headline extends FeedItem {
 
   @override
   List<Object?> get props => [
-    id,
-    title,
-    description,
-    url,
-    imageUrl,
-    publishedAt,
-    source,
-    category,
-    type,
-    action,
-  ];
+        id,
+        title,
+        description,
+        url,
+        imageUrl,
+        publishedAt,
+        source,
+        category,
+        type,
+        action,
+      ];
 
   @override
   bool get stringify => true;

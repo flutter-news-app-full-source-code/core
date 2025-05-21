@@ -94,7 +94,8 @@ class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
   /// instance from a JSON map.
   factory ShowInterstitialThenOpenInternalContent.fromJson(
     Map<String, dynamic> json,
-  ) => _$ShowInterstitialThenOpenInternalContentFromJson(json);
+  ) =>
+      _$ShowInterstitialThenOpenInternalContentFromJson(json);
 
   /// The unique identifier of the internal content to open after the interstitial.
   final String contentId;

@@ -9,26 +9,24 @@ part of 'suggested_content.dart';
 SuggestedContent _$SuggestedContentFromJson(Map<String, dynamic> json) =>
     SuggestedContent(
       displayType: $enumDecode(
-        _$SuggestedContentDisplayTypeEnumMap,
-        json['displayType'],
-      ),
+          _$SuggestedContentDisplayTypeEnumMap, json['displayType']),
       items: json['items'] as List<dynamic>,
+      action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
       title: json['title'] as String?,
       description: json['description'] as String?,
       id: json['id'] as String?,
-      action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$SuggestedContentToJson(
-  SuggestedContent instance,
-) => <String, dynamic>{
-  'id': instance.id,
-  if (instance.title case final value?) 'title': value,
-  if (instance.description case final value?) 'description': value,
-  'displayType': _$SuggestedContentDisplayTypeEnumMap[instance.displayType]!,
-  'items': instance.items,
-  'action': feedItemActionToJson(instance.action),
-};
+Map<String, dynamic> _$SuggestedContentToJson(SuggestedContent instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      if (instance.title case final value?) 'title': value,
+      if (instance.description case final value?) 'description': value,
+      'displayType':
+          _$SuggestedContentDisplayTypeEnumMap[instance.displayType]!,
+      'items': instance.items,
+      'action': feedItemActionToJson(instance.action),
+    };
 
 const _$SuggestedContentDisplayTypeEnumMap = {
   SuggestedContentDisplayType.horizontalCardList: 'horizontal_card_list',

@@ -13,5 +13,8 @@ AuthSuccessResponse _$AuthSuccessResponseFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$AuthSuccessResponseToJson(
-  AuthSuccessResponse instance,
-) => <String, dynamic>{'user': instance.user.toJson(), 'token': instance.token};
+        AuthSuccessResponse instance) =>
+    <String, dynamic>{
+      'user': instance.user.toJson(),
+      'token': instance.token,
+    };

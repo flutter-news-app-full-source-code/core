@@ -12,11 +12,11 @@ void main() {
 
     // Helper to create a valid JSON map
     Map<String, dynamic> createValidJsonMap({String? idOverride}) => {
-      'id': idOverride ?? testId,
-      'iso_code': testIsoCode,
-      'name': testName,
-      'flag_url': testFlagUrl,
-    };
+          'id': idOverride ?? testId,
+          'iso_code': testIsoCode,
+          'name': testName,
+          'flag_url': testFlagUrl,
+        };
 
     // Helper to create a Country instance
     Country createSubject({
@@ -180,9 +180,8 @@ void main() {
 
       // Updated to expect TypeError based on terminal output
       test('throws TypeError for wrong type (flag_url)', () {
-        final json =
-            createValidJsonMap()
-              ..['flag_url'] = null; // Invalid type (non-nullable)
+        final json = createValidJsonMap()
+          ..['flag_url'] = null; // Invalid type (non-nullable)
         expect(
           () => Country.fromJson(json),
           throwsA(isA<TypeError>()), // Expect TypeError

@@ -20,12 +20,13 @@ class EngagementContent extends FeedItem {
   EngagementContent({
     required this.title,
     required this.engagementContentType,
-    required super.action, // Add action to constructor, this.description,
+    required super.action,
+    this.description,
     this.callToActionText,
     this.callToActionUrl,
     String? id,
-  }) : id = id ?? const Uuid().v4(),
-       super(type: 'engagement_content');
+  })  : id = id ?? const Uuid().v4(),
+        super(type: 'engagement_content');
 
   /// Factory method to create an [EngagementContent] instance from a JSON map.
   factory EngagementContent.fromJson(Map<String, dynamic> json) =>
@@ -60,15 +61,15 @@ class EngagementContent extends FeedItem {
 
   @override
   List<Object?> get props => [
-    id,
-    title,
-    description,
-    engagementContentType,
-    callToActionText,
-    callToActionUrl,
-    type,
-    action,
-  ];
+        id,
+        title,
+        description,
+        engagementContentType,
+        callToActionText,
+        callToActionUrl,
+        type,
+        action,
+      ];
 
   /// Creates a new [EngagementContent] with updated properties.
   /// Use this to modify an [EngagementContent] without changing the original

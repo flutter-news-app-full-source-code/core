@@ -21,11 +21,12 @@ class Category extends FeedItem {
   /// If an [id] is not provided, a UUID v4 will be generated.
   Category({
     required this.name,
-    required super.action, // Add action to constructor, String? id,
+    required super.action,
+    String? id,
     this.description,
     this.iconUrl,
-  }) : id = id ?? const Uuid().v4(),
-       super(type: 'category');
+  })  : id = id ?? const Uuid().v4(),
+        super(type: 'category');
 
   /// Creates a Category instance from a JSON map.
   factory Category.fromJson(Map<String, dynamic> json) =>

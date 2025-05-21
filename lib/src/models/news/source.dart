@@ -18,15 +18,16 @@ class Source extends FeedItem {
   /// {@macro source}
   Source({
     required this.name,
-    required super.action, // Add action to constructor, this.description,
+    required super.action,
+    this.description,
     this.url,
     SourceType? sourceType, // Renamed to avoid conflict with FeedItem.type
     this.language,
     this.headquarters,
     String? id,
-  }) : id = id ?? const Uuid().v4(),
-       _sourceType = sourceType,
-       super(type: 'source');
+  })  : id = id ?? const Uuid().v4(),
+        _sourceType = sourceType,
+        super(type: 'source');
 
   /// Factory method to create a [Source] instance from a JSON map.
   factory Source.fromJson(Map<String, dynamic> json) => _$SourceFromJson(json);
@@ -70,16 +71,16 @@ class Source extends FeedItem {
 
   @override
   List<Object?> get props => [
-    id,
-    name,
-    description,
-    url,
-    _sourceType,
-    language,
-    headquarters,
-    type,
-    action,
-  ];
+        id,
+        name,
+        description,
+        url,
+        _sourceType,
+        language,
+        headquarters,
+        type,
+        action,
+      ];
 
   /// Creates a new [Source] with updated properties.
   /// Use this to modify a [Source] without changing the original instance.

@@ -35,10 +35,11 @@ class Ad extends FeedItem {
     required this.imageUrl,
     required this.targetUrl,
     required this.adType,
-    required super.action, // Add action to constructor, this.placement,
+    required super.action,
+    this.placement,
     String? id,
-  }) : id = id ?? const Uuid().v4(),
-       super(type: 'ad');
+  })  : id = id ?? const Uuid().v4(),
+        super(type: 'ad');
 
   /// Factory method to create an [Ad] instance from a JSON map.
   factory Ad.fromJson(Map<String, dynamic> json) => _$AdFromJson(json);
@@ -70,14 +71,14 @@ class Ad extends FeedItem {
 
   @override
   List<Object?> get props => [
-    id,
-    imageUrl,
-    targetUrl,
-    adType,
-    placement,
-    type,
-    action,
-  ];
+        id,
+        imageUrl,
+        targetUrl,
+        adType,
+        placement,
+        type,
+        action,
+      ];
 
   /// Creates a new [Ad] with updated properties.
   /// Use this to modify an [Ad] without changing the original instance.
