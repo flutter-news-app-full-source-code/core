@@ -14,9 +14,14 @@ AppConfig _$AppConfigFromJson(Map<String, dynamic> json) => AppConfig(
           : UserPreferenceLimits.fromJson(
             json['userPreferenceLimits'] as Map<String, dynamic>,
           ),
+  adConfig:
+      json['adConfig'] == null
+          ? null
+          : AdConfig.fromJson(json['adConfig'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$AppConfigToJson(AppConfig instance) => <String, dynamic>{
   'id': instance.id,
   'userPreferenceLimits': instance.userPreferenceLimits.toJson(),
+  'adConfig': instance.adConfig.toJson(),
 };

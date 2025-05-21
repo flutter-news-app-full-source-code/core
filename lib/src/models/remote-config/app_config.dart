@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:ht_shared/src/models/remote-config/ad_config.dart';
 import 'package:ht_shared/src/models/remote-config/user_preference_limits.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -29,6 +30,7 @@ class AppConfig extends Equatable {
   const AppConfig({
     required this.id,
     UserPreferenceLimits? userPreferenceLimits,
+    AdConfig? adConfig,
   }) : userPreferenceLimits =
            userPreferenceLimits ??
            const UserPreferenceLimits(
@@ -38,7 +40,17 @@ class AppConfig extends Equatable {
              authenticatedSavedHeadlinesLimit: 30,
              premiumFollowedItemsLimit: 30,
              premiumSavedHeadlinesLimit: 100,
-           ); // Default limits
+           ), // Default limits
+       adConfig =
+           adConfig ??
+           const AdConfig(
+             guestAdFrequency: 5,
+             guestAdPlacementInterval: 3,
+             authenticatedAdFrequency: 10,
+             authenticatedAdPlacementInterval: 5,
+             premiumAdFrequency: 0, // No ads for premium users by default
+             premiumAdPlacementInterval: 0,
+           ); // Default ad config
 
   /// Factory method to create an [AppConfig] instance from a JSON map.
   factory AppConfig.fromJson(Map<String, dynamic> json) =>
@@ -52,11 +64,15 @@ class AppConfig extends Equatable {
   /// tiered by user role.
   final UserPreferenceLimits userPreferenceLimits;
 
+  /// Defines configuration settings related to ad injection and display,
+  /// tiered by user role.
+  final AdConfig adConfig;
+
   /// Converts this [AppConfig] instance to a JSON map.
   Map<String, dynamic> toJson() => _$AppConfigToJson(this);
 
   @override
-  List<Object> get props => [id, userPreferenceLimits];
+  List<Object> get props => [id, userPreferenceLimits, adConfig];
 
   @override
   bool get stringify => true;
