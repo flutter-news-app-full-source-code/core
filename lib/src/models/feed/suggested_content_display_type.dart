@@ -1,3 +1,7 @@
+import 'package:ht_shared/ht_shared.dart' show SuggestedContent;
+import 'package:ht_shared/src/models/feed/feed.dart' show SuggestedContent;
+import 'package:ht_shared/src/models/feed/suggested_content.dart' show SuggestedContent;
+import 'package:ht_shared/src/models/models.dart' show SuggestedContent;
 import 'package:json_annotation/json_annotation.dart';
 
 /// {@template suggested_content_display_type}

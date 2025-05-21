@@ -1,9 +1,8 @@
 import 'package:ht_shared/src/models/feed/feed_item.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:uuid/uuid.dart';
-
 import 'package:ht_shared/src/models/feed/feed_item_action.dart'
     show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
+import 'package:json_annotation/json_annotation.dart';
+import 'package:uuid/uuid.dart';
 
 part 'country.g.dart';
 
@@ -20,13 +19,13 @@ class Country extends FeedItem {
     required this.isoCode,
     required this.name,
     required this.flagUrl,
-    String? id,
-    required super.action, // Add action to constructor
+    required super.action, // Add action to constructor, String? id,
   }) : id = id ?? const Uuid().v4(),
        super(type: 'country');
 
   /// Creates a Country instance from a JSON map.
-  factory Country.fromJson(Map<String, dynamic> json) => _$CountryFromJson(json);
+  factory Country.fromJson(Map<String, dynamic> json) =>
+      _$CountryFromJson(json);
 
   /// A unique identifier for the country instance, typically a UUID.
   final String id;

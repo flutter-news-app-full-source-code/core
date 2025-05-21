@@ -1,4 +1,8 @@
+import 'package:ht_shared/ht_shared.dart' show FeedItem;
 import 'package:ht_shared/src/models/content_type.dart';
+import 'package:ht_shared/src/models/feed/feed.dart' show FeedItem;
+import 'package:ht_shared/src/models/feed/feed_item.dart' show FeedItem;
+import 'package:ht_shared/src/models/models.dart' show FeedItem;
 import 'package:json_annotation/json_annotation.dart';
 
 part 'feed_item_action.g.dart';
@@ -90,8 +94,7 @@ class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
   /// instance from a JSON map.
   factory ShowInterstitialThenOpenInternalContent.fromJson(
     Map<String, dynamic> json,
-  ) =>
-      _$ShowInterstitialThenOpenInternalContentFromJson(json);
+  ) => _$ShowInterstitialThenOpenInternalContentFromJson(json);
 
   /// The unique identifier of the internal content to open after the interstitial.
   final String contentId;

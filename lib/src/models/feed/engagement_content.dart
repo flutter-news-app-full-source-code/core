@@ -1,10 +1,9 @@
 import 'package:ht_shared/src/models/feed/engagement_content_type.dart';
 import 'package:ht_shared/src/models/feed/feed_item.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:uuid/uuid.dart';
-
 import 'package:ht_shared/src/models/feed/feed_item_action.dart'
     show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
+import 'package:json_annotation/json_annotation.dart';
+import 'package:uuid/uuid.dart';
 
 part 'engagement_content.g.dart';
 
@@ -21,11 +20,10 @@ class EngagementContent extends FeedItem {
   EngagementContent({
     required this.title,
     required this.engagementContentType,
-    this.description,
+    required super.action, // Add action to constructor, this.description,
     this.callToActionText,
     this.callToActionUrl,
     String? id,
-    required super.action, // Add action to constructor
   }) : id = id ?? const Uuid().v4(),
        super(type: 'engagement_content');
 

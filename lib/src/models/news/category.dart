@@ -21,10 +21,9 @@ class Category extends FeedItem {
   /// If an [id] is not provided, a UUID v4 will be generated.
   Category({
     required this.name,
-    String? id,
+    required super.action, // Add action to constructor, String? id,
     this.description,
     this.iconUrl,
-    required super.action, // Add action to constructor
   }) : id = id ?? const Uuid().v4(),
        super(type: 'category');
 
@@ -56,14 +55,7 @@ class Category extends FeedItem {
   Map<String, dynamic> toJson() => _$CategoryToJson(this);
 
   @override
-  List<Object?> get props => [
-    id,
-    name,
-    description,
-    iconUrl,
-    type,
-    action,
-  ];
+  List<Object?> get props => [id, name, description, iconUrl, type, action];
 
   @override
   bool get stringify => true;

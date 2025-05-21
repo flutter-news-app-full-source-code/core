@@ -1,11 +1,10 @@
 import 'package:ht_shared/src/models/feed/feed_item.dart';
+import 'package:ht_shared/src/models/feed/feed_item_action.dart'
+    show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
 import 'package:ht_shared/src/models/feed/source_type.dart';
 import 'package:ht_shared/src/models/news/country.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:uuid/uuid.dart';
-
-import 'package:ht_shared/src/models/feed/feed_item_action.dart'
-    show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
 
 part 'source.g.dart';
 
@@ -19,13 +18,12 @@ class Source extends FeedItem {
   /// {@macro source}
   Source({
     required this.name,
-    this.description,
+    required super.action, // Add action to constructor, this.description,
     this.url,
     SourceType? sourceType, // Renamed to avoid conflict with FeedItem.type
     this.language,
     this.headquarters,
     String? id,
-    required super.action, // Add action to constructor
   }) : id = id ?? const Uuid().v4(),
        _sourceType = sourceType,
        super(type: 'source');

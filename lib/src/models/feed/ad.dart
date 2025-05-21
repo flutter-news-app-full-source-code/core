@@ -1,10 +1,9 @@
 import 'package:ht_shared/src/models/feed/ad_placement.dart';
 import 'package:ht_shared/src/models/feed/feed_item.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:uuid/uuid.dart';
-
 import 'package:ht_shared/src/models/feed/feed_item_action.dart'
     show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
+import 'package:json_annotation/json_annotation.dart';
+import 'package:uuid/uuid.dart';
 
 part 'ad.g.dart';
 
@@ -36,9 +35,8 @@ class Ad extends FeedItem {
     required this.imageUrl,
     required this.targetUrl,
     required this.adType,
-    this.placement,
+    required super.action, // Add action to constructor, this.placement,
     String? id,
-    required super.action, // Add action to constructor
   }) : id = id ?? const Uuid().v4(),
        super(type: 'ad');
 

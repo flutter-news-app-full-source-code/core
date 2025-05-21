@@ -26,14 +26,13 @@ class Headline extends FeedItem {
   /// {@macro headline}
   Headline({
     required this.title,
-    this.description,
+    required super.action, // Add action to constructor, this.description,
     this.url,
     this.imageUrl,
     this.publishedAt,
     this.source,
     this.category,
     String? id,
-    required super.action, // Add action to constructor
   }) : assert(
          id == null || id.isNotEmpty,
          'id cannot be an empty string', // Updated assertion message
