@@ -1,8 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/responses/response_metadata.dart';
-import 'package:json_annotation/json_annotation.dart';
-
-part 'success_api_response.g.dart';
 
 /// {@template success_api_response}
 /// A generic wrapper for successful API responses.
@@ -16,11 +13,6 @@ part 'success_api_response.g.dart';
 /// - A list of model objects (e.g., `List<Category>`).
 /// - A paginated response object (e.g., `PaginatedResponse<Source>`).
 /// {@endtemplate}
-@JsonSerializable(
-  genericArgumentFactories: true,
-  explicitToJson: true,
-  includeIfNull: false,
-)
 class SuccessApiResponse<T> extends Equatable {
   /// {@macro success_api_response}
   const SuccessApiResponse({required this.data, this.metadata});
@@ -31,8 +23,14 @@ class SuccessApiResponse<T> extends Equatable {
   factory SuccessApiResponse.fromJson(
     Map<String, dynamic> json,
     T Function(Object? json) fromJsonT,
-  ) =>
-      _$SuccessApiResponseFromJson(json, fromJsonT);
+  ) {
+    return SuccessApiResponse(
+      data: fromJsonT(json['data']),
+      metadata: json['metadata'] == null
+          ? null
+          : ResponseMetadata.fromJson(json['metadata'] as Map<String, dynamic>),
+    );
+  }
 
   /// The main data payload of the response.
   final T data;
@@ -43,8 +41,12 @@ class SuccessApiResponse<T> extends Equatable {
   /// Converts this [SuccessApiResponse] instance to a JSON map.
   ///
   /// Requires a `toJsonT` function to serialize the generic [data] field.
-  Map<String, dynamic> toJson(Object? Function(T value) toJsonT) =>
-      _$SuccessApiResponseToJson(this, toJsonT);
+  Map<String, dynamic> toJson(Object? Function(T value) toJsonT) {
+    return <String, dynamic>{
+      'data': toJsonT(data),
+      'metadata': metadata?.toJson(),
+    }..removeWhere((key, value) => value == null);
+  }
 
   @override
   List<Object?> get props => [data, metadata];

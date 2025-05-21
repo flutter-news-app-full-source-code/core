@@ -1,24 +1,21 @@
+import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/feed/feed_item.dart';
-import 'package:ht_shared/src/models/feed/feed_item_action.dart'
-    show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
+import 'package:ht_shared/src/models/feed/feed_item_action.dart';
 import 'package:ht_shared/src/models/feed/source_type.dart';
 import 'package:ht_shared/src/models/news/country.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:ht_shared/src/utils/json_converters.dart';
 import 'package:uuid/uuid.dart';
-
-part 'source.g.dart';
 
 /// {@template source}
 /// Source model
 ///
 /// Represents a news source.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class Source extends FeedItem {
   /// {@macro source}
   Source({
     required this.name,
-    required this.action,
+    required super.action, // Refactored to super.action
     this.description,
     this.url,
     SourceType? sourceType, // Renamed to avoid conflict with FeedItem.type
@@ -27,10 +24,25 @@ class Source extends FeedItem {
     String? id,
   })  : id = id ?? const Uuid().v4(),
         _sourceType = sourceType,
-        super(type: 'source', action: action);
+        super(type: 'source');
 
   /// Factory method to create a [Source] instance from a JSON map.
-  factory Source.fromJson(Map<String, dynamic> json) => _$SourceFromJson(json);
+  factory Source.fromJson(Map<String, dynamic> json) {
+    return Source(
+      id: json['id'] as String?,
+      name: json['name'] as String,
+      description: json['description'] as String?,
+      url: json['url'] as String?,
+      sourceType: json['sourceType'] == null
+          ? null
+          : sourceTypeFromJson(json['sourceType'] as String),
+      language: json['language'] as String?,
+      headquarters: json['headquarters'] == null
+          ? null
+          : Country.fromJson(json['headquarters'] as Map<String, dynamic>),
+      action: FeedItemAction.fromJson(json['action'] as Map<String, dynamic>),
+    );
+  }
 
   /// Unique identifier for the source.
   final String id;
@@ -48,8 +60,6 @@ class Source extends FeedItem {
   /// The type of the source (e.g., newsAgency, blog).
   /// If an unknown value is encountered during deserialization,
   /// this field will be set to null.
-  @JsonKey(
-      name: 'sourceType', unknownEnumValue: JsonKey.nullForUndefinedEnumValue,)
   final SourceType? _sourceType;
 
   /// Public getter for the source type.
@@ -61,14 +71,22 @@ class Source extends FeedItem {
   /// The country where the source is headquartered.
   final Country? headquarters;
 
-  /// The action to be performed when this feed item is interacted with.
-  @override
-  @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
-  final FeedItemAction action;
-
   /// Converts this [Source] instance to a JSON map.
   @override
-  Map<String, dynamic> toJson() => _$SourceToJson(this);
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> json = {
+      'id': id,
+      'name': name,
+      'description': description,
+      'url': url,
+      'sourceType': _sourceType == null ? null : sourceTypeToJson(_sourceType!),
+      'language': language,
+      'headquarters': headquarters?.toJson(),
+      'action': action.toJson(),
+      'type': type, // Inherited from FeedItem
+    };
+    return json..removeWhere((key, value) => value == null);
+  }
 
   @override
   List<Object?> get props => [

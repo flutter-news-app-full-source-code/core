@@ -1,13 +1,10 @@
+import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/feed/feed_item.dart';
-import 'package:ht_shared/src/models/feed/feed_item_action.dart'
-    show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
+import 'package:ht_shared/src/models/feed/feed_item_action.dart';
 import 'package:ht_shared/src/models/news/category.dart';
 import 'package:ht_shared/src/models/news/source.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
-
-part 'headline.g.dart';
 
 // Helper function for parsing DateTime, returning null on error
 DateTime? _dateTimeFromJson(String? dateString) {
@@ -21,12 +18,11 @@ DateTime? _dateTimeFromJson(String? dateString) {
 /// Represents a news headline item.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class Headline extends FeedItem {
   /// {@macro headline}
   Headline({
     required this.title,
-    required super.action,
+    required super.action, // Refactored to super.action
     this.description,
     this.url,
     this.imageUrl,
@@ -39,11 +35,26 @@ class Headline extends FeedItem {
           'id cannot be an empty string', // Updated assertion message
         ),
         id = id ?? const Uuid().v4(),
-        super(type: 'headline');
+        super(type: 'headline'); // Removed action from super constructor
 
   /// Factory method to create a [Headline] instance from a JSON map.
-  factory Headline.fromJson(Map<String, dynamic> json) =>
-      _$HeadlineFromJson(json);
+  factory Headline.fromJson(Map<String, dynamic> json) {
+    return Headline(
+      id: json['id'] as String?,
+      title: json['title'] as String,
+      description: json['description'] as String?,
+      url: json['url'] as String?,
+      imageUrl: json['imageUrl'] as String?,
+      publishedAt: _dateTimeFromJson(json['publishedAt'] as String?),
+      source: json['source'] == null
+          ? null
+          : Source.fromJson(json['source'] as Map<String, dynamic>),
+      category: json['category'] == null
+          ? null
+          : Category.fromJson(json['category'] as Map<String, dynamic>),
+      action: FeedItemAction.fromJson(json['action'] as Map<String, dynamic>),
+    );
+  }
 
   /// Unique identifier for the headline.
   final String id;
@@ -58,11 +69,9 @@ class Headline extends FeedItem {
   final String? url;
 
   /// URL to an image associated with the headline.
-  @JsonKey(name: 'imageUrl')
   final String? imageUrl;
 
   /// Date and time when the headline was published.
-  @JsonKey(name: 'publishedAt', fromJson: _dateTimeFromJson)
   final DateTime? publishedAt;
 
   /// Source or origin of the headline.
@@ -71,14 +80,23 @@ class Headline extends FeedItem {
   /// Category of the current headline.
   final Category? category;
 
-  /// The action to be performed when this feed item is interacted with.
-  @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
-  @override
-  late final FeedItemAction action;
-
   /// Converts this [Headline] instance to a JSON map.
   @override
-  Map<String, dynamic> toJson() => _$HeadlineToJson(this);
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> json = {
+      'id': id,
+      'title': title,
+      'description': description,
+      'url': url,
+      'imageUrl': imageUrl,
+      'publishedAt': publishedAt?.toIso8601String(),
+      'source': source?.toJson(),
+      'category': category?.toJson(),
+      'action': action.toJson(),
+      'type': type, // Inherited from FeedItem
+    };
+    return json..removeWhere((key, value) => value == null);
+  }
 
   @override
   List<Object?> get props => [

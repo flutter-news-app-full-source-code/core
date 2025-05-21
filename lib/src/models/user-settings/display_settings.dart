@@ -1,9 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/user-settings/user_settings.dart';
-
-import 'package:json_annotation/json_annotation.dart';
-
-part 'display_settings.g.dart';
+import 'package:ht_shared/src/utils/json_converters.dart';
 
 /// {@template display_settings}
 /// Represents a collection of user-configurable settings related to the
@@ -13,7 +10,6 @@ part 'display_settings.g.dart';
 /// text scaling, and font weight, allowing them to be managed and persisted
 /// together.
 /// {@endtemplate}
-@JsonSerializable()
 class DisplaySettings extends Equatable {
   /// {@macro display_settings}
   ///
@@ -35,8 +31,23 @@ class DisplaySettings extends Equatable {
   });
 
   /// Creates a [DisplaySettings] instance from a JSON map.
-  factory DisplaySettings.fromJson(Map<String, dynamic> json) =>
-      _$DisplaySettingsFromJson(json);
+  factory DisplaySettings.fromJson(Map<String, dynamic> json) {
+    return DisplaySettings(
+      baseTheme: json['baseTheme'] == null
+          ? AppBaseTheme.system
+          : appBaseThemeFromJson(json['baseTheme'] as String),
+      accentTheme: json['accentTheme'] == null
+          ? AppAccentTheme.defaultBlue
+          : appAccentThemeFromJson(json['accentTheme'] as String),
+      fontFamily: json['fontFamily'] as String? ?? 'SystemDefault',
+      textScaleFactor: json['textScaleFactor'] == null
+          ? AppTextScaleFactor.medium
+          : appTextScaleFactorFromJson(json['textScaleFactor'] as String),
+      fontWeight: json['fontWeight'] == null
+          ? AppFontWeight.regular
+          : appFontWeightFromJson(json['fontWeight'] as String),
+    );
+  }
 
   /// The base theme mode (light, dark, or system default).
   final AppBaseTheme baseTheme;
@@ -84,5 +95,13 @@ class DisplaySettings extends Equatable {
       ];
 
   /// Converts this [DisplaySettings] instance to a JSON map.
-  Map<String, dynamic> toJson() => _$DisplaySettingsToJson(this);
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'baseTheme': appBaseThemeToJson(baseTheme),
+      'accentTheme': appAccentThemeToJson(accentTheme),
+      'fontFamily': fontFamily,
+      'textScaleFactor': appTextScaleFactorToJson(textScaleFactor),
+      'fontWeight': appFontWeightToJson(fontWeight),
+    };
+  }
 }
