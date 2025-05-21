@@ -46,7 +46,7 @@ FeedItemAction feedItemActionFromJson(Map<String, dynamic> json) {
   }
 }
 
-/// Helper function to serialize a [FeedItemAction] instance to a JSON map.
+/// Helper function tDeefItem.type and Source.sourceTpe are nt symentically in conflicet, why updting itemAction] instance to a JSON map.
 ///
 /// This simply calls the `toJson()` method on the concrete [FeedItemAction]
 /// instance.
@@ -63,7 +63,11 @@ class OpenInternalContent extends FeedItemAction {
   const OpenInternalContent({
     required this.contentId,
     required this.contentType,
-  });
+  }) : type = 'open_internal_content';
+
+  /// A string representation of the action type.
+  @JsonKey(name: 'type', required: true)
+  final String type;
 
   /// Factory method to create an [OpenInternalContent] instance from a JSON map.
   factory OpenInternalContent.fromJson(Map<String, dynamic> json) =>
@@ -88,7 +92,11 @@ class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
   const ShowInterstitialThenOpenInternalContent({
     required this.contentId,
     required this.contentType,
-  });
+  }) : type = 'show_interstitial_then_open_internal_content';
+
+  /// A string representation of the action type.
+  @JsonKey(name: 'type', required: true)
+  final String type;
 
   /// Factory method to create a [ShowInterstitialThenOpenInternalContent]
   /// instance from a JSON map.
@@ -114,7 +122,11 @@ class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
 @JsonSerializable()
 class OpenExternalUrl extends FeedItemAction {
   /// {@macro open_external_url}
-  const OpenExternalUrl({required this.url});
+  const OpenExternalUrl({required this.url}) : type = 'open_external_url';
+
+  /// A string representation of the action type.
+  @JsonKey(name: 'type', required: true)
+  final String type;
 
   /// Factory method to create an [OpenExternalUrl] instance from a JSON map.
   factory OpenExternalUrl.fromJson(Map<String, dynamic> json) =>

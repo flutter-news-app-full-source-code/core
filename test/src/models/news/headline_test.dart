@@ -1,16 +1,34 @@
 import 'package:ht_shared/ht_shared.dart';
+import 'package:ht_shared/src/models/feed/feed_item_action.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
 
 void main() {
   group('Headline Model', () {
+    const defaultAction = OpenExternalUrl(url: 'http://default.com');
+
     // Sample data for nested models
-    final sampleSourceJson = {'id': 'src-test', 'name': 'Test Source'};
+    final sampleSourceJson = {
+      'id': 'src-test',
+      'name': 'Test Source',
+      'sourceType': 'news-agency', // Updated to match SourceType enum name
+      'type': 'source',
+      'action': {
+        'type': 'open_external_url',
+        'url': 'http://default.com',
+      },
+    };
     final sampleSource = Source.fromJson(sampleSourceJson);
-    final sampleCategoryJson = {'id': 'cat-test', 'name': 'Test Category'};
+    final sampleCategoryJson = {
+      'id': 'cat-test',
+      'name': 'Test Category',
+      'type': 'category',
+      'action': defaultAction.toJson(),
+    };
     final sampleCategory = Category.fromJson(sampleCategoryJson);
     final testTime = DateTime.utc(2024, 4, 17, 13);
     final testTimeString = testTime.toIso8601String();
+
     final testId = const Uuid().v4();
 
     // Sample Headline instance with all fields
@@ -23,6 +41,7 @@ void main() {
       publishedAt: testTime,
       source: sampleSource,
       category: sampleCategory,
+      action: defaultAction,
     );
 
     // Sample JSON map corresponding to fullHeadline
@@ -41,6 +60,7 @@ void main() {
     final minimalHeadline = Headline(
       id: testId, // Use same ID for comparison if needed
       title: 'Minimal Headline Title',
+      action: defaultAction,
     );
 
     // Sample JSON map corresponding to minimalHeadline
@@ -139,6 +159,7 @@ void main() {
         final copiedHeadline = fullHeadline.copyWith(
           title: updatedTitle,
           url: updatedUrl,
+          action: defaultAction,
         );
 
         expect(copiedHeadline.id, fullHeadline.id); // ID should remain the same
@@ -149,6 +170,7 @@ void main() {
         expect(copiedHeadline.publishedAt, fullHeadline.publishedAt);
         expect(copiedHeadline.source, fullHeadline.source);
         expect(copiedHeadline.category, fullHeadline.category);
+        expect(copiedHeadline.action, fullHeadline.action);
       });
 
       test('should create an identical copy if no values are provided', () {
@@ -159,15 +181,15 @@ void main() {
 
     group('Equatable', () {
       test('should equate two identical instances', () {
-        final headline1 = Headline(id: '1', title: 'Title');
-        final headline2 = Headline(id: '1', title: 'Title');
+        final headline1 = Headline(id: '1', title: 'Title', action: defaultAction);
+        final headline2 = Headline(id: '1', title: 'Title', action: defaultAction);
         expect(headline1, equals(headline2));
       });
 
       test('should not equate instances with different properties', () {
-        final headline1 = Headline(id: '1', title: 'Title 1');
-        final headline2 = Headline(id: '1', title: 'Title 2');
-        final headline3 = Headline(id: '2', title: 'Title 1');
+        final headline1 = Headline(id: '1', title: 'Title 1', action: defaultAction);
+        final headline2 = Headline(id: '1', title: 'Title 2', action: defaultAction);
+        final headline3 = Headline(id: '2', title: 'Title 1', action: defaultAction);
         expect(headline1, isNot(equals(headline2)));
         expect(headline1, isNot(equals(headline3)));
       });
@@ -177,8 +199,8 @@ void main() {
         // equality are in props
         expect(
           fullHeadline.props.length,
-          8,
-        ); // id, title, desc, url, imgUrl, pubAt, source, category
+          10,
+        ); // id, title, desc, url, imgUrl, pubAt, source, category, type, action
         expect(
           fullHeadline.props,
           containsAll([
@@ -190,6 +212,8 @@ void main() {
             fullHeadline.publishedAt,
             fullHeadline.source,
             fullHeadline.category,
+            fullHeadline.type,
+            fullHeadline.action,
           ]),
         );
       });

@@ -1,28 +1,38 @@
 // ignore_for_file: inference_failure_on_collection_literal, strict_raw_type, avoid_dynamic_calls
 
 import 'package:ht_shared/ht_shared.dart'; // Import the barrel file
+import 'package:ht_shared/src/models/feed/feed_item_action.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('UserContentPreferences', () {
+    const defaultAction = OpenExternalUrl(url: 'http://default.com');
+
     final mockCountry = Country(
       id: 'country-1',
       isoCode: 'US',
       name: 'United States',
       flagUrl: 'http://example.com/us.png',
+      action: defaultAction,
     );
     final mockSource = Source(
       id: 'source-1',
       name: 'Example News',
       url: 'http://example.com',
       sourceType: SourceType.newsAgency,
+      action: defaultAction,
     );
-    final mockCategory = Category(id: 'category-1', name: 'Technology');
+    final mockCategory = Category(
+      id: 'category-1',
+      name: 'Technology',
+      action: defaultAction,
+    );
     final mockHeadline = Headline(
       id: 'headline-1',
       title: 'Example Headline',
       url: 'http://example.com/headline',
       publishedAt: DateTime.utc(2023),
+      action: defaultAction,
     );
 
     final userContentPreferences = UserContentPreferences(
@@ -57,6 +67,8 @@ void main() {
               'iso_code': 'US',
               'name': 'United States',
               'flag_url': 'http://example.com/us.png',
+              'type': 'country',
+              'action': defaultAction.toJson(),
             },
           ],
           'followedSources': [
@@ -64,11 +76,18 @@ void main() {
               'id': 'source-1',
               'name': 'Example News',
               'url': 'http://example.com',
-              'type': 'news-agency',
+              'type': 'source',
+              'sourceType': 'news-agency',
+              'action': defaultAction.toJson(),
             },
           ],
           'followedCategories': [
-            {'id': 'category-1', 'name': 'Technology'},
+            {
+              'id': 'category-1',
+              'name': 'Technology',
+              'type': 'category',
+              'action': defaultAction.toJson(),
+            },
           ],
           'savedHeadlines': [
             {
@@ -76,6 +95,8 @@ void main() {
               'title': 'Example Headline',
               'url': 'http://example.com/headline',
               'publishedAt': '2023-01-01T00:00:00.000Z',
+              'type': 'headline',
+              'action': defaultAction.toJson(),
             },
           ],
         };
@@ -171,10 +192,12 @@ void main() {
           isoCode: 'CA',
           name: 'Canada',
           flagUrl: 'http://example.com/ca.png',
+          action: defaultAction,
         );
         final newHeadline = Headline(
           id: 'headline-2',
           title: 'Another Headline',
+          action: defaultAction,
         );
 
         final updatedPreferences = userContentPreferences.copyWith(

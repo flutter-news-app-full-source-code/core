@@ -18,7 +18,7 @@ class Source extends FeedItem {
   /// {@macro source}
   Source({
     required this.name,
-    required super.action,
+    required this.action,
     this.description,
     this.url,
     SourceType? sourceType, // Renamed to avoid conflict with FeedItem.type
@@ -27,7 +27,7 @@ class Source extends FeedItem {
     String? id,
   })  : id = id ?? const Uuid().v4(),
         _sourceType = sourceType,
-        super(type: 'source');
+        super(type: 'source', action: action);
 
   /// Factory method to create a [Source] instance from a JSON map.
   factory Source.fromJson(Map<String, dynamic> json) => _$SourceFromJson(json);
@@ -48,7 +48,7 @@ class Source extends FeedItem {
   /// The type of the source (e.g., newsAgency, blog).
   /// If an unknown value is encountered during deserialization,
   /// this field will be set to null.
-  @JsonKey(name: 'type', unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  @JsonKey(name: 'sourceType', unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final SourceType? _sourceType;
 
   /// Public getter for the source type.
@@ -62,8 +62,7 @@ class Source extends FeedItem {
 
   /// The action to be performed when this feed item is interacted with.
   @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
-  @override
-  late final FeedItemAction action;
+  final FeedItemAction action;
 
   /// Converts this [Source] instance to a JSON map.
   @override
