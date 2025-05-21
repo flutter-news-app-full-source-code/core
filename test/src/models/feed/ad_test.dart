@@ -1,5 +1,5 @@
-import 'package:ht_shared/src/models/feed/ad.dart';
 import 'package:ht_shared/src/models/content_type.dart';
+import 'package:ht_shared/src/models/feed/ad.dart';
 import 'package:ht_shared/src/models/feed/ad_placement.dart';
 import 'package:ht_shared/src/models/feed/feed_item_action.dart';
 import 'package:test/test.dart';

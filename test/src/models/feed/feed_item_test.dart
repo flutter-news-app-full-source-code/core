@@ -1,17 +1,5 @@
 import 'package:ht_shared/ht_shared.dart';
-import 'package:ht_shared/src/models/feed/ad.dart';
-import 'package:ht_shared/src/models/feed/ad_placement.dart';
-import 'package:ht_shared/src/models/feed/engagement_content.dart';
-import 'package:ht_shared/src/models/feed/engagement_content_type.dart';
-import 'package:ht_shared/src/models/feed/feed_item.dart';
 import 'package:ht_shared/src/models/feed/feed_item_action.dart';
-import 'package:ht_shared/src/models/feed/source_type.dart';
-import 'package:ht_shared/src/models/feed/suggested_content.dart';
-import 'package:ht_shared/src/models/feed/suggested_content_display_type.dart';
-import 'package:ht_shared/src/models/news/category.dart';
-import 'package:ht_shared/src/models/news/country.dart';
-import 'package:ht_shared/src/models/news/headline.dart';
-import 'package:ht_shared/src/models/news/source.dart';
 import 'package:test/test.dart';
 
 void main() {

@@ -59,15 +59,15 @@ Map<String, dynamic> feedItemActionToJson(FeedItemAction action) {
 /// {@endtemplate}
 @JsonSerializable()
 class OpenInternalContent extends FeedItemAction {
-
-  /// Factory method to create an [OpenInternalContent] instance from a JSON map.
-  factory OpenInternalContent.fromJson(Map<String, dynamic> json) =>
-      _$OpenInternalContentFromJson(json);
   /// {@macro open_internal_content}
   const OpenInternalContent({
     required this.contentId,
     required this.contentType,
   }) : type = 'open_internal_content';
+
+  /// Factory method to create an [OpenInternalContent] instance from a JSON map.
+  factory OpenInternalContent.fromJson(Map<String, dynamic> json) =>
+      _$OpenInternalContentFromJson(json);
 
   /// A string representation of the action type.
   @JsonKey(name: 'type', required: true)
@@ -88,6 +88,11 @@ class OpenInternalContent extends FeedItemAction {
 /// {@endtemplate}
 @JsonSerializable()
 class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
+  /// {@macro show_interstitial_then_open_internal_content}
+  const ShowInterstitialThenOpenInternalContent({
+    required this.contentId,
+    required this.contentType,
+  }) : type = 'show_interstitial_then_open_internal_content';
 
   /// Factory method to create a [ShowInterstitialThenOpenInternalContent]
   /// instance from a JSON map.
@@ -95,11 +100,6 @@ class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
     Map<String, dynamic> json,
   ) =>
       _$ShowInterstitialThenOpenInternalContentFromJson(json);
-  /// {@macro show_interstitial_then_open_internal_content}
-  const ShowInterstitialThenOpenInternalContent({
-    required this.contentId,
-    required this.contentType,
-  }) : type = 'show_interstitial_then_open_internal_content';
 
   /// A string representation of the action type.
   @JsonKey(name: 'type', required: true)
@@ -121,12 +121,12 @@ class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
 /// {@endtemplate}
 @JsonSerializable()
 class OpenExternalUrl extends FeedItemAction {
+  /// {@macro open_external_url}
+  const OpenExternalUrl({required this.url}) : type = 'open_external_url';
 
   /// Factory method to create an [OpenExternalUrl] instance from a JSON map.
   factory OpenExternalUrl.fromJson(Map<String, dynamic> json) =>
       _$OpenExternalUrlFromJson(json);
-  /// {@macro open_external_url}
-  const OpenExternalUrl({required this.url}) : type = 'open_external_url';
 
   /// A string representation of the action type.
   @JsonKey(name: 'type', required: true)
