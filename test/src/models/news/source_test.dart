@@ -12,7 +12,7 @@ void main() {
     const testType = SourceType.specializedPublisher;
     const testLanguage = 'en';
 
-    final defaultAction = OpenExternalUrl(url: 'http://default.com');
+    const defaultAction = OpenExternalUrl(url: 'http://default.com');
 
     // Use a valid Country instance for testing
     final testCountry = Country(
@@ -130,7 +130,7 @@ void main() {
         final source4 = Source(
           id: testId,
           name: testName,
-          action: OpenExternalUrl(url: 'http://other.com'),
+          action: const OpenExternalUrl(url: 'http://other.com'),
         ); // Different Action
         expect(source1, isNot(equals(source2)));
         expect(source1.hashCode, isNot(equals(source2.hashCode)));
@@ -308,7 +308,7 @@ void main() {
           id: 'c-789',
           action: defaultAction,
         );
-        final updatedAction = OpenExternalUrl(url: 'http://new-default.com');
+        const updatedAction = OpenExternalUrl(url: 'http://new-default.com');
 
         expect(fullSource.copyWith(id: updatedId).id, updatedId);
         expect(fullSource.copyWith(name: updatedName).name, updatedName);
@@ -338,7 +338,7 @@ void main() {
       test('updates multiple fields simultaneously', () {
         const updatedName = 'Multi Update Source';
         const updatedType = SourceType.aggregator;
-        final updatedAction = OpenExternalUrl(url: 'http://multi-update.com');
+        const updatedAction = OpenExternalUrl(url: 'http://multi-update.com');
         final updatedCopy = fullSource.copyWith(
           name: updatedName,
           sourceType: updatedType,

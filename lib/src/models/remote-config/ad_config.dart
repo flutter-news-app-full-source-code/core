@@ -1,10 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/ht_shared.dart' show AppConfig;
 import 'package:ht_shared/src/models/models.dart' show AppConfig;
-import 'package:ht_shared/src/models/remote-config/app_config.dart'
-    show AppConfig;
-import 'package:ht_shared/src/models/remote-config/remote_config.dart'
-    show AppConfig;
+import 'package:ht_shared/src/models/remote-config/app_config.dart' show AppConfig;
+import 'package:ht_shared/src/models/remote-config/remote_config.dart' show AppConfig;
 
 /// {@template ad_config}
 /// Defines configuration settings related to ad injection and display,

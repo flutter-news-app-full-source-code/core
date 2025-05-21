@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('FeedItem', () {
-    final defaultAction = OpenExternalUrl(url: 'http://default.com');
+    const defaultAction = OpenExternalUrl(url: 'http://default.com');
 
     final mockCountry = Country(
       id: 'country-1',

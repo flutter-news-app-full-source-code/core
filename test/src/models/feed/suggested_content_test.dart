@@ -1,5 +1,3 @@
-// ignore_for_file: inference_failure_on_collection_literal
-
 import 'package:ht_shared/src/models/content_type.dart';
 import 'package:ht_shared/src/models/feed/feed_item.dart';
 import 'package:ht_shared/src/models/feed/feed_item_action.dart';
@@ -18,7 +16,7 @@ void main() {
     const testTitle = 'Suggested for You';
     const testDescription = 'Based on your reading history.';
     const testDisplayType = SuggestedContentDisplayType.horizontalCardList;
-    final defaultAction = OpenExternalUrl(url: 'http://default.com');
+    const defaultAction = OpenExternalUrl(url: 'http://default.com');
 
     final mockHeadline = Headline(
       id: 'headline-1',
@@ -51,11 +49,12 @@ void main() {
     ];
 
     SuggestedContent createSubject({
-      required FeedItemAction action, String? id,
+      String? id,
       String? title = testTitle,
       String? description = testDescription,
       SuggestedContentDisplayType displayType = testDisplayType,
       List<FeedItem>? items,
+      FeedItemAction action = defaultAction,
     }) {
       return SuggestedContent(
         id: id,
@@ -69,18 +68,18 @@ void main() {
 
     group('constructor', () {
       test('generates id when not provided', () {
-        final content = createSubject(action: defaultAction);
+        final content = createSubject();
         expect(content.id, isA<String>());
         expect(Uuid.isValidUUID(fromString: content.id), isTrue);
       });
 
       test('uses provided id', () {
-        final content = createSubject(id: testId, action: defaultAction);
+        final content = createSubject(id: testId);
         expect(content.id, testId);
       });
 
       test('initializes all properties correctly', () {
-        final content = createSubject(action: defaultAction);
+        final content = createSubject();
         expect(content.title, testTitle);
         expect(content.description, testDescription);
         expect(content.displayType, testDisplayType);
@@ -105,12 +104,12 @@ void main() {
         const newTitle = 'New Suggested Title';
         const newDisplayType = SuggestedContentDisplayType.verticalCardList;
         final newItems = [mockHeadline];
-        final newAction = OpenInternalContent(
+        const newAction = OpenInternalContent(
           contentId: 'new-suggested-content',
           contentType: ContentType.source,
         );
 
-        final originalContent = createSubject(action: defaultAction);
+        final originalContent = createSubject();
         final updatedContent = originalContent.copyWith(
           title: newTitle,
           displayType: newDisplayType,
@@ -128,7 +127,7 @@ void main() {
       });
 
       test('returns an identical copy if no updates provided', () {
-        final originalContent = createSubject(action: defaultAction);
+        final originalContent = createSubject();
         final copiedContent = originalContent.copyWith();
         expect(copiedContent, originalContent);
         expect(identical(copiedContent, originalContent), isFalse);
@@ -137,7 +136,7 @@ void main() {
 
     group('toJson', () {
       test('serializes full SuggestedContent object to JSON', () {
-        final content = createSubject(action: defaultAction);
+        final content = createSubject();
         final json = content.toJson();
 
         expect(json, <String, dynamic>{
@@ -152,11 +151,7 @@ void main() {
       });
 
       test('omits null optional fields from JSON', () {
-        final content = createSubject(
-          title: null,
-          description: null,
-          action: defaultAction,
-        );
+        final content = createSubject(title: null, description: null);
         final json = content.toJson();
 
         expect(json.containsKey('title'), isFalse);
@@ -229,19 +224,19 @@ void main() {
 
     group('Equatable', () {
       test('instances with same properties are equal', () {
-        final content1 = createSubject(id: '1', action: defaultAction);
-        final content2 = createSubject(id: '1', action: defaultAction);
+        final content1 = createSubject(id: '1');
+        final content2 = createSubject(id: '1');
         expect(content1, content2);
       });
 
       test('instances with different properties are not equal', () {
-        final content1 = createSubject(id: '1', action: defaultAction);
-        final content2 = createSubject(id: '2', action: defaultAction);
+        final content1 = createSubject(id: '1');
+        final content2 = createSubject(id: '2');
         expect(content1, isNot(equals(content2)));
       });
 
       test('props list contains all relevant fields', () {
-        final content = createSubject(action: defaultAction);
+        final content = createSubject();
         expect(content.props, [
           content.id,
           content.title,

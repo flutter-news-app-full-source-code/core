@@ -13,15 +13,16 @@ void main() {
     const testEngagementContentType = EngagementContentType.signUp;
     const testCallToActionText = 'Sign Up Now!';
     const testCallToActionUrl = 'http://example.com/signup';
-    final defaultAction = OpenExternalUrl(url: 'http://default.com');
+    const defaultAction = OpenExternalUrl(url: 'http://default.com');
 
     EngagementContent createSubject({
-      required FeedItemAction action, String? id,
+      String? id,
       String title = testTitle,
       String? description = testDescription,
       EngagementContentType engagementContentType = testEngagementContentType,
       String? callToActionText = testCallToActionText,
       String? callToActionUrl = testCallToActionUrl,
+      FeedItemAction action = defaultAction,
     }) {
       return EngagementContent(
         id: id,
@@ -36,18 +37,18 @@ void main() {
 
     group('constructor', () {
       test('generates id when not provided', () {
-        final content = createSubject(action: defaultAction);
+        final content = createSubject();
         expect(content.id, isA<String>());
         expect(Uuid.isValidUUID(fromString: content.id), isTrue);
       });
 
       test('uses provided id', () {
-        final content = createSubject(id: testId, action: defaultAction);
+        final content = createSubject(id: testId);
         expect(content.id, testId);
       });
 
       test('initializes all properties correctly', () {
-        final content = createSubject(action: defaultAction);
+        final content = createSubject();
         expect(content.title, testTitle);
         expect(content.description, testDescription);
         expect(content.engagementContentType, testEngagementContentType);
@@ -65,12 +66,12 @@ void main() {
         const newEngagementContentType = EngagementContentType.feedback;
         const newCallToActionText = 'Give Feedback';
         const newCallToActionUrl = 'http://example.com/feedback';
-        final newAction = OpenInternalContent(
+        const newAction = OpenInternalContent(
           contentId: 'feedback-id',
           contentType: ContentType.category,
         );
 
-        final originalContent = createSubject(action: defaultAction);
+        final originalContent = createSubject();
         final updatedContent = originalContent.copyWith(
           title: newTitle,
           description: newDescription,
@@ -91,7 +92,7 @@ void main() {
       });
 
       test('returns an identical copy if no updates provided', () {
-        final originalContent = createSubject(action: defaultAction);
+        final originalContent = createSubject();
         final copiedContent = originalContent.copyWith();
         expect(copiedContent, originalContent);
         expect(identical(copiedContent, originalContent), isFalse);
@@ -100,7 +101,7 @@ void main() {
 
     group('toJson', () {
       test('serializes full EngagementContent object to JSON', () {
-        final content = createSubject(action: defaultAction);
+        final content = createSubject();
         final json = content.toJson();
 
         expect(json, <String, dynamic>{
@@ -120,7 +121,6 @@ void main() {
           description: null,
           callToActionText: null,
           callToActionUrl: null,
-          action: defaultAction,
         );
         final json = content.toJson();
 
@@ -185,19 +185,19 @@ void main() {
 
     group('Equatable', () {
       test('instances with same properties are equal', () {
-        final content1 = createSubject(id: '1', action: defaultAction);
-        final content2 = createSubject(id: '1', action: defaultAction);
+        final content1 = createSubject(id: '1');
+        final content2 = createSubject(id: '1');
         expect(content1, content2);
       });
 
       test('instances with different properties are not equal', () {
-        final content1 = createSubject(id: '1', action: defaultAction);
-        final content2 = createSubject(id: '2', action: defaultAction);
+        final content1 = createSubject(id: '1');
+        final content2 = createSubject(id: '2');
         expect(content1, isNot(equals(content2)));
       });
 
       test('props list contains all relevant fields', () {
-        final content = createSubject(action: defaultAction);
+        final content = createSubject();
         expect(content.props, [
           content.id,
           content.title,

@@ -12,14 +12,15 @@ void main() {
     const testTargetUrl = 'http://example.com/target';
     const testAdType = AdType.banner;
     const testPlacement = AdPlacement.feedInlineStandardBanner;
-    final defaultAction = OpenExternalUrl(url: 'http://default.com');
+    const defaultAction = OpenExternalUrl(url: 'http://default.com');
 
     Ad createSubject({
-      required FeedItemAction action, String? id,
+      String? id,
       String imageUrl = testImageUrl,
       String targetUrl = testTargetUrl,
       AdType adType = testAdType,
       AdPlacement? placement = testPlacement,
+      FeedItemAction action = defaultAction,
     }) {
       return Ad(
         id: id,
@@ -33,18 +34,18 @@ void main() {
 
     group('constructor', () {
       test('generates id when not provided', () {
-        final ad = createSubject(action: defaultAction);
+        final ad = createSubject();
         expect(ad.id, isA<String>());
         expect(Uuid.isValidUUID(fromString: ad.id), isTrue);
       });
 
       test('uses provided id', () {
-        final ad = createSubject(id: testId, action: defaultAction);
+        final ad = createSubject(id: testId);
         expect(ad.id, testId);
       });
 
       test('initializes all properties correctly', () {
-        final ad = createSubject(action: defaultAction);
+        final ad = createSubject();
         expect(ad.imageUrl, testImageUrl);
         expect(ad.targetUrl, testTargetUrl);
         expect(ad.adType, testAdType);
@@ -58,12 +59,12 @@ void main() {
       test('returns a new instance with updated fields', () {
         const newImageUrl = 'http://new.com/ad.png';
         const newAdType = AdType.video;
-        final newAction = OpenInternalContent(
+        const newAction = OpenInternalContent(
           contentId: 'new-content',
           contentType: ContentType.headline,
         );
 
-        final originalAd = createSubject(action: defaultAction);
+        final originalAd = createSubject();
         final updatedAd = originalAd.copyWith(
           imageUrl: newImageUrl,
           adType: newAdType,
@@ -80,7 +81,7 @@ void main() {
       });
 
       test('returns an identical copy if no updates provided', () {
-        final originalAd = createSubject(action: defaultAction);
+        final originalAd = createSubject();
         final copiedAd = originalAd.copyWith();
         expect(copiedAd, originalAd);
         expect(identical(copiedAd, originalAd), isFalse);
@@ -89,7 +90,7 @@ void main() {
 
     group('toJson', () {
       test('serializes full Ad object to JSON', () {
-        final ad = createSubject(action: defaultAction);
+        final ad = createSubject();
         final json = ad.toJson();
 
         expect(json, <String, dynamic>{
@@ -104,7 +105,7 @@ void main() {
       });
 
       test('omits null optional fields from JSON', () {
-        final ad = createSubject(placement: null, action: defaultAction);
+        final ad = createSubject(placement: null);
         final json = ad.toJson();
 
         expect(json.containsKey('placement'), isFalse);
@@ -163,19 +164,19 @@ void main() {
 
     group('Equatable', () {
       test('instances with same properties are equal', () {
-        final ad1 = createSubject(id: '1', action: defaultAction);
-        final ad2 = createSubject(id: '1', action: defaultAction);
+        final ad1 = createSubject(id: '1');
+        final ad2 = createSubject(id: '1');
         expect(ad1, ad2);
       });
 
       test('instances with different properties are not equal', () {
-        final ad1 = createSubject(id: '1', action: defaultAction);
-        final ad2 = createSubject(id: '2', action: defaultAction);
+        final ad1 = createSubject(id: '1');
+        final ad2 = createSubject(id: '2');
         expect(ad1, isNot(equals(ad2)));
       });
 
       test('props list contains all relevant fields', () {
-        final ad = createSubject(action: defaultAction);
+        final ad = createSubject();
         expect(ad.props, [
           ad.id,
           ad.imageUrl,

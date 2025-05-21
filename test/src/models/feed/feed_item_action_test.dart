@@ -1,6 +1,5 @@
 import 'package:ht_shared/src/models/content_type.dart';
 import 'package:ht_shared/src/models/feed/feed_item_action.dart';
-import 'package:ht_shared/src/utils/json_converters.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -8,7 +7,7 @@ void main() {
     group('OpenInternalContent', () {
       const contentId = 'test-content-id';
       const contentType = ContentType.headline;
-      final openInternalContent = OpenInternalContent(
+      const openInternalContent = OpenInternalContent(
         contentId: contentId,
         contentType: contentType,
       );
@@ -17,7 +16,7 @@ void main() {
         expect(
           openInternalContent,
           equals(
-            OpenInternalContent(
+            const OpenInternalContent(
               contentId: contentId,
               contentType: contentType,
             ),
@@ -27,7 +26,7 @@ void main() {
           openInternalContent,
           isNot(
             equals(
-              OpenInternalContent(
+              const OpenInternalContent(
                 contentId: 'other-id',
                 contentType: contentType,
               ),
@@ -38,7 +37,7 @@ void main() {
           openInternalContent,
           isNot(
             equals(
-              OpenInternalContent(
+              const OpenInternalContent(
                 contentId: contentId,
                 contentType: ContentType.category,
               ),
@@ -70,7 +69,7 @@ void main() {
     group('ShowInterstitialThenOpenInternalContent', () {
       const contentId = 'test-content-id';
       const contentType = ContentType.headline;
-      final showInterstitialThenOpenInternalContent =
+      const showInterstitialThenOpenInternalContent =
           ShowInterstitialThenOpenInternalContent(
         contentId: contentId,
         contentType: contentType,
@@ -80,7 +79,7 @@ void main() {
         expect(
           showInterstitialThenOpenInternalContent,
           equals(
-            ShowInterstitialThenOpenInternalContent(
+            const ShowInterstitialThenOpenInternalContent(
               contentId: contentId,
               contentType: contentType,
             ),
@@ -90,7 +89,7 @@ void main() {
           showInterstitialThenOpenInternalContent,
           isNot(
             equals(
-              ShowInterstitialThenOpenInternalContent(
+              const ShowInterstitialThenOpenInternalContent(
                 contentId: 'other-id',
                 contentType: contentType,
               ),
@@ -101,7 +100,7 @@ void main() {
           showInterstitialThenOpenInternalContent,
           isNot(
             equals(
-              ShowInterstitialThenOpenInternalContent(
+              const ShowInterstitialThenOpenInternalContent(
                 contentId: contentId,
                 contentType: ContentType.category,
               ),
@@ -135,16 +134,16 @@ void main() {
 
     group('OpenExternalUrl', () {
       const url = 'https://example.com';
-      final openExternalUrl = OpenExternalUrl(url: url);
+      const openExternalUrl = OpenExternalUrl(url: url);
 
       test('supports value equality', () {
         expect(
           openExternalUrl,
-          equals(OpenExternalUrl(url: url)),
+          equals(const OpenExternalUrl(url: url)),
         );
         expect(
           openExternalUrl,
-          isNot(equals(OpenExternalUrl(url: 'https://other.com'))),
+          isNot(equals(const OpenExternalUrl(url: 'https://other.com'))),
         );
       });
 
@@ -235,7 +234,7 @@ void main() {
 
     group('feedItemActionToJson', () {
       test('serializes OpenInternalContent correctly', () {
-        final action = OpenInternalContent(
+        const action = OpenInternalContent(
           contentId: 'id1',
           contentType: ContentType.headline,
         );
@@ -248,7 +247,7 @@ void main() {
       });
 
       test('serializes ShowInterstitialThenOpenInternalContent correctly', () {
-        final action = ShowInterstitialThenOpenInternalContent(
+        const action = ShowInterstitialThenOpenInternalContent(
           contentId: 'id2',
           contentType: ContentType.category,
         );
@@ -261,7 +260,7 @@ void main() {
       });
 
       test('serializes OpenExternalUrl correctly', () {
-        final action = OpenExternalUrl(url: 'https://test.com');
+        const action = OpenExternalUrl(url: 'https://test.com');
         final json = feedItemActionToJson(action);
         expect(json, <String, dynamic>{
           'url': 'https://test.com',

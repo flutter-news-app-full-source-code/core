@@ -5,7 +5,7 @@ import 'package:uuid/uuid.dart';
 
 void main() {
   group('Headline Model', () {
-    final defaultAction = OpenExternalUrl(url: 'http://default.com');
+    const defaultAction = OpenExternalUrl(url: 'http://default.com');
 
     // Sample data for nested models
     final sampleSourceJson = {
