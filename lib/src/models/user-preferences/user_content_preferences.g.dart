@@ -7,7 +7,8 @@ part of 'user_content_preferences.dart';
 // **************************************************************************
 
 UserContentPreferences _$UserContentPreferencesFromJson(
-        Map<String, dynamic> json,) =>
+  Map<String, dynamic> json,
+) =>
     UserContentPreferences(
       id: json['id'] as String,
       followedCountries: (json['followedCountries'] as List<dynamic>?)
@@ -25,7 +26,8 @@ UserContentPreferences _$UserContentPreferencesFromJson(
     );
 
 Map<String, dynamic> _$UserContentPreferencesToJson(
-        UserContentPreferences instance,) =>
+  UserContentPreferences instance,
+) =>
     <String, dynamic>{
       'id': instance.id,
       'followedCountries':

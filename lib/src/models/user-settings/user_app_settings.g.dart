@@ -12,7 +12,8 @@ UserAppSettings _$UserAppSettingsFromJson(Map<String, dynamic> json) =>
       displaySettings: json['displaySettings'] == null
           ? null
           : DisplaySettings.fromJson(
-              json['displaySettings'] as Map<String, dynamic>,),
+              json['displaySettings'] as Map<String, dynamic>,
+            ),
       language: json['language'] as String?,
     );
 

@@ -1,10 +1,13 @@
-import 'package:ht_shared/ht_shared.dart' show Category, Country, Headline, Source;
+import 'package:ht_shared/ht_shared.dart'
+    show Category, Country, Headline, Source;
 import 'package:ht_shared/src/models/feed/feed_item.dart';
 import 'package:ht_shared/src/models/feed/feed_item_action.dart'
     show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
 import 'package:ht_shared/src/models/feed/suggested_content_display_type.dart';
-import 'package:ht_shared/src/models/models.dart' show Category, Country, Headline, Source;
-import 'package:ht_shared/src/models/news/news.dart' show Category, Country, Headline, Source;
+import 'package:ht_shared/src/models/models.dart'
+    show Category, Country, Headline, Source;
+import 'package:ht_shared/src/models/news/news.dart'
+    show Category, Country, Headline, Source;
 // Removed redundant imports for Category, Country, Headline, Source
 // as FeedItem itself will handle these.
 import 'package:json_annotation/json_annotation.dart';
