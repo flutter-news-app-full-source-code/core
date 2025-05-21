@@ -30,7 +30,7 @@ void main() {
         name: testName,
         description: testDescription,
         url: testUrl,
-        type: testType,
+        sourceType: testType,
         language: testLanguage,
         headquarters: testCountry,
       );
@@ -49,7 +49,7 @@ void main() {
         );
         expect(minimalSource.description, isNull);
         expect(minimalSource.url, isNull);
-        expect(minimalSource.type, isNull);
+        expect(minimalSource.sourceType, isNull);
         expect(minimalSource.language, isNull);
         expect(minimalSource.headquarters, isNull);
       });
@@ -59,7 +59,7 @@ void main() {
         expect(fullSource.name, testName);
         expect(fullSource.description, testDescription);
         expect(fullSource.url, testUrl);
-        expect(fullSource.type, testType);
+        expect(fullSource.sourceType, testType);
         expect(fullSource.language, testLanguage);
         expect(fullSource.headquarters, testCountry);
       });
@@ -74,7 +74,7 @@ void main() {
             testName,
             testDescription,
             testUrl,
-            testType,
+            testType, // This is the value of sourceType
             testLanguage,
             testCountry,
           ]),
@@ -87,7 +87,7 @@ void main() {
           name: testName,
           description: testDescription,
           url: testUrl,
-          type: testType,
+          sourceType: testType,
           language: testLanguage,
           headquarters: testCountry,
         );
@@ -96,7 +96,7 @@ void main() {
           name: testName,
           description: testDescription,
           url: testUrl,
-          type: testType,
+          sourceType: testType,
           language: testLanguage,
           headquarters: testCountry,
         );
@@ -168,7 +168,7 @@ void main() {
         expect(source.name, testName);
         expect(source.description, isNull);
         expect(source.url, isNull);
-        expect(source.type, isNull);
+        expect(source.sourceType, isNull);
         expect(source.language, isNull);
         expect(source.headquarters, isNull);
       });
@@ -188,7 +188,7 @@ void main() {
         expect(source.name, testName);
         expect(source.description, testDescription);
         expect(source.url, testUrl);
-        expect(source.type, testType);
+        expect(source.sourceType, testType);
         expect(source.language, testLanguage);
         expect(
           source.headquarters,
@@ -205,7 +205,7 @@ void main() {
         final source = Source.fromJson(jsonWithMissing);
         expect(source.description, isNull);
         expect(source.url, isNull);
-        expect(source.type, isNull);
+        expect(source.sourceType, isNull);
         expect(source.language, isNull);
         expect(source.headquarters, isNull);
       });
@@ -223,7 +223,7 @@ void main() {
         final source = Source.fromJson(jsonWithNulls);
         expect(source.description, isNull);
         expect(source.url, isNull);
-        expect(source.type, isNull);
+        expect(source.sourceType, isNull);
         expect(source.language, isNull);
         expect(source.headquarters, isNull);
       });
@@ -235,7 +235,7 @@ void main() {
           'type': 'some-unknown-type',
         };
         final source = Source.fromJson(jsonWithUnknownType);
-        expect(source.type, isNull); // Should default to null
+        expect(source.sourceType, isNull); // Should default to null
       });
     });
 
@@ -269,7 +269,10 @@ void main() {
           updatedDesc,
         );
         expect(fullSource.copyWith(url: updatedUrl).url, updatedUrl);
-        expect(fullSource.copyWith(type: updatedType).type, updatedType);
+        expect(
+          fullSource.copyWith(sourceType: updatedType).sourceType,
+          updatedType,
+        );
         expect(
           fullSource.copyWith(language: updatedLang).language,
           updatedLang,
@@ -285,14 +288,14 @@ void main() {
         const updatedType = SourceType.aggregator;
         final updatedCopy = fullSource.copyWith(
           name: updatedName,
-          type: updatedType,
+          sourceType: updatedType,
         );
 
         expect(updatedCopy.id, fullSource.id); // Unchanged
         expect(updatedCopy.name, updatedName); // Changed
         expect(updatedCopy.description, fullSource.description); // Unchanged
         expect(updatedCopy.url, fullSource.url); // Unchanged
-        expect(updatedCopy.type, updatedType); // Changed
+        expect(updatedCopy.sourceType, updatedType); // Changed
         expect(updatedCopy.language, fullSource.language); // Unchanged
         expect(updatedCopy.headquarters, fullSource.headquarters); // Unchanged
       });
