@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
-import 'package:ht_shared/ht_shared.dart' show AppConfig, UserContentPreferences;
-import 'package:ht_shared/src/models/models.dart' show AppConfig, UserContentPreferences;
+import 'package:ht_shared/ht_shared.dart'
+    show AppConfig, UserContentPreferences;
+import 'package:ht_shared/src/models/models.dart'
+    show AppConfig, UserContentPreferences;
 import 'package:meta/meta.dart';
 
 /// {@template user_preference_limits}

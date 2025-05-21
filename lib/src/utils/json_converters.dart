@@ -1,5 +1,6 @@
 import 'package:ht_shared/ht_shared.dart';
 import 'package:ht_shared/src/models/content_type.dart';
+import 'package:ht_shared/src/models/feed/feed_item_action.dart';
 
 /// Converts a snake_case string to a [ContentType] enum value.
 ///
@@ -376,4 +377,34 @@ String adTypeToJson(AdType type) {
     case AdType.interstitial:
       return 'interstitial';
   }
+}
+
+/// Converts a JSON map to a [FeedItemAction] instance.
+///
+/// This function acts as a central deserializer for the sealed [FeedItemAction]
+/// class, dispatching to the correct subtype's `fromJson` constructor based
+/// on the 'type' field in the JSON.
+///
+/// Throws a [FormatException] if the 'type' is unknown or if the JSON
+/// structure is invalid for the determined subtype.
+FeedItemAction feedItemActionFromJson(Map<String, dynamic> json) {
+  final type = json['type'] as String;
+  switch (type) {
+    case 'open_internal_content':
+      return OpenInternalContent.fromJson(json);
+    case 'show_interstitial_then_open_internal_content':
+      return ShowInterstitialThenOpenInternalContent.fromJson(json);
+    case 'open_external_url':
+      return OpenExternalUrl.fromJson(json);
+    default:
+      throw FormatException('Unknown FeedItemAction type: $type');
+  }
+}
+
+/// Converts a [FeedItemAction] instance to a JSON map.
+///
+/// This function acts as a central serializer for the sealed [FeedItemAction]
+/// class, dispatching to the correct subtype's `toJson` method.
+String feedItemActionToJson(FeedItemAction action) {
+  return action.toJson()['type'] as String;
 }

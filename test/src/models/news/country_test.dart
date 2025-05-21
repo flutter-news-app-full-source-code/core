@@ -11,7 +11,7 @@ void main() {
     const testName = 'United States';
     const testFlagUrl = 'https://example.com/us_flag.png';
 
-    const defaultAction = OpenExternalUrl(url: 'http://default.com');
+    final defaultAction = OpenExternalUrl(url: 'http://default.com');
 
     // Helper to create a valid JSON map
     Map<String, dynamic> createValidJsonMap({String? idOverride}) => {
@@ -47,7 +47,7 @@ void main() {
         isNot(equals(createSubject(id: uuid.v4()))),
       );
       expect(
-        createSubject(action: const OpenExternalUrl(url: 'http://other.com')),
+        createSubject(action: OpenExternalUrl(url: 'http://other.com')),
         isNot(equals(createSubject())),
       );
     });

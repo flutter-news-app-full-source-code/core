@@ -25,7 +25,8 @@ class SuggestedContent extends FeedItem {
     String? id,
   })  : id = id ?? const Uuid().v4(),
         super(
-            type: 'suggested_content',); // Removed action from super constructor
+          type: 'suggested_content',
+        ); // Removed action from super constructor
 
   /// Factory method to create a [SuggestedContent] instance from a JSON map.
   factory SuggestedContent.fromJson(Map<String, dynamic> json) {
@@ -91,7 +92,8 @@ class SuggestedContent extends FeedItem {
           return e.toJson();
         }
         throw FormatException(
-            'Unknown item type for serialization: ${e.runtimeType}',);
+          'Unknown item type for serialization: ${e.runtimeType}',
+        );
       }).toList(),
       'action': action.toJson(),
       'type': type, // Inherited from FeedItem

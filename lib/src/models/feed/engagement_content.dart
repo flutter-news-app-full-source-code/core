@@ -23,8 +23,8 @@ class EngagementContent extends FeedItem {
     String? id,
   })  : id = id ?? const Uuid().v4(),
         super(
-            type:
-                'engagement_content',); // Removed action from super constructor
+          type: 'engagement_content',
+        ); // Removed action from super constructor
 
   /// Factory method to create an [EngagementContent] instance from a JSON map.
   factory EngagementContent.fromJson(Map<String, dynamic> json) {

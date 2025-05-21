@@ -6,7 +6,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('UserContentPreferences', () {
-    const defaultAction = OpenExternalUrl(url: 'http://default.com');
+    final defaultAction = OpenExternalUrl(url: 'http://default.com');
 
     final mockCountry = Country(
       id: 'country-1',
