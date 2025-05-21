@@ -49,7 +49,9 @@ class Source extends FeedItem {
   /// If an unknown value is encountered during deserialization,
   /// this field will be set to null.
   @JsonKey(
-      name: 'sourceType', unknownEnumValue: JsonKey.nullForUndefinedEnumValue,)
+    name: 'sourceType',
+    unknownEnumValue: JsonKey.nullForUndefinedEnumValue,
+  )
   final SourceType? _sourceType;
 
   /// Public getter for the source type.
