@@ -181,15 +181,20 @@ void main() {
 
     group('Equatable', () {
       test('should equate two identical instances', () {
-        final headline1 = Headline(id: '1', title: 'Title', action: defaultAction);
-        final headline2 = Headline(id: '1', title: 'Title', action: defaultAction);
+        final headline1 =
+            Headline(id: '1', title: 'Title', action: defaultAction);
+        final headline2 =
+            Headline(id: '1', title: 'Title', action: defaultAction);
         expect(headline1, equals(headline2));
       });
 
       test('should not equate instances with different properties', () {
-        final headline1 = Headline(id: '1', title: 'Title 1', action: defaultAction);
-        final headline2 = Headline(id: '1', title: 'Title 2', action: defaultAction);
-        final headline3 = Headline(id: '2', title: 'Title 1', action: defaultAction);
+        final headline1 =
+            Headline(id: '1', title: 'Title 1', action: defaultAction);
+        final headline2 =
+            Headline(id: '1', title: 'Title 2', action: defaultAction);
+        final headline3 =
+            Headline(id: '2', title: 'Title 1', action: defaultAction);
         expect(headline1, isNot(equals(headline2)));
         expect(headline1, isNot(equals(headline3)));
       });

@@ -34,7 +34,7 @@ void main() {
 
     group('constructor', () {
       test('generates id when not provided', () {
-        final ad = createSubject(id: null);
+        final ad = createSubject();
         expect(ad.id, isA<String>());
         expect(Uuid.isValidUUID(fromString: ad.id), isTrue);
       });

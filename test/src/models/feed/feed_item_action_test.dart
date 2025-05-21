@@ -187,7 +187,7 @@ void main() {
         final action = feedItemActionFromJson(json);
         expect(action, isA<ShowInterstitialThenOpenInternalContent>());
         expect((action as ShowInterstitialThenOpenInternalContent).contentId,
-            'id2');
+            'id2',);
         expect(action.contentType, ContentType.category);
       });
 
@@ -209,7 +209,7 @@ void main() {
             (e) => e.message,
             'message',
             'Missing "type" field in FeedItemAction JSON.',
-          )),
+          ),),
         );
       });
 
@@ -221,7 +221,7 @@ void main() {
             (e) => e.message,
             'message',
             'Unknown FeedItemAction type: unknown_type',
-          )),
+          ),),
         );
       });
     });

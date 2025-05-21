@@ -124,7 +124,7 @@ void main() {
             (e) => e.message,
             'message',
             'Missing "type" field in FeedItem JSON.',
-          )),
+          ),),
         );
       });
 
@@ -136,7 +136,7 @@ void main() {
             (e) => e.message,
             'message',
             'Unknown FeedItem type: unknown_type',
-          )),
+          ),),
         );
       });
     });

@@ -59,6 +59,10 @@ Map<String, dynamic> feedItemActionToJson(FeedItemAction action) {
 /// {@endtemplate}
 @JsonSerializable()
 class OpenInternalContent extends FeedItemAction {
+
+  /// Factory method to create an [OpenInternalContent] instance from a JSON map.
+  factory OpenInternalContent.fromJson(Map<String, dynamic> json) =>
+      _$OpenInternalContentFromJson(json);
   /// {@macro open_internal_content}
   const OpenInternalContent({
     required this.contentId,
@@ -68,10 +72,6 @@ class OpenInternalContent extends FeedItemAction {
   /// A string representation of the action type.
   @JsonKey(name: 'type', required: true)
   final String type;
-
-  /// Factory method to create an [OpenInternalContent] instance from a JSON map.
-  factory OpenInternalContent.fromJson(Map<String, dynamic> json) =>
-      _$OpenInternalContentFromJson(json);
 
   /// The unique identifier of the internal content to open.
   final String contentId;
@@ -88,6 +88,13 @@ class OpenInternalContent extends FeedItemAction {
 /// {@endtemplate}
 @JsonSerializable()
 class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
+
+  /// Factory method to create a [ShowInterstitialThenOpenInternalContent]
+  /// instance from a JSON map.
+  factory ShowInterstitialThenOpenInternalContent.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ShowInterstitialThenOpenInternalContentFromJson(json);
   /// {@macro show_interstitial_then_open_internal_content}
   const ShowInterstitialThenOpenInternalContent({
     required this.contentId,
@@ -97,13 +104,6 @@ class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
   /// A string representation of the action type.
   @JsonKey(name: 'type', required: true)
   final String type;
-
-  /// Factory method to create a [ShowInterstitialThenOpenInternalContent]
-  /// instance from a JSON map.
-  factory ShowInterstitialThenOpenInternalContent.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$ShowInterstitialThenOpenInternalContentFromJson(json);
 
   /// The unique identifier of the internal content to open after the interstitial.
   final String contentId;
@@ -121,16 +121,16 @@ class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
 /// {@endtemplate}
 @JsonSerializable()
 class OpenExternalUrl extends FeedItemAction {
+
+  /// Factory method to create an [OpenExternalUrl] instance from a JSON map.
+  factory OpenExternalUrl.fromJson(Map<String, dynamic> json) =>
+      _$OpenExternalUrlFromJson(json);
   /// {@macro open_external_url}
   const OpenExternalUrl({required this.url}) : type = 'open_external_url';
 
   /// A string representation of the action type.
   @JsonKey(name: 'type', required: true)
   final String type;
-
-  /// Factory method to create an [OpenExternalUrl] instance from a JSON map.
-  factory OpenExternalUrl.fromJson(Map<String, dynamic> json) =>
-      _$OpenExternalUrlFromJson(json);
 
   /// The URL to open.
   final String url;

@@ -48,7 +48,8 @@ class Source extends FeedItem {
   /// The type of the source (e.g., newsAgency, blog).
   /// If an unknown value is encountered during deserialization,
   /// this field will be set to null.
-  @JsonKey(name: 'sourceType', unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  @JsonKey(
+      name: 'sourceType', unknownEnumValue: JsonKey.nullForUndefinedEnumValue,)
   final SourceType? _sourceType;
 
   /// Public getter for the source type.
@@ -61,6 +62,7 @@ class Source extends FeedItem {
   final Country? headquarters;
 
   /// The action to be performed when this feed item is interacted with.
+  @override
   @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
   final FeedItemAction action;
 

@@ -115,7 +115,8 @@ void main() {
       });
 
       test('instances with different props are not equal', () {
-        final source1 = Source(id: testId, name: testName, action: defaultAction);
+        final source1 =
+            Source(id: testId, name: testName, action: defaultAction);
         final source2 = Source(
           id: 'different-id', // Different ID
           name: testName,
@@ -163,14 +164,16 @@ void main() {
         expect(json['description'], testDescription);
         expect(json['url'], testUrl);
         expect(json['type'], 'source');
-        expect(json['sourceType'], 'specialized-publisher'); // Use direct string
+        expect(
+            json['sourceType'], 'specialized-publisher',); // Use direct string
         expect(json['language'], testLanguage);
         expect(json['headquarters'], testHeadquartersJson);
         expect(json['action'], defaultAction.toJson());
       });
 
       test('does not include null optional fields in JSON', () {
-        final sourceWithNulls = Source(id: testId, name: testName, action: defaultAction);
+        final sourceWithNulls =
+            Source(id: testId, name: testName, action: defaultAction);
         final json = sourceWithNulls.toJson();
         expect(json.containsKey('description'), isFalse);
         expect(json.containsKey('url'), isFalse);

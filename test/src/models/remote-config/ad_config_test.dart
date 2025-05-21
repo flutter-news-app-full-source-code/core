@@ -26,10 +26,10 @@ void main() {
         expect(adConfig.guestAdPlacementInterval, testGuestAdPlacementInterval);
         expect(adConfig.authenticatedAdFrequency, testAuthenticatedAdFrequency);
         expect(adConfig.authenticatedAdPlacementInterval,
-            testAuthenticatedAdPlacementInterval);
+            testAuthenticatedAdPlacementInterval,);
         expect(adConfig.premiumAdFrequency, testPremiumAdFrequency);
         expect(adConfig.premiumAdPlacementInterval,
-            testPremiumAdPlacementInterval);
+            testPremiumAdPlacementInterval,);
       });
     });
 
@@ -39,7 +39,8 @@ void main() {
           'guestAdFrequency': testGuestAdFrequency,
           'guestAdPlacementInterval': testGuestAdPlacementInterval,
           'authenticatedAdFrequency': testAuthenticatedAdFrequency,
-          'authenticatedAdPlacementInterval': testAuthenticatedAdPlacementInterval,
+          'authenticatedAdPlacementInterval':
+              testAuthenticatedAdPlacementInterval,
           'premiumAdFrequency': testPremiumAdFrequency,
           'premiumAdPlacementInterval': testPremiumAdPlacementInterval,
         };
@@ -55,7 +56,8 @@ void main() {
           'guestAdFrequency': testGuestAdFrequency,
           'guestAdPlacementInterval': testGuestAdPlacementInterval,
           'authenticatedAdFrequency': testAuthenticatedAdFrequency,
-          'authenticatedAdPlacementInterval': testAuthenticatedAdPlacementInterval,
+          'authenticatedAdPlacementInterval':
+              testAuthenticatedAdPlacementInterval,
           'premiumAdFrequency': testPremiumAdFrequency,
           'premiumAdPlacementInterval': testPremiumAdPlacementInterval,
         });
