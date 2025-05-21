@@ -108,13 +108,11 @@ void main() {
         final json = <String, dynamic>{'id': 'some-id'};
         expect(
           () => FeedItem.fromJson(json),
-          throwsA(
-            isA<FormatException>().having(
-              (e) => e.message,
-              'message',
-              'Missing "type" field in FeedItem JSON.',
-            ),
-          ),
+          throwsA(isA<FormatException>().having(
+            (e) => e.message,
+            'message',
+            'Missing "type" field in FeedItem JSON.',
+          ),),
         );
       });
 
@@ -122,13 +120,11 @@ void main() {
         final json = <String, dynamic>{'type': 'unknown_type'};
         expect(
           () => FeedItem.fromJson(json),
-          throwsA(
-            isA<FormatException>().having(
-              (e) => e.message,
-              'message',
-              'Unknown FeedItem type: unknown_type',
-            ),
-          ),
+          throwsA(isA<FormatException>().having(
+            (e) => e.message,
+            'message',
+            'Unknown FeedItem type: unknown_type',
+          ),),
         );
       });
     });

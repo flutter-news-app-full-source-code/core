@@ -25,15 +25,11 @@ void main() {
         expect(adConfig.guestAdFrequency, testGuestAdFrequency);
         expect(adConfig.guestAdPlacementInterval, testGuestAdPlacementInterval);
         expect(adConfig.authenticatedAdFrequency, testAuthenticatedAdFrequency);
-        expect(
-          adConfig.authenticatedAdPlacementInterval,
-          testAuthenticatedAdPlacementInterval,
-        );
+        expect(adConfig.authenticatedAdPlacementInterval,
+            testAuthenticatedAdPlacementInterval,);
         expect(adConfig.premiumAdFrequency, testPremiumAdFrequency);
-        expect(
-          adConfig.premiumAdPlacementInterval,
-          testPremiumAdPlacementInterval,
-        );
+        expect(adConfig.premiumAdPlacementInterval,
+            testPremiumAdPlacementInterval,);
       });
     });
 

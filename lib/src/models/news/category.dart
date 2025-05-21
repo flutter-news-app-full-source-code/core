@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/feed/feed_item.dart';
 import 'package:ht_shared/src/models/feed/feed_item_action.dart';
 import 'package:meta/meta.dart';

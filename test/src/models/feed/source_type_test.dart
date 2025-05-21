@@ -8,9 +8,7 @@ void main() {
       expect(SourceType.localNewsOutlet.name, 'localNewsOutlet');
       expect(SourceType.nationalNewsOutlet.name, 'nationalNewsOutlet');
       expect(
-        SourceType.internationalNewsOutlet.name,
-        'internationalNewsOutlet',
-      );
+          SourceType.internationalNewsOutlet.name, 'internationalNewsOutlet',);
       expect(SourceType.specializedPublisher.name, 'specializedPublisher');
       expect(SourceType.blog.name, 'blog');
       expect(SourceType.governmentSource.name, 'governmentSource');

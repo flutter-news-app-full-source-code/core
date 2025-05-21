@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/feed/feed_item.dart';
 import 'package:ht_shared/src/models/feed/feed_item_action.dart';
 import 'package:uuid/uuid.dart';
@@ -41,6 +42,7 @@ class Country extends FeedItem {
 
   /// The URL pointing to an image of the country's flag.
   final String flagUrl;
+
 
   /// Converts this Country instance into a JSON map.
   @override

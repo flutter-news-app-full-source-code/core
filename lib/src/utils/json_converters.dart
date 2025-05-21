@@ -1,5 +1,12 @@
 import 'package:ht_shared/ht_shared.dart';
 import 'package:ht_shared/src/models/content_type.dart';
+import 'package:ht_shared/src/models/feed/ad_placement.dart';
+import 'package:ht_shared/src/models/feed/engagement_content_type.dart';
+import 'package:ht_shared/src/models/feed/suggested_content_display_type.dart';
+import 'package:ht_shared/src/models/user-settings/app_accent_theme.dart';
+import 'package:ht_shared/src/models/user-settings/app_base_theme.dart';
+import 'package:ht_shared/src/models/user-settings/app_font_weight.dart';
+import 'package:ht_shared/src/models/user-settings/app_text_scale_factor.dart';
 
 /// Converts a snake_case string to a [ContentType] enum value.
 ///
