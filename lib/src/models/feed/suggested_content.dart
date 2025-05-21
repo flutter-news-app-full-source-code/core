@@ -1,4 +1,3 @@
-import 'package:equatable/equatable.dart';
 import 'package:ht_shared/ht_shared.dart'
     show Category, Country, Headline, Source;
 import 'package:ht_shared/src/models/feed/feed_item.dart';
@@ -25,7 +24,8 @@ class SuggestedContent extends FeedItem {
     this.description,
     String? id,
   })  : id = id ?? const Uuid().v4(),
-        super(type: 'suggested_content'); // Removed action from super constructor
+        super(
+            type: 'suggested_content',); // Removed action from super constructor
 
   /// Factory method to create a [SuggestedContent] instance from a JSON map.
   factory SuggestedContent.fromJson(Map<String, dynamic> json) {
@@ -36,24 +36,22 @@ class SuggestedContent extends FeedItem {
       displayType: suggestedContentDisplayTypeFromJson(
         json['displayType'] as String,
       ),
-      items: (json['items'] as List<dynamic>)
-          .map((e) {
-            final itemMap = e as Map<String, dynamic>;
-            final itemType = itemMap['type'] as String;
-            switch (itemType) {
-              case 'headline':
-                return Headline.fromJson(itemMap);
-              case 'category':
-                return Category.fromJson(itemMap);
-              case 'source':
-                return Source.fromJson(itemMap);
-              case 'country':
-                return Country.fromJson(itemMap);
-              default:
-                throw FormatException('Unknown item type: $itemType');
-            }
-          })
-          .toList(),
+      items: (json['items'] as List<dynamic>).map((e) {
+        final itemMap = e as Map<String, dynamic>;
+        final itemType = itemMap['type'] as String;
+        switch (itemType) {
+          case 'headline':
+            return Headline.fromJson(itemMap);
+          case 'category':
+            return Category.fromJson(itemMap);
+          case 'source':
+            return Source.fromJson(itemMap);
+          case 'country':
+            return Country.fromJson(itemMap);
+          default:
+            throw FormatException('Unknown item type: $itemType');
+        }
+      }).toList(),
       action: FeedItemAction.fromJson(json['action'] as Map<String, dynamic>),
     );
   }
@@ -77,7 +75,7 @@ class SuggestedContent extends FeedItem {
   /// Converts this [SuggestedContent] instance to a JSON map.
   @override
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> json = {
+    final json = <String, dynamic>{
       'id': id,
       'title': title,
       'description': description,
@@ -92,7 +90,8 @@ class SuggestedContent extends FeedItem {
         } else if (e is Country) {
           return e.toJson();
         }
-        throw FormatException('Unknown item type for serialization: ${e.runtimeType}');
+        throw FormatException(
+            'Unknown item type for serialization: ${e.runtimeType}',);
       }).toList(),
       'action': action.toJson(),
       'type': type, // Inherited from FeedItem

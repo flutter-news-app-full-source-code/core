@@ -10,19 +10,27 @@ void main() {
     });
 
     test('can be created from string values', () {
-      expect(AppAccentTheme.values.byName('defaultBlue'),
-          AppAccentTheme.defaultBlue,);
+      expect(
+        AppAccentTheme.values.byName('defaultBlue'),
+        AppAccentTheme.defaultBlue,
+      );
       expect(AppAccentTheme.values.byName('newsRed'), AppAccentTheme.newsRed);
-      expect(AppAccentTheme.values.byName('graphiteGray'),
-          AppAccentTheme.graphiteGray,);
+      expect(
+        AppAccentTheme.values.byName('graphiteGray'),
+        AppAccentTheme.graphiteGray,
+      );
     });
 
     test('has correct toString representation', () {
       expect(
-          AppAccentTheme.defaultBlue.toString(), 'AppAccentTheme.defaultBlue',);
+        AppAccentTheme.defaultBlue.toString(),
+        'AppAccentTheme.defaultBlue',
+      );
       expect(AppAccentTheme.newsRed.toString(), 'AppAccentTheme.newsRed');
-      expect(AppAccentTheme.graphiteGray.toString(),
-          'AppAccentTheme.graphiteGray',);
+      expect(
+        AppAccentTheme.graphiteGray.toString(),
+        'AppAccentTheme.graphiteGray',
+      );
     });
   });
 }

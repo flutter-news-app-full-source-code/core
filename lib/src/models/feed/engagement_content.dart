@@ -1,4 +1,3 @@
-import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/feed/engagement_content_type.dart';
 import 'package:ht_shared/src/models/feed/feed_item.dart';
 import 'package:ht_shared/src/models/feed/feed_item_action.dart';
@@ -23,7 +22,9 @@ class EngagementContent extends FeedItem {
     this.callToActionUrl,
     String? id,
   })  : id = id ?? const Uuid().v4(),
-        super(type: 'engagement_content'); // Removed action from super constructor
+        super(
+            type:
+                'engagement_content',); // Removed action from super constructor
 
   /// Factory method to create an [EngagementContent] instance from a JSON map.
   factory EngagementContent.fromJson(Map<String, dynamic> json) {
@@ -61,7 +62,7 @@ class EngagementContent extends FeedItem {
   /// Converts this [EngagementContent] instance to a JSON map.
   @override
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> json = {
+    final json = <String, dynamic>{
       'id': id,
       'title': title,
       'description': description,

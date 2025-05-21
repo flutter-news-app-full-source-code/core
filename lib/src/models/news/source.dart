@@ -1,4 +1,3 @@
-import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/feed/feed_item.dart';
 import 'package:ht_shared/src/models/feed/feed_item_action.dart';
 import 'package:ht_shared/src/models/feed/source_type.dart';
@@ -74,7 +73,7 @@ class Source extends FeedItem {
   /// Converts this [Source] instance to a JSON map.
   @override
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> json = {
+    final json = <String, dynamic>{
       'id': id,
       'name': name,
       'description': description,

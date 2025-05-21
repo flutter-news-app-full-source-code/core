@@ -75,11 +75,9 @@ class UserContentPreferences extends Equatable {
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'id': id,
-      'followedCountries':
-          followedCountries.map((e) => e.toJson()).toList(),
+      'followedCountries': followedCountries.map((e) => e.toJson()).toList(),
       'followedSources': followedSources.map((e) => e.toJson()).toList(),
-      'followedCategories':
-          followedCategories.map((e) => e.toJson()).toList(),
+      'followedCategories': followedCategories.map((e) => e.toJson()).toList(),
       'savedHeadlines': savedHeadlines.map((e) => e.toJson()).toList(),
     };
   }

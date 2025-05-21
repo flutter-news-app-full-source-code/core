@@ -1,4 +1,3 @@
-import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/feed/feed_item.dart';
 import 'package:ht_shared/src/models/feed/feed_item_action.dart';
 import 'package:ht_shared/src/models/news/category.dart';
@@ -83,7 +82,7 @@ class Headline extends FeedItem {
   /// Converts this [Headline] instance to a JSON map.
   @override
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> json = {
+    final json = <String, dynamic>{
       'id': id,
       'title': title,
       'description': description,

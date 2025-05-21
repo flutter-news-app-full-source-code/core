@@ -23,9 +23,7 @@ class PaginatedResponse<T> extends Equatable {
     T Function(Object? json) fromJsonT,
   ) {
     return PaginatedResponse(
-      items: (json['items'] as List<dynamic>)
-          .map((e) => fromJsonT(e))
-          .toList(),
+      items: (json['items'] as List<dynamic>).map((e) => fromJsonT(e)).toList(),
       cursor: json['cursor'] as String?,
       hasMore: json['hasMore'] as bool,
     );

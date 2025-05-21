@@ -186,8 +186,10 @@ void main() {
         };
         final action = feedItemActionFromJson(json);
         expect(action, isA<ShowInterstitialThenOpenInternalContent>());
-        expect((action as ShowInterstitialThenOpenInternalContent).contentId,
-            'id2',);
+        expect(
+          (action as ShowInterstitialThenOpenInternalContent).contentId,
+          'id2',
+        );
         expect(action.contentType, ContentType.category);
       });
 
@@ -205,11 +207,13 @@ void main() {
         final json = <String, dynamic>{'contentId': 'id1'};
         expect(
           () => feedItemActionFromJson(json),
-          throwsA(isA<FormatException>().having(
-            (e) => e.message,
-            'message',
-            'Missing "type" field in FeedItemAction JSON.',
-          ),),
+          throwsA(
+            isA<FormatException>().having(
+              (e) => e.message,
+              'message',
+              'Missing "type" field in FeedItemAction JSON.',
+            ),
+          ),
         );
       });
 
@@ -217,11 +221,13 @@ void main() {
         final json = <String, dynamic>{'type': 'unknown_type'};
         expect(
           () => feedItemActionFromJson(json),
-          throwsA(isA<FormatException>().having(
-            (e) => e.message,
-            'message',
-            'Unknown FeedItemAction type: unknown_type',
-          ),),
+          throwsA(
+            isA<FormatException>().having(
+              (e) => e.message,
+              'message',
+              'Unknown FeedItemAction type: unknown_type',
+            ),
+          ),
         );
       });
     });

@@ -165,7 +165,9 @@ void main() {
         expect(json['url'], testUrl);
         expect(json['type'], 'source');
         expect(
-            json['sourceType'], 'specialized-publisher',); // Use direct string
+          json['sourceType'],
+          'specialized-publisher',
+        ); // Use direct string
         expect(json['language'], testLanguage);
         expect(json['headquarters'], testHeadquartersJson);
         expect(json['action'], defaultAction.toJson());
