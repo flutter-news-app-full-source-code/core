@@ -1,3 +1,4 @@
+export 'feed/feed.dart';
 export 'news/news.dart';
 export 'permission.dart';
 export 'remote-config/remote_config.dart';
