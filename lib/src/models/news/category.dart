@@ -1,4 +1,6 @@
-import 'package:equatable/equatable.dart';
+import 'package:ht_shared/src/models/feed/feed_item.dart';
+import 'package:ht_shared/src/models/feed/feed_item_action.dart'
+    show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
@@ -13,12 +15,18 @@ part 'category.g.dart';
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
-class Category extends Equatable {
+class Category extends FeedItem {
   /// {@macro category}
   ///
   /// If an [id] is not provided, a UUID v4 will be generated.
-  Category({required this.name, String? id, this.description, this.iconUrl})
-    : id = id ?? const Uuid().v4();
+  Category({
+    required this.name,
+    String? id,
+    this.description,
+    this.iconUrl,
+    required super.action, // Add action to constructor
+  }) : id = id ?? const Uuid().v4(),
+       super(type: 'category');
 
   /// Creates a Category instance from a JSON map.
   factory Category.fromJson(Map<String, dynamic> json) =>
@@ -38,8 +46,27 @@ class Category extends Equatable {
   @JsonKey(name: 'icon_url')
   final String? iconUrl;
 
+  /// The action to be performed when this feed item is interacted with.
+  @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
+  @override
+  late final FeedItemAction action;
+
   /// Converts this Category instance to a JSON map.
+  @override
   Map<String, dynamic> toJson() => _$CategoryToJson(this);
+
+  @override
+  List<Object?> get props => [
+    id,
+    name,
+    description,
+    iconUrl,
+    type,
+    action,
+  ];
+
+  @override
+  bool get stringify => true;
 
   /// Creates a copy of this Category but with the given fields replaced with
   /// the new values.
@@ -48,18 +75,14 @@ class Category extends Equatable {
     String? name,
     String? description,
     String? iconUrl,
+    FeedItemAction? action,
   }) {
     return Category(
       id: id ?? this.id,
       name: name ?? this.name,
       description: description ?? this.description,
       iconUrl: iconUrl ?? this.iconUrl,
+      action: action ?? this.action,
     );
   }
-
-  @override
-  List<Object?> get props => [id, name, description, iconUrl];
-
-  @override
-  bool get stringify => true;
 }

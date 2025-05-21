@@ -21,6 +21,7 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) => Headline(
           ? null
           : Category.fromJson(json['category'] as Map<String, dynamic>),
   id: json['id'] as String?,
+  action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$HeadlineToJson(Headline instance) => <String, dynamic>{
@@ -33,4 +34,5 @@ Map<String, dynamic> _$HeadlineToJson(Headline instance) => <String, dynamic>{
     'publishedAt': value,
   if (instance.source?.toJson() case final value?) 'source': value,
   if (instance.category?.toJson() case final value?) 'category': value,
+  'action': feedItemActionToJson(instance.action),
 };

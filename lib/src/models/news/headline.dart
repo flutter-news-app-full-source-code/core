@@ -1,12 +1,11 @@
-import 'package:equatable/equatable.dart';
-import 'package:ht_shared/src/models/news/news.dart';
+import 'package:ht_shared/src/models/feed/feed_item.dart';
+import 'package:ht_shared/src/models/feed/feed_item_action.dart'
+    show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
+import 'package:ht_shared/src/models/news/category.dart';
+import 'package:ht_shared/src/models/news/source.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
-
-export 'category.dart';
-export 'country.dart';
-export 'source.dart';
 
 part 'headline.g.dart';
 
@@ -23,7 +22,7 @@ DateTime? _dateTimeFromJson(String? dateString) {
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
-class Headline extends Equatable {
+class Headline extends FeedItem {
   /// {@macro headline}
   Headline({
     required this.title,
@@ -34,11 +33,13 @@ class Headline extends Equatable {
     this.source,
     this.category,
     String? id,
+    required super.action, // Add action to constructor
   }) : assert(
          id == null || id.isNotEmpty,
          'id cannot be an empty string', // Updated assertion message
        ),
-       id = id ?? const Uuid().v4();
+       id = id ?? const Uuid().v4(),
+       super(type: 'headline');
 
   /// Factory method to create a [Headline] instance from a JSON map.
   factory Headline.fromJson(Map<String, dynamic> json) =>
@@ -70,7 +71,13 @@ class Headline extends Equatable {
   /// Category of the current headline.
   final Category? category;
 
+  /// The action to be performed when this feed item is interacted with.
+  @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
+  @override
+  late final FeedItemAction action;
+
   /// Converts this [Headline] instance to a JSON map.
+  @override
   Map<String, dynamic> toJson() => _$HeadlineToJson(this);
 
   @override
@@ -83,6 +90,8 @@ class Headline extends Equatable {
     publishedAt,
     source,
     category,
+    type,
+    action,
   ];
 
   @override
@@ -99,6 +108,7 @@ class Headline extends Equatable {
     DateTime? publishedAt,
     Source? source,
     Category? category,
+    FeedItemAction? action,
   }) {
     return Headline(
       id: id ?? this.id,
@@ -109,6 +119,7 @@ class Headline extends Equatable {
       publishedAt: publishedAt ?? this.publishedAt,
       source: source ?? this.source,
       category: category ?? this.category,
+      action: action ?? this.action,
     );
   }
 }

@@ -10,17 +10,14 @@ Source _$SourceFromJson(Map<String, dynamic> json) => Source(
   name: json['name'] as String,
   description: json['description'] as String?,
   url: json['url'] as String?,
-  type: $enumDecodeNullable(
-    _$SourceTypeEnumMap,
-    json['type'],
-    unknownValue: JsonKey.nullForUndefinedEnumValue,
-  ),
+  sourceType: $enumDecodeNullable(_$SourceTypeEnumMap, json['sourceType']),
   language: json['language'] as String?,
   headquarters:
       json['headquarters'] == null
           ? null
           : Country.fromJson(json['headquarters'] as Map<String, dynamic>),
   id: json['id'] as String?,
+  action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$SourceToJson(Source instance) => <String, dynamic>{
@@ -28,9 +25,11 @@ Map<String, dynamic> _$SourceToJson(Source instance) => <String, dynamic>{
   'name': instance.name,
   if (instance.description case final value?) 'description': value,
   if (instance.url case final value?) 'url': value,
-  if (_$SourceTypeEnumMap[instance.type] case final value?) 'type': value,
+  if (_$SourceTypeEnumMap[instance.sourceType] case final value?)
+    'sourceType': value,
   if (instance.language case final value?) 'language': value,
   if (instance.headquarters?.toJson() case final value?) 'headquarters': value,
+  'action': feedItemActionToJson(instance.action),
 };
 
 const _$SourceTypeEnumMap = {

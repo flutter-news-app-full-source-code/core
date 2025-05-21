@@ -1,49 +1,13 @@
-import 'package:equatable/equatable.dart';
+import 'package:ht_shared/src/models/feed/feed_item.dart';
+import 'package:ht_shared/src/models/feed/source_type.dart';
 import 'package:ht_shared/src/models/news/country.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:uuid/uuid.dart';
 
+import 'package:ht_shared/src/models/feed/feed_item_action.dart'
+    show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
+
 part 'source.g.dart';
-
-/// Enum representing the type of news source.
-@JsonEnum(fieldRename: FieldRename.kebab)
-enum SourceType {
-  /// A global news agency
-  /// (e.g., Reuters, Associated Press, Agence France-Presse).
-  newsAgency,
-
-  /// A news outlet focused on a specific local area
-  /// (e.g., San Francisco Chronicle, Manchester Evening News).
-  localNewsOutlet,
-
-  /// A news outlet focused on a specific country
-  /// (e.g., BBC News (UK), The New York Times (US)).
-  nationalNewsOutlet,
-
-  /// A news outlet with a broad international focus
-  /// (e.g., Al Jazeera English, CNN International).
-  internationalNewsOutlet,
-
-  /// A publisher focused on a specific topic
-  /// (e.g., TechCrunch (technology), ESPN (sports), Nature (science)).
-  specializedPublisher,
-
-  /// A blog or personal publication
-  /// (e.g., Stratechery by Ben Thompson).
-  blog,
-
-  /// An official government source
-  /// (e.g., WhiteHouse.gov, gov.uk).
-  governmentSource,
-
-  /// A service that aggregates news from other sources
-  /// (e.g., Google News, Apple News).
-  aggregator,
-
-  /// Any other type of source not covered above
-  /// (e.g., academic journals, company press releases).
-  other,
-}
 
 /// {@template source}
 /// Source model
@@ -51,17 +15,20 @@ enum SourceType {
 /// Represents a news source.
 /// {@endtemplate}
 @JsonSerializable(explicitToJson: true, includeIfNull: false)
-class Source extends Equatable {
+class Source extends FeedItem {
   /// {@macro source}
   Source({
     required this.name,
     this.description,
     this.url,
-    this.type,
+    SourceType? sourceType, // Renamed to avoid conflict with FeedItem.type
     this.language,
     this.headquarters,
     String? id,
-  }) : id = id ?? const Uuid().v4();
+    required super.action, // Add action to constructor
+  }) : id = id ?? const Uuid().v4(),
+       _sourceType = sourceType,
+       super(type: 'source');
 
   /// Factory method to create a [Source] instance from a JSON map.
   factory Source.fromJson(Map<String, dynamic> json) => _$SourceFromJson(json);
@@ -82,8 +49,11 @@ class Source extends Equatable {
   /// The type of the source (e.g., newsAgency, blog).
   /// If an unknown value is encountered during deserialization,
   /// this field will be set to null.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
-  final SourceType? type;
+  @JsonKey(name: 'type', unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  final SourceType? _sourceType;
+
+  /// Public getter for the source type.
+  SourceType? get sourceType => _sourceType;
 
   /// The language code of the source (e.g., 'en', 'fr').
   final String? language;
@@ -91,7 +61,13 @@ class Source extends Equatable {
   /// The country where the source is headquartered.
   final Country? headquarters;
 
+  /// The action to be performed when this feed item is interacted with.
+  @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
+  @override
+  late final FeedItemAction action;
+
   /// Converts this [Source] instance to a JSON map.
+  @override
   Map<String, dynamic> toJson() => _$SourceToJson(this);
 
   @override
@@ -100,9 +76,11 @@ class Source extends Equatable {
     name,
     description,
     url,
-    type,
+    _sourceType,
     language,
     headquarters,
+    type,
+    action,
   ];
 
   /// Creates a new [Source] with updated properties.
@@ -112,18 +90,20 @@ class Source extends Equatable {
     String? name,
     String? description,
     String? url,
-    SourceType? type,
+    SourceType? sourceType,
     String? language,
     Country? headquarters,
+    FeedItemAction? action,
   }) {
     return Source(
       id: id ?? this.id,
       name: name ?? this.name,
       description: description ?? this.description,
       url: url ?? this.url,
-      type: type ?? this.type,
+      sourceType: sourceType ?? _sourceType,
       language: language ?? this.language,
       headquarters: headquarters ?? this.headquarters,
+      action: action ?? this.action,
     );
   }
 }

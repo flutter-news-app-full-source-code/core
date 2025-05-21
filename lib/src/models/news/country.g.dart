@@ -11,6 +11,7 @@ Country _$CountryFromJson(Map<String, dynamic> json) => Country(
   name: json['name'] as String,
   flagUrl: json['flag_url'] as String,
   id: json['id'] as String?,
+  action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$CountryToJson(Country instance) => <String, dynamic>{
@@ -18,4 +19,5 @@ Map<String, dynamic> _$CountryToJson(Country instance) => <String, dynamic>{
   'iso_code': instance.isoCode,
   'name': instance.name,
   'flag_url': instance.flagUrl,
+  'action': feedItemActionToJson(instance.action),
 };
