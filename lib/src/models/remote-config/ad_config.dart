@@ -1,4 +1,13 @@
 import 'package:equatable/equatable.dart';
+import 'package:ht_shared/ht_shared.dart' show AppConfig;
+import 'package:ht_shared/src/models/models.dart' show AppConfig;
+import 'package:ht_shared/src/models/remote-config/app_config.dart'
+    show AppConfig;
+import 'package:ht_shared/src/models/remote-config/remote_config.dart'
+    show AppConfig;
+import 'package:json_annotation/json_annotation.dart';
+
+part 'ad_config.g.dart';
 
 /// {@template ad_config}
 /// Defines configuration settings related to ad injection and display,
@@ -8,6 +17,7 @@ import 'package:equatable/equatable.dart';
 /// how ads are integrated into the application's feed or other content areas
 /// based on the user's authentication status or subscription level.
 /// {@endtemplate}
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class AdConfig extends Equatable {
   /// {@macro ad_config}
   const AdConfig({
@@ -20,17 +30,8 @@ class AdConfig extends Equatable {
   });
 
   /// Factory method to create an [AdConfig] instance from a JSON map.
-  factory AdConfig.fromJson(Map<String, dynamic> json) {
-    return AdConfig(
-      guestAdFrequency: json['guestAdFrequency'] as int,
-      guestAdPlacementInterval: json['guestAdPlacementInterval'] as int,
-      authenticatedAdFrequency: json['authenticatedAdFrequency'] as int,
-      authenticatedAdPlacementInterval:
-          json['authenticatedAdPlacementInterval'] as int,
-      premiumAdFrequency: json['premiumAdFrequency'] as int,
-      premiumAdPlacementInterval: json['premiumAdPlacementInterval'] as int,
-    );
-  }
+  factory AdConfig.fromJson(Map<String, dynamic> json) =>
+      _$AdConfigFromJson(json);
 
   /// The frequency at which ads should appear for guest users
   /// (e.g., every N items).
@@ -55,16 +56,7 @@ class AdConfig extends Equatable {
   final int premiumAdPlacementInterval;
 
   /// Converts this [AdConfig] instance to a JSON map.
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      'guestAdFrequency': guestAdFrequency,
-      'guestAdPlacementInterval': guestAdPlacementInterval,
-      'authenticatedAdFrequency': authenticatedAdFrequency,
-      'authenticatedAdPlacementInterval': authenticatedAdPlacementInterval,
-      'premiumAdFrequency': premiumAdFrequency,
-      'premiumAdPlacementInterval': premiumAdPlacementInterval,
-    };
-  }
+  Map<String, dynamic> toJson() => _$AdConfigToJson(this);
 
   @override
   List<Object> get props => [

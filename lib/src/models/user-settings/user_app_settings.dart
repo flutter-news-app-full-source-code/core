@@ -1,6 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/user-settings/app_language.dart';
 import 'package:ht_shared/src/models/user-settings/display_settings.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+part 'user_app_settings.g.dart';
 
 /// {@template user_app_settings}
 /// Represents a collection of user-specific application settings,
@@ -9,6 +12,7 @@ import 'package:ht_shared/src/models/user-settings/display_settings.dart';
 /// This model unifies settings that are tied to a specific user,
 /// making it suitable for management via a generic data client.
 /// {@endtemplate}
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class UserAppSettings extends Equatable {
   /// {@macro user_app_settings}
   ///
@@ -24,17 +28,8 @@ class UserAppSettings extends Equatable {
         language = language ?? 'en'; // Default language is English
 
   /// Factory method to create a [UserAppSettings] instance from a JSON map.
-  factory UserAppSettings.fromJson(Map<String, dynamic> json) {
-    return UserAppSettings(
-      id: json['id'] as String,
-      displaySettings: json['displaySettings'] == null
-          ? null
-          : DisplaySettings.fromJson(
-              json['displaySettings'] as Map<String, dynamic>,
-            ),
-      language: json['language'] as String?,
-    );
-  }
+  factory UserAppSettings.fromJson(Map<String, dynamic> json) =>
+      _$UserAppSettingsFromJson(json);
 
   /// The unique identifier for the user settings, typically the user's ID.
   final String id;
@@ -46,13 +41,7 @@ class UserAppSettings extends Equatable {
   final AppLanguage language;
 
   /// Converts this [UserAppSettings] instance to a JSON map.
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      'id': id,
-      'displaySettings': displaySettings.toJson(),
-      'language': language,
-    }..removeWhere((key, value) => value == null);
-  }
+  Map<String, dynamic> toJson() => _$UserAppSettingsToJson(this);
 
   @override
   List<Object?> get props => [id, displaySettings, language];

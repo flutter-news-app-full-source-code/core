@@ -1,5 +1,12 @@
 import 'package:equatable/equatable.dart';
+import 'package:ht_shared/ht_shared.dart'
+    show AppConfig, UserContentPreferences;
+import 'package:ht_shared/src/models/models.dart'
+    show AppConfig, UserContentPreferences;
+import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
+
+part 'user_preference_limits.g.dart';
 
 /// {@template user_preference_limits}
 /// Defines the maximum number of items a user can follow or save,
@@ -34,6 +41,7 @@ import 'package:meta/meta.dart';
 /// Backend enforcement is crucial to prevent exceeding these limits.
 /// {@endtemplate}
 @immutable
+@JsonSerializable(explicitToJson: true)
 class UserPreferenceLimits extends Equatable {
   /// {@macro user_preference_limits}
   const UserPreferenceLimits({
@@ -46,18 +54,8 @@ class UserPreferenceLimits extends Equatable {
   });
 
   /// Factory method to create a [UserPreferenceLimits] instance from a JSON map.
-  factory UserPreferenceLimits.fromJson(Map<String, dynamic> json) {
-    return UserPreferenceLimits(
-      guestFollowedItemsLimit: json['guestFollowedItemsLimit'] as int,
-      guestSavedHeadlinesLimit: json['guestSavedHeadlinesLimit'] as int,
-      authenticatedFollowedItemsLimit:
-          json['authenticatedFollowedItemsLimit'] as int,
-      authenticatedSavedHeadlinesLimit:
-          json['authenticatedSavedHeadlinesLimit'] as int,
-      premiumFollowedItemsLimit: json['premiumFollowedItemsLimit'] as int,
-      premiumSavedHeadlinesLimit: json['premiumSavedHeadlinesLimit'] as int,
-    );
-  }
+  factory UserPreferenceLimits.fromJson(Map<String, dynamic> json) =>
+      _$UserPreferenceLimitsFromJson(json);
 
   /// Maximum number of countries, sources, or categories a Guest user can follow.
   /// This limit applies individually to each list.
@@ -81,16 +79,7 @@ class UserPreferenceLimits extends Equatable {
   final int premiumSavedHeadlinesLimit;
 
   /// Converts this [UserPreferenceLimits] instance to a JSON map.
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      'guestFollowedItemsLimit': guestFollowedItemsLimit,
-      'guestSavedHeadlinesLimit': guestSavedHeadlinesLimit,
-      'authenticatedFollowedItemsLimit': authenticatedFollowedItemsLimit,
-      'authenticatedSavedHeadlinesLimit': authenticatedSavedHeadlinesLimit,
-      'premiumFollowedItemsLimit': premiumFollowedItemsLimit,
-      'premiumSavedHeadlinesLimit': premiumSavedHeadlinesLimit,
-    };
-  }
+  Map<String, dynamic> toJson() => _$UserPreferenceLimitsToJson(this);
 
   @override
   List<Object> get props => [

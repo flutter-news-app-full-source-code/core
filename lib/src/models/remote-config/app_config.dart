@@ -1,7 +1,10 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/remote-config/ad_config.dart';
 import 'package:ht_shared/src/models/remote-config/user_preference_limits.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
+
+part 'app_config.g.dart';
 
 /// {@template app_config}
 /// Represents the overall application configuration.
@@ -16,6 +19,7 @@ import 'package:meta/meta.dart';
 /// identified by a fixed ID (e.g., 'app_config').
 /// {@endtemplate}
 @immutable
+@JsonSerializable(explicitToJson: true)
 class AppConfig extends Equatable {
   /// {@macro app_config}
   ///
@@ -47,19 +51,8 @@ class AppConfig extends Equatable {
             ); // Default ad config
 
   /// Factory method to create an [AppConfig] instance from a JSON map.
-  factory AppConfig.fromJson(Map<String, dynamic> json) {
-    return AppConfig(
-      id: json['id'] as String,
-      userPreferenceLimits: json['userPreferenceLimits'] == null
-          ? null
-          : UserPreferenceLimits.fromJson(
-              json['userPreferenceLimits'] as Map<String, dynamic>,
-            ),
-      adConfig: json['adConfig'] == null
-          ? null
-          : AdConfig.fromJson(json['adConfig'] as Map<String, dynamic>),
-    );
-  }
+  factory AppConfig.fromJson(Map<String, dynamic> json) =>
+      _$AppConfigFromJson(json);
 
   /// The unique identifier for the application configuration.
   /// Should typically be a fixed value like 'app_config'.
@@ -74,13 +67,7 @@ class AppConfig extends Equatable {
   final AdConfig adConfig;
 
   /// Converts this [AppConfig] instance to a JSON map.
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      'id': id,
-      'userPreferenceLimits': userPreferenceLimits.toJson(),
-      'adConfig': adConfig.toJson(),
-    };
-  }
+  Map<String, dynamic> toJson() => _$AppConfigToJson(this);
 
   @override
   List<Object> get props => [id, userPreferenceLimits, adConfig];

@@ -1,11 +1,14 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/user_role.dart';
-import 'package:ht_shared/src/utils/json_converters.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+part 'user.g.dart';
 
 /// Represents a user within the system.
 ///
 /// This model holds basic information about the user, including their
 /// unique identifier, email (if available), and their assigned [role].
+@JsonSerializable()
 class User extends Equatable {
   /// Creates a new [User] instance.
   ///
@@ -15,13 +18,7 @@ class User extends Equatable {
   const User({required this.id, required this.role, this.email});
 
   /// Creates a User from JSON data.
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
-      id: json['id'] as String,
-      role: userRoleFromJson(json['role'] as String),
-      email: json['email'] as String?,
-    );
-  }
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
   /// The unique identifier for the user (e.g., a UUID).
   final String id;
@@ -35,13 +32,7 @@ class User extends Equatable {
   final UserRole role;
 
   /// Converts this User instance to JSON data.
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      'id': id,
-      'email': email,
-      'role': userRoleToJson(role),
-    };
-  }
+  Map<String, dynamic> toJson() => _$UserToJson(this);
 
   @override
   List<Object?> get props => [id, email, role];

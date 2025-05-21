@@ -1,5 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/ht_shared.dart'; // For User model
+import 'package:json_annotation/json_annotation.dart';
+
+part 'auth_success_response.g.dart';
 
 /// {@template auth_success_response}
 /// Represents the successful result of an authentication operation,
@@ -9,6 +12,7 @@ import 'package:ht_shared/ht_shared.dart'; // For User model
 /// `SuccessApiResponse<AuthSuccessResponse>` for authentication endpoints
 /// like anonymous sign-in or code verification.
 /// {@endtemplate}
+@JsonSerializable(explicitToJson: true)
 class AuthSuccessResponse extends Equatable {
   /// {@macro auth_success_response}
   const AuthSuccessResponse({required this.user, required this.token});
@@ -16,12 +20,8 @@ class AuthSuccessResponse extends Equatable {
   /// Factory constructor for creating a new AuthSuccessResponse instance
   /// from a map.
   /// Pass the map to the generated `_$AuthSuccessResponseFromJson()` constructor.
-  factory AuthSuccessResponse.fromJson(Map<String, dynamic> json) {
-    return AuthSuccessResponse(
-      user: User.fromJson(json['user'] as Map<String, dynamic>),
-      token: json['token'] as String,
-    );
-  }
+  factory AuthSuccessResponse.fromJson(Map<String, dynamic> json) =>
+      _$AuthSuccessResponseFromJson(json);
 
   /// The authenticated user object resulting from the operation.
   final User user;
@@ -33,12 +33,7 @@ class AuthSuccessResponse extends Equatable {
 
   /// Converts this AuthSuccessResponse instance into a map.
   /// Pass the instance to the generated `_$AuthSuccessResponseToJson()` function.
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      'user': user.toJson(),
-      'token': token,
-    };
-  }
+  Map<String, dynamic> toJson() => _$AuthSuccessResponseToJson(this);
 
   /// Creates a copy of this AuthSuccessResponse but with the given fields
   /// replaced with the new values.

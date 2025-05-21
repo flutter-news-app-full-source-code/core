@@ -1,9 +1,11 @@
-import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/feed/engagement_content_type.dart';
 import 'package:ht_shared/src/models/feed/feed_item.dart';
-import 'package:ht_shared/src/models/feed/feed_item_action.dart';
-import 'package:ht_shared/src/utils/json_converters.dart';
+import 'package:ht_shared/src/models/feed/feed_item_action.dart'
+    show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
+import 'package:json_annotation/json_annotation.dart';
 import 'package:uuid/uuid.dart';
+
+part 'engagement_content.g.dart';
 
 /// {@template engagement_content}
 /// A generic model for in-feed calls-to-action or engagement prompts.
@@ -12,33 +14,23 @@ import 'package:uuid/uuid.dart';
 /// or providing feedback. The [engagementContentType] specifies the nature
 /// of the call-to-action.
 /// {@endtemplate}
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class EngagementContent extends FeedItem {
   /// {@macro engagement_content}
   EngagementContent({
     required this.title,
     required this.engagementContentType,
-    required super.action, // Refactored to super.action
+    required super.action,
     this.description,
     this.callToActionText,
     this.callToActionUrl,
     String? id,
   })  : id = id ?? const Uuid().v4(),
-        super(type: 'engagement_content'); // Removed action from super constructor
+        super(type: 'engagement_content');
 
   /// Factory method to create an [EngagementContent] instance from a JSON map.
-  factory EngagementContent.fromJson(Map<String, dynamic> json) {
-    return EngagementContent(
-      id: json['id'] as String?,
-      title: json['title'] as String,
-      description: json['description'] as String?,
-      engagementContentType: engagementContentTypeFromJson(
-        json['engagementContentType'] as String,
-      ),
-      callToActionText: json['callToActionText'] as String?,
-      callToActionUrl: json['callToActionUrl'] as String?,
-      action: FeedItemAction.fromJson(json['action'] as Map<String, dynamic>),
-    );
-  }
+  factory EngagementContent.fromJson(Map<String, dynamic> json) =>
+      _$EngagementContentFromJson(json);
 
   /// Unique identifier for the engagement content.
   final String id;
@@ -58,22 +50,14 @@ class EngagementContent extends FeedItem {
   /// The URL to navigate to when the call-to-action is triggered.
   final String? callToActionUrl;
 
+  /// The action to be performed when this feed item is interacted with.
+  @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
+  @override
+  late final FeedItemAction action;
+
   /// Converts this [EngagementContent] instance to a JSON map.
   @override
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> json = {
-      'id': id,
-      'title': title,
-      'description': description,
-      'engagementContentType':
-          engagementContentTypeToJson(engagementContentType),
-      'callToActionText': callToActionText,
-      'callToActionUrl': callToActionUrl,
-      'action': action.toJson(),
-      'type': type, // Inherited from FeedItem
-    };
-    return json..removeWhere((key, value) => value == null);
-  }
+  Map<String, dynamic> toJson() => _$EngagementContentToJson(this);
 
   @override
   List<Object?> get props => [

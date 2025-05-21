@@ -3,7 +3,10 @@ import 'package:ht_shared/src/models/news/category.dart';
 import 'package:ht_shared/src/models/news/country.dart';
 import 'package:ht_shared/src/models/news/headline.dart';
 import 'package:ht_shared/src/models/news/source.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart'; // Import meta for @immutable
+
+part 'user_content_preferences.g.dart';
 
 /// {@template user_content_preferences}
 /// Represents a collection of user-specific content preferences,
@@ -14,6 +17,7 @@ import 'package:meta/meta.dart'; // Import meta for @immutable
 /// generic data client.
 /// {@endtemplate}
 @immutable // Add immutable annotation
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class UserContentPreferences extends Equatable {
   /// {@macro user_content_preferences}
   ///
@@ -34,27 +38,8 @@ class UserContentPreferences extends Equatable {
         savedHeadlines = savedHeadlines ?? const [];
 
   /// Factory method to create a [UserContentPreferences] instance from a JSON map.
-  factory UserContentPreferences.fromJson(Map<String, dynamic> json) {
-    return UserContentPreferences(
-      id: json['id'] as String,
-      followedCountries: (json['followedCountries'] as List<dynamic>?)
-              ?.map((e) => Country.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
-      followedSources: (json['followedSources'] as List<dynamic>?)
-              ?.map((e) => Source.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
-      followedCategories: (json['followedCategories'] as List<dynamic>?)
-              ?.map((e) => Category.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
-      savedHeadlines: (json['savedHeadlines'] as List<dynamic>?)
-              ?.map((e) => Headline.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
-    );
-  }
+  factory UserContentPreferences.fromJson(Map<String, dynamic> json) =>
+      _$UserContentPreferencesFromJson(json);
 
   /// The unique identifier for the user preferences, typically the user's ID.
   final String id;
@@ -72,17 +57,7 @@ class UserContentPreferences extends Equatable {
   final List<Headline> savedHeadlines;
 
   /// Converts this [UserContentPreferences] instance to a JSON map.
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      'id': id,
-      'followedCountries':
-          followedCountries.map((e) => e.toJson()).toList(),
-      'followedSources': followedSources.map((e) => e.toJson()).toList(),
-      'followedCategories':
-          followedCategories.map((e) => e.toJson()).toList(),
-      'savedHeadlines': savedHeadlines.map((e) => e.toJson()).toList(),
-    };
-  }
+  Map<String, dynamic> toJson() => _$UserContentPreferencesToJson(this);
 
   @override
   List<Object?> get props => [

@@ -7,4 +7,3 @@ export 'user-preferences/user_preferences.dart';
 export 'user-settings/user_settings.dart';
 export 'user.dart';
 export 'user_role.dart';
-export '../utils/json_converters.dart';

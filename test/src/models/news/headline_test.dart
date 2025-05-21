@@ -54,7 +54,6 @@ void main() {
       'publishedAt': testTimeString,
       'source': sampleSourceJson,
       'category': sampleCategoryJson,
-      'action': defaultAction.toJson(),
     };
 
     // Sample Headline instance with only required fields
@@ -68,7 +67,6 @@ void main() {
     final minimalHeadlineJson = {
       'id': testId,
       'title': 'Minimal Headline Title',
-      'action': defaultAction.toJson(),
       // Optional fields are absent
     };
 
