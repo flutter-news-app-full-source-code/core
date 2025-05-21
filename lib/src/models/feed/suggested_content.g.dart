@@ -1,5 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+// ignore_for_file: require_trailing_commas
+
 part of 'suggested_content.dart';
 
 // **************************************************************************
@@ -8,9 +10,10 @@ part of 'suggested_content.dart';
 
 SuggestedContent _$SuggestedContentFromJson(Map<String, dynamic> json) =>
     SuggestedContent(
-      displayType: $enumDecode(
-          _$SuggestedContentDisplayTypeEnumMap, json['displayType']),
-      items: json['items'] as List<dynamic>,
+      displayType: $enumDecodeNullable(
+          _$SuggestedContentDisplayTypeEnumMap, json['displayType'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
+      items: SuggestedContent._feedItemsFromJson(json['items'] as List),
       action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
       title: json['title'] as String?,
       description: json['description'] as String?,
@@ -22,9 +25,10 @@ Map<String, dynamic> _$SuggestedContentToJson(SuggestedContent instance) =>
       'id': instance.id,
       if (instance.title case final value?) 'title': value,
       if (instance.description case final value?) 'description': value,
-      'displayType':
-          _$SuggestedContentDisplayTypeEnumMap[instance.displayType]!,
-      'items': instance.items,
+      if (_$SuggestedContentDisplayTypeEnumMap[instance.displayType]
+          case final value?)
+        'displayType': value,
+      'items': SuggestedContent._feedItemsToJson(instance.items),
       'action': feedItemActionToJson(instance.action),
     };
 

@@ -20,13 +20,14 @@ class EngagementContent extends FeedItem {
   EngagementContent({
     required this.title,
     required this.engagementContentType,
-    required super.action,
+    required FeedItemAction action,
     this.description,
     this.callToActionText,
     this.callToActionUrl,
     String? id,
   })  : id = id ?? const Uuid().v4(),
-        super(type: 'engagement_content');
+        action = action,
+        super(type: 'engagement_content', action: action);
 
   /// Factory method to create an [EngagementContent] instance from a JSON map.
   factory EngagementContent.fromJson(Map<String, dynamic> json) =>
@@ -42,7 +43,9 @@ class EngagementContent extends FeedItem {
   final String? description;
 
   /// The type of engagement content.
-  final EngagementContentType engagementContentType;
+  /// Will be null if an unknown value is encountered during deserialization.
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  final EngagementContentType? engagementContentType;
 
   /// The text for the call-to-action button or link.
   final String? callToActionText;
@@ -53,11 +56,15 @@ class EngagementContent extends FeedItem {
   /// The action to be performed when this feed item is interacted with.
   @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
   @override
-  late final FeedItemAction action;
+  final FeedItemAction action;
 
   /// Converts this [EngagementContent] instance to a JSON map.
   @override
-  Map<String, dynamic> toJson() => _$EngagementContentToJson(this);
+  Map<String, dynamic> toJson() {
+    final json = _$EngagementContentToJson(this);
+    json['type'] = type;
+    return json;
+  }
 
   @override
   List<Object?> get props => [

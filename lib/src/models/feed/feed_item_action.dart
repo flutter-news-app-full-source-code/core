@@ -1,8 +1,10 @@
+import 'package:equatable/equatable.dart';
 import 'package:ht_shared/ht_shared.dart' show FeedItem;
 import 'package:ht_shared/src/models/content_type.dart';
 import 'package:ht_shared/src/models/feed/feed.dart' show FeedItem;
 import 'package:ht_shared/src/models/feed/feed_item.dart' show FeedItem;
 import 'package:ht_shared/src/models/models.dart' show FeedItem;
+// Removed redundant FeedItem imports
 import 'package:json_annotation/json_annotation.dart';
 
 part 'feed_item_action.g.dart';
@@ -15,12 +17,20 @@ part 'feed_item_action.g.dart';
 /// matching in the UI layer.
 /// {@endtemplate}
 @JsonSerializable(createFactory: false)
-sealed class FeedItemAction {
+sealed class FeedItemAction extends Equatable {
   /// {@macro feed_item_action}
-  const FeedItemAction();
+  const FeedItemAction({required this.type});
+
+  /// A string representation of the action type.
+  // This 'type' field is crucial for deserialization and Equatable.
+  @JsonKey(name: 'type', required: true)
+  final String type;
 
   /// Converts this [FeedItemAction] instance to a JSON map.
   Map<String, dynamic> toJson();
+
+  @override
+  List<Object?> get props => [type];
 }
 
 /// Helper function to deserialize a JSON map into a [FeedItemAction] instance.
@@ -63,15 +73,11 @@ class OpenInternalContent extends FeedItemAction {
   const OpenInternalContent({
     required this.contentId,
     required this.contentType,
-  }) : type = 'open_internal_content';
+  }) : super(type: 'open_internal_content');
 
   /// Factory method to create an [OpenInternalContent] instance from a JSON map.
   factory OpenInternalContent.fromJson(Map<String, dynamic> json) =>
       _$OpenInternalContentFromJson(json);
-
-  /// A string representation of the action type.
-  @JsonKey(name: 'type', required: true)
-  final String type;
 
   /// The unique identifier of the internal content to open.
   final String contentId;
@@ -80,7 +86,15 @@ class OpenInternalContent extends FeedItemAction {
   final ContentType contentType;
 
   @override
-  Map<String, dynamic> toJson() => _$OpenInternalContentToJson(this);
+  Map<String, dynamic> toJson() {
+    final json = _$OpenInternalContentToJson(this);
+    json['type'] =
+        type; // Ensure type is included, though super.type should exist
+    return json;
+  }
+
+  @override
+  List<Object?> get props => [...super.props, contentId, contentType];
 }
 
 /// {@template show_interstitial_then_open_internal_content}
@@ -92,7 +106,7 @@ class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
   const ShowInterstitialThenOpenInternalContent({
     required this.contentId,
     required this.contentType,
-  }) : type = 'show_interstitial_then_open_internal_content';
+  }) : super(type: 'show_interstitial_then_open_internal_content');
 
   /// Factory method to create a [ShowInterstitialThenOpenInternalContent]
   /// instance from a JSON map.
@@ -101,10 +115,6 @@ class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
   ) =>
       _$ShowInterstitialThenOpenInternalContentFromJson(json);
 
-  /// A string representation of the action type.
-  @JsonKey(name: 'type', required: true)
-  final String type;
-
   /// The unique identifier of the internal content to open after the interstitial.
   final String contentId;
 
@@ -112,8 +122,14 @@ class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
   final ContentType contentType;
 
   @override
-  Map<String, dynamic> toJson() =>
-      _$ShowInterstitialThenOpenInternalContentToJson(this);
+  Map<String, dynamic> toJson() {
+    final json = _$ShowInterstitialThenOpenInternalContentToJson(this);
+    json['type'] = type;
+    return json;
+  }
+
+  @override
+  List<Object?> get props => [...super.props, contentId, contentType];
 }
 
 /// {@template open_external_url}
@@ -122,19 +138,22 @@ class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
 @JsonSerializable()
 class OpenExternalUrl extends FeedItemAction {
   /// {@macro open_external_url}
-  const OpenExternalUrl({required this.url}) : type = 'open_external_url';
+  const OpenExternalUrl({required this.url}) : super(type: 'open_external_url');
 
   /// Factory method to create an [OpenExternalUrl] instance from a JSON map.
   factory OpenExternalUrl.fromJson(Map<String, dynamic> json) =>
       _$OpenExternalUrlFromJson(json);
 
-  /// A string representation of the action type.
-  @JsonKey(name: 'type', required: true)
-  final String type;
-
   /// The URL to open.
   final String url;
 
   @override
-  Map<String, dynamic> toJson() => _$OpenExternalUrlToJson(this);
+  Map<String, dynamic> toJson() {
+    final json = _$OpenExternalUrlToJson(this);
+    json['type'] = type;
+    return json;
+  }
+
+  @override
+  List<Object?> get props => [...super.props, url];
 }

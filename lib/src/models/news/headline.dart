@@ -26,7 +26,7 @@ class Headline extends FeedItem {
   /// {@macro headline}
   Headline({
     required this.title,
-    required super.action,
+    required FeedItemAction action,
     this.description,
     this.url,
     this.imageUrl,
@@ -39,7 +39,8 @@ class Headline extends FeedItem {
           'id cannot be an empty string', // Updated assertion message
         ),
         id = id ?? const Uuid().v4(),
-        super(type: 'headline');
+        action = action,
+        super(type: 'headline', action: action);
 
   /// Factory method to create a [Headline] instance from a JSON map.
   factory Headline.fromJson(Map<String, dynamic> json) =>
@@ -74,11 +75,15 @@ class Headline extends FeedItem {
   /// The action to be performed when this feed item is interacted with.
   @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
   @override
-  late final FeedItemAction action;
+  final FeedItemAction action;
 
   /// Converts this [Headline] instance to a JSON map.
   @override
-  Map<String, dynamic> toJson() => _$HeadlineToJson(this);
+  Map<String, dynamic> toJson() {
+    final json = _$HeadlineToJson(this);
+    json['type'] = type;
+    return json;
+  }
 
   @override
   List<Object?> get props => [

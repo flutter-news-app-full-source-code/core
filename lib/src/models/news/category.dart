@@ -21,12 +21,13 @@ class Category extends FeedItem {
   /// If an [id] is not provided, a UUID v4 will be generated.
   Category({
     required this.name,
-    required super.action,
+    required FeedItemAction action,
     String? id,
     this.description,
     this.iconUrl,
   })  : id = id ?? const Uuid().v4(),
-        super(type: 'category');
+        action = action,
+        super(type: 'category', action: action);
 
   /// Creates a Category instance from a JSON map.
   factory Category.fromJson(Map<String, dynamic> json) =>
@@ -49,11 +50,15 @@ class Category extends FeedItem {
   /// The action to be performed when this feed item is interacted with.
   @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
   @override
-  late final FeedItemAction action;
+  final FeedItemAction action;
 
   /// Converts this Category instance to a JSON map.
   @override
-  Map<String, dynamic> toJson() => _$CategoryToJson(this);
+  Map<String, dynamic> toJson() {
+    final json = _$CategoryToJson(this);
+    json['type'] = type;
+    return json;
+  }
 
   @override
   List<Object?> get props => [id, name, description, iconUrl, type, action];

@@ -21,12 +21,12 @@ class Source extends FeedItem {
     required this.action,
     this.description,
     this.url,
-    SourceType? sourceType, // Renamed to avoid conflict with FeedItem.type
+    this.sourceType, // Changed from _sourceType
     this.language,
     this.headquarters,
     String? id,
   })  : id = id ?? const Uuid().v4(),
-        _sourceType = sourceType,
+        // _sourceType assignment removed, directly using this.sourceType
         super(type: 'source', action: action);
 
   /// Factory method to create a [Source] instance from a JSON map.
@@ -49,13 +49,10 @@ class Source extends FeedItem {
   /// If an unknown value is encountered during deserialization,
   /// this field will be set to null.
   @JsonKey(
-    name: 'sourceType',
+    // name: 'sourceType' removed as field name now matches JSON key
     unknownEnumValue: JsonKey.nullForUndefinedEnumValue,
   )
-  final SourceType? _sourceType;
-
-  /// Public getter for the source type.
-  SourceType? get sourceType => _sourceType;
+  final SourceType? sourceType; // Field renamed to public
 
   /// The language code of the source (e.g., 'en', 'fr').
   final String? language;
@@ -70,7 +67,11 @@ class Source extends FeedItem {
 
   /// Converts this [Source] instance to a JSON map.
   @override
-  Map<String, dynamic> toJson() => _$SourceToJson(this);
+  Map<String, dynamic> toJson() {
+    final json = _$SourceToJson(this);
+    json['type'] = type;
+    return json;
+  }
 
   @override
   List<Object?> get props => [
@@ -78,7 +79,7 @@ class Source extends FeedItem {
         name,
         description,
         url,
-        _sourceType,
+        sourceType, // Changed from _sourceType
         language,
         headquarters,
         type,
@@ -102,7 +103,7 @@ class Source extends FeedItem {
       name: name ?? this.name,
       description: description ?? this.description,
       url: url ?? this.url,
-      sourceType: sourceType ?? _sourceType,
+      sourceType: sourceType ?? this.sourceType, // Changed from _sourceType
       language: language ?? this.language,
       headquarters: headquarters ?? this.headquarters,
       action: action ?? this.action,

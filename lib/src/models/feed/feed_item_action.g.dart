@@ -1,5 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+// ignore_for_file: require_trailing_commas
+
 part of 'feed_item_action.dart';
 
 // **************************************************************************
@@ -7,7 +9,12 @@ part of 'feed_item_action.dart';
 // **************************************************************************
 
 Map<String, dynamic> _$FeedItemActionToJson(FeedItemAction instance) =>
-    <String, dynamic>{};
+    <String, dynamic>{
+      'stringify': instance.stringify,
+      'hashCode': instance.hashCode,
+      'type': instance.type,
+      'props': instance.props,
+    };
 
 OpenInternalContent _$OpenInternalContentFromJson(Map<String, dynamic> json) =>
     OpenInternalContent(

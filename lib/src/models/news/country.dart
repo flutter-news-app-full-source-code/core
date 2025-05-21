@@ -19,10 +19,11 @@ class Country extends FeedItem {
     required this.isoCode,
     required this.name,
     required this.flagUrl,
-    required super.action,
+    required FeedItemAction action,
     String? id,
   })  : id = id ?? const Uuid().v4(),
-        super(type: 'country');
+        action = action,
+        super(type: 'country', action: action);
 
   /// Creates a Country instance from a JSON map.
   factory Country.fromJson(Map<String, dynamic> json) =>
@@ -45,11 +46,15 @@ class Country extends FeedItem {
   /// The action to be performed when this feed item is interacted with.
   @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
   @override
-  late final FeedItemAction action;
+  final FeedItemAction action;
 
   /// Converts this Country instance into a JSON map.
   @override
-  Map<String, dynamic> toJson() => _$CountryToJson(this);
+  Map<String, dynamic> toJson() {
+    final json = _$CountryToJson(this);
+    json['type'] = type;
+    return json;
+  }
 
   @override
   List<Object?> get props => [id, isoCode, name, flagUrl, type, action];

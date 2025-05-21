@@ -1,5 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+// ignore_for_file: require_trailing_commas
+
 part of 'engagement_content.dart';
 
 // **************************************************************************
@@ -9,8 +11,9 @@ part of 'engagement_content.dart';
 EngagementContent _$EngagementContentFromJson(Map<String, dynamic> json) =>
     EngagementContent(
       title: json['title'] as String,
-      engagementContentType: $enumDecode(
-          _$EngagementContentTypeEnumMap, json['engagementContentType']),
+      engagementContentType: $enumDecodeNullable(
+          _$EngagementContentTypeEnumMap, json['engagementContentType'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
       action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
       description: json['description'] as String?,
       callToActionText: json['callToActionText'] as String?,
@@ -23,8 +26,9 @@ Map<String, dynamic> _$EngagementContentToJson(EngagementContent instance) =>
       'id': instance.id,
       'title': instance.title,
       if (instance.description case final value?) 'description': value,
-      'engagementContentType':
-          _$EngagementContentTypeEnumMap[instance.engagementContentType]!,
+      if (_$EngagementContentTypeEnumMap[instance.engagementContentType]
+          case final value?)
+        'engagementContentType': value,
       if (instance.callToActionText case final value?)
         'callToActionText': value,
       if (instance.callToActionUrl case final value?) 'callToActionUrl': value,

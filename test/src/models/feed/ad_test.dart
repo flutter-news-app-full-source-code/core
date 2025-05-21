@@ -97,8 +97,8 @@ void main() {
           'id': ad.id,
           'imageUrl': testImageUrl,
           'targetUrl': testTargetUrl,
-          'adType': testAdType.name,
-          'placement': testPlacement.name,
+          'adType': 'banner',
+          'placement': 'feed_inline_standard_banner',
           'type': 'ad',
           'action': defaultAction.toJson(),
         });
@@ -118,8 +118,8 @@ void main() {
           'id': testId,
           'imageUrl': testImageUrl,
           'targetUrl': testTargetUrl,
-          'adType': testAdType.name,
-          'placement': testPlacement.name,
+          'adType': 'banner',
+          'placement': 'feed_inline_standard_banner',
           'type': 'ad',
           'action': defaultAction.toJson(),
         };

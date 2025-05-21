@@ -35,11 +35,12 @@ class Ad extends FeedItem {
     required this.imageUrl,
     required this.targetUrl,
     required this.adType,
-    required super.action,
+    required FeedItemAction action,
     this.placement,
     String? id,
   })  : id = id ?? const Uuid().v4(),
-        super(type: 'ad');
+        action = action,
+        super(type: 'ad', action: action);
 
   /// Factory method to create an [Ad] instance from a JSON map.
   factory Ad.fromJson(Map<String, dynamic> json) => _$AdFromJson(json);
@@ -54,7 +55,9 @@ class Ad extends FeedItem {
   final String targetUrl;
 
   /// The type of the ad, indicating its visual format.
-  final AdType adType;
+  /// Will be null if an unknown value is encountered during deserialization.
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  final AdType? adType;
 
   /// An optional identifier indicating the intended placement or slot
   /// for this ad in the UI.
@@ -63,11 +66,15 @@ class Ad extends FeedItem {
   /// The action to be performed when this feed item is interacted with.
   @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
   @override
-  late final FeedItemAction action;
+  final FeedItemAction action;
 
   /// Converts this [Ad] instance to a JSON map.
   @override
-  Map<String, dynamic> toJson() => _$AdToJson(this);
+  Map<String, dynamic> toJson() {
+    final json = _$AdToJson(this);
+    json['type'] = type;
+    return json;
+  }
 
   @override
   List<Object?> get props => [

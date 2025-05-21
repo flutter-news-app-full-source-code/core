@@ -108,7 +108,7 @@ void main() {
           'id': content.id,
           'title': testTitle,
           'description': testDescription,
-          'engagementContentType': testEngagementContentType.name,
+          'engagementContentType': 'sign_up',
           'callToActionText': testCallToActionText,
           'callToActionUrl': testCallToActionUrl,
           'type': 'engagement_content',
@@ -136,7 +136,7 @@ void main() {
           'id': testId,
           'title': testTitle,
           'description': testDescription,
-          'engagementContentType': testEngagementContentType.name,
+          'engagementContentType': 'sign_up',
           'callToActionText': testCallToActionText,
           'callToActionUrl': testCallToActionUrl,
           'type': 'engagement_content',
@@ -158,7 +158,7 @@ void main() {
         final json = <String, dynamic>{
           'id': testId,
           'title': testTitle,
-          'engagementContentType': testEngagementContentType.name,
+          'engagementContentType': 'sign_up',
           'type': 'engagement_content',
           'action': defaultAction.toJson(),
         };
