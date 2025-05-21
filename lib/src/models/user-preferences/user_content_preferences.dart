@@ -1,5 +1,8 @@
 import 'package:equatable/equatable.dart';
+import 'package:ht_shared/src/models/news/category.dart';
+import 'package:ht_shared/src/models/news/country.dart';
 import 'package:ht_shared/src/models/news/headline.dart';
+import 'package:ht_shared/src/models/news/source.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart'; // Import meta for @immutable
 
