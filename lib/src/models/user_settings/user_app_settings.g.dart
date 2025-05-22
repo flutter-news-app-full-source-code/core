@@ -12,12 +12,14 @@ UserAppSettings _$UserAppSettingsFromJson(Map<String, dynamic> json) =>
       displaySettings: json['displaySettings'] == null
           ? null
           : DisplaySettings.fromJson(
-              json['displaySettings'] as Map<String, dynamic>),
+              json['displaySettings'] as Map<String, dynamic>,
+            ),
       language: json['language'] as String?,
       feedPreferences: json['feedPreferences'] == null
           ? null
           : FeedDisplayPreferences.fromJson(
-              json['feedPreferences'] as Map<String, dynamic>),
+              json['feedPreferences'] as Map<String, dynamic>,
+            ),
     );
 
 Map<String, dynamic> _$UserAppSettingsToJson(UserAppSettings instance) =>

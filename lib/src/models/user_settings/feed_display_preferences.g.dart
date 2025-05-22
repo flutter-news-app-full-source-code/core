@@ -7,13 +7,18 @@ part of 'feed_display_preferences.dart';
 // **************************************************************************
 
 FeedDisplayPreferences _$FeedDisplayPreferencesFromJson(
-        Map<String, dynamic> json) =>
+  Map<String, dynamic> json,
+) =>
     FeedDisplayPreferences(
       headlineDensity: $enumDecodeNullable(
-              _$HeadlineDensityEnumMap, json['headlineDensity']) ??
+            _$HeadlineDensityEnumMap,
+            json['headlineDensity'],
+          ) ??
           HeadlineDensity.standard,
       headlineImageStyle: $enumDecodeNullable(
-              _$HeadlineImageStyleEnumMap, json['headlineImageStyle']) ??
+            _$HeadlineImageStyleEnumMap,
+            json['headlineImageStyle'],
+          ) ??
           HeadlineImageStyle.smallThumbnail,
       showSourceInHeadlineFeed:
           json['showSourceInHeadlineFeed'] as bool? ?? true,
@@ -22,7 +27,8 @@ FeedDisplayPreferences _$FeedDisplayPreferencesFromJson(
     );
 
 Map<String, dynamic> _$FeedDisplayPreferencesToJson(
-        FeedDisplayPreferences instance) =>
+  FeedDisplayPreferences instance,
+) =>
     <String, dynamic>{
       'headlineDensity': _$HeadlineDensityEnumMap[instance.headlineDensity]!,
       'headlineImageStyle':
