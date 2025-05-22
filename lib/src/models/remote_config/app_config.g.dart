@@ -16,10 +16,20 @@ AppConfig _$AppConfigFromJson(Map<String, dynamic> json) => AppConfig(
       adConfig: json['adConfig'] == null
           ? null
           : AdConfig.fromJson(json['adConfig'] as Map<String, dynamic>),
+      engagementRules: (json['engagementRules'] as List<dynamic>?)
+          ?.map((e) => EngagementRule.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      suggestionRules: (json['suggestionRules'] as List<dynamic>?)
+          ?.map((e) => SuggestionRule.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$AppConfigToJson(AppConfig instance) => <String, dynamic>{
       'id': instance.id,
       'userPreferenceLimits': instance.userPreferenceLimits.toJson(),
       'adConfig': instance.adConfig.toJson(),
+      'engagementRules':
+          instance.engagementRules.map((e) => e.toJson()).toList(),
+      'suggestionRules':
+          instance.suggestionRules.map((e) => e.toJson()).toList(),
     };

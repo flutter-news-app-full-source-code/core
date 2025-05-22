@@ -20,6 +20,13 @@ UserAppSettings _$UserAppSettingsFromJson(Map<String, dynamic> json) =>
           : FeedDisplayPreferences.fromJson(
               json['feedPreferences'] as Map<String, dynamic>,
             ),
+      engagementShownCounts:
+          (json['engagementShownCounts'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, (e as num).toInt()),
+      ),
+      engagementLastShownTimestamps: _engagementLastShownTimestampsFromJson(
+        json['engagementLastShownTimestamps'] as Map<String, dynamic>?,
+      ),
     );
 
 Map<String, dynamic> _$UserAppSettingsToJson(UserAppSettings instance) =>
@@ -28,4 +35,8 @@ Map<String, dynamic> _$UserAppSettingsToJson(UserAppSettings instance) =>
       'displaySettings': instance.displaySettings.toJson(),
       'language': instance.language,
       'feedPreferences': instance.feedPreferences.toJson(),
+      'engagementShownCounts': instance.engagementShownCounts,
+      'engagementLastShownTimestamps': _engagementLastShownTimestampsToJson(
+        instance.engagementLastShownTimestamps,
+      ),
     };
