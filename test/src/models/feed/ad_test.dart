@@ -1,7 +1,7 @@
-import 'package:ht_shared/src/models/content_type.dart';
-import 'package:ht_shared/src/models/feed/ad.dart';
-import 'package:ht_shared/src/models/feed/ad_placement.dart';
-import 'package:ht_shared/src/models/feed/feed_item_action.dart';
+import 'package:ht_shared/src/models/core/content_type.dart';
+import 'package:ht_shared/src/models/core/feed_item_action.dart';
+import 'package:ht_shared/src/models/feed_decorator/ad.dart';
+import 'package:ht_shared/src/models/feed_decorator/ad_placement.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
 

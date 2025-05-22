@@ -1,5 +1,4 @@
 import 'package:ht_shared/ht_shared.dart';
-import 'package:ht_shared/src/models/feed/feed_item_action.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
 

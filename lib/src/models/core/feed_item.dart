@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
-import 'package:ht_shared/src/models/feed/ad.dart';
-import 'package:ht_shared/src/models/feed/engagement_content.dart';
-import 'package:ht_shared/src/models/feed/feed_item_action.dart';
-import 'package:ht_shared/src/models/feed/suggested_content.dart';
-import 'package:ht_shared/src/models/news/category.dart';
-import 'package:ht_shared/src/models/news/country.dart';
-import 'package:ht_shared/src/models/news/headline.dart';
-import 'package:ht_shared/src/models/news/source.dart';
+import 'package:ht_shared/src/models/core/feed_item_action.dart';
+import 'package:ht_shared/src/models/entities/category.dart';
+import 'package:ht_shared/src/models/entities/country.dart';
+import 'package:ht_shared/src/models/entities/headline.dart';
+import 'package:ht_shared/src/models/entities/source.dart';
+import 'package:ht_shared/src/models/feed_decorator/ad.dart';
+import 'package:ht_shared/src/models/feed_decorator/engagement_content.dart';
+import 'package:ht_shared/src/models/feed_decorator/suggested_content.dart';
 
 /// {@template feed_item}
 /// An abstract base class for all items that can appear in a mixed content

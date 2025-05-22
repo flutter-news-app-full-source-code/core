@@ -1,8 +1,8 @@
-import 'package:ht_shared/src/models/feed/feed_item.dart';
-import 'package:ht_shared/src/models/feed/feed_item_action.dart'
+import 'package:ht_shared/src/models/core/feed_item.dart';
+import 'package:ht_shared/src/models/core/feed_item_action.dart'
     show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
-import 'package:ht_shared/src/models/news/category.dart';
-import 'package:ht_shared/src/models/news/source.dart';
+import 'package:ht_shared/src/models/entities/category.dart';
+import 'package:ht_shared/src/models/entities/source.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';

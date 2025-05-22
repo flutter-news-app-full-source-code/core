@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/models/feed/suggested_content_display_type.dart';
+import 'package:ht_shared/src/models/feed_decorator/suggested_content_display_type.dart';
 import 'package:test/test.dart';
 
 void main() {

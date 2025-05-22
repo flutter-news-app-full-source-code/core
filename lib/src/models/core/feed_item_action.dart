@@ -1,8 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/ht_shared.dart' show FeedItem;
-import 'package:ht_shared/src/models/content_type.dart';
-import 'package:ht_shared/src/models/feed/feed.dart' show FeedItem;
-import 'package:ht_shared/src/models/feed/feed_item.dart' show FeedItem;
+import 'package:ht_shared/src/models/core/content_type.dart';
+import 'package:ht_shared/src/models/core/feed_item.dart' show FeedItem;
 import 'package:ht_shared/src/models/models.dart' show FeedItem;
 // Removed redundant FeedItem imports
 import 'package:json_annotation/json_annotation.dart';

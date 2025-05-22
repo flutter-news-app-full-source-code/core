@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:ht_shared/src/models/user_role.dart';
+import 'package:ht_shared/src/models/auth/user_role.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'user.g.dart';

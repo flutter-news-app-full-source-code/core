@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/models/user_role.dart';
+import 'package:ht_shared/src/models/auth/user_role.dart';
 import 'package:test/test.dart';
 
 void main() {

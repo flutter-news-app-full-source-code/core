@@ -1,9 +1,8 @@
-export 'feed/feed.dart';
-export 'news/news.dart';
-export 'permission.dart';
-export 'remote-config/remote_config.dart';
+export 'auth/auth.dart';
+export 'core/core.dart';
+export 'entities/entities.dart';
+export 'feed_decorator/feed_decorator.dart';
+export 'remote-config/remote-config.dart';
 export 'responses/responses.dart';
-export 'user-preferences/user_preferences.dart';
-export 'user-settings/user_settings.dart';
-export 'user.dart';
-export 'user_role.dart';
+export 'user-preferences/user-preferences.dart';
+export 'user-settings/user-settings.dart';

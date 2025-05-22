@@ -1,5 +1,5 @@
-import 'package:ht_shared/src/models/feed/feed_item_action.dart';
-import 'package:ht_shared/src/models/news/country.dart'; // Use direct import
+import 'package:ht_shared/src/models/core/feed_item_action.dart';
+import 'package:ht_shared/src/models/entities/country.dart'; // Use direct import
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
 
