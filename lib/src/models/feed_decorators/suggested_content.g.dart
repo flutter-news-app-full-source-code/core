@@ -10,7 +10,7 @@ SuggestedContent _$SuggestedContentFromJson(Map<String, dynamic> json) =>
     SuggestedContent(
       displayType: $enumDecodeNullable(
           _$SuggestedContentDisplayTypeEnumMap, json['displayType'],
-          unknownValue: JsonKey.nullForUndefinedEnumValu,e,),
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
       items: SuggestedContent._feedItemsFromJson(json['items'] as List),
       action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
       title: json['title'] as String?,
