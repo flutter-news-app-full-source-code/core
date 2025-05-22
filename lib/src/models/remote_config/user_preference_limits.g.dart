@@ -7,8 +7,7 @@ part of 'user_preference_limits.dart';
 // **************************************************************************
 
 UserPreferenceLimits _$UserPreferenceLimitsFromJson(
-  Map<String, dynamic> json,
-) =>
+        Map<String, dynamic> json,) =>
     UserPreferenceLimits(
       guestFollowedItemsLimit: (json['guestFollowedItemsLimit'] as num).toInt(),
       guestSavedHeadlinesLimit:
@@ -24,8 +23,7 @@ UserPreferenceLimits _$UserPreferenceLimitsFromJson(
     );
 
 Map<String, dynamic> _$UserPreferenceLimitsToJson(
-  UserPreferenceLimits instance,
-) =>
+        UserPreferenceLimits instance,) =>
     <String, dynamic>{
       'guestFollowedItemsLimit': instance.guestFollowedItemsLimit,
       'guestSavedHeadlinesLimit': instance.guestSavedHeadlinesLimit,

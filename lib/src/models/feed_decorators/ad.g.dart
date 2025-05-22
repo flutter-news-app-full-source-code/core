@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: require_trailing_commas
-
 part of 'ad.dart';
 
 // **************************************************************************
@@ -12,7 +10,7 @@ Ad _$AdFromJson(Map<String, dynamic> json) => Ad(
       imageUrl: json['imageUrl'] as String,
       targetUrl: json['targetUrl'] as String,
       adType: $enumDecodeNullable(_$AdTypeEnumMap, json['adType'],
-          unknownValue: JsonKey.nullForUndefinedEnumValue),
+          unknownValue: JsonKey.nullForUndefinedEnumValue,),
       action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
       placement: $enumDecodeNullable(_$AdPlacementEnumMap, json['placement']),
       id: json['id'] as String?,

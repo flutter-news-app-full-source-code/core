@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: require_trailing_commas
-
 part of 'engagement_content.dart';
 
 // **************************************************************************
@@ -13,7 +11,7 @@ EngagementContent _$EngagementContentFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String,
       engagementContentType: $enumDecodeNullable(
           _$EngagementContentTypeEnumMap, json['engagementContentType'],
-          unknownValue: JsonKey.nullForUndefinedEnumValue),
+          unknownValue: JsonKey.nullForUndefinedEnumValue,),
       action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
       description: json['description'] as String?,
       callToActionText: json['callToActionText'] as String?,

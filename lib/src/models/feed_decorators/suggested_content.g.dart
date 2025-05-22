@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: require_trailing_commas
-
 part of 'suggested_content.dart';
 
 // **************************************************************************
@@ -12,7 +10,7 @@ SuggestedContent _$SuggestedContentFromJson(Map<String, dynamic> json) =>
     SuggestedContent(
       displayType: $enumDecodeNullable(
           _$SuggestedContentDisplayTypeEnumMap, json['displayType'],
-          unknownValue: JsonKey.nullForUndefinedEnumValue),
+          unknownValue: JsonKey.nullForUndefinedEnumValu,e,),
       items: SuggestedContent._feedItemsFromJson(json['items'] as List),
       action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
       title: json['title'] as String?,

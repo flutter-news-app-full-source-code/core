@@ -11,8 +11,7 @@ AppConfig _$AppConfigFromJson(Map<String, dynamic> json) => AppConfig(
       userPreferenceLimits: json['userPreferenceLimits'] == null
           ? null
           : UserPreferenceLimits.fromJson(
-              json['userPreferenceLimits'] as Map<String, dynamic>,
-            ),
+              json['userPreferenceLimits'] as Map<String, dynamic>,),
       adConfig: json['adConfig'] == null
           ? null
           : AdConfig.fromJson(json['adConfig'] as Map<String, dynamic>),
