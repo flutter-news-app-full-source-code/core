@@ -1,13 +1,14 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/user_settings/app_language.dart';
 import 'package:ht_shared/src/models/user_settings/display_settings.dart';
+import 'package:ht_shared/src/models/user_settings/feed_display_preferences.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'user_app_settings.g.dart';
 
 /// {@template user_app_settings}
 /// Represents a collection of user-specific application settings,
-/// including display preferences and language selection.
+/// including display preferences, language selection, and feed display options.
 ///
 /// This model unifies settings that are tied to a specific user,
 /// making it suitable for management via a generic data client.
@@ -24,8 +25,10 @@ class UserAppSettings extends Equatable {
     required this.id,
     DisplaySettings? displaySettings,
     AppLanguage? language,
+    FeedDisplayPreferences? feedPreferences,
   })  : displaySettings = displaySettings ?? const DisplaySettings(),
-        language = language ?? 'en'; // Default language is English
+        language = language ?? 'en', // Default language is English
+        feedPreferences = feedPreferences ?? const FeedDisplayPreferences();
 
   /// Factory method to create a [UserAppSettings] instance from a JSON map.
   factory UserAppSettings.fromJson(Map<String, dynamic> json) =>
@@ -40,11 +43,14 @@ class UserAppSettings extends Equatable {
   /// The selected application language code (ISO 639-1).
   final AppLanguage language;
 
+  /// User-configurable settings for how content feeds are displayed.
+  final FeedDisplayPreferences feedPreferences;
+
   /// Converts this [UserAppSettings] instance to a JSON map.
   Map<String, dynamic> toJson() => _$UserAppSettingsToJson(this);
 
   @override
-  List<Object?> get props => [id, displaySettings, language];
+  List<Object?> get props => [id, displaySettings, language, feedPreferences];
 
   /// Creates a copy of this [UserAppSettings] but with the given fields
   /// replaced with the new values.
@@ -52,11 +58,13 @@ class UserAppSettings extends Equatable {
     String? id,
     DisplaySettings? displaySettings,
     AppLanguage? language,
+    FeedDisplayPreferences? feedPreferences,
   }) {
     return UserAppSettings(
       id: id ?? this.id,
       displaySettings: displaySettings ?? this.displaySettings,
       language: language ?? this.language,
+      feedPreferences: feedPreferences ?? this.feedPreferences,
     );
   }
 }

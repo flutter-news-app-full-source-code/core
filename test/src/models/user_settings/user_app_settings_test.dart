@@ -58,13 +58,19 @@ void main() {
         accentTheme: AppAccentTheme.newsRed,
       );
       const customLanguage = 'es';
+      const defaultFeedPreferences = FeedDisplayPreferences();
       expect(
         createSubject(
           id: userId,
           displaySettings: customDisplaySettings,
           language: customLanguage,
         ).props,
-        equals([userId, customDisplaySettings, customLanguage]),
+        equals([
+          userId,
+          customDisplaySettings,
+          customLanguage,
+          defaultFeedPreferences,
+        ]),
       );
     });
 
