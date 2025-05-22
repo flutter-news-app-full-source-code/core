@@ -11,7 +11,7 @@ Think of it as the common language 🗣️ that all parts of your news applicati
 ## ✨ Why `ht_shared` Matters
 
 *   **🧱 Unified Data Structure:** Guarantees that your `Headline`, `Source`, `User`, `FeedItem`, and configuration data are handled identically across the entire Headlines Toolkit.
-*   🚀 **Powering Intelligent Feeds:** Provides the foundational models and
+*   💡 **Powering Intelligent Feeds:** Provides the foundational models and
     configuration structures (like `EngagementRule`, `SuggestionRule`,
     `EngagementContentTemplate`, `AppConfig` enhancements) that enable the
     `ht_api` to deliver highly dynamic, personalized, and engaging content
