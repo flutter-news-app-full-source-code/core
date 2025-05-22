@@ -74,10 +74,13 @@ void main() {
     group('copyWith', () {
       test('returns a new object with updated headlineDensity', () {
         final updated = defaultPreferences.copyWith(
-            headlineDensity: HeadlineDensity.compact,);
+          headlineDensity: HeadlineDensity.compact,
+        );
         expect(updated.headlineDensity, HeadlineDensity.compact);
         expect(
-            updated.headlineImageStyle, defaultPreferences.headlineImageStyle,);
+          updated.headlineImageStyle,
+          defaultPreferences.headlineImageStyle,
+        );
       });
 
       test('returns a new object with updated headlineImageStyle', () {

@@ -11,7 +11,9 @@ void main() {
     );
 
     Category createSubject({
-      required String name, required FeedItemAction action, String? id,
+      required String name,
+      required FeedItemAction action,
+      String? id,
       String? description,
       String? iconUrl,
     }) {

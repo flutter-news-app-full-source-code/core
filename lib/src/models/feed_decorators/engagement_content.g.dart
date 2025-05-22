@@ -10,8 +10,10 @@ EngagementContent _$EngagementContentFromJson(Map<String, dynamic> json) =>
     EngagementContent(
       title: json['title'] as String,
       engagementContentType: $enumDecodeNullable(
-          _$EngagementContentTypeEnumMap, json['engagementContentType'],
-          unknownValue: JsonKey.nullForUndefinedEnumValue,),
+        _$EngagementContentTypeEnumMap,
+        json['engagementContentType'],
+        unknownValue: JsonKey.nullForUndefinedEnumValue,
+      ),
       action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
       description: json['description'] as String?,
       callToActionText: json['callToActionText'] as String?,

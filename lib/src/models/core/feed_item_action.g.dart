@@ -21,7 +21,8 @@ OpenInternalContent _$OpenInternalContentFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$OpenInternalContentToJson(
-        OpenInternalContent instance,) =>
+  OpenInternalContent instance,
+) =>
     <String, dynamic>{
       'contentId': instance.contentId,
       'contentType': _$ContentTypeEnumMap[instance.contentType]!,
@@ -36,14 +37,16 @@ const _$ContentTypeEnumMap = {
 
 ShowInterstitialThenOpenInternalContent
     _$ShowInterstitialThenOpenInternalContentFromJson(
-            Map<String, dynamic> json,) =>
+  Map<String, dynamic> json,
+) =>
         ShowInterstitialThenOpenInternalContent(
           contentId: json['contentId'] as String,
           contentType: $enumDecode(_$ContentTypeEnumMap, json['contentType']),
         );
 
 Map<String, dynamic> _$ShowInterstitialThenOpenInternalContentToJson(
-        ShowInterstitialThenOpenInternalContent instance,) =>
+  ShowInterstitialThenOpenInternalContent instance,
+) =>
     <String, dynamic>{
       'contentId': instance.contentId,
       'contentType': _$ContentTypeEnumMap[instance.contentType]!,
