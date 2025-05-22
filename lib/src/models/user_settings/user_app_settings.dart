@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:ht_shared/src/models/user-settings/app_language.dart';
-import 'package:ht_shared/src/models/user-settings/display_settings.dart';
+import 'package:ht_shared/src/models/user_settings/app_language.dart';
+import 'package:ht_shared/src/models/user_settings/display_settings.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'user_app_settings.g.dart';

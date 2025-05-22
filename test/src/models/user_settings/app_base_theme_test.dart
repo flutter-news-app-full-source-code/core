@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/models/user-settings/app_base_theme.dart';
+import 'package:ht_shared/src/models/user_settings/app_base_theme.dart';
 import 'package:test/test.dart';
 
 void main() {

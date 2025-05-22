@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/ht_shared.dart' show AppConfig;
 import 'package:ht_shared/src/models/models.dart' show AppConfig;
-import 'package:ht_shared/src/models/remote-config/app_config.dart'
+import 'package:ht_shared/src/models/remote_config/app_config.dart'
     show AppConfig;
-import 'package:ht_shared/src/models/remote-config/remote_config.dart'
+import 'package:ht_shared/src/models/remote_config/remote_config.dart'
     show AppConfig;
 import 'package:json_annotation/json_annotation.dart';
 

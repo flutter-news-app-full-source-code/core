@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/models/feed-decorators/ad_placement.dart';
+import 'package:ht_shared/src/models/feed_decorators/ad_placement.dart';
 import 'package:test/test.dart';
 
 void main() {

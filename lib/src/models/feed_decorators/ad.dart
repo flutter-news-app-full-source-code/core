@@ -1,7 +1,7 @@
 import 'package:ht_shared/src/models/core/feed_item.dart';
 import 'package:ht_shared/src/models/core/feed_item_action.dart'
     show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
-import 'package:ht_shared/src/models/feed-decorators/ad_placement.dart';
+import 'package:ht_shared/src/models/feed_decorators/ad_placement.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:uuid/uuid.dart';
 
