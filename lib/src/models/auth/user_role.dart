@@ -6,6 +6,10 @@ enum UserRole {
   /// Administrator role with full privileges.
   admin,
 
+  /// Premium user role with enhanced privileges or access to exclusive features
+  /// compared to a standard user.
+  premiumUser,
+
   /// Standard user role with regular privileges.
   standardUser,
 
