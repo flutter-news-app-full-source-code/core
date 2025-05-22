@@ -1,6 +1,7 @@
 import 'package:ht_shared/ht_shared.dart' show SuggestedContent;
-import 'package:ht_shared/src/models/feed_decorator/feed_decorator.dart' show SuggestedContent;
-import 'package:ht_shared/src/models/feed_decorator/suggested_content.dart'
+import 'package:ht_shared/src/models/feed-decorators/feed_decorators.dart'
+    show SuggestedContent;
+import 'package:ht_shared/src/models/feed-decorators/suggested_content.dart'
     show SuggestedContent;
 import 'package:ht_shared/src/models/models.dart' show SuggestedContent;
 import 'package:json_annotation/json_annotation.dart';

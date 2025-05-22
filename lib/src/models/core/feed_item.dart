@@ -4,9 +4,9 @@ import 'package:ht_shared/src/models/entities/category.dart';
 import 'package:ht_shared/src/models/entities/country.dart';
 import 'package:ht_shared/src/models/entities/headline.dart';
 import 'package:ht_shared/src/models/entities/source.dart';
-import 'package:ht_shared/src/models/feed_decorator/ad.dart';
-import 'package:ht_shared/src/models/feed_decorator/engagement_content.dart';
-import 'package:ht_shared/src/models/feed_decorator/suggested_content.dart';
+import 'package:ht_shared/src/models/feed-decorators/ad.dart';
+import 'package:ht_shared/src/models/feed-decorators/engagement_content.dart';
+import 'package:ht_shared/src/models/feed-decorators/suggested_content.dart';
 
 /// {@template feed_item}
 /// An abstract base class for all items that can appear in a mixed content

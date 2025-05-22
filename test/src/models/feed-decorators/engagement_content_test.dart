@@ -1,7 +1,7 @@
 import 'package:ht_shared/src/models/core/content_type.dart';
 import 'package:ht_shared/src/models/core/feed_item_action.dart';
-import 'package:ht_shared/src/models/feed_decorator/engagement_content.dart';
-import 'package:ht_shared/src/models/feed_decorator/engagement_content_type.dart';
+import 'package:ht_shared/src/models/feed-decorators/engagement_content.dart';
+import 'package:ht_shared/src/models/feed-decorators/engagement_content_type.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
 

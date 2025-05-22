@@ -1,7 +1,8 @@
 import 'package:ht_shared/ht_shared.dart' show EngagementContent;
-import 'package:ht_shared/src/models/feed_decorator/engagement_content.dart'
+import 'package:ht_shared/src/models/feed-decorators/engagement_content.dart'
     show EngagementContent;
-import 'package:ht_shared/src/models/feed_decorator/feed_decorator.dart' show EngagementContent;
+import 'package:ht_shared/src/models/feed-decorators/feed_decorators.dart'
+    show EngagementContent;
 import 'package:ht_shared/src/models/models.dart' show EngagementContent;
 import 'package:json_annotation/json_annotation.dart';
 

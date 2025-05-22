@@ -5,3 +5,4 @@ export 'app_language.dart';
 export 'app_text_scale_factor.dart';
 export 'display_settings.dart';
 export 'user_app_settings.dart';
+export 'user_settings.dart';

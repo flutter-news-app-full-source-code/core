@@ -5,8 +5,8 @@ import 'package:ht_shared/src/models/entities/category.dart';
 import 'package:ht_shared/src/models/entities/country.dart';
 import 'package:ht_shared/src/models/entities/headline.dart';
 import 'package:ht_shared/src/models/entities/source.dart';
-import 'package:ht_shared/src/models/feed_decorator/suggested_content.dart';
-import 'package:ht_shared/src/models/feed_decorator/suggested_content_display_type.dart';
+import 'package:ht_shared/src/models/feed-decorators/suggested_content.dart';
+import 'package:ht_shared/src/models/feed-decorators/suggested_content_display_type.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
 

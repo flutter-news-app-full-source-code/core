@@ -5,7 +5,7 @@ import 'package:ht_shared/src/models/core/feed_item_action.dart'
     show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
 import 'package:ht_shared/src/models/entities/entities.dart'
     show Category, Country, Headline, Source;
-import 'package:ht_shared/src/models/feed_decorator/suggested_content_display_type.dart';
+import 'package:ht_shared/src/models/feed-decorators/suggested_content_display_type.dart';
 import 'package:ht_shared/src/models/models.dart'
     show Category, Country, Headline, Source;
 // Removed redundant imports for Category, Country, Headline, Source
