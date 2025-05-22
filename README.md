@@ -22,7 +22,7 @@ This package includes well-defined Dart classes for:
 
 *   📰 **News Content:** `Headline`, `Category`, `Source`, `Country`
 *   🧩 **Feed System:** `FeedItem` (and its subtypes like `Ad`, `SuggestedContent`, `EngagementContent`), `FeedItemAction`
-*   👤 **User Data:** `User`, `UserContentPreferences`, `UserPreferenceLimits`, `UserAppSettings`
+*   👤 **User Data:** `User`, `UserContentPreferences`, `UserAppSettings`
 *   ⚙️ **Application Configuration:** `AppConfig`
 *   📡 **API Communication:** `PaginatedResponse`, `SuccessApiResponse`, and a comprehensive `HtHttpException` hierarchy for standardized error handling.
 
