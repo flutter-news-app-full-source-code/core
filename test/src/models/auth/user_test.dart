@@ -42,15 +42,25 @@ void main() {
     test('has correct toString', () {
       expect(
         const User(id: id, email: email, role: standardRole).toString(),
-        equals('User(id: $id, email: $email, role: $standardRole)'),
+        equals(
+          'User(id: $id, email: $email, role: $standardRole, createdAt: null)',
+        ),
       );
       expect(
         const User(id: id, role: guestRole).toString(),
-        equals('User(id: $id, email: null, role: $guestRole)'),
+        equals('User(id: $id, email: null, role: $guestRole, createdAt: null)'),
       );
       expect(
         const User(id: id, role: adminRole).toString(),
-        equals('User(id: $id, email: null, role: $adminRole)'),
+        equals('User(id: $id, email: null, role: $adminRole, createdAt: null)'),
+      );
+      final now = DateTime.now();
+      expect(
+        User(id: id, email: email, role: standardRole, createdAt: now)
+            .toString(),
+        equals(
+          'User(id: $id, email: $email, role: $standardRole, createdAt: $now)',
+        ),
       );
     });
 

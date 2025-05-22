@@ -15,7 +15,12 @@ class User extends Equatable {
   /// Requires a unique [id] and a [role].
   /// The [email] is optional and typically present only for users
   /// who have verified their email address.
-  const User({required this.id, required this.role, this.email});
+  const User({
+    required this.id,
+    required this.role,
+    this.email,
+    this.createdAt,
+  });
 
   /// Creates a User from JSON data.
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
@@ -31,14 +36,46 @@ class User extends Equatable {
   /// The role of the user.
   final UserRole role;
 
+  /// The date and time the user account was created.
+  /// This is typically set on the backend upon user creation.
+  @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
+  final DateTime? createdAt;
+
   /// Converts this User instance to JSON data.
   Map<String, dynamic> toJson() => _$UserToJson(this);
 
   @override
-  List<Object?> get props => [id, email, role];
+  List<Object?> get props => [id, email, role, createdAt];
 
   @override
   String toString() {
-    return 'User(id: $id, email: $email, role: $role)';
+    return 'User(id: $id, email: $email, role: $role, createdAt: $createdAt)';
   }
+
+  /// Creates a copy of this [User] but with the given fields replaced with
+  /// the new values.
+  User copyWith({
+    String? id,
+    String? email,
+    UserRole? role,
+    DateTime? createdAt,
+  }) {
+    return User(
+      id: id ?? this.id,
+      email: email ?? this.email,
+      role: role ?? this.role,
+      createdAt: createdAt ?? this.createdAt,
+    );
+  }
+}
+
+// Helper function for parsing DateTime, returning null on error
+DateTime? _dateTimeFromJson(String? dateString) {
+  if (dateString == null) return null;
+  return DateTime.tryParse(dateString);
+}
+
+// Helper function for serializing DateTime to ISO 8601 string
+String? _dateTimeToJson(DateTime? dateTime) {
+  return dateTime?.toIso8601String();
 }
