@@ -263,9 +263,7 @@ void main() {
         );
 
         final copied = original.copyWith(
-          description: null,
-          callToActionText: null,
-          callToActionUrl: null,
+          
         );
 
         expect(copied.description, isNull);

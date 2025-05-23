@@ -21,8 +21,7 @@ void main() {
         'id': id,
         'display_settings': displaySettings ?? defaultDisplaySettings.toJson(),
         'language': language ?? defaultLanguage,
-        'feed_preferences':
-            feedPreferences ?? defaultFeedPreferences.toJson(),
+        'feed_preferences': feedPreferences ?? defaultFeedPreferences.toJson(),
       };
     }
 
