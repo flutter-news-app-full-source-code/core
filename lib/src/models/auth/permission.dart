@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'permission.g.dart';
 
@@ -8,7 +9,14 @@ part 'permission.g.dart';
 ///
 /// Permissions follow the format `resource.action`.
 /// {@endtemplate}
-@JsonSerializable()
+
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class Permission extends Equatable {
   /// {@macro permission}
   const Permission({required this.name});
