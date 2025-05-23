@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 /// Defines the types of engagement content templates available.
 /// The string value of the enum (e.g., 'rate-app') will be used as the ID
 /// to link rules in AppConfig to specific EngagementContentTemplate instances.
-@JsonEnum(fieldRename: FieldRename.kebab)
+@JsonEnum(fieldRename: FieldRename.snake)
 enum EngagementTemplateType {
   /// Prompt to rate the application.
   rateApp,
@@ -24,7 +24,7 @@ enum EngagementTemplateType {
 /// Defines the types of suggested content templates available.
 /// The string value of the enum (e.g., 'categories-to-follow') will be used as the ID
 /// to link rules in AppConfig to specific SuggestedContentTemplate instances.
-@JsonEnum(fieldRename: FieldRename.kebab)
+@JsonEnum(fieldRename: FieldRename.snake)
 enum SuggestionTemplateType {
   /// Suggest categories to follow.
   categoriesToFollow,
