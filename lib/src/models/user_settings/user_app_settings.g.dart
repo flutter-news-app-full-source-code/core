@@ -7,32 +7,50 @@ part of 'user_app_settings.dart';
 // **************************************************************************
 
 UserAppSettings _$UserAppSettingsFromJson(Map<String, dynamic> json) =>
-    UserAppSettings(
-      id: json['id'] as String,
-      displaySettings: json['displaySettings'] == null
-          ? null
-          : DisplaySettings.fromJson(
-              json['displaySettings'] as Map<String, dynamic>),
-      language: json['language'] as String?,
-      feedPreferences: json['feedPreferences'] == null
-          ? null
-          : FeedDisplayPreferences.fromJson(
-              json['feedPreferences'] as Map<String, dynamic>),
-      engagementShownCounts:
-          (json['engagementShownCounts'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(k, (e as num).toInt()),
-      ),
-      engagementLastShownTimestamps: _engagementLastShownTimestampsFromJson(
-          json['engagementLastShownTimestamps'] as Map<String, dynamic>?),
+    $checkedCreate(
+      'UserAppSettings',
+      json,
+      ($checkedConvert) {
+        final val = UserAppSettings(
+          id: $checkedConvert('id', (v) => v as String),
+          displaySettings: $checkedConvert(
+              'display_settings',
+              (v) => v == null
+                  ? null
+                  : DisplaySettings.fromJson(v as Map<String, dynamic>)),
+          language: $checkedConvert('language', (v) => v as String?),
+          feedPreferences: $checkedConvert(
+              'feed_preferences',
+              (v) => v == null
+                  ? null
+                  : FeedDisplayPreferences.fromJson(v as Map<String, dynamic>)),
+          engagementShownCounts: $checkedConvert(
+              'engagement_shown_counts',
+              (v) => (v as Map<String, dynamic>?)?.map(
+                    (k, e) => MapEntry(k, (e as num).toInt()),
+                  )),
+          engagementLastShownTimestamps: $checkedConvert(
+              'engagement_last_shown_timestamps',
+              (v) => _engagementLastShownTimestampsFromJson(
+                  v as Map<String, dynamic>?)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'displaySettings': 'display_settings',
+        'feedPreferences': 'feed_preferences',
+        'engagementShownCounts': 'engagement_shown_counts',
+        'engagementLastShownTimestamps': 'engagement_last_shown_timestamps'
+      },
     );
 
 Map<String, dynamic> _$UserAppSettingsToJson(UserAppSettings instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'displaySettings': instance.displaySettings.toJson(),
+      'display_settings': instance.displaySettings.toJson(),
       'language': instance.language,
-      'feedPreferences': instance.feedPreferences.toJson(),
-      'engagementShownCounts': instance.engagementShownCounts,
-      'engagementLastShownTimestamps': _engagementLastShownTimestampsToJson(
+      'feed_preferences': instance.feedPreferences.toJson(),
+      'engagement_shown_counts': instance.engagementShownCounts,
+      'engagement_last_shown_timestamps': _engagementLastShownTimestampsToJson(
           instance.engagementLastShownTimestamps),
     };

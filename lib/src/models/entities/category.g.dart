@@ -6,19 +6,26 @@ part of 'category.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Category _$CategoryFromJson(Map<String, dynamic> json) {
-  $checkKeys(
-    json,
-    requiredKeys: const ['name'],
-  );
-  return Category(
-    name: json['name'] as String,
-    action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
-    id: json['id'] as String?,
-    description: json['description'] as String?,
-    iconUrl: json['icon_url'] as String?,
-  );
-}
+Category _$CategoryFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Category',
+      json,
+      ($checkedConvert) {
+        $checkKeys(
+          json,
+          requiredKeys: const ['name'],
+        );
+        final val = Category(
+          name: $checkedConvert('name', (v) => v as String),
+          action: $checkedConvert('action',
+              (v) => feedItemActionFromJson(v as Map<String, dynamic>)),
+          id: $checkedConvert('id', (v) => v as String?),
+          description: $checkedConvert('description', (v) => v as String?),
+          iconUrl: $checkedConvert('icon_url', (v) => v as String?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'iconUrl': 'icon_url'},
+    );
 
 Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
       'id': instance.id,

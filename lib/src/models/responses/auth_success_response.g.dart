@@ -7,9 +7,17 @@ part of 'auth_success_response.dart';
 // **************************************************************************
 
 AuthSuccessResponse _$AuthSuccessResponseFromJson(Map<String, dynamic> json) =>
-    AuthSuccessResponse(
-      user: User.fromJson(json['user'] as Map<String, dynamic>),
-      token: json['token'] as String,
+    $checkedCreate(
+      'AuthSuccessResponse',
+      json,
+      ($checkedConvert) {
+        final val = AuthSuccessResponse(
+          user: $checkedConvert(
+              'user', (v) => User.fromJson(v as Map<String, dynamic>)),
+          token: $checkedConvert('token', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$AuthSuccessResponseToJson(
