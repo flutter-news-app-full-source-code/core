@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/user_settings/user_settings.dart';
-
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'display_settings.g.dart';
 
@@ -13,7 +13,13 @@ part 'display_settings.g.dart';
 /// text scaling, and font weight, allowing them to be managed and persisted
 /// together.
 /// {@endtemplate}
-@JsonSerializable()
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class DisplaySettings extends Equatable {
   /// {@macro display_settings}
   ///
@@ -39,9 +45,11 @@ class DisplaySettings extends Equatable {
       _$DisplaySettingsFromJson(json);
 
   /// The base theme mode (light, dark, or system default).
+
   final AppBaseTheme baseTheme;
 
   /// The selected predefined accent color theme.
+
   final AppAccentTheme accentTheme;
 
   /// The name or identifier of the selected font family.
@@ -51,9 +59,11 @@ class DisplaySettings extends Equatable {
   final String fontFamily;
 
   /// The preferred text size scaling factor.
+
   final AppTextScaleFactor textScaleFactor;
 
   /// The preferred font weight.
+
   final AppFontWeight fontWeight;
 
   /// Creates a copy of this [DisplaySettings] but with the given fields
