@@ -22,10 +22,10 @@ void main() {
     group('fromJson', () {
       test('returns correct object when all fields are provided', () {
         final json = <String, dynamic>{
-          'headlineDensity': 'compact',
-          'headlineImageStyle': 'largeThumbnail',
-          'showSourceInHeadlineFeed': false,
-          'showPublishDateInHeadlineFeed': false,
+          'headline_density': 'compact',
+          'headline_image_style': 'largeThumbnail',
+          'show_source_in_headline_feed': false,
+          'show_publish_date_in_headline_feed': false,
         };
         expect(
           FeedDisplayPreferences.fromJson(json),
@@ -54,19 +54,19 @@ void main() {
           showPublishDateInHeadlineFeed: false,
         );
         expect(preferences.toJson(), <String, dynamic>{
-          'headlineDensity': 'compact',
-          'headlineImageStyle': 'largeThumbnail',
-          'showSourceInHeadlineFeed': false,
-          'showPublishDateInHeadlineFeed': false,
+          'headline_density': 'compact',
+          'headline_image_style': 'largeThumbnail',
+          'show_source_in_headline_feed': false,
+          'show_publish_date_in_headline_feed': false,
         });
       });
 
       test('returns default values in JSON if not explicitly set', () {
         expect(defaultPreferences.toJson(), <String, dynamic>{
-          'headlineDensity': 'standard',
-          'headlineImageStyle': 'smallThumbnail',
-          'showSourceInHeadlineFeed': true,
-          'showPublishDateInHeadlineFeed': true,
+          'headline_density': 'standard',
+          'headline_image_style': 'smallThumbnail',
+          'show_source_in_headline_feed': true,
+          'show_publish_date_in_headline_feed': true,
         });
       });
     });
