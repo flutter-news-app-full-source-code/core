@@ -10,7 +10,7 @@ part 'suggested_content_template.g.dart';
 /// Defines the static content and configuration for a suggestion block.
 /// The 'type' of an instance should match a [SuggestionTemplateType] value.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class SuggestedContentTemplate extends Equatable {
   /// {@macro suggested_content_template}
   const SuggestedContentTemplate({

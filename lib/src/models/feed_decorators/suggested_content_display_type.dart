@@ -13,7 +13,7 @@ import 'package:json_annotation/json_annotation.dart';
 /// This enum guides the UI on how to render the list of items
 /// contained within a SuggestedContent model.
 /// {@endtemplate}
-@JsonEnum(fieldRename: FieldRename.snake)
+@JsonEnum(fieldRename: FieldRename.kebab)
 enum SuggestedContentDisplayType {
   /// Displays content items in a horizontally scrollable list of cards.
   horizontalCardList,

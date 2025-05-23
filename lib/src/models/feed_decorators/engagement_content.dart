@@ -84,21 +84,31 @@ class EngagementContent extends FeedItem {
   EngagementContent copyWith({
     String? id,
     String? title,
-    String? description,
-    EngagementContentType? engagementContentType,
-    String? callToActionText,
-    String? callToActionUrl,
+    Object? description = const _Sentinel(),
+    Object? engagementContentType = const _Sentinel(),
+    Object? callToActionText = const _Sentinel(),
+    Object? callToActionUrl = const _Sentinel(),
     FeedItemAction? action,
   }) {
     return EngagementContent(
       id: id ?? this.id,
       title: title ?? this.title,
-      description: description ?? this.description,
-      engagementContentType:
-          engagementContentType ?? this.engagementContentType,
-      callToActionText: callToActionText ?? this.callToActionText,
-      callToActionUrl: callToActionUrl ?? this.callToActionUrl,
+      description:
+          description is _Sentinel ? this.description : description as String?,
+      engagementContentType: engagementContentType is _Sentinel
+          ? this.engagementContentType
+          : engagementContentType as EngagementContentType?,
+      callToActionText: callToActionText is _Sentinel
+          ? this.callToActionText
+          : callToActionText as String?,
+      callToActionUrl: callToActionUrl is _Sentinel
+          ? this.callToActionUrl
+          : callToActionUrl as String?,
       action: action ?? this.action,
     );
   }
+}
+
+class _Sentinel {
+  const _Sentinel();
 }

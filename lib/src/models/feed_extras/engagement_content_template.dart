@@ -8,7 +8,7 @@ part 'engagement_content_template.g.dart';
 /// Defines the static content for an engagement prompt.
 /// The 'type' of an instance should match an [EngagementTemplateType] value.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class EngagementContentTemplate extends Equatable {
   /// {@macro engagement_content_template}
   const EngagementContentTemplate({
