@@ -17,7 +17,12 @@ part 'user_content_preferences.g.dart';
 /// generic data client.
 /// {@endtemplate}
 @immutable // Add immutable annotation
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class UserContentPreferences extends Equatable {
   /// {@macro user_content_preferences}
   ///
