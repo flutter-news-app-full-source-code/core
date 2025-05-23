@@ -8,17 +8,20 @@ void main() {
     const userId = 'test-user-id';
     const defaultDisplaySettings = DisplaySettings();
     const defaultLanguage = 'en';
+    const defaultFeedPreferences = FeedDisplayPreferences();
 
     // Helper function to create a sample JSON map
     Map<String, dynamic> createJson({
       required String id,
       Map<String, dynamic>? displaySettings,
       String? language,
+      Map<String, dynamic>? feedPreferences,
     }) {
       return {
         'id': id,
-        'displaySettings': displaySettings ?? defaultDisplaySettings.toJson(),
+        'display_settings': displaySettings ?? defaultDisplaySettings.toJson(),
         'language': language ?? defaultLanguage,
+        'feed_preferences': feedPreferences ?? defaultFeedPreferences.toJson(),
       };
     }
 
@@ -27,11 +30,13 @@ void main() {
       required String id,
       DisplaySettings? displaySettings,
       AppLanguage? language,
+      FeedDisplayPreferences? feedPreferences,
     }) {
       return UserAppSettings(
         id: id,
         displaySettings: displaySettings,
         language: language,
+        feedPreferences: feedPreferences,
       );
     }
 
@@ -60,20 +65,20 @@ void main() {
         accentTheme: AppAccentTheme.newsRed,
       );
       const customLanguage = 'es';
-      const defaultFeedPreferences = FeedDisplayPreferences();
       expect(
         createSubject(
           id: userId,
           displaySettings: customDisplaySettings,
           language: customLanguage,
+          feedPreferences: defaultFeedPreferences,
         ).props,
         equals([
           userId,
           customDisplaySettings,
           customLanguage,
           defaultFeedPreferences,
-          const {}, // engagementShownCounts
-          const {}, // engagementLastShownTimestamps
+          const <String, int>{}, // engagementShownCounts default
+          const <String, DateTime>{}, // engagementLastShownTimestamps default
         ]),
       );
     });
@@ -83,6 +88,7 @@ void main() {
       expect(settings.id, userId);
       expect(settings.displaySettings, defaultDisplaySettings);
       expect(settings.language, defaultLanguage);
+      expect(settings.feedPreferences, defaultFeedPreferences);
     });
 
     group('copyWith', () {
@@ -106,15 +112,20 @@ void main() {
           accentTheme: AppAccentTheme.newsRed,
         );
         const newLanguage = 'es';
+        const newFeedPreferences = FeedDisplayPreferences(
+          headlineDensity: HeadlineDensity.compact,
+        );
 
         final copied = original.copyWith(
           displaySettings: newDisplaySettings,
           language: newLanguage,
+          feedPreferences: newFeedPreferences,
         );
 
         expect(copied.id, original.id); // ID should remain the same
         expect(copied.displaySettings, newDisplaySettings);
         expect(copied.language, newLanguage);
+        expect(copied.feedPreferences, newFeedPreferences);
 
         // Test changing only the ID (though less common for this model)
         const newId = 'new-user-id';
@@ -122,6 +133,7 @@ void main() {
         expect(copiedWithNewId.id, newId);
         expect(copiedWithNewId.displaySettings, original.displaySettings);
         expect(copiedWithNewId.language, original.language);
+        expect(copiedWithNewId.feedPreferences, original.feedPreferences);
       });
     });
 
@@ -130,7 +142,14 @@ void main() {
         final json = createJson(id: userId);
         expect(
           UserAppSettings.fromJson(json),
-          equals(createSubject(id: userId)),
+          equals(
+            createSubject(
+              id: userId,
+              displaySettings: defaultDisplaySettings,
+              language: defaultLanguage,
+              feedPreferences: defaultFeedPreferences,
+            ),
+          ),
         );
       });
 
@@ -143,17 +162,23 @@ void main() {
           fontWeight: AppFontWeight.bold,
         );
         const customLanguage = 'fr';
+        const customFeedPreferences = FeedDisplayPreferences(
+          headlineDensity: HeadlineDensity.comfortable,
+          showSourceInHeadlineFeed: false,
+        );
 
         final json = createJson(
           id: userId,
           displaySettings: customDisplaySettings.toJson(),
           language: customLanguage,
+          feedPreferences: customFeedPreferences.toJson(),
         );
 
         final expected = createSubject(
           id: userId,
           displaySettings: customDisplaySettings,
           language: customLanguage,
+          feedPreferences: customFeedPreferences,
         );
 
         expect(UserAppSettings.fromJson(json), equals(expected));
@@ -170,6 +195,10 @@ void main() {
             fontWeight: AppFontWeight.bold,
           ),
           language: 'es',
+          feedPreferences: const FeedDisplayPreferences(
+            headlineImageStyle: HeadlineImageStyle.hidden,
+            showPublishDateInHeadlineFeed: false,
+          ),
         );
         final json = original.toJson();
         final reconstructed = UserAppSettings.fromJson(json);
