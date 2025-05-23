@@ -1,9 +1,24 @@
-import 'package:ht_shared/src/models/feed_decorators/engagement_content_type.dart';
+import 'package:ht_shared/ht_shared.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('EngagementContentType', () {
-    test('has correct string values for JSON serialization', () {
+    test('has all expected values', () {
+      expect(
+        EngagementContentType.values,
+        containsAll([
+          EngagementContentType.signUp,
+          EngagementContentType.upgrade,
+          EngagementContentType.feedback,
+          EngagementContentType.survey,
+          EngagementContentType.rateApp,
+          EngagementContentType.shareApp,
+          EngagementContentType.custom,
+        ]),
+      );
+    });
+
+    test('string representation (name) matches expected camelCase', () {
       expect(EngagementContentType.signUp.name, 'signUp');
       expect(EngagementContentType.upgrade.name, 'upgrade');
       expect(EngagementContentType.feedback.name, 'feedback');
@@ -13,7 +28,7 @@ void main() {
       expect(EngagementContentType.custom.name, 'custom');
     });
 
-    test('can be created from string values', () {
+    test('can be created from string using values.byName', () {
       expect(
         EngagementContentType.values.byName('signUp'),
         EngagementContentType.signUp,
@@ -44,34 +59,10 @@ void main() {
       );
     });
 
-    test('has correct toString representation', () {
+    test('values.byName throws ArgumentError for unknown value', () {
       expect(
-        EngagementContentType.signUp.toString(),
-        'EngagementContentType.signUp',
-      );
-      expect(
-        EngagementContentType.upgrade.toString(),
-        'EngagementContentType.upgrade',
-      );
-      expect(
-        EngagementContentType.feedback.toString(),
-        'EngagementContentType.feedback',
-      );
-      expect(
-        EngagementContentType.survey.toString(),
-        'EngagementContentType.survey',
-      );
-      expect(
-        EngagementContentType.rateApp.toString(),
-        'EngagementContentType.rateApp',
-      );
-      expect(
-        EngagementContentType.shareApp.toString(),
-        'EngagementContentType.shareApp',
-      );
-      expect(
-        EngagementContentType.custom.toString(),
-        'EngagementContentType.custom',
+        () => EngagementContentType.values.byName('unknownType'),
+        throwsA(isA<ArgumentError>()),
       );
     });
   });
