@@ -62,8 +62,8 @@ void main() {
           'type': 'category',
           'action': {
             'type': 'open_internal_content',
-            'contentId': 'science-id',
-            'contentType': 'category',
+            'content_id': 'science-id',
+            'content_type': 'category',
           },
         };
         expect(
@@ -87,8 +87,8 @@ void main() {
           'type': 'category',
           'action': {
             'type': 'open_internal_content',
-            'contentId': 'art-id',
-            'contentType': 'category',
+            'content_id': 'art-id',
+            'content_type': 'category',
           },
         };
         final category = Category.fromJson(json);
@@ -115,8 +115,8 @@ void main() {
           'type': 'category',
           'action': {
             'type': 'open_internal_content',
-            'contentId': 'test-id',
-            'contentType': 'category',
+            'content_id': 'test-id',
+            'content_type': 'category',
           },
         });
       });
@@ -129,8 +129,8 @@ void main() {
           'type': 'category',
           'action': {
             'type': 'open_internal_content',
-            'contentId': 'test-id',
-            'contentType': 'category',
+            'content_id': 'test-id',
+            'content_type': 'category',
           },
         });
       });
