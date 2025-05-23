@@ -21,7 +21,12 @@ DateTime? _dateTimeFromJson(String? dateString) {
 /// Represents a news headline item.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class Headline extends FeedItem {
   /// {@macro headline}
   Headline({
@@ -42,7 +47,7 @@ class Headline extends FeedItem {
         action = action,
         super(type: 'headline', action: action);
 
-  /// Factory method to create a [Headline] instance from a JSON map.
+  /// Creates a [Headline] instance from a JSON map.
   factory Headline.fromJson(Map<String, dynamic> json) =>
       _$HeadlineFromJson(json);
 
@@ -59,11 +64,10 @@ class Headline extends FeedItem {
   final String? url;
 
   /// URL to an image associated with the headline.
-  @JsonKey(name: 'imageUrl')
   final String? imageUrl;
 
   /// Date and time when the headline was published.
-  @JsonKey(name: 'publishedAt', fromJson: _dateTimeFromJson)
+  @JsonKey(fromJson: _dateTimeFromJson)
   final DateTime? publishedAt;
 
   /// Source or origin of the headline.
