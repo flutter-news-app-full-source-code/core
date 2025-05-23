@@ -11,11 +11,8 @@ Source _$SourceFromJson(Map<String, dynamic> json) => Source(
       action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
       description: json['description'] as String?,
       url: json['url'] as String?,
-      sourceType: $enumDecodeNullable(
-        _$SourceTypeEnumMap,
-        json['sourceType'],
-        unknownValue: JsonKey.nullForUndefinedEnumValue,
-      ),
+      sourceType: $enumDecodeNullable(_$SourceTypeEnumMap, json['sourceType'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
       language: json['language'] as String?,
       headquarters: json['headquarters'] == null
           ? null

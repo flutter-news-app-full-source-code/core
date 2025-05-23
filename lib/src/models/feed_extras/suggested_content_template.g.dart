@@ -7,14 +7,11 @@ part of 'suggested_content_template.dart';
 // **************************************************************************
 
 SuggestedContentTemplate _$SuggestedContentTemplateFromJson(
-  Map<String, dynamic> json,
-) =>
+        Map<String, dynamic> json) =>
     SuggestedContentTemplate(
       type: $enumDecode(_$SuggestionTemplateTypeEnumMap, json['type']),
       displayType: $enumDecode(
-        _$SuggestedContentDisplayTypeEnumMap,
-        json['displayType'],
-      ),
+          _$SuggestedContentDisplayTypeEnumMap, json['displayType']),
       suggestedContentType:
           $enumDecode(_$ContentTypeEnumMap, json['suggestedContentType']),
       title: json['title'] as String?,
@@ -24,18 +21,18 @@ SuggestedContentTemplate _$SuggestedContentTemplateFromJson(
     );
 
 Map<String, dynamic> _$SuggestedContentTemplateToJson(
-  SuggestedContentTemplate instance,
-) =>
+        SuggestedContentTemplate instance) =>
     <String, dynamic>{
       'type': _$SuggestionTemplateTypeEnumMap[instance.type]!,
-      'title': instance.title,
-      'description': instance.description,
+      if (instance.title case final value?) 'title': value,
+      if (instance.description case final value?) 'description': value,
       'displayType':
           _$SuggestedContentDisplayTypeEnumMap[instance.displayType]!,
       'suggestedContentType':
           _$ContentTypeEnumMap[instance.suggestedContentType]!,
-      'maxItemsToDisplay': instance.maxItemsToDisplay,
-      'fetchCriteria': instance.fetchCriteria,
+      if (instance.maxItemsToDisplay case final value?)
+        'maxItemsToDisplay': value,
+      if (instance.fetchCriteria case final value?) 'fetchCriteria': value,
     };
 
 const _$SuggestionTemplateTypeEnumMap = {
@@ -45,11 +42,11 @@ const _$SuggestionTemplateTypeEnumMap = {
 };
 
 const _$SuggestedContentDisplayTypeEnumMap = {
-  SuggestedContentDisplayType.horizontalCardList: 'horizontal_card_list',
-  SuggestedContentDisplayType.verticalCardList: 'vertical_card_list',
+  SuggestedContentDisplayType.horizontalCardList: 'horizontal-card-list',
+  SuggestedContentDisplayType.verticalCardList: 'vertical-card-list',
   SuggestedContentDisplayType.grid: 'grid',
-  SuggestedContentDisplayType.singlePromotionalCard: 'single_promotional_card',
-  SuggestedContentDisplayType.textList: 'text_list',
+  SuggestedContentDisplayType.singlePromotionalCard: 'single-promotional-card',
+  SuggestedContentDisplayType.textList: 'text-list',
 };
 
 const _$ContentTypeEnumMap = {

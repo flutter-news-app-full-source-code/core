@@ -16,9 +16,7 @@ DisplaySettings _$DisplaySettingsFromJson(Map<String, dynamic> json) =>
               AppAccentTheme.defaultBlue,
       fontFamily: json['fontFamily'] as String? ?? 'SystemDefault',
       textScaleFactor: $enumDecodeNullable(
-            _$AppTextScaleFactorEnumMap,
-            json['textScaleFactor'],
-          ) ??
+              _$AppTextScaleFactorEnumMap, json['textScaleFactor']) ??
           AppTextScaleFactor.medium,
       fontWeight:
           $enumDecodeNullable(_$AppFontWeightEnumMap, json['fontWeight']) ??

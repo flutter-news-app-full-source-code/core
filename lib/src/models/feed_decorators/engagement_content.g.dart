@@ -10,10 +10,8 @@ EngagementContent _$EngagementContentFromJson(Map<String, dynamic> json) =>
     EngagementContent(
       title: json['title'] as String,
       engagementContentType: $enumDecodeNullable(
-        _$EngagementContentTypeEnumMap,
-        json['engagementContentType'],
-        unknownValue: JsonKey.nullForUndefinedEnumValue,
-      ),
+          _$EngagementContentTypeEnumMap, json['engagementContentType'],
+          unknownValue: JsonKey.nullForUndefinedEnumValue),
       action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
       description: json['description'] as String?,
       callToActionText: json['callToActionText'] as String?,
@@ -36,11 +34,11 @@ Map<String, dynamic> _$EngagementContentToJson(EngagementContent instance) =>
     };
 
 const _$EngagementContentTypeEnumMap = {
-  EngagementContentType.signUp: 'sign_up',
+  EngagementContentType.signUp: 'sign-up',
   EngagementContentType.upgrade: 'upgrade',
   EngagementContentType.feedback: 'feedback',
   EngagementContentType.survey: 'survey',
-  EngagementContentType.rateApp: 'rate_app',
-  EngagementContentType.shareApp: 'share_app',
+  EngagementContentType.rateApp: 'rate-app',
+  EngagementContentType.shareApp: 'share-app',
   EngagementContentType.custom: 'custom',
 };

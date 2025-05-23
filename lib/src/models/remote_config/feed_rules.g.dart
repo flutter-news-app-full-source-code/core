@@ -16,9 +16,12 @@ PlacementCriteria _$PlacementCriteriaFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$PlacementCriteriaToJson(PlacementCriteria instance) =>
     <String, dynamic>{
-      'afterPrimaryItemIndex': instance.afterPrimaryItemIndex,
-      'relativePosition': instance.relativePosition,
-      'minPrimaryItemsRequired': instance.minPrimaryItemsRequired,
+      if (instance.afterPrimaryItemIndex case final value?)
+        'afterPrimaryItemIndex': value,
+      if (instance.relativePosition case final value?)
+        'relativePosition': value,
+      if (instance.minPrimaryItemsRequired case final value?)
+        'minPrimaryItemsRequired': value,
     };
 
 EngagementRule _$EngagementRuleFromJson(Map<String, dynamic> json) =>
@@ -35,8 +38,7 @@ EngagementRule _$EngagementRuleFromJson(Map<String, dynamic> json) =>
       placement: json['placement'] == null
           ? null
           : PlacementCriteria.fromJson(
-              json['placement'] as Map<String, dynamic>,
-            ),
+              json['placement'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$EngagementRuleToJson(EngagementRule instance) =>
@@ -44,10 +46,12 @@ Map<String, dynamic> _$EngagementRuleToJson(EngagementRule instance) =>
       'templateType': _$EngagementTemplateTypeEnumMap[instance.templateType]!,
       'userRoles':
           instance.userRoles.map((e) => _$UserRoleEnumMap[e]!).toList(),
-      'minDaysSinceAccountCreation': instance.minDaysSinceAccountCreation,
-      'maxTimesToShow': instance.maxTimesToShow,
-      'minDaysSinceLastShown': instance.minDaysSinceLastShown,
-      'placement': instance.placement?.toJson(),
+      if (instance.minDaysSinceAccountCreation case final value?)
+        'minDaysSinceAccountCreation': value,
+      if (instance.maxTimesToShow case final value?) 'maxTimesToShow': value,
+      if (instance.minDaysSinceLastShown case final value?)
+        'minDaysSinceLastShown': value,
+      if (instance.placement?.toJson() case final value?) 'placement': value,
     };
 
 const _$EngagementTemplateTypeEnumMap = {
@@ -75,8 +79,7 @@ SuggestionRule _$SuggestionRuleFromJson(Map<String, dynamic> json) =>
       placement: json['placement'] == null
           ? null
           : PlacementCriteria.fromJson(
-              json['placement'] as Map<String, dynamic>,
-            ),
+              json['placement'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$SuggestionRuleToJson(SuggestionRule instance) =>
@@ -84,7 +87,7 @@ Map<String, dynamic> _$SuggestionRuleToJson(SuggestionRule instance) =>
       'templateType': _$SuggestionTemplateTypeEnumMap[instance.templateType]!,
       'userRoles':
           instance.userRoles.map((e) => _$UserRoleEnumMap[e]!).toList(),
-      'placement': instance.placement?.toJson(),
+      if (instance.placement?.toJson() case final value?) 'placement': value,
     };
 
 const _$SuggestionTemplateTypeEnumMap = {

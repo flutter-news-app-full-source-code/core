@@ -7,8 +7,7 @@ part of 'engagement_content_template.dart';
 // **************************************************************************
 
 EngagementContentTemplate _$EngagementContentTemplateFromJson(
-  Map<String, dynamic> json,
-) =>
+        Map<String, dynamic> json) =>
     EngagementContentTemplate(
       type: $enumDecode(_$EngagementTemplateTypeEnumMap, json['type']),
       title: json['title'] as String,
@@ -17,13 +16,13 @@ EngagementContentTemplate _$EngagementContentTemplateFromJson(
     );
 
 Map<String, dynamic> _$EngagementContentTemplateToJson(
-  EngagementContentTemplate instance,
-) =>
+        EngagementContentTemplate instance) =>
     <String, dynamic>{
       'type': _$EngagementTemplateTypeEnumMap[instance.type]!,
       'title': instance.title,
-      'description': instance.description,
-      'callToActionText': instance.callToActionText,
+      if (instance.description case final value?) 'description': value,
+      if (instance.callToActionText case final value?)
+        'callToActionText': value,
     };
 
 const _$EngagementTemplateTypeEnumMap = {
