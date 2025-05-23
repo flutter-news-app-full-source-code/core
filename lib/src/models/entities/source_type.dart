@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 /// Enum representing the type of news source.
-@JsonEnum(fieldRename: FieldRename.kebab)
+@JsonEnum(fieldRename: FieldRename.snake)
 enum SourceType {
   /// A global news agency
   /// (e.g., Reuters, Associated Press, Agence France-Presse).
