@@ -21,7 +21,7 @@ void main() {
       final json = {
         'items': [1, 2, 3],
         'cursor': 'abc',
-        'hasMore': true,
+        'has_more': true,
       };
       final response = PaginatedResponse<int>.fromJson(
         json,
@@ -41,7 +41,7 @@ void main() {
       final json = response.toJson((value) => value);
       expect(json['items'], [1, 2, 3]);
       expect(json['cursor'], 'abc');
-      expect(json['hasMore'], true);
+      expect(json['has_more'], true);
     });
 
     test('props returns a list of properties', () {
