@@ -1,11 +1,13 @@
 include: package:very_good_analysis/analysis_options.7.0.0.yaml
 analyzer:
   errors:
+    cast_nullable_to_non_nullable: ignore
     document_ignores: ignore
     lines_longer_than_80_chars: ignore
     no_runtimetype_tostring: ignore
     overridden_fields: ignore
     prefer_initializing_formals: ignore
+    require_trailing_commas: ignore
     unnecessary_null_checks: ignore
     unused_element: ignore
     use_super_parameters: ignore
