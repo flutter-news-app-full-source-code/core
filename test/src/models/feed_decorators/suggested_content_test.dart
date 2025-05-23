@@ -143,7 +143,7 @@ void main() {
           'id': content.id,
           'title': testTitle,
           'description': testDescription,
-          'displayType': 'horizontal_card_list',
+          'displayType': 'horizontal-card-list',
           'items': testItems.map((e) => e.toJson()).toList(),
           'type': 'suggested_content',
           'action': defaultAction.toJson(),
@@ -165,7 +165,7 @@ void main() {
           'id': testId,
           'title': testTitle,
           'description': testDescription,
-          'displayType': 'horizontal_card_list',
+          'displayType': 'horizontal-card-list',
           'items': testItems.map((e) => e.toJson()).toList(),
           'type': 'suggested_content',
           'action': defaultAction.toJson(),
@@ -184,7 +184,7 @@ void main() {
       test('deserializes JSON with missing optional fields', () {
         final json = <String, dynamic>{
           'id': testId,
-          'displayType': 'horizontal_card_list',
+          'displayType': 'horizontal-card-list',
           'items': testItems.map((e) => e.toJson()).toList(),
           'type': 'suggested_content',
           'action': defaultAction.toJson(),
