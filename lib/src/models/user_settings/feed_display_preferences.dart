@@ -52,11 +52,11 @@ class FeedDisplayPreferences extends Equatable {
       _$FeedDisplayPreferencesFromJson(json);
 
   /// How densely headline information should be presented.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final HeadlineDensity headlineDensity;
 
   /// How images should be displayed in the headline feed.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final HeadlineImageStyle headlineImageStyle;
 
   /// Whether to show the source name directly in the headline feed item.

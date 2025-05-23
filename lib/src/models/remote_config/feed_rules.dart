@@ -93,11 +93,11 @@ class EngagementRule extends Equatable {
       _$EngagementRuleFromJson(json);
 
   /// Type of engagement template to use.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final EngagementTemplateType templateType;
 
   /// Roles this rule applies to.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final List<UserRole> userRoles;
 
   /// Minimum days since user account was created for this rule to apply.
@@ -171,11 +171,11 @@ class SuggestionRule extends Equatable {
       _$SuggestionRuleFromJson(json);
 
   /// Type of suggestion template to use.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final SuggestionTemplateType templateType;
 
   /// Roles this rule applies to.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final List<UserRole> userRoles;
 
   /// How to place this in the feed.

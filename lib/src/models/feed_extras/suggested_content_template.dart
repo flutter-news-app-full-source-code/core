@@ -35,7 +35,7 @@ class SuggestedContentTemplate extends Equatable {
       _$SuggestedContentTemplateFromJson(json);
 
   /// The type of suggestion template, matching a [SuggestionTemplateType] value.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final SuggestionTemplateType type;
 
   /// An optional title for the suggestion block (e.g., "You might like...").
@@ -45,12 +45,12 @@ class SuggestedContentTemplate extends Equatable {
   final String? description;
 
   /// The visual presentation or layout style for this suggestion block.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final SuggestedContentDisplayType displayType;
 
   /// Defines what kind of primary content this suggestion block will contain
   /// (e.g., if suggesting categories, this would be [ContentType.category]).
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final ContentType suggestedContentType;
 
   /// Maximum number of items to display within this suggestion block.

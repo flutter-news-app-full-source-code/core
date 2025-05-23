@@ -30,7 +30,7 @@ class EngagementContentTemplate extends Equatable {
       _$EngagementContentTemplateFromJson(json);
 
   /// The type of engagement template, matching an [EngagementTemplateType] value.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final EngagementTemplateType type;
 
   /// The main title or heading for the engagement content.

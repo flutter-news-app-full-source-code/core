@@ -63,7 +63,7 @@ class Ad extends FeedItem {
 
   /// The type of the ad, indicating its visual format.
   /// Will be null if an unknown value is encountered during deserialization.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final AdType? adType;
 
   /// An optional identifier indicating the intended placement or slot

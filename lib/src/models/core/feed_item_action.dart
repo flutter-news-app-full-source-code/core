@@ -1,5 +1,9 @@
 import 'package:equatable/equatable.dart';
+import 'package:ht_shared/ht_shared.dart' show FeedItem;
 import 'package:ht_shared/src/models/core/content_type.dart';
+import 'package:ht_shared/src/models/core/core.dart' show FeedItem;
+import 'package:ht_shared/src/models/core/feed_item.dart' show FeedItem;
+import 'package:ht_shared/src/models/models.dart' show FeedItem;
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -92,7 +96,7 @@ class OpenInternalContent extends FeedItemAction {
   final String contentId;
 
   /// The type of the internal content (e.g., headline, category, source).
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final ContentType contentType;
 
   @override
@@ -135,7 +139,7 @@ class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
   final String contentId;
 
   /// The type of the internal content (e.g., headline, category, source).
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final ContentType contentType;
 
   @override

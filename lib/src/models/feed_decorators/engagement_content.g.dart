@@ -13,10 +13,8 @@ EngagementContent _$EngagementContentFromJson(Map<String, dynamic> json) =>
       ($checkedConvert) {
         final val = EngagementContent(
           title: $checkedConvert('title', (v) => v as String),
-          engagementContentType: $checkedConvert(
-              'engagement_content_type',
-              (v) => $enumDecodeNullable(_$EngagementContentTypeEnumMap, v,
-                  unknownValue: JsonKey.nullForUndefinedEnumValue)),
+          engagementContentType: $checkedConvert('engagement_content_type',
+              (v) => $enumDecodeNullable(_$EngagementContentTypeEnumMap, v)),
           action: $checkedConvert('action',
               (v) => feedItemActionFromJson(v as Map<String, dynamic>)),
           description: $checkedConvert('description', (v) => v as String?),

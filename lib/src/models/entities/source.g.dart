@@ -16,10 +16,8 @@ Source _$SourceFromJson(Map<String, dynamic> json) => $checkedCreate(
               (v) => feedItemActionFromJson(v as Map<String, dynamic>)),
           description: $checkedConvert('description', (v) => v as String?),
           url: $checkedConvert('url', (v) => v as String?),
-          sourceType: $checkedConvert(
-              'source_type',
-              (v) => $enumDecodeNullable(_$SourceTypeEnumMap, v,
-                  unknownValue: JsonKey.nullForUndefinedEnumValue)),
+          sourceType: $checkedConvert('source_type',
+              (v) => $enumDecodeNullable(_$SourceTypeEnumMap, v)),
           language: $checkedConvert('language', (v) => v as String?),
           headquarters: $checkedConvert(
               'headquarters',

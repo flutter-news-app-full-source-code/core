@@ -54,7 +54,7 @@ class Source extends FeedItem {
   /// The type of the source (e.g., newsAgency, blog).
   /// If an unknown value is encountered during deserialization,
   /// this field will be set to null.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final SourceType? sourceType;
 
   /// The language code of the source (e.g., 'en', 'fr').

@@ -42,7 +42,7 @@ class User extends Equatable {
   final String? email;
 
   /// The role of the user.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final UserRole role;
 
   /// The date and time the user account was created.

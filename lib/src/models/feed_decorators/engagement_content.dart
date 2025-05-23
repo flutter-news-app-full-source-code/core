@@ -51,7 +51,7 @@ class EngagementContent extends FeedItem {
 
   /// The type of engagement content.
   /// Will be null if an unknown value is encountered during deserialization.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final EngagementContentType? engagementContentType;
 
   /// The text for the call-to-action button or link.

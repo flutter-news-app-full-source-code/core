@@ -1,7 +1,13 @@
+import 'package:ht_shared/ht_shared.dart'
+    show Category, Country, Headline, Source;
 import 'package:ht_shared/src/models/core/feed_item.dart';
 import 'package:ht_shared/src/models/core/feed_item_action.dart'
     show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
+import 'package:ht_shared/src/models/entities/entities.dart'
+    show Category, Country, Headline, Source;
 import 'package:ht_shared/src/models/feed_decorators/suggested_content_display_type.dart';
+import 'package:ht_shared/src/models/models.dart'
+    show Category, Country, Headline, Source;
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
@@ -52,7 +58,7 @@ class SuggestedContent extends FeedItem {
 
   /// The visual presentation or layout style for this suggestion block.
   /// Will be null if an unknown value is encountered during deserialization.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final SuggestedContentDisplayType? displayType;
 
   /// The list of actual suggested items. These are [FeedItem] instances.

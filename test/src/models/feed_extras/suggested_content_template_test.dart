@@ -29,7 +29,9 @@ void main() {
       expect(instance, isNotNull);
       expect(instance.type, SuggestionTemplateType.categoriesToFollow);
       expect(
-          instance.displayType, SuggestedContentDisplayType.horizontalCardList);
+        instance.displayType,
+        SuggestedContentDisplayType.horizontalCardList,
+      );
       expect(instance.suggestedContentType, ContentType.category);
     });
 
@@ -93,8 +95,10 @@ void main() {
         expect(instance.type, SuggestionTemplateType.categoriesToFollow);
         expect(instance.title, 'Suggested Categories');
         expect(instance.description, 'Discover new topics.');
-        expect(instance.displayType,
-            SuggestedContentDisplayType.horizontalCardList);
+        expect(
+          instance.displayType,
+          SuggestedContentDisplayType.horizontalCardList,
+        );
         expect(instance.suggestedContentType, ContentType.category);
         expect(instance.maxItemsToDisplay, 5);
         expect(instance.fetchCriteria, 'trending');
@@ -113,7 +117,9 @@ void main() {
         expect(instance.title, isNull);
         expect(instance.description, isNull);
         expect(
-            instance.displayType, SuggestedContentDisplayType.verticalCardList);
+          instance.displayType,
+          SuggestedContentDisplayType.verticalCardList,
+        );
         expect(instance.suggestedContentType, ContentType.source);
         expect(instance.maxItemsToDisplay, isNull);
         expect(instance.fetchCriteria, isNull);

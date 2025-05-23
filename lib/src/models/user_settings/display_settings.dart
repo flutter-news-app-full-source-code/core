@@ -45,11 +45,11 @@ class DisplaySettings extends Equatable {
       _$DisplaySettingsFromJson(json);
 
   /// The base theme mode (light, dark, or system default).
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final AppBaseTheme baseTheme;
 
   /// The selected predefined accent color theme.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final AppAccentTheme accentTheme;
 
   /// The name or identifier of the selected font family.
@@ -59,11 +59,11 @@ class DisplaySettings extends Equatable {
   final String fontFamily;
 
   /// The preferred text size scaling factor.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final AppTextScaleFactor textScaleFactor;
 
   /// The preferred font weight.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final AppFontWeight fontWeight;
 
   /// Creates a copy of this [DisplaySettings] but with the given fields

@@ -14,9 +14,8 @@ SuggestedContent _$SuggestedContentFromJson(Map<String, dynamic> json) =>
         final val = SuggestedContent(
           displayType: $checkedConvert(
               'display_type',
-              (v) => $enumDecodeNullable(
-                  _$SuggestedContentDisplayTypeEnumMap, v,
-                  unknownValue: JsonKey.nullForUndefinedEnumValue)),
+              (v) =>
+                  $enumDecodeNullable(_$SuggestedContentDisplayTypeEnumMap, v)),
           items: $checkedConvert(
               'items', (v) => SuggestedContent._feedItemsFromJson(v as List)),
           action: $checkedConvert('action',

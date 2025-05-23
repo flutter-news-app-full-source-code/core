@@ -342,7 +342,9 @@ void main() {
         final instance = SuggestionRule.fromJson(json);
 
         expect(
-            instance.templateType, SuggestionTemplateType.categoriesToFollow);
+          instance.templateType,
+          SuggestionTemplateType.categoriesToFollow,
+        );
         expect(instance.userRoles, [UserRole.guestUser]);
         expect(instance.placement, isNull);
       });

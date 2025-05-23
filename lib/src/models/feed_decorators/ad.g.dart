@@ -14,9 +14,7 @@ Ad _$AdFromJson(Map<String, dynamic> json) => $checkedCreate(
           imageUrl: $checkedConvert('image_url', (v) => v as String),
           targetUrl: $checkedConvert('target_url', (v) => v as String),
           adType: $checkedConvert(
-              'ad_type',
-              (v) => $enumDecodeNullable(_$AdTypeEnumMap, v,
-                  unknownValue: JsonKey.nullForUndefinedEnumValue)),
+              'ad_type', (v) => $enumDecodeNullable(_$AdTypeEnumMap, v)),
           action: $checkedConvert('action',
               (v) => feedItemActionFromJson(v as Map<String, dynamic>)),
           placement: $checkedConvert(
