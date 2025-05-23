@@ -17,8 +17,8 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) => $checkedCreate(
           description: $checkedConvert('description', (v) => v as String?),
           url: $checkedConvert('url', (v) => v as String?),
           imageUrl: $checkedConvert('image_url', (v) => v as String?),
-          publishedAt: $checkedConvert('published_at',
-              (v) => v == null ? null : DateTime.parse(v as String)),
+          publishedAt: $checkedConvert(
+              'published_at', (v) => _dateTimeFromJson(v as String?)),
           source: $checkedConvert(
               'source',
               (v) => v == null

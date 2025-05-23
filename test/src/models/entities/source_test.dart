@@ -1,4 +1,5 @@
 import 'package:ht_shared/ht_shared.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
 
@@ -150,7 +151,7 @@ void main() {
         expect(json['action'], defaultAction.toJson());
         expect(json.containsKey('description'), isFalse);
         expect(json.containsKey('url'), isFalse);
-        expect(json.containsKey('sourceType'), isFalse);
+        expect(json.containsKey('source_type'), isFalse);
         expect(json.containsKey('language'), isFalse);
         expect(json.containsKey('headquarters'), isFalse);
       });
@@ -164,8 +165,8 @@ void main() {
         expect(json['url'], testUrl);
         expect(json['type'], 'source');
         expect(
-          json['sourceType'],
-          'specialized-publisher',
+          json['source_type'],
+          'specialized_publisher',
         ); // Use direct string
         expect(json['language'], testLanguage);
         expect(json['headquarters'], testHeadquartersJson);
@@ -178,7 +179,7 @@ void main() {
         final json = sourceWithNulls.toJson();
         expect(json.containsKey('description'), isFalse);
         expect(json.containsKey('url'), isFalse);
-        expect(json.containsKey('sourceType'), isFalse);
+        expect(json.containsKey('source_type'), isFalse);
         expect(json.containsKey('language'), isFalse);
         expect(
           json.containsKey('headquarters'),
@@ -213,7 +214,7 @@ void main() {
           'description': testDescription,
           'url': testUrl,
           'type': 'source',
-          'sourceType': 'specialized-publisher', // Use direct string
+          'source_type': 'specialized_publisher', // Use direct string
           'language': testLanguage,
           'headquarters': testHeadquartersJson,
           'action': defaultAction.toJson(),
@@ -256,7 +257,7 @@ void main() {
           'description': null,
           'url': null,
           'type': 'source',
-          'sourceType': null,
+          'source_type': null,
           'language': null,
           'headquarters': null,
           'action': defaultAction.toJson(),
@@ -275,12 +276,13 @@ void main() {
           'id': testId,
           'name': testName,
           'type': 'source',
-          'sourceType': 'some-unknown-type',
+          'source_type': 'some_unknown_type',
           'action': defaultAction.toJson(),
         };
-        final source = Source.fromJson(jsonWithUnknownType);
-        expect(source.sourceType, isNull); // Should default to null
-        expect(source.action, defaultAction);
+        expect(
+          () => Source.fromJson(jsonWithUnknownType),
+          throwsA(isA<CheckedFromJsonException>()),
+        );
       });
     });
 

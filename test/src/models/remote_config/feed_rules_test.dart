@@ -58,9 +58,9 @@ void main() {
     group('fromJson', () {
       test('returns correct PlacementCriteria object', () {
         final json = <String, dynamic>{
-          'afterPrimaryItemIndex': 5,
-          'relativePosition': 'middle',
-          'minPrimaryItemsRequired': 10,
+          'after_primary_item_index': 5,
+          'relative_position': 'middle',
+          'min_primary_items_required': 10,
         };
 
         final instance = PlacementCriteria.fromJson(json);
@@ -92,9 +92,9 @@ void main() {
         final json = instance.toJson();
 
         expect(json, <String, dynamic>{
-          'afterPrimaryItemIndex': 5,
-          'relativePosition': 'middle',
-          'minPrimaryItemsRequired': 10,
+          'after_primary_item_index': 5,
+          'relative_position': 'middle',
+          'min_primary_items_required': 10,
         });
       });
 
@@ -178,13 +178,13 @@ void main() {
     group('fromJson', () {
       test('returns correct EngagementRule object', () {
         final json = <String, dynamic>{
-          'templateType': 'rate-app',
-          'userRoles': ['standard_user', 'guest_user'],
-          'minDaysSinceAccountCreation': 7,
-          'maxTimesToShow': 3,
-          'minDaysSinceLastShown': 1,
+          'template_type': 'rate_app',
+          'user_roles': ['standard_user', 'guest_user'],
+          'min_days_since_account_creation': 7,
+          'max_times_to_show': 3,
+          'min_days_since_last_shown': 1,
           'placement': {
-            'afterPrimaryItemIndex': 2,
+            'after_primary_item_index': 2,
           },
         };
 
@@ -204,8 +204,8 @@ void main() {
 
       test('handles null optional fields', () {
         final json = <String, dynamic>{
-          'templateType': 'link-account',
-          'userRoles': ['guest_user'],
+          'template_type': 'link_account',
+          'user_roles': ['guest_user'],
         };
 
         final instance = EngagementRule.fromJson(json);
@@ -234,13 +234,13 @@ void main() {
         final json = instance.toJson();
 
         expect(json, <String, dynamic>{
-          'templateType': 'complete-profile',
-          'userRoles': ['admin'],
-          'minDaysSinceAccountCreation': 90,
-          'maxTimesToShow': 1,
-          'minDaysSinceLastShown': 30,
+          'template_type': 'complete_profile',
+          'user_roles': ['admin'],
+          'min_days_since_account_creation': 90,
+          'max_times_to_show': 1,
+          'min_days_since_last_shown': 30,
           'placement': {
-            'relativePosition': 'end',
+            'relative_position': 'end',
           },
         });
       });
@@ -254,8 +254,8 @@ void main() {
         final json = instance.toJson();
 
         expect(json, <String, dynamic>{
-          'templateType': 'explore-new-feature',
-          'userRoles': ['standard_user'],
+          'template_type': 'explore_new_feature',
+          'user_roles': ['standard_user'],
         });
       });
     });
@@ -318,10 +318,10 @@ void main() {
     group('fromJson', () {
       test('returns correct SuggestionRule object', () {
         final json = <String, dynamic>{
-          'templateType': 'sources-to-follow',
-          'userRoles': ['standard_user'],
+          'template_type': 'sources_to_follow',
+          'user_roles': ['standard_user'],
           'placement': {
-            'relativePosition': 'start',
+            'relative_position': 'start',
           },
         };
 
@@ -335,8 +335,8 @@ void main() {
 
       test('handles null optional fields', () {
         final json = <String, dynamic>{
-          'templateType': 'categories-to-follow',
-          'userRoles': ['guest_user'],
+          'template_type': 'categories_to_follow',
+          'user_roles': ['guest_user'],
         };
 
         final instance = SuggestionRule.fromJson(json);
@@ -362,10 +362,10 @@ void main() {
         final json = instance.toJson();
 
         expect(json, <String, dynamic>{
-          'templateType': 'countries-to-follow',
-          'userRoles': ['premium_user'],
+          'template_type': 'countries_to_follow',
+          'user_roles': ['premium_user'],
           'placement': {
-            'afterPrimaryItemIndex': 1,
+            'after_primary_item_index': 1,
           },
         });
       });
@@ -379,8 +379,8 @@ void main() {
         final json = instance.toJson();
 
         expect(json, <String, dynamic>{
-          'templateType': 'sources-to-follow',
-          'userRoles': ['standard_user'],
+          'template_type': 'sources_to_follow',
+          'user_roles': ['standard_user'],
         });
       });
     });

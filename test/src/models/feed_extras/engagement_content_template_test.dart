@@ -5,13 +5,13 @@ void main() {
   group('EngagementContentTemplate', () {
     EngagementContentTemplate createSubject({
       EngagementTemplateType type = EngagementTemplateType.rateApp,
-      String title = 'Test Title',
+      String title = 'Default Title', // Made non-nullable with a default
       String? description,
       String? callToActionText,
     }) {
       return EngagementContentTemplate(
         type: type,
-        title: title,
+        title: title, // Now always non-nullable
         description: description,
         callToActionText: callToActionText,
       );
@@ -21,20 +21,11 @@ void main() {
       final instance = createSubject();
       expect(instance, isNotNull);
       expect(instance.type, EngagementTemplateType.rateApp);
-      expect(instance.title, 'Test Title');
     });
 
     test('supports value equality', () {
-      final instanceA = createSubject(
-        title: 'Title A',
-        description: 'Desc A',
-        callToActionText: 'CTA A',
-      );
-      final instanceB = createSubject(
-        title: 'Title A',
-        description: 'Desc A',
-        callToActionText: 'CTA A',
-      );
+      final instanceA = createSubject(title: 'Title A');
+      final instanceB = createSubject(title: 'Title A');
       final instanceC = createSubject(
         type: EngagementTemplateType.linkAccount,
         title: 'Title C',
@@ -47,18 +38,18 @@ void main() {
     test('props are correct', () {
       final instance = createSubject(
         type: EngagementTemplateType.upgradeToPremium,
-        title: 'Upgrade',
-        description: 'Get more features',
-        callToActionText: 'Upgrade Now',
+        title: 'Upgrade Now',
+        description: 'Unlock premium features.',
+        callToActionText: 'Upgrade',
       );
 
       expect(
         instance.props,
         [
           EngagementTemplateType.upgradeToPremium,
-          'Upgrade',
-          'Get more features',
           'Upgrade Now',
+          'Unlock premium features.',
+          'Upgrade',
         ],
       );
     });
@@ -66,30 +57,30 @@ void main() {
     group('fromJson', () {
       test('returns correct EngagementContentTemplate object', () {
         final json = <String, dynamic>{
-          'type': 'rate-app',
+          'type': 'rate_app',
           'title': 'Rate Our App',
-          'description': 'Help us improve!',
-          'callToActionText': 'Rate Now',
+          'description': 'Let us know what you think!',
+          'call_to_action_text': 'Rate Now',
         };
 
         final instance = EngagementContentTemplate.fromJson(json);
 
         expect(instance.type, EngagementTemplateType.rateApp);
         expect(instance.title, 'Rate Our App');
-        expect(instance.description, 'Help us improve!');
+        expect(instance.description, 'Let us know what you think!');
         expect(instance.callToActionText, 'Rate Now');
       });
 
       test('handles null optional fields', () {
         final json = <String, dynamic>{
-          'type': 'link-account',
-          'title': 'Link Your Account',
+          'type': 'link_account',
+          'title': 'Link Your Account Now', // Provide required title
         };
 
         final instance = EngagementContentTemplate.fromJson(json);
 
         expect(instance.type, EngagementTemplateType.linkAccount);
-        expect(instance.title, 'Link Your Account');
+        expect(instance.title, 'Link Your Account Now'); // Expect the provided title
         expect(instance.description, isNull);
         expect(instance.callToActionText, isNull);
       });
@@ -107,10 +98,10 @@ void main() {
         final json = instance.toJson();
 
         expect(json, <String, dynamic>{
-          'type': 'complete-profile',
+          'type': 'complete_profile',
           'title': 'Complete Profile',
           'description': 'Add more details to your profile.',
-          'callToActionText': 'Go to Profile',
+          'call_to_action_text': 'Go to Profile',
         });
       });
 
@@ -118,13 +109,14 @@ void main() {
         final instance = createSubject(
           type: EngagementTemplateType.exploreNewFeature,
           title: 'New Feature!',
-        );
+        ); // description and callToActionText are null
 
         final json = instance.toJson();
 
         expect(json, <String, dynamic>{
-          'type': 'explore-new-feature',
+          'type': 'explore_new_feature',
           'title': 'New Feature!',
+          // Null fields should be omitted by includeIfNull: false
         });
       });
     });

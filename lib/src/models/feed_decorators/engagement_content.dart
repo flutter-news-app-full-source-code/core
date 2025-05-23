@@ -100,11 +100,11 @@ class EngagementContent extends FeedItem {
     return EngagementContent(
       id: id ?? this.id,
       title: title ?? this.title,
-      description: description ?? this.description,
+      description: description,
       engagementContentType:
           engagementContentType ?? this.engagementContentType,
-      callToActionText: callToActionText ?? this.callToActionText,
-      callToActionUrl: callToActionUrl ?? this.callToActionUrl,
+      callToActionText: callToActionText,
+      callToActionUrl: callToActionUrl,
       action: action ?? this.action,
     );
   }

@@ -67,6 +67,7 @@ class Headline extends FeedItem {
   final String? imageUrl;
 
   /// Date and time when the headline was published.
+  @JsonKey(fromJson: _dateTimeFromJson)
   final DateTime? publishedAt;
 
   /// Source or origin of the headline.

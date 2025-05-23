@@ -10,7 +10,7 @@ void main() {
     final sampleSourceJson = {
       'id': 'src-test',
       'name': 'Test Source',
-      'sourceType': 'news-agency', // Updated to match SourceType enum name
+      'source_type': 'news_agency', // Corrected to snake_case for enum value
       'type': 'source',
       'action': {
         'type': 'open_external_url',
@@ -49,8 +49,8 @@ void main() {
       'title': 'Full Headline Title',
       'description': 'Full description.',
       'url': 'http://example.com/full',
-      'imageUrl': 'http://example.com/full.jpg',
-      'publishedAt': testTimeString,
+      'image_url': 'http://example.com/full.jpg',
+      'published_at': testTimeString,
       'source': sampleSourceJson,
       'category': sampleCategoryJson,
       'action': defaultAction.toJson(),
@@ -107,14 +107,14 @@ void main() {
 
       test('should handle null DateTime correctly', () {
         final jsonWithNullDate = Map<String, dynamic>.from(fullHeadlineJson)
-          ..['publishedAt'] = null;
+          ..['published_at'] = null; // Use snake_case key
         final headline = Headline.fromJson(jsonWithNullDate);
         expect(headline.publishedAt, isNull);
       });
 
       test('should handle invalid DateTime string gracef@ully', () {
         final jsonWithInvalidDate = Map<String, dynamic>.from(fullHeadlineJson)
-          ..['publishedAt'] = 'invalid-date';
+          ..['published_at'] = 'invalid-date'; // Use snake_case key
         final headline = Headline.fromJson(jsonWithInvalidDate);
         // tryParse returns null for invalid format
         expect(headline.publishedAt, isNull);
@@ -148,8 +148,8 @@ void main() {
         expect(json['title'], minimalHeadline.title);
         expect(json.containsKey('description'), isFalse);
         expect(json.containsKey('url'), isFalse);
-        expect(json.containsKey('imageUrl'), isFalse);
-        expect(json.containsKey('publishedAt'), isFalse);
+        expect(json.containsKey('image_url'), isFalse);
+        expect(json.containsKey('published_at'), isFalse);
         expect(json.containsKey('source'), isFalse);
         expect(json.containsKey('category'), isFalse);
       });
@@ -216,8 +216,8 @@ void main() {
             fullHeadline.title,
             fullHeadline.description,
             fullHeadline.url,
-            fullHeadline.imageUrl,
-            fullHeadline.publishedAt,
+          fullHeadline.imageUrl,
+          fullHeadline.publishedAt,
             fullHeadline.source,
             fullHeadline.category,
             fullHeadline.type,

@@ -63,9 +63,9 @@ const _$AppBaseThemeEnumMap = {
 };
 
 const _$AppAccentThemeEnumMap = {
-  AppAccentTheme.defaultBlue: 'defaultBlue',
-  AppAccentTheme.newsRed: 'newsRed',
-  AppAccentTheme.graphiteGray: 'graphiteGray',
+  AppAccentTheme.defaultBlue: 'default_blue',
+  AppAccentTheme.newsRed: 'news_red',
+  AppAccentTheme.graphiteGray: 'graphite_gray',
 };
 
 const _$AppTextScaleFactorEnumMap = {
