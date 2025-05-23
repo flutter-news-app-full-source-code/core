@@ -7,16 +7,30 @@ part of 'engagement_content.dart';
 // **************************************************************************
 
 EngagementContent _$EngagementContentFromJson(Map<String, dynamic> json) =>
-    EngagementContent(
-      title: json['title'] as String,
-      engagementContentType: $enumDecodeNullable(
-          _$EngagementContentTypeEnumMap, json['engagementContentType'],
-          unknownValue: JsonKey.nullForUndefinedEnumValue),
-      action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
-      description: json['description'] as String?,
-      callToActionText: json['callToActionText'] as String?,
-      callToActionUrl: json['callToActionUrl'] as String?,
-      id: json['id'] as String?,
+    $checkedCreate(
+      'EngagementContent',
+      json,
+      ($checkedConvert) {
+        final val = EngagementContent(
+          title: $checkedConvert('title', (v) => v as String),
+          engagementContentType: $checkedConvert('engagement_content_type',
+              (v) => $enumDecodeNullable(_$EngagementContentTypeEnumMap, v)),
+          action: $checkedConvert('action',
+              (v) => feedItemActionFromJson(v as Map<String, dynamic>)),
+          description: $checkedConvert('description', (v) => v as String?),
+          callToActionText:
+              $checkedConvert('call_to_action_text', (v) => v as String?),
+          callToActionUrl:
+              $checkedConvert('call_to_action_url', (v) => v as String?),
+          id: $checkedConvert('id', (v) => v as String?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'engagementContentType': 'engagement_content_type',
+        'callToActionText': 'call_to_action_text',
+        'callToActionUrl': 'call_to_action_url'
+      },
     );
 
 Map<String, dynamic> _$EngagementContentToJson(EngagementContent instance) =>
@@ -26,19 +40,20 @@ Map<String, dynamic> _$EngagementContentToJson(EngagementContent instance) =>
       if (instance.description case final value?) 'description': value,
       if (_$EngagementContentTypeEnumMap[instance.engagementContentType]
           case final value?)
-        'engagementContentType': value,
+        'engagement_content_type': value,
       if (instance.callToActionText case final value?)
-        'callToActionText': value,
-      if (instance.callToActionUrl case final value?) 'callToActionUrl': value,
+        'call_to_action_text': value,
+      if (instance.callToActionUrl case final value?)
+        'call_to_action_url': value,
       'action': feedItemActionToJson(instance.action),
     };
 
 const _$EngagementContentTypeEnumMap = {
-  EngagementContentType.signUp: 'sign-up',
+  EngagementContentType.signUp: 'sign_up',
   EngagementContentType.upgrade: 'upgrade',
   EngagementContentType.feedback: 'feedback',
   EngagementContentType.survey: 'survey',
-  EngagementContentType.rateApp: 'rate-app',
-  EngagementContentType.shareApp: 'share-app',
+  EngagementContentType.rateApp: 'rate_app',
+  EngagementContentType.shareApp: 'share_app',
   EngagementContentType.custom: 'custom',
 };

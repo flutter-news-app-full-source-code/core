@@ -3,6 +3,7 @@ import 'package:ht_shared/src/models/core/feed_item_action.dart'
     show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
 import 'package:ht_shared/src/models/feed_decorators/engagement_content_type.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
 
 part 'engagement_content.g.dart';
@@ -14,7 +15,13 @@ part 'engagement_content.g.dart';
 /// or providing feedback. The [engagementContentType] specifies the nature
 /// of the call-to-action.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class EngagementContent extends FeedItem {
   /// {@macro engagement_content}
   EngagementContent({
@@ -44,7 +51,7 @@ class EngagementContent extends FeedItem {
 
   /// The type of engagement content.
   /// Will be null if an unknown value is encountered during deserialization.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final EngagementContentType? engagementContentType;
 
   /// The text for the call-to-action button or link.
@@ -84,31 +91,21 @@ class EngagementContent extends FeedItem {
   EngagementContent copyWith({
     String? id,
     String? title,
-    Object? description = const _Sentinel(),
-    Object? engagementContentType = const _Sentinel(),
-    Object? callToActionText = const _Sentinel(),
-    Object? callToActionUrl = const _Sentinel(),
+    String? description,
+    EngagementContentType? engagementContentType,
+    String? callToActionText,
+    String? callToActionUrl,
     FeedItemAction? action,
   }) {
     return EngagementContent(
       id: id ?? this.id,
       title: title ?? this.title,
-      description:
-          description is _Sentinel ? this.description : description as String?,
-      engagementContentType: engagementContentType is _Sentinel
-          ? this.engagementContentType
-          : engagementContentType as EngagementContentType?,
-      callToActionText: callToActionText is _Sentinel
-          ? this.callToActionText
-          : callToActionText as String?,
-      callToActionUrl: callToActionUrl is _Sentinel
-          ? this.callToActionUrl
-          : callToActionUrl as String?,
+      description: description,
+      engagementContentType:
+          engagementContentType ?? this.engagementContentType,
+      callToActionText: callToActionText,
+      callToActionUrl: callToActionUrl,
       action: action ?? this.action,
     );
   }
-}
-
-class _Sentinel {
-  const _Sentinel();
 }
