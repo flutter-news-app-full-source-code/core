@@ -6,12 +6,21 @@ part of 'country.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Country _$CountryFromJson(Map<String, dynamic> json) => Country(
-      isoCode: json['iso_code'] as String,
-      name: json['name'] as String,
-      flagUrl: json['flag_url'] as String,
-      action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
-      id: json['id'] as String?,
+Country _$CountryFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Country',
+      json,
+      ($checkedConvert) {
+        final val = Country(
+          isoCode: $checkedConvert('iso_code', (v) => v as String),
+          name: $checkedConvert('name', (v) => v as String),
+          flagUrl: $checkedConvert('flag_url', (v) => v as String),
+          action: $checkedConvert('action',
+              (v) => feedItemActionFromJson(v as Map<String, dynamic>)),
+          id: $checkedConvert('id', (v) => v as String?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'isoCode': 'iso_code', 'flagUrl': 'flag_url'},
     );
 
 Map<String, dynamic> _$CountryToJson(Country instance) => <String, dynamic>{
