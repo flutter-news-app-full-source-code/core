@@ -80,8 +80,10 @@ void main() {
         final instance = EngagementContentTemplate.fromJson(json);
 
         expect(instance.type, EngagementTemplateType.linkAccount);
-        expect(instance.title,
-            'Link Your Account Now',); // Expect the provided title
+        expect(
+          instance.title,
+          'Link Your Account Now',
+        ); // Expect the provided title
         expect(instance.description, isNull);
         expect(instance.callToActionText, isNull);
       });

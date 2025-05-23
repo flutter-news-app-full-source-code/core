@@ -262,9 +262,7 @@ void main() {
           callToActionUrl: 'hasurl.com',
         );
 
-        final copied = original.copyWith(
-          
-        );
+        final copied = original.copyWith();
 
         expect(copied.description, isNull);
         expect(copied.callToActionText, isNull);
