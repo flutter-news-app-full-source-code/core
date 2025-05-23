@@ -8,16 +8,31 @@ part of 'suggested_content_template.dart';
 
 SuggestedContentTemplate _$SuggestedContentTemplateFromJson(
         Map<String, dynamic> json) =>
-    SuggestedContentTemplate(
-      type: $enumDecode(_$SuggestionTemplateTypeEnumMap, json['type']),
-      displayType: $enumDecode(
-          _$SuggestedContentDisplayTypeEnumMap, json['displayType']),
-      suggestedContentType:
-          $enumDecode(_$ContentTypeEnumMap, json['suggestedContentType']),
-      title: json['title'] as String?,
-      description: json['description'] as String?,
-      maxItemsToDisplay: (json['maxItemsToDisplay'] as num?)?.toInt(),
-      fetchCriteria: json['fetchCriteria'] as String?,
+    $checkedCreate(
+      'SuggestedContentTemplate',
+      json,
+      ($checkedConvert) {
+        final val = SuggestedContentTemplate(
+          type: $checkedConvert(
+              'type', (v) => $enumDecode(_$SuggestionTemplateTypeEnumMap, v)),
+          displayType: $checkedConvert('display_type',
+              (v) => $enumDecode(_$SuggestedContentDisplayTypeEnumMap, v)),
+          suggestedContentType: $checkedConvert('suggested_content_type',
+              (v) => $enumDecode(_$ContentTypeEnumMap, v)),
+          title: $checkedConvert('title', (v) => v as String?),
+          description: $checkedConvert('description', (v) => v as String?),
+          maxItemsToDisplay: $checkedConvert(
+              'max_items_to_display', (v) => (v as num?)?.toInt()),
+          fetchCriteria: $checkedConvert('fetch_criteria', (v) => v as String?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'displayType': 'display_type',
+        'suggestedContentType': 'suggested_content_type',
+        'maxItemsToDisplay': 'max_items_to_display',
+        'fetchCriteria': 'fetch_criteria'
+      },
     );
 
 Map<String, dynamic> _$SuggestedContentTemplateToJson(
@@ -26,27 +41,27 @@ Map<String, dynamic> _$SuggestedContentTemplateToJson(
       'type': _$SuggestionTemplateTypeEnumMap[instance.type]!,
       if (instance.title case final value?) 'title': value,
       if (instance.description case final value?) 'description': value,
-      'displayType':
+      'display_type':
           _$SuggestedContentDisplayTypeEnumMap[instance.displayType]!,
-      'suggestedContentType':
+      'suggested_content_type':
           _$ContentTypeEnumMap[instance.suggestedContentType]!,
       if (instance.maxItemsToDisplay case final value?)
-        'maxItemsToDisplay': value,
-      if (instance.fetchCriteria case final value?) 'fetchCriteria': value,
+        'max_items_to_display': value,
+      if (instance.fetchCriteria case final value?) 'fetch_criteria': value,
     };
 
 const _$SuggestionTemplateTypeEnumMap = {
-  SuggestionTemplateType.categoriesToFollow: 'categories-to-follow',
-  SuggestionTemplateType.sourcesToFollow: 'sources-to-follow',
-  SuggestionTemplateType.countriesToFollow: 'countries-to-follow',
+  SuggestionTemplateType.categoriesToFollow: 'categories_to_follow',
+  SuggestionTemplateType.sourcesToFollow: 'sources_to_follow',
+  SuggestionTemplateType.countriesToFollow: 'countries_to_follow',
 };
 
 const _$SuggestedContentDisplayTypeEnumMap = {
-  SuggestedContentDisplayType.horizontalCardList: 'horizontal-card-list',
-  SuggestedContentDisplayType.verticalCardList: 'vertical-card-list',
+  SuggestedContentDisplayType.horizontalCardList: 'horizontal_card_list',
+  SuggestedContentDisplayType.verticalCardList: 'vertical_card_list',
   SuggestedContentDisplayType.grid: 'grid',
-  SuggestedContentDisplayType.singlePromotionalCard: 'single-promotional-card',
-  SuggestedContentDisplayType.textList: 'text-list',
+  SuggestedContentDisplayType.singlePromotionalCard: 'single_promotional_card',
+  SuggestedContentDisplayType.textList: 'text_list',
 };
 
 const _$ContentTypeEnumMap = {

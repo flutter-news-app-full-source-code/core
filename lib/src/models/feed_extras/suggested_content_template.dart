@@ -3,6 +3,7 @@ import 'package:ht_shared/src/models/core/content_type.dart';
 import 'package:ht_shared/src/models/feed_decorators/suggested_content_display_type.dart';
 import 'package:ht_shared/src/models/feed_extras/feed_template_types.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'suggested_content_template.g.dart';
 
@@ -10,7 +11,13 @@ part 'suggested_content_template.g.dart';
 /// Defines the static content and configuration for a suggestion block.
 /// The 'type' of an instance should match a [SuggestionTemplateType] value.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class SuggestedContentTemplate extends Equatable {
   /// {@macro suggested_content_template}
   const SuggestedContentTemplate({
@@ -28,6 +35,7 @@ class SuggestedContentTemplate extends Equatable {
       _$SuggestedContentTemplateFromJson(json);
 
   /// The type of suggestion template, matching a [SuggestionTemplateType] value.
+
   final SuggestionTemplateType type;
 
   /// An optional title for the suggestion block (e.g., "You might like...").
@@ -37,10 +45,12 @@ class SuggestedContentTemplate extends Equatable {
   final String? description;
 
   /// The visual presentation or layout style for this suggestion block.
+
   final SuggestedContentDisplayType displayType;
 
   /// Defines what kind of primary content this suggestion block will contain
   /// (e.g., if suggesting categories, this would be [ContentType.category]).
+
   final ContentType suggestedContentType;
 
   /// Maximum number of items to display within this suggestion block.
@@ -63,4 +73,26 @@ class SuggestedContentTemplate extends Equatable {
         maxItemsToDisplay,
         fetchCriteria,
       ];
+
+  /// Creates a copy of this [SuggestedContentTemplate] but with the given
+  /// fields replaced with the new values.
+  SuggestedContentTemplate copyWith({
+    SuggestionTemplateType? type,
+    String? title,
+    String? description,
+    SuggestedContentDisplayType? displayType,
+    ContentType? suggestedContentType,
+    int? maxItemsToDisplay,
+    String? fetchCriteria,
+  }) {
+    return SuggestedContentTemplate(
+      type: type ?? this.type,
+      title: title ?? this.title,
+      description: description ?? this.description,
+      displayType: displayType ?? this.displayType,
+      suggestedContentType: suggestedContentType ?? this.suggestedContentType,
+      maxItemsToDisplay: maxItemsToDisplay ?? this.maxItemsToDisplay,
+      fetchCriteria: fetchCriteria ?? this.fetchCriteria,
+    );
+  }
 }
