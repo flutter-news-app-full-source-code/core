@@ -49,16 +49,16 @@ void main() {
       test('toJson returns correct JSON map', () {
         final json = openInternalContent.toJson();
         expect(json, <String, dynamic>{
-          'contentId': contentId,
-          'contentType': contentType.name,
+          'content_id': contentId,
+          'content_type': contentType.name,
           'type': 'open_internal_content',
         });
       });
 
       test('fromJson returns correct OpenInternalContent object', () {
         final json = <String, dynamic>{
-          'contentId': contentId,
-          'contentType': contentType.name,
+          'content_id': contentId,
+          'content_type': contentType.name,
           'type': 'open_internal_content',
         };
         final fromJsonResult = OpenInternalContent.fromJson(json);
@@ -112,8 +112,8 @@ void main() {
       test('toJson returns correct JSON map', () {
         final json = showInterstitialThenOpenInternalContent.toJson();
         expect(json, <String, dynamic>{
-          'contentId': contentId,
-          'contentType': contentType.name,
+          'content_id': contentId,
+          'content_type': contentType.name,
           'type': 'show_interstitial_then_open_internal_content',
         });
       });
@@ -122,8 +122,8 @@ void main() {
           'fromJson returns correct ShowInterstitialThenOpenInternalContent '
           'object', () {
         final json = <String, dynamic>{
-          'contentId': contentId,
-          'contentType': contentType.name,
+          'content_id': contentId,
+          'content_type': contentType.name,
           'type': 'show_interstitial_then_open_internal_content',
         };
         final fromJsonResult =
@@ -168,8 +168,8 @@ void main() {
     group('feedItemActionFromJson', () {
       test('dispatches to OpenInternalContent', () {
         final json = <String, dynamic>{
-          'contentId': 'id1',
-          'contentType': 'headline',
+          'content_id': 'id1',
+          'content_type': 'headline',
           'type': 'open_internal_content',
         };
         final action = feedItemActionFromJson(json);
@@ -180,8 +180,8 @@ void main() {
 
       test('dispatches to ShowInterstitialThenOpenInternalContent', () {
         final json = <String, dynamic>{
-          'contentId': 'id2',
-          'contentType': 'category',
+          'content_id': 'id2',
+          'content_type': 'category',
           'type': 'show_interstitial_then_open_internal_content',
         };
         final action = feedItemActionFromJson(json);
@@ -204,7 +204,7 @@ void main() {
       });
 
       test('throws FormatException if type is missing', () {
-        final json = <String, dynamic>{'contentId': 'id1'};
+        final json = <String, dynamic>{'content_id': 'id1'};
         expect(
           () => feedItemActionFromJson(json),
           throwsA(
@@ -240,8 +240,8 @@ void main() {
         );
         final json = feedItemActionToJson(action);
         expect(json, <String, dynamic>{
-          'contentId': 'id1',
-          'contentType': 'headline',
+          'content_id': 'id1',
+          'content_type': 'headline',
           'type': 'open_internal_content',
         });
       });
@@ -253,8 +253,8 @@ void main() {
         );
         final json = feedItemActionToJson(action);
         expect(json, <String, dynamic>{
-          'contentId': 'id2',
-          'contentType': 'category',
+          'content_id': 'id2',
+          'content_type': 'category',
           'type': 'show_interstitial_then_open_internal_content',
         });
       });

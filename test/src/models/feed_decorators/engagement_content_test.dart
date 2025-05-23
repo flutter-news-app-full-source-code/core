@@ -1,4 +1,5 @@
 import 'package:ht_shared/ht_shared.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
@@ -101,9 +102,9 @@ void main() {
           'id': testId,
           'title': 'Sign Up Now',
           'description': 'Create an account to save preferences.',
-          'engagementContentType': 'sign-up',
-          'callToActionText': 'Sign Up',
-          'callToActionUrl': 'https://example.com/signup',
+          'engagement_content_type': 'sign_up',
+          'call_to_action_text': 'Sign Up',
+          'call_to_action_url': 'https://example.com/signup',
           'type': 'engagement_content',
           'action': {
             'type': 'open_external_url',
@@ -131,7 +132,7 @@ void main() {
         final json = <String, dynamic>{
           'id': testId,
           'title': 'Simple Title',
-          'engagementContentType': 'feedback',
+          'engagement_content_type': 'feedback',
           'type': 'engagement_content',
           'action': {
             'type': 'open_external_url',
@@ -153,7 +154,7 @@ void main() {
         final json = <String, dynamic>{
           'id': testId,
           'title': 'Unknown Type',
-          'engagementContentType': 'unknown-type', // Unknown value
+          'engagement_content_type': 'unknown_type', // Unknown value
           'type': 'engagement_content',
           'action': {
             'type': 'open_external_url',
@@ -161,8 +162,10 @@ void main() {
           },
         };
 
-        final instance = EngagementContent.fromJson(json);
-        expect(instance.engagementContentType, isNull);
+        expect(
+          () => EngagementContent.fromJson(json),
+          throwsA(isA<CheckedFromJsonException>()),
+        );
       });
     });
 
@@ -182,9 +185,9 @@ void main() {
           'id': testId,
           'title': 'Sign Up Now',
           'description': 'Create an account to save preferences.',
-          'engagementContentType': 'sign-up',
-          'callToActionText': 'Sign Up',
-          'callToActionUrl': 'https://example.com/signup',
+          'engagement_content_type': 'sign_up',
+          'call_to_action_text': 'Sign Up',
+          'call_to_action_url': 'https://example.com/signup',
           'type': 'engagement_content',
           'action': {
             'type': 'open_external_url',
@@ -205,7 +208,7 @@ void main() {
         expect(json, <String, dynamic>{
           'id': testId,
           'title': 'Simple Title',
-          'engagementContentType': 'feedback',
+          'engagement_content_type': 'feedback',
           'type': 'engagement_content',
           'action': {
             'type': 'open_external_url',
@@ -259,11 +262,7 @@ void main() {
           callToActionUrl: 'hasurl.com',
         );
 
-        final copied = original.copyWith(
-          description: null,
-          callToActionText: null,
-          callToActionUrl: null,
-        );
+        final copied = original.copyWith();
 
         expect(copied.description, isNull);
         expect(copied.callToActionText, isNull);

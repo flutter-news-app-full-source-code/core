@@ -1,5 +1,6 @@
 import 'package:ht_shared/src/models/core/feed_item_action.dart';
 import 'package:ht_shared/src/models/entities/country.dart'; // Use direct import
+import 'package:json_annotation/json_annotation.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
 
@@ -156,66 +157,60 @@ void main() {
       });
 
       // Updated to expect TypeError based on terminal output
-      test('throws TypeError for missing iso_code', () {
+      test('throws CheckedFromJsonException for missing iso_code', () {
         final json = createValidJsonMap()..remove('iso_code');
         expect(
           () => Country.fromJson(json),
-          throwsA(isA<TypeError>()), // Expect TypeError
+          throwsA(isA<CheckedFromJsonException>()),
         );
       });
 
-      // Updated to expect TypeError based on terminal output
-      test('throws TypeError for missing name', () {
+      test('throws CheckedFromJsonException for missing name', () {
         final json = createValidJsonMap()..remove('name');
         expect(
           () => Country.fromJson(json),
-          throwsA(isA<TypeError>()), // Expect TypeError
+          throwsA(isA<CheckedFromJsonException>()),
         );
       });
 
-      // Updated to expect TypeError based on terminal output
-      test('throws TypeError for missing flag_url', () {
+      test('throws CheckedFromJsonException for missing flag_url', () {
         final json = createValidJsonMap()..remove('flag_url');
         expect(
           () => Country.fromJson(json),
-          throwsA(isA<TypeError>()), // Expect TypeError
+          throwsA(isA<CheckedFromJsonException>()),
         );
       });
 
-      // Updated to expect TypeError based on terminal output
-      test('throws TypeError for wrong type (id)', () {
+      test('throws CheckedFromJsonException for wrong type (id)', () {
         final json = createValidJsonMap()..['id'] = 123; // Invalid type
         expect(
           () => Country.fromJson(json),
-          throwsA(isA<TypeError>()), // Expect TypeError
+          throwsA(isA<CheckedFromJsonException>()),
         );
       });
 
-      // Updated to expect TypeError based on terminal output
-      test('throws TypeError for wrong type (iso_code)', () {
+      test('throws CheckedFromJsonException for wrong type (iso_code)', () {
         final json = createValidJsonMap()..['iso_code'] = 123; // Invalid type
         expect(
           () => Country.fromJson(json),
-          throwsA(isA<TypeError>()), // Expect TypeError
+          throwsA(isA<CheckedFromJsonException>()),
         );
       });
 
-      // Updated to expect TypeError based on terminal output
-      test('throws TypeError for wrong type (name)', () {
+      test('throws CheckedFromJsonException for wrong type (name)', () {
         final json = createValidJsonMap()..['name'] = false; // Invalid type
         expect(
           () => Country.fromJson(json),
-          throwsA(isA<TypeError>()), // Expect TypeError
+          throwsA(isA<CheckedFromJsonException>()),
         );
       });
 
-      // Updated to expect TypeError based on terminal output
-      test('throws TypeError for wrong type (flag_url)', () {
+      test('throws CheckedFromJsonException for wrong type (flag_url)', () {
         final json = createValidJsonMap()
           ..['flag_url'] = null; // Invalid type (non-nullable)
         expect(
           () => Country.fromJson(json),
-          throwsA(isA<TypeError>()), // Expect TypeError
+          throwsA(isA<CheckedFromJsonException>()),
         );
       });
     });

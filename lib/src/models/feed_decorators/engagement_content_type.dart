@@ -9,7 +9,7 @@ import 'package:json_annotation/json_annotation.dart';
 /// {@template engagement_content_type}
 /// Defines the specific type or purpose of an [EngagementContent] item.
 /// {@endtemplate}
-@JsonEnum(fieldRename: FieldRename.kebab)
+@JsonEnum(fieldRename: FieldRename.snake)
 enum EngagementContentType {
   /// A call-to-action to sign up for an account.
   signUp,

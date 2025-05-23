@@ -10,10 +10,19 @@ PaginatedResponse<T> _$PaginatedResponseFromJson<T>(
   Map<String, dynamic> json,
   T Function(Object? json) fromJsonT,
 ) =>
-    PaginatedResponse<T>(
-      items: (json['items'] as List<dynamic>).map(fromJsonT).toList(),
-      cursor: json['cursor'] as String?,
-      hasMore: json['hasMore'] as bool,
+    $checkedCreate(
+      'PaginatedResponse',
+      json,
+      ($checkedConvert) {
+        final val = PaginatedResponse<T>(
+          items: $checkedConvert(
+              'items', (v) => (v as List<dynamic>).map(fromJsonT).toList()),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
+          hasMore: $checkedConvert('has_more', (v) => v as bool),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'hasMore': 'has_more'},
     );
 
 Map<String, dynamic> _$PaginatedResponseToJson<T>(
@@ -22,6 +31,6 @@ Map<String, dynamic> _$PaginatedResponseToJson<T>(
 ) =>
     <String, dynamic>{
       'items': instance.items.map(toJsonT).toList(),
-      'cursor': instance.cursor,
-      'hasMore': instance.hasMore,
+      if (instance.cursor case final value?) 'cursor': value,
+      'has_more': instance.hasMore,
     };

@@ -6,29 +6,51 @@ part of 'app_config.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-AppConfig _$AppConfigFromJson(Map<String, dynamic> json) => AppConfig(
-      id: json['id'] as String,
-      userPreferenceLimits: json['userPreferenceLimits'] == null
-          ? null
-          : UserPreferenceLimits.fromJson(
-              json['userPreferenceLimits'] as Map<String, dynamic>),
-      adConfig: json['adConfig'] == null
-          ? null
-          : AdConfig.fromJson(json['adConfig'] as Map<String, dynamic>),
-      engagementRules: (json['engagementRules'] as List<dynamic>?)
-          ?.map((e) => EngagementRule.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      suggestionRules: (json['suggestionRules'] as List<dynamic>?)
-          ?.map((e) => SuggestionRule.fromJson(e as Map<String, dynamic>))
-          .toList(),
+AppConfig _$AppConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'AppConfig',
+      json,
+      ($checkedConvert) {
+        final val = AppConfig(
+          id: $checkedConvert('id', (v) => v as String),
+          userPreferenceLimits: $checkedConvert(
+              'user_preference_limits',
+              (v) => v == null
+                  ? null
+                  : UserPreferenceLimits.fromJson(v as Map<String, dynamic>)),
+          adConfig: $checkedConvert(
+              'ad_config',
+              (v) => v == null
+                  ? null
+                  : AdConfig.fromJson(v as Map<String, dynamic>)),
+          engagementRules: $checkedConvert(
+              'engagement_rules',
+              (v) => (v as List<dynamic>?)
+                  ?.map(
+                      (e) => EngagementRule.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          suggestionRules: $checkedConvert(
+              'suggestion_rules',
+              (v) => (v as List<dynamic>?)
+                  ?.map(
+                      (e) => SuggestionRule.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'userPreferenceLimits': 'user_preference_limits',
+        'adConfig': 'ad_config',
+        'engagementRules': 'engagement_rules',
+        'suggestionRules': 'suggestion_rules'
+      },
     );
 
 Map<String, dynamic> _$AppConfigToJson(AppConfig instance) => <String, dynamic>{
       'id': instance.id,
-      'userPreferenceLimits': instance.userPreferenceLimits.toJson(),
-      'adConfig': instance.adConfig.toJson(),
-      'engagementRules':
+      'user_preference_limits': instance.userPreferenceLimits.toJson(),
+      'ad_config': instance.adConfig.toJson(),
+      'engagement_rules':
           instance.engagementRules.map((e) => e.toJson()).toList(),
-      'suggestionRules':
+      'suggestion_rules':
           instance.suggestionRules.map((e) => e.toJson()).toList(),
     };

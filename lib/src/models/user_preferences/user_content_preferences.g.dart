@@ -8,31 +8,53 @@ part of 'user_content_preferences.dart';
 
 UserContentPreferences _$UserContentPreferencesFromJson(
         Map<String, dynamic> json) =>
-    UserContentPreferences(
-      id: json['id'] as String,
-      followedCountries: (json['followedCountries'] as List<dynamic>?)
-          ?.map((e) => Country.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      followedSources: (json['followedSources'] as List<dynamic>?)
-          ?.map((e) => Source.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      followedCategories: (json['followedCategories'] as List<dynamic>?)
-          ?.map((e) => Category.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      savedHeadlines: (json['savedHeadlines'] as List<dynamic>?)
-          ?.map((e) => Headline.fromJson(e as Map<String, dynamic>))
-          .toList(),
+    $checkedCreate(
+      'UserContentPreferences',
+      json,
+      ($checkedConvert) {
+        final val = UserContentPreferences(
+          id: $checkedConvert('id', (v) => v as String),
+          followedCountries: $checkedConvert(
+              'followed_countries',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Country.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          followedSources: $checkedConvert(
+              'followed_sources',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Source.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          followedCategories: $checkedConvert(
+              'followed_categories',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Category.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          savedHeadlines: $checkedConvert(
+              'saved_headlines',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Headline.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'followedCountries': 'followed_countries',
+        'followedSources': 'followed_sources',
+        'followedCategories': 'followed_categories',
+        'savedHeadlines': 'saved_headlines'
+      },
     );
 
 Map<String, dynamic> _$UserContentPreferencesToJson(
         UserContentPreferences instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'followedCountries':
+      'followed_countries':
           instance.followedCountries.map((e) => e.toJson()).toList(),
-      'followedSources':
+      'followed_sources':
           instance.followedSources.map((e) => e.toJson()).toList(),
-      'followedCategories':
+      'followed_categories':
           instance.followedCategories.map((e) => e.toJson()).toList(),
-      'savedHeadlines': instance.savedHeadlines.map((e) => e.toJson()).toList(),
+      'saved_headlines':
+          instance.savedHeadlines.map((e) => e.toJson()).toList(),
     };

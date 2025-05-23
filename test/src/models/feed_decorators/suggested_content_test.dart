@@ -7,6 +7,7 @@ import 'package:ht_shared/src/models/entities/headline.dart';
 import 'package:ht_shared/src/models/entities/source.dart';
 import 'package:ht_shared/src/models/feed_decorators/suggested_content.dart';
 import 'package:ht_shared/src/models/feed_decorators/suggested_content_display_type.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
 
@@ -143,7 +144,7 @@ void main() {
           'id': content.id,
           'title': testTitle,
           'description': testDescription,
-          'displayType': 'horizontal-card-list',
+          'display_type': 'horizontal_card_list',
           'items': testItems.map((e) => e.toJson()).toList(),
           'type': 'suggested_content',
           'action': defaultAction.toJson(),
@@ -165,7 +166,7 @@ void main() {
           'id': testId,
           'title': testTitle,
           'description': testDescription,
-          'displayType': 'horizontal-card-list',
+          'display_type': 'horizontal_card_list',
           'items': testItems.map((e) => e.toJson()).toList(),
           'type': 'suggested_content',
           'action': defaultAction.toJson(),
@@ -184,7 +185,7 @@ void main() {
       test('deserializes JSON with missing optional fields', () {
         final json = <String, dynamic>{
           'id': testId,
-          'displayType': 'horizontal-card-list',
+          'display_type': 'horizontal_card_list',
           'items': testItems.map((e) => e.toJson()).toList(),
           'type': 'suggested_content',
           'action': defaultAction.toJson(),
@@ -199,20 +200,22 @@ void main() {
         final json = <String, dynamic>{
           'id': testId,
           'title': testTitle,
-          'displayType': 'unknown_type',
+          'display_type': 'unknown_type',
           'items': testItems.map((e) => e.toJson()).toList(),
           'type': 'suggested_content',
           'action': defaultAction.toJson(),
         };
-        final content = SuggestedContent.fromJson(json);
-        expect(content.displayType, isNull);
+        expect(
+          () => SuggestedContent.fromJson(json),
+          throwsA(isA<CheckedFromJsonException>()),
+        );
       });
 
       test('deserializes JSON with empty items list', () {
         final json = <String, dynamic>{
           'id': testId,
           'title': testTitle,
-          'displayType': 'horizontal_card_list',
+          'display_type': 'horizontal_card_list',
           'items': <FeedItem>[],
           'type': 'suggested_content',
           'action': defaultAction.toJson(),

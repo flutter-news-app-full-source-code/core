@@ -3,6 +3,7 @@ import 'package:ht_shared/src/models/core/feed_item_action.dart'
     show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
 import 'package:ht_shared/src/models/feed_decorators/ad_placement.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
 
 part 'ad.g.dart';
@@ -28,7 +29,13 @@ enum AdType {
 /// {@template ad}
 /// Represents an advertisement item that can appear in the feed.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class Ad extends FeedItem {
   /// {@macro ad}
   Ad({
@@ -56,7 +63,7 @@ class Ad extends FeedItem {
 
   /// The type of the ad, indicating its visual format.
   /// Will be null if an unknown value is encountered during deserialization.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final AdType? adType;
 
   /// An optional identifier indicating the intended placement or slot

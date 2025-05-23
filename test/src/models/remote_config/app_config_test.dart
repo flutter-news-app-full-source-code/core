@@ -54,19 +54,33 @@ void main() {
       test('returns correct instance from JSON with all fields', () {
         final json = {
           'id': 'app_config',
-          'userPreferenceLimits': {
-            'guestFollowedItemsLimit': 5,
-            'guestSavedHeadlinesLimit': 10,
-            'authenticatedFollowedItemsLimit': 15,
-            'authenticatedSavedHeadlinesLimit': 30,
-            'premiumFollowedItemsLimit': 30,
-            'premiumSavedHeadlinesLimit': 100,
+          'user_preference_limits': {
+            'guest_followed_items_limit': 5,
+            'guest_saved_headlines_limit': 10,
+            'authenticated_followed_items_limit': 15,
+            'authenticated_saved_headlines_limit': 30,
+            'premium_followed_items_limit': 30,
+            'premium_saved_headlines_limit': 100,
           },
+          // Assuming ad_config might also be present or defaulted
+          'ad_config': const AdConfig(
+            guestAdFrequency: 5,
+            guestAdPlacementInterval: 3,
+            authenticatedAdFrequency: 10,
+            authenticatedAdPlacementInterval: 5,
+            premiumAdFrequency: 0,
+            premiumAdPlacementInterval: 0,
+          ).toJson(),
         };
 
         final result = AppConfig.fromJson(json);
-
-        expect(result, appConfig);
+        // We need to compare with an AppConfig that also has the default adConfig
+        const expectedAppConfig = AppConfig(
+          id: 'app_config',
+          userPreferenceLimits: mockUserPreferenceLimits,
+          // adConfig will take its default from the AppConfig constructor
+        );
+        expect(result, expectedAppConfig);
       });
 
       test(
@@ -74,7 +88,7 @@ void main() {
         () {
           final json = {
             'id': 'default_config',
-            // Missing userPreferenceLimits
+            // Missing user_preference_limits and ad_config
           };
 
           final result = AppConfig.fromJson(json);
@@ -93,6 +107,8 @@ void main() {
           );
           expect(result.userPreferenceLimits.premiumFollowedItemsLimit, 30);
           expect(result.userPreferenceLimits.premiumSavedHeadlinesLimit, 100);
+          // Check default ad_config values
+          expect(result.adConfig.guestAdFrequency, 5);
         },
       );
     });
@@ -102,9 +118,10 @@ void main() {
         final json = appConfig.toJson();
 
         expect(json['id'], 'app_config');
-        expect(json['userPreferenceLimits'], isA<Map>());
-        expect(json['userPreferenceLimits']['guestFollowedItemsLimit'], 5);
-        // Add checks for other limits if needed, but testing the nested model's toJson is sufficient
+        expect(json['user_preference_limits'], isA<Map>());
+        expect(json['user_preference_limits']['guest_followed_items_limit'], 5);
+        expect(json['ad_config'], isA<Map>());
+        expect(json['ad_config']['guest_ad_frequency'], 5);
       });
 
       test('returns correct JSON map with default nested fields', () {
@@ -112,9 +129,10 @@ void main() {
         final json = defaultConfig.toJson();
 
         expect(json['id'], 'default_config');
-        expect(json['userPreferenceLimits'], isA<Map>());
-        expect(json['userPreferenceLimits']['guestFollowedItemsLimit'], 5);
-        // Add checks for other default limits
+        expect(json['user_preference_limits'], isA<Map>());
+        expect(json['user_preference_limits']['guest_followed_items_limit'], 5);
+        expect(json['ad_config'], isA<Map>());
+        expect(json['ad_config']['guest_ad_frequency'], 5);
       });
     });
 

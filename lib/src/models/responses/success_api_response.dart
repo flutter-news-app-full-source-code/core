@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/responses/response_metadata.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'success_api_response.g.dart';
 
@@ -16,10 +17,14 @@ part 'success_api_response.g.dart';
 /// - A list of model objects (e.g., `List<Category>`).
 /// - A paginated response object (e.g., `PaginatedResponse<Source>`).
 /// {@endtemplate}
+
+@immutable
 @JsonSerializable(
   genericArgumentFactories: true,
+  fieldRename: FieldRename.snake,
   explicitToJson: true,
   includeIfNull: false,
+  checked: true,
 )
 class SuccessApiResponse<T> extends Equatable {
   /// {@macro success_api_response}

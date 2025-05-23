@@ -22,7 +22,9 @@ void main() {
       expect(EngagementTemplateType.upgradeToPremium.name, 'upgradeToPremium');
       expect(EngagementTemplateType.completeProfile.name, 'completeProfile');
       expect(
-          EngagementTemplateType.exploreNewFeature.name, 'exploreNewFeature');
+        EngagementTemplateType.exploreNewFeature.name,
+        'exploreNewFeature',
+      );
     });
 
     test('can be created from string using values.byName', () {
@@ -70,10 +72,14 @@ void main() {
 
     test('string representation (name) matches expected camelCase', () {
       expect(
-          SuggestionTemplateType.categoriesToFollow.name, 'categoriesToFollow');
+        SuggestionTemplateType.categoriesToFollow.name,
+        'categoriesToFollow',
+      );
       expect(SuggestionTemplateType.sourcesToFollow.name, 'sourcesToFollow');
       expect(
-          SuggestionTemplateType.countriesToFollow.name, 'countriesToFollow');
+        SuggestionTemplateType.countriesToFollow.name,
+        'countriesToFollow',
+      );
     });
 
     test('can be created from string using values.byName', () {

@@ -6,21 +6,35 @@ part of 'ad.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Ad _$AdFromJson(Map<String, dynamic> json) => Ad(
-      imageUrl: json['imageUrl'] as String,
-      targetUrl: json['targetUrl'] as String,
-      adType: $enumDecodeNullable(_$AdTypeEnumMap, json['adType'],
-          unknownValue: JsonKey.nullForUndefinedEnumValue),
-      action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
-      placement: $enumDecodeNullable(_$AdPlacementEnumMap, json['placement']),
-      id: json['id'] as String?,
+Ad _$AdFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Ad',
+      json,
+      ($checkedConvert) {
+        final val = Ad(
+          imageUrl: $checkedConvert('image_url', (v) => v as String),
+          targetUrl: $checkedConvert('target_url', (v) => v as String),
+          adType: $checkedConvert(
+              'ad_type', (v) => $enumDecodeNullable(_$AdTypeEnumMap, v)),
+          action: $checkedConvert('action',
+              (v) => feedItemActionFromJson(v as Map<String, dynamic>)),
+          placement: $checkedConvert(
+              'placement', (v) => $enumDecodeNullable(_$AdPlacementEnumMap, v)),
+          id: $checkedConvert('id', (v) => v as String?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'imageUrl': 'image_url',
+        'targetUrl': 'target_url',
+        'adType': 'ad_type'
+      },
     );
 
 Map<String, dynamic> _$AdToJson(Ad instance) => <String, dynamic>{
       'id': instance.id,
-      'imageUrl': instance.imageUrl,
-      'targetUrl': instance.targetUrl,
-      if (_$AdTypeEnumMap[instance.adType] case final value?) 'adType': value,
+      'image_url': instance.imageUrl,
+      'target_url': instance.targetUrl,
+      if (_$AdTypeEnumMap[instance.adType] case final value?) 'ad_type': value,
       if (_$AdPlacementEnumMap[instance.placement] case final value?)
         'placement': value,
       'action': feedItemActionToJson(instance.action),

@@ -8,27 +8,45 @@ part of 'feed_display_preferences.dart';
 
 FeedDisplayPreferences _$FeedDisplayPreferencesFromJson(
         Map<String, dynamic> json) =>
-    FeedDisplayPreferences(
-      headlineDensity: $enumDecodeNullable(
-              _$HeadlineDensityEnumMap, json['headlineDensity']) ??
-          HeadlineDensity.standard,
-      headlineImageStyle: $enumDecodeNullable(
-              _$HeadlineImageStyleEnumMap, json['headlineImageStyle']) ??
-          HeadlineImageStyle.smallThumbnail,
-      showSourceInHeadlineFeed:
-          json['showSourceInHeadlineFeed'] as bool? ?? true,
-      showPublishDateInHeadlineFeed:
-          json['showPublishDateInHeadlineFeed'] as bool? ?? true,
+    $checkedCreate(
+      'FeedDisplayPreferences',
+      json,
+      ($checkedConvert) {
+        final val = FeedDisplayPreferences(
+          headlineDensity: $checkedConvert(
+              'headline_density',
+              (v) =>
+                  $enumDecodeNullable(_$HeadlineDensityEnumMap, v) ??
+                  HeadlineDensity.standard),
+          headlineImageStyle: $checkedConvert(
+              'headline_image_style',
+              (v) =>
+                  $enumDecodeNullable(_$HeadlineImageStyleEnumMap, v) ??
+                  HeadlineImageStyle.smallThumbnail),
+          showSourceInHeadlineFeed: $checkedConvert(
+              'show_source_in_headline_feed', (v) => v as bool? ?? true),
+          showPublishDateInHeadlineFeed: $checkedConvert(
+              'show_publish_date_in_headline_feed', (v) => v as bool? ?? true),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'headlineDensity': 'headline_density',
+        'headlineImageStyle': 'headline_image_style',
+        'showSourceInHeadlineFeed': 'show_source_in_headline_feed',
+        'showPublishDateInHeadlineFeed': 'show_publish_date_in_headline_feed'
+      },
     );
 
 Map<String, dynamic> _$FeedDisplayPreferencesToJson(
         FeedDisplayPreferences instance) =>
     <String, dynamic>{
-      'headlineDensity': _$HeadlineDensityEnumMap[instance.headlineDensity]!,
-      'headlineImageStyle':
+      'headline_density': _$HeadlineDensityEnumMap[instance.headlineDensity]!,
+      'headline_image_style':
           _$HeadlineImageStyleEnumMap[instance.headlineImageStyle]!,
-      'showSourceInHeadlineFeed': instance.showSourceInHeadlineFeed,
-      'showPublishDateInHeadlineFeed': instance.showPublishDateInHeadlineFeed,
+      'show_source_in_headline_feed': instance.showSourceInHeadlineFeed,
+      'show_publish_date_in_headline_feed':
+          instance.showPublishDateInHeadlineFeed,
     };
 
 const _$HeadlineDensityEnumMap = {

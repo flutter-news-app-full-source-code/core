@@ -40,13 +40,13 @@ void main() {
     group('fromJson', () {
       test('returns correct instance from JSON', () {
         final json = <String, dynamic>{
-          'guestAdFrequency': testGuestAdFrequency,
-          'guestAdPlacementInterval': testGuestAdPlacementInterval,
-          'authenticatedAdFrequency': testAuthenticatedAdFrequency,
-          'authenticatedAdPlacementInterval':
+          'guest_ad_frequency': testGuestAdFrequency,
+          'guest_ad_placement_interval': testGuestAdPlacementInterval,
+          'authenticated_ad_frequency': testAuthenticatedAdFrequency,
+          'authenticated_ad_placement_interval':
               testAuthenticatedAdPlacementInterval,
-          'premiumAdFrequency': testPremiumAdFrequency,
-          'premiumAdPlacementInterval': testPremiumAdPlacementInterval,
+          'premium_ad_frequency': testPremiumAdFrequency,
+          'premium_ad_placement_interval': testPremiumAdPlacementInterval,
         };
         final result = AdConfig.fromJson(json);
         expect(result, equals(adConfig));
@@ -57,13 +57,13 @@ void main() {
       test('returns correct JSON map', () {
         final json = adConfig.toJson();
         expect(json, <String, dynamic>{
-          'guestAdFrequency': testGuestAdFrequency,
-          'guestAdPlacementInterval': testGuestAdPlacementInterval,
-          'authenticatedAdFrequency': testAuthenticatedAdFrequency,
-          'authenticatedAdPlacementInterval':
+          'guest_ad_frequency': testGuestAdFrequency,
+          'guest_ad_placement_interval': testGuestAdPlacementInterval,
+          'authenticated_ad_frequency': testAuthenticatedAdFrequency,
+          'authenticated_ad_placement_interval':
               testAuthenticatedAdPlacementInterval,
-          'premiumAdFrequency': testPremiumAdFrequency,
-          'premiumAdPlacementInterval': testPremiumAdPlacementInterval,
+          'premium_ad_frequency': testPremiumAdFrequency,
+          'premium_ad_placement_interval': testPremiumAdPlacementInterval,
         });
       });
     });

@@ -27,12 +27,12 @@ void main() {
     group('fromJson', () {
       test('returns correct instance from JSON', () {
         final json = {
-          'guestFollowedItemsLimit': 5,
-          'guestSavedHeadlinesLimit': 10,
-          'authenticatedFollowedItemsLimit': 15,
-          'authenticatedSavedHeadlinesLimit': 30,
-          'premiumFollowedItemsLimit': 30,
-          'premiumSavedHeadlinesLimit': 100,
+          'guest_followed_items_limit': 5,
+          'guest_saved_headlines_limit': 10,
+          'authenticated_followed_items_limit': 15,
+          'authenticated_saved_headlines_limit': 30,
+          'premium_followed_items_limit': 30,
+          'premium_saved_headlines_limit': 100,
         };
 
         final result = UserPreferenceLimits.fromJson(json);
@@ -45,12 +45,12 @@ void main() {
       test('returns correct JSON map', () {
         final json = userPreferenceLimits.toJson();
 
-        expect(json['guestFollowedItemsLimit'], 5);
-        expect(json['guestSavedHeadlinesLimit'], 10);
-        expect(json['authenticatedFollowedItemsLimit'], 15);
-        expect(json['authenticatedSavedHeadlinesLimit'], 30);
-        expect(json['premiumFollowedItemsLimit'], 30);
-        expect(json['premiumSavedHeadlinesLimit'], 100);
+        expect(json['guest_followed_items_limit'], 5);
+        expect(json['guest_saved_headlines_limit'], 10);
+        expect(json['authenticated_followed_items_limit'], 15);
+        expect(json['authenticated_saved_headlines_limit'], 30);
+        expect(json['premium_followed_items_limit'], 30);
+        expect(json['premium_saved_headlines_limit'], 100);
       });
     });
 

@@ -3,6 +3,7 @@ import 'package:ht_shared/src/models/user_settings/app_language.dart';
 import 'package:ht_shared/src/models/user_settings/display_settings.dart';
 import 'package:ht_shared/src/models/user_settings/feed_display_preferences.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'user_app_settings.g.dart';
 
@@ -13,7 +14,13 @@ part 'user_app_settings.g.dart';
 /// This model unifies settings that are tied to a specific user,
 /// making it suitable for management via a generic data client.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class UserAppSettings extends Equatable {
   /// {@macro user_app_settings}
   ///

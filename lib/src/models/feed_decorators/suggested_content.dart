@@ -8,9 +8,8 @@ import 'package:ht_shared/src/models/entities/entities.dart'
 import 'package:ht_shared/src/models/feed_decorators/suggested_content_display_type.dart';
 import 'package:ht_shared/src/models/models.dart'
     show Category, Country, Headline, Source;
-// Removed redundant imports for Category, Country, Headline, Source
-// as FeedItem itself will handle these.
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
 
 part 'suggested_content.g.dart';
@@ -23,18 +22,24 @@ part 'suggested_content.g.dart';
 /// The [displayType] field specifies how this suggestion block should be
 /// visually presented in the UI.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class SuggestedContent extends FeedItem {
   /// {@macro suggested_content}
   SuggestedContent({
     required this.displayType,
-    required List<FeedItem> items, // Changed from List<dynamic>
+    required List<FeedItem> items,
     required FeedItemAction action,
     this.title,
     this.description,
     String? id,
   })  : id = id ?? const Uuid().v4(),
-        items = items, // Assign to the new typed field
+        items = items,
         action = action,
         super(type: 'suggested_content', action: action);
 
@@ -53,7 +58,7 @@ class SuggestedContent extends FeedItem {
 
   /// The visual presentation or layout style for this suggestion block.
   /// Will be null if an unknown value is encountered during deserialization.
-  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+
   final SuggestedContentDisplayType? displayType;
 
   /// The list of actual suggested items. These are [FeedItem] instances.

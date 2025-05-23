@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'paginated_reponse.g.dart';
 
@@ -9,7 +10,15 @@ part 'paginated_reponse.g.dart';
 /// Contains a list of items of type [T], a cursor for the next page,
 /// and a boolean indicating if there are more items.
 /// {@endtemplate}
-@JsonSerializable(genericArgumentFactories: true)
+
+@immutable
+@JsonSerializable(
+  genericArgumentFactories: true,
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class PaginatedResponse<T> extends Equatable {
   /// {@macro paginated_response}
   const PaginatedResponse({
