@@ -29,7 +29,9 @@ void main() {
       expect(instance, isNotNull);
       expect(instance.type, SuggestionTemplateType.categoriesToFollow);
       expect(
-          instance.displayType, SuggestedContentDisplayType.horizontalCardList);
+        instance.displayType,
+        SuggestedContentDisplayType.horizontalCardList,
+      );
       expect(instance.suggestedContentType, ContentType.category);
     });
 
@@ -79,13 +81,13 @@ void main() {
     group('fromJson', () {
       test('returns correct SuggestedContentTemplate object', () {
         final json = <String, dynamic>{
-          'type': 'categories-to-follow',
+          'type': 'categories_to_follow',
           'title': 'Suggested Categories',
           'description': 'Discover new topics.',
-          'displayType': 'horizontal-card-list',
-          'suggestedContentType': 'category',
-          'maxItemsToDisplay': 5,
-          'fetchCriteria': 'trending',
+          'display_type': 'horizontal_card_list',
+          'suggested_content_type': 'category',
+          'max_items_to_display': 5,
+          'fetch_criteria': 'trending',
         };
 
         final instance = SuggestedContentTemplate.fromJson(json);
@@ -93,8 +95,10 @@ void main() {
         expect(instance.type, SuggestionTemplateType.categoriesToFollow);
         expect(instance.title, 'Suggested Categories');
         expect(instance.description, 'Discover new topics.');
-        expect(instance.displayType,
-            SuggestedContentDisplayType.horizontalCardList);
+        expect(
+          instance.displayType,
+          SuggestedContentDisplayType.horizontalCardList,
+        );
         expect(instance.suggestedContentType, ContentType.category);
         expect(instance.maxItemsToDisplay, 5);
         expect(instance.fetchCriteria, 'trending');
@@ -102,9 +106,9 @@ void main() {
 
       test('handles null optional fields', () {
         final json = <String, dynamic>{
-          'type': 'sources-to-follow',
-          'displayType': 'vertical-card-list',
-          'suggestedContentType': 'source',
+          'type': 'sources_to_follow',
+          'display_type': 'vertical_card_list',
+          'suggested_content_type': 'source',
         };
 
         final instance = SuggestedContentTemplate.fromJson(json);
@@ -113,7 +117,9 @@ void main() {
         expect(instance.title, isNull);
         expect(instance.description, isNull);
         expect(
-            instance.displayType, SuggestedContentDisplayType.verticalCardList);
+          instance.displayType,
+          SuggestedContentDisplayType.verticalCardList,
+        );
         expect(instance.suggestedContentType, ContentType.source);
         expect(instance.maxItemsToDisplay, isNull);
         expect(instance.fetchCriteria, isNull);
@@ -135,13 +141,13 @@ void main() {
         final json = instance.toJson();
 
         expect(json, <String, dynamic>{
-          'type': 'countries-to-follow',
+          'type': 'countries_to_follow',
           'title': 'Explore Countries',
           'description': 'Find news from around the world',
-          'displayType': 'grid',
-          'suggestedContentType': 'country',
-          'maxItemsToDisplay': 10,
-          'fetchCriteria': 'popular',
+          'display_type': 'grid',
+          'suggested_content_type': 'country',
+          'max_items_to_display': 10,
+          'fetch_criteria': 'popular',
         });
       });
 
@@ -155,9 +161,9 @@ void main() {
         final json = instance.toJson();
 
         expect(json, <String, dynamic>{
-          'type': 'sources-to-follow',
-          'displayType': 'text-list',
-          'suggestedContentType': 'source',
+          'type': 'sources_to_follow',
+          'display_type': 'text_list',
+          'suggested_content_type': 'source',
         });
       });
     });
