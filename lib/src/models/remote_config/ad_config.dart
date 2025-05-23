@@ -6,6 +6,7 @@ import 'package:ht_shared/src/models/remote_config/app_config.dart'
 import 'package:ht_shared/src/models/remote_config/remote_config.dart'
     show AppConfig;
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'ad_config.g.dart';
 
@@ -17,7 +18,13 @@ part 'ad_config.g.dart';
 /// how ads are integrated into the application's feed or other content areas
 /// based on the user's authentication status or subscription level.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class AdConfig extends Equatable {
   /// {@macro ad_config}
   const AdConfig({
