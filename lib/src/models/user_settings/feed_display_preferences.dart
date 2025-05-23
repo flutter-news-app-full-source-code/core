@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'feed_display_preferences.g.dart';
 
@@ -30,7 +31,13 @@ enum HeadlineImageStyle {
 /// {@template feed_display_preferences}
 /// User preferences for how feeds are displayed.
 /// {@endtemplate}
-@JsonSerializable()
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class FeedDisplayPreferences extends Equatable {
   /// {@macro feed_display_preferences}
   const FeedDisplayPreferences({
@@ -45,9 +52,11 @@ class FeedDisplayPreferences extends Equatable {
       _$FeedDisplayPreferencesFromJson(json);
 
   /// How densely headline information should be presented.
+
   final HeadlineDensity headlineDensity;
 
   /// How images should be displayed in the headline feed.
+
   final HeadlineImageStyle headlineImageStyle;
 
   /// Whether to show the source name directly in the headline feed item.
