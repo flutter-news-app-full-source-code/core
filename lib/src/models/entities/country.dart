@@ -2,6 +2,7 @@ import 'package:ht_shared/src/models/core/feed_item.dart';
 import 'package:ht_shared/src/models/core/feed_item_action.dart'
     show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
 
 part 'country.g.dart';
@@ -12,7 +13,13 @@ part 'country.g.dart';
 /// Used typically in contexts like selecting a country for news headlines
 /// or user profile settings.
 /// {@endtemplate}
-@JsonSerializable()
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class Country extends FeedItem {
   /// {@macro country}
   Country({

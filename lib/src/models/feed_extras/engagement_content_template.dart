@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/feed_extras/feed_template_types.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'engagement_content_template.g.dart';
 
@@ -8,7 +9,13 @@ part 'engagement_content_template.g.dart';
 /// Defines the static content for an engagement prompt.
 /// The 'type' of an instance should match an [EngagementTemplateType] value.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class EngagementContentTemplate extends Equatable {
   /// {@macro engagement_content_template}
   const EngagementContentTemplate({
@@ -23,6 +30,7 @@ class EngagementContentTemplate extends Equatable {
       _$EngagementContentTemplateFromJson(json);
 
   /// The type of engagement template, matching an [EngagementTemplateType] value.
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final EngagementTemplateType type;
 
   /// The main title or heading for the engagement content.
@@ -39,4 +47,20 @@ class EngagementContentTemplate extends Equatable {
 
   @override
   List<Object?> get props => [type, title, description, callToActionText];
+
+  /// Creates a copy of this [EngagementContentTemplate] but with the given
+  /// fields replaced with the new values.
+  EngagementContentTemplate copyWith({
+    EngagementTemplateType? type,
+    String? title,
+    String? description,
+    String? callToActionText,
+  }) {
+    return EngagementContentTemplate(
+      type: type ?? this.type,
+      title: title ?? this.title,
+      description: description ?? this.description,
+      callToActionText: callToActionText ?? this.callToActionText,
+    );
+  }
 }

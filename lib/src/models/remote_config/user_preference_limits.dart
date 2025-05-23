@@ -41,7 +41,12 @@ part 'user_preference_limits.g.dart';
 /// Backend enforcement is crucial to prevent exceeding these limits.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class UserPreferenceLimits extends Equatable {
   /// {@macro user_preference_limits}
   const UserPreferenceLimits({

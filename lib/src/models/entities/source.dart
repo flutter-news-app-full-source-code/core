@@ -4,6 +4,7 @@ import 'package:ht_shared/src/models/core/feed_item_action.dart'
 import 'package:ht_shared/src/models/entities/country.dart';
 import 'package:ht_shared/src/models/entities/source_type.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
 
 part 'source.g.dart';
@@ -13,7 +14,13 @@ part 'source.g.dart';
 ///
 /// Represents a news source.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class Source extends FeedItem {
   /// {@macro source}
   Source({
@@ -21,12 +28,11 @@ class Source extends FeedItem {
     required this.action,
     this.description,
     this.url,
-    this.sourceType, // Changed from _sourceType
+    this.sourceType,
     this.language,
     this.headquarters,
     String? id,
   })  : id = id ?? const Uuid().v4(),
-        // _sourceType assignment removed, directly using this.sourceType
         super(type: 'source', action: action);
 
   /// Factory method to create a [Source] instance from a JSON map.
@@ -48,11 +54,8 @@ class Source extends FeedItem {
   /// The type of the source (e.g., newsAgency, blog).
   /// If an unknown value is encountered during deserialization,
   /// this field will be set to null.
-  @JsonKey(
-    // name: 'sourceType' removed as field name now matches JSON key
-    unknownEnumValue: JsonKey.nullForUndefinedEnumValue,
-  )
-  final SourceType? sourceType; // Field renamed to public
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
+  final SourceType? sourceType;
 
   /// The language code of the source (e.g., 'en', 'fr').
   final String? language;

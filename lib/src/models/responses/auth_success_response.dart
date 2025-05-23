@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/ht_shared.dart'; // For User model
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'auth_success_response.g.dart';
 
@@ -12,7 +13,14 @@ part 'auth_success_response.g.dart';
 /// `SuccessApiResponse<AuthSuccessResponse>` for authentication endpoints
 /// like anonymous sign-in or code verification.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true)
+
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class AuthSuccessResponse extends Equatable {
   /// {@macro auth_success_response}
   const AuthSuccessResponse({required this.user, required this.token});

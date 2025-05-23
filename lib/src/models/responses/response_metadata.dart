@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'response_metadata.g.dart';
 
@@ -10,7 +11,13 @@ part 'response_metadata.g.dart';
 /// of more metadata fields in the future without breaking changes to
 /// the main response wrapper.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class ResponseMetadata extends Equatable {
   /// {@macro response_metadata}
   const ResponseMetadata({this.requestId, this.timestamp});
@@ -20,7 +27,6 @@ class ResponseMetadata extends Equatable {
       _$ResponseMetadataFromJson(json);
 
   /// An optional unique identifier for the request, useful for tracing.
-  @JsonKey(name: 'request_id')
   final String? requestId;
 
   /// An optional timestamp indicating when the response was generated.

@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/auth/user_role.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'user.g.dart';
 
@@ -8,7 +9,14 @@ part 'user.g.dart';
 ///
 /// This model holds basic information about the user, including their
 /// unique identifier, email (if available), and their assigned [role].
-@JsonSerializable()
+
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class User extends Equatable {
   /// Creates a new [User] instance.
   ///
@@ -34,6 +42,7 @@ class User extends Equatable {
   final String? email;
 
   /// The role of the user.
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final UserRole role;
 
   /// The date and time the user account was created.

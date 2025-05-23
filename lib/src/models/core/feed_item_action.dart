@@ -1,10 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:ht_shared/ht_shared.dart' show FeedItem;
 import 'package:ht_shared/src/models/core/content_type.dart';
-import 'package:ht_shared/src/models/core/feed_item.dart' show FeedItem;
-import 'package:ht_shared/src/models/models.dart' show FeedItem;
-// Removed redundant FeedItem imports
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'feed_item_action.g.dart';
 
@@ -15,7 +12,14 @@ part 'feed_item_action.g.dart';
 /// and defined within this library. This allows for exhaustive pattern
 /// matching in the UI layer.
 /// {@endtemplate}
-@JsonSerializable(createFactory: false)
+@immutable
+@JsonSerializable(
+  createFactory: false,
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 sealed class FeedItemAction extends Equatable {
   /// {@macro feed_item_action}
   const FeedItemAction({required this.type});
@@ -66,7 +70,13 @@ Map<String, dynamic> feedItemActionToJson(FeedItemAction action) {
 /// {@template open_internal_content}
 /// An action to open content that resides within the application.
 /// {@endtemplate}
-@JsonSerializable()
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class OpenInternalContent extends FeedItemAction {
   /// {@macro open_internal_content}
   const OpenInternalContent({
@@ -82,6 +92,7 @@ class OpenInternalContent extends FeedItemAction {
   final String contentId;
 
   /// The type of the internal content (e.g., headline, category, source).
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final ContentType contentType;
 
   @override
@@ -99,7 +110,13 @@ class OpenInternalContent extends FeedItemAction {
 /// {@template show_interstitial_then_open_internal_content}
 /// An action to show an interstitial advertisement, then open internal content.
 /// {@endtemplate}
-@JsonSerializable()
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
   /// {@macro show_interstitial_then_open_internal_content}
   const ShowInterstitialThenOpenInternalContent({
@@ -118,6 +135,7 @@ class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
   final String contentId;
 
   /// The type of the internal content (e.g., headline, category, source).
+  @JsonKey(unknownEnumValue: JsonKey.nullForUndefinedEnumValue)
   final ContentType contentType;
 
   @override
@@ -134,7 +152,13 @@ class ShowInterstitialThenOpenInternalContent extends FeedItemAction {
 /// {@template open_external_url}
 /// An action to open an external URL, typically in a web browser.
 /// {@endtemplate}
-@JsonSerializable()
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class OpenExternalUrl extends FeedItemAction {
   /// {@macro open_external_url}
   const OpenExternalUrl({required this.url}) : super(type: 'open_external_url');
