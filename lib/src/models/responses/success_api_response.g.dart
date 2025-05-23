@@ -10,11 +10,20 @@ SuccessApiResponse<T> _$SuccessApiResponseFromJson<T>(
   Map<String, dynamic> json,
   T Function(Object? json) fromJsonT,
 ) =>
-    SuccessApiResponse<T>(
-      data: fromJsonT(json['data']),
-      metadata: json['metadata'] == null
-          ? null
-          : ResponseMetadata.fromJson(json['metadata'] as Map<String, dynamic>),
+    $checkedCreate(
+      'SuccessApiResponse',
+      json,
+      ($checkedConvert) {
+        final val = SuccessApiResponse<T>(
+          data: $checkedConvert('data', (v) => fromJsonT(v)),
+          metadata: $checkedConvert(
+              'metadata',
+              (v) => v == null
+                  ? null
+                  : ResponseMetadata.fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$SuccessApiResponseToJson<T>(
