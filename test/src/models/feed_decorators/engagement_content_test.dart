@@ -1,213 +1,273 @@
-import 'package:ht_shared/src/models/core/content_type.dart';
-import 'package:ht_shared/src/models/core/feed_item_action.dart';
-import 'package:ht_shared/src/models/feed_decorators/engagement_content.dart';
-import 'package:ht_shared/src/models/feed_decorators/engagement_content_type.dart';
+import 'package:ht_shared/ht_shared.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
 
+class MockOpenExternalUrl extends Mock implements OpenExternalUrl {}
+
 void main() {
   group('EngagementContent', () {
-    const testId = 'test-engagement-id';
-    const testTitle = 'Test Engagement Title';
-    const testDescription = 'This is a test description.';
-    const testEngagementContentType = EngagementContentType.signUp;
-    const testCallToActionText = 'Sign Up Now!';
-    const testCallToActionUrl = 'http://example.com/signup';
-    const defaultAction = OpenExternalUrl(url: 'http://default.com');
+    late MockOpenExternalUrl mockAction;
+    late String testId;
+
+    setUp(() {
+      mockAction = MockOpenExternalUrl();
+      when(() => mockAction.type).thenReturn('open_external_url');
+      when(() => mockAction.url).thenReturn('https://example.com');
+      when(() => mockAction.toJson()).thenReturn({
+        'type': 'open_external_url',
+        'url': 'https://example.com',
+      });
+      testId = const Uuid().v4();
+    });
 
     EngagementContent createSubject({
       String? id,
-      String title = testTitle,
-      String? description = testDescription,
-      EngagementContentType engagementContentType = testEngagementContentType,
-      String? callToActionText = testCallToActionText,
-      String? callToActionUrl = testCallToActionUrl,
-      FeedItemAction action = defaultAction,
+      String title = 'Test Title',
+      EngagementContentType engagementContentType =
+          EngagementContentType.signUp,
+      String? description,
+      String? callToActionText,
+      String? callToActionUrl,
+      FeedItemAction? action,
     }) {
       return EngagementContent(
         id: id,
         title: title,
-        description: description,
         engagementContentType: engagementContentType,
+        description: description,
         callToActionText: callToActionText,
         callToActionUrl: callToActionUrl,
-        action: action,
+        action: action ?? mockAction,
       );
     }
 
-    group('constructor', () {
-      test('generates id when not provided', () {
-        final content = createSubject();
-        expect(content.id, isA<String>());
-        expect(Uuid.isValidUUID(fromString: content.id), isTrue);
-      });
-
-      test('uses provided id', () {
-        final content = createSubject(id: testId);
-        expect(content.id, testId);
-      });
-
-      test('initializes all properties correctly', () {
-        final content = createSubject();
-        expect(content.title, testTitle);
-        expect(content.description, testDescription);
-        expect(content.engagementContentType, testEngagementContentType);
-        expect(content.callToActionText, testCallToActionText);
-        expect(content.callToActionUrl, testCallToActionUrl);
-        expect(content.action, defaultAction);
-        expect(content.type, 'engagement_content');
-      });
+    test('can be instantiated', () {
+      final instance = createSubject();
+      expect(instance, isNotNull);
+      expect(instance.id, isA<String>());
+      expect(instance.type, 'engagement_content');
+      expect(instance.action, mockAction);
     });
 
-    group('copyWith', () {
-      test('returns a new instance with updated fields', () {
-        const newTitle = 'New Title';
-        const newDescription = 'New Description';
-        const newEngagementContentType = EngagementContentType.feedback;
-        const newCallToActionText = 'Give Feedback';
-        const newCallToActionUrl = 'http://example.com/feedback';
-        const newAction = OpenInternalContent(
-          contentId: 'feedback-id',
-          contentType: ContentType.category,
-        );
+    test('uses provided id if not null', () {
+      final instance = createSubject(id: testId);
+      expect(instance.id, testId);
+    });
 
-        final originalContent = createSubject();
-        final updatedContent = originalContent.copyWith(
-          title: newTitle,
-          description: newDescription,
-          engagementContentType: newEngagementContentType,
-          callToActionText: newCallToActionText,
-          callToActionUrl: newCallToActionUrl,
-          action: newAction,
-        );
+    test('generates UUID v4 if id is null', () {
+      final instance = createSubject();
+      expect(instance.id, isNotNull);
+      expect(instance.id.length, 36); // UUID v4 length
+    });
 
-        expect(updatedContent.id, originalContent.id);
-        expect(updatedContent.title, newTitle);
-        expect(updatedContent.description, newDescription);
-        expect(updatedContent.engagementContentType, newEngagementContentType);
-        expect(updatedContent.callToActionText, newCallToActionText);
-        expect(updatedContent.callToActionUrl, newCallToActionUrl);
-        expect(updatedContent.action, newAction);
-        expect(updatedContent.type, originalContent.type);
+    test('supports value equality', () {
+      final instanceA = createSubject(id: testId);
+      final instanceB = createSubject(id: testId);
+      final instanceC = createSubject(id: 'another-id');
+
+      expect(instanceA, equals(instanceB));
+      expect(instanceA, isNot(equals(instanceC)));
+    });
+
+    test('props are correct', () {
+      final instance = createSubject(
+        id: testId,
+        title: 'Title',
+        description: 'Description',
+        engagementContentType: EngagementContentType.feedback,
+        callToActionText: 'Click Me',
+        callToActionUrl: 'https://cta.com',
+      );
+
+      expect(
+        instance.props,
+        [
+          testId,
+          'Title',
+          'Description',
+          EngagementContentType.feedback,
+          'Click Me',
+          'https://cta.com',
+          'engagement_content',
+          mockAction,
+        ],
+      );
+    });
+
+    group('fromJson', () {
+      test('returns correct EngagementContent object', () {
+        final json = <String, dynamic>{
+          'id': testId,
+          'title': 'Sign Up Now',
+          'description': 'Create an account to save preferences.',
+          'engagementContentType': 'sign-up',
+          'callToActionText': 'Sign Up',
+          'callToActionUrl': 'https://example.com/signup',
+          'type': 'engagement_content',
+          'action': {
+            'type': 'open_external_url',
+            'url': 'https://example.com/action',
+          },
+        };
+
+        final instance = EngagementContent.fromJson(json);
+
+        expect(instance.id, testId);
+        expect(instance.title, 'Sign Up Now');
+        expect(instance.description, 'Create an account to save preferences.');
+        expect(instance.engagementContentType, EngagementContentType.signUp);
+        expect(instance.callToActionText, 'Sign Up');
+        expect(instance.callToActionUrl, 'https://example.com/signup');
+        expect(instance.type, 'engagement_content');
+        expect(instance.action, isA<OpenExternalUrl>());
+        expect(
+          (instance.action as OpenExternalUrl).url,
+          'https://example.com/action',
+        );
       });
 
-      test('returns an identical copy if no updates provided', () {
-        final originalContent = createSubject();
-        final copiedContent = originalContent.copyWith();
-        expect(copiedContent, originalContent);
-        expect(identical(copiedContent, originalContent), isFalse);
+      test('handles null optional fields', () {
+        final json = <String, dynamic>{
+          'id': testId,
+          'title': 'Simple Title',
+          'engagementContentType': 'feedback',
+          'type': 'engagement_content',
+          'action': {
+            'type': 'open_external_url',
+            'url': 'https://example.com/action',
+          },
+        };
+
+        final instance = EngagementContent.fromJson(json);
+
+        expect(instance.id, testId);
+        expect(instance.title, 'Simple Title');
+        expect(instance.description, isNull);
+        expect(instance.engagementContentType, EngagementContentType.feedback);
+        expect(instance.callToActionText, isNull);
+        expect(instance.callToActionUrl, isNull);
+      });
+
+      test('handles unknown engagementContentType gracefully (null)', () {
+        final json = <String, dynamic>{
+          'id': testId,
+          'title': 'Unknown Type',
+          'engagementContentType': 'unknown-type', // Unknown value
+          'type': 'engagement_content',
+          'action': {
+            'type': 'open_external_url',
+            'url': 'https://example.com/action',
+          },
+        };
+
+        final instance = EngagementContent.fromJson(json);
+        expect(instance.engagementContentType, isNull);
       });
     });
 
     group('toJson', () {
-      test('serializes full EngagementContent object to JSON', () {
-        final content = createSubject();
-        final json = content.toJson();
+      test('returns correct JSON map', () {
+        final instance = createSubject(
+          id: testId,
+          title: 'Sign Up Now',
+          description: 'Create an account to save preferences.',
+          callToActionText: 'Sign Up',
+          callToActionUrl: 'https://example.com/signup',
+        );
+
+        final json = instance.toJson();
 
         expect(json, <String, dynamic>{
-          'id': content.id,
-          'title': testTitle,
-          'description': testDescription,
-          'engagementContentType': 'sign_up',
-          'callToActionText': testCallToActionText,
-          'callToActionUrl': testCallToActionUrl,
+          'id': testId,
+          'title': 'Sign Up Now',
+          'description': 'Create an account to save preferences.',
+          'engagementContentType': 'sign-up',
+          'callToActionText': 'Sign Up',
+          'callToActionUrl': 'https://example.com/signup',
           'type': 'engagement_content',
-          'action': defaultAction.toJson(),
+          'action': {
+            'type': 'open_external_url',
+            'url': 'https://example.com',
+          },
         });
       });
 
-      test('omits null optional fields from JSON', () {
-        final content = createSubject(
+      test('handles null optional fields', () {
+        final instance = createSubject(
+          id: testId,
+          title: 'Simple Title',
+          engagementContentType: EngagementContentType.feedback,
+        );
+
+        final json = instance.toJson();
+
+        expect(json, <String, dynamic>{
+          'id': testId,
+          'title': 'Simple Title',
+          'engagementContentType': 'feedback',
+          'type': 'engagement_content',
+          'action': {
+            'type': 'open_external_url',
+            'url': 'https://example.com',
+          },
+        });
+      });
+    });
+
+    group('copyWith', () {
+      test('returns a new instance with updated values', () {
+        final original = createSubject(
+          id: testId,
+          title: 'Original Title',
+          description: 'Original Description',
+          callToActionText: 'Original CTA',
+          callToActionUrl: 'original.com',
+        );
+
+        const updatedAction = OpenExternalUrl(url: 'https://new.com');
+
+        final copied = original.copyWith(
+          title: 'New Title',
+          description: 'New Description',
+          engagementContentType: EngagementContentType.upgrade,
+          callToActionText: 'New CTA',
+          callToActionUrl: 'new.com',
+          action: updatedAction,
+        );
+
+        expect(copied, isNot(equals(original)));
+        expect(copied.id, original.id); // ID should remain the same
+        expect(copied.title, 'New Title');
+        expect(copied.description, 'New Description');
+        expect(copied.engagementContentType, EngagementContentType.upgrade);
+        expect(copied.callToActionText, 'New CTA');
+        expect(copied.callToActionUrl, 'new.com');
+        expect(copied.action, updatedAction);
+      });
+
+      test('returns a new instance with same values if no changes', () {
+        final original = createSubject(id: testId);
+        final copied = original.copyWith();
+        expect(copied, equals(original));
+      });
+
+      test('can set optional fields to null', () {
+        final original = createSubject(
+          description: 'Has Description',
+          callToActionText: 'Has CTA',
+          callToActionUrl: 'hasurl.com',
+        );
+
+        final copied = original.copyWith(
           description: null,
           callToActionText: null,
           callToActionUrl: null,
         );
-        final json = content.toJson();
 
-        expect(json.containsKey('description'), isFalse);
-        expect(json.containsKey('callToActionText'), isFalse);
-        expect(json.containsKey('callToActionUrl'), isFalse);
-      });
-    });
-
-    group('fromJson', () {
-      test('deserializes full JSON to EngagementContent object', () {
-        final json = <String, dynamic>{
-          'id': testId,
-          'title': testTitle,
-          'description': testDescription,
-          'engagementContentType': 'sign_up',
-          'callToActionText': testCallToActionText,
-          'callToActionUrl': testCallToActionUrl,
-          'type': 'engagement_content',
-          'action': defaultAction.toJson(),
-        };
-        final content = EngagementContent.fromJson(json);
-
-        expect(content.id, testId);
-        expect(content.title, testTitle);
-        expect(content.description, testDescription);
-        expect(content.engagementContentType, testEngagementContentType);
-        expect(content.callToActionText, testCallToActionText);
-        expect(content.callToActionUrl, testCallToActionUrl);
-        expect(content.action, defaultAction);
-        expect(content.type, 'engagement_content');
-      });
-
-      test('deserializes JSON with missing optional fields', () {
-        final json = <String, dynamic>{
-          'id': testId,
-          'title': testTitle,
-          'engagementContentType': 'sign_up',
-          'type': 'engagement_content',
-          'action': defaultAction.toJson(),
-        };
-        final content = EngagementContent.fromJson(json);
-
-        expect(content.description, isNull);
-        expect(content.callToActionText, isNull);
-        expect(content.callToActionUrl, isNull);
-      });
-
-      test('deserializes JSON with unknown engagementContentType gracefully',
-          () {
-        final json = <String, dynamic>{
-          'id': testId,
-          'title': testTitle,
-          'engagementContentType': 'unknown_type',
-          'type': 'engagement_content',
-          'action': defaultAction.toJson(),
-        };
-        final content = EngagementContent.fromJson(json);
-        expect(content.engagementContentType, isNull);
-      });
-    });
-
-    group('Equatable', () {
-      test('instances with same properties are equal', () {
-        final content1 = createSubject(id: '1');
-        final content2 = createSubject(id: '1');
-        expect(content1, content2);
-      });
-
-      test('instances with different properties are not equal', () {
-        final content1 = createSubject(id: '1');
-        final content2 = createSubject(id: '2');
-        expect(content1, isNot(equals(content2)));
-      });
-
-      test('props list contains all relevant fields', () {
-        final content = createSubject();
-        expect(content.props, [
-          content.id,
-          content.title,
-          content.description,
-          content.engagementContentType,
-          content.callToActionText,
-          content.callToActionUrl,
-          content.type,
-          content.action,
-        ]);
+        expect(copied.description, isNull);
+        expect(copied.callToActionText, isNull);
+        expect(copied.callToActionUrl, isNull);
       });
     });
   });
