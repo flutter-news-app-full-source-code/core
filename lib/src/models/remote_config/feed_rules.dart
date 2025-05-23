@@ -2,13 +2,20 @@ import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/auth/user_role.dart';
 import 'package:ht_shared/src/models/feed_extras/feed_template_types.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'feed_rules.g.dart';
 
 /// {@template placement_criteria}
 /// Defines where and how often an injected item should appear in a feed.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class PlacementCriteria extends Equatable {
   /// {@macro placement_criteria}
   const PlacementCriteria({
@@ -42,12 +49,34 @@ class PlacementCriteria extends Equatable {
         relativePosition,
         minPrimaryItemsRequired,
       ];
+
+  /// Creates a copy of this [PlacementCriteria] but with the given fields
+  /// replaced with the new values.
+  PlacementCriteria copyWith({
+    int? afterPrimaryItemIndex,
+    String? relativePosition,
+    int? minPrimaryItemsRequired,
+  }) {
+    return PlacementCriteria(
+      afterPrimaryItemIndex:
+          afterPrimaryItemIndex ?? this.afterPrimaryItemIndex,
+      relativePosition: relativePosition ?? this.relativePosition,
+      minPrimaryItemsRequired:
+          minPrimaryItemsRequired ?? this.minPrimaryItemsRequired,
+    );
+  }
 }
 
 /// {@template engagement_rule}
 /// Defines the rules for triggering a specific engagement prompt.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class EngagementRule extends Equatable {
   /// {@macro engagement_rule}
   const EngagementRule({
@@ -64,9 +93,11 @@ class EngagementRule extends Equatable {
       _$EngagementRuleFromJson(json);
 
   /// Type of engagement template to use.
+
   final EngagementTemplateType templateType;
 
   /// Roles this rule applies to.
+
   final List<UserRole> userRoles;
 
   /// Minimum days since user account was created for this rule to apply.
@@ -93,12 +124,40 @@ class EngagementRule extends Equatable {
         minDaysSinceLastShown,
         placement,
       ];
+
+  /// Creates a copy of this [EngagementRule] but with the given fields
+  /// replaced with the new values.
+  EngagementRule copyWith({
+    EngagementTemplateType? templateType,
+    List<UserRole>? userRoles,
+    int? minDaysSinceAccountCreation,
+    int? maxTimesToShow,
+    int? minDaysSinceLastShown,
+    PlacementCriteria? placement,
+  }) {
+    return EngagementRule(
+      templateType: templateType ?? this.templateType,
+      userRoles: userRoles ?? this.userRoles,
+      minDaysSinceAccountCreation:
+          minDaysSinceAccountCreation ?? this.minDaysSinceAccountCreation,
+      maxTimesToShow: maxTimesToShow ?? this.maxTimesToShow,
+      minDaysSinceLastShown:
+          minDaysSinceLastShown ?? this.minDaysSinceLastShown,
+      placement: placement ?? this.placement,
+    );
+  }
 }
 
 /// {@template suggestion_rule}
 /// Defines the rules for triggering a specific content suggestion block.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true, includeIfNull: false)
+@immutable
+@JsonSerializable(
+  fieldRename: FieldRename.snake,
+  explicitToJson: true,
+  includeIfNull: false,
+  checked: true,
+)
 class SuggestionRule extends Equatable {
   /// {@macro suggestion_rule}
   const SuggestionRule({
@@ -112,9 +171,11 @@ class SuggestionRule extends Equatable {
       _$SuggestionRuleFromJson(json);
 
   /// Type of suggestion template to use.
+
   final SuggestionTemplateType templateType;
 
   /// Roles this rule applies to.
+
   final List<UserRole> userRoles;
 
   /// How to place this in the feed.
@@ -125,4 +186,18 @@ class SuggestionRule extends Equatable {
 
   @override
   List<Object?> get props => [templateType, userRoles, placement];
+
+  /// Creates a copy of this [SuggestionRule] but with the given fields
+  /// replaced with the new values.
+  SuggestionRule copyWith({
+    SuggestionTemplateType? templateType,
+    List<UserRole>? userRoles,
+    PlacementCriteria? placement,
+  }) {
+    return SuggestionRule(
+      templateType: templateType ?? this.templateType,
+      userRoles: userRoles ?? this.userRoles,
+      placement: placement ?? this.placement,
+    );
+  }
 }
