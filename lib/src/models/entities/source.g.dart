@@ -6,18 +6,29 @@ part of 'source.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Source _$SourceFromJson(Map<String, dynamic> json) => Source(
-      name: json['name'] as String,
-      action: feedItemActionFromJson(json['action'] as Map<String, dynamic>),
-      description: json['description'] as String?,
-      url: json['url'] as String?,
-      sourceType: $enumDecodeNullable(_$SourceTypeEnumMap, json['sourceType'],
-          unknownValue: JsonKey.nullForUndefinedEnumValue),
-      language: json['language'] as String?,
-      headquarters: json['headquarters'] == null
-          ? null
-          : Country.fromJson(json['headquarters'] as Map<String, dynamic>),
-      id: json['id'] as String?,
+Source _$SourceFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Source',
+      json,
+      ($checkedConvert) {
+        final val = Source(
+          name: $checkedConvert('name', (v) => v as String),
+          action: $checkedConvert('action',
+              (v) => feedItemActionFromJson(v as Map<String, dynamic>)),
+          description: $checkedConvert('description', (v) => v as String?),
+          url: $checkedConvert('url', (v) => v as String?),
+          sourceType: $checkedConvert('source_type',
+              (v) => $enumDecodeNullable(_$SourceTypeEnumMap, v)),
+          language: $checkedConvert('language', (v) => v as String?),
+          headquarters: $checkedConvert(
+              'headquarters',
+              (v) => v == null
+                  ? null
+                  : Country.fromJson(v as Map<String, dynamic>)),
+          id: $checkedConvert('id', (v) => v as String?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'sourceType': 'source_type'},
     );
 
 Map<String, dynamic> _$SourceToJson(Source instance) => <String, dynamic>{
@@ -26,7 +37,7 @@ Map<String, dynamic> _$SourceToJson(Source instance) => <String, dynamic>{
       if (instance.description case final value?) 'description': value,
       if (instance.url case final value?) 'url': value,
       if (_$SourceTypeEnumMap[instance.sourceType] case final value?)
-        'sourceType': value,
+        'source_type': value,
       if (instance.language case final value?) 'language': value,
       if (instance.headquarters?.toJson() case final value?)
         'headquarters': value,
@@ -34,13 +45,13 @@ Map<String, dynamic> _$SourceToJson(Source instance) => <String, dynamic>{
     };
 
 const _$SourceTypeEnumMap = {
-  SourceType.newsAgency: 'news-agency',
-  SourceType.localNewsOutlet: 'local-news-outlet',
-  SourceType.nationalNewsOutlet: 'national-news-outlet',
-  SourceType.internationalNewsOutlet: 'international-news-outlet',
-  SourceType.specializedPublisher: 'specialized-publisher',
+  SourceType.newsAgency: 'news_agency',
+  SourceType.localNewsOutlet: 'local_news_outlet',
+  SourceType.nationalNewsOutlet: 'national_news_outlet',
+  SourceType.internationalNewsOutlet: 'international_news_outlet',
+  SourceType.specializedPublisher: 'specialized_publisher',
   SourceType.blog: 'blog',
-  SourceType.governmentSource: 'government-source',
+  SourceType.governmentSource: 'government_source',
   SourceType.aggregator: 'aggregator',
   SourceType.other: 'other',
 };
