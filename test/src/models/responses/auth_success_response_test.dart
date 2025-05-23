@@ -1,4 +1,5 @@
 import 'package:ht_shared/ht_shared.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -41,14 +42,14 @@ void main() {
         final jsonMissingUser = {'token': testToken};
         expect(
           () => AuthSuccessResponse.fromJson(jsonMissingUser),
-          throwsA(isA<TypeError>()), // Or specific JsonKeyRequiredError
+          throwsA(isA<CheckedFromJsonException>()),
         );
 
         // Missing 'token'
         final jsonMissingToken = {'user': testUser.toJson()};
         expect(
           () => AuthSuccessResponse.fromJson(jsonMissingToken),
-          throwsA(isA<TypeError>()), // Or specific JsonKeyRequiredError
+          throwsA(isA<CheckedFromJsonException>()),
         );
       });
 
@@ -60,7 +61,7 @@ void main() {
         };
         expect(
           () => AuthSuccessResponse.fromJson(jsonWrongUserType),
-          throwsA(isA<TypeError>()),
+          throwsA(isA<CheckedFromJsonException>()),
         );
 
         // Incorrect type for 'token'
@@ -70,7 +71,7 @@ void main() {
         };
         expect(
           () => AuthSuccessResponse.fromJson(jsonWrongTokenType),
-          throwsA(isA<TypeError>()),
+          throwsA(isA<CheckedFromJsonException>()),
         );
       });
     });
