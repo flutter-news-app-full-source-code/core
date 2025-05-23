@@ -2,6 +2,7 @@ import 'package:ht_shared/src/models/core/content_type.dart';
 import 'package:ht_shared/src/models/core/feed_item_action.dart';
 import 'package:ht_shared/src/models/feed_decorators/ad.dart';
 import 'package:ht_shared/src/models/feed_decorators/ad_placement.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
 
@@ -95,9 +96,9 @@ void main() {
 
         expect(json, <String, dynamic>{
           'id': ad.id,
-          'imageUrl': testImageUrl,
-          'targetUrl': testTargetUrl,
-          'adType': 'banner',
+          'image_url': testImageUrl,
+          'target_url': testTargetUrl,
+          'ad_type': 'banner',
           'placement': 'feed_inline_standard_banner',
           'type': 'ad',
           'action': defaultAction.toJson(),
@@ -116,9 +117,9 @@ void main() {
       test('deserializes full JSON to Ad object', () {
         final json = <String, dynamic>{
           'id': testId,
-          'imageUrl': testImageUrl,
-          'targetUrl': testTargetUrl,
-          'adType': 'banner',
+          'image_url': testImageUrl,
+          'target_url': testTargetUrl,
+          'ad_type': 'banner',
           'placement': 'feed_inline_standard_banner',
           'type': 'ad',
           'action': defaultAction.toJson(),
@@ -137,9 +138,9 @@ void main() {
       test('deserializes JSON with missing optional fields', () {
         final json = <String, dynamic>{
           'id': testId,
-          'imageUrl': testImageUrl,
-          'targetUrl': testTargetUrl,
-          'adType': testAdType.name,
+          'image_url': testImageUrl,
+          'target_url': testTargetUrl,
+          'ad_type': testAdType.name,
           'type': 'ad',
           'action': defaultAction.toJson(),
         };
@@ -151,14 +152,16 @@ void main() {
       test('deserializes JSON with unknown adType gracefully', () {
         final json = <String, dynamic>{
           'id': testId,
-          'imageUrl': testImageUrl,
-          'targetUrl': testTargetUrl,
-          'adType': 'unknown_type',
+          'image_url': testImageUrl,
+          'target_url': testTargetUrl,
+          'ad_type': 'unknown_type',
           'type': 'ad',
           'action': defaultAction.toJson(),
         };
-        final ad = Ad.fromJson(json);
-        expect(ad.adType, isNull); // Should be null for unknown enum value
+        expect(
+          () => Ad.fromJson(json),
+          throwsA(isA<CheckedFromJsonException>()),
+        );
       });
     });
 
