@@ -8,7 +8,7 @@ part 'feed_rules.g.dart';
 /// {@template placement_criteria}
 /// Defines where and how often an injected item should appear in a feed.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class PlacementCriteria extends Equatable {
   /// {@macro placement_criteria}
   const PlacementCriteria({
@@ -47,7 +47,7 @@ class PlacementCriteria extends Equatable {
 /// {@template engagement_rule}
 /// Defines the rules for triggering a specific engagement prompt.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class EngagementRule extends Equatable {
   /// {@macro engagement_rule}
   const EngagementRule({
@@ -98,7 +98,7 @@ class EngagementRule extends Equatable {
 /// {@template suggestion_rule}
 /// Defines the rules for triggering a specific content suggestion block.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, includeIfNull: false)
 class SuggestionRule extends Equatable {
   /// {@macro suggestion_rule}
   const SuggestionRule({
