@@ -17,6 +17,19 @@ part 'ad_config.g.dart';
 /// This model is part of the overall [AppConfig] and is used to control
 /// how ads are integrated into the application's feed or other content areas
 /// based on the user's authentication status or subscription level.
+///
+/// **Ad Injection Logic Explained:**
+///
+/// - __`AdFrequency`__: This determines *how often* an ad *can* be injected relative to the number of primary content items. For example, an `adFrequency` of 5 means an ad *could* be placed after every 5 primary items. It sets the overall density of ads in the feed.
+///
+/// - __`AdPlacementInterval`__: This sets a *minimum number of primary items* that must appear *before* the *first* ad is placed. It prevents ads from appearing right at the very beginning of the feed, ensuring the user sees some initial content first.
+///
+/// So, `AdFrequency` controls the spacing of ads *throughout* the feed (after the initial interval), while `AdPlacementInterval` controls where the *very first* ad can appear.
+///
+/// Think of it like this:
+///
+/// - `AdPlacementInterval` = 3: No ads will appear in the first 3 primary items.
+/// - `AdFrequency` = 5: After the first 3 items, an ad *could* appear after item #5, then potentially after item #10, #15, etc.
 /// {@endtemplate}
 @immutable
 @JsonSerializable(
@@ -40,26 +53,22 @@ class AdConfig extends Equatable {
   factory AdConfig.fromJson(Map<String, dynamic> json) =>
       _$AdConfigFromJson(json);
 
-  /// The frequency at which ads should appear for guest users
-  /// (e.g., every N items).
+  /// See class documentation for details on AdFrequency.
   final int guestAdFrequency;
 
-  /// The minimum number of non-ad items that must appear between ads
-  /// for guest users.
+  /// See class documentation for details on AdPlacementInterval.
   final int guestAdPlacementInterval;
 
-  /// The frequency at which ads should appear for authenticated users.
+  /// See class documentation for details on AdFrequency.
   final int authenticatedAdFrequency;
 
-  /// The minimum number of non-ad items that must appear between ads
-  /// for authenticated users.
+  /// See class documentation for details on AdPlacementInterval.
   final int authenticatedAdPlacementInterval;
 
-  /// The frequency at which ads should appear for premium users.
+  /// See class documentation for details on AdFrequency.
   final int premiumAdFrequency;
 
-  /// The minimum number of non-ad items that must appear between ads
-  /// for premium users.
+  /// See class documentation for details on AdPlacementInterval.
   final int premiumAdPlacementInterval;
 
   /// Converts this [AdConfig] instance to a JSON map.
