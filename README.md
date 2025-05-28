@@ -14,7 +14,7 @@ Think of it as the common language 🗣️ that all parts of your news applicati
 *   💡 **Powering Intelligent Feeds:** Provides the foundational models and
     configuration structures (like `EngagementRule`, `SuggestionRule`,
     `EngagementContentTemplate`, `AppConfig` enhancements) that enable the
-    `ht_api` to deliver highly dynamic, personalized, and engaging content
+    `ht_main` to deliver highly dynamic, personalized, and engaging content
     feeds. Define *what* to show and *when* with enhanced flexibility!
 *   **🚀 Rapid Development:** Start building features faster with pre-defined, robust models for common news application needs. No reinventing the wheel!
 *   **🔗 Seamless Integration:** Enables the Flutter mobile app, web dashboard, and Dart Frog API to work together flawlessly.
