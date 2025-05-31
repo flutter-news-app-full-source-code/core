@@ -6,7 +6,6 @@ import 'package:ht_shared/src/models/entities/headline.dart';
 import 'package:ht_shared/src/models/entities/source.dart';
 import 'package:ht_shared/src/models/feed_decorators/ad.dart';
 import 'package:ht_shared/src/models/feed_decorators/engagement_content.dart';
-import 'package:ht_shared/src/models/feed_decorators/suggested_content.dart';
 
 /// {@template feed_item}
 /// An abstract base class for all items that can appear in a mixed content
@@ -51,8 +50,6 @@ abstract class FeedItem extends Equatable {
         return Country.fromJson(json);
       case 'ad':
         return Ad.fromJson(json);
-      case 'suggested_content':
-        return SuggestedContent.fromJson(json);
       case 'engagement_content':
         return EngagementContent.fromJson(json);
       default:

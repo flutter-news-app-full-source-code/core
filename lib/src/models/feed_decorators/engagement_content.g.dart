@@ -51,9 +51,5 @@ Map<String, dynamic> _$EngagementContentToJson(EngagementContent instance) =>
 const _$EngagementContentTypeEnumMap = {
   EngagementContentType.signUp: 'sign_up',
   EngagementContentType.upgrade: 'upgrade',
-  EngagementContentType.feedback: 'feedback',
-  EngagementContentType.survey: 'survey',
   EngagementContentType.rateApp: 'rate_app',
-  EngagementContentType.shareApp: 'share_app',
-  EngagementContentType.custom: 'custom',
 };
