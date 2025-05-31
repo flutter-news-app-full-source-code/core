@@ -10,7 +10,6 @@ part 'paginated_reponse.g.dart';
 /// Contains a list of items of type [T], a cursor for the next page,
 /// and a boolean indicating if there are more items.
 /// {@endtemplate}
-
 @immutable
 @JsonSerializable(
   genericArgumentFactories: true,

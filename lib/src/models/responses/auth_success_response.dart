@@ -13,7 +13,6 @@ part 'auth_success_response.g.dart';
 /// `SuccessApiResponse<AuthSuccessResponse>` for authentication endpoints
 /// like anonymous sign-in or code verification.
 /// {@endtemplate}
-
 @immutable
 @JsonSerializable(
   fieldRename: FieldRename.snake,
