@@ -1,4 +1,3 @@
-import 'package:ht_shared/src/models/core/content_type.dart';
 import 'package:ht_shared/src/models/feed_decorators/ad.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:test/test.dart';

@@ -1,4 +1,3 @@
-import 'package:ht_shared/src/models/core/content_type.dart';
 import 'package:ht_shared/src/models/entities/category.dart';
 import 'package:test/test.dart';
 

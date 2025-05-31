@@ -86,7 +86,7 @@ class User extends Equatable {
       role: role ?? this.role,
       createdAt: createdAt ?? this.createdAt,
       lastAccountActionShownAt:
-          lastEngagementShownAt ?? this.lastAccountActionShownAt,
+          lastEngagementShownAt ?? lastAccountActionShownAt,
     );
   }
 }

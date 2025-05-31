@@ -9,7 +9,7 @@ void main() {
     const standardRole = UserRole.standardUser;
     const guestRole = UserRole.guestUser;
     const adminRole = UserRole.admin;
-    final testCreatedAt = DateTime.utc(2023, 1, 1);
+    final testCreatedAt = DateTime.utc(2023);
     final testLastEngagementShownAt = DateTime.utc(2023, 1, 2);
 
     test('supports value equality', () {
@@ -32,26 +32,26 @@ void main() {
         ),
       );
       expect(
-        User(id: id, email: email, role: standardRole),
+        const User(id: id, email: email, role: standardRole),
         isNot(
-          equals(User(id: 'other-id', email: email, role: standardRole)),
+          equals(const User(id: 'other-id', email: email, role: standardRole)),
         ),
       );
       expect(
-        User(id: id, email: email, role: standardRole),
+        const User(id: id, email: email, role: standardRole),
         isNot(
           equals(
-            User(id: id, email: 'other@example.com', role: standardRole),
+            const User(id: id, email: 'other@example.com', role: standardRole),
           ),
         ),
       );
       expect(
-        User(id: id, email: email, role: standardRole),
-        isNot(equals(User(id: id, email: email, role: guestRole))),
+        const User(id: id, email: email, role: standardRole),
+        isNot(equals(const User(id: id, email: email, role: guestRole))),
       );
       expect(
-        User(id: id, email: email, role: standardRole),
-        isNot(equals(User(id: id, email: email, role: adminRole))),
+        const User(id: id, email: email, role: standardRole),
+        isNot(equals(const User(id: id, email: email, role: adminRole))),
       );
       expect(
         User(
@@ -92,18 +92,18 @@ void main() {
 
     test('has correct toString', () {
       expect(
-        User(id: id, email: email, role: standardRole).toString(),
+        const User(id: id, email: email, role: standardRole).toString(),
         equals(
           'User(id: $id, email: $email, role: $standardRole, createdAt: null, lastEngagementShownAt: null)',
         ),
       );
       expect(
-        User(id: id, role: guestRole).toString(),
+        const User(id: id, role: guestRole).toString(),
         equals(
             'User(id: $id, email: null, role: $guestRole, createdAt: null, lastEngagementShownAt: null)'),
       );
       expect(
-        User(id: id, role: adminRole).toString(),
+        const User(id: id, role: adminRole).toString(),
         equals(
             'User(id: $id, email: null, role: $adminRole, createdAt: null, lastEngagementShownAt: null)'),
       );
@@ -135,9 +135,9 @@ void main() {
       });
 
       test('updates specified fields', () {
-        final original = User(id: id, role: standardRole);
-        final newEmail = 'new@example.com';
-        final newRole = UserRole.premiumUser;
+        const original = User(id: id, role: standardRole);
+        const newEmail = 'new@example.com';
+        const newRole = UserRole.premiumUser;
         final newCreatedAt = DateTime.utc(2024);
         final newLastEngagementShownAt = DateTime.utc(2024, 1, 2);
 

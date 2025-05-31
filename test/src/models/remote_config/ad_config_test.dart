@@ -13,7 +13,7 @@ void main() {
     const testStandardUserArticlesToRead = 4;
     const testPremiumUserArticlesToRead = 5;
 
-    final adConfig = AdConfig(
+    const adConfig = AdConfig(
       guestAdFrequency: testGuestAdFrequency,
       guestAdPlacementInterval: testGuestAdPlacementInterval,
       authenticatedAdFrequency: testAuthenticatedAdFrequency,
@@ -23,8 +23,6 @@ void main() {
       guestArticlesToReadBeforeShowingInterstitialAds: testGuestArticlesToRead,
       standardUserArticlesToReadBeforeShowingInterstitialAds:
           testStandardUserArticlesToRead,
-      premiumUserArticlesToReadBeforeShowingInterstitialAds:
-          testPremiumUserArticlesToRead,
     );
 
     group('constructor', () {
@@ -120,7 +118,7 @@ void main() {
 
     group('Equatable', () {
       test('instances with same properties are equal', () {
-        final adConfig1 = AdConfig(
+        const adConfig1 = AdConfig(
           guestAdFrequency: 1,
           guestAdPlacementInterval: 2,
           authenticatedAdFrequency: 3,
@@ -131,7 +129,7 @@ void main() {
           standardUserArticlesToReadBeforeShowingInterstitialAds: 8,
           premiumUserArticlesToReadBeforeShowingInterstitialAds: 9,
         );
-        final adConfig2 = AdConfig(
+        const adConfig2 = AdConfig(
           guestAdFrequency: 1,
           guestAdPlacementInterval: 2,
           authenticatedAdFrequency: 3,
@@ -146,7 +144,7 @@ void main() {
       });
 
       test('instances with different properties are not equal', () {
-        final adConfig1 = AdConfig(
+        const adConfig1 = AdConfig(
           guestAdFrequency: 1,
           guestAdPlacementInterval: 2,
           authenticatedAdFrequency: 3,
@@ -157,7 +155,7 @@ void main() {
           standardUserArticlesToReadBeforeShowingInterstitialAds: 8,
           premiumUserArticlesToReadBeforeShowingInterstitialAds: 9,
         );
-        final adConfig2 = AdConfig(
+        const adConfig2 = AdConfig(
           guestAdFrequency: 1,
           guestAdPlacementInterval: 2,
           authenticatedAdFrequency: 3,
