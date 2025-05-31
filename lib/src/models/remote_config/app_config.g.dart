@@ -22,19 +22,18 @@ AppConfig _$AppConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
               (v) => v == null
                   ? null
                   : AdConfig.fromJson(v as Map<String, dynamic>)),
-          engagementContentConfig: $checkedConvert(
-              'engagement_content_config',
+          accountActionConfig: $checkedConvert(
+              'account_action_config',
               (v) => v == null
                   ? null
-                  : EngagementContentConfig.fromJson(
-                      v as Map<String, dynamic>)),
+                  : AccountActionConfig.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
       fieldKeyMap: const {
         'userPreferenceLimits': 'user_preference_limits',
         'adConfig': 'ad_config',
-        'engagementContentConfig': 'engagement_content_config'
+        'accountActionConfig': 'account_action_config'
       },
     );
 
@@ -42,5 +41,5 @@ Map<String, dynamic> _$AppConfigToJson(AppConfig instance) => <String, dynamic>{
       'id': instance.id,
       'user_preference_limits': instance.userPreferenceLimits.toJson(),
       'ad_config': instance.adConfig.toJson(),
-      'engagement_content_config': instance.engagementContentConfig.toJson(),
+      'account_action_config': instance.accountActionConfig.toJson(),
     };

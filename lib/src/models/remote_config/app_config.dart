@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
+import 'package:ht_shared/src/models/remote_config/account_action_config.dart';
 import 'package:ht_shared/src/models/remote_config/ad_config.dart';
-import 'package:ht_shared/src/models/remote_config/engagement_content_config.dart';
 import 'package:ht_shared/src/models/remote_config/user_preference_config.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -37,7 +37,7 @@ class AppConfig extends Equatable {
     required this.id,
     UserPreferenceConfig? userPreferenceLimits,
     AdConfig? adConfig,
-    EngagementContentConfig? engagementContentConfig,
+    AccountActionConfig? accountActionConfig,
   })  : userPreferenceLimits = userPreferenceLimits ??
             const UserPreferenceConfig(
               guestFollowedItemsLimit: 5,
@@ -56,10 +56,10 @@ class AppConfig extends Equatable {
               premiumAdFrequency: 0, // No ads for premium users by default
               premiumAdPlacementInterval: 0,
             ), // Default ad config
-        engagementContentConfig = engagementContentConfig ??
-            const EngagementContentConfig(
-              guestDaysBetweenEngagementContentShows: 2,
-              standardUserDaysBetweenEngagementContentShows: 4,
+        accountActionConfig = accountActionConfig ??
+            const AccountActionConfig(
+              guestDaysBetweenAccountActions: 7,
+              standardUserDaysBetweenAccountActions: 14,
             );
 
   /// Factory method to create an [AppConfig] instance from a JSON map.
@@ -78,8 +78,8 @@ class AppConfig extends Equatable {
   /// tiered by user role.
   final AdConfig adConfig;
 
-  /// Defines configuration settings related to engagement content display.
-  final EngagementContentConfig engagementContentConfig;
+  /// Defines configuration settings related to account action display.
+  final AccountActionConfig accountActionConfig;
 
   /// Converts this [AppConfig] instance to a JSON map.
   Map<String, dynamic> toJson() => _$AppConfigToJson(this);
@@ -90,15 +90,15 @@ class AppConfig extends Equatable {
     String? id,
     UserPreferenceConfig? userPreferenceLimits,
     AdConfig? adConfig,
-    EngagementContentConfig? engagementContentConfig,
+    AccountActionConfig? accountActionConfig,
   }) {
     return AppConfig(
       id: id ?? this.id,
       userPreferenceLimits:
           userPreferenceLimits ?? this.userPreferenceLimits,
       adConfig: adConfig ?? this.adConfig,
-      engagementContentConfig:
-          engagementContentConfig ?? this.engagementContentConfig,
+      accountActionConfig:
+          accountActionConfig ?? this.accountActionConfig,
     );
   }
 
@@ -107,7 +107,7 @@ class AppConfig extends Equatable {
         id,
         userPreferenceLimits,
         adConfig,
-        engagementContentConfig,
+        accountActionConfig,
       ];
 
   @override

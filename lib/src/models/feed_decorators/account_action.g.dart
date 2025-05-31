@@ -1,20 +1,20 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'engagement_content.dart';
+part of 'account_action.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-EngagementContent _$EngagementContentFromJson(Map<String, dynamic> json) =>
+AccountAction _$AccountActionFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      'EngagementContent',
+      'AccountAction',
       json,
       ($checkedConvert) {
-        final val = EngagementContent(
+        final val = AccountAction(
           title: $checkedConvert('title', (v) => v as String),
-          engagementContentType: $checkedConvert('engagement_content_type',
-              (v) => $enumDecodeNullable(_$EngagementContentTypeEnumMap, v)),
+          accountActionType: $checkedConvert('account_action_type',
+              (v) => $enumDecodeNullable(_$AccountActionTypeEnumMap, v)),
           description: $checkedConvert('description', (v) => v as String?),
           callToActionText:
               $checkedConvert('call_to_action_text', (v) => v as String?),
@@ -25,27 +25,27 @@ EngagementContent _$EngagementContentFromJson(Map<String, dynamic> json) =>
         return val;
       },
       fieldKeyMap: const {
-        'engagementContentType': 'engagement_content_type',
+        'accountActionType': 'account_action_type',
         'callToActionText': 'call_to_action_text',
         'callToActionUrl': 'call_to_action_url'
       },
     );
 
-Map<String, dynamic> _$EngagementContentToJson(EngagementContent instance) =>
+Map<String, dynamic> _$AccountActionToJson(AccountAction instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
       if (instance.description case final value?) 'description': value,
-      if (_$EngagementContentTypeEnumMap[instance.engagementContentType]
+      if (_$AccountActionTypeEnumMap[instance.accountActionType]
           case final value?)
-        'engagement_content_type': value,
+        'account_action_type': value,
       if (instance.callToActionText case final value?)
         'call_to_action_text': value,
       if (instance.callToActionUrl case final value?)
         'call_to_action_url': value,
     };
 
-const _$EngagementContentTypeEnumMap = {
-  EngagementContentType.linkAccount: 'link_account',
-  EngagementContentType.upgrade: 'upgrade',
+const _$AccountActionTypeEnumMap = {
+  AccountActionType.linkAccount: 'link_account',
+  AccountActionType.upgrade: 'upgrade',
 };

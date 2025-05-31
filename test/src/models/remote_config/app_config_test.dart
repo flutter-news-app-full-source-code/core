@@ -23,16 +23,16 @@ void main() {
       premiumAdPlacementInterval: 0,
     );
 
-    const mockEngagementContentConfig = EngagementContentConfig(
-      guestDaysBetweenEngagementContentShows: 7,
-      standardUserDaysBetweenEngagementContentShows: 14,
+    const mockAccountActionConfig = AccountActionConfig(
+      guestDaysBetweenAccountActions: 7,
+      standardUserDaysBetweenAccountActions: 14,
     );
 
     const appConfig = AppConfig(
       id: 'app_config',
       userPreferenceLimits: mockUserPreferenceConfig,
       adConfig: mockAdConfig,
-      engagementContentConfig: mockEngagementContentConfig,
+      accountActionConfig: mockAccountActionConfig,
     );
 
     group('constructor', () {
@@ -41,7 +41,7 @@ void main() {
         expect(appConfig.id, 'app_config');
         expect(appConfig.userPreferenceLimits, mockUserPreferenceConfig);
         expect(appConfig.adConfig, mockAdConfig);
-        expect(appConfig.engagementContentConfig, mockEngagementContentConfig);
+        expect(appConfig.accountActionConfig, mockAccountActionConfig);
       });
 
       test('defaults nested configs when not provided', () {
@@ -81,7 +81,7 @@ void main() {
             'premium_saved_headlines_limit': 100,
           },
           'ad_config': mockAdConfig.toJson(),
-          'engagement_content_config': mockEngagementContentConfig.toJson(),
+          'account_action_config': mockAccountActionConfig.toJson(),
         };
 
         final result = AppConfig.fromJson(json);
@@ -107,8 +107,8 @@ void main() {
           );
           expect(result.adConfig, expectedDefaultAppConfig.adConfig);
           expect(
-            result.engagementContentConfig,
-            expectedDefaultAppConfig.engagementContentConfig,
+            result.accountActionConfig,
+            expectedDefaultAppConfig.accountActionConfig,
           );
         },
       );
@@ -125,8 +125,8 @@ void main() {
         );
         expect(json['ad_config'], mockAdConfig.toJson());
         expect(
-          json['engagement_content_config'],
-          mockEngagementContentConfig.toJson(),
+          json['account_action_config'],
+          mockAccountActionConfig.toJson(),
         );
       });
 
@@ -158,10 +158,10 @@ void main() {
           ).toJson(),
         );
         expect(
-          json['engagement_content_config'],
-          const EngagementContentConfig(
-            guestDaysBetweenEngagementContentShows: 2, // Align with AppConfig default
-            standardUserDaysBetweenEngagementContentShows: 14,
+          json['account_action_config'],
+          const AccountActionConfig(
+            guestDaysBetweenAccountActions: 7, // Align with AppConfig default
+            standardUserDaysBetweenAccountActions: 14,
           ).toJson(),
         );
       });
@@ -191,38 +191,38 @@ void main() {
           premiumAdFrequency: 1,
           premiumAdPlacementInterval: 1,
         );
-        const newEngagementConfig = EngagementContentConfig(
-          guestDaysBetweenEngagementContentShows: 1,
-          standardUserDaysBetweenEngagementContentShows: 1,
+        const newAccountActionConfig = AccountActionConfig(
+          guestDaysBetweenAccountActions: 1,
+          standardUserDaysBetweenAccountActions: 1,
         );
 
         final copy = appConfig.copyWith(
           id: newId,
           userPreferenceLimits: newUserPrefs,
           adConfig: newAdConfig,
-          engagementContentConfig: newEngagementConfig,
+          accountActionConfig: newAccountActionConfig,
         );
 
         expect(copy.id, newId);
         expect(copy.userPreferenceLimits, newUserPrefs);
         expect(copy.adConfig, newAdConfig);
-        expect(copy.engagementContentConfig, newEngagementConfig);
+        expect(copy.accountActionConfig, newAccountActionConfig);
       });
 
       test('copies correctly when some arguments are provided', () {
         const newId = 'partial-copy-id';
-        const newEngagementConfig = EngagementContentConfig(
-          guestDaysBetweenEngagementContentShows: 100,
-          standardUserDaysBetweenEngagementContentShows: 200,
+        const newAccountActionConfig = AccountActionConfig(
+          guestDaysBetweenAccountActions: 100,
+          standardUserDaysBetweenAccountActions: 200,
         );
         final copy = appConfig.copyWith(
           id: newId,
-          engagementContentConfig: newEngagementConfig,
+          accountActionConfig: newAccountActionConfig,
         );
         expect(copy.id, newId);
         expect(copy.userPreferenceLimits, appConfig.userPreferenceLimits);
         expect(copy.adConfig, appConfig.adConfig);
-        expect(copy.engagementContentConfig, newEngagementConfig);
+        expect(copy.accountActionConfig, newAccountActionConfig);
       });
     });
 
@@ -232,13 +232,13 @@ void main() {
           id: 'config-1',
           userPreferenceLimits: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
-          engagementContentConfig: mockEngagementContentConfig,
+          accountActionConfig: mockAccountActionConfig,
         );
         const config2 = AppConfig(
           id: 'config-1',
           userPreferenceLimits: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
-          engagementContentConfig: mockEngagementContentConfig,
+          accountActionConfig: mockAccountActionConfig,
         );
         expect(config1, config2);
       });
@@ -248,17 +248,17 @@ void main() {
           id: 'config-2',
           userPreferenceLimits: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
-          engagementContentConfig: mockEngagementContentConfig,
+          accountActionConfig: mockAccountActionConfig,
         );
-        const differentEngagementConfig = EngagementContentConfig(
-          guestDaysBetweenEngagementContentShows: 1, // Different
-          standardUserDaysBetweenEngagementContentShows: 14,
+        const differentAccountActionConfig = AccountActionConfig(
+          guestDaysBetweenAccountActions: 1, // Different
+          standardUserDaysBetweenAccountActions: 14,
         );
         const config2 = AppConfig(
           id: 'config-2',
           userPreferenceLimits: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
-          engagementContentConfig: differentEngagementConfig,
+          accountActionConfig: differentAccountActionConfig,
         );
         expect(config1, isNot(equals(config2)));
       });

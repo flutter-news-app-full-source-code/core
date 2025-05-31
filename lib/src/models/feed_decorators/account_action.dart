@@ -3,13 +3,13 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
 
-part 'engagement_content.g.dart';
+part 'account_action.g.dart';
 
-/// {@template engagement_content_type}
-/// Defines the specific type or purpose of an [EngagementContent] item.
+/// {@template account_action_type}
+/// Defines the specific type or purpose of an [AccountAction] item.
 /// {@endtemplate}
 @JsonEnum(fieldRename: FieldRename.snake)
-enum EngagementContentType {
+enum AccountActionType {
   /// A call-to-action to link an account.
   linkAccount,
 
@@ -17,11 +17,11 @@ enum EngagementContentType {
   upgrade,
 }
 
-/// {@template engagement_content}
-/// A generic model for in-feed calls-to-action or engagement prompts.
+/// {@template account_action}
+/// A generic model for in-feed calls-to-action related to account management.
 ///
-/// This item encourages user interaction, such as signing up, upgrading,
-/// or providing feedback. The [engagementContentType] specifies the nature
+/// This item encourages user interaction, such as linking an account or
+/// upgrading a subscription. The [accountActionType] specifies the nature
 /// of the call-to-action.
 /// {@endtemplate}
 @immutable
@@ -31,35 +31,34 @@ enum EngagementContentType {
   includeIfNull: false,
   checked: true,
 )
-class EngagementContent extends FeedItem {
-  /// {@macro engagement_content}
-  EngagementContent({
+class AccountAction extends FeedItem {
+  /// {@macro account_action}
+  AccountAction({
     required this.title,
-    required this.engagementContentType,
+    required this.accountActionType,
     this.description,
     this.callToActionText,
     this.callToActionUrl,
     String? id,
   })  : id = id ?? const Uuid().v4(),
-        super(type: 'engagement_content');
+        super(type: 'account_action');
 
-  /// Factory method to create an [EngagementContent] instance from a JSON map.
-  factory EngagementContent.fromJson(Map<String, dynamic> json) =>
-      _$EngagementContentFromJson(json);
+  /// Factory method to create an [AccountAction] instance from a JSON map.
+  factory AccountAction.fromJson(Map<String, dynamic> json) =>
+      _$AccountActionFromJson(json);
 
-  /// Unique identifier for the engagement content.
+  /// Unique identifier for the account action.
   final String id;
 
-  /// The main title or heading for the engagement content.
+  /// The main title or heading for the account action.
   final String title;
 
   /// An optional description providing more details.
   final String? description;
 
-  /// The type of engagement content.
+  /// The type of account action.
   /// Will be null if an unknown value is encountered during deserialization.
-
-  final EngagementContentType? engagementContentType;
+  final AccountActionType? accountActionType;
 
   /// The text for the call-to-action button or link.
   final String? callToActionText;
@@ -67,10 +66,10 @@ class EngagementContent extends FeedItem {
   /// The URL to navigate to when the call-to-action is triggered.
   final String? callToActionUrl;
 
-  /// Converts this [EngagementContent] instance to a JSON map.
+  /// Converts this [AccountAction] instance to a JSON map.
   @override
   Map<String, dynamic> toJson() {
-    final json = _$EngagementContentToJson(this);
+    final json = _$AccountActionToJson(this);
     json['type'] = type;
     return json;
   }
@@ -80,29 +79,28 @@ class EngagementContent extends FeedItem {
         id,
         title,
         description,
-        engagementContentType,
+        accountActionType,
         callToActionText,
         callToActionUrl,
         type,
       ];
 
-  /// Creates a new [EngagementContent] with updated properties.
-  /// Use this to modify an [EngagementContent] without changing the original
+  /// Creates a new [AccountAction] with updated properties.
+  /// Use this to modify an [AccountAction] without changing the original
   /// instance.
-  EngagementContent copyWith({
+  AccountAction copyWith({
     String? id,
     String? title,
     String? description,
-    EngagementContentType? engagementContentType,
+    AccountActionType? accountActionType,
     String? callToActionText,
     String? callToActionUrl,
   }) {
-    return EngagementContent(
+    return AccountAction(
       id: id ?? this.id,
       title: title ?? this.title,
       description: description,
-      engagementContentType:
-          engagementContentType ?? this.engagementContentType,
+      accountActionType: accountActionType ?? this.accountActionType,
       callToActionText: callToActionText,
       callToActionUrl: callToActionUrl,
     );

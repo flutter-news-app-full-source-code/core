@@ -32,10 +32,10 @@ void main() {
       adType: AdType.banner,
       placement: AdPlacement.feedInlineStandardBanner,
     );
-    final mockEngagementContent = EngagementContent(
-      id: 'engagement-1',
+    final mockAccountAction = AccountAction(
+      id: 'engagement-1', // Keep id for consistency if tests rely on it
       title: 'Sign Up Now',
-      engagementContentType: EngagementContentType.linkAccount,
+      accountActionType: AccountActionType.linkAccount,
     );
 
     group('fromJson', () {
@@ -74,11 +74,11 @@ void main() {
         expect(feedItem, equals(mockAd));
       });
 
-      test('dispatches to EngagementContent.fromJson', () {
-        final json = mockEngagementContent.toJson();
+      test('dispatches to AccountAction.fromJson', () {
+        final json = mockAccountAction.toJson();
         final feedItem = FeedItem.fromJson(json);
-        expect(feedItem, isA<EngagementContent>());
-        expect(feedItem, equals(mockEngagementContent));
+        expect(feedItem, isA<AccountAction>());
+        expect(feedItem, equals(mockAccountAction));
       });
 
       test('throws FormatException if type is missing', () {
@@ -141,8 +141,8 @@ void main() {
         expect(deserialized.toJson(), equals(json));
       });
 
-      test('serializes EngagementContent correctly', () {
-        final json = mockEngagementContent.toJson();
+      test('serializes AccountAction correctly', () {
+        final json = mockAccountAction.toJson();
         final deserialized = FeedItem.fromJson(json);
         expect(deserialized.toJson(), equals(json));
       });
