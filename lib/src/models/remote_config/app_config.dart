@@ -59,9 +59,7 @@ class AppConfig extends Equatable {
         engagementContentConfig = engagementContentConfig ??
             const EngagementContentConfig(
               guestDaysBetweenEngagementContentShows: 2,
-              standardUserDaysBetweenEngagementContentShows: 14,
-              premiumUserDaysBetweenEngagementContentShows: 30,
-              adminDaysBetweenEngagementContentShows: 999,
+              standardUserDaysBetweenEngagementContentShows: 4,
             );
 
   /// Factory method to create an [AppConfig] instance from a JSON map.

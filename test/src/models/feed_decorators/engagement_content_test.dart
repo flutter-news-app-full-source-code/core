@@ -64,7 +64,7 @@ void main() {
         title: 'Title',
         description: 'Description',
         engagementContentType:
-            EngagementContentType.rateApp, // Changed from feedback
+            EngagementContentType.upgrade, // Changed from rateApp
         callToActionText: 'Click Me',
         callToActionUrl: 'https://cta.com',
       );
@@ -75,7 +75,7 @@ void main() {
           testId,
           'Title',
           'Description',
-          EngagementContentType.rateApp, // Changed from feedback
+          EngagementContentType.upgrade, // Changed from rateApp
           'Click Me',
           'https://cta.com',
           'engagement_content',
@@ -110,7 +110,7 @@ void main() {
         final json = <String, dynamic>{
           'id': testId,
           'title': 'Simple Title',
-          'engagement_content_type': 'rate_app', // Changed from feedback
+          'engagement_content_type': 'upgrade', // Changed from rateApp
           'type': 'engagement_content',
         };
 
@@ -120,7 +120,7 @@ void main() {
         expect(instance.title, 'Simple Title');
         expect(instance.description, isNull);
         expect(instance.engagementContentType,
-            EngagementContentType.rateApp); // Changed from feedback
+            EngagementContentType.upgrade); // Changed from rateApp
         expect(instance.callToActionText, isNull);
         expect(instance.callToActionUrl, isNull);
       });
@@ -168,7 +168,7 @@ void main() {
           id: testId,
           title: 'Simple Title',
           engagementContentType:
-              EngagementContentType.rateApp, // Changed from feedback
+              EngagementContentType.upgrade, // Changed from rateApp
         );
 
         final json = instance.toJson();
@@ -176,7 +176,7 @@ void main() {
         expect(json, <String, dynamic>{
           'id': testId,
           'title': 'Simple Title',
-          'engagement_content_type': 'rate_app', // Changed from feedback
+          'engagement_content_type': 'upgrade', // Changed from rateApp
           'type': 'engagement_content',
         });
       });

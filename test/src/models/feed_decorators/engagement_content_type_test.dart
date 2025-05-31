@@ -9,7 +9,6 @@ void main() {
         containsAll([
           EngagementContentType.linkAccount,
           EngagementContentType.upgrade,
-          EngagementContentType.rateApp,
         ]),
       );
     });
@@ -17,7 +16,6 @@ void main() {
     test('string representation (name) matches expected camelCase', () {
       expect(EngagementContentType.linkAccount.name, 'linkAccount');
       expect(EngagementContentType.upgrade.name, 'upgrade');
-      expect(EngagementContentType.rateApp.name, 'rateApp');
     });
 
     test('can be created from string using values.byName', () {
@@ -28,10 +26,6 @@ void main() {
       expect(
         EngagementContentType.values.byName('upgrade'),
         EngagementContentType.upgrade,
-      );
-      expect(
-        EngagementContentType.values.byName('rateApp'),
-        EngagementContentType.rateApp,
       );
     });
 

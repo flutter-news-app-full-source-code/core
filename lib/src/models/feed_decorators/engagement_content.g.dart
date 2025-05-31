@@ -48,5 +48,4 @@ Map<String, dynamic> _$EngagementContentToJson(EngagementContent instance) =>
 const _$EngagementContentTypeEnumMap = {
   EngagementContentType.linkAccount: 'link_account',
   EngagementContentType.upgrade: 'upgrade',
-  EngagementContentType.rateApp: 'rate_app',
 };

@@ -26,8 +26,6 @@ void main() {
     const mockEngagementContentConfig = EngagementContentConfig(
       guestDaysBetweenEngagementContentShows: 7,
       standardUserDaysBetweenEngagementContentShows: 14,
-      premiumUserDaysBetweenEngagementContentShows: 30,
-      adminDaysBetweenEngagementContentShows: 999,
     );
 
     const appConfig = AppConfig(
@@ -162,10 +160,8 @@ void main() {
         expect(
           json['engagement_content_config'],
           const EngagementContentConfig(
-            guestDaysBetweenEngagementContentShows: 7,
+            guestDaysBetweenEngagementContentShows: 2, // Align with AppConfig default
             standardUserDaysBetweenEngagementContentShows: 14,
-            premiumUserDaysBetweenEngagementContentShows: 30,
-            adminDaysBetweenEngagementContentShows: 999,
           ).toJson(),
         );
       });
@@ -198,8 +194,6 @@ void main() {
         const newEngagementConfig = EngagementContentConfig(
           guestDaysBetweenEngagementContentShows: 1,
           standardUserDaysBetweenEngagementContentShows: 1,
-          premiumUserDaysBetweenEngagementContentShows: 1,
-          adminDaysBetweenEngagementContentShows: 1,
         );
 
         final copy = appConfig.copyWith(
@@ -220,8 +214,6 @@ void main() {
         const newEngagementConfig = EngagementContentConfig(
           guestDaysBetweenEngagementContentShows: 100,
           standardUserDaysBetweenEngagementContentShows: 200,
-          premiumUserDaysBetweenEngagementContentShows: 300,
-          adminDaysBetweenEngagementContentShows: 400,
         );
         final copy = appConfig.copyWith(
           id: newId,
@@ -261,8 +253,6 @@ void main() {
         const differentEngagementConfig = EngagementContentConfig(
           guestDaysBetweenEngagementContentShows: 1, // Different
           standardUserDaysBetweenEngagementContentShows: 14,
-          premiumUserDaysBetweenEngagementContentShows: 30,
-          adminDaysBetweenEngagementContentShows: 999,
         );
         const config2 = AppConfig(
           id: 'config-2',

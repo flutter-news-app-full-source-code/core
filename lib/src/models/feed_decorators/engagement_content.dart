@@ -15,9 +15,6 @@ enum EngagementContentType {
 
   /// A call-to-action to upgrade to a premium subscription.
   upgrade,
-
-  /// A call-to-action to rate the application in an app store.
-  rateApp,
 }
 
 /// {@template engagement_content}

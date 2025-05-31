@@ -19,12 +19,6 @@ EngagementContentConfig _$EngagementContentConfigFromJson(
           standardUserDaysBetweenEngagementContentShows: $checkedConvert(
               'standard_user_days_between_engagement_content_shows',
               (v) => (v as num).toInt()),
-          premiumUserDaysBetweenEngagementContentShows: $checkedConvert(
-              'premium_user_days_between_engagement_content_shows',
-              (v) => (v as num).toInt()),
-          adminDaysBetweenEngagementContentShows: $checkedConvert(
-              'admin_days_between_engagement_content_shows',
-              (v) => (v as num).toInt()),
         );
         return val;
       },
@@ -32,11 +26,7 @@ EngagementContentConfig _$EngagementContentConfigFromJson(
         'guestDaysBetweenEngagementContentShows':
             'guest_days_between_engagement_content_shows',
         'standardUserDaysBetweenEngagementContentShows':
-            'standard_user_days_between_engagement_content_shows',
-        'premiumUserDaysBetweenEngagementContentShows':
-            'premium_user_days_between_engagement_content_shows',
-        'adminDaysBetweenEngagementContentShows':
-            'admin_days_between_engagement_content_shows'
+            'standard_user_days_between_engagement_content_shows'
       },
     );
 
@@ -47,8 +37,4 @@ Map<String, dynamic> _$EngagementContentConfigToJson(
           instance.guestDaysBetweenEngagementContentShows,
       'standard_user_days_between_engagement_content_shows':
           instance.standardUserDaysBetweenEngagementContentShows,
-      'premium_user_days_between_engagement_content_shows':
-          instance.premiumUserDaysBetweenEngagementContentShows,
-      'admin_days_between_engagement_content_shows':
-          instance.adminDaysBetweenEngagementContentShows,
     };

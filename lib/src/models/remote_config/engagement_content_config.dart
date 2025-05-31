@@ -20,8 +20,6 @@ class EngagementContentConfig extends Equatable {
   const EngagementContentConfig({
     required this.guestDaysBetweenEngagementContentShows,
     required this.standardUserDaysBetweenEngagementContentShows,
-    required this.premiumUserDaysBetweenEngagementContentShows,
-    required this.adminDaysBetweenEngagementContentShows,
   });
 
   /// Factory method to create an [EngagementContentConfig] instance from a
@@ -35,12 +33,6 @@ class EngagementContentConfig extends Equatable {
   /// Days between engagement content for standard users.
   final int standardUserDaysBetweenEngagementContentShows;
 
-  /// Days between engagement content for premium users.
-  final int premiumUserDaysBetweenEngagementContentShows;
-
-  /// Days between engagement content for admin users.
-  final int adminDaysBetweenEngagementContentShows;
-
   /// Converts this [EngagementContentConfig] instance to a JSON map.
   Map<String, dynamic> toJson() => _$EngagementContentConfigToJson(this);
 
@@ -49,8 +41,6 @@ class EngagementContentConfig extends Equatable {
   EngagementContentConfig copyWith({
     int? guestDaysBetweenEngagementContentShows,
     int? standardUserDaysBetweenEngagementContentShows,
-    int? premiumUserDaysBetweenEngagementContentShows,
-    int? adminDaysBetweenEngagementContentShows,
   }) {
     return EngagementContentConfig(
       guestDaysBetweenEngagementContentShows:
@@ -59,12 +49,6 @@ class EngagementContentConfig extends Equatable {
       standardUserDaysBetweenEngagementContentShows:
           standardUserDaysBetweenEngagementContentShows ??
               this.standardUserDaysBetweenEngagementContentShows,
-      premiumUserDaysBetweenEngagementContentShows:
-          premiumUserDaysBetweenEngagementContentShows ??
-              this.premiumUserDaysBetweenEngagementContentShows,
-      adminDaysBetweenEngagementContentShows:
-          adminDaysBetweenEngagementContentShows ??
-              this.adminDaysBetweenEngagementContentShows,
     );
   }
 
@@ -72,7 +56,5 @@ class EngagementContentConfig extends Equatable {
   List<Object> get props => [
         guestDaysBetweenEngagementContentShows,
         standardUserDaysBetweenEngagementContentShows,
-        premiumUserDaysBetweenEngagementContentShows,
-        adminDaysBetweenEngagementContentShows,
       ];
 }
