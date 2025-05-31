@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/remote_config/ad_config.dart';
-import 'package:ht_shared/src/models/remote_config/user_preference_limits.dart';
+import 'package:ht_shared/src/models/remote_config/user_preference_config.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -34,10 +34,10 @@ class AppConfig extends Equatable {
   /// Provides sensible defaults for nested configuration models if not specified.
   const AppConfig({
     required this.id,
-    UserPreferenceLimits? userPreferenceLimits,
+    UserPreferenceConfig? userPreferenceLimits,
     AdConfig? adConfig,
   })  : userPreferenceLimits = userPreferenceLimits ??
-            const UserPreferenceLimits(
+            const UserPreferenceConfig(
               guestFollowedItemsLimit: 5,
               guestSavedHeadlinesLimit: 10,
               authenticatedFollowedItemsLimit: 15,
@@ -65,7 +65,7 @@ class AppConfig extends Equatable {
 
   /// Defines the maximum number of items a user can follow or save,
   /// tiered by user role.
-  final UserPreferenceLimits userPreferenceLimits;
+  final UserPreferenceConfig userPreferenceLimits;
 
   /// Defines configuration settings related to ad injection and display,
   /// tiered by user role.
