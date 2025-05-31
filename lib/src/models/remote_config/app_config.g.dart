@@ -16,7 +16,7 @@ AppConfig _$AppConfigFromJson(Map<String, dynamic> json) => $checkedCreate(
               'user_preference_limits',
               (v) => v == null
                   ? null
-                  : UserPreferenceLimits.fromJson(v as Map<String, dynamic>)),
+                  : UserPreferenceConfig.fromJson(v as Map<String, dynamic>)),
           adConfig: $checkedConvert(
               'ad_config',
               (v) => v == null
