@@ -19,7 +19,7 @@ void main() {
           email: email,
           role: standardRole,
           createdAt: testCreatedAt,
-          lastEngagementShownAt: testLastEngagementShownAt,
+          lastAccountActionShownAt: testLastEngagementShownAt,
         ),
         equals(
           User(
@@ -27,7 +27,7 @@ void main() {
             email: email,
             role: standardRole,
             createdAt: testCreatedAt,
-            lastEngagementShownAt: testLastEngagementShownAt,
+            lastAccountActionShownAt: testLastEngagementShownAt,
           ),
         ),
       );
@@ -58,7 +58,7 @@ void main() {
           id: id,
           email: email,
           role: standardRole,
-          lastEngagementShownAt: testLastEngagementShownAt,
+          lastAccountActionShownAt: testLastEngagementShownAt,
         ),
         isNot(
           equals(
@@ -66,7 +66,7 @@ void main() {
               id: id,
               email: email,
               role: standardRole,
-              lastEngagementShownAt: DateTime.utc(2024),
+              lastAccountActionShownAt: DateTime.utc(2024),
             ),
           ),
         ),
@@ -79,7 +79,7 @@ void main() {
         email: email,
         role: standardRole,
         createdAt: testCreatedAt,
-        lastEngagementShownAt: testLastEngagementShownAt,
+        lastAccountActionShownAt: testLastEngagementShownAt,
       );
       expect(user.props, [
         id,
@@ -113,7 +113,7 @@ void main() {
           email: email,
           role: standardRole,
           createdAt: testCreatedAt,
-          lastEngagementShownAt: testLastEngagementShownAt,
+          lastAccountActionShownAt: testLastEngagementShownAt,
         ).toString(),
         equals(
           'User(id: $id, email: $email, role: $standardRole, createdAt: $testCreatedAt, lastEngagementShownAt: $testLastEngagementShownAt)',
@@ -128,7 +128,7 @@ void main() {
           email: email,
           role: standardRole,
           createdAt: testCreatedAt,
-          lastEngagementShownAt: testLastEngagementShownAt,
+          lastAccountActionShownAt: testLastEngagementShownAt,
         );
         final copy = original.copyWith();
         expect(copy, equals(original));
@@ -152,7 +152,7 @@ void main() {
         expect(copied.email, newEmail);
         expect(copied.role, newRole);
         expect(copied.createdAt, newCreatedAt);
-        expect(copied.lastEngagementShownAt, newLastEngagementShownAt);
+        expect(copied.lastAccountActionShownAt, newLastEngagementShownAt);
       });
     });
 
@@ -163,13 +163,13 @@ void main() {
         email: email,
         role: standardRole,
         createdAt: testCreatedAt,
-        lastEngagementShownAt: testLastEngagementShownAt,
+        lastAccountActionShownAt: testLastEngagementShownAt,
       );
       final json = user.toJson();
       final deserializedUser = User.fromJson(json);
       expect(deserializedUser, equals(user));
       expect(
-        deserializedUser.lastEngagementShownAt,
+        deserializedUser.lastAccountActionShownAt,
         testLastEngagementShownAt,
       );
 
@@ -177,7 +177,7 @@ void main() {
       final anonJson = anonUser.toJson();
       final deserializedAnonUser = User.fromJson(anonJson);
       expect(deserializedAnonUser, equals(anonUser));
-      expect(deserializedAnonUser.lastEngagementShownAt, isNull);
+      expect(deserializedAnonUser.lastAccountActionShownAt, isNull);
 
       const adminUser = User(id: id, email: email, role: adminRole);
       final adminJson = adminUser.toJson();

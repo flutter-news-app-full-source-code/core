@@ -28,7 +28,7 @@ class User extends Equatable {
     required this.role,
     this.email,
     this.createdAt,
-    this.lastEngagementShownAt,
+    this.lastAccountActionShownAt,
   });
 
   /// Creates a User from JSON data.
@@ -57,18 +57,18 @@ class User extends Equatable {
     fromJson: _dateTimeFromJson,
     toJson: _dateTimeToJson,
   )
-  final DateTime? lastEngagementShownAt;
+  final DateTime? lastAccountActionShownAt;
 
   /// Converts this User instance to JSON data.
   Map<String, dynamic> toJson() => _$UserToJson(this);
 
   @override
   List<Object?> get props =>
-      [id, email, role, createdAt, lastEngagementShownAt];
+      [id, email, role, createdAt, lastAccountActionShownAt];
 
   @override
   String toString() {
-    return 'User(id: $id, email: $email, role: $role, createdAt: $createdAt, lastEngagementShownAt: $lastEngagementShownAt)';
+    return 'User(id: $id, email: $email, role: $role, createdAt: $createdAt, lastEngagementShownAt: $lastAccountActionShownAt)';
   }
 
   /// Creates a copy of this [User] but with the given fields replaced with
@@ -85,8 +85,8 @@ class User extends Equatable {
       email: email ?? this.email,
       role: role ?? this.role,
       createdAt: createdAt ?? this.createdAt,
-      lastEngagementShownAt:
-          lastEngagementShownAt ?? this.lastEngagementShownAt,
+      lastAccountActionShownAt:
+          lastEngagementShownAt ?? this.lastAccountActionShownAt,
     );
   }
 }

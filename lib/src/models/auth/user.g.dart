@@ -17,7 +17,7 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
           email: $checkedConvert('email', (v) => v as String?),
           createdAt: $checkedConvert(
               'created_at', (v) => _dateTimeFromJson(v as String?)),
-          lastEngagementShownAt: $checkedConvert('last_engagement_shown_at',
+          lastAccountActionShownAt: $checkedConvert('last_engagement_shown_at',
               (v) => _dateTimeFromJson(v as String?)),
         );
         return val;
@@ -34,7 +34,7 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'role': _$UserRoleEnumMap[instance.role]!,
       if (_dateTimeToJson(instance.createdAt) case final value?)
         'created_at': value,
-      if (_dateTimeToJson(instance.lastEngagementShownAt) case final value?)
+      if (_dateTimeToJson(instance.lastAccountActionShownAt) case final value?)
         'last_engagement_shown_at': value,
     };
 
