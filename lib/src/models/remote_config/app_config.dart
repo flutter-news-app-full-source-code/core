@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/remote_config/ad_config.dart';
+import 'package:ht_shared/src/models/remote_config/engagement_content_config.dart';
 import 'package:ht_shared/src/models/remote_config/user_preference_config.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -36,6 +37,7 @@ class AppConfig extends Equatable {
     required this.id,
     UserPreferenceConfig? userPreferenceLimits,
     AdConfig? adConfig,
+    EngagementContentConfig? engagementContentConfig,
   })  : userPreferenceLimits = userPreferenceLimits ??
             const UserPreferenceConfig(
               guestFollowedItemsLimit: 5,
@@ -53,7 +55,14 @@ class AppConfig extends Equatable {
               authenticatedAdPlacementInterval: 5,
               premiumAdFrequency: 0, // No ads for premium users by default
               premiumAdPlacementInterval: 0,
-            ); // Default ad config
+            ), // Default ad config
+        engagementContentConfig = engagementContentConfig ??
+            const EngagementContentConfig(
+              guestDaysBetweenEngagementContentShows: 2,
+              standardUserDaysBetweenEngagementContentShows: 14,
+              premiumUserDaysBetweenEngagementContentShows: 30,
+              adminDaysBetweenEngagementContentShows: 999,
+            );
 
   /// Factory method to create an [AppConfig] instance from a JSON map.
   factory AppConfig.fromJson(Map<String, dynamic> json) =>
@@ -71,14 +80,36 @@ class AppConfig extends Equatable {
   /// tiered by user role.
   final AdConfig adConfig;
 
+  /// Defines configuration settings related to engagement content display.
+  final EngagementContentConfig engagementContentConfig;
+
   /// Converts this [AppConfig] instance to a JSON map.
   Map<String, dynamic> toJson() => _$AppConfigToJson(this);
+
+  /// Creates a copy of this [AppConfig] but with the given fields replaced
+  /// with the new values.
+  AppConfig copyWith({
+    String? id,
+    UserPreferenceConfig? userPreferenceLimits,
+    AdConfig? adConfig,
+    EngagementContentConfig? engagementContentConfig,
+  }) {
+    return AppConfig(
+      id: id ?? this.id,
+      userPreferenceLimits:
+          userPreferenceLimits ?? this.userPreferenceLimits,
+      adConfig: adConfig ?? this.adConfig,
+      engagementContentConfig:
+          engagementContentConfig ?? this.engagementContentConfig,
+    );
+  }
 
   @override
   List<Object> get props => [
         id,
         userPreferenceLimits,
         adConfig,
+        engagementContentConfig,
       ];
 
   @override

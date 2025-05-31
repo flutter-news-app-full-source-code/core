@@ -14,19 +14,39 @@ void main() {
       premiumSavedHeadlinesLimit: 100,
     );
 
+    const mockAdConfig = AdConfig(
+      guestAdFrequency: 5,
+      guestAdPlacementInterval: 3,
+      authenticatedAdFrequency: 10,
+      authenticatedAdPlacementInterval: 5,
+      premiumAdFrequency: 0,
+      premiumAdPlacementInterval: 0,
+    );
+
+    const mockEngagementContentConfig = EngagementContentConfig(
+      guestDaysBetweenEngagementContentShows: 7,
+      standardUserDaysBetweenEngagementContentShows: 14,
+      premiumUserDaysBetweenEngagementContentShows: 30,
+      adminDaysBetweenEngagementContentShows: 999,
+    );
+
     const appConfig = AppConfig(
       id: 'app_config',
       userPreferenceLimits: mockUserPreferenceConfig,
+      adConfig: mockAdConfig,
+      engagementContentConfig: mockEngagementContentConfig,
     );
 
     group('constructor', () {
-      test('returns correct instance', () {
+      test('returns correct instance with all configs provided', () {
         expect(appConfig, isA<AppConfig>());
         expect(appConfig.id, 'app_config');
         expect(appConfig.userPreferenceLimits, mockUserPreferenceConfig);
+        expect(appConfig.adConfig, mockAdConfig);
+        expect(appConfig.engagementContentConfig, mockEngagementContentConfig);
       });
 
-      test('defaults userPreferenceLimits when not provided', () {
+      test('defaults nested configs when not provided', () {
         const defaultConfig = AppConfig(id: 'default_config');
         // Check against the default values defined in AppConfig constructor
         expect(defaultConfig.userPreferenceLimits.guestFollowedItemsLimit, 5);
@@ -62,53 +82,36 @@ void main() {
             'premium_followed_items_limit': 30,
             'premium_saved_headlines_limit': 100,
           },
-          // Assuming ad_config might also be present or defaulted
-          'ad_config': const AdConfig(
-            guestAdFrequency: 5,
-            guestAdPlacementInterval: 3,
-            authenticatedAdFrequency: 10,
-            authenticatedAdPlacementInterval: 5,
-            premiumAdFrequency: 0,
-            premiumAdPlacementInterval: 0,
-          ).toJson(),
+          'ad_config': mockAdConfig.toJson(),
+          'engagement_content_config': mockEngagementContentConfig.toJson(),
         };
 
         final result = AppConfig.fromJson(json);
-        // We need to compare with an AppConfig that also has the default adConfig
-        const expectedAppConfig = AppConfig(
-          id: 'app_config',
-          userPreferenceLimits: mockUserPreferenceConfig,
-          // adConfig will take its default from the AppConfig constructor
-        );
-        expect(result, expectedAppConfig);
+        expect(result, appConfig); // appConfig now includes all mocks
       });
 
       test(
-        'returns correct instance from JSON with missing optional fields',
+        'returns correct instance from JSON with missing optional configs',
         () {
           final json = {
             'id': 'default_config',
-            // Missing user_preference_limits and ad_config
+            // Missing user_preference_limits, ad_config, engagement_content_config
           };
 
           final result = AppConfig.fromJson(json);
+          const expectedDefaultAppConfig = AppConfig(id: 'default_config');
 
-          // Should match the default values
+          // Should match the default values from AppConfig constructor
           expect(result.id, 'default_config');
-          expect(result.userPreferenceLimits.guestFollowedItemsLimit, 5);
-          expect(result.userPreferenceLimits.guestSavedHeadlinesLimit, 10);
           expect(
-            result.userPreferenceLimits.authenticatedFollowedItemsLimit,
-            15,
+            result.userPreferenceLimits,
+            expectedDefaultAppConfig.userPreferenceLimits,
           );
+          expect(result.adConfig, expectedDefaultAppConfig.adConfig);
           expect(
-            result.userPreferenceLimits.authenticatedSavedHeadlinesLimit,
-            30,
+            result.engagementContentConfig,
+            expectedDefaultAppConfig.engagementContentConfig,
           );
-          expect(result.userPreferenceLimits.premiumFollowedItemsLimit, 30);
-          expect(result.userPreferenceLimits.premiumSavedHeadlinesLimit, 100);
-          // Check default ad_config values
-          expect(result.adConfig.guestAdFrequency, 5);
         },
       );
     });
@@ -118,10 +121,15 @@ void main() {
         final json = appConfig.toJson();
 
         expect(json['id'], 'app_config');
-        expect(json['user_preference_limits'], isA<Map>());
-        expect(json['user_preference_limits']['guest_followed_items_limit'], 5);
-        expect(json['ad_config'], isA<Map>());
-        expect(json['ad_config']['guest_ad_frequency'], 5);
+        expect(
+          json['user_preference_limits'],
+          mockUserPreferenceConfig.toJson(),
+        );
+        expect(json['ad_config'], mockAdConfig.toJson());
+        expect(
+          json['engagement_content_config'],
+          mockEngagementContentConfig.toJson(),
+        );
       });
 
       test('returns correct JSON map with default nested fields', () {
@@ -129,10 +137,100 @@ void main() {
         final json = defaultConfig.toJson();
 
         expect(json['id'], 'default_config');
-        expect(json['user_preference_limits'], isA<Map>());
-        expect(json['user_preference_limits']['guest_followed_items_limit'], 5);
-        expect(json['ad_config'], isA<Map>());
-        expect(json['ad_config']['guest_ad_frequency'], 5);
+        expect(
+          json['user_preference_limits'],
+          const UserPreferenceConfig(
+            guestFollowedItemsLimit: 5,
+            guestSavedHeadlinesLimit: 10,
+            authenticatedFollowedItemsLimit: 15,
+            authenticatedSavedHeadlinesLimit: 30,
+            premiumFollowedItemsLimit: 30,
+            premiumSavedHeadlinesLimit: 100,
+          ).toJson(),
+        );
+        expect(
+          json['ad_config'],
+          const AdConfig(
+            guestAdFrequency: 5,
+            guestAdPlacementInterval: 3,
+            authenticatedAdFrequency: 10,
+            authenticatedAdPlacementInterval: 5,
+            premiumAdFrequency: 0,
+            premiumAdPlacementInterval: 0,
+          ).toJson(),
+        );
+        expect(
+          json['engagement_content_config'],
+          const EngagementContentConfig(
+            guestDaysBetweenEngagementContentShows: 7,
+            standardUserDaysBetweenEngagementContentShows: 14,
+            premiumUserDaysBetweenEngagementContentShows: 30,
+            adminDaysBetweenEngagementContentShows: 999,
+          ).toJson(),
+        );
+      });
+    });
+
+    group('copyWith', () {
+      test('copies correctly when no arguments are provided', () {
+        final copy = appConfig.copyWith();
+        expect(copy, appConfig);
+      });
+
+      test('copies correctly when all arguments are provided', () {
+        const newId = 'new-app-config';
+        const newUserPrefs = UserPreferenceConfig(
+          guestFollowedItemsLimit: 1,
+          guestSavedHeadlinesLimit: 1,
+          authenticatedFollowedItemsLimit: 1,
+          authenticatedSavedHeadlinesLimit: 1,
+          premiumFollowedItemsLimit: 1,
+          premiumSavedHeadlinesLimit: 1,
+        );
+        const newAdConfig = AdConfig(
+          guestAdFrequency: 1,
+          guestAdPlacementInterval: 1,
+          authenticatedAdFrequency: 1,
+          authenticatedAdPlacementInterval: 1,
+          premiumAdFrequency: 1,
+          premiumAdPlacementInterval: 1,
+        );
+        const newEngagementConfig = EngagementContentConfig(
+          guestDaysBetweenEngagementContentShows: 1,
+          standardUserDaysBetweenEngagementContentShows: 1,
+          premiumUserDaysBetweenEngagementContentShows: 1,
+          adminDaysBetweenEngagementContentShows: 1,
+        );
+
+        final copy = appConfig.copyWith(
+          id: newId,
+          userPreferenceLimits: newUserPrefs,
+          adConfig: newAdConfig,
+          engagementContentConfig: newEngagementConfig,
+        );
+
+        expect(copy.id, newId);
+        expect(copy.userPreferenceLimits, newUserPrefs);
+        expect(copy.adConfig, newAdConfig);
+        expect(copy.engagementContentConfig, newEngagementConfig);
+      });
+
+      test('copies correctly when some arguments are provided', () {
+        const newId = 'partial-copy-id';
+        const newEngagementConfig = EngagementContentConfig(
+          guestDaysBetweenEngagementContentShows: 100,
+          standardUserDaysBetweenEngagementContentShows: 200,
+          premiumUserDaysBetweenEngagementContentShows: 300,
+          adminDaysBetweenEngagementContentShows: 400,
+        );
+        final copy = appConfig.copyWith(
+          id: newId,
+          engagementContentConfig: newEngagementConfig,
+        );
+        expect(copy.id, newId);
+        expect(copy.userPreferenceLimits, appConfig.userPreferenceLimits);
+        expect(copy.adConfig, appConfig.adConfig);
+        expect(copy.engagementContentConfig, newEngagementConfig);
       });
     });
 
@@ -141,10 +239,14 @@ void main() {
         const config1 = AppConfig(
           id: 'config-1',
           userPreferenceLimits: mockUserPreferenceConfig,
+          adConfig: mockAdConfig,
+          engagementContentConfig: mockEngagementContentConfig,
         );
         const config2 = AppConfig(
           id: 'config-1',
           userPreferenceLimits: mockUserPreferenceConfig,
+          adConfig: mockAdConfig,
+          engagementContentConfig: mockEngagementContentConfig,
         );
         expect(config1, config2);
       });
@@ -153,18 +255,20 @@ void main() {
         const config1 = AppConfig(
           id: 'config-2',
           userPreferenceLimits: mockUserPreferenceConfig,
+          adConfig: mockAdConfig,
+          engagementContentConfig: mockEngagementContentConfig,
         );
-        const differentLimits = UserPreferenceConfig(
-          guestFollowedItemsLimit: 6, // Different limit
-          guestSavedHeadlinesLimit: 10,
-          authenticatedFollowedItemsLimit: 15,
-          authenticatedSavedHeadlinesLimit: 30,
-          premiumFollowedItemsLimit: 30,
-          premiumSavedHeadlinesLimit: 100,
+        const differentEngagementConfig = EngagementContentConfig(
+          guestDaysBetweenEngagementContentShows: 1, // Different
+          standardUserDaysBetweenEngagementContentShows: 14,
+          premiumUserDaysBetweenEngagementContentShows: 30,
+          adminDaysBetweenEngagementContentShows: 999,
         );
         const config2 = AppConfig(
           id: 'config-2',
-          userPreferenceLimits: differentLimits,
+          userPreferenceLimits: mockUserPreferenceConfig,
+          adConfig: mockAdConfig,
+          engagementContentConfig: differentEngagementConfig,
         );
         expect(config1, isNot(equals(config2)));
       });
