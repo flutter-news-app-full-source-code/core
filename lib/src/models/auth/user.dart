@@ -28,6 +28,7 @@ class User extends Equatable {
     required this.role,
     this.email,
     this.createdAt,
+    this.lastEngagementShownAt,
   });
 
   /// Creates a User from JSON data.
@@ -50,15 +51,24 @@ class User extends Equatable {
   @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
   final DateTime? createdAt;
 
+  /// The date and time the user was last shown an engagement.
+  @JsonKey(
+    name: 'last_engagement_shown_at',
+    fromJson: _dateTimeFromJson,
+    toJson: _dateTimeToJson,
+  )
+  final DateTime? lastEngagementShownAt;
+
   /// Converts this User instance to JSON data.
   Map<String, dynamic> toJson() => _$UserToJson(this);
 
   @override
-  List<Object?> get props => [id, email, role, createdAt];
+  List<Object?> get props =>
+      [id, email, role, createdAt, lastEngagementShownAt];
 
   @override
   String toString() {
-    return 'User(id: $id, email: $email, role: $role, createdAt: $createdAt)';
+    return 'User(id: $id, email: $email, role: $role, createdAt: $createdAt, lastEngagementShownAt: $lastEngagementShownAt)';
   }
 
   /// Creates a copy of this [User] but with the given fields replaced with
@@ -68,12 +78,15 @@ class User extends Equatable {
     String? email,
     UserRole? role,
     DateTime? createdAt,
+    DateTime? lastEngagementShownAt,
   }) {
     return User(
       id: id ?? this.id,
       email: email ?? this.email,
       role: role ?? this.role,
       createdAt: createdAt ?? this.createdAt,
+      lastEngagementShownAt:
+          lastEngagementShownAt ?? this.lastEngagementShownAt,
     );
   }
 }
