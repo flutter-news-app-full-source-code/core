@@ -1,7 +1,6 @@
 import 'package:ht_shared/src/models/core/content_type.dart';
 import 'package:ht_shared/src/models/core/feed_item_action.dart';
 import 'package:ht_shared/src/models/feed_decorators/ad.dart';
-import 'package:ht_shared/src/models/feed_decorators/ad_placement.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
