@@ -11,20 +11,20 @@ Think of it as the common language 🗣️ that all parts of your news applicati
 ## 🌟 Core Benefits of `ht_shared`
 
 *   **🧱 Unified Data Structure:** Guarantees that your `Headline`, `Source`, `User`, `FeedItem`, and configuration data are handled identically across the entire Headlines Toolkit.
-*   💡 **Powering Intelligent Feeds:** Delivers foundational models like `EngagementContent` and a streamlined `AppConfig`. This empowers `ht_main` to craft dynamic and engaging content feeds, with the flexibility to embed compelling calls-to-action (like sign-ups or special offers) directly within your application's logic for a seamless user experience!
+*   💡 **Streamlined Feed Engagement:** Offers core models like `EngagementContent` and `Ad`, allowing your applications to seamlessly embed calls-to-action and advertisements. The logic for *when* and *how* these appear is now managed directly within your client applications, offering precise control over the user experience.
 *   **🚀 Rapid Development:** Start building features faster with pre-defined, robust models for common news application needs. No reinventing the wheel!
 *   **🔗 Seamless Integration:** Enables the Flutter mobile app, web dashboard, and Dart Frog API to work together flawlessly.
 *   **🎯 Consistency by Design:** Reduces errors and simplifies maintenance by providing a single source of truth for core data definitions.
-*   **🌟 Foundation for Rich Features:** Includes models for user personalization (preferences, settings), dynamic feeds, and standardized API responses.
+*   **🌟 Foundation for Rich Features:** Includes models for user personalization (`UserContentPreferences`, `UserAppSettings`), dynamic feed items (`Ad`, `EngagementContent`), application-wide settings (`AppConfig`, `UserPreferenceConfig`, `AdConfig`), and standardized API responses.
 
 ## 🎁 Key Models Provided
 
 This package includes well-defined Dart classes for:
 
 *   📰 **News Content:** `Headline`, `Category`, `Source`, `Country`
-*   🧩 **Feed System:** `FeedItem` (and its dynamic subtypes like `Ad` and `EngagementContent`), `FeedItemAction`
-*   👤 **User Data:** `User`, `UserContentPreferences`, `UserAppSettings`
-*   ⚙️ **Application Configuration:** `AppConfig`
+*   🧩 **Feed System:** `FeedItem` (and its subtypes `Ad`, `EngagementContent`), `FeedItemAction`
+*   👤 **User Data:** `User`, `UserRole`, `Permission`, `UserContentPreferences`, `UserAppSettings`
+*   ⚙️ **Application Configuration:** `AppConfig` (containing `AdConfig` and `UserPreferenceConfig`)
 *   📡 **API Communication:** `PaginatedResponse`, `SuccessApiResponse`, and a comprehensive `HtHttpException` hierarchy for standardized error handling.
 
 ## 🔑 Access and Licensing
@@ -56,4 +56,3 @@ To integrate `ht_shared` into a Headlines Toolkit component (or your custom Dart
 
     ```dart
     import 'package:ht_shared/ht_shared.dart';
-    ```
