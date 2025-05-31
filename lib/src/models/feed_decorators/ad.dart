@@ -1,7 +1,6 @@
 import 'package:ht_shared/src/models/core/feed_item.dart';
 import 'package:ht_shared/src/models/core/feed_item_action.dart'
     show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
-import 'package:ht_shared/src/models/feed_decorators/ad_placement.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
@@ -24,6 +23,19 @@ enum AdType {
 
   /// A full-screen interstitial advertisement.
   interstitial,
+}
+
+/// {@template ad_placement}
+/// Defines specific, known locations or contexts where an ad might appear.
+/// {@endtemplate}
+@JsonEnum(fieldRename: FieldRename.snake)
+enum AdPlacement {
+  /// A standard banner ad placed inline within the main feed.
+  feedInlineStandardBanner,
+
+  /// A native ad designed to blend with content, placed inline within the main
+  /// feed.
+  feedInlineNativeBanner,
 }
 
 /// {@template ad}

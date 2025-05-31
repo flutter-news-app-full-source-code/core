@@ -1,12 +1,26 @@
 import 'package:ht_shared/src/models/core/feed_item.dart';
 import 'package:ht_shared/src/models/core/feed_item_action.dart'
     show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
-import 'package:ht_shared/src/models/feed_decorators/engagement_content_type.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
 
 part 'engagement_content.g.dart';
+
+/// {@template engagement_content_type}
+/// Defines the specific type or purpose of an [EngagementContent] item.
+/// {@endtemplate}
+@JsonEnum(fieldRename: FieldRename.snake)
+enum EngagementContentType {
+  /// A call-to-action to sign up for an account.
+  signUp,
+
+  /// A call-to-action to upgrade to a premium subscription.
+  upgrade,
+
+  /// A call-to-action to rate the application in an app store.
+  rateApp,
+}
 
 /// {@template engagement_content}
 /// A generic model for in-feed calls-to-action or engagement prompts.

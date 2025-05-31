@@ -39,13 +39,6 @@ void main() {
       placement: AdPlacement.feedInlineStandardBanner,
       action: defaultAction,
     );
-    final mockSuggestedContent = SuggestedContent(
-      id: 'suggested-1',
-      title: 'Suggested for you',
-      displayType: SuggestedContentDisplayType.horizontalCardList,
-      items: [mockHeadline, mockCategory],
-      action: defaultAction,
-    );
     final mockEngagementContent = EngagementContent(
       id: 'engagement-1',
       title: 'Sign Up Now',
@@ -87,13 +80,6 @@ void main() {
         final feedItem = FeedItem.fromJson(json);
         expect(feedItem, isA<Ad>());
         expect(feedItem, equals(mockAd));
-      });
-
-      test('dispatches to SuggestedContent.fromJson', () {
-        final json = mockSuggestedContent.toJson();
-        final feedItem = FeedItem.fromJson(json);
-        expect(feedItem, isA<SuggestedContent>());
-        expect(feedItem, equals(mockSuggestedContent));
       });
 
       test('dispatches to EngagementContent.fromJson', () {
@@ -159,12 +145,6 @@ void main() {
 
       test('serializes Ad correctly', () {
         final json = mockAd.toJson();
-        final deserialized = FeedItem.fromJson(json);
-        expect(deserialized.toJson(), equals(json));
-      });
-
-      test('serializes SuggestedContent correctly', () {
-        final json = mockSuggestedContent.toJson();
         final deserialized = FeedItem.fromJson(json);
         expect(deserialized.toJson(), equals(json));
       });

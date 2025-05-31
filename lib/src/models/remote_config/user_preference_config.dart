@@ -6,9 +6,9 @@ import 'package:ht_shared/src/models/models.dart'
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part 'user_preference_limits.g.dart';
+part 'user_preference_config.g.dart';
 
-/// {@template user_preference_limits}
+/// {@template user_preference_config}
 /// Defines the maximum number of items a user can follow or save,
 /// tiered by user role (Guest, Authenticated, Premium).
 ///
@@ -47,9 +47,9 @@ part 'user_preference_limits.g.dart';
   includeIfNull: false,
   checked: true,
 )
-class UserPreferenceLimits extends Equatable {
-  /// {@macro user_preference_limits}
-  const UserPreferenceLimits({
+class UserPreferenceConfig extends Equatable {
+  /// {@macro user_preference_config}
+  const UserPreferenceConfig({
     required this.guestFollowedItemsLimit,
     required this.guestSavedHeadlinesLimit,
     required this.authenticatedFollowedItemsLimit,
@@ -58,9 +58,9 @@ class UserPreferenceLimits extends Equatable {
     required this.premiumSavedHeadlinesLimit,
   });
 
-  /// Factory method to create a [UserPreferenceLimits] instance from a JSON map.
-  factory UserPreferenceLimits.fromJson(Map<String, dynamic> json) =>
-      _$UserPreferenceLimitsFromJson(json);
+  /// Factory method to create a [UserPreferenceConfig] instance from a JSON map.
+  factory UserPreferenceConfig.fromJson(Map<String, dynamic> json) =>
+      _$UserPreferenceConfigFromJson(json);
 
   /// Maximum number of countries, sources, or categories a Guest user can follow.
   /// This limit applies individually to each list.
@@ -83,8 +83,8 @@ class UserPreferenceLimits extends Equatable {
   /// Maximum number of headlines a Premium user can save.
   final int premiumSavedHeadlinesLimit;
 
-  /// Converts this [UserPreferenceLimits] instance to a JSON map.
-  Map<String, dynamic> toJson() => _$UserPreferenceLimitsToJson(this);
+  /// Converts this [UserPreferenceConfig] instance to a JSON map.
+  Map<String, dynamic> toJson() => _$UserPreferenceConfigToJson(this);
 
   @override
   List<Object> get props => [

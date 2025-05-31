@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/remote_config/ad_config.dart';
-import 'package:ht_shared/src/models/remote_config/feed_rules.dart';
-import 'package:ht_shared/src/models/remote_config/user_preference_limits.dart';
+import 'package:ht_shared/src/models/remote_config/user_preference_config.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -35,12 +34,10 @@ class AppConfig extends Equatable {
   /// Provides sensible defaults for nested configuration models if not specified.
   const AppConfig({
     required this.id,
-    UserPreferenceLimits? userPreferenceLimits,
+    UserPreferenceConfig? userPreferenceLimits,
     AdConfig? adConfig,
-    List<EngagementRule>? engagementRules,
-    List<SuggestionRule>? suggestionRules,
   })  : userPreferenceLimits = userPreferenceLimits ??
-            const UserPreferenceLimits(
+            const UserPreferenceConfig(
               guestFollowedItemsLimit: 5,
               guestSavedHeadlinesLimit: 10,
               authenticatedFollowedItemsLimit: 15,
@@ -56,9 +53,7 @@ class AppConfig extends Equatable {
               authenticatedAdPlacementInterval: 5,
               premiumAdFrequency: 0, // No ads for premium users by default
               premiumAdPlacementInterval: 0,
-            ), // Default ad config
-        engagementRules = engagementRules ?? const [],
-        suggestionRules = suggestionRules ?? const [];
+            ); // Default ad config
 
   /// Factory method to create an [AppConfig] instance from a JSON map.
   factory AppConfig.fromJson(Map<String, dynamic> json) =>
@@ -70,17 +65,11 @@ class AppConfig extends Equatable {
 
   /// Defines the maximum number of items a user can follow or save,
   /// tiered by user role.
-  final UserPreferenceLimits userPreferenceLimits;
+  final UserPreferenceConfig userPreferenceLimits;
 
   /// Defines configuration settings related to ad injection and display,
   /// tiered by user role.
   final AdConfig adConfig;
-
-  /// Defines rules for triggering engagement prompts.
-  final List<EngagementRule> engagementRules;
-
-  /// Defines rules for triggering content suggestion blocks.
-  final List<SuggestionRule> suggestionRules;
 
   /// Converts this [AppConfig] instance to a JSON map.
   Map<String, dynamic> toJson() => _$AppConfigToJson(this);
@@ -90,8 +79,6 @@ class AppConfig extends Equatable {
         id,
         userPreferenceLimits,
         adConfig,
-        engagementRules,
-        suggestionRules,
       ];
 
   @override

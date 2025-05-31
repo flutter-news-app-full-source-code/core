@@ -2,8 +2,8 @@ import 'package:ht_shared/ht_shared.dart'; // Import the barrel file
 import 'package:test/test.dart';
 
 void main() {
-  group('UserPreferenceLimits', () {
-    const userPreferenceLimits = UserPreferenceLimits(
+  group('UserPreferenceConfig', () {
+    const userPreferenceConfig = UserPreferenceConfig(
       guestFollowedItemsLimit: 5,
       guestSavedHeadlinesLimit: 10,
       authenticatedFollowedItemsLimit: 15,
@@ -14,13 +14,13 @@ void main() {
 
     group('constructor', () {
       test('returns correct instance', () {
-        expect(userPreferenceLimits, isA<UserPreferenceLimits>());
-        expect(userPreferenceLimits.guestFollowedItemsLimit, 5);
-        expect(userPreferenceLimits.guestSavedHeadlinesLimit, 10);
-        expect(userPreferenceLimits.authenticatedFollowedItemsLimit, 15);
-        expect(userPreferenceLimits.authenticatedSavedHeadlinesLimit, 30);
-        expect(userPreferenceLimits.premiumFollowedItemsLimit, 30);
-        expect(userPreferenceLimits.premiumSavedHeadlinesLimit, 100);
+        expect(userPreferenceConfig, isA<UserPreferenceConfig>());
+        expect(userPreferenceConfig.guestFollowedItemsLimit, 5);
+        expect(userPreferenceConfig.guestSavedHeadlinesLimit, 10);
+        expect(userPreferenceConfig.authenticatedFollowedItemsLimit, 15);
+        expect(userPreferenceConfig.authenticatedSavedHeadlinesLimit, 30);
+        expect(userPreferenceConfig.premiumFollowedItemsLimit, 30);
+        expect(userPreferenceConfig.premiumSavedHeadlinesLimit, 100);
       });
     });
 
@@ -35,15 +35,15 @@ void main() {
           'premium_saved_headlines_limit': 100,
         };
 
-        final result = UserPreferenceLimits.fromJson(json);
+        final result = UserPreferenceConfig.fromJson(json);
 
-        expect(result, userPreferenceLimits);
+        expect(result, userPreferenceConfig);
       });
     });
 
     group('toJson', () {
       test('returns correct JSON map', () {
-        final json = userPreferenceLimits.toJson();
+        final json = userPreferenceConfig.toJson();
 
         expect(json['guest_followed_items_limit'], 5);
         expect(json['guest_saved_headlines_limit'], 10);
@@ -56,7 +56,7 @@ void main() {
 
     group('Equatable', () {
       test('instances with the same properties are equal', () {
-        const limits1 = UserPreferenceLimits(
+        const config1 = UserPreferenceConfig(
           guestFollowedItemsLimit: 5,
           guestSavedHeadlinesLimit: 10,
           authenticatedFollowedItemsLimit: 15,
@@ -64,7 +64,7 @@ void main() {
           premiumFollowedItemsLimit: 30,
           premiumSavedHeadlinesLimit: 100,
         );
-        const limits2 = UserPreferenceLimits(
+        const config2 = UserPreferenceConfig(
           guestFollowedItemsLimit: 5,
           guestSavedHeadlinesLimit: 10,
           authenticatedFollowedItemsLimit: 15,
@@ -72,11 +72,11 @@ void main() {
           premiumFollowedItemsLimit: 30,
           premiumSavedHeadlinesLimit: 100,
         );
-        expect(limits1, limits2);
+        expect(config1, config2);
       });
 
       test('instances with different properties are not equal', () {
-        const limits1 = UserPreferenceLimits(
+        const config1 = UserPreferenceConfig(
           guestFollowedItemsLimit: 5,
           guestSavedHeadlinesLimit: 10,
           authenticatedFollowedItemsLimit: 15,
@@ -84,7 +84,7 @@ void main() {
           premiumFollowedItemsLimit: 30,
           premiumSavedHeadlinesLimit: 100,
         );
-        const limits2 = UserPreferenceLimits(
+        const config2 = UserPreferenceConfig(
           guestFollowedItemsLimit: 6, // Different limit
           guestSavedHeadlinesLimit: 10,
           authenticatedFollowedItemsLimit: 15,
@@ -92,7 +92,7 @@ void main() {
           premiumFollowedItemsLimit: 30,
           premiumSavedHeadlinesLimit: 100,
         );
-        expect(limits1, isNot(equals(limits2)));
+        expect(config1, isNot(equals(config2)));
       });
     });
   });

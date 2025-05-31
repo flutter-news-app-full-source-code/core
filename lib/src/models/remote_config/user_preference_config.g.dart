@@ -1,18 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_preference_limits.dart';
+part of 'user_preference_config.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-UserPreferenceLimits _$UserPreferenceLimitsFromJson(
+UserPreferenceConfig _$UserPreferenceConfigFromJson(
         Map<String, dynamic> json) =>
     $checkedCreate(
-      'UserPreferenceLimits',
+      'UserPreferenceConfig',
       json,
       ($checkedConvert) {
-        final val = UserPreferenceLimits(
+        final val = UserPreferenceConfig(
           guestFollowedItemsLimit: $checkedConvert(
               'guest_followed_items_limit', (v) => (v as num).toInt()),
           guestSavedHeadlinesLimit: $checkedConvert(
@@ -39,8 +39,8 @@ UserPreferenceLimits _$UserPreferenceLimitsFromJson(
       },
     );
 
-Map<String, dynamic> _$UserPreferenceLimitsToJson(
-        UserPreferenceLimits instance) =>
+Map<String, dynamic> _$UserPreferenceConfigToJson(
+        UserPreferenceConfig instance) =>
     <String, dynamic>{
       'guest_followed_items_limit': instance.guestFollowedItemsLimit,
       'guest_saved_headlines_limit': instance.guestSavedHeadlinesLimit,

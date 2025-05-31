@@ -5,7 +5,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('AppConfig', () {
-    const mockUserPreferenceLimits = UserPreferenceLimits(
+    const mockUserPreferenceConfig = UserPreferenceConfig(
       guestFollowedItemsLimit: 5,
       guestSavedHeadlinesLimit: 10,
       authenticatedFollowedItemsLimit: 15,
@@ -16,14 +16,14 @@ void main() {
 
     const appConfig = AppConfig(
       id: 'app_config',
-      userPreferenceLimits: mockUserPreferenceLimits,
+      userPreferenceLimits: mockUserPreferenceConfig,
     );
 
     group('constructor', () {
       test('returns correct instance', () {
         expect(appConfig, isA<AppConfig>());
         expect(appConfig.id, 'app_config');
-        expect(appConfig.userPreferenceLimits, mockUserPreferenceLimits);
+        expect(appConfig.userPreferenceLimits, mockUserPreferenceConfig);
       });
 
       test('defaults userPreferenceLimits when not provided', () {
@@ -77,7 +77,7 @@ void main() {
         // We need to compare with an AppConfig that also has the default adConfig
         const expectedAppConfig = AppConfig(
           id: 'app_config',
-          userPreferenceLimits: mockUserPreferenceLimits,
+          userPreferenceLimits: mockUserPreferenceConfig,
           // adConfig will take its default from the AppConfig constructor
         );
         expect(result, expectedAppConfig);
@@ -140,11 +140,11 @@ void main() {
       test('instances with the same properties are equal', () {
         const config1 = AppConfig(
           id: 'config-1',
-          userPreferenceLimits: mockUserPreferenceLimits,
+          userPreferenceLimits: mockUserPreferenceConfig,
         );
         const config2 = AppConfig(
           id: 'config-1',
-          userPreferenceLimits: mockUserPreferenceLimits,
+          userPreferenceLimits: mockUserPreferenceConfig,
         );
         expect(config1, config2);
       });
@@ -152,9 +152,9 @@ void main() {
       test('instances with different properties are not equal', () {
         const config1 = AppConfig(
           id: 'config-2',
-          userPreferenceLimits: mockUserPreferenceLimits,
+          userPreferenceLimits: mockUserPreferenceConfig,
         );
-        const differentLimits = UserPreferenceLimits(
+        const differentLimits = UserPreferenceConfig(
           guestFollowedItemsLimit: 6, // Different limit
           guestSavedHeadlinesLimit: 10,
           authenticatedFollowedItemsLimit: 15,
