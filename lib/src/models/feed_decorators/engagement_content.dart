@@ -20,9 +20,7 @@ enum EngagementContentType {
 
   /// A call-to-action to rate the application in an app store.
   rateApp,
-
 }
-
 
 /// {@template engagement_content}
 /// A generic model for in-feed calls-to-action or engagement prompts.

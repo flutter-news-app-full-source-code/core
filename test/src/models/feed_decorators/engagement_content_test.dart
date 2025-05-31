@@ -76,7 +76,8 @@ void main() {
         id: testId,
         title: 'Title',
         description: 'Description',
-        engagementContentType: EngagementContentType.rateApp, // Changed from feedback
+        engagementContentType:
+            EngagementContentType.rateApp, // Changed from feedback
         callToActionText: 'Click Me',
         callToActionUrl: 'https://cta.com',
       );
@@ -145,7 +146,8 @@ void main() {
         expect(instance.id, testId);
         expect(instance.title, 'Simple Title');
         expect(instance.description, isNull);
-        expect(instance.engagementContentType, EngagementContentType.rateApp); // Changed from feedback
+        expect(instance.engagementContentType,
+            EngagementContentType.rateApp); // Changed from feedback
         expect(instance.callToActionText, isNull);
         expect(instance.callToActionUrl, isNull);
       });
@@ -200,7 +202,8 @@ void main() {
         final instance = createSubject(
           id: testId,
           title: 'Simple Title',
-          engagementContentType: EngagementContentType.rateApp, // Changed from feedback
+          engagementContentType:
+              EngagementContentType.rateApp, // Changed from feedback
         );
 
         final json = instance.toJson();
