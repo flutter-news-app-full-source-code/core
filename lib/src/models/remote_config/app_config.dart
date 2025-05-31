@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/remote_config/ad_config.dart';
-import 'package:ht_shared/src/models/remote_config/feed_rules.dart';
 import 'package:ht_shared/src/models/remote_config/user_preference_limits.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -37,8 +36,6 @@ class AppConfig extends Equatable {
     required this.id,
     UserPreferenceLimits? userPreferenceLimits,
     AdConfig? adConfig,
-    List<EngagementRule>? engagementRules,
-    List<SuggestionRule>? suggestionRules,
   })  : userPreferenceLimits = userPreferenceLimits ??
             const UserPreferenceLimits(
               guestFollowedItemsLimit: 5,
@@ -56,9 +53,7 @@ class AppConfig extends Equatable {
               authenticatedAdPlacementInterval: 5,
               premiumAdFrequency: 0, // No ads for premium users by default
               premiumAdPlacementInterval: 0,
-            ), // Default ad config
-        engagementRules = engagementRules ?? const [],
-        suggestionRules = suggestionRules ?? const [];
+            ); // Default ad config
 
   /// Factory method to create an [AppConfig] instance from a JSON map.
   factory AppConfig.fromJson(Map<String, dynamic> json) =>
@@ -76,12 +71,6 @@ class AppConfig extends Equatable {
   /// tiered by user role.
   final AdConfig adConfig;
 
-  /// Defines rules for triggering engagement prompts.
-  final List<EngagementRule> engagementRules;
-
-  /// Defines rules for triggering content suggestion blocks.
-  final List<SuggestionRule> suggestionRules;
-
   /// Converts this [AppConfig] instance to a JSON map.
   Map<String, dynamic> toJson() => _$AppConfigToJson(this);
 
@@ -90,8 +79,6 @@ class AppConfig extends Equatable {
         id,
         userPreferenceLimits,
         adConfig,
-        engagementRules,
-        suggestionRules,
       ];
 
   @override
