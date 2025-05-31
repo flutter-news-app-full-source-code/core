@@ -94,11 +94,9 @@ class AppConfig extends Equatable {
   }) {
     return AppConfig(
       id: id ?? this.id,
-      userPreferenceLimits:
-          userPreferenceLimits ?? this.userPreferenceLimits,
+      userPreferenceLimits: userPreferenceLimits ?? this.userPreferenceLimits,
       adConfig: adConfig ?? this.adConfig,
-      accountActionConfig:
-          accountActionConfig ?? this.accountActionConfig,
+      accountActionConfig: accountActionConfig ?? this.accountActionConfig,
     );
   }
 

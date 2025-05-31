@@ -14,8 +14,7 @@ void main() {
     AccountAction createSubject({
       String? id,
       String title = 'Test Title',
-      AccountActionType accountActionType =
-          AccountActionType.linkAccount,
+      AccountActionType accountActionType = AccountActionType.linkAccount,
       String? description,
       String? callToActionText,
       String? callToActionUrl,
@@ -62,8 +61,7 @@ void main() {
         id: testId,
         title: 'Title',
         description: 'Description',
-        accountActionType:
-            AccountActionType.upgrade, // Changed from rateApp
+        accountActionType: AccountActionType.upgrade, // Changed from rateApp
         callToActionText: 'Click Me',
         callToActionUrl: 'https://cta.com',
       );
@@ -166,8 +164,7 @@ void main() {
         final instance = createSubject(
           id: testId,
           title: 'Simple Title',
-          accountActionType:
-              AccountActionType.upgrade, // Changed from rateApp
+          accountActionType: AccountActionType.upgrade, // Changed from rateApp
         );
 
         final json = instance.toJson();

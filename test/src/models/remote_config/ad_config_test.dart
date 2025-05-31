@@ -164,7 +164,8 @@ void main() {
           premiumAdPlacementInterval: 6,
           guestArticlesToReadBeforeShowingInterstitialAds: 7,
           standardUserArticlesToReadBeforeShowingInterstitialAds: 8,
-          premiumUserArticlesToReadBeforeShowingInterstitialAds: 99, // Different
+          premiumUserArticlesToReadBeforeShowingInterstitialAds:
+              99, // Different
         );
         expect(adConfig1, isNot(equals(adConfig2)));
       });

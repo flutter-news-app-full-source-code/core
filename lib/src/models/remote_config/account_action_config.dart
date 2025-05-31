@@ -43,8 +43,8 @@ class AccountActionConfig extends Equatable {
     int? standardUserDaysBetweenAccountActions,
   }) {
     return AccountActionConfig(
-      guestDaysBetweenAccountActions: guestDaysBetweenAccountActions ??
-          this.guestDaysBetweenAccountActions,
+      guestDaysBetweenAccountActions:
+          guestDaysBetweenAccountActions ?? this.guestDaysBetweenAccountActions,
       standardUserDaysBetweenAccountActions:
           standardUserDaysBetweenAccountActions ??
               this.standardUserDaysBetweenAccountActions,
