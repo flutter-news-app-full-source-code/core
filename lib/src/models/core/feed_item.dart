@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:ht_shared/src/models/core/feed_item_action.dart';
 import 'package:ht_shared/src/models/entities/category.dart';
 import 'package:ht_shared/src/models/entities/country.dart';
 import 'package:ht_shared/src/models/entities/headline.dart';
@@ -17,12 +16,10 @@ import 'package:ht_shared/src/models/feed_decorators/engagement_content.dart';
 ///
 /// The [type] field acts as a discriminator to identify the concrete type
 /// of the item during deserialization.
-/// The [action] field defines the primary behavior when the item is interacted
-/// with (e.g., tapped).
 /// {@endtemplate}
 abstract class FeedItem extends Equatable {
   /// {@macro feed_item}
-  const FeedItem({required this.type, required this.action});
+  const FeedItem({required this.type});
 
   /// Factory method to create a [FeedItem] instance from a JSON map.
   ///
@@ -37,8 +34,6 @@ abstract class FeedItem extends Equatable {
     }
 
     // Dispatch to the correct concrete FeedItem type.
-    // The concrete fromJson methods will handle deserializing their own
-    // 'action' field, as it's part of their JSON structure.
     switch (type) {
       case 'headline':
         return Headline.fromJson(json);
@@ -60,12 +55,9 @@ abstract class FeedItem extends Equatable {
   /// The type of the feed item, used as a discriminator for deserialization.
   final String type;
 
-  /// The action to be performed when this feed item is interacted with.
-  final FeedItemAction action;
-
   /// Converts this [FeedItem] instance to a JSON map.
   Map<String, dynamic> toJson();
 
   @override
-  List<Object?> get props => [type, action];
+  List<Object?> get props => [type];
 }

@@ -1,6 +1,4 @@
 import 'package:ht_shared/src/models/core/feed_item.dart';
-import 'package:ht_shared/src/models/core/feed_item_action.dart'
-    show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
@@ -54,12 +52,10 @@ class Ad extends FeedItem {
     required this.imageUrl,
     required this.targetUrl,
     required this.adType,
-    required FeedItemAction action,
     this.placement,
     String? id,
   })  : id = id ?? const Uuid().v4(),
-        action = action,
-        super(type: 'ad', action: action);
+        super(type: 'ad');
 
   /// Factory method to create an [Ad] instance from a JSON map.
   factory Ad.fromJson(Map<String, dynamic> json) => _$AdFromJson(json);
@@ -82,11 +78,6 @@ class Ad extends FeedItem {
   /// for this ad in the UI.
   final AdPlacement? placement;
 
-  /// The action to be performed when this feed item is interacted with.
-  @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
-  @override
-  final FeedItemAction action;
-
   /// Converts this [Ad] instance to a JSON map.
   @override
   Map<String, dynamic> toJson() {
@@ -103,7 +94,6 @@ class Ad extends FeedItem {
         adType,
         placement,
         type,
-        action,
       ];
 
   /// Creates a new [Ad] with updated properties.
@@ -114,7 +104,6 @@ class Ad extends FeedItem {
     String? targetUrl,
     AdType? adType,
     AdPlacement? placement,
-    FeedItemAction? action,
   }) {
     return Ad(
       id: id ?? this.id,
@@ -122,7 +111,6 @@ class Ad extends FeedItem {
       targetUrl: targetUrl ?? this.targetUrl,
       adType: adType ?? this.adType,
       placement: placement ?? this.placement,
-      action: action ?? this.action,
     );
   }
 }

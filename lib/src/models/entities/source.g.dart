@@ -12,8 +12,6 @@ Source _$SourceFromJson(Map<String, dynamic> json) => $checkedCreate(
       ($checkedConvert) {
         final val = Source(
           name: $checkedConvert('name', (v) => v as String),
-          action: $checkedConvert('action',
-              (v) => feedItemActionFromJson(v as Map<String, dynamic>)),
           description: $checkedConvert('description', (v) => v as String?),
           url: $checkedConvert('url', (v) => v as String?),
           sourceType: $checkedConvert('source_type',
@@ -41,7 +39,6 @@ Map<String, dynamic> _$SourceToJson(Source instance) => <String, dynamic>{
       if (instance.language case final value?) 'language': value,
       if (instance.headquarters?.toJson() case final value?)
         'headquarters': value,
-      'action': feedItemActionToJson(instance.action),
     };
 
 const _$SourceTypeEnumMap = {

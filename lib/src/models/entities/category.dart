@@ -1,6 +1,4 @@
 import 'package:ht_shared/src/models/core/feed_item.dart';
-import 'package:ht_shared/src/models/core/feed_item_action.dart'
-    show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
@@ -26,13 +24,11 @@ class Category extends FeedItem {
   /// If an [id] is not provided, a UUID v4 will be generated.
   Category({
     required this.name,
-    required FeedItemAction action,
     String? id,
     this.description,
     this.iconUrl,
   })  : id = id ?? const Uuid().v4(),
-        action = action,
-        super(type: 'category', action: action);
+        super(type: 'category');
 
   /// Creates a Category instance from a JSON map.
   factory Category.fromJson(Map<String, dynamic> json) =>
@@ -52,11 +48,6 @@ class Category extends FeedItem {
   @JsonKey(name: 'icon_url')
   final String? iconUrl;
 
-  /// The action to be performed when this feed item is interacted with.
-  @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
-  @override
-  final FeedItemAction action;
-
   /// Converts this Category instance to a JSON map.
   @override
   Map<String, dynamic> toJson() {
@@ -66,7 +57,7 @@ class Category extends FeedItem {
   }
 
   @override
-  List<Object?> get props => [id, name, description, iconUrl, type, action];
+  List<Object?> get props => [id, name, description, iconUrl, type];
 
   @override
   bool get stringify => true;
@@ -78,14 +69,12 @@ class Category extends FeedItem {
     String? name,
     String? description,
     String? iconUrl,
-    FeedItemAction? action,
   }) {
     return Category(
       id: id ?? this.id,
       name: name ?? this.name,
       description: description ?? this.description,
       iconUrl: iconUrl ?? this.iconUrl,
-      action: action ?? this.action,
     );
   }
 }

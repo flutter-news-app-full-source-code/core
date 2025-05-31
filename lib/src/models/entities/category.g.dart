@@ -16,8 +16,6 @@ Category _$CategoryFromJson(Map<String, dynamic> json) => $checkedCreate(
         );
         final val = Category(
           name: $checkedConvert('name', (v) => v as String),
-          action: $checkedConvert('action',
-              (v) => feedItemActionFromJson(v as Map<String, dynamic>)),
           id: $checkedConvert('id', (v) => v as String?),
           description: $checkedConvert('description', (v) => v as String?),
           iconUrl: $checkedConvert('icon_url', (v) => v as String?),
@@ -32,5 +30,4 @@ Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
       'name': instance.name,
       if (instance.description case final value?) 'description': value,
       if (instance.iconUrl case final value?) 'icon_url': value,
-      'action': feedItemActionToJson(instance.action),
     };

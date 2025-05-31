@@ -3,33 +3,27 @@ import 'package:test/test.dart';
 
 void main() {
   group('FeedItem', () {
-    const defaultAction = OpenExternalUrl(url: 'http://default.com');
-
     final mockCountry = Country(
       id: 'country-1',
       isoCode: 'US',
       name: 'United States',
       flagUrl: 'http://example.com/us.png',
-      action: defaultAction,
     );
     final mockSource = Source(
       id: 'source-1',
       name: 'Example News',
       url: 'http://example.com',
       sourceType: SourceType.newsAgency,
-      action: defaultAction,
     );
     final mockCategory = Category(
       id: 'category-1',
       name: 'Technology',
-      action: defaultAction,
     );
     final mockHeadline = Headline(
       id: 'headline-1',
       title: 'Example Headline',
       url: 'http://example.com/headline',
       publishedAt: DateTime.utc(2023),
-      action: defaultAction,
     );
     final mockAd = Ad(
       id: 'ad-1',
@@ -37,13 +31,11 @@ void main() {
       targetUrl: 'http://example.com/ad-target',
       adType: AdType.banner,
       placement: AdPlacement.feedInlineStandardBanner,
-      action: defaultAction,
     );
     final mockEngagementContent = EngagementContent(
       id: 'engagement-1',
       title: 'Sign Up Now',
       engagementContentType: EngagementContentType.signUp,
-      action: defaultAction,
     );
 
     group('fromJson', () {

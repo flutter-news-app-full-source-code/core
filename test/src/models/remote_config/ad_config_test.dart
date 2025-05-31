@@ -9,14 +9,22 @@ void main() {
     const testAuthenticatedAdPlacementInterval = 20;
     const testPremiumAdFrequency = 25;
     const testPremiumAdPlacementInterval = 30;
+    const testGuestArticlesToRead = 3;
+    const testStandardUserArticlesToRead = 4;
+    const testPremiumUserArticlesToRead = 5;
 
-    const adConfig = AdConfig(
+    final adConfig = AdConfig(
       guestAdFrequency: testGuestAdFrequency,
       guestAdPlacementInterval: testGuestAdPlacementInterval,
       authenticatedAdFrequency: testAuthenticatedAdFrequency,
       authenticatedAdPlacementInterval: testAuthenticatedAdPlacementInterval,
       premiumAdFrequency: testPremiumAdFrequency,
       premiumAdPlacementInterval: testPremiumAdPlacementInterval,
+      guestArticlesToReadBeforeShowingInterstitialAds: testGuestArticlesToRead,
+      standardUserArticlesToReadBeforeShowingInterstitialAds:
+          testStandardUserArticlesToRead,
+      premiumUserArticlesToReadBeforeShowingInterstitialAds:
+          testPremiumUserArticlesToRead,
     );
 
     group('constructor', () {
@@ -34,6 +42,18 @@ void main() {
           adConfig.premiumAdPlacementInterval,
           testPremiumAdPlacementInterval,
         );
+        expect(
+          adConfig.guestArticlesToReadBeforeShowingInterstitialAds,
+          testGuestArticlesToRead,
+        );
+        expect(
+          adConfig.standardUserArticlesToReadBeforeShowingInterstitialAds,
+          testStandardUserArticlesToRead,
+        );
+        expect(
+          adConfig.premiumUserArticlesToReadBeforeShowingInterstitialAds,
+          testPremiumUserArticlesToRead,
+        );
       });
     });
 
@@ -47,9 +67,33 @@ void main() {
               testAuthenticatedAdPlacementInterval,
           'premium_ad_frequency': testPremiumAdFrequency,
           'premium_ad_placement_interval': testPremiumAdPlacementInterval,
+          'guest_articles_to_read_before_showing_interstitial_ads':
+              testGuestArticlesToRead,
+          'standard_user_articles_to_read_before_showing_interstitial_ads':
+              testStandardUserArticlesToRead,
+          'premium_user_articles_to_read_before_showing_interstitial_ads':
+              testPremiumUserArticlesToRead,
         };
         final result = AdConfig.fromJson(json);
         expect(result, equals(adConfig));
+      });
+
+      test('returns correct instance with default values for new fields', () {
+        final json = <String, dynamic>{
+          'guest_ad_frequency': testGuestAdFrequency,
+          'guest_ad_placement_interval': testGuestAdPlacementInterval,
+          'authenticated_ad_frequency': testAuthenticatedAdFrequency,
+          'authenticated_ad_placement_interval':
+              testAuthenticatedAdPlacementInterval,
+          'premium_ad_frequency': testPremiumAdFrequency,
+          'premium_ad_placement_interval': testPremiumAdPlacementInterval,
+          // New fields are omitted, so defaults should be used
+        };
+        final result = AdConfig.fromJson(json);
+        expect(result.guestArticlesToReadBeforeShowingInterstitialAds, 5);
+        expect(
+            result.standardUserArticlesToReadBeforeShowingInterstitialAds, 5);
+        expect(result.premiumUserArticlesToReadBeforeShowingInterstitialAds, 5);
       });
     });
 
@@ -64,47 +108,65 @@ void main() {
               testAuthenticatedAdPlacementInterval,
           'premium_ad_frequency': testPremiumAdFrequency,
           'premium_ad_placement_interval': testPremiumAdPlacementInterval,
+          'guest_articles_to_read_before_showing_interstitial_ads':
+              testGuestArticlesToRead,
+          'standard_user_articles_to_read_before_showing_interstitial_ads':
+              testStandardUserArticlesToRead,
+          'premium_user_articles_to_read_before_showing_interstitial_ads':
+              testPremiumUserArticlesToRead,
         });
       });
     });
 
     group('Equatable', () {
       test('instances with same properties are equal', () {
-        const adConfig1 = AdConfig(
+        final adConfig1 = AdConfig(
           guestAdFrequency: 1,
           guestAdPlacementInterval: 2,
           authenticatedAdFrequency: 3,
           authenticatedAdPlacementInterval: 4,
           premiumAdFrequency: 5,
           premiumAdPlacementInterval: 6,
+          guestArticlesToReadBeforeShowingInterstitialAds: 7,
+          standardUserArticlesToReadBeforeShowingInterstitialAds: 8,
+          premiumUserArticlesToReadBeforeShowingInterstitialAds: 9,
         );
-        const adConfig2 = AdConfig(
+        final adConfig2 = AdConfig(
           guestAdFrequency: 1,
           guestAdPlacementInterval: 2,
           authenticatedAdFrequency: 3,
           authenticatedAdPlacementInterval: 4,
           premiumAdFrequency: 5,
           premiumAdPlacementInterval: 6,
+          guestArticlesToReadBeforeShowingInterstitialAds: 7,
+          standardUserArticlesToReadBeforeShowingInterstitialAds: 8,
+          premiumUserArticlesToReadBeforeShowingInterstitialAds: 9,
         );
         expect(adConfig1, adConfig2);
       });
 
       test('instances with different properties are not equal', () {
-        const adConfig1 = AdConfig(
+        final adConfig1 = AdConfig(
           guestAdFrequency: 1,
           guestAdPlacementInterval: 2,
           authenticatedAdFrequency: 3,
           authenticatedAdPlacementInterval: 4,
           premiumAdFrequency: 5,
           premiumAdPlacementInterval: 6,
+          guestArticlesToReadBeforeShowingInterstitialAds: 7,
+          standardUserArticlesToReadBeforeShowingInterstitialAds: 8,
+          premiumUserArticlesToReadBeforeShowingInterstitialAds: 9,
         );
-        const adConfig2 = AdConfig(
-          guestAdFrequency: 10, // Different
+        final adConfig2 = AdConfig(
+          guestAdFrequency: 1,
           guestAdPlacementInterval: 2,
           authenticatedAdFrequency: 3,
           authenticatedAdPlacementInterval: 4,
           premiumAdFrequency: 5,
           premiumAdPlacementInterval: 6,
+          guestArticlesToReadBeforeShowingInterstitialAds: 7,
+          standardUserArticlesToReadBeforeShowingInterstitialAds: 8,
+          premiumUserArticlesToReadBeforeShowingInterstitialAds: 99, // Different
         );
         expect(adConfig1, isNot(equals(adConfig2)));
       });
@@ -117,6 +179,9 @@ void main() {
           testAuthenticatedAdPlacementInterval,
           testPremiumAdFrequency,
           testPremiumAdPlacementInterval,
+          testGuestArticlesToRead,
+          testStandardUserArticlesToRead,
+          testPremiumUserArticlesToRead,
         ]);
       });
     });

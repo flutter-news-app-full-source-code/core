@@ -12,8 +12,6 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) => $checkedCreate(
       ($checkedConvert) {
         final val = Headline(
           title: $checkedConvert('title', (v) => v as String),
-          action: $checkedConvert('action',
-              (v) => feedItemActionFromJson(v as Map<String, dynamic>)),
           description: $checkedConvert('description', (v) => v as String?),
           url: $checkedConvert('url', (v) => v as String?),
           imageUrl: $checkedConvert('image_url', (v) => v as String?),
@@ -49,5 +47,4 @@ Map<String, dynamic> _$HeadlineToJson(Headline instance) => <String, dynamic>{
         'published_at': value,
       if (instance.source?.toJson() case final value?) 'source': value,
       if (instance.category?.toJson() case final value?) 'category': value,
-      'action': feedItemActionToJson(instance.action),
     };

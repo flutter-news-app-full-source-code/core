@@ -15,8 +15,6 @@ Ad _$AdFromJson(Map<String, dynamic> json) => $checkedCreate(
           targetUrl: $checkedConvert('target_url', (v) => v as String),
           adType: $checkedConvert(
               'ad_type', (v) => $enumDecodeNullable(_$AdTypeEnumMap, v)),
-          action: $checkedConvert('action',
-              (v) => feedItemActionFromJson(v as Map<String, dynamic>)),
           placement: $checkedConvert(
               'placement', (v) => $enumDecodeNullable(_$AdPlacementEnumMap, v)),
           id: $checkedConvert('id', (v) => v as String?),
@@ -37,7 +35,6 @@ Map<String, dynamic> _$AdToJson(Ad instance) => <String, dynamic>{
       if (_$AdTypeEnumMap[instance.adType] case final value?) 'ad_type': value,
       if (_$AdPlacementEnumMap[instance.placement] case final value?)
         'placement': value,
-      'action': feedItemActionToJson(instance.action),
     };
 
 const _$AdTypeEnumMap = {

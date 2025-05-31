@@ -1,4 +1,3 @@
-import 'package:ht_shared/src/models/core/feed_item_action.dart';
 import 'package:ht_shared/src/models/entities/country.dart'; // Use direct import
 import 'package:json_annotation/json_annotation.dart';
 import 'package:test/test.dart';
@@ -12,8 +11,6 @@ void main() {
     const testName = 'United States';
     const testFlagUrl = 'https://example.com/us_flag.png';
 
-    const defaultAction = OpenExternalUrl(url: 'http://default.com');
-
     // Helper to create a valid JSON map
     Map<String, dynamic> createValidJsonMap({String? idOverride}) => {
           'id': idOverride ?? testId,
@@ -21,7 +18,6 @@ void main() {
           'name': testName,
           'flag_url': testFlagUrl,
           'type': 'country',
-          'action': defaultAction.toJson(),
         };
 
     // Helper to create a Country instance
@@ -30,14 +26,12 @@ void main() {
       String isoCode = testIsoCode,
       String name = testName,
       String flagUrl = testFlagUrl,
-      FeedItemAction? action,
     }) {
       return Country(
         id: id ?? testId,
         isoCode: isoCode,
         name: name,
         flagUrl: flagUrl,
-        action: action ?? defaultAction,
       );
     }
 
@@ -46,10 +40,6 @@ void main() {
       expect(
         createSubject(id: uuid.v4()),
         isNot(equals(createSubject(id: uuid.v4()))),
-      );
-      expect(
-        createSubject(action: const OpenExternalUrl(url: 'http://other.com')),
-        isNot(equals(createSubject())),
       );
     });
 
@@ -60,7 +50,7 @@ void main() {
       // Directly access props
       final props = country.props;
       expect(props, isList);
-      expect(props, hasLength(6)); // id, isoCode, name, flagUrl, type, action
+      expect(props, hasLength(5)); // id, isoCode, name, flagUrl, type
       expect(
         props,
         equals([
@@ -69,7 +59,6 @@ void main() {
           testName,
           testFlagUrl,
           country.type,
-          country.action,
         ]),
       );
     });
@@ -84,7 +73,6 @@ void main() {
           testName,
           testFlagUrl,
           createSubject().type,
-          createSubject().action,
         ]),
       );
     });
@@ -109,14 +97,12 @@ void main() {
           isoCode: testIsoCode,
           name: testName,
           flagUrl: testFlagUrl,
-          action: defaultAction,
         );
         expect(country.id, isA<String>());
         expect(Uuid.isValidUUID(fromString: country.id), isTrue);
         expect(country.isoCode, testIsoCode);
         expect(country.name, testName);
         expect(country.flagUrl, testFlagUrl);
-        expect(country.action, defaultAction);
       });
 
       test('requires isoCode', () {
@@ -153,7 +139,6 @@ void main() {
         expect(country.isoCode, testIsoCode);
         expect(country.name, testName);
         expect(country.flagUrl, testFlagUrl);
-        expect(country.action, defaultAction);
       });
 
       // Updated to expect TypeError based on terminal output

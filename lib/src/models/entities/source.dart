@@ -1,6 +1,4 @@
 import 'package:ht_shared/src/models/core/feed_item.dart';
-import 'package:ht_shared/src/models/core/feed_item_action.dart'
-    show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
 import 'package:ht_shared/src/models/entities/country.dart';
 import 'package:ht_shared/src/models/entities/source_type.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -25,7 +23,6 @@ class Source extends FeedItem {
   /// {@macro source}
   Source({
     required this.name,
-    required this.action,
     this.description,
     this.url,
     this.sourceType,
@@ -33,7 +30,7 @@ class Source extends FeedItem {
     this.headquarters,
     String? id,
   })  : id = id ?? const Uuid().v4(),
-        super(type: 'source', action: action);
+        super(type: 'source');
 
   /// Factory method to create a [Source] instance from a JSON map.
   factory Source.fromJson(Map<String, dynamic> json) => _$SourceFromJson(json);
@@ -63,11 +60,6 @@ class Source extends FeedItem {
   /// The country where the source is headquartered.
   final Country? headquarters;
 
-  /// The action to be performed when this feed item is interacted with.
-  @override
-  @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
-  final FeedItemAction action;
-
   /// Converts this [Source] instance to a JSON map.
   @override
   Map<String, dynamic> toJson() {
@@ -86,7 +78,6 @@ class Source extends FeedItem {
         language,
         headquarters,
         type,
-        action,
       ];
 
   /// Creates a new [Source] with updated properties.
@@ -99,7 +90,6 @@ class Source extends FeedItem {
     SourceType? sourceType,
     String? language,
     Country? headquarters,
-    FeedItemAction? action,
   }) {
     return Source(
       id: id ?? this.id,
@@ -109,7 +99,6 @@ class Source extends FeedItem {
       sourceType: sourceType ?? this.sourceType, // Changed from _sourceType
       language: language ?? this.language,
       headquarters: headquarters ?? this.headquarters,
-      action: action ?? this.action,
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:ht_shared/src/models/core/content_type.dart';
-import 'package:ht_shared/src/models/core/feed_item_action.dart';
 import 'package:ht_shared/src/models/feed_decorators/ad.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:test/test.dart';
@@ -12,7 +11,6 @@ void main() {
     const testTargetUrl = 'http://example.com/target';
     const testAdType = AdType.banner;
     const testPlacement = AdPlacement.feedInlineStandardBanner;
-    const defaultAction = OpenExternalUrl(url: 'http://default.com');
 
     Ad createSubject({
       String? id,
@@ -20,7 +18,6 @@ void main() {
       String targetUrl = testTargetUrl,
       AdType adType = testAdType,
       AdPlacement? placement = testPlacement,
-      FeedItemAction action = defaultAction,
     }) {
       return Ad(
         id: id,
@@ -28,7 +25,6 @@ void main() {
         targetUrl: targetUrl,
         adType: adType,
         placement: placement,
-        action: action,
       );
     }
 
@@ -50,7 +46,6 @@ void main() {
         expect(ad.targetUrl, testTargetUrl);
         expect(ad.adType, testAdType);
         expect(ad.placement, testPlacement);
-        expect(ad.action, defaultAction);
         expect(ad.type, 'ad');
       });
     });
@@ -59,16 +54,11 @@ void main() {
       test('returns a new instance with updated fields', () {
         const newImageUrl = 'http://new.com/ad.png';
         const newAdType = AdType.video;
-        const newAction = OpenInternalContent(
-          contentId: 'new-content',
-          contentType: ContentType.headline,
-        );
 
         final originalAd = createSubject();
         final updatedAd = originalAd.copyWith(
           imageUrl: newImageUrl,
           adType: newAdType,
-          action: newAction,
         );
 
         expect(updatedAd.id, originalAd.id);
@@ -76,7 +66,6 @@ void main() {
         expect(updatedAd.targetUrl, originalAd.targetUrl);
         expect(updatedAd.adType, newAdType);
         expect(updatedAd.placement, originalAd.placement);
-        expect(updatedAd.action, newAction);
         expect(updatedAd.type, originalAd.type);
       });
 
@@ -100,7 +89,6 @@ void main() {
           'ad_type': 'banner',
           'placement': 'feed_inline_standard_banner',
           'type': 'ad',
-          'action': defaultAction.toJson(),
         });
       });
 
@@ -121,7 +109,6 @@ void main() {
           'ad_type': 'banner',
           'placement': 'feed_inline_standard_banner',
           'type': 'ad',
-          'action': defaultAction.toJson(),
         };
         final ad = Ad.fromJson(json);
 
@@ -130,7 +117,6 @@ void main() {
         expect(ad.targetUrl, testTargetUrl);
         expect(ad.adType, testAdType);
         expect(ad.placement, testPlacement);
-        expect(ad.action, defaultAction);
         expect(ad.type, 'ad');
       });
 
@@ -141,7 +127,6 @@ void main() {
           'target_url': testTargetUrl,
           'ad_type': testAdType.name,
           'type': 'ad',
-          'action': defaultAction.toJson(),
         };
         final ad = Ad.fromJson(json);
 
@@ -155,7 +140,6 @@ void main() {
           'target_url': testTargetUrl,
           'ad_type': 'unknown_type',
           'type': 'ad',
-          'action': defaultAction.toJson(),
         };
         expect(
           () => Ad.fromJson(json),
@@ -186,7 +170,6 @@ void main() {
           ad.adType,
           ad.placement,
           ad.type,
-          ad.action,
         ]);
       });
     });

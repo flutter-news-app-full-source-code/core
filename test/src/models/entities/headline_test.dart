@@ -4,25 +4,18 @@ import 'package:uuid/uuid.dart';
 
 void main() {
   group('Headline Model', () {
-    const defaultAction = OpenExternalUrl(url: 'http://default.com');
-
     // Sample data for nested models
     final sampleSourceJson = {
       'id': 'src-test',
       'name': 'Test Source',
       'source_type': 'news_agency', // Corrected to snake_case for enum value
       'type': 'source',
-      'action': {
-        'type': 'open_external_url',
-        'url': 'http://default.com',
-      },
     };
     final sampleSource = Source.fromJson(sampleSourceJson);
     final sampleCategoryJson = {
       'id': 'cat-test',
       'name': 'Test Category',
       'type': 'category',
-      'action': defaultAction.toJson(),
     };
     final sampleCategory = Category.fromJson(sampleCategoryJson);
     final testTime = DateTime.utc(2024, 4, 17, 13);
@@ -40,7 +33,6 @@ void main() {
       publishedAt: testTime,
       source: sampleSource,
       category: sampleCategory,
-      action: defaultAction,
     );
 
     // Sample JSON map corresponding to fullHeadline
@@ -53,7 +45,6 @@ void main() {
       'published_at': testTimeString,
       'source': sampleSourceJson,
       'category': sampleCategoryJson,
-      'action': defaultAction.toJson(),
       'type': 'headline', // Added type field
     };
 
@@ -61,14 +52,12 @@ void main() {
     final minimalHeadline = Headline(
       id: testId, // Use same ID for comparison if needed
       title: 'Minimal Headline Title',
-      action: defaultAction,
     );
 
     // Sample JSON map corresponding to minimalHeadline
     final minimalHeadlineJson = {
       'id': testId,
       'title': 'Minimal Headline Title',
-      'action': defaultAction.toJson(),
       'type': 'headline', // Added type field
       // Optional fields are absent
     };
@@ -162,7 +151,6 @@ void main() {
         final copiedHeadline = fullHeadline.copyWith(
           title: updatedTitle,
           url: updatedUrl,
-          action: defaultAction,
         );
 
         expect(copiedHeadline.id, fullHeadline.id); // ID should remain the same
@@ -173,7 +161,6 @@ void main() {
         expect(copiedHeadline.publishedAt, fullHeadline.publishedAt);
         expect(copiedHeadline.source, fullHeadline.source);
         expect(copiedHeadline.category, fullHeadline.category);
-        expect(copiedHeadline.action, fullHeadline.action);
       });
 
       test('should create an identical copy if no values are provided', () {
@@ -184,20 +171,15 @@ void main() {
 
     group('Equatable', () {
       test('should equate two identical instances', () {
-        final headline1 =
-            Headline(id: '1', title: 'Title', action: defaultAction);
-        final headline2 =
-            Headline(id: '1', title: 'Title', action: defaultAction);
+        final headline1 = Headline(id: '1', title: 'Title');
+        final headline2 = Headline(id: '1', title: 'Title');
         expect(headline1, equals(headline2));
       });
 
       test('should not equate instances with different properties', () {
-        final headline1 =
-            Headline(id: '1', title: 'Title 1', action: defaultAction);
-        final headline2 =
-            Headline(id: '1', title: 'Title 2', action: defaultAction);
-        final headline3 =
-            Headline(id: '2', title: 'Title 1', action: defaultAction);
+        final headline1 = Headline(id: '1', title: 'Title 1');
+        final headline2 = Headline(id: '1', title: 'Title 2');
+        final headline3 = Headline(id: '2', title: 'Title 1');
         expect(headline1, isNot(equals(headline2)));
         expect(headline1, isNot(equals(headline3)));
       });
@@ -207,8 +189,8 @@ void main() {
         // equality are in props
         expect(
           fullHeadline.props.length,
-          10,
-        ); // id, title, desc, url, imgUrl, pubAt, source, category, type, action
+          9,
+        ); // id, title, desc, url, imgUrl, pubAt, source, category, type
         expect(
           fullHeadline.props,
           containsAll([
@@ -221,7 +203,6 @@ void main() {
             fullHeadline.source,
             fullHeadline.category,
             fullHeadline.type,
-            fullHeadline.action,
           ]),
         );
       });

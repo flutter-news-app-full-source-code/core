@@ -47,6 +47,9 @@ class AdConfig extends Equatable {
     required this.authenticatedAdPlacementInterval,
     required this.premiumAdFrequency,
     required this.premiumAdPlacementInterval,
+    this.guestArticlesToReadBeforeShowingInterstitialAds = 5,
+    this.standardUserArticlesToReadBeforeShowingInterstitialAds = 5,
+    this.premiumUserArticlesToReadBeforeShowingInterstitialAds = 5,
   });
 
   /// Factory method to create an [AdConfig] instance from a JSON map.
@@ -71,8 +74,56 @@ class AdConfig extends Equatable {
   /// See class documentation for details on AdPlacementInterval.
   final int premiumAdPlacementInterval;
 
+  /// The number of articles a guest user needs to read before an
+  /// interstitial ad is shown.
+  final int guestArticlesToReadBeforeShowingInterstitialAds;
+
+  /// The number of articles a standard user needs to read before an
+  /// interstitial ad is shown.
+  final int standardUserArticlesToReadBeforeShowingInterstitialAds;
+
+  /// The number of articles a premium user needs to read before an
+  /// interstitial ad is shown.
+  final int premiumUserArticlesToReadBeforeShowingInterstitialAds;
+
   /// Converts this [AdConfig] instance to a JSON map.
   Map<String, dynamic> toJson() => _$AdConfigToJson(this);
+
+  /// Creates a copy of this [AdConfig] but with the given fields replaced
+  /// with the new values.
+  AdConfig copyWith({
+    int? guestAdFrequency,
+    int? guestAdPlacementInterval,
+    int? authenticatedAdFrequency,
+    int? authenticatedAdPlacementInterval,
+    int? premiumAdFrequency,
+    int? premiumAdPlacementInterval,
+    int? guestArticlesToReadBeforeShowingInterstitialAds,
+    int? standardUserArticlesToReadBeforeShowingInterstitialAds,
+    int? premiumUserArticlesToReadBeforeShowingInterstitialAds,
+  }) {
+    return AdConfig(
+      guestAdFrequency: guestAdFrequency ?? this.guestAdFrequency,
+      guestAdPlacementInterval:
+          guestAdPlacementInterval ?? this.guestAdPlacementInterval,
+      authenticatedAdFrequency:
+          authenticatedAdFrequency ?? this.authenticatedAdFrequency,
+      authenticatedAdPlacementInterval: authenticatedAdPlacementInterval ??
+          this.authenticatedAdPlacementInterval,
+      premiumAdFrequency: premiumAdFrequency ?? this.premiumAdFrequency,
+      premiumAdPlacementInterval:
+          premiumAdPlacementInterval ?? this.premiumAdPlacementInterval,
+      guestArticlesToReadBeforeShowingInterstitialAds:
+          guestArticlesToReadBeforeShowingInterstitialAds ??
+              this.guestArticlesToReadBeforeShowingInterstitialAds,
+      standardUserArticlesToReadBeforeShowingInterstitialAds:
+          standardUserArticlesToReadBeforeShowingInterstitialAds ??
+              this.standardUserArticlesToReadBeforeShowingInterstitialAds,
+      premiumUserArticlesToReadBeforeShowingInterstitialAds:
+          premiumUserArticlesToReadBeforeShowingInterstitialAds ??
+              this.premiumUserArticlesToReadBeforeShowingInterstitialAds,
+    );
+  }
 
   @override
   List<Object> get props => [
@@ -82,5 +133,8 @@ class AdConfig extends Equatable {
         authenticatedAdPlacementInterval,
         premiumAdFrequency,
         premiumAdPlacementInterval,
+        guestArticlesToReadBeforeShowingInterstitialAds,
+        standardUserArticlesToReadBeforeShowingInterstitialAds,
+        premiumUserArticlesToReadBeforeShowingInterstitialAds,
       ];
 }

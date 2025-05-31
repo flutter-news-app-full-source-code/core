@@ -1,6 +1,4 @@
 import 'package:ht_shared/src/models/core/feed_item.dart';
-import 'package:ht_shared/src/models/core/feed_item_action.dart'
-    show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
@@ -26,11 +24,9 @@ class Country extends FeedItem {
     required this.isoCode,
     required this.name,
     required this.flagUrl,
-    required FeedItemAction action,
     String? id,
   })  : id = id ?? const Uuid().v4(),
-        action = action,
-        super(type: 'country', action: action);
+        super(type: 'country');
 
   /// Creates a Country instance from a JSON map.
   factory Country.fromJson(Map<String, dynamic> json) =>
@@ -50,11 +46,6 @@ class Country extends FeedItem {
   @JsonKey(name: 'flag_url')
   final String flagUrl;
 
-  /// The action to be performed when this feed item is interacted with.
-  @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
-  @override
-  final FeedItemAction action;
-
   /// Converts this Country instance into a JSON map.
   @override
   Map<String, dynamic> toJson() {
@@ -64,7 +55,7 @@ class Country extends FeedItem {
   }
 
   @override
-  List<Object?> get props => [id, isoCode, name, flagUrl, type, action];
+  List<Object?> get props => [id, isoCode, name, flagUrl, type];
 
   /// Creates a copy of this [Country] but with the given fields replaced with
   /// the new values.
@@ -73,14 +64,12 @@ class Country extends FeedItem {
     String? isoCode,
     String? name,
     String? flagUrl,
-    FeedItemAction? action,
   }) {
     return Country(
       id: id ?? this.id,
       isoCode: isoCode ?? this.isoCode,
       name: name ?? this.name,
       flagUrl: flagUrl ?? this.flagUrl,
-      action: action ?? this.action,
     );
   }
 }

@@ -5,33 +5,27 @@ import 'package:test/test.dart';
 
 void main() {
   group('UserContentPreferences', () {
-    const defaultAction = OpenExternalUrl(url: 'http://default.com');
-
     final mockCountry = Country(
       id: 'country-1',
       isoCode: 'US',
       name: 'United States',
       flagUrl: 'http://example.com/us.png',
-      action: defaultAction,
     );
     final mockSource = Source(
       id: 'source-1',
       name: 'Example News',
       url: 'http://example.com',
       sourceType: SourceType.newsAgency,
-      action: defaultAction,
     );
     final mockCategory = Category(
       id: 'category-1',
       name: 'Technology',
-      action: defaultAction,
     );
     final mockHeadline = Headline(
       id: 'headline-1',
       title: 'Example Headline',
       url: 'http://example.com/headline',
       publishedAt: DateTime.utc(2023),
-      action: defaultAction,
     );
 
     final userContentPreferences = UserContentPreferences(
@@ -67,7 +61,6 @@ void main() {
               'name': 'United States',
               'flag_url': 'http://example.com/us.png',
               'type': 'country',
-              'action': defaultAction.toJson(),
             },
           ],
           'followed_sources': [
@@ -77,7 +70,6 @@ void main() {
               'url': 'http://example.com',
               'type': 'source',
               'source_type': 'news_agency',
-              'action': defaultAction.toJson(),
             },
           ],
           'followed_categories': [
@@ -85,7 +77,6 @@ void main() {
               'id': 'category-1',
               'name': 'Technology',
               'type': 'category',
-              'action': defaultAction.toJson(),
             },
           ],
           'saved_headlines': [
@@ -95,7 +86,6 @@ void main() {
               'url': 'http://example.com/headline',
               'published_at': '2023-01-01T00:00:00.000Z',
               'type': 'headline',
-              'action': defaultAction.toJson(),
             },
           ],
         };
@@ -191,12 +181,10 @@ void main() {
           isoCode: 'CA',
           name: 'Canada',
           flagUrl: 'http://example.com/ca.png',
-          action: defaultAction,
         );
         final newHeadline = Headline(
           id: 'headline-2',
           title: 'Another Headline',
-          action: defaultAction,
         );
 
         final updatedPreferences = userContentPreferences.copyWith(

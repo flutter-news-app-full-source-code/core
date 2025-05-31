@@ -1,6 +1,4 @@
 import 'package:ht_shared/src/models/core/feed_item.dart';
-import 'package:ht_shared/src/models/core/feed_item_action.dart'
-    show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
 import 'package:ht_shared/src/models/entities/category.dart';
 import 'package:ht_shared/src/models/entities/source.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -31,7 +29,6 @@ class Headline extends FeedItem {
   /// {@macro headline}
   Headline({
     required this.title,
-    required FeedItemAction action,
     this.description,
     this.url,
     this.imageUrl,
@@ -44,8 +41,7 @@ class Headline extends FeedItem {
           'id cannot be an empty string', // Updated assertion message
         ),
         id = id ?? const Uuid().v4(),
-        action = action,
-        super(type: 'headline', action: action);
+        super(type: 'headline');
 
   /// Creates a [Headline] instance from a JSON map.
   factory Headline.fromJson(Map<String, dynamic> json) =>
@@ -76,11 +72,6 @@ class Headline extends FeedItem {
   /// Category of the current headline.
   final Category? category;
 
-  /// The action to be performed when this feed item is interacted with.
-  @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
-  @override
-  final FeedItemAction action;
-
   /// Converts this [Headline] instance to a JSON map.
   @override
   Map<String, dynamic> toJson() {
@@ -100,7 +91,6 @@ class Headline extends FeedItem {
         source,
         category,
         type,
-        action,
       ];
 
   @override
@@ -117,7 +107,6 @@ class Headline extends FeedItem {
     DateTime? publishedAt,
     Source? source,
     Category? category,
-    FeedItemAction? action,
   }) {
     return Headline(
       id: id ?? this.id,
@@ -128,7 +117,6 @@ class Headline extends FeedItem {
       publishedAt: publishedAt ?? this.publishedAt,
       source: source ?? this.source,
       category: category ?? this.category,
-      action: action ?? this.action,
     );
   }
 }

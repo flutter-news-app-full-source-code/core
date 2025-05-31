@@ -1,6 +1,4 @@
 import 'package:ht_shared/src/models/core/feed_item.dart';
-import 'package:ht_shared/src/models/core/feed_item_action.dart'
-    show FeedItemAction, feedItemActionFromJson, feedItemActionToJson;
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
@@ -41,14 +39,12 @@ class EngagementContent extends FeedItem {
   EngagementContent({
     required this.title,
     required this.engagementContentType,
-    required FeedItemAction action,
     this.description,
     this.callToActionText,
     this.callToActionUrl,
     String? id,
   })  : id = id ?? const Uuid().v4(),
-        action = action,
-        super(type: 'engagement_content', action: action);
+        super(type: 'engagement_content');
 
   /// Factory method to create an [EngagementContent] instance from a JSON map.
   factory EngagementContent.fromJson(Map<String, dynamic> json) =>
@@ -74,11 +70,6 @@ class EngagementContent extends FeedItem {
   /// The URL to navigate to when the call-to-action is triggered.
   final String? callToActionUrl;
 
-  /// The action to be performed when this feed item is interacted with.
-  @JsonKey(fromJson: feedItemActionFromJson, toJson: feedItemActionToJson)
-  @override
-  final FeedItemAction action;
-
   /// Converts this [EngagementContent] instance to a JSON map.
   @override
   Map<String, dynamic> toJson() {
@@ -96,7 +87,6 @@ class EngagementContent extends FeedItem {
         callToActionText,
         callToActionUrl,
         type,
-        action,
       ];
 
   /// Creates a new [EngagementContent] with updated properties.
@@ -109,7 +99,6 @@ class EngagementContent extends FeedItem {
     EngagementContentType? engagementContentType,
     String? callToActionText,
     String? callToActionUrl,
-    FeedItemAction? action,
   }) {
     return EngagementContent(
       id: id ?? this.id,
@@ -119,7 +108,6 @@ class EngagementContent extends FeedItem {
           engagementContentType ?? this.engagementContentType,
       callToActionText: callToActionText,
       callToActionUrl: callToActionUrl,
-      action: action ?? this.action,
     );
   }
 }

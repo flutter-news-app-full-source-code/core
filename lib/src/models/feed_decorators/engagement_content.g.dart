@@ -15,8 +15,6 @@ EngagementContent _$EngagementContentFromJson(Map<String, dynamic> json) =>
           title: $checkedConvert('title', (v) => v as String),
           engagementContentType: $checkedConvert('engagement_content_type',
               (v) => $enumDecodeNullable(_$EngagementContentTypeEnumMap, v)),
-          action: $checkedConvert('action',
-              (v) => feedItemActionFromJson(v as Map<String, dynamic>)),
           description: $checkedConvert('description', (v) => v as String?),
           callToActionText:
               $checkedConvert('call_to_action_text', (v) => v as String?),
@@ -45,7 +43,6 @@ Map<String, dynamic> _$EngagementContentToJson(EngagementContent instance) =>
         'call_to_action_text': value,
       if (instance.callToActionUrl case final value?)
         'call_to_action_url': value,
-      'action': feedItemActionToJson(instance.action),
     };
 
 const _$EngagementContentTypeEnumMap = {

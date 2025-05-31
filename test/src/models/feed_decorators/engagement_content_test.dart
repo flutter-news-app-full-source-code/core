@@ -4,21 +4,11 @@ import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
 
-class MockOpenExternalUrl extends Mock implements OpenExternalUrl {}
-
 void main() {
   group('EngagementContent', () {
-    late MockOpenExternalUrl mockAction;
     late String testId;
 
     setUp(() {
-      mockAction = MockOpenExternalUrl();
-      when(() => mockAction.type).thenReturn('open_external_url');
-      when(() => mockAction.url).thenReturn('https://example.com');
-      when(() => mockAction.toJson()).thenReturn({
-        'type': 'open_external_url',
-        'url': 'https://example.com',
-      });
       testId = const Uuid().v4();
     });
 
@@ -30,7 +20,6 @@ void main() {
       String? description,
       String? callToActionText,
       String? callToActionUrl,
-      FeedItemAction? action,
     }) {
       return EngagementContent(
         id: id,
@@ -39,7 +28,6 @@ void main() {
         description: description,
         callToActionText: callToActionText,
         callToActionUrl: callToActionUrl,
-        action: action ?? mockAction,
       );
     }
 
@@ -48,7 +36,6 @@ void main() {
       expect(instance, isNotNull);
       expect(instance.id, isA<String>());
       expect(instance.type, 'engagement_content');
-      expect(instance.action, mockAction);
     });
 
     test('uses provided id if not null', () {
@@ -92,7 +79,6 @@ void main() {
           'Click Me',
           'https://cta.com',
           'engagement_content',
-          mockAction,
         ],
       );
     });
@@ -107,10 +93,6 @@ void main() {
           'call_to_action_text': 'Sign Up',
           'call_to_action_url': 'https://example.com/signup',
           'type': 'engagement_content',
-          'action': {
-            'type': 'open_external_url',
-            'url': 'https://example.com/action',
-          },
         };
 
         final instance = EngagementContent.fromJson(json);
@@ -122,11 +104,6 @@ void main() {
         expect(instance.callToActionText, 'Sign Up');
         expect(instance.callToActionUrl, 'https://example.com/signup');
         expect(instance.type, 'engagement_content');
-        expect(instance.action, isA<OpenExternalUrl>());
-        expect(
-          (instance.action as OpenExternalUrl).url,
-          'https://example.com/action',
-        );
       });
 
       test('handles null optional fields', () {
@@ -135,10 +112,6 @@ void main() {
           'title': 'Simple Title',
           'engagement_content_type': 'rate_app', // Changed from feedback
           'type': 'engagement_content',
-          'action': {
-            'type': 'open_external_url',
-            'url': 'https://example.com/action',
-          },
         };
 
         final instance = EngagementContent.fromJson(json);
@@ -158,10 +131,6 @@ void main() {
           'title': 'Unknown Type',
           'engagement_content_type': 'unknown_type', // Unknown value
           'type': 'engagement_content',
-          'action': {
-            'type': 'open_external_url',
-            'url': 'https://example.com/action',
-          },
         };
 
         expect(
@@ -191,10 +160,6 @@ void main() {
           'call_to_action_text': 'Sign Up',
           'call_to_action_url': 'https://example.com/signup',
           'type': 'engagement_content',
-          'action': {
-            'type': 'open_external_url',
-            'url': 'https://example.com',
-          },
         });
       });
 
@@ -213,10 +178,6 @@ void main() {
           'title': 'Simple Title',
           'engagement_content_type': 'rate_app', // Changed from feedback
           'type': 'engagement_content',
-          'action': {
-            'type': 'open_external_url',
-            'url': 'https://example.com',
-          },
         });
       });
     });
@@ -231,15 +192,12 @@ void main() {
           callToActionUrl: 'original.com',
         );
 
-        const updatedAction = OpenExternalUrl(url: 'https://new.com');
-
         final copied = original.copyWith(
           title: 'New Title',
           description: 'New Description',
           engagementContentType: EngagementContentType.upgrade,
           callToActionText: 'New CTA',
           callToActionUrl: 'new.com',
-          action: updatedAction,
         );
 
         expect(copied, isNot(equals(original)));
@@ -249,7 +207,6 @@ void main() {
         expect(copied.engagementContentType, EngagementContentType.upgrade);
         expect(copied.callToActionText, 'New CTA');
         expect(copied.callToActionUrl, 'new.com');
-        expect(copied.action, updatedAction);
       });
 
       test('returns a new instance with same values if no changes', () {
