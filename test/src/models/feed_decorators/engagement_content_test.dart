@@ -16,7 +16,7 @@ void main() {
       String? id,
       String title = 'Test Title',
       EngagementContentType engagementContentType =
-          EngagementContentType.signUp,
+          EngagementContentType.linkAccount,
       String? description,
       String? callToActionText,
       String? callToActionUrl,
@@ -89,7 +89,7 @@ void main() {
           'id': testId,
           'title': 'Sign Up Now',
           'description': 'Create an account to save preferences.',
-          'engagement_content_type': 'sign_up',
+          'engagement_content_type': 'link_account',
           'call_to_action_text': 'Sign Up',
           'call_to_action_url': 'https://example.com/signup',
           'type': 'engagement_content',
@@ -100,7 +100,7 @@ void main() {
         expect(instance.id, testId);
         expect(instance.title, 'Sign Up Now');
         expect(instance.description, 'Create an account to save preferences.');
-        expect(instance.engagementContentType, EngagementContentType.signUp);
+        expect(instance.engagementContentType, EngagementContentType.linkAccount);
         expect(instance.callToActionText, 'Sign Up');
         expect(instance.callToActionUrl, 'https://example.com/signup');
         expect(instance.type, 'engagement_content');
@@ -156,7 +156,7 @@ void main() {
           'id': testId,
           'title': 'Sign Up Now',
           'description': 'Create an account to save preferences.',
-          'engagement_content_type': 'sign_up',
+          'engagement_content_type': 'link_account',
           'call_to_action_text': 'Sign Up',
           'call_to_action_url': 'https://example.com/signup',
           'type': 'engagement_content',

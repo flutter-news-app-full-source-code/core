@@ -35,7 +35,7 @@ void main() {
     final mockEngagementContent = EngagementContent(
       id: 'engagement-1',
       title: 'Sign Up Now',
-      engagementContentType: EngagementContentType.signUp,
+      engagementContentType: EngagementContentType.linkAccount,
     );
 
     group('fromJson', () {

@@ -10,8 +10,8 @@ part 'engagement_content.g.dart';
 /// {@endtemplate}
 @JsonEnum(fieldRename: FieldRename.snake)
 enum EngagementContentType {
-  /// A call-to-action to sign up for an account.
-  signUp,
+  /// A call-to-action to link an account.
+  linkAccount,
 
   /// A call-to-action to upgrade to a premium subscription.
   upgrade,
