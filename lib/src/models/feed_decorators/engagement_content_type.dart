@@ -17,18 +17,7 @@ enum EngagementContentType {
   /// A call-to-action to upgrade to a premium subscription.
   upgrade,
 
-  /// A prompt to provide feedback on the application.
-  feedback,
-
-  /// A prompt to complete a survey.
-  survey,
-
   /// A call-to-action to rate the application in an app store.
   rateApp,
 
-  /// A call-to-action to share the application with others.
-  shareApp,
-
-  /// A generic or custom engagement content type.
-  custom,
 }
