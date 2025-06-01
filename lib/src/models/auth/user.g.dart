@@ -24,7 +24,7 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
       fieldKeyMap: const {
         'createdAt': 'created_at',
-        'lastEngagementShownAt': 'last_engagement_shown_at'
+        'lastAccountActionShownAt': 'last_engagement_shown_at'
       },
     );
 
