@@ -21,6 +21,9 @@ void main() {
       authenticatedAdPlacementInterval: 5,
       premiumAdFrequency: 0,
       premiumAdPlacementInterval: 0,
+      guestArticlesToReadBeforeShowingInterstitialAds: 10,
+      premiumUserArticlesToReadBeforeShowingInterstitialAds: 20,
+      standardUserArticlesToReadBeforeShowingInterstitialAds: 50000,
     );
 
     const mockAccountActionConfig = AccountActionConfig(
@@ -31,8 +34,8 @@ void main() {
     const appConfig = AppConfig(
       id: 'app_config',
       userPreferenceLimits: mockUserPreferenceConfig,
-      adConfig: mockAdConfig,
       accountActionConfig: mockAccountActionConfig,
+      adConfig: mockAdConfig,
     );
 
     group('constructor', () {
@@ -155,6 +158,9 @@ void main() {
             authenticatedAdPlacementInterval: 5,
             premiumAdFrequency: 0,
             premiumAdPlacementInterval: 0,
+            guestArticlesToReadBeforeShowingInterstitialAds: 10,
+            premiumUserArticlesToReadBeforeShowingInterstitialAds: 20,
+            standardUserArticlesToReadBeforeShowingInterstitialAds: 50000
           ).toJson(),
         );
         expect(
