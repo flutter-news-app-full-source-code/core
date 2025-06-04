@@ -27,6 +27,16 @@ This package includes well-defined Dart classes for:
 *   ⚙️ **Application Configuration:** `AppConfig` (containing `AdConfig` and `UserPreferenceConfig`)
 *   📡 **API Communication:** `PaginatedResponse`, `SuccessApiResponse`, and a comprehensive `HtHttpException` hierarchy for standardized error handling.
 
+## 📊 Sample Data / Fixtures
+
+To further accelerate development and provide immediate demonstration capabilities, `ht_shared` now includes a set of **pre-defined, in-memory fixture data** for core models like `Headline`, `Category`, `Source`, `Country`, and `AppConfig`. These fixtures are directly embedded as Dart constants, enabling:
+
+*   **⚡ Instant Setup:** Quickly initialize in-memory data stores for testing or local development without needing a backend.
+*   **🧪 Reliable Testing:** Use consistent, realistic data for unit and integration tests.
+*   **🚀 Rapid Prototyping:** Jumpstart UI development and feature implementation with readily available sample content.
+
+Access these fixtures via `package:ht_shared/fixtures.dart`.
+
 ## 🔑 Access and Licensing
 
 `ht_shared` is source-available as part of the Headlines Toolkit ecosystem.
