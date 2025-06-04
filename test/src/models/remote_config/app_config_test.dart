@@ -152,16 +152,16 @@ void main() {
         expect(
           json['ad_config'],
           const AdConfig(
-            guestAdFrequency: 5,
-            guestAdPlacementInterval: 3,
-            authenticatedAdFrequency: 10,
-            authenticatedAdPlacementInterval: 5,
-            premiumAdFrequency: 0,
-            premiumAdPlacementInterval: 0,
-            guestArticlesToReadBeforeShowingInterstitialAds: 10,
-            premiumUserArticlesToReadBeforeShowingInterstitialAds: 20,
-            standardUserArticlesToReadBeforeShowingInterstitialAds: 50000
-          ).toJson(),
+                  guestAdFrequency: 5,
+                  guestAdPlacementInterval: 3,
+                  authenticatedAdFrequency: 10,
+                  authenticatedAdPlacementInterval: 5,
+                  premiumAdFrequency: 0,
+                  premiumAdPlacementInterval: 0,
+                  guestArticlesToReadBeforeShowingInterstitialAds: 10,
+                  premiumUserArticlesToReadBeforeShowingInterstitialAds: 20,
+                  standardUserArticlesToReadBeforeShowingInterstitialAds: 50000)
+              .toJson(),
         );
         expect(
           json['account_action_config'],
