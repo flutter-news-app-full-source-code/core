@@ -2,5 +2,5 @@
 library;
 
 export 'src/exceptions/exceptions.dart';
-export 'src/models/auth/permission.dart';
+export 'src/fixtures/fixtures.dart';
 export 'src/models/models.dart';
