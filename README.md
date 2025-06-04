@@ -35,8 +35,6 @@ To further accelerate development and provide immediate demonstration capabiliti
 *   **🧪 Reliable Testing:** Use consistent, realistic data for unit and integration tests.
 *   **🚀 Rapid Prototyping:** Jumpstart UI development and feature implementation with readily available sample content.
 
-Access these fixtures via `package:ht_shared/fixtures.dart`.
-
 ## 🔑 Access and Licensing
 
 `ht_shared` is source-available as part of the Headlines Toolkit ecosystem.
