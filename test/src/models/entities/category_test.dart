@@ -25,20 +25,19 @@ void main() {
       );
     });
 
-    test('constructor assigns id if not provided and sets type to "category"',
-        () {
-      final category = createSubject(name: 'Sports');
-      expect(category.id, isNotNull);
-      expect(category.id, isNotEmpty);
-      expect(category.type, 'category');
-    });
+    test(
+      'constructor assigns id if not provided and sets type to "category"',
+      () {
+        final category = createSubject(name: 'Sports');
+        expect(category.id, isNotNull);
+        expect(category.id, isNotEmpty);
+        expect(category.type, 'category');
+      },
+    );
 
     test('constructor uses provided id', () {
       const customId = 'custom-category-id';
-      final category = createSubject(
-        id: customId,
-        name: 'Politics',
-      );
+      final category = createSubject(id: customId, name: 'Politics');
       expect(category.id, customId);
     });
 
@@ -65,10 +64,7 @@ void main() {
       });
 
       test('creates Category with default id if not provided in JSON', () {
-        final json = <String, dynamic>{
-          'name': 'Art',
-          'type': 'category',
-        };
+        final json = <String, dynamic>{'name': 'Art', 'type': 'category'};
         final category = Category.fromJson(json);
         expect(category.id, isNotNull);
         expect(category.id, isNotEmpty);
@@ -128,10 +124,7 @@ void main() {
       });
 
       test('returns a new object with multiple updated properties', () {
-        final original = createSubject(
-          name: 'Original',
-          description: 'Desc',
-        );
+        final original = createSubject(name: 'Original', description: 'Desc');
         final updated = original.copyWith(
           name: 'Updated',
           description: 'Updated Desc',

@@ -13,10 +13,7 @@ void main() {
 
     group('constructor', () {
       test('assigns all properties correctly', () {
-        expect(
-          defaultConfig.guestDaysBetweenAccountActions,
-          guestDays,
-        );
+        expect(defaultConfig.guestDaysBetweenAccountActions, guestDays);
         expect(
           defaultConfig.standardUserDaysBetweenAccountActions,
           standardUserDays,
@@ -71,14 +68,9 @@ void main() {
       });
 
       test('copies correctly when some arguments are provided', () {
-        final copy = defaultConfig.copyWith(
-          guestDaysBetweenAccountActions: 10,
-        );
+        final copy = defaultConfig.copyWith(guestDaysBetweenAccountActions: 10);
         expect(copy.guestDaysBetweenAccountActions, 10);
-        expect(
-          copy.standardUserDaysBetweenAccountActions,
-          standardUserDays,
-        );
+        expect(copy.standardUserDaysBetweenAccountActions, standardUserDays);
       });
     });
 
@@ -108,10 +100,7 @@ void main() {
       });
 
       test('props list contains all relevant fields', () {
-        expect(defaultConfig.props, [
-          guestDays,
-          standardUserDays,
-        ]);
+        expect(defaultConfig.props, [guestDays, standardUserDays]);
       });
     });
   });

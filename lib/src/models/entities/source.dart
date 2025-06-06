@@ -29,8 +29,8 @@ class Source extends FeedItem {
     this.language,
     this.headquarters,
     String? id,
-  })  : id = id ?? const Uuid().v4(),
-        super(type: 'source');
+  }) : id = id ?? const Uuid().v4(),
+       super(type: 'source');
 
   /// Factory method to create a [Source] instance from a JSON map.
   factory Source.fromJson(Map<String, dynamic> json) => _$SourceFromJson(json);
@@ -70,15 +70,15 @@ class Source extends FeedItem {
 
   @override
   List<Object?> get props => [
-        id,
-        name,
-        description,
-        url,
-        sourceType, // Changed from _sourceType
-        language,
-        headquarters,
-        type,
-      ];
+    id,
+    name,
+    description,
+    url,
+    sourceType, // Changed from _sourceType
+    language,
+    headquarters,
+    type,
+  ];
 
   /// Creates a new [Source] with updated properties.
   /// Use this to modify a [Source] without changing the original instance.

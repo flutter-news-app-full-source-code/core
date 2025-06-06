@@ -6,10 +6,7 @@ void main() {
     test('has all expected values', () {
       expect(
         AccountActionType.values,
-        containsAll([
-          AccountActionType.linkAccount,
-          AccountActionType.upgrade,
-        ]),
+        containsAll([AccountActionType.linkAccount, AccountActionType.upgrade]),
       );
     });
 

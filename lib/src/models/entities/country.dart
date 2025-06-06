@@ -25,8 +25,8 @@ class Country extends FeedItem {
     required this.name,
     required this.flagUrl,
     String? id,
-  })  : id = id ?? const Uuid().v4(),
-        super(type: 'country');
+  }) : id = id ?? const Uuid().v4(),
+       super(type: 'country');
 
   /// Creates a Country instance from a JSON map.
   factory Country.fromJson(Map<String, dynamic> json) =>

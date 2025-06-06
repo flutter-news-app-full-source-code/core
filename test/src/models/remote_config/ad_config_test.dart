@@ -90,7 +90,9 @@ void main() {
         final result = AdConfig.fromJson(json);
         expect(result.guestArticlesToReadBeforeShowingInterstitialAds, 5);
         expect(
-            result.standardUserArticlesToReadBeforeShowingInterstitialAds, 5);
+          result.standardUserArticlesToReadBeforeShowingInterstitialAds,
+          5,
+        );
         expect(result.premiumUserArticlesToReadBeforeShowingInterstitialAds, 5);
       });
     });

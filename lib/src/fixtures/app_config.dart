@@ -7,7 +7,7 @@ const Map<String, dynamic> appConfigFixtureData = {
     'authenticated_followed_items_limit': 15,
     'authenticated_saved_headlines_limit': 30,
     'premium_followed_items_limit': 30,
-    'premium_saved_headlines_limit': 100
+    'premium_saved_headlines_limit': 100,
   },
   'ad_config': {
     'guest_ad_frequency': 5,
@@ -15,10 +15,10 @@ const Map<String, dynamic> appConfigFixtureData = {
     'authenticated_ad_frequency': 10,
     'authenticated_ad_placement_interval': 5,
     'premium_ad_frequency': 0,
-    'premium_ad_placement_interval': 0
+    'premium_ad_placement_interval': 0,
   },
   'account_action_config': {
     'guest_days_between_account_actions': 2,
-    'standard_user_days_between_account_actions': 7
-  }
+    'standard_user_days_between_account_actions': 7,
+  },
 };

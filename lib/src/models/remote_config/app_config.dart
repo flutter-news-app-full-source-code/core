@@ -51,35 +51,38 @@ class AppConfig extends Equatable {
     this.updateOptionalMessage,
     this.iosStoreUrl,
     this.androidStoreUrl,
-  })  : userPreferenceLimits = userPreferenceLimits ??
-            const UserPreferenceConfig(
-              guestFollowedItemsLimit: 5,
-              guestSavedHeadlinesLimit: 10,
-              authenticatedFollowedItemsLimit: 15,
-              authenticatedSavedHeadlinesLimit: 30,
-              premiumFollowedItemsLimit: 30,
-              premiumSavedHeadlinesLimit: 100,
-            ), // Default limits
+  }) : userPreferenceLimits =
+           userPreferenceLimits ??
+           const UserPreferenceConfig(
+             guestFollowedItemsLimit: 5,
+             guestSavedHeadlinesLimit: 10,
+             authenticatedFollowedItemsLimit: 15,
+             authenticatedSavedHeadlinesLimit: 30,
+             premiumFollowedItemsLimit: 30,
+             premiumSavedHeadlinesLimit: 100,
+           ), // Default limits
 
-        accountActionConfig = accountActionConfig ??
-            const AccountActionConfig(
-              guestDaysBetweenAccountActions: 7,
-              standardUserDaysBetweenAccountActions: 14,
-            ),
-        // Ensure AdConfig defaults include any new fields if it was also extended
-        // For example, if AdConfig was extended like this:
-        adConfig = adConfig ??
-            const AdConfig(
-              guestAdFrequency: 5,
-              guestAdPlacementInterval: 3,
-              authenticatedAdFrequency: 10,
-              authenticatedAdPlacementInterval: 5,
-              premiumAdFrequency: 0,
-              premiumAdPlacementInterval: 0,
-              guestArticlesToReadBeforeShowingInterstitialAds: 10,
-              standardUserArticlesToReadBeforeShowingInterstitialAds: 20,
-              premiumUserArticlesToReadBeforeShowingInterstitialAds: 50000,
-            );
+       accountActionConfig =
+           accountActionConfig ??
+           const AccountActionConfig(
+             guestDaysBetweenAccountActions: 7,
+             standardUserDaysBetweenAccountActions: 14,
+           ),
+       // Ensure AdConfig defaults include any new fields if it was also extended
+       // For example, if AdConfig was extended like this:
+       adConfig =
+           adConfig ??
+           const AdConfig(
+             guestAdFrequency: 5,
+             guestAdPlacementInterval: 3,
+             authenticatedAdFrequency: 10,
+             authenticatedAdPlacementInterval: 5,
+             premiumAdFrequency: 0,
+             premiumAdPlacementInterval: 0,
+             guestArticlesToReadBeforeShowingInterstitialAds: 10,
+             standardUserArticlesToReadBeforeShowingInterstitialAds: 20,
+             premiumUserArticlesToReadBeforeShowingInterstitialAds: 50000,
+           );
 
   /// Factory method to create an [AppConfig] instance from a JSON map.
   factory AppConfig.fromJson(Map<String, dynamic> json) =>
@@ -180,24 +183,24 @@ class AppConfig extends Equatable {
 
   @override
   List<Object?> get props => [
-        // Changed to List<Object?> to allow nulls
-        id,
-        userPreferenceLimits,
-        adConfig,
-        accountActionConfig,
-        // Kill Switch
-        killSwitchEnabled,
-        appOperationalStatus,
-        maintenanceMessage,
-        disabledMessage,
-        // Force Update
-        minAllowedAppVersion,
-        latestAppVersion,
-        updateRequiredMessage,
-        updateOptionalMessage,
-        iosStoreUrl,
-        androidStoreUrl,
-      ];
+    // Changed to List<Object?> to allow nulls
+    id,
+    userPreferenceLimits,
+    adConfig,
+    accountActionConfig,
+    // Kill Switch
+    killSwitchEnabled,
+    appOperationalStatus,
+    maintenanceMessage,
+    disabledMessage,
+    // Force Update
+    minAllowedAppVersion,
+    latestAppVersion,
+    updateRequiredMessage,
+    updateOptionalMessage,
+    iosStoreUrl,
+    androidStoreUrl,
+  ];
 
   @override
   bool get stringify => true;

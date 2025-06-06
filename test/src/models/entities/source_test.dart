@@ -170,11 +170,7 @@ void main() {
 
     group('JSON Deserialization (fromJson)', () {
       test('deserializes minimal JSON correctly', () {
-        final minimalJson = {
-          'id': testId,
-          'name': testName,
-          'type': 'source',
-        };
+        final minimalJson = {'id': testId, 'name': testName, 'type': 'source'};
         final source = Source.fromJson(minimalJson);
         expect(source.id, testId);
         expect(source.name, testName);

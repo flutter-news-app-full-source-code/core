@@ -12,9 +12,9 @@ const sourcesFixturesData = [
       'iso_code': 'US',
       'name': 'United States',
       'flag_url': 'https://example.com/flags/us.png',
-      'type': 'country'
+      'type': 'country',
     },
-    'type': 'source'
+    'type': 'source',
   },
   {
     'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -28,9 +28,9 @@ const sourcesFixturesData = [
       'iso_code': 'US',
       'name': 'United States',
       'flag_url': 'https://example.com/flags/us.png',
-      'type': 'country'
+      'type': 'country',
     },
-    'type': 'source'
+    'type': 'source',
   },
   {
     'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
@@ -44,9 +44,9 @@ const sourcesFixturesData = [
       'iso_code': 'US',
       'name': 'United States',
       'flag_url': 'https://example.com/flags/us.png',
-      'type': 'country'
+      'type': 'country',
     },
-    'type': 'source'
+    'type': 'source',
   },
   {
     'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
@@ -60,8 +60,8 @@ const sourcesFixturesData = [
       'iso_code': 'GB',
       'name': 'United Kingdom',
       'flag_url': 'https://example.com/flags/gb.png',
-      'type': 'country'
+      'type': 'country',
     },
-    'type': 'source'
-  }
+    'type': 'source',
+  },
 ];

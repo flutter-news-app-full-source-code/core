@@ -13,12 +13,12 @@ void main() {
 
     // Helper to create a valid JSON map
     Map<String, dynamic> createValidJsonMap({String? idOverride}) => {
-          'id': idOverride ?? testId,
-          'iso_code': testIsoCode,
-          'name': testName,
-          'flag_url': testFlagUrl,
-          'type': 'country',
-        };
+      'id': idOverride ?? testId,
+      'iso_code': testIsoCode,
+      'name': testName,
+      'flag_url': testFlagUrl,
+      'type': 'country',
+    };
 
     // Helper to create a Country instance
     Country createSubject({
@@ -53,13 +53,7 @@ void main() {
       expect(props, hasLength(5)); // id, isoCode, name, flagUrl, type
       expect(
         props,
-        equals([
-          testId,
-          testIsoCode,
-          testName,
-          testFlagUrl,
-          country.type,
-        ]),
+        equals([testId, testIsoCode, testName, testFlagUrl, country.type]),
       );
     });
 

@@ -8,10 +8,7 @@ void main() {
         AdPlacement.feedInlineStandardBanner.name,
         'feedInlineStandardBanner',
       );
-      expect(
-        AdPlacement.feedInlineNativeBanner.name,
-        'feedInlineNativeBanner',
-      );
+      expect(AdPlacement.feedInlineNativeBanner.name, 'feedInlineNativeBanner');
     });
 
     test('can be created from string values', () {

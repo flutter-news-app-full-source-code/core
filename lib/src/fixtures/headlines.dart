@@ -13,15 +13,15 @@ const headlinesFixturesData = [
       'name': 'Very Good Ventures Blog',
       'url': 'https://vgv.dev/blog',
       'source_type': 'blog',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
       'name': 'Technology',
       'description': 'News about software development and frameworks.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'b2c3d4e5-f6a7-8901-2345-67890abcdef0',
@@ -36,15 +36,15 @@ const headlinesFixturesData = [
       'name': 'Flutter Dev',
       'url': 'https://flutter.dev',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
       'name': 'Mobile Development',
       'description': 'Articles related to mobile app development.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef1',
@@ -59,16 +59,16 @@ const headlinesFixturesData = [
       'name': 'TechCrunch',
       'url': 'https://techcrunch.com/',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
       'name': 'Technology',
       'description':
           'News about software development, hardware, and the internet.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef2',
@@ -83,15 +83,15 @@ const headlinesFixturesData = [
       'name': 'Flutter Dev',
       'url': 'https://flutter.dev',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
       'name': 'Mobile Development',
       'description': 'Articles related to mobile app development.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'e5f6a7b8-c9d0-e123-f456-7890abcdef34',
@@ -111,17 +111,17 @@ const headlinesFixturesData = [
         'iso_code': 'GB',
         'name': 'United Kingdom',
         'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country'
+        'type': 'country',
       },
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
       'name': 'Business',
       'description': 'News about companies, finance, and the economy.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'f6a7b8c9-d0e1-f234-a567-890abcdef56',
@@ -141,17 +141,17 @@ const headlinesFixturesData = [
         'iso_code': 'GB',
         'name': 'United Kingdom',
         'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country'
+        'type': 'country',
       },
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
       'name': 'Sports',
       'description': 'Latest updates from the world of sports.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef78',
@@ -166,16 +166,16 @@ const headlinesFixturesData = [
       'name': 'TechCrunch',
       'url': 'https://techcrunch.com/',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
       'name': 'Technology',
       'description':
           'News about software development, hardware, and the internet.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'b2c3d4e5-f6a7-8901-2345-67890abcdef90',
@@ -190,15 +190,15 @@ const headlinesFixturesData = [
       'name': 'Flutter Dev',
       'url': 'https://flutter.dev',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
       'name': 'Mobile Development',
       'description': 'Articles related to mobile app development.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef12',
@@ -213,15 +213,15 @@ const headlinesFixturesData = [
       'name': 'TechCrunch',
       'url': 'https://techcrunch.com/',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
       'name': 'Business',
       'description': 'News about companies, finance, and the economy.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef34',
@@ -242,17 +242,17 @@ const headlinesFixturesData = [
         'iso_code': 'GB',
         'name': 'United Kingdom',
         'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country'
+        'type': 'country',
       },
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
       'name': 'Sports',
       'description': 'Latest updates from the world of sports.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'e5f6a7b8-c9d0-e123-f456-7890abcdef56',
@@ -267,16 +267,16 @@ const headlinesFixturesData = [
       'name': 'Very Good Ventures Blog',
       'url': 'https://vgv.dev/blog',
       'source_type': 'blog',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
       'name': 'Technology',
       'description':
           'News about software development, hardware, and the internet.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'f6a7b8c9-d0e1-f234-a567-890abcdef78',
@@ -291,16 +291,16 @@ const headlinesFixturesData = [
       'name': 'Flutter Dev',
       'url': 'https://flutter.dev',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
       'name': 'Mobile Development',
       'description':
           'Articles related to mobile app development for iOS and Android.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef90',
@@ -314,15 +314,15 @@ const headlinesFixturesData = [
       'name': 'TechCrunch',
       'url': 'https://techcrunch.com/',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
       'name': 'Business',
       'description': 'News about companies, finance, and the economy.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'b2c3d4e5-f6a7-8901-2345-67890abcdef12',
@@ -343,17 +343,17 @@ const headlinesFixturesData = [
         'iso_code': 'GB',
         'name': 'United Kingdom',
         'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country'
+        'type': 'country',
       },
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
       'name': 'Sports',
       'description': 'Latest updates from the world of sports.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef34',
@@ -370,8 +370,8 @@ const headlinesFixturesData = [
       'action': {
         'type': 'open_internal_content',
         'content_id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
-        'content_type': 'source'
-      }
+        'content_type': 'source',
+      },
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
@@ -381,14 +381,14 @@ const headlinesFixturesData = [
       'action': {
         'type': 'open_internal_content',
         'content_id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-        'content_type': 'category'
-      }
+        'content_type': 'category',
+      },
     },
     'action': {
       'type': 'open_internal_content',
       'content_id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef34',
-      'content_type': 'headline'
-    }
+      'content_type': 'headline',
+    },
   },
   {
     'id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef56',
@@ -406,8 +406,8 @@ const headlinesFixturesData = [
       'action': {
         'type': 'open_internal_content',
         'content_id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-        'content_type': 'source'
-      }
+        'content_type': 'source',
+      },
     },
     'category': {
       'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -417,14 +417,14 @@ const headlinesFixturesData = [
       'action': {
         'type': 'open_internal_content',
         'content_id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-        'content_type': 'category'
-      }
+        'content_type': 'category',
+      },
     },
     'action': {
       'type': 'open_internal_content',
       'content_id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef56',
-      'content_type': 'headline'
-    }
+      'content_type': 'headline',
+    },
   },
   {
     'id': 'e5f6a7b8-c9d0-e123-f456-7890abcdef78',
@@ -444,17 +444,17 @@ const headlinesFixturesData = [
         'iso_code': 'GB',
         'name': 'United Kingdom',
         'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country'
+        'type': 'country',
       },
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
       'name': 'Business',
       'description': 'News about companies, finance, and the economy.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'f6a7b8c9-d0e1-f234-a567-890abcdef90',
@@ -475,17 +475,17 @@ const headlinesFixturesData = [
         'iso_code': 'GB',
         'name': 'United Kingdom',
         'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country'
+        'type': 'country',
       },
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
       'name': 'Sports',
       'description': 'Latest updates from the world of sports.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef123',
@@ -500,16 +500,16 @@ const headlinesFixturesData = [
       'name': 'Very Good Ventures Blog',
       'url': 'https://vgv.dev/blog',
       'source_type': 'blog',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
       'name': 'Technology',
       'description':
           'News about software development, hardware, and the internet.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'b2c3d4e5-f6a7-8901-2345-67890abcdef456',
@@ -524,16 +524,16 @@ const headlinesFixturesData = [
       'name': 'Flutter Dev',
       'url': 'https://flutter.dev',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
       'name': 'Mobile Development',
       'description':
           'Articles related to mobile app development for iOS and Android.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef789',
@@ -550,8 +550,8 @@ const headlinesFixturesData = [
       'action': {
         'type': 'open_internal_content',
         'content_id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
-        'content_type': 'source'
-      }
+        'content_type': 'source',
+      },
     },
     'category': {
       'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
@@ -560,14 +560,14 @@ const headlinesFixturesData = [
       'action': {
         'type': 'open_internal_content',
         'content_id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
-        'content_type': 'category'
-      }
+        'content_type': 'category',
+      },
     },
     'action': {
       'type': 'open_internal_content',
       'content_id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef789',
-      'content_type': 'headline'
-    }
+      'content_type': 'headline',
+    },
   },
   {
     'id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef012',
@@ -591,14 +591,14 @@ const headlinesFixturesData = [
         'action': {
           'type': 'open_internal_content',
           'content_id': 'country-gb',
-          'content_type': 'country'
-        }
+          'content_type': 'country',
+        },
       },
       'action': {
         'type': 'open_internal_content',
         'content_id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
-        'content_type': 'source'
-      }
+        'content_type': 'source',
+      },
     },
     'category': {
       'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
@@ -607,14 +607,14 @@ const headlinesFixturesData = [
       'action': {
         'type': 'open_internal_content',
         'content_id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
-        'content_type': 'category'
-      }
+        'content_type': 'category',
+      },
     },
     'action': {
       'type': 'open_internal_content',
       'content_id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef012',
-      'content_type': 'headline'
-    }
+      'content_type': 'headline',
+    },
   },
   {
     'id': 'e5f6a7b8-c9d0-e123-f456-7890abcdef345',
@@ -629,16 +629,16 @@ const headlinesFixturesData = [
       'name': 'TechCrunch',
       'url': 'https://techcrunch.com/',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
       'name': 'Technology',
       'description':
           'News about software development, hardware, and the internet.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'f6a7b8c9-d0e1-f234-a567-890abcdef678',
@@ -652,16 +652,16 @@ const headlinesFixturesData = [
       'name': 'Flutter Dev',
       'url': 'https://flutter.dev',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
       'name': 'Mobile Development',
       'description':
           'Articles related to mobile app development for iOS and Android.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef901',
@@ -681,17 +681,17 @@ const headlinesFixturesData = [
         'iso_code': 'GB',
         'name': 'United Kingdom',
         'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country'
+        'type': 'country',
       },
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
       'name': 'Business',
       'description': 'News about companies, finance, and the economy.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'b2c3d4e5-f6a7-8901-2345-67890abcdef234',
@@ -705,16 +705,16 @@ const headlinesFixturesData = [
       'name': 'Very Good Ventures Blog',
       'url': 'https://vgv.dev/blog',
       'source_type': 'blog',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
       'name': 'Technology',
       'description':
           'News about software development, hardware, and the internet.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef567',
@@ -729,16 +729,16 @@ const headlinesFixturesData = [
       'name': 'Flutter Dev',
       'url': 'https://flutter.dev',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
       'name': 'Mobile Development',
       'description':
           'Articles related to mobile app development for iOS and Android.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef890',
@@ -753,16 +753,16 @@ const headlinesFixturesData = [
       'name': 'TechCrunch',
       'url': 'https://techcrunch.com/',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
       'name': 'Technology',
       'description':
           'News about software development, hardware, and the internet.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'e5f6a7b8-c9d0-e123-f456-7890abcdef1234',
@@ -782,17 +782,17 @@ const headlinesFixturesData = [
         'iso_code': 'GB',
         'name': 'United Kingdom',
         'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country'
+        'type': 'country',
       },
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
       'name': 'Business',
       'description': 'News about companies, finance, and the economy.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'f6a7b8c9-d0e1-f234-a567-890abcdef5678',
@@ -807,16 +807,16 @@ const headlinesFixturesData = [
       'name': 'Flutter Dev',
       'url': 'https://flutter.dev',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
       'name': 'Mobile Development',
       'description':
           'Articles related to mobile app development for iOS and Android.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef9012',
@@ -831,16 +831,16 @@ const headlinesFixturesData = [
       'name': 'Very Good Ventures Blog',
       'url': 'https://vgv.dev/blog',
       'source_type': 'blog',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
       'name': 'Technology',
       'description':
           'News about software development, hardware, and the internet.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'b2c3d4e5-f6a7-8901-2345-67890abcdef3456',
@@ -854,16 +854,16 @@ const headlinesFixturesData = [
       'name': 'Flutter Dev',
       'url': 'https://flutter.dev',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
       'name': 'Mobile Development',
       'description':
           'Articles related to mobile app development for iOS and Android.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef7890',
@@ -877,15 +877,15 @@ const headlinesFixturesData = [
       'name': 'TechCrunch',
       'url': 'https://techcrunch.com/',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
       'name': 'Business',
       'description': 'News about companies, finance, and the economy.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef12345',
@@ -905,17 +905,17 @@ const headlinesFixturesData = [
         'iso_code': 'GB',
         'name': 'United Kingdom',
         'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country'
+        'type': 'country',
       },
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
       'name': 'Sports',
       'description': 'Latest updates from the world of sports.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'e5f6a7b8-c9d0-e123-f456-7890abcdef67890',
@@ -930,16 +930,16 @@ const headlinesFixturesData = [
       'name': 'Very Good Ventures Blog',
       'url': 'https://vgv.dev/blog',
       'source_type': 'blog',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
       'name': 'Technology',
       'description':
           'News about software development, hardware, and the internet.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'f6a7b8c9-d0e1-f234-a567-890abcdef123456',
@@ -954,16 +954,16 @@ const headlinesFixturesData = [
       'name': 'Flutter Dev',
       'url': 'https://flutter.dev',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
       'name': 'Mobile Development',
       'description':
           'Articles related to mobile app development for iOS and Android.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef78901',
@@ -977,16 +977,16 @@ const headlinesFixturesData = [
       'name': 'TechCrunch',
       'url': 'https://techcrunch.com/',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
       'name': 'Technology',
       'description':
           'News about software development, hardware, and the internet.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'b2c3d4e5-f6a7-8901-2345-67890abcdef234567',
@@ -1001,16 +1001,16 @@ const headlinesFixturesData = [
       'name': 'Very Good Ventures Blog',
       'url': 'https://vgv.dev/blog',
       'source_type': 'blog',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
       'name': 'Technology',
       'description':
           'News about software development, hardware, and the internet.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef89012',
@@ -1025,16 +1025,16 @@ const headlinesFixturesData = [
       'name': 'Flutter Dev',
       'url': 'https://flutter.dev',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
       'name': 'Mobile Development',
       'description':
           'Articles related to mobile app development for iOS and Android.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef34567',
@@ -1054,17 +1054,17 @@ const headlinesFixturesData = [
         'iso_code': 'GB',
         'name': 'United Kingdom',
         'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country'
+        'type': 'country',
       },
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
       'name': 'Business',
       'description': 'News about companies, finance, and the economy.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'e5f6a7b8-c9d0-e123-f456-7890abcdef89012',
@@ -1084,17 +1084,17 @@ const headlinesFixturesData = [
         'iso_code': 'GB',
         'name': 'United Kingdom',
         'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country'
+        'type': 'country',
       },
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
       'name': 'Sports',
       'description': 'Latest updates from the world of sports.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'f6a7b8c9-d0e1-f234-a567-890abcdef345678',
@@ -1109,16 +1109,16 @@ const headlinesFixturesData = [
       'name': 'Very Good Ventures Blog',
       'url': 'https://vgv.dev/blog',
       'source_type': 'blog',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
       'name': 'Technology',
       'description':
           'News about software development, hardware, and the internet.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef90123',
@@ -1133,16 +1133,16 @@ const headlinesFixturesData = [
       'name': 'Flutter Dev',
       'url': 'https://flutter.dev',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
       'name': 'Mobile Development',
       'description':
           'Articles related to mobile app development for iOS and Android.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'b2c3d4e5-f6a7-8901-2345-67890abcdef456789',
@@ -1156,15 +1156,15 @@ const headlinesFixturesData = [
       'name': 'TechCrunch',
       'url': 'https://techcrunch.com/',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
       'name': 'Business',
       'description': 'News about companies, finance, and the economy.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef01234',
@@ -1185,17 +1185,17 @@ const headlinesFixturesData = [
         'iso_code': 'GB',
         'name': 'United Kingdom',
         'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country'
+        'type': 'country',
       },
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
       'name': 'Sports',
       'description': 'Latest updates from the world of sports.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef567890',
@@ -1210,16 +1210,16 @@ const headlinesFixturesData = [
       'name': 'Very Good Ventures Blog',
       'url': 'https://vgv.dev/blog',
       'source_type': 'blog',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
       'name': 'Technology',
       'description':
           'News about software development, hardware, and the internet.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'e5f6a7b8-c9d0-e123-f456-7890abcdef1234567',
@@ -1233,16 +1233,16 @@ const headlinesFixturesData = [
       'name': 'Very Good Ventures Blog',
       'url': 'https://vgv.dev/blog',
       'source_type': 'blog',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
       'name': 'Technology',
       'description':
           'News about software development, hardware, and the internet.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'f6a7b8c9-d0e1-f234-a567-890abcdef890123',
@@ -1257,16 +1257,16 @@ const headlinesFixturesData = [
       'name': 'Flutter Dev',
       'url': 'https://flutter.dev',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
       'name': 'Mobile Development',
       'description':
           'Articles related to mobile app development for iOS and Android.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef4567890',
@@ -1281,15 +1281,15 @@ const headlinesFixturesData = [
       'name': 'TechCrunch',
       'url': 'https://techcrunch.com/',
       'source_type': 'specialized_publisher',
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
       'name': 'Business',
       'description': 'News about companies, finance, and the economy.',
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': '0f8fad5b-d9cb-469f-a165-70867728950e',
@@ -1307,7 +1307,7 @@ const headlinesFixturesData = [
       'source_type': 'blog',
       'language': 'en',
       'headquarters': null,
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -1315,9 +1315,9 @@ const headlinesFixturesData = [
       'description':
           'Articles related to mobile app development for iOS and Android.',
       'icon_url': null,
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': '1c9c07df-19e8-40e0-9f3a-6410bf9a0b5a',
@@ -1335,16 +1335,16 @@ const headlinesFixturesData = [
       'source_type': 'blog',
       'language': 'en',
       'headquarters': null,
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
       'name': 'Business',
       'description': 'News about companies, finance, and the economy.',
       'icon_url': null,
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': '8f5dbf2e-0a3f-4a9c-8b7c-3e4d5f6a7b8c',
@@ -1362,16 +1362,16 @@ const headlinesFixturesData = [
       'source_type': 'blog',
       'language': 'en',
       'headquarters': null,
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
       'name': 'Sports',
       'description': 'Latest updates from the world of sports.',
       'icon_url': null,
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': '3a2b1c0d-ef98-7654-3210-fedcba987654',
@@ -1390,7 +1390,7 @@ const headlinesFixturesData = [
       'source_type': 'specialized_publisher',
       'language': 'fr',
       'headquarters': null,
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
@@ -1398,9 +1398,9 @@ const headlinesFixturesData = [
       'description':
           'News about software development, hardware, and the internet.',
       'icon_url': null,
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': '4b3c2d1e-f0a9-8765-4321-0fedcba98765',
@@ -1419,16 +1419,16 @@ const headlinesFixturesData = [
       'source_type': 'specialized_publisher',
       'language': 'fr',
       'headquarters': null,
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
       'name': 'Business',
       'description': 'News about companies, finance, and the economy.',
       'icon_url': null,
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': '5c4d3e2f-1ba0-9876-5432-10fedcba9876',
@@ -1447,16 +1447,16 @@ const headlinesFixturesData = [
       'source_type': 'specialized_publisher',
       'language': 'fr',
       'headquarters': null,
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
       'name': 'Sports',
       'description': 'Latest updates from the world of sports.',
       'icon_url': null,
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': '6d5e4f3a-2cb1-0987-6543-210fedcba987',
@@ -1478,9 +1478,9 @@ const headlinesFixturesData = [
         'iso_code': 'US',
         'name': 'United States',
         'flag_url': 'https://example.com/flags/us.png',
-        'type': 'country'
+        'type': 'country',
       },
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -1488,9 +1488,9 @@ const headlinesFixturesData = [
       'description':
           'Articles related to mobile app development for iOS and Android.',
       'icon_url': null,
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': '7e6f5a4b-3dc2-1098-7654-3210fedcba98',
@@ -1512,18 +1512,18 @@ const headlinesFixturesData = [
         'iso_code': 'US',
         'name': 'United States',
         'flag_url': 'https://example.com/flags/us.png',
-        'type': 'country'
+        'type': 'country',
       },
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
       'name': 'Sports',
       'description': 'Latest updates from the world of sports.',
       'icon_url': null,
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': '8f7a6b5c-4ed3-2109-8765-43210fedcba9',
@@ -1545,9 +1545,9 @@ const headlinesFixturesData = [
         'iso_code': 'GB',
         'name': 'United Kingdom',
         'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country'
+        'type': 'country',
       },
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
@@ -1555,9 +1555,9 @@ const headlinesFixturesData = [
       'description':
           'News about software development, hardware, and the internet.',
       'icon_url': null,
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
+    'type': 'headline',
   },
   {
     'id': '9a8b7c6d-5fe4-3210-9876-543210fedcba',
@@ -1579,9 +1579,9 @@ const headlinesFixturesData = [
         'iso_code': 'GB',
         'name': 'United Kingdom',
         'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country'
+        'type': 'country',
       },
-      'type': 'source'
+      'type': 'source',
     },
     'category': {
       'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -1589,8 +1589,8 @@ const headlinesFixturesData = [
       'description':
           'Articles related to mobile app development for iOS and Android.',
       'icon_url': null,
-      'type': 'category'
+      'type': 'category',
     },
-    'type': 'headline'
-  }
+    'type': 'headline',
+  },
 ];

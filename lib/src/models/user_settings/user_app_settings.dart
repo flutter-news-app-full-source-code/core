@@ -35,12 +35,12 @@ class UserAppSettings extends Equatable {
     FeedDisplayPreferences? feedPreferences,
     Map<String, int>? engagementShownCounts,
     Map<String, DateTime>? engagementLastShownTimestamps,
-  })  : displaySettings = displaySettings ?? const DisplaySettings(),
-        language = language ?? 'en', // Default language is English
-        feedPreferences = feedPreferences ?? const FeedDisplayPreferences(),
-        engagementShownCounts = engagementShownCounts ?? const {},
-        engagementLastShownTimestamps =
-            engagementLastShownTimestamps ?? const {};
+  }) : displaySettings = displaySettings ?? const DisplaySettings(),
+       language = language ?? 'en', // Default language is English
+       feedPreferences = feedPreferences ?? const FeedDisplayPreferences(),
+       engagementShownCounts = engagementShownCounts ?? const {},
+       engagementLastShownTimestamps =
+           engagementLastShownTimestamps ?? const {};
 
   /// Factory method to create a [UserAppSettings] instance from a JSON map.
   factory UserAppSettings.fromJson(Map<String, dynamic> json) =>
@@ -75,13 +75,13 @@ class UserAppSettings extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        displaySettings,
-        language,
-        feedPreferences,
-        engagementShownCounts,
-        engagementLastShownTimestamps,
-      ];
+    id,
+    displaySettings,
+    language,
+    feedPreferences,
+    engagementShownCounts,
+    engagementLastShownTimestamps,
+  ];
 
   /// Creates a copy of this [UserAppSettings] but with the given fields
   /// replaced with the new values.
@@ -111,8 +111,9 @@ Map<String, DateTime> _engagementLastShownTimestampsFromJson(
   Map<String, dynamic>? json,
 ) {
   if (json == null) return const {};
-  return json
-      .map((key, value) => MapEntry(key, DateTime.parse(value as String)));
+  return json.map(
+    (key, value) => MapEntry(key, DateTime.parse(value as String)),
+  );
 }
 
 // Helper function for serializing Map<String, DateTime> to JSON

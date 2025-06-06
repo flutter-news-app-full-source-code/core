@@ -66,18 +66,15 @@ void main() {
         callToActionUrl: 'https://cta.com',
       );
 
-      expect(
-        instance.props,
-        [
-          testId,
-          'Title',
-          'Description',
-          AccountActionType.upgrade, // Changed from rateApp
-          'Click Me',
-          'https://cta.com',
-          'account_action',
-        ],
-      );
+      expect(instance.props, [
+        testId,
+        'Title',
+        'Description',
+        AccountActionType.upgrade, // Changed from rateApp
+        'Click Me',
+        'https://cta.com',
+        'account_action',
+      ]);
     });
 
     group('fromJson', () {
@@ -116,8 +113,10 @@ void main() {
         expect(instance.id, testId);
         expect(instance.title, 'Simple Title');
         expect(instance.description, isNull);
-        expect(instance.accountActionType,
-            AccountActionType.upgrade); // Changed from rateApp
+        expect(
+          instance.accountActionType,
+          AccountActionType.upgrade,
+        ); // Changed from rateApp
         expect(instance.callToActionText, isNull);
         expect(instance.callToActionUrl, isNull);
       });

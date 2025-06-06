@@ -7,19 +7,16 @@ part of 'response_metadata.dart';
 // **************************************************************************
 
 ResponseMetadata _$ResponseMetadataFromJson(Map<String, dynamic> json) =>
-    $checkedCreate(
-      'ResponseMetadata',
-      json,
-      ($checkedConvert) {
-        final val = ResponseMetadata(
-          requestId: $checkedConvert('request_id', (v) => v as String?),
-          timestamp: $checkedConvert('timestamp',
-              (v) => v == null ? null : DateTime.parse(v as String)),
-        );
-        return val;
-      },
-      fieldKeyMap: const {'requestId': 'request_id'},
-    );
+    $checkedCreate('ResponseMetadata', json, ($checkedConvert) {
+      final val = ResponseMetadata(
+        requestId: $checkedConvert('request_id', (v) => v as String?),
+        timestamp: $checkedConvert(
+          'timestamp',
+          (v) => v == null ? null : DateTime.parse(v as String),
+        ),
+      );
+      return val;
+    }, fieldKeyMap: const {'requestId': 'request_id'});
 
 Map<String, dynamic> _$ResponseMetadataToJson(ResponseMetadata instance) =>
     <String, dynamic>{

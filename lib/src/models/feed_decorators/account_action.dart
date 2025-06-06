@@ -40,8 +40,8 @@ class AccountAction extends FeedItem {
     this.callToActionText,
     this.callToActionUrl,
     String? id,
-  })  : id = id ?? const Uuid().v4(),
-        super(type: 'account_action');
+  }) : id = id ?? const Uuid().v4(),
+       super(type: 'account_action');
 
   /// Factory method to create an [AccountAction] instance from a JSON map.
   factory AccountAction.fromJson(Map<String, dynamic> json) =>
@@ -76,14 +76,14 @@ class AccountAction extends FeedItem {
 
   @override
   List<Object?> get props => [
-        id,
-        title,
-        description,
-        accountActionType,
-        callToActionText,
-        callToActionUrl,
-        type,
-      ];
+    id,
+    title,
+    description,
+    accountActionType,
+    callToActionText,
+    callToActionUrl,
+    type,
+  ];
 
   /// Creates a new [AccountAction] with updated properties.
   /// Use this to modify an [AccountAction] without changing the original

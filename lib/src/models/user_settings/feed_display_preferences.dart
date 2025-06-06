@@ -88,9 +88,9 @@ class FeedDisplayPreferences extends Equatable {
 
   @override
   List<Object?> get props => [
-        headlineDensity,
-        headlineImageStyle,
-        showSourceInHeadlineFeed,
-        showPublishDateInHeadlineFeed,
-      ];
+    headlineDensity,
+    headlineImageStyle,
+    showSourceInHeadlineFeed,
+    showPublishDateInHeadlineFeed,
+  ];
 }

@@ -15,10 +15,7 @@ void main() {
       url: 'http://example.com',
       sourceType: SourceType.newsAgency,
     );
-    final mockCategory = Category(
-      id: 'category-1',
-      name: 'Technology',
-    );
+    final mockCategory = Category(id: 'category-1', name: 'Technology');
     final mockHeadline = Headline(
       id: 'headline-1',
       title: 'Example Headline',

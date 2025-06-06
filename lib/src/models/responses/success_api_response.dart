@@ -35,8 +35,7 @@ class SuccessApiResponse<T> extends Equatable {
   factory SuccessApiResponse.fromJson(
     Map<String, dynamic> json,
     T Function(Object? json) fromJsonT,
-  ) =>
-      _$SuccessApiResponseFromJson(json, fromJsonT);
+  ) => _$SuccessApiResponseFromJson(json, fromJsonT);
 
   /// The main data payload of the response.
   final T data;

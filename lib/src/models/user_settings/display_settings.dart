@@ -86,12 +86,12 @@ class DisplaySettings extends Equatable {
 
   @override
   List<Object?> get props => [
-        baseTheme,
-        accentTheme,
-        fontFamily,
-        textScaleFactor,
-        fontWeight,
-      ];
+    baseTheme,
+    accentTheme,
+    fontFamily,
+    textScaleFactor,
+    fontWeight,
+  ];
 
   /// Converts this [DisplaySettings] instance to a JSON map.
   Map<String, dynamic> toJson() => _$DisplaySettingsToJson(this);

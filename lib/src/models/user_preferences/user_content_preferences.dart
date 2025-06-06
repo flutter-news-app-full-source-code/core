@@ -37,10 +37,10 @@ class UserContentPreferences extends Equatable {
     List<Source>? followedSources,
     List<Category>? followedCategories,
     List<Headline>? savedHeadlines,
-  })  : followedCountries = followedCountries ?? const [],
-        followedSources = followedSources ?? const [],
-        followedCategories = followedCategories ?? const [],
-        savedHeadlines = savedHeadlines ?? const [];
+  }) : followedCountries = followedCountries ?? const [],
+       followedSources = followedSources ?? const [],
+       followedCategories = followedCategories ?? const [],
+       savedHeadlines = savedHeadlines ?? const [];
 
   /// Factory method to create a [UserContentPreferences] instance from a JSON map.
   factory UserContentPreferences.fromJson(Map<String, dynamic> json) =>
@@ -66,12 +66,12 @@ class UserContentPreferences extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        followedCountries,
-        followedSources,
-        followedCategories,
-        savedHeadlines,
-      ];
+    id,
+    followedCountries,
+    followedSources,
+    followedCategories,
+    savedHeadlines,
+  ];
 
   @override
   bool get stringify => true; // Add stringify for better debugging output

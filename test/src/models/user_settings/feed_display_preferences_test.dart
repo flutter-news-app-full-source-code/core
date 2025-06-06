@@ -38,11 +38,13 @@ void main() {
         );
       });
 
-      test('returns correct object with default values when fields are missing',
-          () {
-        final json = <String, dynamic>{}; // Empty JSON
-        expect(FeedDisplayPreferences.fromJson(json), defaultPreferences);
-      });
+      test(
+        'returns correct object with default values when fields are missing',
+        () {
+          final json = <String, dynamic>{}; // Empty JSON
+          expect(FeedDisplayPreferences.fromJson(json), defaultPreferences);
+        },
+      );
     });
 
     group('toJson', () {
@@ -92,19 +94,23 @@ void main() {
       });
 
       test('returns a new object with updated showSourceInHeadlineFeed', () {
-        final updated =
-            defaultPreferences.copyWith(showSourceInHeadlineFeed: false);
+        final updated = defaultPreferences.copyWith(
+          showSourceInHeadlineFeed: false,
+        );
         expect(updated.showSourceInHeadlineFeed, isFalse);
         expect(updated.showPublishDateInHeadlineFeed, isTrue);
       });
 
-      test('returns a new object with updated showPublishDateInHeadlineFeed',
-          () {
-        final updated =
-            defaultPreferences.copyWith(showPublishDateInHeadlineFeed: false);
-        expect(updated.showPublishDateInHeadlineFeed, isFalse);
-        expect(updated.showSourceInHeadlineFeed, isTrue);
-      });
+      test(
+        'returns a new object with updated showPublishDateInHeadlineFeed',
+        () {
+          final updated = defaultPreferences.copyWith(
+            showPublishDateInHeadlineFeed: false,
+          );
+          expect(updated.showPublishDateInHeadlineFeed, isFalse);
+          expect(updated.showSourceInHeadlineFeed, isTrue);
+        },
+      );
 
       test('returns a new object with multiple updated properties', () {
         final updated = defaultPreferences.copyWith(

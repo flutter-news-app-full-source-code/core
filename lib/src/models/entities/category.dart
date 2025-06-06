@@ -22,13 +22,9 @@ class Category extends FeedItem {
   /// {@macro category}
   ///
   /// If an [id] is not provided, a UUID v4 will be generated.
-  Category({
-    required this.name,
-    String? id,
-    this.description,
-    this.iconUrl,
-  })  : id = id ?? const Uuid().v4(),
-        super(type: 'category');
+  Category({required this.name, String? id, this.description, this.iconUrl})
+    : id = id ?? const Uuid().v4(),
+      super(type: 'category');
 
   /// Creates a Category instance from a JSON map.
   factory Category.fromJson(Map<String, dynamic> json) =>

@@ -108,33 +108,34 @@ class AdConfig extends Equatable {
           guestAdPlacementInterval ?? this.guestAdPlacementInterval,
       authenticatedAdFrequency:
           authenticatedAdFrequency ?? this.authenticatedAdFrequency,
-      authenticatedAdPlacementInterval: authenticatedAdPlacementInterval ??
+      authenticatedAdPlacementInterval:
+          authenticatedAdPlacementInterval ??
           this.authenticatedAdPlacementInterval,
       premiumAdFrequency: premiumAdFrequency ?? this.premiumAdFrequency,
       premiumAdPlacementInterval:
           premiumAdPlacementInterval ?? this.premiumAdPlacementInterval,
       guestArticlesToReadBeforeShowingInterstitialAds:
           guestArticlesToReadBeforeShowingInterstitialAds ??
-              this.guestArticlesToReadBeforeShowingInterstitialAds,
+          this.guestArticlesToReadBeforeShowingInterstitialAds,
       standardUserArticlesToReadBeforeShowingInterstitialAds:
           standardUserArticlesToReadBeforeShowingInterstitialAds ??
-              this.standardUserArticlesToReadBeforeShowingInterstitialAds,
+          this.standardUserArticlesToReadBeforeShowingInterstitialAds,
       premiumUserArticlesToReadBeforeShowingInterstitialAds:
           premiumUserArticlesToReadBeforeShowingInterstitialAds ??
-              this.premiumUserArticlesToReadBeforeShowingInterstitialAds,
+          this.premiumUserArticlesToReadBeforeShowingInterstitialAds,
     );
   }
 
   @override
   List<Object> get props => [
-        guestAdFrequency,
-        guestAdPlacementInterval,
-        authenticatedAdFrequency,
-        authenticatedAdPlacementInterval,
-        premiumAdFrequency,
-        premiumAdPlacementInterval,
-        guestArticlesToReadBeforeShowingInterstitialAds,
-        standardUserArticlesToReadBeforeShowingInterstitialAds,
-        premiumUserArticlesToReadBeforeShowingInterstitialAds,
-      ];
+    guestAdFrequency,
+    guestAdPlacementInterval,
+    authenticatedAdFrequency,
+    authenticatedAdPlacementInterval,
+    premiumAdFrequency,
+    premiumAdPlacementInterval,
+    guestArticlesToReadBeforeShowingInterstitialAds,
+    standardUserArticlesToReadBeforeShowingInterstitialAds,
+    premiumUserArticlesToReadBeforeShowingInterstitialAds,
+  ];
 }
