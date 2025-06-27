@@ -86,6 +86,34 @@ class UserPreferenceConfig extends Equatable {
   /// Converts this [UserPreferenceConfig] instance to a JSON map.
   Map<String, dynamic> toJson() => _$UserPreferenceConfigToJson(this);
 
+  /// Creates a copy of this [UserPreferenceConfig] but with the given fields
+  /// replaced with the new values.
+  UserPreferenceConfig copyWith({
+    int? guestFollowedItemsLimit,
+    int? guestSavedHeadlinesLimit,
+    int? authenticatedFollowedItemsLimit,
+    int? authenticatedSavedHeadlinesLimit,
+    int? premiumFollowedItemsLimit,
+    int? premiumSavedHeadlinesLimit,
+  }) {
+    return UserPreferenceConfig(
+      guestFollowedItemsLimit:
+          guestFollowedItemsLimit ?? this.guestFollowedItemsLimit,
+      guestSavedHeadlinesLimit:
+          guestSavedHeadlinesLimit ?? this.guestSavedHeadlinesLimit,
+      authenticatedFollowedItemsLimit:
+          authenticatedFollowedItemsLimit ??
+          this.authenticatedFollowedItemsLimit,
+      authenticatedSavedHeadlinesLimit:
+          authenticatedSavedHeadlinesLimit ??
+          this.authenticatedSavedHeadlinesLimit,
+      premiumFollowedItemsLimit:
+          premiumFollowedItemsLimit ?? this.premiumFollowedItemsLimit,
+      premiumSavedHeadlinesLimit:
+          premiumSavedHeadlinesLimit ?? this.premiumSavedHeadlinesLimit,
+    );
+  }
+
   @override
   List<Object> get props => [
     guestFollowedItemsLimit,
