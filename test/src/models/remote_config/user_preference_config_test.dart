@@ -54,6 +54,25 @@ void main() {
       });
     });
 
+    group('copyWith', () {
+      test('returns a new instance with updated values', () {
+        final updatedConfig = userPreferenceConfig.copyWith(
+          guestFollowedItemsLimit: 6,
+          premiumSavedHeadlinesLimit: 101,
+        );
+
+        expect(updatedConfig.guestFollowedItemsLimit, 6);
+        expect(updatedConfig.guestSavedHeadlinesLimit, 10); // Unchanged
+        expect(updatedConfig.premiumSavedHeadlinesLimit, 101);
+        expect(updatedConfig, isNot(equals(userPreferenceConfig)));
+      });
+
+      test('returns the same instance if no changes are made', () {
+        final updatedConfig = userPreferenceConfig.copyWith();
+        expect(updatedConfig, equals(userPreferenceConfig));
+      });
+    });
+
     group('Equatable', () {
       test('instances with the same properties are equal', () {
         const config1 = UserPreferenceConfig(
