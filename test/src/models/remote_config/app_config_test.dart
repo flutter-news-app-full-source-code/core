@@ -22,8 +22,8 @@ void main() {
       premiumAdFrequency: 0,
       premiumAdPlacementInterval: 0,
       guestArticlesToReadBeforeShowingInterstitialAds: 10,
-      premiumUserArticlesToReadBeforeShowingInterstitialAds: 20,
-      standardUserArticlesToReadBeforeShowingInterstitialAds: 50000,
+      standardUserArticlesToReadBeforeShowingInterstitialAds: 20,
+      premiumUserArticlesToReadBeforeShowingInterstitialAds: 50000,
     );
 
     const mockAccountActionConfig = AccountActionConfig(
@@ -156,8 +156,8 @@ void main() {
             premiumAdFrequency: 0,
             premiumAdPlacementInterval: 0,
             guestArticlesToReadBeforeShowingInterstitialAds: 10,
-            premiumUserArticlesToReadBeforeShowingInterstitialAds: 20,
-            standardUserArticlesToReadBeforeShowingInterstitialAds: 50000,
+            standardUserArticlesToReadBeforeShowingInterstitialAds: 20,
+            premiumUserArticlesToReadBeforeShowingInterstitialAds: 50000,
           ).toJson(),
         );
         expect(
