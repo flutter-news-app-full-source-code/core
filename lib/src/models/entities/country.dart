@@ -1,4 +1,6 @@
+import 'package:ht_shared/src/enums/enums.dart';
 import 'package:ht_shared/src/models/core/feed_item.dart';
+import 'package:ht_shared/src/utils/utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
@@ -25,6 +27,9 @@ class Country extends FeedItem {
     required this.name,
     required this.flagUrl,
     String? id,
+    this.createdAt,
+    this.updatedAt,
+    this.status = ContentStatus.active,
   }) : id = id ?? const Uuid().v4(),
        super(type: 'country');
 
@@ -46,6 +51,20 @@ class Country extends FeedItem {
   @JsonKey(name: 'flag_url')
   final String flagUrl;
 
+  /// The creation timestamp of the country.
+  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  final DateTime? createdAt;
+
+  /// The last update timestamp of the country.
+  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  final DateTime? updatedAt;
+
+  /// The current status of the country.
+  /// Defaults to `active` if the field is not present in the JSON payload,
+  /// ensuring backward compatibility.
+  @JsonKey(defaultValue: ContentStatus.active)
+  final ContentStatus status;
+
   /// Converts this Country instance into a JSON map.
   @override
   Map<String, dynamic> toJson() {
@@ -55,7 +74,16 @@ class Country extends FeedItem {
   }
 
   @override
-  List<Object?> get props => [id, isoCode, name, flagUrl, type];
+  List<Object?> get props => [
+    id,
+    isoCode,
+    name,
+    flagUrl,
+    createdAt,
+    updatedAt,
+    status,
+    type,
+  ];
 
   /// Creates a copy of this [Country] but with the given fields replaced with
   /// the new values.
@@ -64,12 +92,18 @@ class Country extends FeedItem {
     String? isoCode,
     String? name,
     String? flagUrl,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    ContentStatus? status,
   }) {
     return Country(
       id: id ?? this.id,
       isoCode: isoCode ?? this.isoCode,
       name: name ?? this.name,
       flagUrl: flagUrl ?? this.flagUrl,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      status: status ?? this.status,
     );
   }
 }
