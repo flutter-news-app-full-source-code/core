@@ -9,12 +9,14 @@ void main() {
       'id': 'src-test',
       'name': 'Test Source',
       'source_type': 'news_agency', // Corrected to snake_case for enum value
+      'status': 'active',
       'type': 'source',
     };
     final sampleSource = Source.fromJson(sampleSourceJson);
     final sampleCategoryJson = {
       'id': 'cat-test',
       'name': 'Test Category',
+      'status': 'active',
       'type': 'category',
     };
     final sampleCategory = Category.fromJson(sampleCategoryJson);
@@ -45,6 +47,7 @@ void main() {
       'published_at': testTimeString,
       'source': sampleSourceJson,
       'category': sampleCategoryJson,
+      'status': 'active',
       'type': 'headline', // Added type field
     };
 
@@ -58,6 +61,7 @@ void main() {
     final minimalHeadlineJson = {
       'id': testId,
       'title': 'Minimal Headline Title',
+      'status': 'active',
       'type': 'headline', // Added type field
       // Optional fields are absent
     };
@@ -134,6 +138,7 @@ void main() {
         final json = minimalHeadline.toJson();
         // Check required fields and absence of optional null fields
         expect(json['id'], minimalHeadline.id);
+        expect(json['status'], 'active');
         expect(json['title'], minimalHeadline.title);
         expect(json.containsKey('description'), isFalse);
         expect(json.containsKey('url'), isFalse);
@@ -187,24 +192,21 @@ void main() {
       test('props list should contain all relevant fields', () {
         // This test implicitly checks if all fields used for
         // equality are in props
-        expect(
-          fullHeadline.props.length,
-          9,
-        ); // id, title, desc, url, imgUrl, pubAt, source, category, type
-        expect(
-          fullHeadline.props,
-          containsAll([
-            fullHeadline.id,
-            fullHeadline.title,
-            fullHeadline.description,
-            fullHeadline.url,
-            fullHeadline.imageUrl,
-            fullHeadline.publishedAt,
-            fullHeadline.source,
-            fullHeadline.category,
-            fullHeadline.type,
-          ]),
-        );
+        expect(fullHeadline.props.length, 12);
+        expect(fullHeadline.props, [
+          fullHeadline.id,
+          fullHeadline.title,
+          fullHeadline.description,
+          fullHeadline.url,
+          fullHeadline.imageUrl,
+          fullHeadline.publishedAt,
+          null, // createdAt
+          null, // updatedAt
+          ContentStatus.active, // status
+          fullHeadline.source,
+          fullHeadline.category,
+          fullHeadline.type,
+        ]);
       });
     });
   });
