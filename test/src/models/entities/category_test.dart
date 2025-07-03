@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/models/entities/category.dart';
+import 'package:ht_shared/ht_shared.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -8,12 +8,18 @@ void main() {
       String? id,
       String? description,
       String? iconUrl,
+      DateTime? createdAt,
+      DateTime? updatedAt,
+      ContentStatus? status,
     }) {
       return Category(
         id: id,
         name: name,
         description: description,
         iconUrl: iconUrl,
+        createdAt: createdAt,
+        updatedAt: updatedAt,
+        status: status ?? ContentStatus.active,
       );
     }
 
@@ -41,6 +47,25 @@ void main() {
       expect(category.id, customId);
     });
 
+    test('props list contains all relevant fields', () {
+      final category = createSubject(
+        id: 'cat-123',
+        name: 'Props Test',
+        description: 'A test description',
+        iconUrl: 'icon.png',
+      );
+      expect(category.props, [
+        'cat-123',
+        'Props Test',
+        'A test description',
+        'icon.png',
+        null, // createdAt
+        null, // updatedAt
+        ContentStatus.active, // status
+        'category', // type
+      ]);
+    });
+
     group('fromJson', () {
       test('creates correct Category object from valid JSON', () {
         final json = <String, dynamic>{
@@ -49,6 +74,7 @@ void main() {
           'description': 'Science news',
           'icon_url': 'http://example.com/science.png',
           'type': 'category',
+          'status': 'active',
         };
         expect(
           Category.fromJson(json),
@@ -63,12 +89,22 @@ void main() {
         );
       });
 
-      test('creates Category with default id if not provided in JSON', () {
+      test('creates Category with defaults when fields are missing', () {
         final json = <String, dynamic>{'name': 'Art', 'type': 'category'};
         final category = Category.fromJson(json);
         expect(category.id, isNotNull);
         expect(category.id, isNotEmpty);
         expect(category.name, 'Art');
+        expect(category.status, ContentStatus.active); // Check default status
+      });
+
+      test('deserializes with a non-default status', () {
+        final json = <String, dynamic>{
+          'name': 'Archived',
+          'status': 'archived',
+        };
+        final category = Category.fromJson(json);
+        expect(category.status, ContentStatus.archived);
       });
     });
 
@@ -85,6 +121,7 @@ void main() {
           'name': 'Business',
           'description': 'Business news',
           'icon_url': 'http://example.com/business.png',
+          'status': 'active',
           'type': 'category',
         });
       });
@@ -94,6 +131,7 @@ void main() {
         expect(category.toJson(), <String, dynamic>{
           'id': category.id, // ID will be generated
           'name': 'Health',
+          'status': 'active',
           'type': 'category',
         });
       });
