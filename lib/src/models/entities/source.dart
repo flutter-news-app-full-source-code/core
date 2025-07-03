@@ -1,6 +1,8 @@
+import 'package:ht_shared/src/enums/enums.dart';
 import 'package:ht_shared/src/models/core/feed_item.dart';
 import 'package:ht_shared/src/models/entities/country.dart';
 import 'package:ht_shared/src/models/entities/source_type.dart';
+import 'package:ht_shared/src/utils/utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
@@ -28,6 +30,9 @@ class Source extends FeedItem {
     this.sourceType,
     this.language,
     this.headquarters,
+    this.createdAt,
+    this.updatedAt,
+    this.status = ContentStatus.active,
     String? id,
   }) : id = id ?? const Uuid().v4(),
        super(type: 'source');
@@ -60,6 +65,20 @@ class Source extends FeedItem {
   /// The country where the source is headquartered.
   final Country? headquarters;
 
+  /// The creation timestamp of the source.
+  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  final DateTime? createdAt;
+
+  /// The last update timestamp of the source.
+  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  final DateTime? updatedAt;
+
+  /// The current status of the source.
+  /// Defaults to `active` if the field is not present in the JSON payload,
+  /// ensuring backward compatibility.
+  @JsonKey(defaultValue: ContentStatus.active)
+  final ContentStatus status;
+
   /// Converts this [Source] instance to a JSON map.
   @override
   Map<String, dynamic> toJson() {
@@ -77,6 +96,9 @@ class Source extends FeedItem {
     sourceType, // Changed from _sourceType
     language,
     headquarters,
+    createdAt,
+    updatedAt,
+    status,
     type,
   ];
 
@@ -90,6 +112,9 @@ class Source extends FeedItem {
     SourceType? sourceType,
     String? language,
     Country? headquarters,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    ContentStatus? status,
   }) {
     return Source(
       id: id ?? this.id,
@@ -99,6 +124,9 @@ class Source extends FeedItem {
       sourceType: sourceType ?? this.sourceType, // Changed from _sourceType
       language: language ?? this.language,
       headquarters: headquarters ?? this.headquarters,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      status: status ?? this.status,
     );
   }
 }
