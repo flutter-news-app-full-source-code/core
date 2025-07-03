@@ -1,17 +1,13 @@
+import 'package:ht_shared/src/enums/enums.dart';
 import 'package:ht_shared/src/models/core/feed_item.dart';
 import 'package:ht_shared/src/models/entities/category.dart';
 import 'package:ht_shared/src/models/entities/source.dart';
+import 'package:ht_shared/src/utils/json_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:uuid/uuid.dart';
 
 part 'headline.g.dart';
-
-// Helper function for parsing DateTime, returning null on error
-DateTime? _dateTimeFromJson(String? dateString) {
-  if (dateString == null) return null;
-  return DateTime.tryParse(dateString);
-}
 
 /// {@template headline}
 /// Headline model
@@ -35,6 +31,9 @@ class Headline extends FeedItem {
     this.publishedAt,
     this.source,
     this.category,
+    this.createdAt,
+    this.updatedAt,
+    this.status = ContentStatus.active,
     String? id,
   }) : assert(
          id == null || id.isNotEmpty,
@@ -62,12 +61,30 @@ class Headline extends FeedItem {
   /// URL to an image associated with the headline.
   final String? imageUrl;
 
-  /// Date and time when the headline was published.
-  @JsonKey(fromJson: _dateTimeFromJson)
+  /// The external timestamp from the original news source, indicating when the
+  /// article was officially published to the world.
+  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
   final DateTime? publishedAt;
 
   /// Source or origin of the headline.
   final Source? source;
+
+  /// The internal timestamp recording when this headline was first ingested
+  /// and saved into our system.
+  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  final DateTime? createdAt;
+
+  /// The internal timestamp of the last update to this headline record in our
+  /// system.
+  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  final DateTime? updatedAt;
+
+  /// The current status of the headline.
+  ///
+  /// Defaults to `active` if the field is not present in the JSON payload,
+  /// ensuring backward compatibility. This is suitable for ingested content.
+  @JsonKey(defaultValue: ContentStatus.active)
+  final ContentStatus status;
 
   /// Category of the current headline.
   final Category? category;
@@ -88,6 +105,9 @@ class Headline extends FeedItem {
     url,
     imageUrl,
     publishedAt,
+    createdAt,
+    updatedAt,
+    status,
     source,
     category,
     type,
@@ -105,6 +125,9 @@ class Headline extends FeedItem {
     String? url,
     String? imageUrl,
     DateTime? publishedAt,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    ContentStatus? status,
     Source? source,
     Category? category,
   }) {
@@ -115,6 +138,9 @@ class Headline extends FeedItem {
       url: url ?? this.url,
       imageUrl: imageUrl ?? this.imageUrl,
       publishedAt: publishedAt ?? this.publishedAt,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      status: status ?? this.status,
       source: source ?? this.source,
       category: category ?? this.category,
     );

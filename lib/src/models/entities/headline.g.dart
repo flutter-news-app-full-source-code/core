@@ -17,7 +17,7 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) => $checkedCreate(
       imageUrl: $checkedConvert('image_url', (v) => v as String?),
       publishedAt: $checkedConvert(
         'published_at',
-        (v) => _dateTimeFromJson(v as String?),
+        (v) => dateTimeFromJson(v as String?),
       ),
       source: $checkedConvert(
         'source',
@@ -27,11 +27,30 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) => $checkedCreate(
         'category',
         (v) => v == null ? null : Category.fromJson(v as Map<String, dynamic>),
       ),
+      createdAt: $checkedConvert(
+        'created_at',
+        (v) => dateTimeFromJson(v as String?),
+      ),
+      updatedAt: $checkedConvert(
+        'updated_at',
+        (v) => dateTimeFromJson(v as String?),
+      ),
+      status: $checkedConvert(
+        'status',
+        (v) =>
+            $enumDecodeNullable(_$ContentStatusEnumMap, v) ??
+            ContentStatus.active,
+      ),
       id: $checkedConvert('id', (v) => v as String?),
     );
     return val;
   },
-  fieldKeyMap: const {'imageUrl': 'image_url', 'publishedAt': 'published_at'},
+  fieldKeyMap: const {
+    'imageUrl': 'image_url',
+    'publishedAt': 'published_at',
+    'createdAt': 'created_at',
+    'updatedAt': 'updated_at',
+  },
 );
 
 Map<String, dynamic> _$HeadlineToJson(Headline instance) => <String, dynamic>{
@@ -40,8 +59,17 @@ Map<String, dynamic> _$HeadlineToJson(Headline instance) => <String, dynamic>{
   if (instance.description case final value?) 'description': value,
   if (instance.url case final value?) 'url': value,
   if (instance.imageUrl case final value?) 'image_url': value,
-  if (instance.publishedAt?.toIso8601String() case final value?)
+  if (dateTimeToJson(instance.publishedAt) case final value?)
     'published_at': value,
   if (instance.source?.toJson() case final value?) 'source': value,
+  if (dateTimeToJson(instance.createdAt) case final value?) 'created_at': value,
+  if (dateTimeToJson(instance.updatedAt) case final value?) 'updated_at': value,
+  'status': _$ContentStatusEnumMap[instance.status]!,
   if (instance.category?.toJson() case final value?) 'category': value,
+};
+
+const _$ContentStatusEnumMap = {
+  ContentStatus.active: 'active',
+  ContentStatus.draft: 'draft',
+  ContentStatus.archived: 'archived',
 };
