@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/models/entities/country.dart'; // Use direct import
+import 'package:ht_shared/ht_shared.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
@@ -13,12 +13,13 @@ void main() {
 
     // Helper to create a valid JSON map
     Map<String, dynamic> createValidJsonMap({String? idOverride}) => {
-      'id': idOverride ?? testId,
-      'iso_code': testIsoCode,
-      'name': testName,
-      'flag_url': testFlagUrl,
-      'type': 'country',
-    };
+          'id': idOverride ?? testId,
+          'iso_code': testIsoCode,
+          'name': testName,
+          'flag_url': testFlagUrl,
+          'status': 'active',
+          'type': 'country',
+        };
 
     // Helper to create a Country instance
     Country createSubject({
@@ -50,23 +51,38 @@ void main() {
       // Directly access props
       final props = country.props;
       expect(props, isList);
-      expect(props, hasLength(5)); // id, isoCode, name, flagUrl, type
       expect(
         props,
-        equals([testId, testIsoCode, testName, testFlagUrl, country.type]),
-      );
-    });
-
-    test('props list is correct', () {
-      // Keep original test as well for clarity
+        hasLength(8),
+      ); // id, isoCode, name, flagUrl, createdAt, updatedAt, status, type
       expect(
-        createSubject(id: testId).props,
+        props,
         equals([
           testId,
           testIsoCode,
           testName,
           testFlagUrl,
-          createSubject().type,
+          null, // createdAt
+          null, // updatedAt
+          ContentStatus.active,
+          country.type,
+        ]),
+      );
+    });
+
+    test('props list is correct', () {
+      final country = createSubject(id: testId);
+      expect(
+        country.props,
+        equals([
+          testId,
+          testIsoCode,
+          testName,
+          testFlagUrl,
+          null, // createdAt
+          null, // updatedAt
+          ContentStatus.active,
+          country.type,
         ]),
       );
     });
