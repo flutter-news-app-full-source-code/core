@@ -72,14 +72,17 @@ void main() {
         expect(
           fullSource.props,
           equals([
-            testId,
-            testName,
-            testDescription,
-            testUrl,
-            testType, // This is the value of sourceType
-            testLanguage,
-            testCountry,
-            fullSource.type,
+            testId, // id
+            testName, // name
+            testDescription, // description
+            testUrl, // url
+            testType, // sourceType
+            testLanguage, // language
+            testCountry, // headquarters
+            null, // createdAt
+            null, // updatedAt
+            ContentStatus.active, // status
+            'source', // type
           ]),
         );
       });
@@ -130,6 +133,7 @@ void main() {
         expect(json, isA<Map<String, dynamic>>());
         expect(json['id'], minimalSource.id); // ID is always present
         expect(json['name'], testName);
+        expect(json['status'], 'active');
         expect(json['type'], 'source');
         expect(json.containsKey('description'), isFalse);
         expect(json.containsKey('url'), isFalse);
@@ -145,6 +149,7 @@ void main() {
         expect(json['name'], testName);
         expect(json['description'], testDescription);
         expect(json['url'], testUrl);
+        expect(json['status'], 'active');
         expect(json['type'], 'source');
         expect(
           json['source_type'],
@@ -170,7 +175,12 @@ void main() {
 
     group('JSON Deserialization (fromJson)', () {
       test('deserializes minimal JSON correctly', () {
-        final minimalJson = {'id': testId, 'name': testName, 'type': 'source'};
+        final minimalJson = {
+          'id': testId,
+          'name': testName,
+          'type': 'source',
+          'status': 'active',
+        };
         final source = Source.fromJson(minimalJson);
         expect(source.id, testId);
         expect(source.name, testName);
@@ -179,6 +189,7 @@ void main() {
         expect(source.sourceType, isNull);
         expect(source.language, isNull);
         expect(source.headquarters, isNull);
+        expect(source.status, ContentStatus.active);
       });
 
       test('deserializes full JSON correctly', () {
@@ -188,6 +199,7 @@ void main() {
           'description': testDescription,
           'url': testUrl,
           'type': 'source',
+          'status': 'active',
           'source_type': 'specialized_publisher', // Use direct string
           'language': testLanguage,
           'headquarters': testHeadquartersJson,
@@ -199,10 +211,8 @@ void main() {
         expect(source.url, testUrl);
         expect(source.sourceType, testType);
         expect(source.language, testLanguage);
-        expect(
-          source.headquarters,
-          equals(testCountry),
-        ); // Use equals for Equatable
+        expect(source.headquarters, equals(testCountry));
+        expect(source.status, ContentStatus.active);
       });
 
       test('handles missing optional fields in JSON', () {
