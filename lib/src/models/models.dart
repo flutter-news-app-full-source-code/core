@@ -1,5 +1,6 @@
 export 'auth/auth.dart';
 export 'core/core.dart';
+export 'dashboard/dashboard.dart';
 export 'entities/entities.dart';
 export 'feed_decorators/feed_decorators.dart';
 export 'remote_config/remote_config.dart';
