@@ -19,11 +19,12 @@ part 'dashboard_summary.g.dart';
 class DashboardSummary extends Equatable {
   /// {@macro dashboard_summary}
   DashboardSummary({
-    String? id,
-    required this.headlineCount,
-    required this.categoryCount,
-    required this.sourceCount,
+    required this.headlineCount, required this.categoryCount, required this.sourceCount, String? id,
   }) : id = id ?? const Uuid().v4();
+
+  /// Creates a [DashboardSummary] from a JSON object.
+  factory DashboardSummary.fromJson(Map<String, dynamic> json) =>
+      _$DashboardSummaryFromJson(json);
 
   /// The unique identifier for the summary.
   final String id;
@@ -36,10 +37,6 @@ class DashboardSummary extends Equatable {
 
   /// The total number of sources.
   final int sourceCount;
-
-  /// Creates a [DashboardSummary] from a JSON object.
-  factory DashboardSummary.fromJson(Map<String, dynamic> json) =>
-      _$DashboardSummaryFromJson(json);
 
   /// Converts this [DashboardSummary] instance to a JSON object.
   Map<String, dynamic> toJson() => _$DashboardSummaryToJson(this);

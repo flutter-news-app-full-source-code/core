@@ -13,13 +13,13 @@ void main() {
 
     // Helper to create a valid JSON map
     Map<String, dynamic> createValidJsonMap({String? idOverride}) => {
-          'id': idOverride ?? testId,
-          'iso_code': testIsoCode,
-          'name': testName,
-          'flag_url': testFlagUrl,
-          'status': 'active',
-          'type': 'country',
-        };
+      'id': idOverride ?? testId,
+      'iso_code': testIsoCode,
+      'name': testName,
+      'flag_url': testFlagUrl,
+      'status': 'active',
+      'type': 'country',
+    };
 
     // Helper to create a Country instance
     Country createSubject({
