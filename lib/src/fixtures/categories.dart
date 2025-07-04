@@ -6,6 +6,8 @@ const categoriesFixturesData = [
     'description':
         'News about software development, hardware, and the internet.',
     'icon_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'type': 'category',
   },
   {
@@ -14,6 +16,8 @@ const categoriesFixturesData = [
     'description':
         'Articles related to mobile app development for iOS and Android.',
     'icon_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'type': 'category',
   },
   {
@@ -21,6 +25,8 @@ const categoriesFixturesData = [
     'name': 'Business',
     'description': 'News about companies, finance, and the economy.',
     'icon_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'type': 'category',
   },
   {
@@ -28,6 +34,8 @@ const categoriesFixturesData = [
     'name': 'Sports',
     'description': 'Latest updates from the world of sports.',
     'icon_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'type': 'category',
   },
 ];

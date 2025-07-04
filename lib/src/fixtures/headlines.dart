@@ -7,6 +7,8 @@ const headlinesFixturesData = [
         'The minimalist backend framework for Dart reaches a major milestone.',
     'url': 'https://dartfrog.vgv.dev/docs/overview',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-04-20T10:00:00Z',
     'source': {
       'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
@@ -30,6 +32,8 @@ const headlinesFixturesData = [
         'Building responsive and adaptive user interfaces in Flutter.',
     'url': 'https://docs.flutter.dev/ui/layout/adaptive',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-04-22T14:30:00Z',
     'source': {
       'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -53,6 +57,8 @@ const headlinesFixturesData = [
         'Research indicates reduced eye strain with darker interfaces.',
     'url': 'https://example.com/dark-mode-study',
     'image_url': 'https://example.com/images/dark-mode.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-01T08:00:00Z',
     'source': {
       'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
@@ -77,6 +83,8 @@ const headlinesFixturesData = [
         'Key announcements and sessions from the recent Flutter conference.',
     'url': 'https://example.com/flutter-engage-highlights',
     'image_url': 'https://example.com/images/flutter-engage.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-05T11:30:00Z',
     'source': {
       'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -99,6 +107,8 @@ const headlinesFixturesData = [
     'description': 'Analysis of the latest trends in international finance.',
     'url': 'https://example.com/global-markets',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-10T09:15:00Z',
     'source': {
       'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
@@ -129,6 +139,8 @@ const headlinesFixturesData = [
     'description': 'Review of the top moments and final standings.',
     'url': 'https://example.com/premier-league-review',
     'image_url': 'https://example.com/images/premier-league.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-15T16:00:00Z',
     'source': {
       'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
@@ -160,6 +172,8 @@ const headlinesFixturesData = [
         'Researchers announce significant progress in natural language processing.',
     'url': 'https://example.com/ai-breakthrough',
     'image_url': 'https://example.com/images/ai-breakthrough.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-18T09:00:00Z',
     'source': {
       'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
@@ -184,6 +198,8 @@ const headlinesFixturesData = [
         "A look at what's coming in the next stable release of Flutter.",
     'url': 'https://example.com/flutter-3-20-preview',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-20T14:00:00Z',
     'source': {
       'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -207,6 +223,8 @@ const headlinesFixturesData = [
         'Company X acquires Company Y in a multi-billion dollar deal.',
     'url': 'https://example.com/semiconductor-acquisition',
     'image_url': 'https://example.com/images/acquisition.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-21T10:30:00Z',
     'source': {
       'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
@@ -230,6 +248,8 @@ const headlinesFixturesData = [
         'Results and analysis from the latest international football matches.',
     'url': 'https://example.com/euro-qualifiers',
     'image_url': 'https://example.com/images/euro-qualifiers.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-22T19:45:00Z',
     'source': {
       'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
@@ -261,6 +281,8 @@ const headlinesFixturesData = [
         'Experts discuss the potential impact of quantum technology.',
     'url': 'https://example.com/quantum-computing-future',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-23T11:00:00Z',
     'source': {
       'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
@@ -285,6 +307,8 @@ const headlinesFixturesData = [
         'A guide to developing for multiple platforms from a single codebase.',
     'url': 'https://example.com/cross-platform-guide',
     'image_url': 'https://example.com/images/cross-platform.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-24T15:00:00Z',
     'source': {
       'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -308,6 +332,8 @@ const headlinesFixturesData = [
     'description': 'Venture capital investment continues to grow.',
     'url': 'https://example.com/startup-funding-report',
     'image_url': 'https://example.com/images/funding.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-25T09:00:00Z',
     'source': {
       'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
@@ -331,6 +357,8 @@ const headlinesFixturesData = [
         'Analysis of the top contenders for the grass court championships.',
     'url': 'https://example.com/wimbledon-preview',
     'image_url': 'https://example.com/images/wimbledon.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-25T10:00:00Z',
     'source': {
       'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
@@ -361,6 +389,8 @@ const headlinesFixturesData = [
     'description': 'Exploring a new approach to microservices architecture.',
     'url': 'https://example.com/scalable-backend',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-25T11:00:00Z',
     'source': {
       'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
@@ -397,6 +427,8 @@ const headlinesFixturesData = [
         'Key considerations for protecting user data in mobile applications.',
     'url': 'https://example.com/mobile-security-guide',
     'image_url': 'https://example.com/images/mobile-security.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-25T12:00:00Z',
     'source': {
       'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -432,6 +464,8 @@ const headlinesFixturesData = [
     'description': 'Economists analyze the latest reports on consumer prices.',
     'url': 'https://example.com/inflation-report',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-25T13:00:00Z',
     'source': {
       'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
@@ -463,6 +497,8 @@ const headlinesFixturesData = [
         'Analyzing the strengths and weaknesses of the two finalists.',
     'url': 'https://example.com/champions-league-preview',
     'image_url': 'https://example.com/images/champions-league.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-25T14:00:00Z',
     'source': {
       'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
@@ -494,6 +530,8 @@ const headlinesFixturesData = [
         'How visual tools are changing the software development landscape.',
     'url': 'https://example.com/low-code-platforms',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-25T15:00:00Z',
     'source': {
       'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
@@ -518,6 +556,8 @@ const headlinesFixturesData = [
         'Comparing different approaches to managing application state.',
     'url': 'https://example.com/flutter-state-management',
     'image_url': 'https://example.com/images/state-management.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-25T16:00:00Z',
     'source': {
       'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -541,6 +581,8 @@ const headlinesFixturesData = [
     'description': 'Analysis of how disruptions affect production and pricing.',
     'url': 'https://example.com/supply-chain-impact',
     'image_url': 'https://example.com/images/supply-chain.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-25T17:00:00Z',
     'source': {
       'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
@@ -576,6 +618,8 @@ const headlinesFixturesData = [
         'Teams finalize squads and strategies for the upcoming tournament.',
     'url': 'https://example.com/cricket-world-cup-prep',
     'image_url': 'https://example.com/images/cricket.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-25T18:00:00Z',
     'source': {
       'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
@@ -623,6 +667,8 @@ const headlinesFixturesData = [
         'New report highlights increasing risks for businesses and individuals.',
     'url': 'https://example.com/cybersecurity-report',
     'image_url': 'https://example.com/images/cybersecurity.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-25T19:00:00Z',
     'source': {
       'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
@@ -646,6 +692,8 @@ const headlinesFixturesData = [
     'description': 'Tips and tricks for building fast and smooth Flutter apps.',
     'url': 'https://example.com/flutter-performance',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-25T20:00:00Z',
     'source': {
       'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -669,6 +717,8 @@ const headlinesFixturesData = [
     'description': 'Analysts provide their predictions for the global economy.',
     'url': 'https://example.com/economic-forecast',
     'image_url': 'https://example.com/images/economic-forecast.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-25T21:00:00Z',
     'source': {
       'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
@@ -699,6 +749,8 @@ const headlinesFixturesData = [
     'description': 'Breakthroughs in solar and wind power technology.',
     'url': 'https://example.com/renewable-energy-innovations',
     'image_url': 'https://example.com/images/renewable-energy.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-25T22:00:00Z',
     'source': {
       'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
@@ -723,6 +775,8 @@ const headlinesFixturesData = [
         'Tips for creating intuitive and efficient form experiences on mobile.',
     'url': 'https://example.com/mobile-forms-design',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-25T23:00:00Z',
     'source': {
       'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -747,6 +801,8 @@ const headlinesFixturesData = [
         'Analyzing how artificial intelligence is reshaping industries and roles.',
     'url': 'https://example.com/ai-job-market',
     'image_url': 'https://example.com/images/ai-jobs.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-26T08:00:00Z',
     'source': {
       'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
@@ -770,6 +826,8 @@ const headlinesFixturesData = [
     'description': 'A guide to navigating new data protection laws.',
     'url': 'https://example.com/privacy-regulations',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-26T09:00:00Z',
     'source': {
       'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
@@ -801,6 +859,8 @@ const headlinesFixturesData = [
         "What's new in designing intuitive and engaging mobile interfaces.",
     'url': 'https://example.com/mobile-ui-ux-trends',
     'image_url': 'https://example.com/images/mobile-ui-ux.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-26T10:00:00Z',
     'source': {
       'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -825,6 +885,8 @@ const headlinesFixturesData = [
         'How faster networks will enable new applications and services.',
     'url': 'https://example.com/5g-future',
     'image_url': 'https://example.com/images/5g.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-26T11:00:00Z',
     'source': {
       'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
@@ -848,6 +910,8 @@ const headlinesFixturesData = [
     'description': 'Ensuring your mobile applications are usable by everyone.',
     'url': 'https://example.com/accessible-flutter',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-26T12:00:00Z',
     'source': {
       'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -871,6 +935,8 @@ const headlinesFixturesData = [
     'description': 'Analyzing investment patterns across different sectors.',
     'url': 'https://example.com/vc-trends',
     'image_url': 'https://example.com/images/vc-trends.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-26T13:00:00Z',
     'source': {
       'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
@@ -893,6 +959,8 @@ const headlinesFixturesData = [
     'description': 'Highlights and analysis from the recent rugby tournament.',
     'url': 'https://example.com/six-nations-review',
     'image_url': 'https://example.com/images/six-nations.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-26T14:00:00Z',
     'source': {
       'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
@@ -924,6 +992,8 @@ const headlinesFixturesData = [
         'Discussing fairness, bias, and transparency in artificial intelligence.',
     'url': 'https://example.com/ai-ethics',
     'image_url': 'https://example.com/images/ai-ethics.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-26T15:00:00Z',
     'source': {
       'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
@@ -948,6 +1018,8 @@ const headlinesFixturesData = [
         "Creating smooth and engaging user interfaces with Flutter's animation framework.",
     'url': 'https://example.com/flutter-animations',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-26T16:00:00Z',
     'source': {
       'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -971,6 +1043,8 @@ const headlinesFixturesData = [
     'description': 'Analyzing the growth and challenges of the EV market.',
     'url': 'https://example.com/ev-future',
     'image_url': 'https://example.com/images/ev-future.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-26T17:00:00Z',
     'source': {
       'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
@@ -995,6 +1069,8 @@ const headlinesFixturesData = [
         'Tips and best practices for developing robust backend services.',
     'url': 'https://example.com/dart-frog-scalable-apis',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-26T18:00:00Z',
     'source': {
       'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
@@ -1019,6 +1095,8 @@ const headlinesFixturesData = [
         'Exploring new engines and trends in mobile game development.',
     'url': 'https://example.com/mobile-gaming-tech',
     'image_url': 'https://example.com/images/mobile-gaming.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-26T19:00:00Z',
     'source': {
       'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -1042,6 +1120,8 @@ const headlinesFixturesData = [
     'description': 'A comprehensive review of the current economic climate.',
     'url': 'https://example.com/global-economic-outlook',
     'image_url': 'https://example.com/images/global-economy.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-26T20:00:00Z',
     'source': {
       'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
@@ -1072,6 +1152,8 @@ const headlinesFixturesData = [
     'description': 'How training and nutrition impact sports results.',
     'url': 'https://example.com/athletic-science',
     'image_url': 'https://example.com/images/athletic-science.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-26T21:00:00Z',
     'source': {
       'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
@@ -1103,6 +1185,8 @@ const headlinesFixturesData = [
         'From traditional MVC to modern component-based architectures.',
     'url': 'https://example.com/web-framework-evolution',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-26T22:00:00Z',
     'source': {
       'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
@@ -1127,6 +1211,8 @@ const headlinesFixturesData = [
         'Strategies for creating apps that work reliably without a network connection.',
     'url': 'https://example.com/offline-first-apps',
     'image_url': 'https://example.com/images/offline-first.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-26T23:00:00Z',
     'source': {
       'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -1150,6 +1236,8 @@ const headlinesFixturesData = [
     'description': "Summary of the day's trading activity.",
     'url': 'https://example.com/market-close',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-27T00:00:00Z',
     'source': {
       'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
@@ -1173,6 +1261,8 @@ const headlinesFixturesData = [
         'How sports science is optimizing performance for the next games.',
     'url': 'https://example.com/olympic-training',
     'image_url': 'https://example.com/images/olympic-training.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-27T01:00:00Z',
     'source': {
       'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
@@ -1204,6 +1294,8 @@ const headlinesFixturesData = [
         'Exploring the latest devices and their potential impact on health and lifestyle.',
     'url': 'https://example.com/wearable-tech-future',
     'image_url': 'https://example.com/images/wearable-tech.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-27T02:00:00Z',
     'source': {
       'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
@@ -1227,6 +1319,8 @@ const headlinesFixturesData = [
     'description': "Leveraging Dart's features for server-side development.",
     'url': 'https://example.com/dart-backend-services',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-27T03:00:00Z',
     'source': {
       'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
@@ -1251,6 +1345,8 @@ const headlinesFixturesData = [
         'Exploring new patterns and aesthetics in mobile user interfaces.',
     'url': 'https://example.com/mobile-ui-trends',
     'image_url': 'https://example.com/images/mobile-ui-trends.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-27T04:00:00Z',
     'source': {
       'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -1275,6 +1371,8 @@ const headlinesFixturesData = [
         'Factors influencing recent fluctuations in global stock markets.',
     'url': 'https://example.com/stock-market-volatility',
     'image_url': 'https://example.com/images/stock-market.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-27T05:00:00Z',
     'source': {
       'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
@@ -1298,6 +1396,8 @@ const headlinesFixturesData = [
         'Exploring how Very Good Ventures approaches mobile development with an eye on future trends and framework choices.',
     'url': 'https://example.com/vgv-mobile-strategy-2026',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-30T10:00:00Z',
     'source': {
       'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
@@ -1326,6 +1426,8 @@ const headlinesFixturesData = [
         'How Very Good Ventures balances community contributions with sustainable business models in the open-source world.',
     'url': 'https://example.com/vgv-open-source-business',
     'image_url': 'https://example.com/images/vgv-business.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-30T11:00:00Z',
     'source': {
       'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
@@ -1353,6 +1455,8 @@ const headlinesFixturesData = [
         'A case study on using Dart Frog for a high-performance backend for a new fantasy sports platform, by the VGV team.',
     'url': 'https://example.com/vgv-fantasy-sports-dartfrog',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-30T12:00:00Z',
     'source': {
       'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
@@ -1380,6 +1484,8 @@ const headlinesFixturesData = [
         'The Flutter team discusses the growing capabilities and use cases for Flutter in desktop application development.',
     'url': 'https://flutter.dev/desktop-future',
     'image_url': 'https://example.com/images/flutter-desktop.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-30T13:00:00Z',
     'source': {
       'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -1409,6 +1515,8 @@ const headlinesFixturesData = [
         'Case studies and insights from the Flutter team on enterprises using Flutter to quickly build and iterate on new products.',
     'url': 'https://flutter.dev/business-mvp-flutter',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-30T14:00:00Z',
     'source': {
       'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -1437,6 +1545,8 @@ const headlinesFixturesData = [
         'The Flutter team showcases examples of sports applications built with Flutter, highlighting UI/UX possibilities.',
     'url': 'https://flutter.dev/sports-apps-showcase',
     'image_url': 'https://example.com/images/flutter-sports.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-30T15:00:00Z',
     'source': {
       'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
@@ -1465,6 +1575,8 @@ const headlinesFixturesData = [
         "TechCrunch reports on PixelPlay's latest funding round to expand its mobile game portfolio and user acquisition efforts.",
     'url': 'https://techcrunch.com/pixelplay-series-a',
     'image_url': 'https://example.com/images/pixelplay.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-30T16:00:00Z',
     'source': {
       'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
@@ -1499,6 +1611,8 @@ const headlinesFixturesData = [
         'A panel at TechCrunch Disrupt discusses innovation in sports technology, from wearables to fan engagement platforms.',
     'url': 'https://techcrunch.com/disrupt-sports-tech-2025',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-30T17:00:00Z',
     'source': {
       'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
@@ -1532,6 +1646,8 @@ const headlinesFixturesData = [
         "BBC News reports on a significant government investment aimed at boosting the UK's artificial intelligence capabilities.",
     'url': 'https://www.bbc.com/news/technology-uk-ai-funding',
     'image_url': 'https://example.com/images/uk-ai.png',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-30T18:00:00Z',
     'source': {
       'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
@@ -1566,6 +1682,8 @@ const headlinesFixturesData = [
         'A BBC News feature exploring the adoption and security of mobile banking applications across the United Kingdom.',
     'url': 'https://www.bbc.com/news/business-mobile-banking-uk',
     'image_url': null,
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'published_at': '2025-05-30T19:00:00Z',
     'source': {
       'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',

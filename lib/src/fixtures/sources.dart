@@ -5,6 +5,8 @@ const sourcesFixturesData = [
     'name': 'Very Good Ventures Blog',
     'description': 'Insights from the Very Good Ventures team.',
     'url': 'https://vgv.dev/blog',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'source_type': 'blog',
     'language': 'en',
     'headquarters': {
@@ -21,6 +23,8 @@ const sourcesFixturesData = [
     'name': 'Flutter Dev',
     'description': 'Official documentation and news for the Flutter framework.',
     'url': 'https://flutter.dev',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'source_type': 'specialized_publisher',
     'language': 'fr',
     'headquarters': {
@@ -37,6 +41,8 @@ const sourcesFixturesData = [
     'name': 'TechCrunch',
     'description': 'Startup and technology news.',
     'url': 'https://techcrunch.com/',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'source_type': 'specialized_publisher',
     'language': 'en',
     'headquarters': {
@@ -53,6 +59,8 @@ const sourcesFixturesData = [
     'name': 'BBC News',
     'description': 'British public service broadcaster.',
     'url': 'https://www.bbc.com/news',
+    'created_at': '2025-04-15T12:00:00Z',
+    'updated_at': '2025-04-15T12:00:00Z',
     'source_type': 'national_news_outlet',
     'language': 'en',
     'headquarters': {
