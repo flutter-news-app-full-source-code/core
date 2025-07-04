@@ -1,7 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'content_status.g.dart';
-
 /// Enum representing the lifecycle status of a content entity.
 @JsonEnum(fieldRename: FieldRename.snake)
 enum ContentStatus {
