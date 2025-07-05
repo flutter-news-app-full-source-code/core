@@ -12,7 +12,10 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
   ($checkedConvert) {
     final val = User(
       id: $checkedConvert('id', (v) => v as String),
-      role: $checkedConvert('role', (v) => $enumDecode(_$UserRoleEnumMap, v)),
+      roles: $checkedConvert(
+        'roles',
+        (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+      ),
       email: $checkedConvert('email', (v) => v as String?),
       createdAt: $checkedConvert(
         'created_at',
@@ -34,16 +37,9 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
   'id': instance.id,
   if (instance.email case final value?) 'email': value,
-  'role': _$UserRoleEnumMap[instance.role]!,
+  'roles': instance.roles,
   if (_dateTimeToJson(instance.createdAt) case final value?)
     'created_at': value,
   if (_dateTimeToJson(instance.lastAccountActionShownAt) case final value?)
     'last_engagement_shown_at': value,
-};
-
-const _$UserRoleEnumMap = {
-  UserRole.admin: 'admin',
-  UserRole.premiumUser: 'premium_user',
-  UserRole.standardUser: 'standard_user',
-  UserRole.guestUser: 'guest_user',
 };
