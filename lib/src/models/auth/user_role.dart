@@ -1,18 +1,18 @@
-import 'package:json_annotation/json_annotation.dart';
-
-/// Defines the available user roles in the system.
-@JsonEnum(fieldRename: FieldRename.snake)
-enum UserRole {
+/// Defines string constants for known user roles to avoid magic strings.
+abstract final class UserRoles {
   /// Administrator role with full privileges.
-  admin,
+  static const String admin = 'admin';
 
   /// Premium user role with enhanced privileges or access to exclusive features
   /// compared to a standard user.
-  premiumUser,
+  static const String premiumUser = 'premium_user';
 
   /// Standard user role with regular privileges.
-  standardUser,
+  static const String standardUser = 'standard_user';
 
   /// Guest user role with limited privileges.
-  guestUser,
+  static const String guestUser = 'guest_user';
+
+  /// A user with content publishing rights.
+  static const String publisher = 'publisher';
 }

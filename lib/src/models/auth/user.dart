@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:ht_shared/src/models/auth/user_role.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -8,7 +7,7 @@ part 'user.g.dart';
 /// Represents a user within the system.
 ///
 /// This model holds basic information about the user, including their
-/// unique identifier, email (if available), and their assigned [role].
+/// unique identifier, email (if available), and their assigned [roles].
 
 @immutable
 @JsonSerializable(
@@ -20,12 +19,12 @@ part 'user.g.dart';
 class User extends Equatable {
   /// Creates a new [User] instance.
   ///
-  /// Requires a unique [id] and a [role].
+  /// Requires a unique [id] and a list of [roles].
   /// The [email] is optional and typically present only for users
   /// who have verified their email address.
   const User({
     required this.id,
-    required this.role,
+    required this.roles,
     this.email,
     this.createdAt,
     this.lastAccountActionShownAt,
@@ -42,9 +41,8 @@ class User extends Equatable {
   /// This will be `null` for users who haven't associated an email yet.
   final String? email;
 
-  /// The role of the user.
-
-  final UserRole role;
+  /// The roles assigned to the user (e.g., 'admin', 'premium_user').
+  final List<String> roles;
 
   /// The date and time the user account was created.
   /// This is typically set on the backend upon user creation.
@@ -66,14 +64,14 @@ class User extends Equatable {
   List<Object?> get props => [
     id,
     email,
-    role,
+    roles,
     createdAt,
     lastAccountActionShownAt,
   ];
 
   @override
   String toString() {
-    return 'User(id: $id, email: $email, role: $role, createdAt: $createdAt, lastEngagementShownAt: $lastAccountActionShownAt)';
+    return 'User(id: $id, email: $email, roles: $roles, createdAt: $createdAt, lastEngagementShownAt: $lastAccountActionShownAt)';
   }
 
   /// Creates a copy of this [User] but with the given fields replaced with
@@ -81,14 +79,14 @@ class User extends Equatable {
   User copyWith({
     String? id,
     String? email,
-    UserRole? role,
+    List<String>? roles,
     DateTime? createdAt,
     DateTime? lastEngagementShownAt,
   }) {
     return User(
       id: id ?? this.id,
       email: email ?? this.email,
-      role: role ?? this.role,
+      roles: roles ?? this.roles,
       createdAt: createdAt ?? this.createdAt,
       lastAccountActionShownAt:
           lastEngagementShownAt ?? lastAccountActionShownAt,

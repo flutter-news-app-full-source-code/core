@@ -12,7 +12,6 @@ DashboardSummary _$DashboardSummaryFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = DashboardSummary(
-          id: $checkedConvert('id', (v) => v as String?),
           headlineCount: $checkedConvert(
             'headline_count',
             (v) => (v as num).toInt(),
@@ -25,6 +24,7 @@ DashboardSummary _$DashboardSummaryFromJson(Map<String, dynamic> json) =>
             'source_count',
             (v) => (v as num).toInt(),
           ),
+          id: $checkedConvert('id', (v) => v as String?),
         );
         return val;
       },

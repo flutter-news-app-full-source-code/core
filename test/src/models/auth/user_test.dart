@@ -6,9 +6,9 @@ void main() {
   group('User Model', () {
     const id = 'test-id';
     const email = 'test@example.com';
-    const standardRole = UserRole.standardUser;
-    const guestRole = UserRole.guestUser;
-    const adminRole = UserRole.admin;
+    const standardRoles = [UserRoles.standardUser];
+    const guestRoles = [UserRoles.guestUser];
+    const adminRoles = [UserRoles.admin, UserRoles.standardUser];
     final testCreatedAt = DateTime.utc(2023);
     final testLastEngagementShownAt = DateTime.utc(2023, 1, 2);
 
@@ -17,7 +17,7 @@ void main() {
         User(
           id: id,
           email: email,
-          role: standardRole,
+          roles: standardRoles,
           createdAt: testCreatedAt,
           lastAccountActionShownAt: testLastEngagementShownAt,
         ),
@@ -25,39 +25,45 @@ void main() {
           User(
             id: id,
             email: email,
-            role: standardRole,
+            roles: standardRoles,
             createdAt: testCreatedAt,
             lastAccountActionShownAt: testLastEngagementShownAt,
           ),
         ),
       );
       expect(
-        const User(id: id, email: email, role: standardRole),
-        isNot(
-          equals(const User(id: 'other-id', email: email, role: standardRole)),
-        ),
-      );
-      expect(
-        const User(id: id, email: email, role: standardRole),
+        const User(id: id, email: email, roles: standardRoles),
         isNot(
           equals(
-            const User(id: id, email: 'other@example.com', role: standardRole),
+            const User(id: 'other-id', email: email, roles: standardRoles),
           ),
         ),
       );
       expect(
-        const User(id: id, email: email, role: standardRole),
-        isNot(equals(const User(id: id, email: email, role: guestRole))),
+        const User(id: id, email: email, roles: standardRoles),
+        isNot(
+          equals(
+            const User(
+              id: id,
+              email: 'other@example.com',
+              roles: standardRoles,
+            ),
+          ),
+        ),
       );
       expect(
-        const User(id: id, email: email, role: standardRole),
-        isNot(equals(const User(id: id, email: email, role: adminRole))),
+        const User(id: id, email: email, roles: standardRoles),
+        isNot(equals(const User(id: id, email: email, roles: guestRoles))),
+      );
+      expect(
+        const User(id: id, email: email, roles: standardRoles),
+        isNot(equals(const User(id: id, email: email, roles: adminRoles))),
       );
       expect(
         User(
           id: id,
           email: email,
-          role: standardRole,
+          roles: standardRoles,
           lastAccountActionShownAt: testLastEngagementShownAt,
         ),
         isNot(
@@ -65,7 +71,7 @@ void main() {
             User(
               id: id,
               email: email,
-              role: standardRole,
+              roles: standardRoles,
               lastAccountActionShownAt: DateTime.utc(2024),
             ),
           ),
@@ -77,14 +83,14 @@ void main() {
       final user = User(
         id: id,
         email: email,
-        role: standardRole,
+        roles: standardRoles,
         createdAt: testCreatedAt,
         lastAccountActionShownAt: testLastEngagementShownAt,
       );
       expect(user.props, [
         id,
         email,
-        standardRole,
+        standardRoles,
         testCreatedAt,
         testLastEngagementShownAt,
       ]);
@@ -92,33 +98,33 @@ void main() {
 
     test('has correct toString', () {
       expect(
-        const User(id: id, email: email, role: standardRole).toString(),
+        const User(id: id, email: email, roles: standardRoles).toString(),
         equals(
-          'User(id: $id, email: $email, role: $standardRole, createdAt: null, lastEngagementShownAt: null)',
+          'User(id: $id, email: $email, roles: $standardRoles, createdAt: null, lastEngagementShownAt: null)',
         ),
       );
       expect(
-        const User(id: id, role: guestRole).toString(),
+        const User(id: id, roles: guestRoles).toString(),
         equals(
-          'User(id: $id, email: null, role: $guestRole, createdAt: null, lastEngagementShownAt: null)',
+          'User(id: $id, email: null, roles: $guestRoles, createdAt: null, lastEngagementShownAt: null)',
         ),
       );
       expect(
-        const User(id: id, role: adminRole).toString(),
+        const User(id: id, roles: adminRoles).toString(),
         equals(
-          'User(id: $id, email: null, role: $adminRole, createdAt: null, lastEngagementShownAt: null)',
+          'User(id: $id, email: null, roles: $adminRoles, createdAt: null, lastEngagementShownAt: null)',
         ),
       );
       expect(
         User(
           id: id,
           email: email,
-          role: standardRole,
+          roles: standardRoles,
           createdAt: testCreatedAt,
           lastAccountActionShownAt: testLastEngagementShownAt,
         ).toString(),
         equals(
-          'User(id: $id, email: $email, role: $standardRole, createdAt: $testCreatedAt, lastEngagementShownAt: $testLastEngagementShownAt)',
+          'User(id: $id, email: $email, roles: $standardRoles, createdAt: $testCreatedAt, lastEngagementShownAt: $testLastEngagementShownAt)',
         ),
       );
     });
@@ -128,7 +134,7 @@ void main() {
         final original = User(
           id: id,
           email: email,
-          role: standardRole,
+          roles: standardRoles,
           createdAt: testCreatedAt,
           lastAccountActionShownAt: testLastEngagementShownAt,
         );
@@ -137,33 +143,32 @@ void main() {
       });
 
       test('updates specified fields', () {
-        const original = User(id: id, role: standardRole);
+        const original = User(id: id, roles: standardRoles);
         const newEmail = 'new@example.com';
-        const newRole = UserRole.premiumUser;
+        const newRoles = [UserRoles.premiumUser];
         final newCreatedAt = DateTime.utc(2024);
         final newLastEngagementShownAt = DateTime.utc(2024, 1, 2);
 
         final copied = original.copyWith(
           email: newEmail,
-          role: newRole,
+          roles: newRoles,
           createdAt: newCreatedAt,
           lastEngagementShownAt: newLastEngagementShownAt,
         );
 
         expect(copied.id, id);
         expect(copied.email, newEmail);
-        expect(copied.role, newRole);
+        expect(copied.roles, newRoles);
         expect(copied.createdAt, newCreatedAt);
         expect(copied.lastAccountActionShownAt, newLastEngagementShownAt);
       });
     });
 
-    // Basic test for JSON serialization - assumes build_runner generated correctly
     test('can be serialized and deserialized', () {
       final user = User(
         id: id,
         email: email,
-        role: standardRole,
+        roles: standardRoles,
         createdAt: testCreatedAt,
         lastAccountActionShownAt: testLastEngagementShownAt,
       );
@@ -175,13 +180,13 @@ void main() {
         testLastEngagementShownAt,
       );
 
-      const anonUser = User(id: id, role: guestRole);
+      const anonUser = User(id: id, roles: guestRoles);
       final anonJson = anonUser.toJson();
       final deserializedAnonUser = User.fromJson(anonJson);
       expect(deserializedAnonUser, equals(anonUser));
       expect(deserializedAnonUser.lastAccountActionShownAt, isNull);
 
-      const adminUser = User(id: id, email: email, role: adminRole);
+      const adminUser = User(id: id, email: email, roles: adminRoles);
       final adminJson = adminUser.toJson();
       final deserializedAdminUser = User.fromJson(adminJson);
       expect(deserializedAdminUser, equals(adminUser));
