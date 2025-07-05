@@ -4,3 +4,4 @@ export 'countries.dart';
 export 'dashboard_summary.dart';
 export 'headlines.dart';
 export 'sources.dart';
+export 'users.dart';

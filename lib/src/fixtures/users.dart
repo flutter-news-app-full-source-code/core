@@ -4,7 +4,7 @@ import 'package:ht_shared/ht_shared.dart';
 ///
 /// This list includes a pre-configured administrator user, which is essential
 /// for accessing the dashboard in a development environment.
-final List<User> userFixtures = [
+final List<User> usersFixturesData = [
   // The initial administrator user.
   User(
     id: 'admin-user-id', // A fixed, predictable ID for the admin.
