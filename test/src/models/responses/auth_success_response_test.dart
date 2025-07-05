@@ -116,10 +116,7 @@ void main() {
       });
 
       test('should create a copy with both user and token updated', () {
-        const updatedUser = User(
-          id: 'user-789',
-          roles: [UserRoles.guestUser],
-        );
+        const updatedUser = User(id: 'user-789', roles: [UserRoles.guestUser]);
         const updatedToken = 'another-token-xyz';
         final copiedResponse = authSuccessResponse.copyWith(
           user: updatedUser,
@@ -141,10 +138,7 @@ void main() {
       });
 
       test('should not equate instances with different users', () {
-        const differentUser = User(
-          id: 'diff-user',
-          roles: [UserRoles.admin],
-        );
+        const differentUser = User(id: 'diff-user', roles: [UserRoles.admin]);
         const response1 = AuthSuccessResponse(user: testUser, token: testToken);
         const response2 = AuthSuccessResponse(
           user: differentUser,

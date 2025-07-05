@@ -34,14 +34,20 @@ void main() {
       expect(
         const User(id: id, email: email, roles: standardRoles),
         isNot(
-          equals(const User(id: 'other-id', email: email, roles: standardRoles)),
+          equals(
+            const User(id: 'other-id', email: email, roles: standardRoles),
+          ),
         ),
       );
       expect(
         const User(id: id, email: email, roles: standardRoles),
         isNot(
           equals(
-            const User(id: id, email: 'other@example.com', roles: standardRoles),
+            const User(
+              id: id,
+              email: 'other@example.com',
+              roles: standardRoles,
+            ),
           ),
         ),
       );

@@ -19,7 +19,10 @@ part 'dashboard_summary.g.dart';
 class DashboardSummary extends Equatable {
   /// {@macro dashboard_summary}
   DashboardSummary({
-    required this.headlineCount, required this.categoryCount, required this.sourceCount, String? id,
+    required this.headlineCount,
+    required this.categoryCount,
+    required this.sourceCount,
+    String? id,
   }) : id = id ?? const Uuid().v4();
 
   /// Creates a [DashboardSummary] from a JSON object.
