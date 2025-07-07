@@ -12,12 +12,7 @@ part 'response_metadata.g.dart';
 /// the main response wrapper.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
 class ResponseMetadata extends Equatable {
   /// {@macro response_metadata}
   const ResponseMetadata({this.requestId, this.timestamp});

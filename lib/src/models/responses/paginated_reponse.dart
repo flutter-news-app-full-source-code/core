@@ -13,7 +13,6 @@ part 'paginated_reponse.g.dart';
 @immutable
 @JsonSerializable(
   genericArgumentFactories: true,
-  fieldRename: FieldRename.snake,
   explicitToJson: true,
   includeIfNull: false,
   checked: true,

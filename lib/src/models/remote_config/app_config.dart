@@ -21,12 +21,7 @@ part 'app_config.g.dart';
 /// identified by a fixed ID (e.g., 'app_config').
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
 class AppConfig extends Equatable {
   /// {@macro app_config}
   ///

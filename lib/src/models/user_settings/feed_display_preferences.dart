@@ -32,12 +32,7 @@ enum HeadlineImageStyle {
 /// User preferences for how feeds are displayed.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
 class FeedDisplayPreferences extends Equatable {
   /// {@macro feed_display_preferences}
   const FeedDisplayPreferences({

@@ -11,12 +11,7 @@ part 'permission.g.dart';
 /// {@endtemplate}
 
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
 class Permission extends Equatable {
   /// {@macro permission}
   const Permission({required this.name});

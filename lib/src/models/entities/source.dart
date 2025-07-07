@@ -15,12 +15,7 @@ part 'source.g.dart';
 /// Represents a news source.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
 class Source extends FeedItem {
   /// {@macro source}
   Source({

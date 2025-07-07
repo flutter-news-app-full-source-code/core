@@ -20,7 +20,6 @@ part 'success_api_response.g.dart';
 @immutable
 @JsonSerializable(
   genericArgumentFactories: true,
-  fieldRename: FieldRename.snake,
   explicitToJson: true,
   includeIfNull: false,
   checked: true,

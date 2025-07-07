@@ -14,12 +14,7 @@ part 'country.g.dart';
 /// or user profile settings.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
 class Country extends FeedItem {
   /// {@macro country}
   Country({

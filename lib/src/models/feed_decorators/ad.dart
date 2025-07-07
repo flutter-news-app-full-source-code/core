@@ -8,7 +8,7 @@ part 'ad.g.dart';
 /// {@template ad_type}
 /// Defines the visual format or type of an advertisement in the feed.
 /// {@endtemplate}
-@JsonEnum(fieldRename: FieldRename.snake)
+
 enum AdType {
   /// A banner advertisement, typically a rectangular image.
   banner,
@@ -26,7 +26,7 @@ enum AdType {
 /// {@template ad_placement}
 /// Defines specific, known locations or contexts where an ad might appear.
 /// {@endtemplate}
-@JsonEnum(fieldRename: FieldRename.snake)
+
 enum AdPlacement {
   /// A standard banner ad placed inline within the main feed.
   feedInlineStandardBanner,
@@ -40,12 +40,7 @@ enum AdPlacement {
 /// Represents an advertisement item that can appear in the feed.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
 class Ad extends FeedItem {
   /// {@macro ad}
   Ad({

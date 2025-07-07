@@ -15,12 +15,7 @@ part 'headline.g.dart';
 /// Represents a news headline item.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
 class Headline extends FeedItem {
   /// {@macro headline}
   Headline({

@@ -9,12 +9,7 @@ part 'account_action_config.g.dart';
 /// account actions, tiered by user role.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
 class AccountActionConfig extends Equatable {
   /// {@macro account_action_config}
   const AccountActionConfig({

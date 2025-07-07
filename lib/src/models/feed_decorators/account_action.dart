@@ -8,7 +8,7 @@ part 'account_action.g.dart';
 /// {@template account_action_type}
 /// Defines the specific type or purpose of an [AccountAction] item.
 /// {@endtemplate}
-@JsonEnum(fieldRename: FieldRename.snake)
+
 enum AccountActionType {
   /// A call-to-action to link an account.
   linkAccount,
@@ -25,12 +25,7 @@ enum AccountActionType {
 /// of the call-to-action.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
 class AccountAction extends FeedItem {
   /// {@macro account_action}
   AccountAction({

@@ -32,12 +32,7 @@ part 'ad_config.g.dart';
 /// - `AdFrequency` = 5: After the first 3 items, an ad *could* appear after item #5, then potentially after item #10, #15, etc.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
 class AdConfig extends Equatable {
   /// {@macro ad_config}
   const AdConfig({
