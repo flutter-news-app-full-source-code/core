@@ -1,6 +1,5 @@
-import 'package:json_annotation/json_annotation.dart';
-
 /// Enum representing the lifecycle status of a content entity.
+library;
 
 enum ContentStatus {
   /// The entity is active and visible.
