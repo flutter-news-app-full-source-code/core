@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/ht_shared.dart'
-    show AppConfig, UserContentPreferences;
+    show RemoteConfig, UserContentPreferences;
 import 'package:ht_shared/src/models/models.dart'
-    show AppConfig, UserContentPreferences;
+    show RemoteConfig, UserContentPreferences;
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -12,7 +12,7 @@ part 'user_preference_config.g.dart';
 /// Defines the maximum number of items a user can follow or save,
 /// tiered by user role (Guest, Authenticated, Premium).
 ///
-/// This model is part of the overall [AppConfig] and is used by the
+/// This model is part of the overall [RemoteConfig] and is used by the
 /// backend to enforce limits during save/update operations for
 /// [UserContentPreferences]. Clients can also fetch this configuration
 /// to provide UI feedback (e.g., showing current usage vs. limit,

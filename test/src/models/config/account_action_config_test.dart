@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/models/remote_config/account_action_config.dart';
+import 'package:ht_shared/src/models/config/account_action_config.dart';
 import 'package:test/test.dart';
 
 void main() {
