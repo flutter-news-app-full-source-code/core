@@ -16,11 +16,11 @@ Category _$CategoryFromJson(Map<String, dynamic> json) =>
         iconUrl: $checkedConvert('iconUrl', (v) => v as String),
         createdAt: $checkedConvert(
           'createdAt',
-          (v) => dateTimeFromJson(v as String),
+          (v) => dateTimeFromJson(v as String?),
         ),
         updatedAt: $checkedConvert(
           'updatedAt',
-          (v) => dateTimeFromJson(v as String),
+          (v) => dateTimeFromJson(v as String?),
         ),
         status: $checkedConvert(
           'status',

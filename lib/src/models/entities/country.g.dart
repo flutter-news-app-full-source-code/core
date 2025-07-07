@@ -15,11 +15,11 @@ Country _$CountryFromJson(Map<String, dynamic> json) =>
         id: $checkedConvert('id', (v) => v as String),
         createdAt: $checkedConvert(
           'createdAt',
-          (v) => dateTimeFromJson(v as String),
+          (v) => dateTimeFromJson(v as String?),
         ),
         updatedAt: $checkedConvert(
           'updatedAt',
-          (v) => dateTimeFromJson(v as String),
+          (v) => dateTimeFromJson(v as String?),
         ),
         status: $checkedConvert(
           'status',

@@ -16,7 +16,7 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) =>
         imageUrl: $checkedConvert('imageUrl', (v) => v as String),
         publishedAt: $checkedConvert(
           'publishedAt',
-          (v) => dateTimeFromJson(v as String),
+          (v) => dateTimeFromJson(v as String?),
         ),
         source: $checkedConvert(
           'source',
@@ -28,11 +28,11 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) =>
         ),
         createdAt: $checkedConvert(
           'createdAt',
-          (v) => dateTimeFromJson(v as String),
+          (v) => dateTimeFromJson(v as String?),
         ),
         updatedAt: $checkedConvert(
           'updatedAt',
-          (v) => dateTimeFromJson(v as String),
+          (v) => dateTimeFromJson(v as String?),
         ),
         status: $checkedConvert(
           'status',
