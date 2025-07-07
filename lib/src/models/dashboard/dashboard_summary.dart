@@ -10,7 +10,7 @@ part 'dashboard_summary.g.dart';
 /// This model is designed as a singleton resource, typically fetched with a
 /// well-known ID like 'summary'.
 /// {@endtemplate}
-@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class DashboardSummary extends Equatable {
   /// {@macro dashboard_summary}
   DashboardSummary({

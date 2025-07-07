@@ -14,7 +14,7 @@ part 'auth_success_response.g.dart';
 /// like anonymous sign-in or code verification.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class AuthSuccessResponse extends Equatable {
   /// {@macro auth_success_response}
   const AuthSuccessResponse({required this.user, required this.token});

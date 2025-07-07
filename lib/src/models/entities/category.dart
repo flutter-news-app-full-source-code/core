@@ -14,7 +14,7 @@ part 'category.g.dart';
 /// The [id] is automatically generated using UUID v4 if not provided.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class Category extends FeedItem {
   /// {@macro category}
   ///

@@ -40,7 +40,7 @@ enum AdPlacement {
 /// Represents an advertisement item that can appear in the feed.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class Ad extends FeedItem {
   /// {@macro ad}
   Ad({

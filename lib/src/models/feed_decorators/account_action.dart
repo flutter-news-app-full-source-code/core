@@ -25,7 +25,7 @@ enum AccountActionType {
 /// of the call-to-action.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class AccountAction extends FeedItem {
   /// {@macro account_action}
   AccountAction({

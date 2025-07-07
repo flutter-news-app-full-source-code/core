@@ -15,7 +15,7 @@ part 'user_app_settings.g.dart';
 /// making it suitable for management via a generic data client.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class UserAppSettings extends Equatable {
   /// {@macro user_app_settings}
   ///

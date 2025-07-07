@@ -10,7 +10,7 @@ part 'user.g.dart';
 /// unique identifier, email (if available), and their assigned [roles].
 
 @immutable
-@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class User extends Equatable {
   /// Creates a new [User] instance.
   ///

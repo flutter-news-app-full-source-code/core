@@ -21,7 +21,7 @@ part 'success_api_response.g.dart';
 @JsonSerializable(
   genericArgumentFactories: true,
   explicitToJson: true,
-  includeIfNull: false,
+  includeIfNull: true,
   checked: true,
 )
 class SuccessApiResponse<T> extends Equatable {

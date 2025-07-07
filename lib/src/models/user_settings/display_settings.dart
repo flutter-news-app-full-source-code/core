@@ -14,7 +14,7 @@ part 'display_settings.g.dart';
 /// together.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(explicitToJson: true, includeIfNull: false, checked: true)
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class DisplaySettings extends Equatable {
   /// {@macro display_settings}
   ///

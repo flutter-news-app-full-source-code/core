@@ -14,7 +14,7 @@ part 'paginated_reponse.g.dart';
 @JsonSerializable(
   genericArgumentFactories: true,
   explicitToJson: true,
-  includeIfNull: false,
+  includeIfNull: true,
   checked: true,
 )
 class PaginatedResponse<T> extends Equatable {
