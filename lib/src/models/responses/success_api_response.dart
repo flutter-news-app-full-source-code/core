@@ -26,7 +26,7 @@ part 'success_api_response.g.dart';
 )
 class SuccessApiResponse<T> extends Equatable {
   /// {@macro success_api_response}
-  const SuccessApiResponse({required this.data, this.metadata});
+  const SuccessApiResponse({required this.data, required this.metadata});
 
   /// Factory method to create a [SuccessApiResponse] instance from a JSON map.
   ///
@@ -40,7 +40,7 @@ class SuccessApiResponse<T> extends Equatable {
   final T data;
 
   /// Optional metadata associated with the response.
-  final ResponseMetadata? metadata;
+  final ResponseMetadata metadata;
 
   /// Converts this [SuccessApiResponse] instance to a JSON map.
   ///

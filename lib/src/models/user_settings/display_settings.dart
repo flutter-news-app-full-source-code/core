@@ -17,22 +17,12 @@ part 'display_settings.g.dart';
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class DisplaySettings extends Equatable {
   /// {@macro display_settings}
-  ///
-  /// Creates a new instance of [DisplaySettings].
-  ///
-  /// Provides sensible defaults for each setting if not specified:
-  /// - `baseTheme`: [AppBaseTheme.system]
-  /// - `accentTheme`: [AppAccentTheme.defaultBlue]
-  /// - `fontFamily`: 'SystemDefault' (indicating usage of the platform's
-  ///   default font)
-  /// - `textScaleFactor`: [AppTextScaleFactor.medium]
-  /// - `fontWeight`: [AppFontWeight.regular]
   const DisplaySettings({
-    this.baseTheme = AppBaseTheme.system, // Default value
-    this.accentTheme = AppAccentTheme.defaultBlue, // Default value
-    this.fontFamily = 'SystemDefault', // Default value
-    this.textScaleFactor = AppTextScaleFactor.medium, // Default value
-    this.fontWeight = AppFontWeight.regular, // Default value
+    required this.baseTheme,
+    required this.accentTheme,
+    required this.fontFamily,
+    required this.textScaleFactor,
+    required this.fontWeight,
   });
 
   /// Creates a [DisplaySettings] instance from a JSON map.

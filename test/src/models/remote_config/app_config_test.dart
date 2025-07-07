@@ -33,6 +33,14 @@ void main() {
 
     const appConfig = AppConfig(
       id: 'app_config',
+      maintenanceMessage: '',
+      disabledMessage: '',
+      minAllowedAppVersion: '0.0.0',
+      latestAppVersion: '0.0.0',
+      updateRequiredMessage: '',
+      updateOptionalMessage: '',
+      iosStoreUrl: '',
+      androidStoreUrl: '',
       userPreferenceLimits: mockUserPreferenceConfig,
       accountActionConfig: mockAccountActionConfig,
       adConfig: mockAdConfig,
@@ -42,13 +50,31 @@ void main() {
       test('returns correct instance with all configs provided', () {
         expect(appConfig, isA<AppConfig>());
         expect(appConfig.id, 'app_config');
+        expect(appConfig.maintenanceMessage, '');
+        expect(appConfig.disabledMessage, '');
+        expect(appConfig.minAllowedAppVersion, '0.0.0');
+        expect(appConfig.latestAppVersion, '0.0.0');
+        expect(appConfig.updateRequiredMessage, '');
+        expect(appConfig.updateOptionalMessage, '');
+        expect(appConfig.iosStoreUrl, '');
+        expect(appConfig.androidStoreUrl, '');
         expect(appConfig.userPreferenceLimits, mockUserPreferenceConfig);
         expect(appConfig.adConfig, mockAdConfig);
         expect(appConfig.accountActionConfig, mockAccountActionConfig);
       });
 
       test('defaults nested configs when not provided', () {
-        const defaultConfig = AppConfig(id: 'default_config');
+        const defaultConfig = AppConfig(
+          id: 'default_config',
+          maintenanceMessage: '',
+          disabledMessage: '',
+          minAllowedAppVersion: '0.0.0',
+          latestAppVersion: '0.0.0',
+          updateRequiredMessage: '',
+          updateOptionalMessage: '',
+          iosStoreUrl: '',
+          androidStoreUrl: '',
+        );
         // Check against the default values defined in AppConfig constructor
         expect(defaultConfig.userPreferenceLimits.guestFollowedItemsLimit, 5);
         expect(defaultConfig.userPreferenceLimits.guestSavedHeadlinesLimit, 10);
@@ -96,11 +122,35 @@ void main() {
         () {
           final json = {
             'id': 'default_config',
+            'maintenance_message': '',
+            'disabled_message': '',
+            'min_allowed_app_version': '0.0.0',
+            'latest_app_version': '0.0.0',
+            'update_required_message': '',
+            'update_optional_message': '',
+            'ios_store_url': '',
+            'android_store_url': '',
+            'user_preference_limits': mockUserPreferenceConfig.toJson(),
+            'ad_config': mockAdConfig.toJson(),
+            'account_action_config': mockAccountActionConfig.toJson(),
             // Missing user_preference_limits, ad_config, engagement_content_config
           };
 
           final result = AppConfig.fromJson(json);
-          const expectedDefaultAppConfig = AppConfig(id: 'default_config');
+          const expectedDefaultAppConfig = AppConfig(
+            id: 'default_config',
+            maintenanceMessage: '',
+            disabledMessage: '',
+            minAllowedAppVersion: '0.0.0',
+            latestAppVersion: '0.0.0',
+            updateRequiredMessage: '',
+            updateOptionalMessage: '',
+            iosStoreUrl: '',
+            androidStoreUrl: '',
+            userPreferenceLimits: mockUserPreferenceConfig,
+            adConfig: mockAdConfig,
+            accountActionConfig: mockAccountActionConfig,
+          );
 
           // Should match the default values from AppConfig constructor
           expect(result.id, 'default_config');
@@ -131,7 +181,20 @@ void main() {
       });
 
       test('returns correct JSON map with default nested fields', () {
-        const defaultConfig = AppConfig(id: 'default_config');
+        const defaultConfig = AppConfig(
+          id: 'default_config',
+          maintenanceMessage: '',
+          disabledMessage: '',
+          minAllowedAppVersion: '0.0.0',
+          latestAppVersion: '0.0.0',
+          updateRequiredMessage: '',
+          updateOptionalMessage: '',
+          iosStoreUrl: '',
+          androidStoreUrl: '',
+          userPreferenceLimits: mockUserPreferenceConfig,
+          adConfig: mockAdConfig,
+          accountActionConfig: mockAccountActionConfig,
+        );
         final json = defaultConfig.toJson();
 
         expect(json['id'], 'default_config');
@@ -193,6 +256,9 @@ void main() {
           authenticatedAdPlacementInterval: 1,
           premiumAdFrequency: 1,
           premiumAdPlacementInterval: 1,
+          guestArticlesToReadBeforeShowingInterstitialAds: 1,
+          standardUserArticlesToReadBeforeShowingInterstitialAds: 1,
+          premiumUserArticlesToReadBeforeShowingInterstitialAds: 1,
         );
         const newAccountActionConfig = AccountActionConfig(
           guestDaysBetweenAccountActions: 1,
@@ -204,12 +270,28 @@ void main() {
           userPreferenceLimits: newUserPrefs,
           adConfig: newAdConfig,
           accountActionConfig: newAccountActionConfig,
+          maintenanceMessage: 'New Maintenance',
+          disabledMessage: 'New Disabled',
+          minAllowedAppVersion: '2.0.0',
+          latestAppVersion: '2.1.0',
+          updateRequiredMessage: 'New Update Required',
+          updateOptionalMessage: 'New Update Optional',
+          iosStoreUrl: 'https://newios.com',
+          androidStoreUrl: 'https://newandroid.com',
         );
 
         expect(copy.id, newId);
         expect(copy.userPreferenceLimits, newUserPrefs);
         expect(copy.adConfig, newAdConfig);
         expect(copy.accountActionConfig, newAccountActionConfig);
+        expect(copy.maintenanceMessage, 'New Maintenance');
+        expect(copy.disabledMessage, 'New Disabled');
+        expect(copy.minAllowedAppVersion, '2.0.0');
+        expect(copy.latestAppVersion, '2.1.0');
+        expect(copy.updateRequiredMessage, 'New Update Required');
+        expect(copy.updateOptionalMessage, 'New Update Optional');
+        expect(copy.iosStoreUrl, 'https://newios.com');
+        expect(copy.androidStoreUrl, 'https://newandroid.com');
       });
 
       test('copies correctly when some arguments are provided', () {
@@ -221,11 +303,17 @@ void main() {
         final copy = appConfig.copyWith(
           id: newId,
           accountActionConfig: newAccountActionConfig,
+          maintenanceMessage: 'Partial Maintenance',
+          minAllowedAppVersion: '1.9.0',
         );
         expect(copy.id, newId);
         expect(copy.userPreferenceLimits, appConfig.userPreferenceLimits);
         expect(copy.adConfig, appConfig.adConfig);
         expect(copy.accountActionConfig, newAccountActionConfig);
+        expect(copy.maintenanceMessage, 'Partial Maintenance');
+        expect(copy.disabledMessage, appConfig.disabledMessage);
+        expect(copy.minAllowedAppVersion, '1.9.0');
+        expect(copy.latestAppVersion, appConfig.latestAppVersion);
       });
     });
 
@@ -236,12 +324,28 @@ void main() {
           userPreferenceLimits: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
           accountActionConfig: mockAccountActionConfig,
+          maintenanceMessage: '',
+          disabledMessage: '',
+          minAllowedAppVersion: '0.0.0',
+          latestAppVersion: '0.0.0',
+          updateRequiredMessage: '',
+          updateOptionalMessage: '',
+          iosStoreUrl: '',
+          androidStoreUrl: '',
         );
         const config2 = AppConfig(
           id: 'config-1',
           userPreferenceLimits: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
           accountActionConfig: mockAccountActionConfig,
+          maintenanceMessage: '',
+          disabledMessage: '',
+          minAllowedAppVersion: '0.0.0',
+          latestAppVersion: '0.0.0',
+          updateRequiredMessage: '',
+          updateOptionalMessage: '',
+          iosStoreUrl: '',
+          androidStoreUrl: '',
         );
         expect(config1, config2);
       });
@@ -252,6 +356,14 @@ void main() {
           userPreferenceLimits: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
           accountActionConfig: mockAccountActionConfig,
+          maintenanceMessage: '',
+          disabledMessage: '',
+          minAllowedAppVersion: '0.0.0',
+          latestAppVersion: '0.0.0',
+          updateRequiredMessage: '',
+          updateOptionalMessage: '',
+          iosStoreUrl: '',
+          androidStoreUrl: '',
         );
         const differentAccountActionConfig = AccountActionConfig(
           guestDaysBetweenAccountActions: 1, // Different
@@ -262,6 +374,14 @@ void main() {
           userPreferenceLimits: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
           accountActionConfig: differentAccountActionConfig,
+          maintenanceMessage: '',
+          disabledMessage: '',
+          minAllowedAppVersion: '0.0.0',
+          latestAppVersion: '0.0.0',
+          updateRequiredMessage: '',
+          updateOptionalMessage: '',
+          iosStoreUrl: '',
+          androidStoreUrl: '',
         );
         expect(config1, isNot(equals(config2)));
       });

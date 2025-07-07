@@ -10,19 +10,40 @@ void main() {
       isoCode: 'US',
       name: 'United States',
       flagUrl: 'http://example.com/us.png',
+      createdAt: DateTime.utc(2023),
+      updatedAt: DateTime.utc(2023),
     );
     final mockSource = Source(
       id: 'source-1',
       name: 'Example News',
+      description: 'A news source for examples',
       url: 'http://example.com',
       sourceType: SourceType.newsAgency,
+      language: 'en',
+      headquarters: mockCountry,
+      createdAt: DateTime.utc(2023),
+      updatedAt: DateTime.utc(2023),
     );
-    final mockCategory = Category(id: 'category-1', name: 'Technology');
+    final mockCategory = Category(
+      id: 'category-1',
+      name: 'Technology',
+      description: 'Technology news',
+      iconUrl: 'http://example.com/tech_icon.png',
+      createdAt: DateTime.utc(2023),
+      updatedAt: DateTime.utc(2023),
+      status: ContentStatus.active,
+    );
     final mockHeadline = Headline(
       id: 'headline-1',
       title: 'Example Headline',
+      description: 'This is an example headline description.',
       url: 'http://example.com/headline',
+      imageUrl: 'http://example.com/headline_image.png',
       publishedAt: DateTime.utc(2023),
+      source: mockSource,
+      category: mockCategory,
+      createdAt: DateTime.utc(2023),
+      updatedAt: DateTime.utc(2023),
     );
 
     final userContentPreferences = UserContentPreferences(
@@ -30,7 +51,7 @@ void main() {
       followedCountries: [mockCountry],
       followedSources: [mockSource],
       followedCategories: [mockCategory],
-      savedHeadlines: const [], // Start with empty saved headlines
+      savedHeadlines: const [],
     );
 
     group('constructor', () {
@@ -38,8 +59,14 @@ void main() {
         expect(userContentPreferences, isA<UserContentPreferences>());
       });
 
-      test('defaults lists to empty when not provided', () {
-        const defaultPreferences = UserContentPreferences(id: 'user-2');
+      test('returns correct instance with empty lists when provided', () {
+        const defaultPreferences = UserContentPreferences(
+          id: 'user-2',
+          followedCountries: [],
+          followedSources: [],
+          followedCategories: [],
+          savedHeadlines: [],
+        );
         expect(defaultPreferences.followedCountries, isEmpty);
         expect(defaultPreferences.followedSources, isEmpty);
         expect(defaultPreferences.followedCategories, isEmpty);
@@ -57,6 +84,9 @@ void main() {
               'iso_code': 'US',
               'name': 'United States',
               'flag_url': 'http://example.com/us.png',
+              'created_at': '2023-01-01T00:00:00.000Z',
+              'updated_at': '2023-01-01T00:00:00.000Z',
+              'status': 'active',
               'type': 'country',
             },
           ],
@@ -64,20 +94,81 @@ void main() {
             {
               'id': 'source-1',
               'name': 'Example News',
+              'description': 'A news source for examples',
               'url': 'http://example.com',
-              'type': 'source',
               'source_type': 'news_agency',
+              'language': 'en',
+              'headquarters': {
+                'id': 'country-1',
+                'iso_code': 'US',
+                'name': 'United States',
+                'flag_url': 'http://example.com/us.png',
+                'created_at': '2023-01-01T00:00:00.000Z',
+                'updated_at': '2023-01-01T00:00:00.000Z',
+                'status': 'active',
+                'type': 'country',
+              },
+              'created_at': '2023-01-01T00:00:00.000Z',
+              'updated_at': '2023-01-01T00:00:00.000Z',
+              'status': 'active',
+              'type': 'source',
             },
           ],
           'followed_categories': [
-            {'id': 'category-1', 'name': 'Technology', 'type': 'category'},
+            {
+              'id': 'category-1',
+              'name': 'Technology',
+              'description': 'Technology news',
+              'icon_url': 'http://example.com/tech_icon.png',
+              'created_at': '2023-01-01T00:00:00.000Z',
+              'updated_at': '2023-01-01T00:00:00.000Z',
+              'status': 'active',
+              'type': 'category',
+            },
           ],
           'saved_headlines': [
             {
               'id': 'headline-1',
               'title': 'Example Headline',
+              'description': 'This is an example headline description.',
               'url': 'http://example.com/headline',
+              'image_url': 'http://example.com/headline_image.png',
               'published_at': '2023-01-01T00:00:00.000Z',
+              'source': {
+                'id': 'source-1',
+                'name': 'Example News',
+                'description': 'A news source for examples',
+                'url': 'http://example.com',
+                'source_type': 'news_agency',
+                'language': 'en',
+                'headquarters': {
+                  'id': 'country-1',
+                  'iso_code': 'US',
+                  'name': 'United States',
+                  'flag_url': 'http://example.com/us.png',
+                  'created_at': '2023-01-01T00:00:00.000Z',
+                  'updated_at': '2023-01-01T00:00:00.000Z',
+                  'status': 'active',
+                  'type': 'country',
+                },
+                'created_at': '2023-01-01T00:00:00.000Z',
+                'updated_at': '2023-01-01T00:00:00.000Z',
+                'status': 'active',
+                'type': 'source',
+              },
+              'category': {
+                'id': 'category-1',
+                'name': 'Technology',
+                'description': 'Technology news',
+                'icon_url': 'http://example.com/tech_icon.png',
+                'created_at': '2023-01-01T00:00:00.000Z',
+                'updated_at': '2023-01-01T00:00:00.000Z',
+                'status': 'active',
+                'type': 'category',
+              },
+              'created_at': '2023-01-01T00:00:00.000Z',
+              'updated_at': '2023-01-01T00:00:00.000Z',
+              'status': 'active',
               'type': 'headline',
             },
           ],
@@ -114,20 +205,27 @@ void main() {
         expect(result.savedHeadlines, isEmpty);
       });
 
-      test('returns correct instance from JSON with missing optional lists', () {
-        final json = {
-          'id': 'user-4',
-          // Missing followed_countries, followed_sources, followed_categories, saved_headlines
-        };
+      test(
+        'returns correct instance from JSON with empty lists when fields are missing',
+        () {
+          final json = {
+            'id': 'user-4',
+            'followed_countries': [],
+            'followed_sources': [],
+            'followed_categories': [],
+            'saved_headlines': [],
+            // Missing followed_countries, followed_sources, followed_categories, saved_headlines
+          };
 
-        final result = UserContentPreferences.fromJson(json);
+          final result = UserContentPreferences.fromJson(json);
 
-        expect(result.id, 'user-4');
-        expect(result.followedCountries, isEmpty);
-        expect(result.followedSources, isEmpty);
-        expect(result.followedCategories, isEmpty);
-        expect(result.savedHeadlines, isEmpty);
-      });
+          expect(result.id, 'user-4');
+          expect(result.followedCountries, isEmpty);
+          expect(result.followedSources, isEmpty);
+          expect(result.followedCategories, isEmpty);
+          expect(result.savedHeadlines, isEmpty);
+        },
+      );
     });
 
     group('toJson', () {
@@ -154,7 +252,13 @@ void main() {
       });
 
       test('returns correct JSON map with empty lists', () {
-        const emptyPreferences = UserContentPreferences(id: 'user-5');
+        const emptyPreferences = UserContentPreferences(
+          id: 'user-5',
+          followedCountries: [],
+          followedSources: [],
+          followedCategories: [],
+          savedHeadlines: [],
+        );
         final json = emptyPreferences.toJson();
 
         expect(json['id'], 'user-5');
@@ -173,10 +277,20 @@ void main() {
           isoCode: 'CA',
           name: 'Canada',
           flagUrl: 'http://example.com/ca.png',
+          createdAt: DateTime.utc(2023),
+          updatedAt: DateTime.utc(2023),
         );
         final newHeadline = Headline(
           id: 'headline-2',
           title: 'Another Headline',
+          description: 'Another headline description.',
+          url: 'http://example.com/another_headline',
+          imageUrl: 'http://example.com/another_headline_image.png',
+          publishedAt: DateTime.utc(2023),
+          source: mockSource,
+          category: mockCategory,
+          createdAt: DateTime.utc(2023),
+          updatedAt: DateTime.utc(2023),
         );
 
         final updatedPreferences = userContentPreferences.copyWith(
@@ -209,14 +323,38 @@ void main() {
 
     group('Equatable', () {
       test('instances with the same properties are equal', () {
-        const preferences1 = UserContentPreferences(id: 'user-6');
-        const preferences2 = UserContentPreferences(id: 'user-6');
+        const preferences1 = UserContentPreferences(
+          id: 'user-6',
+          followedCountries: [],
+          followedSources: [],
+          followedCategories: [],
+          savedHeadlines: [],
+        );
+        const preferences2 = UserContentPreferences(
+          id: 'user-6',
+          followedCountries: [],
+          followedSources: [],
+          followedCategories: [],
+          savedHeadlines: [],
+        );
         expect(preferences1, preferences2);
       });
 
       test('instances with different properties are not equal', () {
-        const preferences1 = UserContentPreferences(id: 'user-7');
-        const preferences2 = UserContentPreferences(id: 'user-8');
+        const preferences1 = UserContentPreferences(
+          id: 'user-7',
+          followedCountries: [],
+          followedSources: [],
+          followedCategories: [],
+          savedHeadlines: [],
+        );
+        const preferences2 = UserContentPreferences(
+          id: 'user-8',
+          followedCountries: [],
+          followedSources: [],
+          followedCategories: [],
+          savedHeadlines: [],
+        );
         expect(preferences1, isNot(equals(preferences2)));
       });
     });

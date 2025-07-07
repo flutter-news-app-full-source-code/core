@@ -55,7 +55,7 @@ void main() {
     });
 
     test('can be instantiated with default values', () {
-      const settings = DisplaySettings();
+      final settings = createSubject();
       expect(settings.baseTheme, AppBaseTheme.system);
       expect(settings.accentTheme, AppAccentTheme.defaultBlue);
       expect(settings.fontFamily, 'SystemDefault');

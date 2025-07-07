@@ -35,7 +35,6 @@ class PaginatedResponse<T> extends Equatable {
   ) => _$PaginatedResponseFromJson(json, fromJsonT);
 
   /// The list of items of type [T] in the current page.
-  @JsonKey(name: 'items')
   final List<T> items;
 
   /// A cursor string that points to the next page of results.

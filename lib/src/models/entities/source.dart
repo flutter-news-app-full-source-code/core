@@ -5,7 +5,6 @@ import 'package:ht_shared/src/models/entities/source_type.dart';
 import 'package:ht_shared/src/utils/utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:uuid/uuid.dart';
 
 part 'source.g.dart';
 
@@ -18,19 +17,18 @@ part 'source.g.dart';
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class Source extends FeedItem {
   /// {@macro source}
-  Source({
+  const Source({
+    required this.id,
     required this.name,
-    this.description,
-    this.url,
-    this.sourceType,
-    this.language,
-    this.headquarters,
-    this.createdAt,
-    this.updatedAt,
+    required this.description,
+    required this.url,
+    required this.sourceType,
+    required this.language,
+    required this.headquarters,
+    required this.createdAt,
+    required this.updatedAt,
     this.status = ContentStatus.active,
-    String? id,
-  }) : id = id ?? const Uuid().v4(),
-       super(type: 'source');
+  }) : super(type: 'source');
 
   /// Factory method to create a [Source] instance from a JSON map.
   factory Source.fromJson(Map<String, dynamic> json) => _$SourceFromJson(json);
@@ -43,35 +41,34 @@ class Source extends FeedItem {
   final String name;
 
   /// A description of the source.
-  final String? description;
+  final String description;
 
   /// The URL of the source's homepage.
-  final String? url;
+  final String url;
 
   /// The type of the source (e.g., newsAgency, blog).
   /// If an unknown value is encountered during deserialization,
   /// this field will be set to null.
 
-  final SourceType? sourceType;
+  final SourceType sourceType;
 
   /// The language code of the source (e.g., 'en', 'fr').
-  final String? language;
+  final String language;
 
   /// The country where the source is headquartered.
-  final Country? headquarters;
+  final Country headquarters;
 
   /// The creation timestamp of the source.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The last update timestamp of the source.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   /// The current status of the source.
   /// Defaults to `active` if the field is not present in the JSON payload,
   /// ensuring backward compatibility.
-  @JsonKey(defaultValue: ContentStatus.active)
   final ContentStatus status;
 
   /// Converts this [Source] instance to a JSON map.

@@ -28,14 +28,11 @@ class UserContentPreferences extends Equatable {
   /// if not specified.
   const UserContentPreferences({
     required this.id,
-    List<Country>? followedCountries,
-    List<Source>? followedSources,
-    List<Category>? followedCategories,
-    List<Headline>? savedHeadlines,
-  }) : followedCountries = followedCountries ?? const [],
-       followedSources = followedSources ?? const [],
-       followedCategories = followedCategories ?? const [],
-       savedHeadlines = savedHeadlines ?? const [];
+    required this.followedCountries,
+    required this.followedSources,
+    required this.followedCategories,
+    required this.savedHeadlines,
+  });
 
   /// Factory method to create a [UserContentPreferences] instance from a JSON map.
   factory UserContentPreferences.fromJson(Map<String, dynamic> json) =>

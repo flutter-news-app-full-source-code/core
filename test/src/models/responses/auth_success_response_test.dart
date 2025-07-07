@@ -5,15 +5,17 @@ import 'package:test/test.dart';
 void main() {
   group('AuthSuccessResponse', () {
     // Sample User for testing
-    const testUser = User(
+    final testUser = User(
       id: 'user-123',
       email: 'test@example.com',
-      roles: [UserRoles.standardUser],
+      roles: const [UserRoles.standardUser],
+      createdAt: DateTime.utc(2023),
+      lastAccountActionShownAt: DateTime.utc(2023),
     );
     const testToken = 'sample-jwt-token';
 
     // Sample AuthSuccessResponse instance
-    const authSuccessResponse = AuthSuccessResponse(
+    final authSuccessResponse = AuthSuccessResponse(
       user: testUser,
       token: testToken,
     );
@@ -92,10 +94,12 @@ void main() {
       });
 
       test('should create a copy with updated user', () {
-        const updatedUser = User(
+        final updatedUser = User(
           id: 'user-456',
           email: 'updated@example.com',
-          roles: [UserRoles.guestUser],
+          roles: const [UserRoles.guestUser],
+          createdAt: DateTime.utc(2023),
+          lastAccountActionShownAt: DateTime.utc(2023),
         );
         final copiedResponse = authSuccessResponse.copyWith(user: updatedUser);
 
@@ -116,7 +120,13 @@ void main() {
       });
 
       test('should create a copy with both user and token updated', () {
-        const updatedUser = User(id: 'user-789', roles: [UserRoles.guestUser]);
+        final updatedUser = User(
+          id: 'user-789',
+          email: 'another@example.com',
+          roles: const [UserRoles.guestUser],
+          createdAt: DateTime.utc(2023),
+          lastAccountActionShownAt: DateTime.utc(2023),
+        );
         const updatedToken = 'another-token-xyz';
         final copiedResponse = authSuccessResponse.copyWith(
           user: updatedUser,
@@ -131,16 +141,22 @@ void main() {
 
     group('Equatable', () {
       test('should equate two identical instances', () {
-        const response1 = AuthSuccessResponse(user: testUser, token: testToken);
-        const response2 = AuthSuccessResponse(user: testUser, token: testToken);
+        final response1 = AuthSuccessResponse(user: testUser, token: testToken);
+        final response2 = AuthSuccessResponse(user: testUser, token: testToken);
         expect(response1, equals(response2));
         expect(response1.hashCode, equals(response2.hashCode));
       });
 
       test('should not equate instances with different users', () {
-        const differentUser = User(id: 'diff-user', roles: [UserRoles.admin]);
-        const response1 = AuthSuccessResponse(user: testUser, token: testToken);
-        const response2 = AuthSuccessResponse(
+        final differentUser = User(
+          id: 'diff-user',
+          email: 'diff@example.com',
+          roles: const [UserRoles.admin],
+          createdAt: DateTime.utc(2023),
+          lastAccountActionShownAt: DateTime.utc(2023),
+        );
+        final response1 = AuthSuccessResponse(user: testUser, token: testToken);
+        final response2 = AuthSuccessResponse(
           user: differentUser,
           token: testToken,
         );
@@ -150,8 +166,8 @@ void main() {
 
       test('should not equate instances with different tokens', () {
         const differentToken = 'different-token';
-        const response1 = AuthSuccessResponse(user: testUser, token: testToken);
-        const response2 = AuthSuccessResponse(
+        final response1 = AuthSuccessResponse(user: testUser, token: testToken);
+        final response2 = AuthSuccessResponse(
           user: testUser,
           token: differentToken,
         );

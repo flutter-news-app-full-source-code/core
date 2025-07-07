@@ -15,12 +15,12 @@ void main() {
       String? id,
       String title = 'Test Title',
       AccountActionType accountActionType = AccountActionType.linkAccount,
-      String? description,
-      String? callToActionText,
-      String? callToActionUrl,
+      String description = 'Test Description',
+      String callToActionText = 'Test CTA',
+      String callToActionUrl = 'https://test.com',
     }) {
       return AccountAction(
-        id: id,
+        id: id ?? const Uuid().v4(),
         title: title,
         accountActionType: accountActionType,
         description: description,
@@ -100,11 +100,14 @@ void main() {
         expect(instance.type, 'account_action');
       });
 
-      test('handles null optional fields', () {
+      test('handles all fields present', () {
         final json = <String, dynamic>{
           'id': testId,
           'title': 'Simple Title',
-          'account_action_type': 'upgrade', // Changed from rateApp
+          'description': 'Simple Description',
+          'account_action_type': 'upgrade',
+          'call_to_action_text': 'Simple CTA',
+          'call_to_action_url': 'https://simple.com',
           'type': 'account_action',
         };
 
@@ -112,13 +115,10 @@ void main() {
 
         expect(instance.id, testId);
         expect(instance.title, 'Simple Title');
-        expect(instance.description, isNull);
-        expect(
-          instance.accountActionType,
-          AccountActionType.upgrade,
-        ); // Changed from rateApp
-        expect(instance.callToActionText, isNull);
-        expect(instance.callToActionUrl, isNull);
+        expect(instance.description, 'Simple Description');
+        expect(instance.accountActionType, AccountActionType.upgrade);
+        expect(instance.callToActionText, 'Simple CTA');
+        expect(instance.callToActionUrl, 'https://simple.com');
       });
 
       test('handles unknown accountActionType gracefully (null)', () {
@@ -159,11 +159,14 @@ void main() {
         });
       });
 
-      test('handles null optional fields', () {
+      test('returns correct JSON map with all fields', () {
         final instance = createSubject(
           id: testId,
           title: 'Simple Title',
-          accountActionType: AccountActionType.upgrade, // Changed from rateApp
+          description: 'Simple Description',
+          callToActionText: 'Simple CTA',
+          callToActionUrl: 'https://simple.com',
+          accountActionType: AccountActionType.upgrade,
         );
 
         final json = instance.toJson();
@@ -171,7 +174,10 @@ void main() {
         expect(json, <String, dynamic>{
           'id': testId,
           'title': 'Simple Title',
-          'account_action_type': 'upgrade', // Changed from rateApp
+          'description': 'Simple Description',
+          'account_action_type': 'upgrade',
+          'call_to_action_text': 'Simple CTA',
+          'call_to_action_url': 'https://simple.com',
           'type': 'account_action',
         });
       });
@@ -210,18 +216,10 @@ void main() {
         expect(copied, equals(original));
       });
 
-      test('can set optional fields to null', () {
-        final original = createSubject(
-          description: 'Has Description',
-          callToActionText: 'Has CTA',
-          callToActionUrl: 'hasurl.com',
-        );
-
+      test('returns a new instance with same values if no changes', () {
+        final original = createSubject(id: testId);
         final copied = original.copyWith();
-
-        expect(copied.description, isNull);
-        expect(copied.callToActionText, isNull);
-        expect(copied.callToActionUrl, isNull);
+        expect(copied, equals(original));
       });
     });
   });

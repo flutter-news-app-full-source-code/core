@@ -20,9 +20,9 @@ class User extends Equatable {
   const User({
     required this.id,
     required this.roles,
-    this.email,
-    this.createdAt,
-    this.lastAccountActionShownAt,
+    required this.email,
+    required this.createdAt,
+    required this.lastAccountActionShownAt,
   });
 
   /// Creates a User from JSON data.
@@ -31,26 +31,23 @@ class User extends Equatable {
   /// The unique identifier for the user (e.g., a UUID).
   final String id;
 
-  /// The user's email address.
-  ///
-  /// This will be `null` for users who haven't associated an email yet.
-  final String? email;
+  /// The user's email address. This is required.
+  final String email;
 
   /// The roles assigned to the user (e.g., 'admin', 'premium_user').
   final List<String> roles;
 
   /// The date and time the user account was created.
-  /// This is typically set on the backend upon user creation.
   @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time the user was last shown an engagement.
   @JsonKey(
-    name: 'last_engagement_shown_at',
+    name: 'lastEngagementShownAt',
     fromJson: _dateTimeFromJson,
     toJson: _dateTimeToJson,
   )
-  final DateTime? lastAccountActionShownAt;
+  final DateTime lastAccountActionShownAt;
 
   /// Converts this User instance to JSON data.
   Map<String, dynamic> toJson() => _$UserToJson(this);
@@ -76,7 +73,7 @@ class User extends Equatable {
     String? email,
     List<String>? roles,
     DateTime? createdAt,
-    DateTime? lastEngagementShownAt,
+    DateTime? lastAccountActionShownAt,
   }) {
     return User(
       id: id ?? this.id,
@@ -84,18 +81,17 @@ class User extends Equatable {
       roles: roles ?? this.roles,
       createdAt: createdAt ?? this.createdAt,
       lastAccountActionShownAt:
-          lastEngagementShownAt ?? lastAccountActionShownAt,
+          lastAccountActionShownAt ?? this.lastAccountActionShownAt,
     );
   }
 }
 
-// Helper function for parsing DateTime, returning null on error
-DateTime? _dateTimeFromJson(String? dateString) {
-  if (dateString == null) return null;
-  return DateTime.tryParse(dateString);
+// Helper function for parsing DateTime
+DateTime _dateTimeFromJson(String dateString) {
+  return DateTime.parse(dateString);
 }
 
 // Helper function for serializing DateTime to ISO 8601 string
-String? _dateTimeToJson(DateTime? dateTime) {
-  return dateTime?.toIso8601String();
+String _dateTimeToJson(DateTime dateTime) {
+  return dateTime.toIso8601String();
 }

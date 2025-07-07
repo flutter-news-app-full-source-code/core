@@ -5,7 +5,6 @@ import 'package:ht_shared/src/models/entities/source.dart';
 import 'package:ht_shared/src/utils/json_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:uuid/uuid.dart';
 
 part 'headline.g.dart';
 
@@ -18,24 +17,19 @@ part 'headline.g.dart';
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class Headline extends FeedItem {
   /// {@macro headline}
-  Headline({
+  const Headline({
+    required this.id,
     required this.title,
-    this.description,
-    this.url,
-    this.imageUrl,
-    this.publishedAt,
-    this.source,
-    this.category,
-    this.createdAt,
-    this.updatedAt,
+    required this.description,
+    required this.url,
+    required this.imageUrl,
+    required this.publishedAt,
+    required this.source,
+    required this.category,
+    required this.createdAt,
+    required this.updatedAt,
     this.status = ContentStatus.active,
-    String? id,
-  }) : assert(
-         id == null || id.isNotEmpty,
-         'id cannot be an empty string', // Updated assertion message
-       ),
-       id = id ?? const Uuid().v4(),
-       super(type: 'headline');
+  }) : super(type: 'headline');
 
   /// Creates a [Headline] instance from a JSON map.
   factory Headline.fromJson(Map<String, dynamic> json) =>
@@ -48,41 +42,40 @@ class Headline extends FeedItem {
   final String title;
 
   /// Description or snippet of the headline content.
-  final String? description;
+  final String description;
 
   /// URL to the full article or content.
-  final String? url;
+  final String url;
 
   /// URL to an image associated with the headline.
-  final String? imageUrl;
+  final String imageUrl;
 
   /// The external timestamp from the original news source, indicating when the
   /// article was officially published to the world.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
-  final DateTime? publishedAt;
+  final DateTime publishedAt;
 
   /// Source or origin of the headline.
-  final Source? source;
+  final Source source;
 
   /// The internal timestamp recording when this headline was first ingested
   /// and saved into our system.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The internal timestamp of the last update to this headline record in our
   /// system.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   /// The current status of the headline.
   ///
   /// Defaults to `active` if the field is not present in the JSON payload,
   /// ensuring backward compatibility. This is suitable for ingested content.
-  @JsonKey(defaultValue: ContentStatus.active)
   final ContentStatus status;
 
   /// Category of the current headline.
-  final Category? category;
+  final Category category;
 
   /// Converts this [Headline] instance to a JSON map.
   @override

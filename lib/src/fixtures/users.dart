@@ -11,6 +11,7 @@ final List<User> usersFixturesData = [
     email: 'admin@example.com',
     roles: const [UserRoles.standardUser, UserRoles.admin],
     createdAt: DateTime.now().toUtc(),
+    lastAccountActionShownAt: DateTime.now().toUtc(),
   ),
   // Add other initial users for testing if needed.
   // Example: A standard user

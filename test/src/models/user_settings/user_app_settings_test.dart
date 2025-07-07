@@ -6,9 +6,22 @@ import 'package:test/test.dart';
 void main() {
   group('UserAppSettings', () {
     const userId = 'test-user-id';
-    const defaultDisplaySettings = DisplaySettings();
-    const defaultLanguage = 'en';
-    const defaultFeedPreferences = FeedDisplayPreferences();
+    // Corrected default DisplaySettings with all required parameters
+    const defaultDisplaySettings = DisplaySettings(
+      baseTheme: AppBaseTheme.light,
+      accentTheme: AppAccentTheme.defaultBlue,
+      fontFamily: 'SystemDefault',
+      textScaleFactor: AppTextScaleFactor.medium,
+      fontWeight: AppFontWeight.regular,
+    );
+    const defaultLanguage = 'en'; // AppLanguage is a String typedef
+    // Corrected default FeedDisplayPreferences with all required parameters
+    const defaultFeedPreferences = FeedDisplayPreferences(
+      headlineDensity: HeadlineDensity.standard,
+      headlineImageStyle: HeadlineImageStyle.smallThumbnail,
+      showSourceInHeadlineFeed: true,
+      showPublishDateInHeadlineFeed: true,
+    );
 
     // Helper function to create a sample JSON map
     Map<String, dynamic> createJson({
@@ -28,9 +41,10 @@ void main() {
     // Helper function to create a sample UserAppSettings object
     UserAppSettings createSubject({
       required String id,
-      DisplaySettings? displaySettings,
-      AppLanguage? language,
-      FeedDisplayPreferences? feedPreferences,
+      DisplaySettings displaySettings = defaultDisplaySettings,
+      String language =
+          defaultLanguage, // Changed to String and defaultLanguage
+      FeedDisplayPreferences feedPreferences = defaultFeedPreferences,
     }) {
       return UserAppSettings(
         id: id,
@@ -45,7 +59,13 @@ void main() {
       expect(
         createSubject(
           id: userId,
-          displaySettings: const DisplaySettings(baseTheme: AppBaseTheme.dark),
+          displaySettings: const DisplaySettings(
+            baseTheme: AppBaseTheme.dark,
+            accentTheme: AppAccentTheme.defaultBlue, // Added missing parameters
+            fontFamily: 'SystemDefault',
+            textScaleFactor: AppTextScaleFactor.medium,
+            fontWeight: AppFontWeight.regular,
+          ),
           language: 'fr',
         ),
         equals(
@@ -53,6 +73,10 @@ void main() {
             id: userId,
             displaySettings: const DisplaySettings(
               baseTheme: AppBaseTheme.dark,
+              accentTheme: AppAccentTheme.defaultBlue, // Added missing parameters
+              fontFamily: 'SystemDefault',
+              textScaleFactor: AppTextScaleFactor.medium,
+              fontWeight: AppFontWeight.regular,
             ),
             language: 'fr',
           ),
@@ -63,8 +87,13 @@ void main() {
     test('props are correct', () {
       const customDisplaySettings = DisplaySettings(
         accentTheme: AppAccentTheme.newsRed,
+        baseTheme: AppBaseTheme.light, // Added missing parameters
+        fontFamily: 'SystemDefault',
+        textScaleFactor: AppTextScaleFactor.medium,
+        fontWeight: AppFontWeight.regular,
       );
-      const customLanguage = 'es';
+      const customLanguage =
+          'es'; // Changed to string literal 'es'
       expect(
         createSubject(
           id: userId,
@@ -77,18 +106,8 @@ void main() {
           customDisplaySettings,
           customLanguage,
           defaultFeedPreferences,
-          const <String, int>{}, // engagementShownCounts default
-          const <String, DateTime>{}, // engagementLastShownTimestamps default
         ]),
       );
-    });
-
-    test('can be instantiated with default values for nested objects', () {
-      const settings = UserAppSettings(id: userId);
-      expect(settings.id, userId);
-      expect(settings.displaySettings, defaultDisplaySettings);
-      expect(settings.language, defaultLanguage);
-      expect(settings.feedPreferences, defaultFeedPreferences);
     });
 
     group('copyWith', () {
@@ -100,7 +119,13 @@ void main() {
       test('retains old values if null is provided', () {
         final original = createSubject(
           id: userId,
-          displaySettings: const DisplaySettings(baseTheme: AppBaseTheme.dark),
+          displaySettings: const DisplaySettings(
+            baseTheme: AppBaseTheme.dark,
+            accentTheme: AppAccentTheme.defaultBlue, // Added missing parameters
+            fontFamily: 'SystemDefault',
+            textScaleFactor: AppTextScaleFactor.medium,
+            fontWeight: AppFontWeight.regular,
+          ),
           language: 'fr',
         );
         expect(original.copyWith(), equals(original));
@@ -110,10 +135,17 @@ void main() {
         final original = createSubject(id: userId);
         const newDisplaySettings = DisplaySettings(
           accentTheme: AppAccentTheme.newsRed,
+          baseTheme: AppBaseTheme.light, // Added missing parameters
+          fontFamily: 'SystemDefault',
+          textScaleFactor: AppTextScaleFactor.medium,
+          fontWeight: AppFontWeight.regular,
         );
         const newLanguage = 'es';
         const newFeedPreferences = FeedDisplayPreferences(
           headlineDensity: HeadlineDensity.compact,
+          headlineImageStyle: HeadlineImageStyle.smallThumbnail, // Added missing parameters
+          showSourceInHeadlineFeed: true,
+          showPublishDateInHeadlineFeed: true,
         );
 
         final copied = original.copyWith(
@@ -146,7 +178,7 @@ void main() {
             createSubject(
               id: userId,
               displaySettings: defaultDisplaySettings,
-              language: defaultLanguage,
+              language: defaultLanguage, // Changed to defaultLanguage
               feedPreferences: defaultFeedPreferences,
             ),
           ),
@@ -165,6 +197,8 @@ void main() {
         const customFeedPreferences = FeedDisplayPreferences(
           headlineDensity: HeadlineDensity.comfortable,
           showSourceInHeadlineFeed: false,
+          headlineImageStyle: HeadlineImageStyle.smallThumbnail, // Added missing parameters
+          showPublishDateInHeadlineFeed: true,
         );
 
         final json = createJson(
@@ -198,6 +232,8 @@ void main() {
           feedPreferences: const FeedDisplayPreferences(
             headlineImageStyle: HeadlineImageStyle.hidden,
             showPublishDateInHeadlineFeed: false,
+            headlineDensity: HeadlineDensity.standard, // Added missing parameters
+            showSourceInHeadlineFeed: true,
           ),
         );
         final json = original.toJson();

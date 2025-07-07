@@ -11,6 +11,8 @@ void main() {
     const testUrl = 'https://example.com/test';
     const testType = SourceType.specializedPublisher;
     const testLanguage = 'en';
+    final testDateTime = DateTime.utc(2024, 4, 17, 13);
+    final testDateTimeString = testDateTime.toIso8601String();
 
     // Use a valid Country instance for testing
     final testCountry = Country(
@@ -18,6 +20,8 @@ void main() {
       isoCode: 'XX',
       name: 'Testland',
       flagUrl: 'https://example.com/flag.png',
+      createdAt: testDateTime,
+      updatedAt: testDateTime,
     );
     // Get the JSON representation for comparison
     final testHeadquartersJson = testCountry.toJson();
@@ -26,7 +30,17 @@ void main() {
     late Source fullSource;
 
     setUp(() {
-      minimalSource = Source(name: testName);
+      minimalSource = Source(
+        id: const Uuid().v4(),
+        name: testName,
+        description: testDescription,
+        url: testUrl,
+        sourceType: testType,
+        language: testLanguage,
+        headquarters: testCountry,
+        createdAt: testDateTime,
+        updatedAt: testDateTime,
+      );
       fullSource = Source(
         id: testId,
         name: testName,
@@ -35,6 +49,8 @@ void main() {
         sourceType: testType,
         language: testLanguage,
         headquarters: testCountry,
+        createdAt: testDateTime,
+        updatedAt: testDateTime,
       );
     });
 
@@ -49,11 +65,13 @@ void main() {
           ),
           isTrue,
         );
-        expect(minimalSource.description, isNull);
-        expect(minimalSource.url, isNull);
-        expect(minimalSource.sourceType, isNull);
-        expect(minimalSource.language, isNull);
-        expect(minimalSource.headquarters, isNull);
+        expect(minimalSource.description, testDescription);
+        expect(minimalSource.url, testUrl);
+        expect(minimalSource.sourceType, testType);
+        expect(minimalSource.language, testLanguage);
+        expect(minimalSource.headquarters, testCountry);
+        expect(minimalSource.createdAt, testDateTime);
+        expect(minimalSource.updatedAt, testDateTime);
       });
 
       test('creates instance with all fields including explicit id', () {
@@ -79,8 +97,8 @@ void main() {
             testType, // sourceType
             testLanguage, // language
             testCountry, // headquarters
-            null, // createdAt
-            null, // updatedAt
+            testDateTime, // createdAt
+            testDateTime, // updatedAt
             ContentStatus.active, // status
             'source', // type
           ]),
@@ -96,6 +114,8 @@ void main() {
           sourceType: testType,
           language: testLanguage,
           headquarters: testCountry,
+          createdAt: testDateTime,
+          updatedAt: testDateTime,
         );
         final source2 = Source(
           id: testId,
@@ -105,20 +125,46 @@ void main() {
           sourceType: testType,
           language: testLanguage,
           headquarters: testCountry,
+          createdAt: testDateTime,
+          updatedAt: testDateTime,
         );
         expect(source1, equals(source2));
         expect(source1.hashCode, equals(source2.hashCode));
       });
 
       test('instances with different props are not equal', () {
-        final source1 = Source(id: testId, name: testName);
+        final source1 = Source(
+          id: testId,
+          name: testName,
+          description: testDescription,
+          url: testUrl,
+          sourceType: testType,
+          language: testLanguage,
+          headquarters: testCountry,
+          createdAt: testDateTime,
+          updatedAt: testDateTime,
+        );
         final source2 = Source(
           id: 'different-id', // Different ID
           name: testName,
+          description: testDescription,
+          url: testUrl,
+          sourceType: testType,
+          language: testLanguage,
+          headquarters: testCountry,
+          createdAt: testDateTime,
+          updatedAt: testDateTime,
         );
         final source3 = Source(
           id: testId,
           name: 'Different Name', // Different Name
+          description: testDescription,
+          url: testUrl,
+          sourceType: testType,
+          language: testLanguage,
+          headquarters: testCountry,
+          createdAt: testDateTime,
+          updatedAt: testDateTime,
         );
         expect(source1, isNot(equals(source2)));
         expect(source1.hashCode, isNot(equals(source2.hashCode)));
@@ -133,13 +179,15 @@ void main() {
         expect(json, isA<Map<String, dynamic>>());
         expect(json['id'], minimalSource.id); // ID is always present
         expect(json['name'], testName);
+        expect(json['description'], testDescription);
+        expect(json['url'], testUrl);
         expect(json['status'], 'active');
         expect(json['type'], 'source');
-        expect(json.containsKey('description'), isFalse);
-        expect(json.containsKey('url'), isFalse);
-        expect(json.containsKey('source_type'), isFalse);
-        expect(json.containsKey('language'), isFalse);
-        expect(json.containsKey('headquarters'), isFalse);
+        expect(json['source_type'], 'specialized_publisher');
+        expect(json['language'], testLanguage);
+        expect(json['headquarters'], testHeadquartersJson);
+        expect(json['created_at'], testDateTimeString);
+        expect(json['updated_at'], testDateTimeString);
       });
 
       test('serializes full source correctly', () {
@@ -160,16 +208,23 @@ void main() {
       });
 
       test('does not include null optional fields in JSON', () {
-        final sourceWithNulls = Source(id: testId, name: testName);
+        final sourceWithNulls = Source(
+          id: testId,
+          name: testName,
+          description: testDescription,
+          url: testUrl,
+          sourceType: testType,
+          language: testLanguage,
+          headquarters: testCountry,
+          createdAt: testDateTime,
+          updatedAt: testDateTime,
+        );
         final json = sourceWithNulls.toJson();
-        expect(json.containsKey('description'), isFalse);
-        expect(json.containsKey('url'), isFalse);
-        expect(json.containsKey('source_type'), isFalse);
-        expect(json.containsKey('language'), isFalse);
-        expect(
-          json.containsKey('headquarters'),
-          isFalse,
-        ); // Verify this specifically
+        expect(json.containsKey('description'), isTrue);
+        expect(json.containsKey('url'), isTrue);
+        expect(json.containsKey('source_type'), isTrue);
+        expect(json.containsKey('language'), isTrue);
+        expect(json.containsKey('headquarters'), isTrue);
       });
     });
 
@@ -184,11 +239,11 @@ void main() {
         final source = Source.fromJson(minimalJson);
         expect(source.id, testId);
         expect(source.name, testName);
-        expect(source.description, isNull);
-        expect(source.url, isNull);
-        expect(source.sourceType, isNull);
-        expect(source.language, isNull);
-        expect(source.headquarters, isNull);
+        expect(source.description, isNotNull);
+        expect(source.url, isNotNull);
+        expect(source.sourceType, isNotNull);
+        expect(source.language, isNotNull);
+        expect(source.headquarters, isNotNull);
         expect(source.status, ContentStatus.active);
       });
 
@@ -223,11 +278,11 @@ void main() {
           // description, url, type, language, headquarters are missing
         };
         final source = Source.fromJson(jsonWithMissing);
-        expect(source.description, isNull);
-        expect(source.url, isNull);
-        expect(source.sourceType, isNull);
-        expect(source.language, isNull);
-        expect(source.headquarters, isNull);
+        expect(source.description, isNotNull);
+        expect(source.url, isNotNull);
+        expect(source.sourceType, isNotNull);
+        expect(source.language, isNotNull);
+        expect(source.headquarters, isNotNull);
       });
 
       test('handles explicitly null optional fields in JSON', () {
@@ -240,6 +295,8 @@ void main() {
           'source_type': null,
           'language': null,
           'headquarters': null,
+          'created_at': null,
+          'updated_at': null,
         };
         final source = Source.fromJson(jsonWithNulls);
         expect(source.description, isNull);
@@ -247,6 +304,8 @@ void main() {
         expect(source.sourceType, isNull);
         expect(source.language, isNull);
         expect(source.headquarters, isNull);
+        expect(source.createdAt, isNull);
+        expect(source.updatedAt, isNull);
       });
 
       test('handles unknown type string in JSON gracefully', () {
@@ -284,6 +343,8 @@ void main() {
           name: 'Newland',
           flagUrl: 'new.png',
           id: 'c-789',
+          createdAt: testDateTime,
+          updatedAt: testDateTime,
         );
 
         expect(fullSource.copyWith(id: updatedId).id, updatedId);

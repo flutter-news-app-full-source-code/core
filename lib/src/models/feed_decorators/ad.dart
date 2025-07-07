@@ -1,7 +1,6 @@
 import 'package:ht_shared/src/models/core/feed_item.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:uuid/uuid.dart';
 
 part 'ad.g.dart';
 
@@ -43,14 +42,13 @@ enum AdPlacement {
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class Ad extends FeedItem {
   /// {@macro ad}
-  Ad({
+  const Ad({
+    required this.id,
     required this.imageUrl,
     required this.targetUrl,
     required this.adType,
-    this.placement,
-    String? id,
-  }) : id = id ?? const Uuid().v4(),
-       super(type: 'ad');
+    required this.placement,
+  }) : super(type: 'ad');
 
   /// Factory method to create an [Ad] instance from a JSON map.
   factory Ad.fromJson(Map<String, dynamic> json) => _$AdFromJson(json);
@@ -65,13 +63,11 @@ class Ad extends FeedItem {
   final String targetUrl;
 
   /// The type of the ad, indicating its visual format.
-  /// Will be null if an unknown value is encountered during deserialization.
-
-  final AdType? adType;
+  final AdType adType;
 
   /// An optional identifier indicating the intended placement or slot
   /// for this ad in the UI.
-  final AdPlacement? placement;
+  final AdPlacement placement;
 
   /// Converts this [Ad] instance to a JSON map.
   @override

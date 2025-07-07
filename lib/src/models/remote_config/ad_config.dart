@@ -42,9 +42,9 @@ class AdConfig extends Equatable {
     required this.authenticatedAdPlacementInterval,
     required this.premiumAdFrequency,
     required this.premiumAdPlacementInterval,
-    this.guestArticlesToReadBeforeShowingInterstitialAds = 5,
-    this.standardUserArticlesToReadBeforeShowingInterstitialAds = 5,
-    this.premiumUserArticlesToReadBeforeShowingInterstitialAds = 5,
+    required this.guestArticlesToReadBeforeShowingInterstitialAds,
+    required this.standardUserArticlesToReadBeforeShowingInterstitialAds,
+    required this.premiumUserArticlesToReadBeforeShowingInterstitialAds,
   });
 
   /// Factory method to create an [AdConfig] instance from a JSON map.

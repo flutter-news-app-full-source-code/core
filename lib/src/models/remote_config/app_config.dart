@@ -31,21 +31,20 @@ class AppConfig extends Equatable {
   /// Provides sensible defaults for nested configuration models if not specified.
   const AppConfig({
     required this.id,
+    required this.maintenanceMessage,
+    required this.disabledMessage, // --- Force Update Fields ---
+    required this.minAllowedAppVersion,
+    required this.latestAppVersion,
+    required this.updateRequiredMessage,
+    required this.updateOptionalMessage,
+    required this.iosStoreUrl,
+    required this.androidStoreUrl,
     UserPreferenceConfig? userPreferenceLimits,
     AdConfig? adConfig,
     AccountActionConfig? accountActionConfig,
     // --- Kill Switch Fields ---
     this.killSwitchEnabled = false,
     this.appOperationalStatus = RemoteAppStatus.active,
-    this.maintenanceMessage,
-    this.disabledMessage,
-    // --- Force Update Fields ---
-    this.minAllowedAppVersion,
-    this.latestAppVersion,
-    this.updateRequiredMessage,
-    this.updateOptionalMessage,
-    this.iosStoreUrl,
-    this.androidStoreUrl,
   }) : userPreferenceLimits =
            userPreferenceLimits ??
            const UserPreferenceConfig(
@@ -106,30 +105,30 @@ class AppConfig extends Equatable {
   final RemoteAppStatus appOperationalStatus;
 
   /// Message to display when the app is in maintenance mode.
-  final String? maintenanceMessage;
+  final String maintenanceMessage;
 
   /// Message to display when the app is disabled.
-  final String? disabledMessage;
+  final String disabledMessage;
 
   // --- Force Update Fields ---
   /// The minimum version of the app that is allowed to run.
   /// Versions below this will be forced to update. (e.g., "1.2.0")
-  final String? minAllowedAppVersion;
+  final String minAllowedAppVersion;
 
   /// The latest available version of the app. (e.g., "1.5.0")
-  final String? latestAppVersion;
+  final String latestAppVersion;
 
   /// Message to display when a force update is required.
-  final String? updateRequiredMessage;
+  final String updateRequiredMessage;
 
   /// Message to display for an optional update.
-  final String? updateOptionalMessage;
+  final String updateOptionalMessage;
 
   /// URL to the app on the Apple App Store.
-  final String? iosStoreUrl;
+  final String iosStoreUrl;
 
   /// URL to the app on the Google Play Store.
-  final String? androidStoreUrl;
+  final String androidStoreUrl;
 
   /// Converts this [AppConfig] instance to a JSON map.
   Map<String, dynamic> toJson() => _$AppConfigToJson(this);
@@ -177,8 +176,7 @@ class AppConfig extends Equatable {
   }
 
   @override
-  List<Object?> get props => [
-    // Changed to List<Object?> to allow nulls
+  List<Object> get props => [
     id,
     userPreferenceLimits,
     adConfig,

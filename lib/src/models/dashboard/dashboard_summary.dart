@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:uuid/uuid.dart';
 
 part 'dashboard_summary.g.dart';
 
@@ -13,12 +12,12 @@ part 'dashboard_summary.g.dart';
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class DashboardSummary extends Equatable {
   /// {@macro dashboard_summary}
-  DashboardSummary({
+  const DashboardSummary({
+    required this.id,
     required this.headlineCount,
     required this.categoryCount,
     required this.sourceCount,
-    String? id,
-  }) : id = id ?? const Uuid().v4();
+  });
 
   /// Creates a [DashboardSummary] from a JSON object.
   factory DashboardSummary.fromJson(Map<String, dynamic> json) =>

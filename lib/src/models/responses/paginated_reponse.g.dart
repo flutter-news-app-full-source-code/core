@@ -16,16 +16,16 @@ PaginatedResponse<T> _$PaginatedResponseFromJson<T>(
       (v) => (v as List<dynamic>).map(fromJsonT).toList(),
     ),
     cursor: $checkedConvert('cursor', (v) => v as String?),
-    hasMore: $checkedConvert('has_more', (v) => v as bool),
+    hasMore: $checkedConvert('hasMore', (v) => v as bool),
   );
   return val;
-}, fieldKeyMap: const {'hasMore': 'has_more'});
+});
 
 Map<String, dynamic> _$PaginatedResponseToJson<T>(
   PaginatedResponse<T> instance,
   Object? Function(T value) toJsonT,
 ) => <String, dynamic>{
   'items': instance.items.map(toJsonT).toList(),
-  if (instance.cursor case final value?) 'cursor': value,
-  'has_more': instance.hasMore,
+  'cursor': instance.cursor,
+  'hasMore': instance.hasMore,
 };

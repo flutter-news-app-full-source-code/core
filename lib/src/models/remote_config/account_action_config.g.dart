@@ -7,33 +7,24 @@ part of 'account_action_config.dart';
 // **************************************************************************
 
 AccountActionConfig _$AccountActionConfigFromJson(Map<String, dynamic> json) =>
-    $checkedCreate(
-      'AccountActionConfig',
-      json,
-      ($checkedConvert) {
-        final val = AccountActionConfig(
-          guestDaysBetweenAccountActions: $checkedConvert(
-            'guest_days_between_account_actions',
-            (v) => (v as num).toInt(),
-          ),
-          standardUserDaysBetweenAccountActions: $checkedConvert(
-            'standard_user_days_between_account_actions',
-            (v) => (v as num).toInt(),
-          ),
-        );
-        return val;
-      },
-      fieldKeyMap: const {
-        'guestDaysBetweenAccountActions': 'guest_days_between_account_actions',
-        'standardUserDaysBetweenAccountActions':
-            'standard_user_days_between_account_actions',
-      },
-    );
+    $checkedCreate('AccountActionConfig', json, ($checkedConvert) {
+      final val = AccountActionConfig(
+        guestDaysBetweenAccountActions: $checkedConvert(
+          'guestDaysBetweenAccountActions',
+          (v) => (v as num).toInt(),
+        ),
+        standardUserDaysBetweenAccountActions: $checkedConvert(
+          'standardUserDaysBetweenAccountActions',
+          (v) => (v as num).toInt(),
+        ),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$AccountActionConfigToJson(
   AccountActionConfig instance,
 ) => <String, dynamic>{
-  'guest_days_between_account_actions': instance.guestDaysBetweenAccountActions,
-  'standard_user_days_between_account_actions':
+  'guestDaysBetweenAccountActions': instance.guestDaysBetweenAccountActions,
+  'standardUserDaysBetweenAccountActions':
       instance.standardUserDaysBetweenAccountActions,
 };

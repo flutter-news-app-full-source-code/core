@@ -1,7 +1,6 @@
-import 'package:json_annotation/json_annotation.dart';
-
 /// Defines the operational status of the application as determined by remote
 /// configuration.
+library;
 
 enum RemoteAppStatus {
   /// The application is fully operational.

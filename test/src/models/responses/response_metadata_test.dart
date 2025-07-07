@@ -16,23 +16,41 @@ void main() {
       'timestamp': timestamp.toIso8601String(),
     };
 
-    const partialMetadataRequestId = ResponseMetadata(requestId: requestId);
-    final partialJsonRequestId = {'request_id': requestId}; // Corrected key
+    final partialMetadataRequestId = ResponseMetadata(
+      requestId: requestId,
+      timestamp: DateTime.utc(2023), // Default timestamp
+    );
+    final partialJsonRequestId = {
+      'request_id': requestId,
+      'timestamp': '2023-01-01T00:00:00.000Z',
+    };
 
-    final partialMetadataTimestamp = ResponseMetadata(timestamp: timestamp);
-    final partialJsonTimestamp = {'timestamp': timestamp.toIso8601String()};
+    final partialMetadataTimestamp = ResponseMetadata(
+      requestId: 'default-req-id', // Default requestId
+      timestamp: timestamp,
+    );
+    final partialJsonTimestamp = {
+      'request_id': 'default-req-id',
+      'timestamp': timestamp.toIso8601String(),
+    };
 
-    const emptyMetadata = ResponseMetadata();
-    final emptyJson = <String, dynamic>{};
+    final emptyMetadata = ResponseMetadata(
+      requestId: 'default-req-id',
+      timestamp: DateTime.utc(2023),
+    );
+    final emptyJson = {
+      'request_id': 'default-req-id',
+      'timestamp': '2023-01-01T00:00:00.000Z',
+    };
 
     test('supports value equality', () {
       expect(
         fullMetadata,
         equals(ResponseMetadata(requestId: requestId, timestamp: timestamp)),
       );
-      expect(fullMetadata, isNot(equals(partialMetadataRequestId)));
-      expect(fullMetadata, isNot(equals(partialMetadataTimestamp)));
-      expect(fullMetadata, isNot(equals(emptyMetadata)));
+      expect(fullMetadata, isNot(equals(partialMetadataRequestId))); // Still not equal due to different default values
+      expect(fullMetadata, isNot(equals(partialMetadataTimestamp))); // Still not equal due to different default values
+      expect(fullMetadata, isNot(equals(emptyMetadata))); // Still not equal due to different default values
     });
 
     test('fromJson creates correct object from full JSON', () {
@@ -40,7 +58,7 @@ void main() {
     });
 
     test(
-      'fromJson creates correct object from partial JSON (requestId only)',
+      'fromJson creates correct object from JSON with default timestamp',
       () {
         expect(
           ResponseMetadata.fromJson(partialJsonRequestId),
@@ -50,7 +68,7 @@ void main() {
     );
 
     test(
-      'fromJson creates correct object from partial JSON (timestamp only)',
+      'fromJson creates correct object from JSON with default requestId',
       () {
         expect(
           ResponseMetadata.fromJson(partialJsonTimestamp),
@@ -59,7 +77,7 @@ void main() {
       },
     );
 
-    test('fromJson creates correct object from empty JSON', () {
+    test('fromJson creates correct object from JSON with all defaults', () {
       expect(ResponseMetadata.fromJson(emptyJson), equals(emptyMetadata));
     });
 
@@ -67,15 +85,15 @@ void main() {
       expect(fullMetadata.toJson(), equals(fullJson));
     });
 
-    test('toJson produces correct partial JSON (requestId only)', () {
+    test('toJson produces correct JSON with default timestamp', () {
       expect(partialMetadataRequestId.toJson(), equals(partialJsonRequestId));
     });
 
-    test('toJson produces correct partial JSON (timestamp only)', () {
+    test('toJson produces correct JSON with default requestId', () {
       expect(partialMetadataTimestamp.toJson(), equals(partialJsonTimestamp));
     });
 
-    test('toJson produces correct empty JSON', () {
+    test('toJson produces correct JSON with all defaults', () {
       expect(emptyMetadata.toJson(), equals(emptyJson));
     });
 
