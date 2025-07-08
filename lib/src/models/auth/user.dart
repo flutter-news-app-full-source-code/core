@@ -1,4 +1,6 @@
 import 'package:equatable/equatable.dart';
+import 'package:ht_shared/src/enums/app_user_role.dart';
+import 'package:ht_shared/src/enums/dashboard_user_role.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -14,12 +16,12 @@ part 'user.g.dart';
 class User extends Equatable {
   /// Creates a new [User] instance.
   ///
-  /// Requires a unique [id] and a list of [roles].
-  /// The [email] is optional and typically present only for users
-  /// who have verified their email address.
+  /// Requires a unique [id], an [appRole], a [dashboardRole],
+  /// [email], [createdAt], and [lastAccountActionShownAt].
   const User({
     required this.id,
-    required this.roles,
+    required this.appRole,
+    required this.dashboardRole,
     required this.email,
     required this.createdAt,
     required this.lastAccountActionShownAt,
@@ -34,8 +36,11 @@ class User extends Equatable {
   /// The user's email address. This is required.
   final String email;
 
-  /// The roles assigned to the user (e.g., 'admin', 'premium_user').
-  final List<String> roles;
+  /// The application-specific role of the user.
+  final AppUserRole appRole;
+
+  /// The dashboard-specific role of the user.
+  final DashboardUserRole dashboardRole;
 
   /// The date and time the user account was created.
   @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
@@ -56,14 +61,17 @@ class User extends Equatable {
   List<Object?> get props => [
     id,
     email,
-    roles,
+    appRole,
+    dashboardRole,
     createdAt,
     lastAccountActionShownAt,
   ];
 
   @override
   String toString() {
-    return 'User(id: $id, email: $email, roles: $roles, createdAt: $createdAt, lastEngagementShownAt: $lastAccountActionShownAt)';
+    return 'User(id: $id, email: $email, appRole: $appRole, '
+        'dashboardRole: $dashboardRole, createdAt: $createdAt, '
+        'lastAccountActionShownAt: $lastAccountActionShownAt)';
   }
 
   /// Creates a copy of this [User] but with the given fields replaced with
@@ -71,14 +79,16 @@ class User extends Equatable {
   User copyWith({
     String? id,
     String? email,
-    List<String>? roles,
+    AppUserRole? appRole,
+    DashboardUserRole? dashboardRole,
     DateTime? createdAt,
     DateTime? lastAccountActionShownAt,
   }) {
     return User(
       id: id ?? this.id,
       email: email ?? this.email,
-      roles: roles ?? this.roles,
+      appRole: appRole ?? this.appRole,
+      dashboardRole: dashboardRole ?? this.dashboardRole,
       createdAt: createdAt ?? this.createdAt,
       lastAccountActionShownAt:
           lastAccountActionShownAt ?? this.lastAccountActionShownAt,

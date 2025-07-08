@@ -1,4 +1,6 @@
 import 'package:ht_shared/ht_shared.dart';
+import 'package:ht_shared/src/enums/app_user_role.dart';
+import 'package:ht_shared/src/enums/dashboard_user_role.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:test/test.dart';
 
@@ -8,7 +10,8 @@ void main() {
     final testUser = User(
       id: 'user-123',
       email: 'test@example.com',
-      roles: const [UserRoles.standardUser],
+      appRole: AppUserRole.standardUser,
+      dashboardRole: DashboardUserRole.none,
       createdAt: DateTime.utc(2023),
       lastAccountActionShownAt: DateTime.utc(2023),
     );
@@ -97,7 +100,8 @@ void main() {
         final updatedUser = User(
           id: 'user-456',
           email: 'updated@example.com',
-          roles: const [UserRoles.guestUser],
+          appRole: AppUserRole.guestUser,
+          dashboardRole: DashboardUserRole.none,
           createdAt: DateTime.utc(2023),
           lastAccountActionShownAt: DateTime.utc(2023),
         );
@@ -123,7 +127,8 @@ void main() {
         final updatedUser = User(
           id: 'user-789',
           email: 'another@example.com',
-          roles: const [UserRoles.guestUser],
+          appRole: AppUserRole.guestUser,
+          dashboardRole: DashboardUserRole.none,
           createdAt: DateTime.utc(2023),
           lastAccountActionShownAt: DateTime.utc(2023),
         );
@@ -151,7 +156,8 @@ void main() {
         final differentUser = User(
           id: 'diff-user',
           email: 'diff@example.com',
-          roles: const [UserRoles.admin],
+          appRole: AppUserRole.premiumUser,
+          dashboardRole: DashboardUserRole.admin,
           createdAt: DateTime.utc(2023),
           lastAccountActionShownAt: DateTime.utc(2023),
         );

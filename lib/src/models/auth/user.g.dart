@@ -12,9 +12,13 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
   ($checkedConvert) {
     final val = User(
       id: $checkedConvert('id', (v) => v as String),
-      roles: $checkedConvert(
-        'roles',
-        (v) => (v as List<dynamic>).map((e) => e as String).toList(),
+      appRole: $checkedConvert(
+        'appRole',
+        (v) => $enumDecode(_$AppUserRoleEnumMap, v),
+      ),
+      dashboardRole: $checkedConvert(
+        'dashboardRole',
+        (v) => $enumDecode(_$DashboardUserRoleEnumMap, v),
       ),
       email: $checkedConvert('email', (v) => v as String),
       createdAt: $checkedConvert(
@@ -34,7 +38,20 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate(
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
   'id': instance.id,
   'email': instance.email,
-  'roles': instance.roles,
+  'appRole': _$AppUserRoleEnumMap[instance.appRole]!,
+  'dashboardRole': _$DashboardUserRoleEnumMap[instance.dashboardRole]!,
   'createdAt': _dateTimeToJson(instance.createdAt),
   'lastEngagementShownAt': _dateTimeToJson(instance.lastAccountActionShownAt),
+};
+
+const _$AppUserRoleEnumMap = {
+  AppUserRole.premiumUser: 'premiumUser',
+  AppUserRole.standardUser: 'standardUser',
+  AppUserRole.guestUser: 'guestUser',
+};
+
+const _$DashboardUserRoleEnumMap = {
+  DashboardUserRole.admin: 'admin',
+  DashboardUserRole.publisher: 'publisher',
+  DashboardUserRole.none: 'none',
 };

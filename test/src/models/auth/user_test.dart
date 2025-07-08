@@ -1,14 +1,18 @@
+import 'package:ht_shared/src/enums/app_user_role.dart';
+import 'package:ht_shared/src/enums/dashboard_user_role.dart';
 import 'package:ht_shared/src/models/auth/user.dart';
-import 'package:ht_shared/src/models/auth/user_role.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('User Model', () {
     const id = 'test-id';
     const email = 'test@example.com';
-    const standardRoles = [UserRoles.standardUser];
-    const guestRoles = [UserRoles.guestUser];
-    const adminRoles = [UserRoles.admin, UserRoles.standardUser];
+    const appRoleStandard = AppUserRole.standardUser;
+    const appRoleGuest = AppUserRole.guestUser;
+    const appRolePremium = AppUserRole.premiumUser;
+    const dashboardRoleAdmin = DashboardUserRole.admin;
+    const dashboardRolePublisher = DashboardUserRole.publisher;
+    const dashboardRoleNone = DashboardUserRole.none;
     final testCreatedAt = DateTime.utc(2023);
     final testLastEngagementShownAt = DateTime.utc(2023, 1, 2);
 
@@ -17,7 +21,8 @@ void main() {
         User(
           id: id,
           email: email,
-          roles: standardRoles,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
           createdAt: testCreatedAt,
           lastAccountActionShownAt: testLastEngagementShownAt,
         ),
@@ -25,7 +30,8 @@ void main() {
           User(
             id: id,
             email: email,
-            roles: standardRoles,
+            appRole: appRoleStandard,
+            dashboardRole: dashboardRoleNone,
             createdAt: testCreatedAt,
             lastAccountActionShownAt: testLastEngagementShownAt,
           ),
@@ -35,7 +41,8 @@ void main() {
         User(
           id: id,
           email: email,
-          roles: standardRoles,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
           createdAt: testCreatedAt,
           lastAccountActionShownAt: testLastEngagementShownAt,
         ),
@@ -44,7 +51,8 @@ void main() {
             User(
               id: 'other-id',
               email: email,
-              roles: standardRoles,
+              appRole: appRoleStandard,
+              dashboardRole: dashboardRoleNone,
               createdAt: testCreatedAt,
               lastAccountActionShownAt: testLastEngagementShownAt,
             ),
@@ -55,7 +63,8 @@ void main() {
         User(
           id: id,
           email: email,
-          roles: standardRoles,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
           createdAt: testCreatedAt,
           lastAccountActionShownAt: testLastEngagementShownAt,
         ),
@@ -64,7 +73,8 @@ void main() {
             User(
               id: id,
               email: 'other@example.com',
-              roles: standardRoles,
+              appRole: appRoleStandard,
+              dashboardRole: dashboardRoleNone,
               createdAt: testCreatedAt,
               lastAccountActionShownAt: testLastEngagementShownAt,
             ),
@@ -75,7 +85,8 @@ void main() {
         User(
           id: id,
           email: email,
-          roles: standardRoles,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
           createdAt: testCreatedAt,
           lastAccountActionShownAt: testLastEngagementShownAt,
         ),
@@ -84,7 +95,8 @@ void main() {
             User(
               id: id,
               email: email,
-              roles: guestRoles,
+              appRole: appRoleGuest,
+              dashboardRole: dashboardRoleNone,
               createdAt: testCreatedAt,
               lastAccountActionShownAt: testLastEngagementShownAt,
             ),
@@ -95,7 +107,8 @@ void main() {
         User(
           id: id,
           email: email,
-          roles: standardRoles,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
           createdAt: testCreatedAt,
           lastAccountActionShownAt: testLastEngagementShownAt,
         ),
@@ -104,7 +117,8 @@ void main() {
             User(
               id: id,
               email: email,
-              roles: adminRoles,
+              appRole: appRoleStandard,
+              dashboardRole: dashboardRoleAdmin,
               createdAt: testCreatedAt,
               lastAccountActionShownAt: testLastEngagementShownAt,
             ),
@@ -115,7 +129,8 @@ void main() {
         User(
           id: id,
           email: email,
-          roles: standardRoles,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
           createdAt: testCreatedAt,
           lastAccountActionShownAt: testLastEngagementShownAt,
         ),
@@ -124,7 +139,8 @@ void main() {
             User(
               id: id,
               email: email,
-              roles: standardRoles,
+              appRole: appRoleStandard,
+              dashboardRole: dashboardRoleNone,
               createdAt: DateTime.utc(2024),
               lastAccountActionShownAt: testLastEngagementShownAt,
             ),
@@ -137,14 +153,16 @@ void main() {
       final user = User(
         id: id,
         email: email,
-        roles: standardRoles,
+        appRole: appRoleStandard,
+        dashboardRole: dashboardRoleNone,
         createdAt: testCreatedAt,
         lastAccountActionShownAt: testLastEngagementShownAt,
       );
       expect(user.props, [
         id,
         email,
-        standardRoles,
+        appRoleStandard,
+        dashboardRoleNone,
         testCreatedAt,
         testLastEngagementShownAt,
       ]);
@@ -155,12 +173,15 @@ void main() {
         User(
           id: id,
           email: email,
-          roles: standardRoles,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
           createdAt: testCreatedAt,
           lastAccountActionShownAt: testLastEngagementShownAt,
         ).toString(),
         equals(
-          'User(id: $id, email: $email, roles: $standardRoles, createdAt: $testCreatedAt, lastEngagementShownAt: $testLastEngagementShownAt)',
+          'User(id: $id, email: $email, appRole: $appRoleStandard, '
+          'dashboardRole: $dashboardRoleNone, createdAt: $testCreatedAt, '
+          'lastAccountActionShownAt: $testLastEngagementShownAt)',
         ),
       );
     });
@@ -170,7 +191,8 @@ void main() {
         final original = User(
           id: id,
           email: email,
-          roles: standardRoles,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
           createdAt: testCreatedAt,
           lastAccountActionShownAt: testLastEngagementShownAt,
         );
@@ -182,25 +204,29 @@ void main() {
         final original = User(
           id: id,
           email: email,
-          roles: standardRoles,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
           createdAt: testCreatedAt,
           lastAccountActionShownAt: testLastEngagementShownAt,
         );
         const newEmail = 'new@example.com';
-        const newRoles = [UserRoles.premiumUser];
+        const newAppRole = AppUserRole.premiumUser;
+        const newDashboardRole = DashboardUserRole.admin;
         final newCreatedAt = DateTime.utc(2024);
         final newLastAccountActionShownAt = DateTime.utc(2024, 1, 2);
 
         final copied = original.copyWith(
           email: newEmail,
-          roles: newRoles,
+          appRole: newAppRole,
+          dashboardRole: newDashboardRole,
           createdAt: newCreatedAt,
           lastAccountActionShownAt: newLastAccountActionShownAt,
         );
 
         expect(copied.id, id);
         expect(copied.email, newEmail);
-        expect(copied.roles, newRoles);
+        expect(copied.appRole, newAppRole);
+        expect(copied.dashboardRole, newDashboardRole);
         expect(copied.createdAt, newCreatedAt);
         expect(copied.lastAccountActionShownAt, newLastAccountActionShownAt);
       });
@@ -210,7 +236,8 @@ void main() {
       final user = User(
         id: id,
         email: email,
-        roles: standardRoles,
+        appRole: appRoleStandard,
+        dashboardRole: dashboardRoleNone,
         createdAt: testCreatedAt,
         lastAccountActionShownAt: testLastEngagementShownAt,
       );
@@ -225,7 +252,8 @@ void main() {
       final anonUser = User(
         id: id,
         email: email,
-        roles: guestRoles,
+        appRole: appRoleGuest,
+        dashboardRole: dashboardRoleNone,
         createdAt: testCreatedAt,
         lastAccountActionShownAt: testCreatedAt,
       );
@@ -237,7 +265,8 @@ void main() {
       final adminUser = User(
         id: id,
         email: email,
-        roles: adminRoles,
+        appRole: appRolePremium,
+        dashboardRole: dashboardRoleAdmin,
         createdAt: testCreatedAt,
         lastAccountActionShownAt: testLastEngagementShownAt,
       );

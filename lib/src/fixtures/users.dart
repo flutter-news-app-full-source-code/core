@@ -1,4 +1,6 @@
 import 'package:ht_shared/ht_shared.dart';
+import 'package:ht_shared/src/enums/app_user_role.dart';
+import 'package:ht_shared/src/enums/dashboard_user_role.dart';
 
 /// A list of initial user data to be loaded into the in-memory user repository.
 ///
@@ -9,7 +11,8 @@ final List<User> usersFixturesData = [
   User(
     id: 'admin-user-id', // A fixed, predictable ID for the admin.
     email: 'admin@example.com',
-    roles: const [UserRoles.standardUser, UserRoles.admin],
+    appRole: AppUserRole.standardUser,
+    dashboardRole: DashboardUserRole.admin,
     createdAt: DateTime.now().toUtc(),
     lastAccountActionShownAt: DateTime.now().toUtc(),
   ),
