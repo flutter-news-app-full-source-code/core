@@ -86,7 +86,7 @@ void main() {
           'imageUrl': testImageUrl,
           'targetUrl': testTargetUrl,
           'adType': 'banner',
-          'placement': 'feed_inline_standard_banner',
+          'placement': 'feedInlineStandardBanner',
           'type': 'ad',
         });
       });
@@ -99,7 +99,7 @@ void main() {
           'imageUrl': testImageUrl,
           'targetUrl': testTargetUrl,
           'adType': 'banner',
-          'placement': 'feed_inline_standard_banner',
+          'placement': 'feedInlineStandardBanner',
           'type': 'ad',
         };
         final ad = Ad.fromJson(json);

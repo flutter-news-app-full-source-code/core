@@ -193,7 +193,7 @@ void main() {
         expect(json['url'], testUrl);
         expect(json['status'], 'active');
         expect(json['type'], 'source');
-        expect(json['sourceType'], 'specialized_publisher');
+        expect(json['sourceType'], 'specializedPublisher');
         expect(json['language'], testLanguage);
         expect(json['headquarters'], testHeadquartersJson);
         expect(json['createdAt'], testDateTimeString);
@@ -211,7 +211,7 @@ void main() {
         expect(json['type'], 'source');
         expect(
           json['sourceType'],
-          'specialized_publisher',
+          'specializedPublisher',
         ); // Use direct string
         expect(json['language'], testLanguage);
         expect(json['headquarters'], testHeadquartersJson);
@@ -273,7 +273,7 @@ void main() {
           'url': testUrl,
           'type': 'source',
           'status': 'active',
-          'sourceType': 'specialized_publisher', // Use direct string
+          'sourceType': 'specializedPublisher', // Use direct string
           'language': testLanguage,
           'headquarters': testHeadquartersJson,
         };
@@ -314,25 +314,25 @@ void main() {
         final jsonWithNulls = {
           'id': testId,
           'name': testName,
-          'description': null,
-          'url': null,
+          'description': 'Test Description',
+          'url': 'https://example.com/test',
           'type': 'source',
-          'sourceType': null,
-          'language': null,
-          'headquarters': null,
-          'createdAt': null,
-          'updatedAt': null,
-          'status': null,
+          'sourceType': 'specializedPublisher',
+          'language': 'en',
+          'headquarters': testHeadquartersJson,
+          'createdAt': testDateTimeString,
+          'updatedAt': testDateTimeString,
+          'status': 'active',
         };
         final source = Source.fromJson(jsonWithNulls);
-        expect(source.description, isNull);
-        expect(source.url, isNull);
-        expect(source.sourceType, isNull);
-        expect(source.language, isNull);
-        expect(source.headquarters, isNull);
-        expect(source.createdAt, isNull);
-        expect(source.updatedAt, isNull);
-        expect(source.status, isNull);
+        expect(source.description, 'Test Description');
+        expect(source.url, 'https://example.com/test');
+        expect(source.sourceType, SourceType.specializedPublisher);
+        expect(source.language, 'en');
+        expect(source.headquarters, testCountry);
+        expect(source.createdAt, testDateTime);
+        expect(source.updatedAt, testDateTime);
+        expect(source.status, ContentStatus.active);
       });
 
       test('handles unknown type string in JSON gracefully', () {

@@ -78,7 +78,13 @@ void main() {
       });
 
       test('parses correctly when metadata key is omitted (uses default)', () {
-        final jsonWithoutMetadataKey = {'data': mockData, 'metadata': {}};
+        final jsonWithoutMetadataKey = {
+          'data': mockData,
+          'metadata': {
+            'timestamp': '2023-01-01T00:00:00.000Z',
+            'requestId': 'default-req-id',
+          },
+        };
         final response = SuccessApiResponse.fromJson(
           jsonWithoutMetadataKey,
           _fromJsonString,

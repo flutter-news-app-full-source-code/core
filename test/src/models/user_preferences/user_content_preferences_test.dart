@@ -99,7 +99,7 @@ void main() {
               'name': 'Example News',
               'description': 'A news source for examples',
               'url': 'http://example.com',
-              'sourceType': 'news_agency',
+              'sourceType': 'newsAgency',
               'language': 'en',
               'headquarters': {
                 'id': 'country-1',
@@ -142,7 +142,7 @@ void main() {
                 'name': 'Example News',
                 'description': 'A news source for examples',
                 'url': 'http://example.com',
-                'sourceType': 'news_agency',
+                'sourceType': 'newsAgency',
                 'language': 'en',
                 'headquarters': {
                   'id': 'country-1',
@@ -193,10 +193,10 @@ void main() {
       test('returns correct instance from JSON with empty lists', () {
         final json = {
           'id': 'user-3',
-          'followed_countries': [],
-          'followed_sources': [],
-          'followed_categories': [],
-          'saved_headlines': [],
+          'followedCountries': [],
+          'followedSources': [],
+          'followedCategories': [],
+          'savedHeadlines': [],
         };
 
         final result = UserContentPreferences.fromJson(json);

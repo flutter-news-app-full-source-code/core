@@ -6,7 +6,7 @@ void main() {
     // Helper function to create a sample JSON map
     Map<String, dynamic> createJson({
       String baseTheme = 'system',
-      String accentTheme = 'default_blue',
+      String accentTheme = 'defaultBlue',
       String fontFamily = 'SystemDefault',
       String textScaleFactor = 'medium',
       String fontWeight = 'regular',
@@ -102,7 +102,7 @@ void main() {
       test('handles different enum values', () {
         final json = createJson(
           baseTheme: 'light',
-          accentTheme: 'graphite_gray',
+          accentTheme: 'graphiteGray',
           fontFamily: 'Merriweather',
           textScaleFactor: 'small',
           fontWeight: 'light',
