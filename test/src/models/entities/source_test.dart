@@ -209,10 +209,7 @@ void main() {
         expect(json['url'], testUrl);
         expect(json['status'], 'active');
         expect(json['type'], 'source');
-        expect(
-          json['sourceType'],
-          'specializedPublisher',
-        ); // Use direct string
+        expect(json['sourceType'], 'specializedPublisher'); // Use direct string
         expect(json['language'], testLanguage);
         expect(json['headquarters'], testHeadquartersJson);
       });

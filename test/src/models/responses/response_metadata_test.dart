@@ -48,9 +48,18 @@ void main() {
         fullMetadata,
         equals(ResponseMetadata(requestId: requestId, timestamp: timestamp)),
       );
-      expect(fullMetadata, isNot(equals(partialMetadataRequestId))); // Still not equal due to different default values
-      expect(fullMetadata, isNot(equals(partialMetadataTimestamp))); // Still not equal due to different default values
-      expect(fullMetadata, isNot(equals(emptyMetadata))); // Still not equal due to different default values
+      expect(
+        fullMetadata,
+        isNot(equals(partialMetadataRequestId)),
+      ); // Still not equal due to different default values
+      expect(
+        fullMetadata,
+        isNot(equals(partialMetadataTimestamp)),
+      ); // Still not equal due to different default values
+      expect(
+        fullMetadata,
+        isNot(equals(emptyMetadata)),
+      ); // Still not equal due to different default values
     });
 
     test('fromJson creates correct object from full JSON', () {

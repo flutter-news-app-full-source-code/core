@@ -76,29 +76,38 @@ void main() {
         );
       });
 
-      test('throws CheckedFromJsonException for missing headlineImageStyle', () {
-        final json = createJson()..remove('headlineImageStyle');
-        expect(
-          () => FeedDisplayPreferences.fromJson(json),
-          throwsA(isA<CheckedFromJsonException>()),
-        );
-      });
+      test(
+        'throws CheckedFromJsonException for missing headlineImageStyle',
+        () {
+          final json = createJson()..remove('headlineImageStyle');
+          expect(
+            () => FeedDisplayPreferences.fromJson(json),
+            throwsA(isA<CheckedFromJsonException>()),
+          );
+        },
+      );
 
-      test('throws CheckedFromJsonException for missing showSourceInHeadlineFeed', () {
-        final json = createJson()..remove('showSourceInHeadlineFeed');
-        expect(
-          () => FeedDisplayPreferences.fromJson(json),
-          throwsA(isA<CheckedFromJsonException>()),
-        );
-      });
+      test(
+        'throws CheckedFromJsonException for missing showSourceInHeadlineFeed',
+        () {
+          final json = createJson()..remove('showSourceInHeadlineFeed');
+          expect(
+            () => FeedDisplayPreferences.fromJson(json),
+            throwsA(isA<CheckedFromJsonException>()),
+          );
+        },
+      );
 
-      test('throws CheckedFromJsonException for missing showPublishDateInHeadlineFeed', () {
-        final json = createJson()..remove('showPublishDateInHeadlineFeed');
-        expect(
-          () => FeedDisplayPreferences.fromJson(json),
-          throwsA(isA<CheckedFromJsonException>()),
-        );
-      });
+      test(
+        'throws CheckedFromJsonException for missing showPublishDateInHeadlineFeed',
+        () {
+          final json = createJson()..remove('showPublishDateInHeadlineFeed');
+          expect(
+            () => FeedDisplayPreferences.fromJson(json),
+            throwsA(isA<CheckedFromJsonException>()),
+          );
+        },
+      );
     });
 
     group('toJson', () {
@@ -109,12 +118,15 @@ void main() {
           showSourceInHeadlineFeed: false,
           showPublishDateInHeadlineFeed: false,
         );
-        expect(preferences.toJson(), createJson(
-          headlineDensity: 'compact',
-          headlineImageStyle: 'largeThumbnail',
-          showSourceInHeadlineFeed: false,
-          showPublishDateInHeadlineFeed: false,
-        ));
+        expect(
+          preferences.toJson(),
+          createJson(
+            headlineDensity: 'compact',
+            headlineImageStyle: 'largeThumbnail',
+            showSourceInHeadlineFeed: false,
+            showPublishDateInHeadlineFeed: false,
+          ),
+        );
       });
 
       test('returns default values in JSON if not explicitly set', () {

@@ -93,7 +93,10 @@ void main() {
         );
 
         expect(updatedConfig.id, 'new_app_config');
-        expect(updatedConfig.userPreferenceLimits, mockUserPreferenceConfig); // Unchanged
+        expect(
+          updatedConfig.userPreferenceLimits,
+          mockUserPreferenceConfig,
+        ); // Unchanged
         expect(updatedConfig.appStatus.isUnderMaintenance, true);
         expect(updatedConfig, isNot(equals(remoteConfig)));
       });

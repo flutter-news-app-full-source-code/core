@@ -50,12 +50,7 @@ class UserAppSettings extends Equatable {
   Map<String, dynamic> toJson() => _$UserAppSettingsToJson(this);
 
   @override
-  List<Object?> get props => [
-    id,
-    displaySettings,
-    language,
-    feedPreferences,
-  ];
+  List<Object?> get props => [id, displaySettings, language, feedPreferences];
 
   /// Creates a copy of this [UserAppSettings] but with the given fields
   /// replaced with the new values.

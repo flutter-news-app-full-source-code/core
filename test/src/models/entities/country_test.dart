@@ -237,7 +237,8 @@ void main() {
       });
 
       test('throws CheckedFromJsonException for wrong type (flagUrl)', () {
-        final json = createValidJsonMap()..['flagUrl'] = null; // Invalid type (non-nullable)
+        final json = createValidJsonMap()
+          ..['flagUrl'] = null; // Invalid type (non-nullable)
         expect(
           () => Country.fromJson(json),
           throwsA(isA<CheckedFromJsonException>()),

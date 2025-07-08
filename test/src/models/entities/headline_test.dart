@@ -23,7 +23,8 @@ void main() {
       'name': 'Test Source',
       'description': 'A test news source.',
       'url': 'http://testsource.com',
-      'sourceType': 'newsAgency', // Changed key to camelCase and value to match enum
+      'sourceType':
+          'newsAgency', // Changed key to camelCase and value to match enum
       'language': 'en',
       'headquarters': mockCountry.toJson(),
       'createdAt': testTimeString,

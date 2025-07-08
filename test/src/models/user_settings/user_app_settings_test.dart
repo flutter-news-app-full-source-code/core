@@ -73,7 +73,8 @@ void main() {
             id: userId,
             displaySettings: const DisplaySettings(
               baseTheme: AppBaseTheme.dark,
-              accentTheme: AppAccentTheme.defaultBlue, // Added missing parameters
+              accentTheme:
+                  AppAccentTheme.defaultBlue, // Added missing parameters
               fontFamily: 'SystemDefault',
               textScaleFactor: AppTextScaleFactor.medium,
               fontWeight: AppFontWeight.regular,
@@ -92,8 +93,7 @@ void main() {
         textScaleFactor: AppTextScaleFactor.medium,
         fontWeight: AppFontWeight.regular,
       );
-      const customLanguage =
-          'es'; // Changed to string literal 'es'
+      const customLanguage = 'es'; // Changed to string literal 'es'
       expect(
         createSubject(
           id: userId,
@@ -143,7 +143,8 @@ void main() {
         const newLanguage = 'es';
         const newFeedPreferences = FeedDisplayPreferences(
           headlineDensity: HeadlineDensity.compact,
-          headlineImageStyle: HeadlineImageStyle.smallThumbnail, // Added missing parameters
+          headlineImageStyle:
+              HeadlineImageStyle.smallThumbnail, // Added missing parameters
           showSourceInHeadlineFeed: true,
           showPublishDateInHeadlineFeed: true,
         );
@@ -197,7 +198,8 @@ void main() {
         const customFeedPreferences = FeedDisplayPreferences(
           headlineDensity: HeadlineDensity.comfortable,
           showSourceInHeadlineFeed: false,
-          headlineImageStyle: HeadlineImageStyle.smallThumbnail, // Added missing parameters
+          headlineImageStyle:
+              HeadlineImageStyle.smallThumbnail, // Added missing parameters
           showPublishDateInHeadlineFeed: true,
         );
 
@@ -232,7 +234,8 @@ void main() {
           feedPreferences: const FeedDisplayPreferences(
             headlineImageStyle: HeadlineImageStyle.hidden,
             showPublishDateInHeadlineFeed: false,
-            headlineDensity: HeadlineDensity.standard, // Added missing parameters
+            headlineDensity:
+                HeadlineDensity.standard, // Added missing parameters
             showSourceInHeadlineFeed: true,
           ),
         );

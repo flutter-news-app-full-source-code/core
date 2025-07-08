@@ -9,7 +9,6 @@ part 'permission.g.dart';
 ///
 /// Permissions follow the format `resource.action`.
 /// {@endtemplate}
-
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class Permission extends Equatable {
