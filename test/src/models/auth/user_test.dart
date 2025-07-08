@@ -227,12 +227,12 @@ void main() {
         email: email,
         roles: guestRoles,
         createdAt: testCreatedAt,
-        lastAccountActionShownAt: null, // Explicitly null for testing
+        lastAccountActionShownAt: testCreatedAt,
       );
       final anonJson = anonUser.toJson();
       final deserializedAnonUser = User.fromJson(anonJson);
       expect(deserializedAnonUser, equals(anonUser));
-      expect(deserializedAnonUser.lastAccountActionShownAt, isNull);
+      expect(deserializedAnonUser.lastAccountActionShownAt, testCreatedAt);
 
       final adminUser = User(
         id: id,
