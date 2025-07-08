@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/models/entities/source_type.dart';
+import 'package:ht_shared/src/enums/source_type.dart';
 import 'package:test/test.dart';
 
 void main() {

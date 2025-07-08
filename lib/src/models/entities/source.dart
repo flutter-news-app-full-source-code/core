@@ -1,7 +1,6 @@
 import 'package:ht_shared/src/enums/enums.dart';
 import 'package:ht_shared/src/models/core/feed_item.dart';
 import 'package:ht_shared/src/models/entities/country.dart';
-import 'package:ht_shared/src/models/entities/source_type.dart';
 import 'package:ht_shared/src/utils/utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -27,7 +26,7 @@ class Source extends FeedItem {
     required this.headquarters,
     required this.createdAt,
     required this.updatedAt,
-    this.status = ContentStatus.active,
+    required this.status,
   }) : super(type: 'source');
 
   /// Factory method to create a [Source] instance from a JSON map.

@@ -28,7 +28,7 @@ class Headline extends FeedItem {
     required this.category,
     required this.createdAt,
     required this.updatedAt,
-    this.status = ContentStatus.active,
+    required this.status,
   }) : super(type: 'headline');
 
   /// Creates a [Headline] instance from a JSON map.

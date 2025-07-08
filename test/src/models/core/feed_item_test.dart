@@ -11,6 +11,7 @@ void main() {
       flagUrl: 'http://example.com/us.png',
       createdAt: testDateTime,
       updatedAt: testDateTime,
+      status: ContentStatus.active,
     );
     final mockSource = Source(
       id: 'source-1',
@@ -22,6 +23,7 @@ void main() {
       headquarters: mockCountry,
       createdAt: testDateTime,
       updatedAt: testDateTime,
+      status: ContentStatus.active,
     );
     final mockCategory = Category(
       id: 'category-1',
@@ -43,6 +45,7 @@ void main() {
       category: mockCategory,
       createdAt: testDateTime,
       updatedAt: testDateTime,
+      status: ContentStatus.active,
     );
     const mockAd = Ad(
       id: 'ad-1',

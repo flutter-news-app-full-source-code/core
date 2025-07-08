@@ -14,6 +14,7 @@ void main() {
       flagUrl: 'http://example.com/us.png',
       createdAt: testTime,
       updatedAt: testTime,
+      status: ContentStatus.active,
     );
 
     // Sample data for nested models
@@ -27,7 +28,7 @@ void main() {
       'headquarters': mockCountry.toJson(),
       'created_at': testTimeString,
       'updated_at': testTimeString,
-      'status': 'active',
+      'status': ContentStatus.active.name,
       'type': 'source',
     };
     final sampleSource = Source.fromJson(sampleSourceJson);
@@ -39,7 +40,7 @@ void main() {
       'icon_url': 'http://testcategory.com/icon.png',
       'created_at': testTimeString,
       'updated_at': testTimeString,
-      'status': 'active',
+      'status': ContentStatus.active.name,
       'type': 'category',
     };
     final sampleCategory = Category.fromJson(sampleCategoryJson);
@@ -58,6 +59,7 @@ void main() {
       category: sampleCategory,
       createdAt: testTime,
       updatedAt: testTime,
+      status: ContentStatus.active,
     );
 
     // Sample JSON map corresponding to fullHeadline
@@ -72,7 +74,7 @@ void main() {
       'category': sampleCategoryJson,
       'created_at': testTimeString,
       'updated_at': testTimeString,
-      'status': 'active',
+      'status': ContentStatus.active.name,
       'type': 'headline',
     };
 
@@ -88,6 +90,7 @@ void main() {
       category: sampleCategory,
       createdAt: testTime,
       updatedAt: testTime,
+      status: ContentStatus.active,
     );
 
     // Sample JSON map corresponding to minimalHeadline
@@ -102,7 +105,7 @@ void main() {
       'category': sampleCategoryJson,
       'created_at': testTimeString,
       'updated_at': testTimeString,
-      'status': 'active',
+      'status': ContentStatus.active.name,
       'type': 'headline',
     };
 
@@ -205,6 +208,7 @@ void main() {
           category: sampleCategory,
           createdAt: testTime,
           updatedAt: testTime,
+          status: ContentStatus.active,
         );
         final headline2 = Headline(
           id: '1',
@@ -217,6 +221,7 @@ void main() {
           category: sampleCategory,
           createdAt: testTime,
           updatedAt: testTime,
+          status: ContentStatus.active,
         );
         expect(headline1, equals(headline2));
       });
@@ -233,6 +238,7 @@ void main() {
           category: sampleCategory,
           createdAt: testTime,
           updatedAt: testTime,
+          status: ContentStatus.active,
         );
         final headline2 = Headline(
           id: '1',
@@ -245,6 +251,7 @@ void main() {
           category: sampleCategory,
           createdAt: testTime,
           updatedAt: testTime,
+          status: ContentStatus.active,
         );
         final headline3 = Headline(
           id: '2',
@@ -257,6 +264,7 @@ void main() {
           category: sampleCategory,
           createdAt: testTime,
           updatedAt: testTime,
+          status: ContentStatus.active,
         );
         expect(headline1, isNot(equals(headline2)));
         expect(headline1, isNot(equals(headline3)));
@@ -273,7 +281,7 @@ void main() {
           fullHeadline.publishedAt,
           fullHeadline.createdAt,
           fullHeadline.updatedAt,
-          ContentStatus.active,
+          fullHeadline.status,
           fullHeadline.source,
           fullHeadline.category,
           fullHeadline.type,

@@ -21,7 +21,7 @@ void main() {
       'flag_url': testFlagUrl,
       'created_at': testDateTimeString,
       'updated_at': testDateTimeString,
-      'status': 'active',
+      'status': ContentStatus.active.name,
       'type': 'country',
     };
 
@@ -33,6 +33,7 @@ void main() {
       String isoCode = testIsoCode,
       String name = testName,
       String flagUrl = testFlagUrl,
+      ContentStatus status = ContentStatus.active,
     }) {
       return Country(
         id: id,
@@ -41,6 +42,7 @@ void main() {
         flagUrl: flagUrl,
         createdAt: createdAt,
         updatedAt: updatedAt,
+        status: status,
       );
     }
 
@@ -56,6 +58,7 @@ void main() {
             id: testId,
             createdAt: testDateTime,
             updatedAt: testDateTime,
+            status: ContentStatus.active,
           ),
         ),
       );
@@ -64,6 +67,7 @@ void main() {
           id: uuid.v4(),
           createdAt: testDateTime,
           updatedAt: testDateTime,
+          status: ContentStatus.active,
         ),
         isNot(
           equals(
@@ -71,6 +75,7 @@ void main() {
               id: uuid.v4(),
               createdAt: testDateTime,
               updatedAt: testDateTime,
+              status: ContentStatus.active,
             ),
           ),
         ),
@@ -84,6 +89,7 @@ void main() {
         id: testId,
         createdAt: testDateTime,
         updatedAt: testDateTime,
+        status: ContentStatus.active,
       );
       // Directly access props
       final props = country.props;
@@ -112,6 +118,7 @@ void main() {
         id: testId,
         createdAt: testDateTime,
         updatedAt: testDateTime,
+        status: ContentStatus.active,
       );
       expect(
         country.props,
@@ -135,6 +142,7 @@ void main() {
             id: testId,
             createdAt: testDateTime,
             updatedAt: testDateTime,
+            status: ContentStatus.active,
           ),
           returnsNormally,
         );
@@ -146,11 +154,13 @@ void main() {
           id: specificId,
           createdAt: testDateTime,
           updatedAt: testDateTime,
+          status: ContentStatus.active,
         );
         expect(country.id, specificId);
         expect(country.isoCode, testIsoCode);
         expect(country.name, testName);
         expect(country.flagUrl, testFlagUrl);
+        expect(country.status, ContentStatus.active);
       });
     });
 
@@ -163,6 +173,7 @@ void main() {
               id: testId,
               createdAt: testDateTime,
               updatedAt: testDateTime,
+              status: ContentStatus.active,
             ),
           ),
         );
@@ -226,8 +237,23 @@ void main() {
       });
 
       test('throws CheckedFromJsonException for wrong type (flag_url)', () {
-        final json = createValidJsonMap()
-          ..['flag_url'] = null; // Invalid type (non-nullable)
+        final json = createValidJsonMap()..['flag_url'] = null; // Invalid type (non-nullable)
+        expect(
+          () => Country.fromJson(json),
+          throwsA(isA<CheckedFromJsonException>()),
+        );
+      });
+
+      test('throws CheckedFromJsonException for missing status', () {
+        final json = createValidJsonMap()..remove('status');
+        expect(
+          () => Country.fromJson(json),
+          throwsA(isA<CheckedFromJsonException>()),
+        );
+      });
+
+      test('throws CheckedFromJsonException for wrong type (status)', () {
+        final json = createValidJsonMap()..['status'] = 123; // Invalid type
         expect(
           () => Country.fromJson(json),
           throwsA(isA<CheckedFromJsonException>()),
@@ -258,6 +284,7 @@ void main() {
             id: testId,
             createdAt: testDateTime,
             updatedAt: testDateTime,
+            status: ContentStatus.active,
           ).toJson(),
           equals(createValidJsonMap()),
         );

@@ -36,9 +36,7 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) =>
         ),
         status: $checkedConvert(
           'status',
-          (v) =>
-              $enumDecodeNullable(_$ContentStatusEnumMap, v) ??
-              ContentStatus.active,
+          (v) => $enumDecode(_$ContentStatusEnumMap, v),
         ),
       );
       return val;

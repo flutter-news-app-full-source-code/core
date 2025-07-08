@@ -1,6 +1,4 @@
 /// Enum representing the lifecycle status of a content entity.
-library;
-
 enum ContentStatus {
   /// The entity is active and visible.
   /// This is the standard for all live content.

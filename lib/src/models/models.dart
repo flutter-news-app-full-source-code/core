@@ -1,9 +1,9 @@
 export 'auth/auth.dart';
+export 'config/config.dart';
 export 'core/core.dart';
 export 'dashboard/dashboard.dart';
 export 'entities/entities.dart';
 export 'feed_decorators/feed_decorators.dart';
-export 'config/config.dart';
 export 'responses/responses.dart';
 export 'user_preferences/user_preferences.dart';
 export 'user_settings/user_settings.dart';

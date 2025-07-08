@@ -1,10 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/src/models/config/account_action_config.dart';
 import 'package:ht_shared/src/models/config/ad_config.dart';
-import 'package:ht_shared/src/models/config/user_preference_config.dart';
 import 'package:ht_shared/src/models/config/app_status.dart'; // New import
+import 'package:ht_shared/src/models/config/user_preference_config.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 
 part 'remote_config.g.dart';
 

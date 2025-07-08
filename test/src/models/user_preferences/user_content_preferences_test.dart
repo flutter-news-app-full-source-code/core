@@ -12,6 +12,7 @@ void main() {
       flagUrl: 'http://example.com/us.png',
       createdAt: DateTime.utc(2023),
       updatedAt: DateTime.utc(2023),
+      status: ContentStatus.active,
     );
     final mockSource = Source(
       id: 'source-1',
@@ -23,6 +24,7 @@ void main() {
       headquarters: mockCountry,
       createdAt: DateTime.utc(2023),
       updatedAt: DateTime.utc(2023),
+      status: ContentStatus.active,
     );
     final mockCategory = Category(
       id: 'category-1',
@@ -44,6 +46,7 @@ void main() {
       category: mockCategory,
       createdAt: DateTime.utc(2023),
       updatedAt: DateTime.utc(2023),
+      status: ContentStatus.active,
     );
 
     final userContentPreferences = UserContentPreferences(
@@ -86,7 +89,7 @@ void main() {
               'flag_url': 'http://example.com/us.png',
               'created_at': '2023-01-01T00:00:00.000Z',
               'updated_at': '2023-01-01T00:00:00.000Z',
-              'status': 'active',
+              'status': ContentStatus.active.name,
               'type': 'country',
             },
           ],
@@ -105,12 +108,12 @@ void main() {
                 'flag_url': 'http://example.com/us.png',
                 'created_at': '2023-01-01T00:00:00.000Z',
                 'updated_at': '2023-01-01T00:00:00.000Z',
-                'status': 'active',
+                'status': ContentStatus.active.name,
                 'type': 'country',
               },
               'created_at': '2023-01-01T00:00:00.000Z',
               'updated_at': '2023-01-01T00:00:00.000Z',
-              'status': 'active',
+              'status': ContentStatus.active.name,
               'type': 'source',
             },
           ],
@@ -122,7 +125,7 @@ void main() {
               'icon_url': 'http://example.com/tech_icon.png',
               'created_at': '2023-01-01T00:00:00.000Z',
               'updated_at': '2023-01-01T00:00:00.000Z',
-              'status': 'active',
+              'status': ContentStatus.active.name,
               'type': 'category',
             },
           ],
@@ -148,12 +151,12 @@ void main() {
                   'flag_url': 'http://example.com/us.png',
                   'created_at': '2023-01-01T00:00:00.000Z',
                   'updated_at': '2023-01-01T00:00:00.000Z',
-                  'status': 'active',
+                  'status': ContentStatus.active.name,
                   'type': 'country',
                 },
                 'created_at': '2023-01-01T00:00:00.000Z',
                 'updated_at': '2023-01-01T00:00:00.000Z',
-                'status': 'active',
+                'status': ContentStatus.active.name,
                 'type': 'source',
               },
               'category': {
@@ -163,12 +166,12 @@ void main() {
                 'icon_url': 'http://example.com/tech_icon.png',
                 'created_at': '2023-01-01T00:00:00.000Z',
                 'updated_at': '2023-01-01T00:00:00.000Z',
-                'status': 'active',
+                'status': ContentStatus.active.name,
                 'type': 'category',
               },
               'created_at': '2023-01-01T00:00:00.000Z',
               'updated_at': '2023-01-01T00:00:00.000Z',
-              'status': 'active',
+              'status': ContentStatus.active.name,
               'type': 'headline',
             },
           ],
@@ -279,6 +282,7 @@ void main() {
           flagUrl: 'http://example.com/ca.png',
           createdAt: DateTime.utc(2023),
           updatedAt: DateTime.utc(2023),
+          status: ContentStatus.active,
         );
         final newHeadline = Headline(
           id: 'headline-2',
@@ -291,6 +295,7 @@ void main() {
           category: mockCategory,
           createdAt: DateTime.utc(2023),
           updatedAt: DateTime.utc(2023),
+          status: ContentStatus.active,
         );
 
         final updatedPreferences = userContentPreferences.copyWith(

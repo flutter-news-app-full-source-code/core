@@ -23,7 +23,7 @@ class Country extends FeedItem {
     required this.id,
     required this.createdAt,
     required this.updatedAt,
-    this.status = ContentStatus.active,
+    required this.status,
   }) : super(type: 'country');
 
   /// Creates a Country instance from a JSON map.
