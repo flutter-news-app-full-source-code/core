@@ -4,18 +4,18 @@ import 'package:ht_shared/src/utils/utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part 'category.g.dart';
+part 'topic.g.dart';
 
-/// {@template category}
-/// Represents a news category.
+/// {@template topic}
+/// Represents a news topic.
 ///
 /// Contains details like ID, name, description, and an optional icon URL.
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
-class Category extends FeedItem {
-  /// {@macro category}
-  const Category({
+class Topic extends FeedItem {
+  /// {@macro topic}
+  const Topic({
     required this.id,
     required this.name,
     required this.description,
@@ -23,40 +23,40 @@ class Category extends FeedItem {
     required this.createdAt,
     required this.updatedAt,
     required this.status,
-  }) : super(type: 'category');
+  }) : super(type: 'topic');
 
-  /// Creates a Category instance from a JSON map.
-  factory Category.fromJson(Map<String, dynamic> json) =>
-      _$CategoryFromJson(json);
+  /// Creates a Topic instance from a JSON map.
+  factory Topic.fromJson(Map<String, dynamic> json) =>
+      _$TopicFromJson(json);
 
-  /// The unique identifier of the category.
+  /// The unique identifier of the topic.
   final String id;
 
-  /// The display name of the category.
+  /// The display name of the topic.
   @JsonKey(required: true)
   final String name;
 
-  /// The description for the category.
+  /// The description for the topic.
   final String description;
 
-  /// The URL for an icon representing the category.
+  /// The URL for an icon representing the topic.
   final String iconUrl;
 
-  /// The creation timestamp of the category.
+  /// The creation timestamp of the topic.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
   final DateTime createdAt;
 
-  /// The last update timestamp of the category.
+  /// The last update timestamp of the topic.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
   final DateTime updatedAt;
 
-  /// The current status of the category.
+  /// The current status of the topic.
   final ContentStatus status;
 
-  /// Converts this Category instance to a JSON map.
+  /// Converts this Topic instance to a JSON map.
   @override
   Map<String, dynamic> toJson() {
-    final json = _$CategoryToJson(this);
+    final json = _$TopicToJson(this);
     json['type'] = type;
     return json;
   }
@@ -76,9 +76,9 @@ class Category extends FeedItem {
   @override
   bool get stringify => true;
 
-  /// Creates a copy of this Category but with the given fields replaced with
+  /// Creates a copy of this Topic but with the given fields replaced with
   /// the new values.
-  Category copyWith({
+  Topic copyWith({
     String? id,
     String? name,
     String? description,
@@ -87,7 +87,7 @@ class Category extends FeedItem {
     DateTime? updatedAt,
     ContentStatus? status,
   }) {
-    return Category(
+    return Topic(
       id: id ?? this.id,
       name: name ?? this.name,
       description: description ?? this.description,

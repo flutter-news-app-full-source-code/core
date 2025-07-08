@@ -6,7 +6,7 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
     id: 'admin-user-id',
     followedCountries: [],
     followedSources: [],
-    followedCategories: [],
+    followedTopics: [],
     savedHeadlines: [],
   ),
 ];

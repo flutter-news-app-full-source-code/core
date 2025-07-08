@@ -40,4 +40,6 @@ const _$FeedActionTypeEnumMap = {
   FeedActionType.upgrade: 'upgrade',
   FeedActionType.rateApp: 'rateApp',
   FeedActionType.enableNotifications: 'enableNotifications',
+  FeedActionType.followTopics: 'followTopics',
+  FeedActionType.followSources: 'followSources',
 };

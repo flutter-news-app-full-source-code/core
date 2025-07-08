@@ -1,9 +1,9 @@
 import 'package:ht_shared/src/enums/enums.dart';
-import 'package:ht_shared/src/models/entities/category.dart';
+import 'package:ht_shared/src/models/entities/topic.dart';
 
-/// A list of predefined categories for fixture data.
-final categoriesFixturesData = <Category>[
-  Category(
+/// A list of predefined topics for fixture data.
+final topicsFixturesData = <Topic>[
+  Topic(
     id: '1',
     name: 'Technology',
     description: 'News and updates from the world of technology.',
@@ -12,7 +12,7 @@ final categoriesFixturesData = <Category>[
     updatedAt: DateTime.parse('2023-01-01T10:00:00Z'),
     status: ContentStatus.active,
   ),
-  Category(
+  Topic(
     id: '2',
     name: 'Sports',
     description: 'Latest scores, highlights, and news from sports.',
@@ -21,7 +21,7 @@ final categoriesFixturesData = <Category>[
     updatedAt: DateTime.parse('2023-01-02T11:00:00Z'),
     status: ContentStatus.active,
   ),
-  Category(
+  Topic(
     id: '3',
     name: 'Politics',
     description: 'Updates on political events and government policies.',
@@ -30,7 +30,7 @@ final categoriesFixturesData = <Category>[
     updatedAt: DateTime.parse('2023-01-03T12:00:00Z'),
     status: ContentStatus.active,
   ),
-  Category(
+  Topic(
     id: '4',
     name: 'Science',
     description: 'Discoveries and breakthroughs in scientific research.',
@@ -39,7 +39,7 @@ final categoriesFixturesData = <Category>[
     updatedAt: DateTime.parse('2023-01-04T13:00:00Z'),
     status: ContentStatus.active,
   ),
-  Category(
+  Topic(
     id: '5',
     name: 'Health',
     description: 'Information and advice on health and wellness.',
@@ -48,7 +48,7 @@ final categoriesFixturesData = <Category>[
     updatedAt: DateTime.parse('2023-01-05T14:00:00Z'),
     status: ContentStatus.active,
   ),
-  Category(
+  Topic(
     id: '6',
     name: 'Entertainment',
     description: 'News from movies, music, and pop culture.',
@@ -57,7 +57,7 @@ final categoriesFixturesData = <Category>[
     updatedAt: DateTime.parse('2023-01-06T15:00:00Z'),
     status: ContentStatus.active,
   ),
-  Category(
+  Topic(
     id: '7',
     name: 'Business',
     description: 'Financial markets, economy, and corporate news.',
@@ -66,7 +66,7 @@ final categoriesFixturesData = <Category>[
     updatedAt: DateTime.parse('2023-01-07T16:00:00Z'),
     status: ContentStatus.active,
   ),
-  Category(
+  Topic(
     id: '8',
     name: 'Travel',
     description: 'Guides, tips, and news for travelers.',
@@ -75,7 +75,7 @@ final categoriesFixturesData = <Category>[
     updatedAt: DateTime.parse('2023-01-08T17:00:00Z'),
     status: ContentStatus.active,
   ),
-  Category(
+  Topic(
     id: '9',
     name: 'Food',
     description: 'Recipes, culinary trends, and food industry news.',
@@ -84,7 +84,7 @@ final categoriesFixturesData = <Category>[
     updatedAt: DateTime.parse('2023-01-09T18:00:00Z'),
     status: ContentStatus.active,
   ),
-  Category(
+  Topic(
     id: '10',
     name: 'Education',
     description: 'Developments in education and learning.',

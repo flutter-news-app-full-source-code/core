@@ -1,6 +1,6 @@
 import 'package:ht_shared/src/enums/enums.dart';
 import 'package:ht_shared/src/models/core/feed_item.dart';
-import 'package:ht_shared/src/models/entities/category.dart';
+import 'package:ht_shared/src/models/entities/topic.dart';
 import 'package:ht_shared/src/models/entities/source.dart';
 import 'package:ht_shared/src/utils/json_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -24,7 +24,7 @@ class Headline extends FeedItem {
     required this.url,
     required this.imageUrl,
     required this.source,
-    required this.category,
+    required this.topic,
     required this.createdAt,
     required this.updatedAt,
     required this.status,
@@ -68,8 +68,8 @@ class Headline extends FeedItem {
   /// ensuring backward compatibility. This is suitable for ingested content.
   final ContentStatus status;
 
-  /// Category of the current headline.
-  final Category category;
+  /// Topic of the current headline.
+  final Topic topic;
 
   /// Converts this [Headline] instance to a JSON map.
   @override
@@ -90,7 +90,7 @@ class Headline extends FeedItem {
     updatedAt,
     status,
     source,
-    category,
+    topic,
     type,
   ];
 
@@ -109,7 +109,7 @@ class Headline extends FeedItem {
     DateTime? updatedAt,
     ContentStatus? status,
     Source? source,
-    Category? category,
+    Topic? topic,
   }) {
     return Headline(
       id: id ?? this.id,
@@ -121,7 +121,7 @@ class Headline extends FeedItem {
       updatedAt: updatedAt ?? this.updatedAt,
       status: status ?? this.status,
       source: source ?? this.source,
-      category: category ?? this.category,
+      topic: topic ?? this.topic,
     );
   }
 }

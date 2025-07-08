@@ -1,15 +1,15 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'category.dart';
+part of 'topic.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Category _$CategoryFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('Category', json, ($checkedConvert) {
+Topic _$TopicFromJson(Map<String, dynamic> json) =>
+    $checkedCreate('Topic', json, ($checkedConvert) {
       $checkKeys(json, requiredKeys: const ['name']);
-      final val = Category(
+      final val = Topic(
         id: $checkedConvert('id', (v) => v as String),
         name: $checkedConvert('name', (v) => v as String),
         description: $checkedConvert('description', (v) => v as String),
@@ -30,7 +30,7 @@ Category _$CategoryFromJson(Map<String, dynamic> json) =>
       return val;
     });
 
-Map<String, dynamic> _$CategoryToJson(Category instance) => <String, dynamic>{
+Map<String, dynamic> _$TopicToJson(Topic instance) => <String, dynamic>{
   'id': instance.id,
   'name': instance.name,
   'description': instance.description,

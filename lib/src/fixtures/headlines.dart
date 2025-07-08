@@ -1,5 +1,5 @@
 import 'package:ht_shared/src/enums/enums.dart';
-import 'package:ht_shared/src/fixtures/categories.dart';
+import 'package:ht_shared/src/fixtures/topics.dart';
 import 'package:ht_shared/src/fixtures/sources.dart';
 import 'package:ht_shared/src/models/entities/headline.dart';
 
@@ -13,7 +13,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/ai-breakthrough-1',
     imageUrl: 'https://example.com/images/ai-breakthrough.jpg',
     source: sourcesFixturesData[0], // TechCrunch
-    category: categoriesFixturesData[0], // Technology
+    topic: topicsFixturesData[0], // Technology
     createdAt: DateTime.now().subtract(Duration.zero),
     updatedAt: DateTime.now().subtract(Duration.zero),
     status: ContentStatus.active,
@@ -26,7 +26,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/sports-championship-2',
     imageUrl: 'https://example.com/images/sports-win.jpg',
     source: sourcesFixturesData[1], // BBC News
-    category: categoriesFixturesData[1], // Sports
+    topic: topicsFixturesData[1], // Sports
     createdAt: DateTime.now().subtract(Duration.zero),
     updatedAt: DateTime.now().subtract(Duration.zero),
     status: ContentStatus.active,
@@ -39,7 +39,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/politics-climate-3',
     imageUrl: 'https://example.com/images/climate-summit.jpg',
     source: sourcesFixturesData[2], // The New York Times
-    category: categoriesFixturesData[2], // Politics
+    topic: topicsFixturesData[2], // Politics
     createdAt: DateTime.now().subtract(Duration.zero),
     updatedAt: DateTime.now().subtract(Duration.zero),
     status: ContentStatus.active,
@@ -52,7 +52,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/science-planet-4',
     imageUrl: 'https://example.com/images/new-planet.jpg',
     source: sourcesFixturesData[3], // The Guardian
-    category: categoriesFixturesData[3], // Science
+    topic: topicsFixturesData[3], // Science
     createdAt: DateTime.now().subtract(Duration.zero),
     updatedAt: DateTime.now().subtract(Duration.zero),
     status: ContentStatus.active,
@@ -65,7 +65,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/health-cancer-5',
     imageUrl: 'https://example.com/images/cancer-research.jpg',
     source: sourcesFixturesData[4], // CNN
-    category: categoriesFixturesData[4], // Health
+    topic: topicsFixturesData[4], // Health
     createdAt: DateTime.now().subtract(Duration.zero),
     updatedAt: DateTime.now().subtract(Duration.zero),
     status: ContentStatus.active,
@@ -78,7 +78,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/entertainment-movie-6',
     imageUrl: 'https://example.com/images/movie-record.jpg',
     source: sourcesFixturesData[5], // Reuters
-    category: categoriesFixturesData[5], // Entertainment
+    topic: topicsFixturesData[5], // Entertainment
     createdAt: DateTime.now().subtract(const Duration(days: 1)),
     updatedAt: DateTime.now().subtract(const Duration(days: 1)),
     status: ContentStatus.active,
@@ -91,7 +91,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/business-market-7',
     imageUrl: 'https://example.com/images/stock-market.jpg',
     source: sourcesFixturesData[6], // Al Jazeera English
-    category: categoriesFixturesData[6], // Business
+    topic: topicsFixturesData[6], // Business
     createdAt: DateTime.now().subtract(const Duration(days: 1)),
     updatedAt: DateTime.now().subtract(const Duration(days: 1)),
     status: ContentStatus.active,
@@ -104,7 +104,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/travel-restrictions-8',
     imageUrl: 'https://example.com/images/travel-lifted.jpg',
     source: sourcesFixturesData[7], // Xinhua News Agency
-    category: categoriesFixturesData[7], // Travel
+    topic: topicsFixturesData[7], // Travel
     createdAt: DateTime.now().subtract(const Duration(days: 1)),
     updatedAt: DateTime.now().subtract(const Duration(days: 1)),
     status: ContentStatus.active,
@@ -117,7 +117,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/food-restaurant-9',
     imageUrl: 'https://example.com/images/new-restaurant.jpg',
     source: sourcesFixturesData[8], // The Times of India
-    category: categoriesFixturesData[8], // Food
+    topic: topicsFixturesData[8], // Food
     createdAt: DateTime.now().subtract(const Duration(days: 1)),
     updatedAt: DateTime.now().subtract(const Duration(days: 1)),
     status: ContentStatus.active,
@@ -130,7 +130,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/education-methods-10',
     imageUrl: 'https://example.com/images/education-methods.jpg',
     source: sourcesFixturesData[9], // Folha de S.Paulo
-    category: categoriesFixturesData[9], // Education
+    topic: topicsFixturesData[9], // Education
     createdAt: DateTime.now().subtract(const Duration(days: 1)),
     updatedAt: DateTime.now().subtract(const Duration(days: 1)),
     status: ContentStatus.active,
@@ -143,7 +143,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/cybersecurity-threat-11',
     imageUrl: 'https://example.com/images/cyber-threat.jpg',
     source: sourcesFixturesData[0], // TechCrunch
-    category: categoriesFixturesData[0], // Technology
+    topic: topicsFixturesData[0], // Technology
     createdAt: DateTime.now().subtract(const Duration(days: 2)),
     updatedAt: DateTime.now().subtract(const Duration(days: 2)),
     status: ContentStatus.active,
@@ -156,7 +156,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/sports-olympics-12',
     imageUrl: 'https://example.com/images/olympics-announcement.jpg',
     source: sourcesFixturesData[1], // BBC News
-    category: categoriesFixturesData[1], // Sports
+    topic: topicsFixturesData[1], // Sports
     createdAt: DateTime.now().subtract(const Duration(days: 2)),
     updatedAt: DateTime.now().subtract(const Duration(days: 2)),
     status: ContentStatus.active,
@@ -169,7 +169,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/politics-healthcare-13',
     imageUrl: 'https://example.com/images/healthcare-bill.jpg',
     source: sourcesFixturesData[2], // The New York Times
-    category: categoriesFixturesData[4], // Health
+    topic: topicsFixturesData[4], // Health
     createdAt: DateTime.now().subtract(const Duration(days: 2)),
     updatedAt: DateTime.now().subtract(const Duration(days: 2)),
     status: ContentStatus.active,
@@ -182,7 +182,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/science-archaeology-14',
     imageUrl: 'https://example.com/images/ancient-city.jpg',
     source: sourcesFixturesData[3], // The Guardian
-    category: categoriesFixturesData[3], // Science
+    topic: topicsFixturesData[3], // Science
     createdAt: DateTime.now().subtract(const Duration(days: 2)),
     updatedAt: DateTime.now().subtract(const Duration(days: 2)),
     status: ContentStatus.active,
@@ -195,7 +195,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/health-diet-15',
     imageUrl: 'https://example.com/images/dietary-guidelines.jpg',
     source: sourcesFixturesData[4], // CNN
-    category: categoriesFixturesData[4], // Health
+    topic: topicsFixturesData[4], // Health
     createdAt: DateTime.now().subtract(const Duration(days: 2)),
     updatedAt: DateTime.now().subtract(const Duration(days: 2)),
     status: ContentStatus.active,
@@ -208,7 +208,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/entertainment-music-16',
     imageUrl: 'https://example.com/images/music-festival.jpg',
     source: sourcesFixturesData[5], // Reuters
-    category: categoriesFixturesData[5], // Entertainment
+    topic: topicsFixturesData[5], // Entertainment
     createdAt: DateTime.now().subtract(const Duration(days: 3)),
     updatedAt: DateTime.now().subtract(const Duration(days: 3)),
     status: ContentStatus.active,
@@ -221,7 +221,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/business-acquisition-17',
     imageUrl: 'https://example.com/images/tech-acquisition.jpg',
     source: sourcesFixturesData[6], // Al Jazeera English
-    category: categoriesFixturesData[6], // Business
+    topic: topicsFixturesData[6], // Business
     createdAt: DateTime.now().subtract(const Duration(days: 3)),
     updatedAt: DateTime.now().subtract(const Duration(days: 3)),
     status: ContentStatus.active,
@@ -234,7 +234,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/travel-space-18',
     imageUrl: 'https://example.com/images/space-tourism.jpg',
     source: sourcesFixturesData[7], // Xinhua News Agency
-    category: categoriesFixturesData[7], // Travel
+    topic: topicsFixturesData[7], // Travel
     createdAt: DateTime.now().subtract(const Duration(days: 3)),
     updatedAt: DateTime.now().subtract(const Duration(days: 3)),
     status: ContentStatus.active,
@@ -247,7 +247,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/food-lab-meat-19',
     imageUrl: 'https://example.com/images/lab-meat.jpg',
     source: sourcesFixturesData[8], // The Times of India
-    category: categoriesFixturesData[8], // Food
+    topic: topicsFixturesData[8], // Food
     createdAt: DateTime.now().subtract(const Duration(days: 3)),
     updatedAt: DateTime.now().subtract(const Duration(days: 3)),
     status: ContentStatus.active,
@@ -260,7 +260,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/education-online-20',
     imageUrl: 'https://example.com/images/online-learning.jpg',
     source: sourcesFixturesData[9], // Folha de S.Paulo
-    category: categoriesFixturesData[9], // Education
+    topic: topicsFixturesData[9], // Education
     createdAt: DateTime.now().subtract(const Duration(days: 3)),
     updatedAt: DateTime.now().subtract(const Duration(days: 3)),
     status: ContentStatus.active,
@@ -273,7 +273,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/tech-quantum-21',
     imageUrl: 'https://example.com/images/quantum-computing.jpg',
     source: sourcesFixturesData[0], // TechCrunch
-    category: categoriesFixturesData[0], // Technology
+    topic: topicsFixturesData[0], // Technology
     createdAt: DateTime.now().subtract(const Duration(days: 4)),
     updatedAt: DateTime.now().subtract(const Duration(days: 4)),
     status: ContentStatus.active,
@@ -286,7 +286,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/sports-worldcup-22',
     imageUrl: 'https://example.com/images/worldcup-upset.jpg',
     source: sourcesFixturesData[1], // BBC News
-    category: categoriesFixturesData[1], // Sports
+    topic: topicsFixturesData[1], // Sports
     createdAt: DateTime.now().subtract(const Duration(days: 4)),
     updatedAt: DateTime.now().subtract(const Duration(days: 4)),
     status: ContentStatus.active,
@@ -299,7 +299,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/politics-election-23',
     imageUrl: 'https://example.com/images/election-results.jpg',
     source: sourcesFixturesData[2], // The New York Times
-    category: categoriesFixturesData[2], // Politics
+    topic: topicsFixturesData[2], // Politics
     createdAt: DateTime.now().subtract(const Duration(days: 4)),
     updatedAt: DateTime.now().subtract(const Duration(days: 4)),
     status: ContentStatus.active,
@@ -312,7 +312,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/science-fusion-24',
     imageUrl: 'https://example.com/images/fusion-energy.jpg',
     source: sourcesFixturesData[3], // The Guardian
-    category: categoriesFixturesData[3], // Science
+    topic: topicsFixturesData[3], // Science
     createdAt: DateTime.now().subtract(const Duration(days: 4)),
     updatedAt: DateTime.now().subtract(const Duration(days: 4)),
     status: ContentStatus.active,
@@ -325,7 +325,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/health-mental-25',
     imageUrl: 'https://example.com/images/mental-health.jpg',
     source: sourcesFixturesData[4], // CNN
-    category: categoriesFixturesData[4], // Health
+    topic: topicsFixturesData[4], // Health
     createdAt: DateTime.now().subtract(const Duration(days: 4)),
     updatedAt: DateTime.now().subtract(const Duration(days: 4)),
     status: ContentStatus.active,
@@ -338,7 +338,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/entertainment-vr-26',
     imageUrl: 'https://example.com/images/vr-gaming.jpg',
     source: sourcesFixturesData[5], // Reuters
-    category: categoriesFixturesData[5], // Entertainment
+    topic: topicsFixturesData[5], // Entertainment
     createdAt: DateTime.now().subtract(const Duration(days: 5)),
     updatedAt: DateTime.now().subtract(const Duration(days: 5)),
     status: ContentStatus.active,
@@ -351,7 +351,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/business-supplychain-27',
     imageUrl: 'https://example.com/images/supply-chain.jpg',
     source: sourcesFixturesData[6], // Al Jazeera English
-    category: categoriesFixturesData[6], // Business
+    topic: topicsFixturesData[6], // Business
     createdAt: DateTime.now().subtract(const Duration(days: 5)),
     updatedAt: DateTime.now().subtract(const Duration(days: 5)),
     status: ContentStatus.active,
@@ -364,7 +364,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/travel-arctic-28',
     imageUrl: 'https://example.com/images/arctic-discovery.jpg',
     source: sourcesFixturesData[7], // Xinhua News Agency
-    category: categoriesFixturesData[7], // Travel
+    topic: topicsFixturesData[7], // Travel
     createdAt: DateTime.now().subtract(const Duration(days: 5)),
     updatedAt: DateTime.now().subtract(const Duration(days: 5)),
     status: ContentStatus.active,
@@ -377,7 +377,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/food-plantbased-29',
     imageUrl: 'https://example.com/images/plant-based.jpg',
     source: sourcesFixturesData[8], // The Times of India
-    category: categoriesFixturesData[8], // Food
+    topic: topicsFixturesData[8], // Food
     createdAt: DateTime.now().subtract(const Duration(days: 5)),
     updatedAt: DateTime.now().subtract(const Duration(days: 5)),
     status: ContentStatus.active,
@@ -390,7 +390,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/education-edtech-30',
     imageUrl: 'https://example.com/images/edtech.jpg',
     source: sourcesFixturesData[9], // Folha de S.Paulo
-    category: categoriesFixturesData[9], // Education
+    topic: topicsFixturesData[9], // Education
     createdAt: DateTime.now().subtract(const Duration(days: 5)),
     updatedAt: DateTime.now().subtract(const Duration(days: 5)),
     status: ContentStatus.active,
@@ -403,7 +403,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/tech-spacex-31',
     imageUrl: 'https://example.com/images/spacex-launch.jpg',
     source: sourcesFixturesData[0], // TechCrunch
-    category: categoriesFixturesData[0], // Technology
+    topic: topicsFixturesData[0], // Technology
     createdAt: DateTime.now().subtract(const Duration(days: 6)),
     updatedAt: DateTime.now().subtract(const Duration(days: 6)),
     status: ContentStatus.active,
@@ -416,7 +416,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/sports-retirement-32',
     imageUrl: 'https://example.com/images/football-retirement.jpg',
     source: sourcesFixturesData[1], // BBC News
-    category: categoriesFixturesData[1], // Sports
+    topic: topicsFixturesData[1], // Sports
     createdAt: DateTime.now().subtract(const Duration(days: 6)),
     updatedAt: DateTime.now().subtract(const Duration(days: 6)),
     status: ContentStatus.active,
@@ -429,7 +429,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/politics-g7-33',
     imageUrl: 'https://example.com/images/g7-summit.jpg',
     source: sourcesFixturesData[2], // The New York Times
-    category: categoriesFixturesData[2], // Politics
+    topic: topicsFixturesData[2], // Politics
     createdAt: DateTime.now().subtract(const Duration(days: 6)),
     updatedAt: DateTime.now().subtract(const Duration(days: 6)),
     status: ContentStatus.active,
@@ -442,7 +442,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/science-alzheimers-34',
     imageUrl: 'https://example.com/images/alzheimers-research.jpg',
     source: sourcesFixturesData[3], // The Guardian
-    category: categoriesFixturesData[4], // Health
+    topic: topicsFixturesData[4], // Health
     createdAt: DateTime.now().subtract(const Duration(days: 6)),
     updatedAt: DateTime.now().subtract(const Duration(days: 6)),
     status: ContentStatus.active,
@@ -455,7 +455,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/health-vaccine-35',
     imageUrl: 'https://example.com/images/vaccine-campaign.jpg',
     source: sourcesFixturesData[4], // CNN
-    category: categoriesFixturesData[4], // Health
+    topic: topicsFixturesData[4], // Health
     createdAt: DateTime.now().subtract(const Duration(days: 6)),
     updatedAt: DateTime.now().subtract(const Duration(days: 6)),
     status: ContentStatus.active,
@@ -468,7 +468,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/entertainment-streaming-36',
     imageUrl: 'https://example.com/images/streaming-wars.jpg',
     source: sourcesFixturesData[5], // Reuters
-    category: categoriesFixturesData[5], // Entertainment
+    topic: topicsFixturesData[5], // Entertainment
     createdAt: DateTime.now().subtract(const Duration(days: 7)),
     updatedAt: DateTime.now().subtract(const Duration(days: 7)),
     status: ContentStatus.active,
@@ -481,7 +481,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/business-crypto-37',
     imageUrl: 'https://example.com/images/crypto-volatility.jpg',
     source: sourcesFixturesData[6], // Al Jazeera English
-    category: categoriesFixturesData[0], // Technology
+    topic: topicsFixturesData[0], // Technology
     createdAt: DateTime.now().subtract(const Duration(days: 7)),
     updatedAt: DateTime.now().subtract(const Duration(days: 7)),
     status: ContentStatus.active,
@@ -494,7 +494,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/travel-sustainable-38',
     imageUrl: 'https://example.com/images/sustainable-tourism.jpg',
     source: sourcesFixturesData[7], // Xinhua News Agency
-    category: categoriesFixturesData[7], // Travel
+    topic: topicsFixturesData[7], // Travel
     createdAt: DateTime.now().subtract(const Duration(days: 7)),
     updatedAt: DateTime.now().subtract(const Duration(days: 7)),
     status: ContentStatus.active,
@@ -507,7 +507,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/food-security-39',
     imageUrl: 'https://example.com/images/food-security.jpg',
     source: sourcesFixturesData[8], // The Times of India
-    category: categoriesFixturesData[8], // Food
+    topic: topicsFixturesData[8], // Food
     createdAt: DateTime.now().subtract(const Duration(days: 7)),
     updatedAt: DateTime.now().subtract(const Duration(days: 7)),
     status: ContentStatus.active,
@@ -520,7 +520,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/education-robotics-40',
     imageUrl: 'https://example.com/images/robotics-education.jpg',
     source: sourcesFixturesData[9], // Folha de S.Paulo
-    category: categoriesFixturesData[9], // Education
+    topic: topicsFixturesData[9], // Education
     createdAt: DateTime.now().subtract(const Duration(days: 7)),
     updatedAt: DateTime.now().subtract(const Duration(days: 7)),
     status: ContentStatus.active,
@@ -533,7 +533,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/tech-ethics-41',
     imageUrl: 'https://example.com/images/ai-ethics.jpg',
     source: sourcesFixturesData[0], // TechCrunch
-    category: categoriesFixturesData[0], // Technology
+    topic: topicsFixturesData[0], // Technology
     createdAt: DateTime.now().subtract(const Duration(days: 8)),
     updatedAt: DateTime.now().subtract(const Duration(days: 8)),
     status: ContentStatus.active,
@@ -546,7 +546,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/sports-esports-42',
     imageUrl: 'https://example.com/images/esports-boom.jpg',
     source: sourcesFixturesData[1], // BBC News
-    category: categoriesFixturesData[1], // Sports
+    topic: topicsFixturesData[1], // Sports
     createdAt: DateTime.now().subtract(const Duration(days: 8)),
     updatedAt: DateTime.now().subtract(const Duration(days: 8)),
     status: ContentStatus.active,
@@ -559,7 +559,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/politics-sanctions-43',
     imageUrl: 'https://example.com/images/sanctions.jpg',
     source: sourcesFixturesData[2], // The New York Times
-    category: categoriesFixturesData[2], // Politics
+    topic: topicsFixturesData[2], // Politics
     createdAt: DateTime.now().subtract(const Duration(days: 8)),
     updatedAt: DateTime.now().subtract(const Duration(days: 8)),
     status: ContentStatus.active,
@@ -572,7 +572,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/science-deepsea-44',
     imageUrl: 'https://example.com/images/deepsea-creature.jpg',
     source: sourcesFixturesData[3], // The Guardian
-    category: categoriesFixturesData[3], // Science
+    topic: topicsFixturesData[3], // Science
     createdAt: DateTime.now().subtract(const Duration(days: 8)),
     updatedAt: DateTime.now().subtract(const Duration(days: 8)),
     status: ContentStatus.active,
@@ -585,7 +585,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/health-pandemic-45',
     imageUrl: 'https://example.com/images/pandemic-plan.jpg',
     source: sourcesFixturesData[4], // CNN
-    category: categoriesFixturesData[4], // Health
+    topic: topicsFixturesData[4], // Health
     createdAt: DateTime.now().subtract(const Duration(days: 8)),
     updatedAt: DateTime.now().subtract(const Duration(days: 8)),
     status: ContentStatus.active,
@@ -598,7 +598,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/entertainment-strikes-46',
     imageUrl: 'https://example.com/images/hollywood-strikes.jpg',
     source: sourcesFixturesData[5], // Reuters
-    category: categoriesFixturesData[5], // Entertainment
+    topic: topicsFixturesData[5], // Entertainment
     createdAt: DateTime.now().subtract(const Duration(days: 9)),
     updatedAt: DateTime.now().subtract(const Duration(days: 9)),
     status: ContentStatus.active,
@@ -611,7 +611,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/business-emerging-47',
     imageUrl: 'https://example.com/images/emerging-markets.jpg',
     source: sourcesFixturesData[6], // Al Jazeera English
-    category: categoriesFixturesData[6], // Business
+    topic: topicsFixturesData[6], // Business
     createdAt: DateTime.now().subtract(const Duration(days: 9)),
     updatedAt: DateTime.now().subtract(const Duration(days: 9)),
     status: ContentStatus.active,
@@ -624,7 +624,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/travel-adventure-48',
     imageUrl: 'https://example.com/images/adventure-tourism.jpg',
     source: sourcesFixturesData[7], // Xinhua News Agency
-    category: categoriesFixturesData[7], // Travel
+    topic: topicsFixturesData[7], // Travel
     createdAt: DateTime.now().subtract(const Duration(days: 9)),
     updatedAt: DateTime.now().subtract(const Duration(days: 9)),
     status: ContentStatus.active,
@@ -637,7 +637,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/food-packaging-49',
     imageUrl: 'https://example.com/images/sustainable-packaging.jpg',
     source: sourcesFixturesData[8], // The Times of India
-    category: categoriesFixturesData[8], // Food
+    topic: topicsFixturesData[8], // Food
     createdAt: DateTime.now().subtract(const Duration(days: 9)),
     updatedAt: DateTime.now().subtract(const Duration(days: 9)),
     status: ContentStatus.active,
@@ -650,7 +650,7 @@ final headlinesFixturesData = <Headline>[
     url: 'https://example.com/news/education-personalized-50',
     imageUrl: 'https://example.com/images/personalized-learning.jpg',
     source: sourcesFixturesData[9], // Folha de S.Paulo
-    category: categoriesFixturesData[9], // Education
+    topic: topicsFixturesData[9], // Education
     createdAt: DateTime.now().subtract(const Duration(days: 9)),
     updatedAt: DateTime.now().subtract(const Duration(days: 9)),
     status: ContentStatus.active,

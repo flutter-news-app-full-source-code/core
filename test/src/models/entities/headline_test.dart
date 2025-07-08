@@ -44,7 +44,7 @@ void main() {
       'status': ContentStatus.active.name,
       'type': 'category',
     };
-    final sampleCategory = Category.fromJson(sampleCategoryJson);
+    final sampleCategory = Topic.fromJson(sampleCategoryJson);
 
     final testId = const Uuid().v4();
 

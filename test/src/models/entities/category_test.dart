@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('Category', () {
-    Category createSubject({
+    Topic createSubject({
       required String id,
       required String name,
       required String description,
@@ -13,7 +13,7 @@ void main() {
       required DateTime updatedAt,
       required ContentStatus status,
     }) {
-      return Category(
+      return Topic(
         id: id,
         name: name,
         description: description,
@@ -99,9 +99,9 @@ void main() {
           'updatedAt': DateTime.now().toIso8601String(),
         };
         expect(
-          Category.fromJson(json),
+          Topic.fromJson(json),
           equals(
-            Category(
+            Topic(
               id: '123',
               name: 'Science',
               description: 'Science news',
@@ -119,7 +119,7 @@ void main() {
         () {
           final json = <String, dynamic>{'name': 'Art', 'type': 'category'};
           expect(
-            () => Category.fromJson(json),
+            () => Topic.fromJson(json),
             throwsA(isA<CheckedFromJsonException>()),
           );
         },
@@ -136,7 +136,7 @@ void main() {
           'updatedAt': now.toIso8601String(),
           'status': 'archived',
         };
-        final category = Category.fromJson(json);
+        final category = Topic.fromJson(json);
         expect(category.status, ContentStatus.archived);
       });
     });

@@ -15,7 +15,7 @@ class DashboardSummary extends Equatable {
   const DashboardSummary({
     required this.id,
     required this.headlineCount,
-    required this.categoryCount,
+    required this.topicCount,
     required this.sourceCount,
   });
 
@@ -29,8 +29,8 @@ class DashboardSummary extends Equatable {
   /// The total number of headlines.
   final int headlineCount;
 
-  /// The total number of categories.
-  final int categoryCount;
+  /// The total number of topics.
+  final int topicCount;
 
   /// The total number of sources.
   final int sourceCount;
@@ -43,17 +43,17 @@ class DashboardSummary extends Equatable {
   DashboardSummary copyWith({
     String? id,
     int? headlineCount,
-    int? categoryCount,
+    int? topicCount,
     int? sourceCount,
   }) {
     return DashboardSummary(
       id: id ?? this.id,
       headlineCount: headlineCount ?? this.headlineCount,
-      categoryCount: categoryCount ?? this.categoryCount,
+      topicCount: topicCount ?? this.topicCount,
       sourceCount: sourceCount ?? this.sourceCount,
     );
   }
 
   @override
-  List<Object?> get props => [id, headlineCount, categoryCount, sourceCount];
+  List<Object?> get props => [id, headlineCount, topicCount, sourceCount];
 }

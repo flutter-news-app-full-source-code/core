@@ -26,7 +26,7 @@ void main() {
       updatedAt: testDateTime,
       status: ContentStatus.active,
     );
-    final mockCategory = Category(
+    final mockCategory = Topic(
       id: 'category-1',
       name: 'Technology',
       description: 'Technology news',
@@ -74,7 +74,7 @@ void main() {
       test('dispatches to Category.fromJson', () {
         final json = mockCategory.toJson();
         final feedItem = FeedItem.fromJson(json);
-        expect(feedItem, isA<Category>());
+        expect(feedItem, isA<Topic>());
         expect(feedItem, equals(mockCategory));
       });
 

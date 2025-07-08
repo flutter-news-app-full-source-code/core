@@ -21,7 +21,7 @@ Think of it as the common language 🗣️ that all parts of your news applicati
 
 This package includes well-defined Dart classes for:
 
-*   📰 **News Content:** `Headline`, `Category`, `Source`, `Country`
+*   📰 **News Content:** `Headline`, `Topic`, `Source`, `Country`
 *   🧩 **Feed System:** `FeedItem` (and its subtypes `Ad`, `FeedAction`),
     `FeedActionType`
 *   👤 **User Data:** `User`, `UserRole`, `Permission`, `UserContentPreferences`, `UserAppSettings`
@@ -31,7 +31,7 @@ This package includes well-defined Dart classes for:
 
 ## 📊 Sample Data / Fixtures
 
-To further accelerate development and provide immediate demonstration capabilities, `ht_shared` now includes a set of **pre-defined, in-memory fixture data** for core models like `Headline`, `Category`, `Source`, `Country`, and `AppConfig`. These fixtures are directly embedded as Dart constants, enabling:
+To further accelerate development and provide immediate demonstration capabilities, `ht_shared` now includes a set of **pre-defined, in-memory fixture data** for core models like `Headline`, `Topic`, `Source`, `Country`, and `AppConfig`. These fixtures are directly embedded as Dart constants, enabling:
 
 *   **⚡ Instant Setup:** Quickly initialize in-memory data stores for testing or local development without needing a backend.
 *   **🧪 Reliable Testing:** Use consistent, realistic data for unit and integration tests.

@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:ht_shared/ht_shared.dart';
-import 'package:ht_shared/src/models/entities/category.dart';
+import 'package:ht_shared/src/models/entities/topic.dart';
 import 'package:ht_shared/src/models/entities/country.dart';
 import 'package:ht_shared/src/models/entities/headline.dart';
 import 'package:ht_shared/src/models/entities/source.dart';
@@ -37,8 +37,8 @@ abstract class FeedItem extends Equatable {
     switch (type) {
       case 'headline':
         return Headline.fromJson(json);
-      case 'category':
-        return Category.fromJson(json);
+      case 'topic':
+        return Topic.fromJson(json);
       case 'source':
         return Source.fromJson(json);
       case 'country':

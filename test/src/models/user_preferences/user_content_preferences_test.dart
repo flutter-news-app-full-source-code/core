@@ -26,7 +26,7 @@ void main() {
       updatedAt: DateTime.utc(2023),
       status: ContentStatus.active,
     );
-    final mockCategory = Category(
+    final mockCategory = Topic(
       id: 'category-1',
       name: 'Technology',
       description: 'Technology news',

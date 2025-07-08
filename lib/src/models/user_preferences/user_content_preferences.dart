@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:ht_shared/src/models/entities/category.dart';
+import 'package:ht_shared/src/models/entities/topic.dart';
 import 'package:ht_shared/src/models/entities/country.dart';
 import 'package:ht_shared/src/models/entities/headline.dart';
 import 'package:ht_shared/src/models/entities/source.dart';
@@ -30,7 +30,7 @@ class UserContentPreferences extends Equatable {
     required this.id,
     required this.followedCountries,
     required this.followedSources,
-    required this.followedCategories,
+    required this.followedTopics,
     required this.savedHeadlines,
   });
 
@@ -47,8 +47,8 @@ class UserContentPreferences extends Equatable {
   /// List of sources the user is following.
   final List<Source> followedSources;
 
-  /// List of categories the user is following.
-  final List<Category> followedCategories;
+  /// List of topics the user is following.
+  final List<Topic> followedTopics;
 
   /// List of headlines the user has saved.
   final List<Headline> savedHeadlines;
@@ -61,7 +61,7 @@ class UserContentPreferences extends Equatable {
     id,
     followedCountries,
     followedSources,
-    followedCategories,
+    followedTopics,
     savedHeadlines,
   ];
 
@@ -74,14 +74,14 @@ class UserContentPreferences extends Equatable {
     String? id,
     List<Country>? followedCountries,
     List<Source>? followedSources,
-    List<Category>? followedCategories,
+    List<Topic>? followedTopics,
     List<Headline>? savedHeadlines,
   }) {
     return UserContentPreferences(
       id: id ?? this.id,
       followedCountries: followedCountries ?? this.followedCountries,
       followedSources: followedSources ?? this.followedSources,
-      followedCategories: followedCategories ?? this.followedCategories,
+      followedTopics: followedTopics ?? this.followedTopics,
       savedHeadlines: savedHeadlines ?? this.savedHeadlines,
     );
   }

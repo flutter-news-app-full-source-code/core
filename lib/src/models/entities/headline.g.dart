@@ -18,9 +18,9 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) =>
           'source',
           (v) => Source.fromJson(v as Map<String, dynamic>),
         ),
-        category: $checkedConvert(
-          'category',
-          (v) => Category.fromJson(v as Map<String, dynamic>),
+        topic: $checkedConvert(
+          'topic',
+          (v) => Topic.fromJson(v as Map<String, dynamic>),
         ),
         createdAt: $checkedConvert(
           'createdAt',
@@ -48,7 +48,7 @@ Map<String, dynamic> _$HeadlineToJson(Headline instance) => <String, dynamic>{
   'createdAt': dateTimeToJson(instance.createdAt),
   'updatedAt': dateTimeToJson(instance.updatedAt),
   'status': _$ContentStatusEnumMap[instance.status]!,
-  'category': instance.category.toJson(),
+  'topic': instance.topic.toJson(),
 };
 
 const _$ContentStatusEnumMap = {

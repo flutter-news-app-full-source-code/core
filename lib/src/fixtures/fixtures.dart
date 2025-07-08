@@ -1,5 +1,5 @@
 export 'app_config.dart';
-export 'categories.dart';
+export 'topics.dart';
 export 'countries.dart';
 export 'dashboard_summary.dart';
 export 'headlines.dart';
