@@ -7,7 +7,6 @@ part 'account_action.g.dart';
 /// {@template account_action_type}
 /// Defines the specific type or purpose of an [AccountAction] item.
 /// {@endtemplate}
-
 enum AccountActionType {
   /// A call-to-action to link an account.
   linkAccount,

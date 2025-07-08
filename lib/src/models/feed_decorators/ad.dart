@@ -7,7 +7,6 @@ part 'ad.g.dart';
 /// {@template ad_type}
 /// Defines the visual format or type of an advertisement in the feed.
 /// {@endtemplate}
-
 enum AdType {
   /// A banner advertisement, typically a rectangular image.
   banner,

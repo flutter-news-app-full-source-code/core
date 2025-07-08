@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:ht_shared/src/models/user_settings/app_language.dart';
 import 'package:ht_shared/src/models/user_settings/display_settings.dart';
 import 'package:ht_shared/src/models/user_settings/feed_display_preferences.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -68,3 +67,12 @@ class UserAppSettings extends Equatable {
     );
   }
 }
+
+/// {@template app_language}
+/// Represents the selected application language.
+///
+/// Typically stored as an ISO 639-1 language code (e.g., 'en', 'ar').
+/// The application using this client is responsible for knowing which
+/// language codes it supports and how to map them to localized resources.
+/// {@endtemplate}
+typedef AppLanguage = String;

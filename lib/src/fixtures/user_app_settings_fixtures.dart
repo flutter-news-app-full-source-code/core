@@ -1,7 +1,9 @@
-import 'package:ht_shared/src/models/user_settings/app_accent_theme.dart';
-import 'package:ht_shared/src/models/user_settings/app_base_theme.dart';
-import 'package:ht_shared/src/models/user_settings/app_font_weight.dart';
-import 'package:ht_shared/src/models/user_settings/app_text_scale_factor.dart';
+import 'package:ht_shared/src/enums/app_accent_theme.dart';
+import 'package:ht_shared/src/enums/app_base_theme.dart';
+import 'package:ht_shared/src/enums/app_font_weight.dart';
+import 'package:ht_shared/src/enums/app_text_scale_factor.dart';
+import 'package:ht_shared/src/enums/headline_image_style.dart';
+import 'package:ht_shared/src/exceptions/headline_density.dart';
 import 'package:ht_shared/src/models/user_settings/display_settings.dart';
 import 'package:ht_shared/src/models/user_settings/feed_display_preferences.dart';
 import 'package:ht_shared/src/models/user_settings/user_app_settings.dart';

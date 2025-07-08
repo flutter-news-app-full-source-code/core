@@ -1,32 +1,10 @@
 import 'package:equatable/equatable.dart';
+import 'package:ht_shared/ht_shared.dart';
+import 'package:ht_shared/src/exceptions/headline_density.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
 part 'feed_display_preferences.g.dart';
-
-/// Defines how densely headline information should be presented.
-enum HeadlineDensity {
-  /// Minimal spacing, smaller title font.
-  compact,
-
-  /// Balanced spacing and font sizes.
-  standard,
-
-  /// More whitespace, potentially larger title font.
-  comfortable,
-}
-
-/// Defines how images should be displayed in the headline feed.
-enum HeadlineImageStyle {
-  /// No image shown in the feed.
-  hidden,
-
-  /// A small leading or trailing image thumbnail.
-  smallThumbnail,
-
-  /// A more prominent image, perhaps above or below the text.
-  largeThumbnail,
-}
 
 /// {@template feed_display_preferences}
 /// User preferences for how feeds are displayed.
@@ -47,11 +25,9 @@ class FeedDisplayPreferences extends Equatable {
       _$FeedDisplayPreferencesFromJson(json);
 
   /// How densely headline information should be presented.
-
   final HeadlineDensity headlineDensity;
 
   /// How images should be displayed in the headline feed.
-
   final HeadlineImageStyle headlineImageStyle;
 
   /// Whether to show the source name directly in the headline feed item.
