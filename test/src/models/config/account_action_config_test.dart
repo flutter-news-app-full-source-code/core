@@ -24,8 +24,8 @@ void main() {
     group('fromJson', () {
       test('returns correct instance from JSON', () {
         final json = {
-          'guest_days_between_account_actions': guestDays,
-          'standard_user_days_between_account_actions': standardUserDays,
+          'guestDaysBetweenAccountActions': guestDays,
+          'standardUserDaysBetweenAccountActions': standardUserDays,
         };
         final result = AccountActionConfig.fromJson(json);
         expect(result, equals(defaultConfig));
@@ -33,8 +33,8 @@ void main() {
 
       test('parses a complete object with different values', () {
         final json = {
-          'guest_days_between_account_actions': 5,
-          'standard_user_days_between_account_actions': 10,
+          'guestDaysBetweenAccountActions': 5,
+          'standardUserDaysBetweenAccountActions': 10,
         };
         final result = AccountActionConfig.fromJson(json);
         expect(result.guestDaysBetweenAccountActions, 5);
@@ -46,8 +46,8 @@ void main() {
       test('returns correct JSON map', () {
         final json = defaultConfig.toJson();
         expect(json, {
-          'guest_days_between_account_actions': guestDays,
-          'standard_user_days_between_account_actions': standardUserDays,
+          'guestDaysBetweenAccountActions': guestDays,
+          'standardUserDaysBetweenAccountActions': standardUserDays,
         });
       });
     });

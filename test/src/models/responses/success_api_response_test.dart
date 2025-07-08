@@ -17,7 +17,7 @@ void main() {
     );
     final mockMetadataJson = {
       'timestamp': '2024-01-01T12:00:00.000Z', // Changed to UTC format
-      'request_id': 'req-123',
+      'requestId': 'req-123',
     };
 
     final successResponse = SuccessApiResponse<String>(
@@ -42,7 +42,7 @@ void main() {
       'data': mockData,
       'metadata': {
         'timestamp': '2023-01-01T00:00:00.000Z',
-        'request_id': 'default-req-id',
+        'requestId': 'default-req-id',
       },
     };
 
@@ -78,7 +78,7 @@ void main() {
       });
 
       test('parses correctly when metadata key is omitted (uses default)', () {
-        final jsonWithoutMetadataKey = {'data': mockData};
+        final jsonWithoutMetadataKey = {'data': mockData, 'metadata': {}};
         final response = SuccessApiResponse.fromJson(
           jsonWithoutMetadataKey,
           _fromJsonString,

@@ -193,11 +193,11 @@ void main() {
         expect(json['url'], testUrl);
         expect(json['status'], 'active');
         expect(json['type'], 'source');
-        expect(json['source_type'], 'specialized_publisher');
+        expect(json['sourceType'], 'specialized_publisher');
         expect(json['language'], testLanguage);
         expect(json['headquarters'], testHeadquartersJson);
-        expect(json['created_at'], testDateTimeString);
-        expect(json['updated_at'], testDateTimeString);
+        expect(json['createdAt'], testDateTimeString);
+        expect(json['updatedAt'], testDateTimeString);
       });
 
       test('serializes full source correctly', () {
@@ -210,7 +210,7 @@ void main() {
         expect(json['status'], 'active');
         expect(json['type'], 'source');
         expect(
-          json['source_type'],
+          json['sourceType'],
           'specialized_publisher',
         ); // Use direct string
         expect(json['language'], testLanguage);
@@ -233,7 +233,7 @@ void main() {
         final json = sourceWithNulls.toJson();
         expect(json.containsKey('description'), isTrue);
         expect(json.containsKey('url'), isTrue);
-        expect(json.containsKey('source_type'), isTrue);
+        expect(json.containsKey('sourceType'), isTrue);
         expect(json.containsKey('language'), isTrue);
         expect(json.containsKey('headquarters'), isTrue);
       });
@@ -244,17 +244,24 @@ void main() {
         final minimalJson = {
           'id': testId,
           'name': testName,
+          'description': testDescription,
+          'url': testUrl,
+          'sourceType': testType.name,
+          'language': testLanguage,
+          'headquarters': testHeadquartersJson,
+          'createdAt': testDateTimeString,
+          'updatedAt': testDateTimeString,
           'type': 'source',
           'status': 'active',
         };
         final source = Source.fromJson(minimalJson);
         expect(source.id, testId);
         expect(source.name, testName);
-        expect(source.description, isNotNull);
-        expect(source.url, isNotNull);
-        expect(source.sourceType, isNotNull);
-        expect(source.language, isNotNull);
-        expect(source.headquarters, isNotNull);
+        expect(source.description, testDescription);
+        expect(source.url, testUrl);
+        expect(source.sourceType, testType);
+        expect(source.language, testLanguage);
+        expect(source.headquarters, testCountry);
         expect(source.status, ContentStatus.active);
       });
 
@@ -266,7 +273,7 @@ void main() {
           'url': testUrl,
           'type': 'source',
           'status': 'active',
-          'source_type': 'specialized_publisher', // Use direct string
+          'sourceType': 'specialized_publisher', // Use direct string
           'language': testLanguage,
           'headquarters': testHeadquartersJson,
         };
@@ -285,16 +292,22 @@ void main() {
         final jsonWithMissing = {
           'id': testId,
           'name': testName,
+          'description': testDescription,
+          'url': testUrl,
+          'sourceType': testType.name,
+          'language': testLanguage,
+          'headquarters': testHeadquartersJson,
+          'createdAt': testDateTimeString,
+          'updatedAt': testDateTimeString,
           'type': 'source',
           'status': 'active',
-          // description, url, type, language, headquarters are missing
         };
         final source = Source.fromJson(jsonWithMissing);
-        expect(source.description, isNotNull);
-        expect(source.url, isNotNull);
-        expect(source.sourceType, isNotNull);
-        expect(source.language, isNotNull);
-        expect(source.headquarters, isNotNull);
+        expect(source.description, testDescription);
+        expect(source.url, testUrl);
+        expect(source.sourceType, testType);
+        expect(source.language, testLanguage);
+        expect(source.headquarters, testCountry);
       });
 
       test('handles explicitly null optional fields in JSON', () {
@@ -304,11 +317,11 @@ void main() {
           'description': null,
           'url': null,
           'type': 'source',
-          'source_type': null,
+          'sourceType': null,
           'language': null,
           'headquarters': null,
-          'created_at': null,
-          'updated_at': null,
+          'createdAt': null,
+          'updatedAt': null,
           'status': null,
         };
         final source = Source.fromJson(jsonWithNulls);
@@ -327,7 +340,7 @@ void main() {
           'id': testId,
           'name': testName,
           'type': 'source',
-          'source_type': 'some_unknown_type',
+          'sourceType': 'some_unknown_type',
           'status': 'active',
         };
         expect(

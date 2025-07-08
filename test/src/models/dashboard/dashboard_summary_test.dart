@@ -17,9 +17,9 @@ void main() {
 
     final summaryJson = {
       'id': id,
-      'headline_count': headlineCount,
-      'category_count': categoryCount,
-      'source_count': sourceCount,
+      'headlineCount': headlineCount,
+      'categoryCount': categoryCount,
+      'sourceCount': sourceCount,
     };
 
     test('can be instantiated', () {

@@ -81,81 +81,81 @@ void main() {
       test('returns correct instance from JSON with all fields', () {
         final json = {
           'id': 'user-1',
-          'followed_countries': [
+          'followedCountries': [
             {
               'id': 'country-1',
-              'iso_code': 'US',
+              'isoCode': 'US',
               'name': 'United States',
-              'flag_url': 'http://example.com/us.png',
-              'created_at': '2023-01-01T00:00:00.000Z',
-              'updated_at': '2023-01-01T00:00:00.000Z',
+              'flagUrl': 'http://example.com/us.png',
+              'createdAt': '2023-01-01T00:00:00.000Z',
+              'updatedAt': '2023-01-01T00:00:00.000Z',
               'status': ContentStatus.active.name,
               'type': 'country',
             },
           ],
-          'followed_sources': [
+          'followedSources': [
             {
               'id': 'source-1',
               'name': 'Example News',
               'description': 'A news source for examples',
               'url': 'http://example.com',
-              'source_type': 'news_agency',
+              'sourceType': 'news_agency',
               'language': 'en',
               'headquarters': {
                 'id': 'country-1',
-                'iso_code': 'US',
+                'isoCode': 'US',
                 'name': 'United States',
-                'flag_url': 'http://example.com/us.png',
-                'created_at': '2023-01-01T00:00:00.000Z',
-                'updated_at': '2023-01-01T00:00:00.000Z',
+                'flagUrl': 'http://example.com/us.png',
+                'createdAt': '2023-01-01T00:00:00.000Z',
+                'updatedAt': '2023-01-01T00:00:00.000Z',
                 'status': ContentStatus.active.name,
                 'type': 'country',
               },
-              'created_at': '2023-01-01T00:00:00.000Z',
-              'updated_at': '2023-01-01T00:00:00.000Z',
+              'createdAt': '2023-01-01T00:00:00.000Z',
+              'updatedAt': '2023-01-01T00:00:00.000Z',
               'status': ContentStatus.active.name,
               'type': 'source',
             },
           ],
-          'followed_categories': [
+          'followedCategories': [
             {
               'id': 'category-1',
               'name': 'Technology',
               'description': 'Technology news',
-              'icon_url': 'http://example.com/tech_icon.png',
-              'created_at': '2023-01-01T00:00:00.000Z',
-              'updated_at': '2023-01-01T00:00:00.000Z',
+              'iconUrl': 'http://example.com/tech_icon.png',
+              'createdAt': '2023-01-01T00:00:00.000Z',
+              'updatedAt': '2023-01-01T00:00:00.000Z',
               'status': ContentStatus.active.name,
               'type': 'category',
             },
           ],
-          'saved_headlines': [
+          'savedHeadlines': [
             {
               'id': 'headline-1',
               'title': 'Example Headline',
               'description': 'This is an example headline description.',
               'url': 'http://example.com/headline',
-              'image_url': 'http://example.com/headline_image.png',
-              'published_at': '2023-01-01T00:00:00.000Z',
+              'imageUrl': 'http://example.com/headline_image.png',
+              'publishedAt': '2023-01-01T00:00:00.000Z',
               'source': {
                 'id': 'source-1',
                 'name': 'Example News',
                 'description': 'A news source for examples',
                 'url': 'http://example.com',
-                'source_type': 'news_agency',
+                'sourceType': 'news_agency',
                 'language': 'en',
                 'headquarters': {
                   'id': 'country-1',
-                  'iso_code': 'US',
+                  'isoCode': 'US',
                   'name': 'United States',
-                  'flag_url': 'http://example.com/us.png',
-                  'created_at': '2023-01-01T00:00:00.000Z',
-                  'updated_at': '2023-01-01T00:00:00.000Z',
+                  'flagUrl': 'http://example.com/us.png',
+                  'createdAt': '2023-01-01T00:00:00.000Z',
+                  'updatedAt': '2023-01-01T00:00:00.000Z',
                   'status': ContentStatus.active.name,
                   'type': 'country',
                 },
-                'created_at': '2023-01-01T00:00:00.000Z',
-                'updated_at': '2023-01-01T00:00:00.000Z',
+                'createdAt': '2023-01-01T00:00:00.000Z',
+                'updatedAt': '2023-01-01T00:00:00.000Z',
                 'status': ContentStatus.active.name,
                 'type': 'source',
               },
@@ -163,14 +163,14 @@ void main() {
                 'id': 'category-1',
                 'name': 'Technology',
                 'description': 'Technology news',
-                'icon_url': 'http://example.com/tech_icon.png',
-                'created_at': '2023-01-01T00:00:00.000Z',
-                'updated_at': '2023-01-01T00:00:00.000Z',
+                'iconUrl': 'http://example.com/tech_icon.png',
+                'createdAt': '2023-01-01T00:00:00.000Z',
+                'updatedAt': '2023-01-01T00:00:00.000Z',
                 'status': ContentStatus.active.name,
                 'type': 'category',
               },
-              'created_at': '2023-01-01T00:00:00.000Z',
-              'updated_at': '2023-01-01T00:00:00.000Z',
+              'createdAt': '2023-01-01T00:00:00.000Z',
+              'updatedAt': '2023-01-01T00:00:00.000Z',
               'status': ContentStatus.active.name,
               'type': 'headline',
             },
@@ -213,11 +213,10 @@ void main() {
         () {
           final json = {
             'id': 'user-4',
-            'followed_countries': [],
-            'followed_sources': [],
-            'followed_categories': [],
-            'saved_headlines': [],
-            // Missing followed_countries, followed_sources, followed_categories, saved_headlines
+            'followedCountries': [],
+            'followedSources': [],
+            'followedCategories': [],
+            'savedHeadlines': [],
           };
 
           final result = UserContentPreferences.fromJson(json);
@@ -240,18 +239,18 @@ void main() {
         final json = preferencesWithSaved.toJson();
 
         expect(json['id'], 'user-1');
-        expect(json['followed_countries'], isA<List>());
-        expect((json['followed_countries'] as List).length, 1);
-        expect((json['followed_countries'] as List).first['id'], 'country-1');
-        expect(json['followed_sources'], isA<List>());
-        expect((json['followed_sources'] as List).length, 1);
-        expect((json['followed_sources'] as List).first['id'], 'source-1');
-        expect(json['followed_categories'], isA<List>());
-        expect((json['followed_categories'] as List).length, 1);
-        expect((json['followed_categories'] as List).first['id'], 'category-1');
-        expect(json['saved_headlines'], isA<List>());
-        expect((json['saved_headlines'] as List).length, 1);
-        expect((json['saved_headlines'] as List).first['id'], 'headline-1');
+        expect(json['followedCountries'], isA<List>());
+        expect((json['followedCountries'] as List).length, 1);
+        expect((json['followedCountries'] as List).first['id'], 'country-1');
+        expect(json['followedSources'], isA<List>());
+        expect((json['followedSources'] as List).length, 1);
+        expect((json['followedSources'] as List).first['id'], 'source-1');
+        expect(json['followedCategories'], isA<List>());
+        expect((json['followedCategories'] as List).length, 1);
+        expect((json['followedCategories'] as List).first['id'], 'category-1');
+        expect(json['savedHeadlines'], isA<List>());
+        expect((json['savedHeadlines'] as List).length, 1);
+        expect((json['savedHeadlines'] as List).first['id'], 'headline-1');
       });
 
       test('returns correct JSON map with empty lists', () {
@@ -265,10 +264,10 @@ void main() {
         final json = emptyPreferences.toJson();
 
         expect(json['id'], 'user-5');
-        expect(json['followed_countries'], isEmpty);
-        expect(json['followed_sources'], isEmpty);
-        expect(json['followed_categories'], isEmpty);
-        expect(json['saved_headlines'], isEmpty);
+        expect(json['followedCountries'], isEmpty);
+        expect(json['followedSources'], isEmpty);
+        expect(json['followedCategories'], isEmpty);
+        expect(json['savedHeadlines'], isEmpty);
       });
     });
 

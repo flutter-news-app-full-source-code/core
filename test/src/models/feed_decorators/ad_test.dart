@@ -83,9 +83,9 @@ void main() {
 
         expect(json, <String, dynamic>{
           'id': ad.id,
-          'image_url': testImageUrl,
-          'target_url': testTargetUrl,
-          'ad_type': 'banner',
+          'imageUrl': testImageUrl,
+          'targetUrl': testTargetUrl,
+          'adType': 'banner',
           'placement': 'feed_inline_standard_banner',
           'type': 'ad',
         });
@@ -96,9 +96,9 @@ void main() {
       test('deserializes full JSON to Ad object', () {
         final json = <String, dynamic>{
           'id': testId,
-          'image_url': testImageUrl,
-          'target_url': testTargetUrl,
-          'ad_type': 'banner',
+          'imageUrl': testImageUrl,
+          'targetUrl': testTargetUrl,
+          'adType': 'banner',
           'placement': 'feed_inline_standard_banner',
           'type': 'ad',
         };
@@ -115,9 +115,9 @@ void main() {
       test('deserializes JSON with unknown adType gracefully', () {
         final json = <String, dynamic>{
           'id': testId,
-          'image_url': testImageUrl,
-          'target_url': testTargetUrl,
-          'ad_type': 'unknown_type',
+          'imageUrl': testImageUrl,
+          'targetUrl': testTargetUrl,
+          'adType': 'unknown_type',
           'type': 'ad',
         };
         expect(

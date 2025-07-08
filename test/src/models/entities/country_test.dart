@@ -16,11 +16,11 @@ void main() {
     // Helper to create a valid JSON map
     Map<String, dynamic> createValidJsonMap({String? idOverride}) => {
       'id': idOverride ?? testId,
-      'iso_code': testIsoCode,
+      'isoCode': testIsoCode,
       'name': testName,
-      'flag_url': testFlagUrl,
-      'created_at': testDateTimeString,
-      'updated_at': testDateTimeString,
+      'flagUrl': testFlagUrl,
+      'createdAt': testDateTimeString,
+      'updatedAt': testDateTimeString,
       'status': ContentStatus.active.name,
       'type': 'country',
     };
@@ -188,8 +188,8 @@ void main() {
       });
 
       // Updated to expect TypeError based on terminal output
-      test('throws CheckedFromJsonException for missing iso_code', () {
-        final json = createValidJsonMap()..remove('iso_code');
+      test('throws CheckedFromJsonException for missing isoCode', () {
+        final json = createValidJsonMap()..remove('isoCode');
         expect(
           () => Country.fromJson(json),
           throwsA(isA<CheckedFromJsonException>()),
@@ -204,8 +204,8 @@ void main() {
         );
       });
 
-      test('throws CheckedFromJsonException for missing flag_url', () {
-        final json = createValidJsonMap()..remove('flag_url');
+      test('throws CheckedFromJsonException for missing flagUrl', () {
+        final json = createValidJsonMap()..remove('flagUrl');
         expect(
           () => Country.fromJson(json),
           throwsA(isA<CheckedFromJsonException>()),
@@ -220,8 +220,8 @@ void main() {
         );
       });
 
-      test('throws CheckedFromJsonException for wrong type (iso_code)', () {
-        final json = createValidJsonMap()..['iso_code'] = 123; // Invalid type
+      test('throws CheckedFromJsonException for wrong type (isoCode)', () {
+        final json = createValidJsonMap()..['isoCode'] = 123; // Invalid type
         expect(
           () => Country.fromJson(json),
           throwsA(isA<CheckedFromJsonException>()),
@@ -236,8 +236,8 @@ void main() {
         );
       });
 
-      test('throws CheckedFromJsonException for wrong type (flag_url)', () {
-        final json = createValidJsonMap()..['flag_url'] = null; // Invalid type (non-nullable)
+      test('throws CheckedFromJsonException for wrong type (flagUrl)', () {
+        final json = createValidJsonMap()..['flagUrl'] = null; // Invalid type (non-nullable)
         expect(
           () => Country.fromJson(json),
           throwsA(isA<CheckedFromJsonException>()),
@@ -261,7 +261,7 @@ void main() {
       });
 
       test('throws CheckedFromJsonException for missing createdAt', () {
-        final json = createValidJsonMap()..remove('created_at');
+        final json = createValidJsonMap()..remove('createdAt');
         expect(
           () => Country.fromJson(json),
           throwsA(isA<CheckedFromJsonException>()),
@@ -269,7 +269,7 @@ void main() {
       });
 
       test('throws CheckedFromJsonException for missing updatedAt', () {
-        final json = createValidJsonMap()..remove('updated_at');
+        final json = createValidJsonMap()..remove('updatedAt');
         expect(
           () => Country.fromJson(json),
           throwsA(isA<CheckedFromJsonException>()),

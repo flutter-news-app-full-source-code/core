@@ -32,9 +32,9 @@ void main() {
     }) {
       return {
         'id': id,
-        'display_settings': displaySettings ?? defaultDisplaySettings.toJson(),
+        'displaySettings': displaySettings ?? defaultDisplaySettings.toJson(),
         'language': language ?? defaultLanguage,
-        'feed_preferences': feedPreferences ?? defaultFeedPreferences.toJson(),
+        'feedPreferences': feedPreferences ?? defaultFeedPreferences.toJson(),
       };
     }
 

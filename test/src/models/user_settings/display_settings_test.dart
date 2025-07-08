@@ -12,11 +12,11 @@ void main() {
       String fontWeight = 'regular',
     }) {
       return {
-        'base_theme': baseTheme,
-        'accent_theme': accentTheme,
-        'font_family': fontFamily,
-        'text_scale_factor': textScaleFactor,
-        'font_weight': fontWeight,
+        'baseTheme': baseTheme,
+        'accentTheme': accentTheme,
+        'fontFamily': fontFamily,
+        'textScaleFactor': textScaleFactor,
+        'fontWeight': fontWeight,
       };
     }
 

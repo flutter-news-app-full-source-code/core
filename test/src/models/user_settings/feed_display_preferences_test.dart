@@ -27,10 +27,10 @@ void main() {
       bool showPublishDateInHeadlineFeed = true,
     }) {
       return {
-        'headline_density': headlineDensity,
-        'headline_image_style': headlineImageStyle,
-        'show_source_in_headline_feed': showSourceInHeadlineFeed,
-        'show_publish_date_in_headline_feed': showPublishDateInHeadlineFeed,
+        'headlineDensity': headlineDensity,
+        'headlineImageStyle': headlineImageStyle,
+        'showSourceInHeadlineFeed': showSourceInHeadlineFeed,
+        'showPublishDateInHeadlineFeed': showPublishDateInHeadlineFeed,
       };
     }
 
@@ -68,32 +68,32 @@ void main() {
         },
       );
 
-      test('throws CheckedFromJsonException for missing headline_density', () {
-        final json = createJson()..remove('headline_density');
+      test('throws CheckedFromJsonException for missing headlineDensity', () {
+        final json = createJson()..remove('headlineDensity');
         expect(
           () => FeedDisplayPreferences.fromJson(json),
           throwsA(isA<CheckedFromJsonException>()),
         );
       });
 
-      test('throws CheckedFromJsonException for missing headline_image_style', () {
-        final json = createJson()..remove('headline_image_style');
+      test('throws CheckedFromJsonException for missing headlineImageStyle', () {
+        final json = createJson()..remove('headlineImageStyle');
         expect(
           () => FeedDisplayPreferences.fromJson(json),
           throwsA(isA<CheckedFromJsonException>()),
         );
       });
 
-      test('throws CheckedFromJsonException for missing show_source_in_headline_feed', () {
-        final json = createJson()..remove('show_source_in_headline_feed');
+      test('throws CheckedFromJsonException for missing showSourceInHeadlineFeed', () {
+        final json = createJson()..remove('showSourceInHeadlineFeed');
         expect(
           () => FeedDisplayPreferences.fromJson(json),
           throwsA(isA<CheckedFromJsonException>()),
         );
       });
 
-      test('throws CheckedFromJsonException for missing show_publish_date_in_headline_feed', () {
-        final json = createJson()..remove('show_publish_date_in_headline_feed');
+      test('throws CheckedFromJsonException for missing showPublishDateInHeadlineFeed', () {
+        final json = createJson()..remove('showPublishDateInHeadlineFeed');
         expect(
           () => FeedDisplayPreferences.fromJson(json),
           throwsA(isA<CheckedFromJsonException>()),

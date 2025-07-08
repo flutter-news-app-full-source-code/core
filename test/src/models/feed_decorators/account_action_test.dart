@@ -83,9 +83,9 @@ void main() {
           'id': testId,
           'title': 'Sign Up Now',
           'description': 'Create an account to save preferences.',
-          'account_action_type': 'link_account',
-          'call_to_action_text': 'Sign Up',
-          'call_to_action_url': 'https://example.com/signup',
+          'accountActionType': 'link_account',
+          'callToActionText': 'Sign Up',
+          'callToActionUrl': 'https://example.com/signup',
           'type': 'account_action',
         };
 
@@ -105,9 +105,9 @@ void main() {
           'id': testId,
           'title': 'Simple Title',
           'description': 'Simple Description',
-          'account_action_type': 'upgrade',
-          'call_to_action_text': 'Simple CTA',
-          'call_to_action_url': 'https://simple.com',
+          'accountActionType': 'upgrade',
+          'callToActionText': 'Simple CTA',
+          'callToActionUrl': 'https://simple.com',
           'type': 'account_action',
         };
 
@@ -125,7 +125,7 @@ void main() {
         final json = <String, dynamic>{
           'id': testId,
           'title': 'Unknown Type',
-          'account_action_type': 'unknown_type', // Unknown value
+          'accountActionType': 'unknown_type', // Unknown value
           'type': 'account_action',
         };
 
@@ -152,9 +152,9 @@ void main() {
           'id': testId,
           'title': 'Sign Up Now',
           'description': 'Create an account to save preferences.',
-          'account_action_type': 'link_account',
-          'call_to_action_text': 'Sign Up',
-          'call_to_action_url': 'https://example.com/signup',
+          'accountActionType': 'link_account',
+          'callToActionText': 'Sign Up',
+          'callToActionUrl': 'https://example.com/signup',
           'type': 'account_action',
         });
       });
@@ -175,9 +175,9 @@ void main() {
           'id': testId,
           'title': 'Simple Title',
           'description': 'Simple Description',
-          'account_action_type': 'upgrade',
-          'call_to_action_text': 'Simple CTA',
-          'call_to_action_url': 'https://simple.com',
+          'accountActionType': 'upgrade',
+          'callToActionText': 'Simple CTA',
+          'callToActionUrl': 'https://simple.com',
           'type': 'account_action',
         });
       });

@@ -12,7 +12,7 @@ void main() {
     );
 
     final fullJson = {
-      'request_id': requestId, // Corrected key
+      'requestId': requestId,
       'timestamp': timestamp.toIso8601String(),
     };
 
@@ -21,7 +21,7 @@ void main() {
       timestamp: DateTime.utc(2023), // Default timestamp
     );
     final partialJsonRequestId = {
-      'request_id': requestId,
+      'requestId': requestId,
       'timestamp': '2023-01-01T00:00:00.000Z',
     };
 
@@ -30,7 +30,7 @@ void main() {
       timestamp: timestamp,
     );
     final partialJsonTimestamp = {
-      'request_id': 'default-req-id',
+      'requestId': 'default-req-id',
       'timestamp': timestamp.toIso8601String(),
     };
 
@@ -39,7 +39,7 @@ void main() {
       timestamp: DateTime.utc(2023),
     );
     final emptyJson = {
-      'request_id': 'default-req-id',
+      'requestId': 'default-req-id',
       'timestamp': '2023-01-01T00:00:00.000Z',
     };
 

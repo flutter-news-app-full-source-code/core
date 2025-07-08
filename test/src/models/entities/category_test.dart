@@ -92,11 +92,11 @@ void main() {
           'id': '123',
           'name': 'Science',
           'description': 'Science news',
-          'icon_url': 'http://example.com/science.png',
+          'iconUrl': 'http://example.com/science.png',
           'type': 'category',
           'status': 'active',
-          'created_at': DateTime.now().toIso8601String(),
-          'updated_at': DateTime.now().toIso8601String(),
+          'createdAt': DateTime.now().toIso8601String(),
+          'updatedAt': DateTime.now().toIso8601String(),
         };
         expect(
           Category.fromJson(json),
@@ -131,9 +131,9 @@ void main() {
           'id': 'some-id',
           'name': 'Archived',
           'description': 'Description',
-          'icon_url': 'icon.png',
-          'created_at': now.toIso8601String(),
-          'updated_at': now.toIso8601String(),
+          'iconUrl': 'icon.png',
+          'createdAt': now.toIso8601String(),
+          'updatedAt': now.toIso8601String(),
           'status': 'archived',
         };
         final category = Category.fromJson(json);
@@ -157,11 +157,11 @@ void main() {
           'id': '456',
           'name': 'Business',
           'description': 'Business news',
-          'icon_url': 'http://example.com/business.png',
+          'iconUrl': 'http://example.com/business.png',
           'status': 'active',
           'type': 'category',
-          'created_at': now.toIso8601String(),
-          'updated_at': now.toIso8601String(),
+          'createdAt': now.toIso8601String(),
+          'updatedAt': now.toIso8601String(),
         });
       });
 
@@ -180,11 +180,11 @@ void main() {
           'id': category.id,
           'name': 'Health',
           'description': 'Health news',
-          'icon_url': 'http://example.com/health.png',
+          'iconUrl': 'http://example.com/health.png',
           'status': 'active',
           'type': 'category',
-          'created_at': now.toIso8601String(),
-          'updated_at': now.toIso8601String(),
+          'createdAt': now.toIso8601String(),
+          'updatedAt': now.toIso8601String(),
         });
       });
     });

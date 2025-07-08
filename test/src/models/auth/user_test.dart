@@ -227,7 +227,7 @@ void main() {
         email: email,
         roles: guestRoles,
         createdAt: testCreatedAt,
-        lastAccountActionShownAt: DateTime.utc(2023, 1, 1), // Explicitly null for testing
+        lastAccountActionShownAt: null, // Explicitly null for testing
       );
       final anonJson = anonUser.toJson();
       final deserializedAnonUser = User.fromJson(anonJson);
