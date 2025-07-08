@@ -19,7 +19,10 @@ void main() {
       test('can be created from string value for json deserialization', () {
         // This test verifies that the enum can be created from its
         // string representation, mimicking json_serializable's behavior.
-        expect(DashboardUserRole.values.byName('admin'), DashboardUserRole.admin);
+        expect(
+          DashboardUserRole.values.byName('admin'),
+          DashboardUserRole.admin,
+        );
         expect(
           DashboardUserRole.values.byName('publisher'),
           DashboardUserRole.publisher,
