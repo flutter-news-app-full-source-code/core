@@ -11,7 +11,23 @@ void main() {
       appRole: AppUserRole.standardUser,
       dashboardRole: DashboardUserRole.none,
       createdAt: DateTime.utc(2023),
-      feedActionStatus: const {},
+      feedActionStatus: {
+        FeedActionType.linkAccount: UserFeedActionStatus(
+          lastShownAt: DateTime.utc(2023, 1, 2),
+          isCompleted: false,
+        ),
+        FeedActionType.upgrade: const UserFeedActionStatus(isCompleted: false),
+        FeedActionType.rateApp: const UserFeedActionStatus(isCompleted: false),
+        FeedActionType.enableNotifications: const UserFeedActionStatus(
+          isCompleted: false,
+        ),
+        FeedActionType.followTopics: const UserFeedActionStatus(
+          isCompleted: false,
+        ),
+        FeedActionType.followSources: const UserFeedActionStatus(
+          isCompleted: false,
+        ),
+      },
     );
     const testToken = 'sample-jwt-token';
 

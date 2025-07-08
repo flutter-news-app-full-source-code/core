@@ -9,7 +9,7 @@ part 'feed_action.g.dart';
 /// A generic model for in-feed calls-to-action related to account management.
 ///
 /// This item encourages user interaction, such as linking an account or
-/// upgrading a subscription. The [accountActionType] specifies the nature
+/// upgrading a subscription. The [feedActionType] specifies the nature
 /// of the call-to-action.
 /// {@endtemplate}
 @immutable
@@ -19,7 +19,7 @@ class FeedAction extends FeedItem {
   const FeedAction({
     required this.id,
     required this.title,
-    required this.accountActionType,
+    required this.feedActionType,
     required this.description,
     required this.callToActionText,
     required this.callToActionUrl,
@@ -39,7 +39,7 @@ class FeedAction extends FeedItem {
   final String description;
 
   /// The type of account action.
-  final FeedActionType accountActionType;
+  final FeedActionType feedActionType;
 
   /// The text for the call-to-action button or link.
   final String callToActionText;
@@ -60,7 +60,7 @@ class FeedAction extends FeedItem {
     id,
     title,
     description,
-    accountActionType,
+    feedActionType,
     callToActionText,
     callToActionUrl,
     type,
@@ -81,7 +81,7 @@ class FeedAction extends FeedItem {
       id: id ?? this.id,
       title: title ?? this.title,
       description: description ?? this.description,
-      accountActionType: accountActionType ?? this.accountActionType,
+      feedActionType: accountActionType ?? this.feedActionType,
       callToActionText: callToActionText ?? this.callToActionText,
       callToActionUrl: callToActionUrl ?? this.callToActionUrl,
     );

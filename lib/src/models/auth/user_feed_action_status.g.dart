@@ -10,11 +10,11 @@ UserFeedActionStatus _$UserFeedActionStatusFromJson(
   Map<String, dynamic> json,
 ) => $checkedCreate('UserFeedActionStatus', json, ($checkedConvert) {
   final val = UserFeedActionStatus(
+    isCompleted: $checkedConvert('isCompleted', (v) => v as bool),
     lastShownAt: $checkedConvert(
       'lastShownAt',
       (v) => _dateTimeFromJson(v as String?),
     ),
-    isCompleted: $checkedConvert('isCompleted', (v) => v as bool),
   );
   return val;
 });

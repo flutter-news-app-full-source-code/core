@@ -26,6 +26,12 @@ void main() {
       FeedActionType.enableNotifications: const UserFeedActionStatus(
         isCompleted: false,
       ),
+      FeedActionType.followTopics: const UserFeedActionStatus(
+        isCompleted: false,
+      ),
+      FeedActionType.followSources: const UserFeedActionStatus(
+        isCompleted: false,
+      ),
     };
 
     final otherCompleteFeedActionStatus = {
@@ -37,6 +43,12 @@ void main() {
       FeedActionType.rateApp: const UserFeedActionStatus(isCompleted: false),
       FeedActionType.enableNotifications: const UserFeedActionStatus(
         isCompleted: true,
+      ),
+      FeedActionType.followTopics: const UserFeedActionStatus(
+        isCompleted: true,
+      ),
+      FeedActionType.followSources: const UserFeedActionStatus(
+        isCompleted: false,
       ),
     };
 

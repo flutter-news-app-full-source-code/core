@@ -13,8 +13,8 @@ FeedAction _$FeedActionFromJson(Map<String, dynamic> json) => $checkedCreate(
     final val = FeedAction(
       id: $checkedConvert('id', (v) => v as String),
       title: $checkedConvert('title', (v) => v as String),
-      accountActionType: $checkedConvert(
-        'accountActionType',
+      feedActionType: $checkedConvert(
+        'feedActionType',
         (v) => $enumDecode(_$FeedActionTypeEnumMap, v),
       ),
       description: $checkedConvert('description', (v) => v as String),
@@ -30,7 +30,7 @@ Map<String, dynamic> _$FeedActionToJson(FeedAction instance) =>
       'id': instance.id,
       'title': instance.title,
       'description': instance.description,
-      'accountActionType': _$FeedActionTypeEnumMap[instance.accountActionType]!,
+      'feedActionType': _$FeedActionTypeEnumMap[instance.feedActionType]!,
       'callToActionText': instance.callToActionText,
       'callToActionUrl': instance.callToActionUrl,
     };

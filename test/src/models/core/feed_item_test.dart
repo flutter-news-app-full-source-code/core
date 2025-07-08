@@ -56,7 +56,7 @@ void main() {
     const mockAccountAction = FeedAction(
       id: 'engagement-1', // Keep id for consistency if tests rely on it
       title: 'Sign Up Now',
-      accountActionType: FeedActionType.linkAccount,
+      feedActionType: FeedActionType.linkAccount,
       description: 'Test Description',
       callToActionText: 'Test CTA',
       callToActionUrl: 'https://test.com',

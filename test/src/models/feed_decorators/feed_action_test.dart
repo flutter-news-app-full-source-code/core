@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
 
 void main() {
-  group('AccountAction', () {
+  group('FeedAction', () {
     late String testId;
 
     setUp(() {
@@ -14,7 +14,7 @@ void main() {
     FeedAction createSubject({
       String? id,
       String title = 'Test Title',
-      FeedActionType accountActionType = FeedActionType.linkAccount,
+      FeedActionType feedActionType = FeedActionType.linkAccount,
       String description = 'Test Description',
       String callToActionText = 'Test CTA',
       String callToActionUrl = 'https://test.com',
@@ -22,7 +22,7 @@ void main() {
       return FeedAction(
         id: id ?? const Uuid().v4(),
         title: title,
-        accountActionType: accountActionType,
+        feedActionType: feedActionType,
         description: description,
         callToActionText: callToActionText,
         callToActionUrl: callToActionUrl,
@@ -33,7 +33,7 @@ void main() {
       final instance = createSubject();
       expect(instance, isNotNull);
       expect(instance.id, isA<String>());
-      expect(instance.type, 'account_action');
+      expect(instance.type, 'feed_action');
     });
 
     test('uses provided id if not null', () {
@@ -61,7 +61,7 @@ void main() {
         id: testId,
         title: 'Title',
         description: 'Description',
-        accountActionType: FeedActionType.upgrade, // Changed from rateApp
+        feedActionType: FeedActionType.upgrade, // Changed from rateApp
         callToActionText: 'Click Me',
         callToActionUrl: 'https://cta.com',
       );
@@ -73,20 +73,20 @@ void main() {
         FeedActionType.upgrade, // Changed from rateApp
         'Click Me',
         'https://cta.com',
-        'account_action',
+        'feed_action',
       ]);
     });
 
     group('fromJson', () {
-      test('returns correct AccountAction object', () {
+      test('returns correct FeedAction object', () {
         final json = <String, dynamic>{
           'id': testId,
           'title': 'Sign Up Now',
           'description': 'Create an account to save preferences.',
-          'accountActionType': 'linkAccount',
+          'feedActionType': 'linkAccount',
           'callToActionText': 'Sign Up',
           'callToActionUrl': 'https://example.com/signup',
-          'type': 'account_action',
+          'type': 'feed_action',
         };
 
         final instance = FeedAction.fromJson(json);
@@ -94,10 +94,10 @@ void main() {
         expect(instance.id, testId);
         expect(instance.title, 'Sign Up Now');
         expect(instance.description, 'Create an account to save preferences.');
-        expect(instance.accountActionType, FeedActionType.linkAccount);
+        expect(instance.feedActionType, FeedActionType.linkAccount);
         expect(instance.callToActionText, 'Sign Up');
         expect(instance.callToActionUrl, 'https://example.com/signup');
-        expect(instance.type, 'account_action');
+        expect(instance.type, 'feed_action');
       });
 
       test('handles all fields present', () {
@@ -105,10 +105,10 @@ void main() {
           'id': testId,
           'title': 'Simple Title',
           'description': 'Simple Description',
-          'accountActionType': 'upgrade',
+          'feedActionType': 'upgrade',
           'callToActionText': 'Simple CTA',
           'callToActionUrl': 'https://simple.com',
-          'type': 'account_action',
+          'type': 'feed_action',
         };
 
         final instance = FeedAction.fromJson(json);
@@ -116,17 +116,17 @@ void main() {
         expect(instance.id, testId);
         expect(instance.title, 'Simple Title');
         expect(instance.description, 'Simple Description');
-        expect(instance.accountActionType, FeedActionType.upgrade);
+        expect(instance.feedActionType, FeedActionType.upgrade);
         expect(instance.callToActionText, 'Simple CTA');
         expect(instance.callToActionUrl, 'https://simple.com');
       });
 
-      test('handles unknown accountActionType gracefully (null)', () {
+      test('handles unknown feedActionType gracefully (null)', () {
         final json = <String, dynamic>{
           'id': testId,
           'title': 'Unknown Type',
-          'accountActionType': 'unknown_type', // Unknown value
-          'type': 'account_action',
+          'feedActionType': 'unknown_type', // Unknown value
+          'type': 'feed_action',
         };
 
         expect(
@@ -152,10 +152,10 @@ void main() {
           'id': testId,
           'title': 'Sign Up Now',
           'description': 'Create an account to save preferences.',
-          'accountActionType': 'linkAccount',
+          'feedActionType': 'linkAccount',
           'callToActionText': 'Sign Up',
           'callToActionUrl': 'https://example.com/signup',
-          'type': 'account_action',
+          'type': 'feed_action',
         });
       });
 
@@ -166,7 +166,7 @@ void main() {
           description: 'Simple Description',
           callToActionText: 'Simple CTA',
           callToActionUrl: 'https://simple.com',
-          accountActionType: FeedActionType.upgrade,
+          feedActionType: FeedActionType.upgrade,
         );
 
         final json = instance.toJson();
@@ -175,10 +175,10 @@ void main() {
           'id': testId,
           'title': 'Simple Title',
           'description': 'Simple Description',
-          'accountActionType': 'upgrade',
+          'feedActionType': 'upgrade',
           'callToActionText': 'Simple CTA',
           'callToActionUrl': 'https://simple.com',
-          'type': 'account_action',
+          'type': 'feed_action',
         });
       });
     });
@@ -196,7 +196,7 @@ void main() {
         final copied = original.copyWith(
           title: 'New Title',
           description: 'New Description',
-          accountActionType: FeedActionType.upgrade,
+          feedActionType: FeedActionType.upgrade,
           callToActionText: 'New CTA',
           callToActionUrl: 'new.com',
         );
@@ -205,7 +205,7 @@ void main() {
         expect(copied.id, original.id); // ID should remain the same
         expect(copied.title, 'New Title');
         expect(copied.description, 'New Description');
-        expect(copied.accountActionType, FeedActionType.upgrade);
+        expect(copied.feedActionType, FeedActionType.upgrade);
         expect(copied.callToActionText, 'New CTA');
         expect(copied.callToActionUrl, 'new.com');
       });
