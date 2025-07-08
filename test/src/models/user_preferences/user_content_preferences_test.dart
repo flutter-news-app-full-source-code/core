@@ -38,10 +38,9 @@ void main() {
     final mockHeadline = Headline(
       id: 'headline-1',
       title: 'Example Headline',
-      description: 'This is an example headline description.',
+      excerpt: 'This is an example headline excerpt.',
       url: 'http://example.com/headline',
       imageUrl: 'http://example.com/headline_image.png',
-      publishedAt: DateTime.utc(2023),
       source: mockSource,
       category: mockCategory,
       createdAt: DateTime.utc(2023),
@@ -133,10 +132,9 @@ void main() {
             {
               'id': 'headline-1',
               'title': 'Example Headline',
-              'description': 'This is an example headline description.',
+              'excerpt': 'This is an example headline excerpt.',
               'url': 'http://example.com/headline',
               'imageUrl': 'http://example.com/headline_image.png',
-              'publishedAt': '2023-01-01T00:00:00.000Z',
               'source': {
                 'id': 'source-1',
                 'name': 'Example News',
@@ -286,10 +284,9 @@ void main() {
         final newHeadline = Headline(
           id: 'headline-2',
           title: 'Another Headline',
-          description: 'Another headline description.',
+          excerpt: 'Another headline excerpt.',
           url: 'http://example.com/another_headline',
           imageUrl: 'http://example.com/another_headline_image.png',
-          publishedAt: DateTime.utc(2023),
           source: mockSource,
           category: mockCategory,
           createdAt: DateTime.utc(2023),

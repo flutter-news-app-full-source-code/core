@@ -20,10 +20,9 @@ class Headline extends FeedItem {
   const Headline({
     required this.id,
     required this.title,
-    required this.description,
+    required this.excerpt,
     required this.url,
     required this.imageUrl,
-    required this.publishedAt,
     required this.source,
     required this.category,
     required this.createdAt,
@@ -41,19 +40,14 @@ class Headline extends FeedItem {
   /// Title of the headline.
   final String title;
 
-  /// Description or snippet of the headline content.
-  final String description;
+  /// Excerpt or snippet of the headline content.
+  final String excerpt;
 
   /// URL to the full article or content.
   final String url;
 
   /// URL to an image associated with the headline.
   final String imageUrl;
-
-  /// The external timestamp from the original news source, indicating when the
-  /// article was officially published to the world.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
-  final DateTime publishedAt;
 
   /// Source or origin of the headline.
   final Source source;
@@ -89,10 +83,9 @@ class Headline extends FeedItem {
   List<Object?> get props => [
     id,
     title,
-    description,
+    excerpt,
     url,
     imageUrl,
-    publishedAt,
     createdAt,
     updatedAt,
     status,
@@ -109,10 +102,9 @@ class Headline extends FeedItem {
   Headline copyWith({
     String? id,
     String? title,
-    String? description,
+    String? excerpt,
     String? url,
     String? imageUrl,
-    DateTime? publishedAt,
     DateTime? createdAt,
     DateTime? updatedAt,
     ContentStatus? status,
@@ -122,10 +114,9 @@ class Headline extends FeedItem {
     return Headline(
       id: id ?? this.id,
       title: title ?? this.title,
-      description: description ?? this.description,
+      excerpt: excerpt ?? this.excerpt,
       url: url ?? this.url,
       imageUrl: imageUrl ?? this.imageUrl,
-      publishedAt: publishedAt ?? this.publishedAt,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
       status: status ?? this.status,

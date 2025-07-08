@@ -37,10 +37,9 @@ void main() {
     final mockHeadline = Headline(
       id: 'headline-1',
       title: 'Example Headline',
-      description: 'This is an example headline description.',
+      excerpt: 'This is an example headline description.',
       url: 'http://example.com/headline',
       imageUrl: 'http://example.com/headline.jpg',
-      publishedAt: DateTime.utc(2023),
       source: mockSource,
       category: mockCategory,
       createdAt: testDateTime,

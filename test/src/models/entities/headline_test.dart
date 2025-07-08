@@ -51,10 +51,9 @@ void main() {
     final fullHeadline = Headline(
       id: testId,
       title: 'Full Headline Title',
-      description: 'Full description.',
+      excerpt: 'Full excerpt.',
       url: 'http://example.com/full',
       imageUrl: 'http://example.com/full.jpg',
-      publishedAt: testTime,
       source: sampleSource,
       category: sampleCategory,
       createdAt: testTime,
@@ -66,10 +65,9 @@ void main() {
     final fullHeadlineJson = {
       'id': testId,
       'title': 'Full Headline Title',
-      'description': 'Full description.',
+      'excerpt': 'Full excerpt.',
       'url': 'http://example.com/full',
       'imageUrl': 'http://example.com/full.jpg',
-      'publishedAt': testTimeString,
       'source': sampleSourceJson,
       'category': sampleCategoryJson,
       'createdAt': testTimeString,
@@ -82,10 +80,9 @@ void main() {
     final minimalHeadline = Headline(
       id: testId,
       title: 'Minimal Headline Title',
-      description: 'Minimal description.',
+      excerpt: 'Minimal excerpt.',
       url: 'http://example.com/minimal',
       imageUrl: 'http://example.com/minimal.jpg',
-      publishedAt: testTime,
       source: sampleSource,
       category: sampleCategory,
       createdAt: testTime,
@@ -97,10 +94,9 @@ void main() {
     final minimalHeadlineJson = {
       'id': testId,
       'title': 'Minimal Headline Title',
-      'description': 'Minimal description.',
+      'excerpt': 'Minimal excerpt.',
       'url': 'http://example.com/minimal',
       'imageUrl': 'http://example.com/minimal.jpg',
-      'publishedAt': testTimeString,
       'source': sampleSourceJson,
       'category': sampleCategoryJson,
       'createdAt': testTimeString,
@@ -114,7 +110,6 @@ void main() {
         final headline = Headline.fromJson(fullHeadlineJson);
         expect(headline, equals(fullHeadline));
         expect(headline.id, testId);
-        expect(headline.publishedAt, testTime);
         expect(headline.source, sampleSource);
         expect(headline.category, sampleCategory);
         expect(headline.createdAt, testTime);
@@ -124,10 +119,9 @@ void main() {
       test('should correctly deserialize from minimal JSON', () {
         final headline = Headline.fromJson(minimalHeadlineJson);
         expect(headline.title, minimalHeadline.title);
-        expect(headline.description, minimalHeadline.description);
+        expect(headline.excerpt, minimalHeadline.excerpt);
         expect(headline.url, minimalHeadline.url);
         expect(headline.imageUrl, minimalHeadline.imageUrl);
-        expect(headline.publishedAt, minimalHeadline.publishedAt);
         expect(headline.source, minimalHeadline.source);
         expect(headline.category, minimalHeadline.category);
         expect(headline.createdAt, minimalHeadline.createdAt);
@@ -157,10 +151,9 @@ void main() {
         expect(json['id'], minimalHeadline.id);
         expect(json['status'], 'active');
         expect(json['title'], minimalHeadline.title);
-        expect(json['description'], minimalHeadline.description);
+        expect(json['excerpt'], minimalHeadline.excerpt);
         expect(json['url'], minimalHeadline.url);
         expect(json['imageUrl'], minimalHeadline.imageUrl);
-        expect(json['publishedAt'], testTimeString);
         expect(json['source'], sampleSourceJson);
         expect(json['category'], sampleCategoryJson);
         expect(json['createdAt'], testTimeString);
@@ -179,10 +172,9 @@ void main() {
 
         expect(copiedHeadline.id, fullHeadline.id);
         expect(copiedHeadline.title, updatedTitle);
-        expect(copiedHeadline.description, fullHeadline.description);
+        expect(copiedHeadline.excerpt, fullHeadline.excerpt);
         expect(copiedHeadline.url, updatedUrl);
         expect(copiedHeadline.imageUrl, fullHeadline.imageUrl);
-        expect(copiedHeadline.publishedAt, fullHeadline.publishedAt);
         expect(copiedHeadline.source, fullHeadline.source);
         expect(copiedHeadline.category, fullHeadline.category);
         expect(copiedHeadline.createdAt, fullHeadline.createdAt);
@@ -200,10 +192,9 @@ void main() {
         final headline1 = Headline(
           id: '1',
           title: 'Title',
-          description: 'Desc',
+          excerpt: 'Excerpt',
           url: 'url',
           imageUrl: 'img',
-          publishedAt: testTime,
           source: sampleSource,
           category: sampleCategory,
           createdAt: testTime,
@@ -213,10 +204,9 @@ void main() {
         final headline2 = Headline(
           id: '1',
           title: 'Title',
-          description: 'Desc',
+          excerpt: 'Excerpt',
           url: 'url',
           imageUrl: 'img',
-          publishedAt: testTime,
           source: sampleSource,
           category: sampleCategory,
           createdAt: testTime,
@@ -230,10 +220,9 @@ void main() {
         final headline1 = Headline(
           id: '1',
           title: 'Title 1',
-          description: 'Desc',
+          excerpt: 'Excerpt',
           url: 'url',
           imageUrl: 'img',
-          publishedAt: testTime,
           source: sampleSource,
           category: sampleCategory,
           createdAt: testTime,
@@ -243,10 +232,9 @@ void main() {
         final headline2 = Headline(
           id: '1',
           title: 'Title 2',
-          description: 'Desc',
+          excerpt: 'Excerpt',
           url: 'url',
           imageUrl: 'img',
-          publishedAt: testTime,
           source: sampleSource,
           category: sampleCategory,
           createdAt: testTime,
@@ -256,10 +244,9 @@ void main() {
         final headline3 = Headline(
           id: '2',
           title: 'Title 1',
-          description: 'Desc',
+          excerpt: 'Excerpt',
           url: 'url',
           imageUrl: 'img',
-          publishedAt: testTime,
           source: sampleSource,
           category: sampleCategory,
           createdAt: testTime,
@@ -271,14 +258,13 @@ void main() {
       });
 
       test('props list should contain all relevant fields', () {
-        expect(fullHeadline.props.length, 12);
+        expect(fullHeadline.props.length, 11);
         expect(fullHeadline.props, [
           fullHeadline.id,
           fullHeadline.title,
-          fullHeadline.description,
+          fullHeadline.excerpt,
           fullHeadline.url,
           fullHeadline.imageUrl,
-          fullHeadline.publishedAt,
           fullHeadline.createdAt,
           fullHeadline.updatedAt,
           fullHeadline.status,

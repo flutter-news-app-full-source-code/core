@@ -11,13 +11,9 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) =>
       final val = Headline(
         id: $checkedConvert('id', (v) => v as String),
         title: $checkedConvert('title', (v) => v as String),
-        description: $checkedConvert('description', (v) => v as String),
+        excerpt: $checkedConvert('excerpt', (v) => v as String),
         url: $checkedConvert('url', (v) => v as String),
         imageUrl: $checkedConvert('imageUrl', (v) => v as String),
-        publishedAt: $checkedConvert(
-          'publishedAt',
-          (v) => dateTimeFromJson(v as String?),
-        ),
         source: $checkedConvert(
           'source',
           (v) => Source.fromJson(v as Map<String, dynamic>),
@@ -45,10 +41,9 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$HeadlineToJson(Headline instance) => <String, dynamic>{
   'id': instance.id,
   'title': instance.title,
-  'description': instance.description,
+  'excerpt': instance.excerpt,
   'url': instance.url,
   'imageUrl': instance.imageUrl,
-  'publishedAt': dateTimeToJson(instance.publishedAt),
   'source': instance.source.toJson(),
   'createdAt': dateTimeToJson(instance.createdAt),
   'updatedAt': dateTimeToJson(instance.updatedAt),
