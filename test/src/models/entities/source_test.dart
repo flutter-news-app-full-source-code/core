@@ -276,6 +276,8 @@ void main() {
           'sourceType': 'specializedPublisher', // Use direct string
           'language': testLanguage,
           'headquarters': testHeadquartersJson,
+          'createdAt': testDateTimeString,
+          'updatedAt': testDateTimeString,
         };
         final source = Source.fromJson(fullJson);
         expect(source.id, testId);
