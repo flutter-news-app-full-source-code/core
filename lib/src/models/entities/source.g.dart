@@ -6,70 +6,59 @@ part of 'source.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Source _$SourceFromJson(Map<String, dynamic> json) => $checkedCreate(
-  'Source',
-  json,
-  ($checkedConvert) {
-    final val = Source(
-      name: $checkedConvert('name', (v) => v as String),
-      description: $checkedConvert('description', (v) => v as String?),
-      url: $checkedConvert('url', (v) => v as String?),
-      sourceType: $checkedConvert(
-        'source_type',
-        (v) => $enumDecodeNullable(_$SourceTypeEnumMap, v),
-      ),
-      language: $checkedConvert('language', (v) => v as String?),
-      headquarters: $checkedConvert(
-        'headquarters',
-        (v) => v == null ? null : Country.fromJson(v as Map<String, dynamic>),
-      ),
-      createdAt: $checkedConvert(
-        'created_at',
-        (v) => dateTimeFromJson(v as String?),
-      ),
-      updatedAt: $checkedConvert(
-        'updated_at',
-        (v) => dateTimeFromJson(v as String?),
-      ),
-      status: $checkedConvert(
-        'status',
-        (v) =>
-            $enumDecodeNullable(_$ContentStatusEnumMap, v) ??
-            ContentStatus.active,
-      ),
-      id: $checkedConvert('id', (v) => v as String?),
-    );
-    return val;
-  },
-  fieldKeyMap: const {
-    'sourceType': 'source_type',
-    'createdAt': 'created_at',
-    'updatedAt': 'updated_at',
-  },
-);
+Source _$SourceFromJson(Map<String, dynamic> json) =>
+    $checkedCreate('Source', json, ($checkedConvert) {
+      final val = Source(
+        id: $checkedConvert('id', (v) => v as String),
+        name: $checkedConvert('name', (v) => v as String),
+        description: $checkedConvert('description', (v) => v as String),
+        url: $checkedConvert('url', (v) => v as String),
+        sourceType: $checkedConvert(
+          'sourceType',
+          (v) => $enumDecode(_$SourceTypeEnumMap, v),
+        ),
+        language: $checkedConvert('language', (v) => v as String),
+        headquarters: $checkedConvert(
+          'headquarters',
+          (v) => Country.fromJson(v as Map<String, dynamic>),
+        ),
+        createdAt: $checkedConvert(
+          'createdAt',
+          (v) => dateTimeFromJson(v as String?),
+        ),
+        updatedAt: $checkedConvert(
+          'updatedAt',
+          (v) => dateTimeFromJson(v as String?),
+        ),
+        status: $checkedConvert(
+          'status',
+          (v) => $enumDecode(_$ContentStatusEnumMap, v),
+        ),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$SourceToJson(Source instance) => <String, dynamic>{
   'id': instance.id,
   'name': instance.name,
-  if (instance.description case final value?) 'description': value,
-  if (instance.url case final value?) 'url': value,
-  if (_$SourceTypeEnumMap[instance.sourceType] case final value?)
-    'source_type': value,
-  if (instance.language case final value?) 'language': value,
-  if (instance.headquarters?.toJson() case final value?) 'headquarters': value,
-  if (dateTimeToJson(instance.createdAt) case final value?) 'created_at': value,
-  if (dateTimeToJson(instance.updatedAt) case final value?) 'updated_at': value,
+  'description': instance.description,
+  'url': instance.url,
+  'sourceType': _$SourceTypeEnumMap[instance.sourceType]!,
+  'language': instance.language,
+  'headquarters': instance.headquarters.toJson(),
+  'createdAt': dateTimeToJson(instance.createdAt),
+  'updatedAt': dateTimeToJson(instance.updatedAt),
   'status': _$ContentStatusEnumMap[instance.status]!,
 };
 
 const _$SourceTypeEnumMap = {
-  SourceType.newsAgency: 'news_agency',
-  SourceType.localNewsOutlet: 'local_news_outlet',
-  SourceType.nationalNewsOutlet: 'national_news_outlet',
-  SourceType.internationalNewsOutlet: 'international_news_outlet',
-  SourceType.specializedPublisher: 'specialized_publisher',
+  SourceType.newsAgency: 'newsAgency',
+  SourceType.localNewsOutlet: 'localNewsOutlet',
+  SourceType.nationalNewsOutlet: 'nationalNewsOutlet',
+  SourceType.internationalNewsOutlet: 'internationalNewsOutlet',
+  SourceType.specializedPublisher: 'specializedPublisher',
   SourceType.blog: 'blog',
-  SourceType.governmentSource: 'government_source',
+  SourceType.governmentSource: 'governmentSource',
   SourceType.aggregator: 'aggregator',
   SourceType.other: 'other',
 };

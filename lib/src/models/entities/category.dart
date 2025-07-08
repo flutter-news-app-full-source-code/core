@@ -3,7 +3,6 @@ import 'package:ht_shared/src/models/core/feed_item.dart';
 import 'package:ht_shared/src/utils/utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:uuid/uuid.dart';
 
 part 'category.g.dart';
 
@@ -11,29 +10,20 @@ part 'category.g.dart';
 /// Represents a news category.
 ///
 /// Contains details like ID, name, description, and an optional icon URL.
-/// The [id] is automatically generated using UUID v4 if not provided.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class Category extends FeedItem {
   /// {@macro category}
-  ///
-  /// If an [id] is not provided, a UUID v4 will be generated.
-  Category({
+  const Category({
+    required this.id,
     required this.name,
-    String? id,
-    this.description,
-    this.iconUrl,
-    this.createdAt,
-    this.updatedAt,
-    this.status = ContentStatus.active,
-  }) : id = id ?? const Uuid().v4(),
-       super(type: 'category');
+    required this.description,
+    required this.iconUrl,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.status,
+  }) : super(type: 'category');
 
   /// Creates a Category instance from a JSON map.
   factory Category.fromJson(Map<String, dynamic> json) =>
@@ -46,25 +36,21 @@ class Category extends FeedItem {
   @JsonKey(required: true)
   final String name;
 
-  /// An optional description for the category.
-  final String? description;
+  /// The description for the category.
+  final String description;
 
-  /// An optional URL for an icon representing the category.
-  @JsonKey(name: 'icon_url')
-  final String? iconUrl;
+  /// The URL for an icon representing the category.
+  final String iconUrl;
 
   /// The creation timestamp of the category.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The last update timestamp of the category.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   /// The current status of the category.
-  /// Defaults to `active` if the field is not present in the JSON payload,
-  /// ensuring backward compatibility.
-  @JsonKey(defaultValue: ContentStatus.active)
   final ContentStatus status;
 
   /// Converts this Category instance to a JSON map.

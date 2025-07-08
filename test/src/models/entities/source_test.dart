@@ -11,6 +11,8 @@ void main() {
     const testUrl = 'https://example.com/test';
     const testType = SourceType.specializedPublisher;
     const testLanguage = 'en';
+    final testDateTime = DateTime.utc(2024, 4, 17, 13);
+    final testDateTimeString = testDateTime.toIso8601String();
 
     // Use a valid Country instance for testing
     final testCountry = Country(
@@ -18,6 +20,9 @@ void main() {
       isoCode: 'XX',
       name: 'Testland',
       flagUrl: 'https://example.com/flag.png',
+      createdAt: testDateTime,
+      updatedAt: testDateTime,
+      status: ContentStatus.active,
     );
     // Get the JSON representation for comparison
     final testHeadquartersJson = testCountry.toJson();
@@ -26,7 +31,18 @@ void main() {
     late Source fullSource;
 
     setUp(() {
-      minimalSource = Source(name: testName);
+      minimalSource = Source(
+        id: const Uuid().v4(),
+        name: testName,
+        description: testDescription,
+        url: testUrl,
+        sourceType: testType,
+        language: testLanguage,
+        headquarters: testCountry,
+        createdAt: testDateTime,
+        updatedAt: testDateTime,
+        status: ContentStatus.active,
+      );
       fullSource = Source(
         id: testId,
         name: testName,
@@ -35,6 +51,9 @@ void main() {
         sourceType: testType,
         language: testLanguage,
         headquarters: testCountry,
+        createdAt: testDateTime,
+        updatedAt: testDateTime,
+        status: ContentStatus.active,
       );
     });
 
@@ -49,11 +68,14 @@ void main() {
           ),
           isTrue,
         );
-        expect(minimalSource.description, isNull);
-        expect(minimalSource.url, isNull);
-        expect(minimalSource.sourceType, isNull);
-        expect(minimalSource.language, isNull);
-        expect(minimalSource.headquarters, isNull);
+        expect(minimalSource.description, testDescription);
+        expect(minimalSource.url, testUrl);
+        expect(minimalSource.sourceType, testType);
+        expect(minimalSource.language, testLanguage);
+        expect(minimalSource.headquarters, testCountry);
+        expect(minimalSource.createdAt, testDateTime);
+        expect(minimalSource.updatedAt, testDateTime);
+        expect(minimalSource.status, ContentStatus.active);
       });
 
       test('creates instance with all fields including explicit id', () {
@@ -64,6 +86,7 @@ void main() {
         expect(fullSource.sourceType, testType);
         expect(fullSource.language, testLanguage);
         expect(fullSource.headquarters, testCountry);
+        expect(fullSource.status, ContentStatus.active);
       });
     });
 
@@ -79,8 +102,8 @@ void main() {
             testType, // sourceType
             testLanguage, // language
             testCountry, // headquarters
-            null, // createdAt
-            null, // updatedAt
+            testDateTime, // createdAt
+            testDateTime, // updatedAt
             ContentStatus.active, // status
             'source', // type
           ]),
@@ -96,6 +119,9 @@ void main() {
           sourceType: testType,
           language: testLanguage,
           headquarters: testCountry,
+          createdAt: testDateTime,
+          updatedAt: testDateTime,
+          status: ContentStatus.active,
         );
         final source2 = Source(
           id: testId,
@@ -105,20 +131,50 @@ void main() {
           sourceType: testType,
           language: testLanguage,
           headquarters: testCountry,
+          createdAt: testDateTime,
+          updatedAt: testDateTime,
+          status: ContentStatus.active,
         );
         expect(source1, equals(source2));
         expect(source1.hashCode, equals(source2.hashCode));
       });
 
       test('instances with different props are not equal', () {
-        final source1 = Source(id: testId, name: testName);
+        final source1 = Source(
+          id: testId,
+          name: testName,
+          description: testDescription,
+          url: testUrl,
+          sourceType: testType,
+          language: testLanguage,
+          headquarters: testCountry,
+          createdAt: testDateTime,
+          updatedAt: testDateTime,
+          status: ContentStatus.active,
+        );
         final source2 = Source(
           id: 'different-id', // Different ID
           name: testName,
+          description: testDescription,
+          url: testUrl,
+          sourceType: testType,
+          language: testLanguage,
+          headquarters: testCountry,
+          createdAt: testDateTime,
+          updatedAt: testDateTime,
+          status: ContentStatus.active,
         );
         final source3 = Source(
           id: testId,
           name: 'Different Name', // Different Name
+          description: testDescription,
+          url: testUrl,
+          sourceType: testType,
+          language: testLanguage,
+          headquarters: testCountry,
+          createdAt: testDateTime,
+          updatedAt: testDateTime,
+          status: ContentStatus.active,
         );
         expect(source1, isNot(equals(source2)));
         expect(source1.hashCode, isNot(equals(source2.hashCode)));
@@ -133,13 +189,15 @@ void main() {
         expect(json, isA<Map<String, dynamic>>());
         expect(json['id'], minimalSource.id); // ID is always present
         expect(json['name'], testName);
+        expect(json['description'], testDescription);
+        expect(json['url'], testUrl);
         expect(json['status'], 'active');
         expect(json['type'], 'source');
-        expect(json.containsKey('description'), isFalse);
-        expect(json.containsKey('url'), isFalse);
-        expect(json.containsKey('source_type'), isFalse);
-        expect(json.containsKey('language'), isFalse);
-        expect(json.containsKey('headquarters'), isFalse);
+        expect(json['sourceType'], 'specializedPublisher');
+        expect(json['language'], testLanguage);
+        expect(json['headquarters'], testHeadquartersJson);
+        expect(json['createdAt'], testDateTimeString);
+        expect(json['updatedAt'], testDateTimeString);
       });
 
       test('serializes full source correctly', () {
@@ -151,25 +209,30 @@ void main() {
         expect(json['url'], testUrl);
         expect(json['status'], 'active');
         expect(json['type'], 'source');
-        expect(
-          json['source_type'],
-          'specialized_publisher',
-        ); // Use direct string
+        expect(json['sourceType'], 'specializedPublisher'); // Use direct string
         expect(json['language'], testLanguage);
         expect(json['headquarters'], testHeadquartersJson);
       });
 
       test('does not include null optional fields in JSON', () {
-        final sourceWithNulls = Source(id: testId, name: testName);
+        final sourceWithNulls = Source(
+          id: testId,
+          name: testName,
+          description: testDescription,
+          url: testUrl,
+          sourceType: testType,
+          language: testLanguage,
+          headquarters: testCountry,
+          createdAt: testDateTime,
+          updatedAt: testDateTime,
+          status: ContentStatus.active,
+        );
         final json = sourceWithNulls.toJson();
-        expect(json.containsKey('description'), isFalse);
-        expect(json.containsKey('url'), isFalse);
-        expect(json.containsKey('source_type'), isFalse);
-        expect(json.containsKey('language'), isFalse);
-        expect(
-          json.containsKey('headquarters'),
-          isFalse,
-        ); // Verify this specifically
+        expect(json.containsKey('description'), isTrue);
+        expect(json.containsKey('url'), isTrue);
+        expect(json.containsKey('sourceType'), isTrue);
+        expect(json.containsKey('language'), isTrue);
+        expect(json.containsKey('headquarters'), isTrue);
       });
     });
 
@@ -178,17 +241,24 @@ void main() {
         final minimalJson = {
           'id': testId,
           'name': testName,
+          'description': testDescription,
+          'url': testUrl,
+          'sourceType': testType.name,
+          'language': testLanguage,
+          'headquarters': testHeadquartersJson,
+          'createdAt': testDateTimeString,
+          'updatedAt': testDateTimeString,
           'type': 'source',
           'status': 'active',
         };
         final source = Source.fromJson(minimalJson);
         expect(source.id, testId);
         expect(source.name, testName);
-        expect(source.description, isNull);
-        expect(source.url, isNull);
-        expect(source.sourceType, isNull);
-        expect(source.language, isNull);
-        expect(source.headquarters, isNull);
+        expect(source.description, testDescription);
+        expect(source.url, testUrl);
+        expect(source.sourceType, testType);
+        expect(source.language, testLanguage);
+        expect(source.headquarters, testCountry);
         expect(source.status, ContentStatus.active);
       });
 
@@ -200,9 +270,11 @@ void main() {
           'url': testUrl,
           'type': 'source',
           'status': 'active',
-          'source_type': 'specialized_publisher', // Use direct string
+          'sourceType': 'specializedPublisher', // Use direct string
           'language': testLanguage,
           'headquarters': testHeadquartersJson,
+          'createdAt': testDateTimeString,
+          'updatedAt': testDateTimeString,
         };
         final source = Source.fromJson(fullJson);
         expect(source.id, testId);
@@ -219,34 +291,47 @@ void main() {
         final jsonWithMissing = {
           'id': testId,
           'name': testName,
+          'description': testDescription,
+          'url': testUrl,
+          'sourceType': testType.name,
+          'language': testLanguage,
+          'headquarters': testHeadquartersJson,
+          'createdAt': testDateTimeString,
+          'updatedAt': testDateTimeString,
           'type': 'source',
-          // description, url, type, language, headquarters are missing
+          'status': 'active',
         };
         final source = Source.fromJson(jsonWithMissing);
-        expect(source.description, isNull);
-        expect(source.url, isNull);
-        expect(source.sourceType, isNull);
-        expect(source.language, isNull);
-        expect(source.headquarters, isNull);
+        expect(source.description, testDescription);
+        expect(source.url, testUrl);
+        expect(source.sourceType, testType);
+        expect(source.language, testLanguage);
+        expect(source.headquarters, testCountry);
       });
 
       test('handles explicitly null optional fields in JSON', () {
         final jsonWithNulls = {
           'id': testId,
           'name': testName,
-          'description': null,
-          'url': null,
+          'description': 'Test Description',
+          'url': 'https://example.com/test',
           'type': 'source',
-          'source_type': null,
-          'language': null,
-          'headquarters': null,
+          'sourceType': 'specializedPublisher',
+          'language': 'en',
+          'headquarters': testHeadquartersJson,
+          'createdAt': testDateTimeString,
+          'updatedAt': testDateTimeString,
+          'status': 'active',
         };
         final source = Source.fromJson(jsonWithNulls);
-        expect(source.description, isNull);
-        expect(source.url, isNull);
-        expect(source.sourceType, isNull);
-        expect(source.language, isNull);
-        expect(source.headquarters, isNull);
+        expect(source.description, 'Test Description');
+        expect(source.url, 'https://example.com/test');
+        expect(source.sourceType, SourceType.specializedPublisher);
+        expect(source.language, 'en');
+        expect(source.headquarters, testCountry);
+        expect(source.createdAt, testDateTime);
+        expect(source.updatedAt, testDateTime);
+        expect(source.status, ContentStatus.active);
       });
 
       test('handles unknown type string in JSON gracefully', () {
@@ -254,7 +339,8 @@ void main() {
           'id': testId,
           'name': testName,
           'type': 'source',
-          'source_type': 'some_unknown_type',
+          'sourceType': 'some_unknown_type',
+          'status': 'active',
         };
         expect(
           () => Source.fromJson(jsonWithUnknownType),
@@ -284,7 +370,11 @@ void main() {
           name: 'Newland',
           flagUrl: 'new.png',
           id: 'c-789',
+          createdAt: testDateTime,
+          updatedAt: testDateTime,
+          status: ContentStatus.active,
         );
+        const updatedStatus = ContentStatus.archived;
 
         expect(fullSource.copyWith(id: updatedId).id, updatedId);
         expect(fullSource.copyWith(name: updatedName).name, updatedName);
@@ -305,14 +395,20 @@ void main() {
           fullSource.copyWith(headquarters: updatedCountry).headquarters,
           updatedCountry,
         );
+        expect(
+          fullSource.copyWith(status: updatedStatus).status,
+          updatedStatus,
+        );
       });
 
       test('updates multiple fields simultaneously', () {
         const updatedName = 'Multi Update Source';
         const updatedType = SourceType.aggregator;
+        const updatedStatus = ContentStatus.archived;
         final updatedCopy = fullSource.copyWith(
           name: updatedName,
           sourceType: updatedType,
+          status: updatedStatus,
         );
 
         expect(updatedCopy.id, fullSource.id); // Unchanged
@@ -322,6 +418,7 @@ void main() {
         expect(updatedCopy.sourceType, updatedType); // Changed
         expect(updatedCopy.language, fullSource.language); // Unchanged
         expect(updatedCopy.headquarters, fullSource.headquarters); // Unchanged
+        expect(updatedCopy.status, updatedStatus); // Changed
       });
     });
   });

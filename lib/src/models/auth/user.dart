@@ -1,33 +1,26 @@
 import 'package:equatable/equatable.dart';
+import 'package:ht_shared/src/enums/app_user_role.dart';
+import 'package:ht_shared/src/enums/dashboard_user_role.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
 part 'user.g.dart';
 
 /// Represents a user within the system.
-///
-/// This model holds basic information about the user, including their
-/// unique identifier, email (if available), and their assigned [roles].
-
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class User extends Equatable {
   /// Creates a new [User] instance.
   ///
-  /// Requires a unique [id] and a list of [roles].
-  /// The [email] is optional and typically present only for users
-  /// who have verified their email address.
+  /// Requires a unique [id], an [appRole], a [dashboardRole],
+  /// [email], [createdAt], and [lastAccountActionShownAt].
   const User({
     required this.id,
-    required this.roles,
-    this.email,
-    this.createdAt,
-    this.lastAccountActionShownAt,
+    required this.appRole,
+    required this.dashboardRole,
+    required this.email,
+    required this.createdAt,
+    required this.lastAccountActionShownAt,
   });
 
   /// Creates a User from JSON data.
@@ -36,26 +29,26 @@ class User extends Equatable {
   /// The unique identifier for the user (e.g., a UUID).
   final String id;
 
-  /// The user's email address.
-  ///
-  /// This will be `null` for users who haven't associated an email yet.
-  final String? email;
+  /// The user's email address. This is required.
+  final String email;
 
-  /// The roles assigned to the user (e.g., 'admin', 'premium_user').
-  final List<String> roles;
+  /// The application-specific role of the user.
+  final AppUserRole appRole;
+
+  /// The dashboard-specific role of the user.
+  final DashboardUserRole dashboardRole;
 
   /// The date and time the user account was created.
-  /// This is typically set on the backend upon user creation.
   @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The date and time the user was last shown an engagement.
   @JsonKey(
-    name: 'last_engagement_shown_at',
+    name: 'lastEngagementShownAt',
     fromJson: _dateTimeFromJson,
     toJson: _dateTimeToJson,
   )
-  final DateTime? lastAccountActionShownAt;
+  final DateTime lastAccountActionShownAt;
 
   /// Converts this User instance to JSON data.
   Map<String, dynamic> toJson() => _$UserToJson(this);
@@ -64,14 +57,17 @@ class User extends Equatable {
   List<Object?> get props => [
     id,
     email,
-    roles,
+    appRole,
+    dashboardRole,
     createdAt,
     lastAccountActionShownAt,
   ];
 
   @override
   String toString() {
-    return 'User(id: $id, email: $email, roles: $roles, createdAt: $createdAt, lastEngagementShownAt: $lastAccountActionShownAt)';
+    return 'User(id: $id, email: $email, appRole: $appRole, '
+        'dashboardRole: $dashboardRole, createdAt: $createdAt, '
+        'lastAccountActionShownAt: $lastAccountActionShownAt)';
   }
 
   /// Creates a copy of this [User] but with the given fields replaced with
@@ -79,28 +75,29 @@ class User extends Equatable {
   User copyWith({
     String? id,
     String? email,
-    List<String>? roles,
+    AppUserRole? appRole,
+    DashboardUserRole? dashboardRole,
     DateTime? createdAt,
-    DateTime? lastEngagementShownAt,
+    DateTime? lastAccountActionShownAt,
   }) {
     return User(
       id: id ?? this.id,
       email: email ?? this.email,
-      roles: roles ?? this.roles,
+      appRole: appRole ?? this.appRole,
+      dashboardRole: dashboardRole ?? this.dashboardRole,
       createdAt: createdAt ?? this.createdAt,
       lastAccountActionShownAt:
-          lastEngagementShownAt ?? lastAccountActionShownAt,
+          lastAccountActionShownAt ?? this.lastAccountActionShownAt,
     );
   }
 }
 
-// Helper function for parsing DateTime, returning null on error
-DateTime? _dateTimeFromJson(String? dateString) {
-  if (dateString == null) return null;
-  return DateTime.tryParse(dateString);
+// Helper function for parsing DateTime
+DateTime _dateTimeFromJson(String dateString) {
+  return DateTime.parse(dateString);
 }
 
 // Helper function for serializing DateTime to ISO 8601 string
-String? _dateTimeToJson(DateTime? dateTime) {
-  return dateTime?.toIso8601String();
+String _dateTimeToJson(DateTime dateTime) {
+  return dateTime.toIso8601String();
 }

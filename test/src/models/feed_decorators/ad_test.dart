@@ -16,10 +16,10 @@ void main() {
       String imageUrl = testImageUrl,
       String targetUrl = testTargetUrl,
       AdType adType = testAdType,
-      AdPlacement? placement = testPlacement,
+      AdPlacement placement = testPlacement,
     }) {
       return Ad(
-        id: id,
+        id: id ?? const Uuid().v4(),
         imageUrl: imageUrl,
         targetUrl: targetUrl,
         adType: adType,
@@ -83,19 +83,12 @@ void main() {
 
         expect(json, <String, dynamic>{
           'id': ad.id,
-          'image_url': testImageUrl,
-          'target_url': testTargetUrl,
-          'ad_type': 'banner',
-          'placement': 'feed_inline_standard_banner',
+          'imageUrl': testImageUrl,
+          'targetUrl': testTargetUrl,
+          'adType': 'banner',
+          'placement': 'feedInlineStandardBanner',
           'type': 'ad',
         });
-      });
-
-      test('omits null optional fields from JSON', () {
-        final ad = createSubject(placement: null);
-        final json = ad.toJson();
-
-        expect(json.containsKey('placement'), isFalse);
       });
     });
 
@@ -103,10 +96,10 @@ void main() {
       test('deserializes full JSON to Ad object', () {
         final json = <String, dynamic>{
           'id': testId,
-          'image_url': testImageUrl,
-          'target_url': testTargetUrl,
-          'ad_type': 'banner',
-          'placement': 'feed_inline_standard_banner',
+          'imageUrl': testImageUrl,
+          'targetUrl': testTargetUrl,
+          'adType': 'banner',
+          'placement': 'feedInlineStandardBanner',
           'type': 'ad',
         };
         final ad = Ad.fromJson(json);
@@ -119,25 +112,12 @@ void main() {
         expect(ad.type, 'ad');
       });
 
-      test('deserializes JSON with missing optional fields', () {
-        final json = <String, dynamic>{
-          'id': testId,
-          'image_url': testImageUrl,
-          'target_url': testTargetUrl,
-          'ad_type': testAdType.name,
-          'type': 'ad',
-        };
-        final ad = Ad.fromJson(json);
-
-        expect(ad.placement, isNull);
-      });
-
       test('deserializes JSON with unknown adType gracefully', () {
         final json = <String, dynamic>{
           'id': testId,
-          'image_url': testImageUrl,
-          'target_url': testTargetUrl,
-          'ad_type': 'unknown_type',
+          'imageUrl': testImageUrl,
+          'targetUrl': testTargetUrl,
+          'adType': 'unknown_type',
           'type': 'ad',
         };
         expect(

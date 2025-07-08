@@ -14,9 +14,7 @@ SuccessApiResponse<T> _$SuccessApiResponseFromJson<T>(
     data: $checkedConvert('data', (v) => fromJsonT(v)),
     metadata: $checkedConvert(
       'metadata',
-      (v) => v == null
-          ? null
-          : ResponseMetadata.fromJson(v as Map<String, dynamic>),
+      (v) => ResponseMetadata.fromJson(v as Map<String, dynamic>),
     ),
   );
   return val;
@@ -27,5 +25,5 @@ Map<String, dynamic> _$SuccessApiResponseToJson<T>(
   Object? Function(T value) toJsonT,
 ) => <String, dynamic>{
   'data': toJsonT(instance.data),
-  if (instance.metadata?.toJson() case final value?) 'metadata': value,
+  'metadata': instance.metadata.toJson(),
 };

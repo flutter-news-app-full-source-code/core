@@ -32,19 +32,14 @@ enum HeadlineImageStyle {
 /// User preferences for how feeds are displayed.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class FeedDisplayPreferences extends Equatable {
   /// {@macro feed_display_preferences}
   const FeedDisplayPreferences({
-    this.headlineDensity = HeadlineDensity.standard,
-    this.headlineImageStyle = HeadlineImageStyle.smallThumbnail,
-    this.showSourceInHeadlineFeed = true,
-    this.showPublishDateInHeadlineFeed = true,
+    required this.headlineDensity,
+    required this.headlineImageStyle,
+    required this.showSourceInHeadlineFeed,
+    required this.showPublishDateInHeadlineFeed,
   });
 
   /// Creates a [FeedDisplayPreferences] instance from a JSON map.

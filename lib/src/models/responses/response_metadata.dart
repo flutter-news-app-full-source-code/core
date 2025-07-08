@@ -12,25 +12,20 @@ part 'response_metadata.g.dart';
 /// the main response wrapper.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class ResponseMetadata extends Equatable {
   /// {@macro response_metadata}
-  const ResponseMetadata({this.requestId, this.timestamp});
+  const ResponseMetadata({required this.requestId, required this.timestamp});
 
   /// Factory method to create a [ResponseMetadata] instance from a JSON map.
   factory ResponseMetadata.fromJson(Map<String, dynamic> json) =>
       _$ResponseMetadataFromJson(json);
 
   /// An optional unique identifier for the request, useful for tracing.
-  final String? requestId;
+  final String requestId;
 
   /// An optional timestamp indicating when the response was generated.
-  final DateTime? timestamp;
+  final DateTime timestamp;
 
   /// Converts this [ResponseMetadata] instance to a JSON map.
   Map<String, dynamic> toJson() => _$ResponseMetadataToJson(this);

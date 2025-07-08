@@ -1,14 +1,17 @@
+import 'package:ht_shared/src/enums/app_user_role.dart';
+import 'package:ht_shared/src/enums/dashboard_user_role.dart';
 import 'package:ht_shared/src/models/auth/user.dart';
-import 'package:ht_shared/src/models/auth/user_role.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('User Model', () {
     const id = 'test-id';
     const email = 'test@example.com';
-    const standardRoles = [UserRoles.standardUser];
-    const guestRoles = [UserRoles.guestUser];
-    const adminRoles = [UserRoles.admin, UserRoles.standardUser];
+    const appRoleStandard = AppUserRole.standardUser;
+    const appRoleGuest = AppUserRole.guestUser;
+    const appRolePremium = AppUserRole.premiumUser;
+    const dashboardRoleAdmin = DashboardUserRole.admin;
+    const dashboardRoleNone = DashboardUserRole.none;
     final testCreatedAt = DateTime.utc(2023);
     final testLastEngagementShownAt = DateTime.utc(2023, 1, 2);
 
@@ -17,7 +20,8 @@ void main() {
         User(
           id: id,
           email: email,
-          roles: standardRoles,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
           createdAt: testCreatedAt,
           lastAccountActionShownAt: testLastEngagementShownAt,
         ),
@@ -25,45 +29,64 @@ void main() {
           User(
             id: id,
             email: email,
-            roles: standardRoles,
+            appRole: appRoleStandard,
+            dashboardRole: dashboardRoleNone,
             createdAt: testCreatedAt,
             lastAccountActionShownAt: testLastEngagementShownAt,
           ),
         ),
       );
       expect(
-        const User(id: id, email: email, roles: standardRoles),
-        isNot(
-          equals(
-            const User(id: 'other-id', email: email, roles: standardRoles),
-          ),
+        User(
+          id: id,
+          email: email,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
+          createdAt: testCreatedAt,
+          lastAccountActionShownAt: testLastEngagementShownAt,
         ),
-      );
-      expect(
-        const User(id: id, email: email, roles: standardRoles),
         isNot(
           equals(
-            const User(
-              id: id,
-              email: 'other@example.com',
-              roles: standardRoles,
+            User(
+              id: 'other-id',
+              email: email,
+              appRole: appRoleStandard,
+              dashboardRole: dashboardRoleNone,
+              createdAt: testCreatedAt,
+              lastAccountActionShownAt: testLastEngagementShownAt,
             ),
           ),
         ),
       );
       expect(
-        const User(id: id, email: email, roles: standardRoles),
-        isNot(equals(const User(id: id, email: email, roles: guestRoles))),
-      );
-      expect(
-        const User(id: id, email: email, roles: standardRoles),
-        isNot(equals(const User(id: id, email: email, roles: adminRoles))),
+        User(
+          id: id,
+          email: email,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
+          createdAt: testCreatedAt,
+          lastAccountActionShownAt: testLastEngagementShownAt,
+        ),
+        isNot(
+          equals(
+            User(
+              id: id,
+              email: 'other@example.com',
+              appRole: appRoleStandard,
+              dashboardRole: dashboardRoleNone,
+              createdAt: testCreatedAt,
+              lastAccountActionShownAt: testLastEngagementShownAt,
+            ),
+          ),
+        ),
       );
       expect(
         User(
           id: id,
           email: email,
-          roles: standardRoles,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
+          createdAt: testCreatedAt,
           lastAccountActionShownAt: testLastEngagementShownAt,
         ),
         isNot(
@@ -71,8 +94,54 @@ void main() {
             User(
               id: id,
               email: email,
-              roles: standardRoles,
-              lastAccountActionShownAt: DateTime.utc(2024),
+              appRole: appRoleGuest,
+              dashboardRole: dashboardRoleNone,
+              createdAt: testCreatedAt,
+              lastAccountActionShownAt: testLastEngagementShownAt,
+            ),
+          ),
+        ),
+      );
+      expect(
+        User(
+          id: id,
+          email: email,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
+          createdAt: testCreatedAt,
+          lastAccountActionShownAt: testLastEngagementShownAt,
+        ),
+        isNot(
+          equals(
+            User(
+              id: id,
+              email: email,
+              appRole: appRoleStandard,
+              dashboardRole: dashboardRoleAdmin,
+              createdAt: testCreatedAt,
+              lastAccountActionShownAt: testLastEngagementShownAt,
+            ),
+          ),
+        ),
+      );
+      expect(
+        User(
+          id: id,
+          email: email,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
+          createdAt: testCreatedAt,
+          lastAccountActionShownAt: testLastEngagementShownAt,
+        ),
+        isNot(
+          equals(
+            User(
+              id: id,
+              email: email,
+              appRole: appRoleStandard,
+              dashboardRole: dashboardRoleNone,
+              createdAt: DateTime.utc(2024),
+              lastAccountActionShownAt: testLastEngagementShownAt,
             ),
           ),
         ),
@@ -83,14 +152,16 @@ void main() {
       final user = User(
         id: id,
         email: email,
-        roles: standardRoles,
+        appRole: appRoleStandard,
+        dashboardRole: dashboardRoleNone,
         createdAt: testCreatedAt,
         lastAccountActionShownAt: testLastEngagementShownAt,
       );
       expect(user.props, [
         id,
         email,
-        standardRoles,
+        appRoleStandard,
+        dashboardRoleNone,
         testCreatedAt,
         testLastEngagementShownAt,
       ]);
@@ -98,33 +169,18 @@ void main() {
 
     test('has correct toString', () {
       expect(
-        const User(id: id, email: email, roles: standardRoles).toString(),
-        equals(
-          'User(id: $id, email: $email, roles: $standardRoles, createdAt: null, lastEngagementShownAt: null)',
-        ),
-      );
-      expect(
-        const User(id: id, roles: guestRoles).toString(),
-        equals(
-          'User(id: $id, email: null, roles: $guestRoles, createdAt: null, lastEngagementShownAt: null)',
-        ),
-      );
-      expect(
-        const User(id: id, roles: adminRoles).toString(),
-        equals(
-          'User(id: $id, email: null, roles: $adminRoles, createdAt: null, lastEngagementShownAt: null)',
-        ),
-      );
-      expect(
         User(
           id: id,
           email: email,
-          roles: standardRoles,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
           createdAt: testCreatedAt,
           lastAccountActionShownAt: testLastEngagementShownAt,
         ).toString(),
         equals(
-          'User(id: $id, email: $email, roles: $standardRoles, createdAt: $testCreatedAt, lastEngagementShownAt: $testLastEngagementShownAt)',
+          'User(id: $id, email: $email, appRole: $appRoleStandard, '
+          'dashboardRole: $dashboardRoleNone, createdAt: $testCreatedAt, '
+          'lastAccountActionShownAt: $testLastEngagementShownAt)',
         ),
       );
     });
@@ -134,7 +190,8 @@ void main() {
         final original = User(
           id: id,
           email: email,
-          roles: standardRoles,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
           createdAt: testCreatedAt,
           lastAccountActionShownAt: testLastEngagementShownAt,
         );
@@ -143,24 +200,34 @@ void main() {
       });
 
       test('updates specified fields', () {
-        const original = User(id: id, roles: standardRoles);
+        final original = User(
+          id: id,
+          email: email,
+          appRole: appRoleStandard,
+          dashboardRole: dashboardRoleNone,
+          createdAt: testCreatedAt,
+          lastAccountActionShownAt: testLastEngagementShownAt,
+        );
         const newEmail = 'new@example.com';
-        const newRoles = [UserRoles.premiumUser];
+        const newAppRole = AppUserRole.premiumUser;
+        const newDashboardRole = DashboardUserRole.admin;
         final newCreatedAt = DateTime.utc(2024);
-        final newLastEngagementShownAt = DateTime.utc(2024, 1, 2);
+        final newLastAccountActionShownAt = DateTime.utc(2024, 1, 2);
 
         final copied = original.copyWith(
           email: newEmail,
-          roles: newRoles,
+          appRole: newAppRole,
+          dashboardRole: newDashboardRole,
           createdAt: newCreatedAt,
-          lastEngagementShownAt: newLastEngagementShownAt,
+          lastAccountActionShownAt: newLastAccountActionShownAt,
         );
 
         expect(copied.id, id);
         expect(copied.email, newEmail);
-        expect(copied.roles, newRoles);
+        expect(copied.appRole, newAppRole);
+        expect(copied.dashboardRole, newDashboardRole);
         expect(copied.createdAt, newCreatedAt);
-        expect(copied.lastAccountActionShownAt, newLastEngagementShownAt);
+        expect(copied.lastAccountActionShownAt, newLastAccountActionShownAt);
       });
     });
 
@@ -168,7 +235,8 @@ void main() {
       final user = User(
         id: id,
         email: email,
-        roles: standardRoles,
+        appRole: appRoleStandard,
+        dashboardRole: dashboardRoleNone,
         createdAt: testCreatedAt,
         lastAccountActionShownAt: testLastEngagementShownAt,
       );
@@ -180,13 +248,27 @@ void main() {
         testLastEngagementShownAt,
       );
 
-      const anonUser = User(id: id, roles: guestRoles);
+      final anonUser = User(
+        id: id,
+        email: email,
+        appRole: appRoleGuest,
+        dashboardRole: dashboardRoleNone,
+        createdAt: testCreatedAt,
+        lastAccountActionShownAt: testCreatedAt,
+      );
       final anonJson = anonUser.toJson();
       final deserializedAnonUser = User.fromJson(anonJson);
       expect(deserializedAnonUser, equals(anonUser));
-      expect(deserializedAnonUser.lastAccountActionShownAt, isNull);
+      expect(deserializedAnonUser.lastAccountActionShownAt, testCreatedAt);
 
-      const adminUser = User(id: id, email: email, roles: adminRoles);
+      final adminUser = User(
+        id: id,
+        email: email,
+        appRole: appRolePremium,
+        dashboardRole: dashboardRoleAdmin,
+        createdAt: testCreatedAt,
+        lastAccountActionShownAt: testLastEngagementShownAt,
+      );
       final adminJson = adminUser.toJson();
       final deserializedAdminUser = User.fromJson(adminJson);
       expect(deserializedAdminUser, equals(adminUser));

@@ -5,7 +5,6 @@ import 'package:ht_shared/src/models/entities/source.dart';
 import 'package:ht_shared/src/utils/json_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:uuid/uuid.dart';
 
 part 'headline.g.dart';
 
@@ -15,32 +14,21 @@ part 'headline.g.dart';
 /// Represents a news headline item.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class Headline extends FeedItem {
   /// {@macro headline}
-  Headline({
+  const Headline({
+    required this.id,
     required this.title,
-    this.description,
-    this.url,
-    this.imageUrl,
-    this.publishedAt,
-    this.source,
-    this.category,
-    this.createdAt,
-    this.updatedAt,
-    this.status = ContentStatus.active,
-    String? id,
-  }) : assert(
-         id == null || id.isNotEmpty,
-         'id cannot be an empty string', // Updated assertion message
-       ),
-       id = id ?? const Uuid().v4(),
-       super(type: 'headline');
+    required this.excerpt,
+    required this.url,
+    required this.imageUrl,
+    required this.source,
+    required this.category,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.status,
+  }) : super(type: 'headline');
 
   /// Creates a [Headline] instance from a JSON map.
   factory Headline.fromJson(Map<String, dynamic> json) =>
@@ -52,42 +40,36 @@ class Headline extends FeedItem {
   /// Title of the headline.
   final String title;
 
-  /// Description or snippet of the headline content.
-  final String? description;
+  /// Excerpt or snippet of the headline content.
+  final String excerpt;
 
   /// URL to the full article or content.
-  final String? url;
+  final String url;
 
   /// URL to an image associated with the headline.
-  final String? imageUrl;
-
-  /// The external timestamp from the original news source, indicating when the
-  /// article was officially published to the world.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
-  final DateTime? publishedAt;
+  final String imageUrl;
 
   /// Source or origin of the headline.
-  final Source? source;
+  final Source source;
 
   /// The internal timestamp recording when this headline was first ingested
   /// and saved into our system.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The internal timestamp of the last update to this headline record in our
   /// system.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   /// The current status of the headline.
   ///
   /// Defaults to `active` if the field is not present in the JSON payload,
   /// ensuring backward compatibility. This is suitable for ingested content.
-  @JsonKey(defaultValue: ContentStatus.active)
   final ContentStatus status;
 
   /// Category of the current headline.
-  final Category? category;
+  final Category category;
 
   /// Converts this [Headline] instance to a JSON map.
   @override
@@ -101,10 +83,9 @@ class Headline extends FeedItem {
   List<Object?> get props => [
     id,
     title,
-    description,
+    excerpt,
     url,
     imageUrl,
-    publishedAt,
     createdAt,
     updatedAt,
     status,
@@ -121,10 +102,9 @@ class Headline extends FeedItem {
   Headline copyWith({
     String? id,
     String? title,
-    String? description,
+    String? excerpt,
     String? url,
     String? imageUrl,
-    DateTime? publishedAt,
     DateTime? createdAt,
     DateTime? updatedAt,
     ContentStatus? status,
@@ -134,10 +114,9 @@ class Headline extends FeedItem {
     return Headline(
       id: id ?? this.id,
       title: title ?? this.title,
-      description: description ?? this.description,
+      excerpt: excerpt ?? this.excerpt,
       url: url ?? this.url,
       imageUrl: imageUrl ?? this.imageUrl,
-      publishedAt: publishedAt ?? this.publishedAt,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
       status: status ?? this.status,

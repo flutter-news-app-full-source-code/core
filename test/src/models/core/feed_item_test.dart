@@ -3,36 +3,63 @@ import 'package:test/test.dart';
 
 void main() {
   group('FeedItem', () {
+    final testDateTime = DateTime.utc(2023);
     final mockCountry = Country(
       id: 'country-1',
       isoCode: 'US',
       name: 'United States',
       flagUrl: 'http://example.com/us.png',
+      createdAt: testDateTime,
+      updatedAt: testDateTime,
+      status: ContentStatus.active,
     );
     final mockSource = Source(
       id: 'source-1',
       name: 'Example News',
+      description: 'A reliable news source.',
       url: 'http://example.com',
       sourceType: SourceType.newsAgency,
+      language: 'en',
+      headquarters: mockCountry,
+      createdAt: testDateTime,
+      updatedAt: testDateTime,
+      status: ContentStatus.active,
     );
-    final mockCategory = Category(id: 'category-1', name: 'Technology');
+    final mockCategory = Category(
+      id: 'category-1',
+      name: 'Technology',
+      description: 'Technology news',
+      iconUrl: 'http://example.com/tech.png',
+      createdAt: testDateTime,
+      updatedAt: testDateTime,
+      status: ContentStatus.active,
+    );
     final mockHeadline = Headline(
       id: 'headline-1',
       title: 'Example Headline',
+      excerpt: 'This is an example headline description.',
       url: 'http://example.com/headline',
-      publishedAt: DateTime.utc(2023),
+      imageUrl: 'http://example.com/headline.jpg',
+      source: mockSource,
+      category: mockCategory,
+      createdAt: testDateTime,
+      updatedAt: testDateTime,
+      status: ContentStatus.active,
     );
-    final mockAd = Ad(
+    const mockAd = Ad(
       id: 'ad-1',
       imageUrl: 'http://example.com/ad.jpg',
       targetUrl: 'http://example.com/ad-target',
       adType: AdType.banner,
       placement: AdPlacement.feedInlineStandardBanner,
     );
-    final mockAccountAction = AccountAction(
+    const mockAccountAction = AccountAction(
       id: 'engagement-1', // Keep id for consistency if tests rely on it
       title: 'Sign Up Now',
       accountActionType: AccountActionType.linkAccount,
+      description: 'Test Description',
+      callToActionText: 'Test CTA',
+      callToActionUrl: 'https://test.com',
     );
 
     group('fromJson', () {

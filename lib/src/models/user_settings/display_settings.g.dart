@@ -7,60 +7,37 @@ part of 'display_settings.dart';
 // **************************************************************************
 
 DisplaySettings _$DisplaySettingsFromJson(Map<String, dynamic> json) =>
-    $checkedCreate(
-      'DisplaySettings',
-      json,
-      ($checkedConvert) {
-        final val = DisplaySettings(
-          baseTheme: $checkedConvert(
-            'base_theme',
-            (v) =>
-                $enumDecodeNullable(_$AppBaseThemeEnumMap, v) ??
-                AppBaseTheme.system,
-          ),
-          accentTheme: $checkedConvert(
-            'accent_theme',
-            (v) =>
-                $enumDecodeNullable(_$AppAccentThemeEnumMap, v) ??
-                AppAccentTheme.defaultBlue,
-          ),
-          fontFamily: $checkedConvert(
-            'font_family',
-            (v) => v as String? ?? 'SystemDefault',
-          ),
-          textScaleFactor: $checkedConvert(
-            'text_scale_factor',
-            (v) =>
-                $enumDecodeNullable(_$AppTextScaleFactorEnumMap, v) ??
-                AppTextScaleFactor.medium,
-          ),
-          fontWeight: $checkedConvert(
-            'font_weight',
-            (v) =>
-                $enumDecodeNullable(_$AppFontWeightEnumMap, v) ??
-                AppFontWeight.regular,
-          ),
-        );
-        return val;
-      },
-      fieldKeyMap: const {
-        'baseTheme': 'base_theme',
-        'accentTheme': 'accent_theme',
-        'fontFamily': 'font_family',
-        'textScaleFactor': 'text_scale_factor',
-        'fontWeight': 'font_weight',
-      },
-    );
+    $checkedCreate('DisplaySettings', json, ($checkedConvert) {
+      final val = DisplaySettings(
+        baseTheme: $checkedConvert(
+          'baseTheme',
+          (v) => $enumDecode(_$AppBaseThemeEnumMap, v),
+        ),
+        accentTheme: $checkedConvert(
+          'accentTheme',
+          (v) => $enumDecode(_$AppAccentThemeEnumMap, v),
+        ),
+        fontFamily: $checkedConvert('fontFamily', (v) => v as String),
+        textScaleFactor: $checkedConvert(
+          'textScaleFactor',
+          (v) => $enumDecode(_$AppTextScaleFactorEnumMap, v),
+        ),
+        fontWeight: $checkedConvert(
+          'fontWeight',
+          (v) => $enumDecode(_$AppFontWeightEnumMap, v),
+        ),
+      );
+      return val;
+    });
 
-Map<String, dynamic> _$DisplaySettingsToJson(
-  DisplaySettings instance,
-) => <String, dynamic>{
-  'base_theme': _$AppBaseThemeEnumMap[instance.baseTheme]!,
-  'accent_theme': _$AppAccentThemeEnumMap[instance.accentTheme]!,
-  'font_family': instance.fontFamily,
-  'text_scale_factor': _$AppTextScaleFactorEnumMap[instance.textScaleFactor]!,
-  'font_weight': _$AppFontWeightEnumMap[instance.fontWeight]!,
-};
+Map<String, dynamic> _$DisplaySettingsToJson(DisplaySettings instance) =>
+    <String, dynamic>{
+      'baseTheme': _$AppBaseThemeEnumMap[instance.baseTheme]!,
+      'accentTheme': _$AppAccentThemeEnumMap[instance.accentTheme]!,
+      'fontFamily': instance.fontFamily,
+      'textScaleFactor': _$AppTextScaleFactorEnumMap[instance.textScaleFactor]!,
+      'fontWeight': _$AppFontWeightEnumMap[instance.fontWeight]!,
+    };
 
 const _$AppBaseThemeEnumMap = {
   AppBaseTheme.light: 'light',
@@ -69,9 +46,9 @@ const _$AppBaseThemeEnumMap = {
 };
 
 const _$AppAccentThemeEnumMap = {
-  AppAccentTheme.defaultBlue: 'default_blue',
-  AppAccentTheme.newsRed: 'news_red',
-  AppAccentTheme.graphiteGray: 'graphite_gray',
+  AppAccentTheme.defaultBlue: 'defaultBlue',
+  AppAccentTheme.newsRed: 'newsRed',
+  AppAccentTheme.graphiteGray: 'graphiteGray',
 };
 
 const _$AppTextScaleFactorEnumMap = {

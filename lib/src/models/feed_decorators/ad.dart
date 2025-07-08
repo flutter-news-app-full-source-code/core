@@ -1,14 +1,13 @@
 import 'package:ht_shared/src/models/core/feed_item.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:uuid/uuid.dart';
 
 part 'ad.g.dart';
 
 /// {@template ad_type}
 /// Defines the visual format or type of an advertisement in the feed.
 /// {@endtemplate}
-@JsonEnum(fieldRename: FieldRename.snake)
+
 enum AdType {
   /// A banner advertisement, typically a rectangular image.
   banner,
@@ -26,7 +25,7 @@ enum AdType {
 /// {@template ad_placement}
 /// Defines specific, known locations or contexts where an ad might appear.
 /// {@endtemplate}
-@JsonEnum(fieldRename: FieldRename.snake)
+
 enum AdPlacement {
   /// A standard banner ad placed inline within the main feed.
   feedInlineStandardBanner,
@@ -40,22 +39,16 @@ enum AdPlacement {
 /// Represents an advertisement item that can appear in the feed.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class Ad extends FeedItem {
   /// {@macro ad}
-  Ad({
+  const Ad({
+    required this.id,
     required this.imageUrl,
     required this.targetUrl,
     required this.adType,
-    this.placement,
-    String? id,
-  }) : id = id ?? const Uuid().v4(),
-       super(type: 'ad');
+    required this.placement,
+  }) : super(type: 'ad');
 
   /// Factory method to create an [Ad] instance from a JSON map.
   factory Ad.fromJson(Map<String, dynamic> json) => _$AdFromJson(json);
@@ -70,13 +63,11 @@ class Ad extends FeedItem {
   final String targetUrl;
 
   /// The type of the ad, indicating its visual format.
-  /// Will be null if an unknown value is encountered during deserialization.
-
-  final AdType? adType;
+  final AdType adType;
 
   /// An optional identifier indicating the intended placement or slot
   /// for this ad in the UI.
-  final AdPlacement? placement;
+  final AdPlacement placement;
 
   /// Converts this [Ad] instance to a JSON map.
   @override

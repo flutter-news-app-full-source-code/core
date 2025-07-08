@@ -8,7 +8,7 @@ void main() {
     const categoryCount = 20;
     const sourceCount = 10;
 
-    final summary = DashboardSummary(
+    const summary = DashboardSummary(
       id: id,
       headlineCount: headlineCount,
       categoryCount: categoryCount,
@@ -17,9 +17,9 @@ void main() {
 
     final summaryJson = {
       'id': id,
-      'headline_count': headlineCount,
-      'category_count': categoryCount,
-      'source_count': sourceCount,
+      'headlineCount': headlineCount,
+      'categoryCount': categoryCount,
+      'sourceCount': sourceCount,
     };
 
     test('can be instantiated', () {
@@ -28,7 +28,7 @@ void main() {
 
     test('supports value equality', () {
       expect(
-        DashboardSummary(
+        const DashboardSummary(
           id: id,
           headlineCount: headlineCount,
           categoryCount: categoryCount,

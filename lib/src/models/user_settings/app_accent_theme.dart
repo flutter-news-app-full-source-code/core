@@ -1,5 +1,3 @@
-import 'package:json_annotation/json_annotation.dart';
-
 /// {@template app_accent_theme}
 /// Represents a selection of predefined accent color themes.
 ///
@@ -8,7 +6,8 @@ import 'package:json_annotation/json_annotation.dart';
 /// The actual `ColorScheme` associated with each enum value would be defined
 /// within the application's theme configuration.
 /// {@endtemplate}
-@JsonEnum(fieldRename: FieldRename.snake)
+library;
+
 enum AppAccentTheme {
   /// The default blue accent theme.
   defaultBlue,

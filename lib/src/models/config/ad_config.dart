@@ -1,10 +1,9 @@
 import 'package:equatable/equatable.dart';
-import 'package:ht_shared/ht_shared.dart' show AppConfig;
-import 'package:ht_shared/src/models/models.dart' show AppConfig;
-import 'package:ht_shared/src/models/remote_config/app_config.dart'
-    show AppConfig;
-import 'package:ht_shared/src/models/remote_config/remote_config.dart'
-    show AppConfig;
+import 'package:ht_shared/ht_shared.dart' show RemoteConfig;
+import 'package:ht_shared/src/models/config/config.dart' show RemoteConfig;
+import 'package:ht_shared/src/models/config/remote_config.dart'
+    show RemoteConfig;
+import 'package:ht_shared/src/models/models.dart' show RemoteConfig;
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -14,7 +13,7 @@ part 'ad_config.g.dart';
 /// Defines configuration settings related to ad injection and display,
 /// tiered by user role.
 ///
-/// This model is part of the overall [AppConfig] and is used to control
+/// This model is part of the overall [RemoteConfig] and is used to control
 /// how ads are integrated into the application's feed or other content areas
 /// based on the user's authentication status or subscription level.
 ///
@@ -32,12 +31,7 @@ part 'ad_config.g.dart';
 /// - `AdFrequency` = 5: After the first 3 items, an ad *could* appear after item #5, then potentially after item #10, #15, etc.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class AdConfig extends Equatable {
   /// {@macro ad_config}
   const AdConfig({
@@ -47,9 +41,9 @@ class AdConfig extends Equatable {
     required this.authenticatedAdPlacementInterval,
     required this.premiumAdFrequency,
     required this.premiumAdPlacementInterval,
-    this.guestArticlesToReadBeforeShowingInterstitialAds = 5,
-    this.standardUserArticlesToReadBeforeShowingInterstitialAds = 5,
-    this.premiumUserArticlesToReadBeforeShowingInterstitialAds = 5,
+    required this.guestArticlesToReadBeforeShowingInterstitialAds,
+    required this.standardUserArticlesToReadBeforeShowingInterstitialAds,
+    required this.premiumUserArticlesToReadBeforeShowingInterstitialAds,
   });
 
   /// Factory method to create an [AdConfig] instance from a JSON map.

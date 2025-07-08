@@ -3,7 +3,6 @@ import 'package:ht_shared/src/models/core/feed_item.dart';
 import 'package:ht_shared/src/utils/utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:uuid/uuid.dart';
 
 part 'country.g.dart';
 
@@ -14,24 +13,18 @@ part 'country.g.dart';
 /// or user profile settings.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class Country extends FeedItem {
   /// {@macro country}
-  Country({
+  const Country({
     required this.isoCode,
     required this.name,
     required this.flagUrl,
-    String? id,
-    this.createdAt,
-    this.updatedAt,
-    this.status = ContentStatus.active,
-  }) : id = id ?? const Uuid().v4(),
-       super(type: 'country');
+    required this.id,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.status,
+  }) : super(type: 'country');
 
   /// Creates a Country instance from a JSON map.
   factory Country.fromJson(Map<String, dynamic> json) =>
@@ -41,28 +34,25 @@ class Country extends FeedItem {
   final String id;
 
   /// The unique ISO 3166-1 alpha-2 code for the country (e.g., "US", "GB").
-  @JsonKey(name: 'iso_code')
   final String isoCode;
 
   /// The common name of the country (e.g., "United States", "United Kingdom").
   final String name;
 
   /// The URL pointing to an image of the country's flag.
-  @JsonKey(name: 'flag_url')
   final String flagUrl;
 
   /// The creation timestamp of the country.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
-  final DateTime? createdAt;
+  final DateTime createdAt;
 
   /// The last update timestamp of the country.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
-  final DateTime? updatedAt;
+  final DateTime updatedAt;
 
   /// The current status of the country.
   /// Defaults to `active` if the field is not present in the JSON payload,
   /// ensuring backward compatibility.
-  @JsonKey(defaultValue: ContentStatus.active)
   final ContentStatus status;
 
   /// Converts this Country instance into a JSON map.

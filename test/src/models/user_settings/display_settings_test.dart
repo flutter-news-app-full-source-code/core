@@ -6,17 +6,17 @@ void main() {
     // Helper function to create a sample JSON map
     Map<String, dynamic> createJson({
       String baseTheme = 'system',
-      String accentTheme = 'default_blue',
+      String accentTheme = 'defaultBlue',
       String fontFamily = 'SystemDefault',
       String textScaleFactor = 'medium',
       String fontWeight = 'regular',
     }) {
       return {
-        'base_theme': baseTheme,
-        'accent_theme': accentTheme,
-        'font_family': fontFamily,
-        'text_scale_factor': textScaleFactor,
-        'font_weight': fontWeight,
+        'baseTheme': baseTheme,
+        'accentTheme': accentTheme,
+        'fontFamily': fontFamily,
+        'textScaleFactor': textScaleFactor,
+        'fontWeight': fontWeight,
       };
     }
 
@@ -55,7 +55,7 @@ void main() {
     });
 
     test('can be instantiated with default values', () {
-      const settings = DisplaySettings();
+      final settings = createSubject();
       expect(settings.baseTheme, AppBaseTheme.system);
       expect(settings.accentTheme, AppAccentTheme.defaultBlue);
       expect(settings.fontFamily, 'SystemDefault');
@@ -102,7 +102,7 @@ void main() {
       test('handles different enum values', () {
         final json = createJson(
           baseTheme: 'light',
-          accentTheme: 'graphite_gray',
+          accentTheme: 'graphiteGray',
           fontFamily: 'Merriweather',
           textScaleFactor: 'small',
           fontWeight: 'light',

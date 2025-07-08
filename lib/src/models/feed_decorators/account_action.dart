@@ -1,14 +1,13 @@
 import 'package:ht_shared/src/models/core/feed_item.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:uuid/uuid.dart';
 
 part 'account_action.g.dart';
 
 /// {@template account_action_type}
 /// Defines the specific type or purpose of an [AccountAction] item.
 /// {@endtemplate}
-@JsonEnum(fieldRename: FieldRename.snake)
+
 enum AccountActionType {
   /// A call-to-action to link an account.
   linkAccount,
@@ -25,23 +24,17 @@ enum AccountActionType {
 /// of the call-to-action.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-  explicitToJson: true,
-  includeIfNull: false,
-  checked: true,
-)
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class AccountAction extends FeedItem {
   /// {@macro account_action}
-  AccountAction({
+  const AccountAction({
+    required this.id,
     required this.title,
     required this.accountActionType,
-    this.description,
-    this.callToActionText,
-    this.callToActionUrl,
-    String? id,
-  }) : id = id ?? const Uuid().v4(),
-       super(type: 'account_action');
+    required this.description,
+    required this.callToActionText,
+    required this.callToActionUrl,
+  }) : super(type: 'account_action');
 
   /// Factory method to create an [AccountAction] instance from a JSON map.
   factory AccountAction.fromJson(Map<String, dynamic> json) =>
@@ -54,17 +47,16 @@ class AccountAction extends FeedItem {
   final String title;
 
   /// An optional description providing more details.
-  final String? description;
+  final String description;
 
   /// The type of account action.
-  /// Will be null if an unknown value is encountered during deserialization.
-  final AccountActionType? accountActionType;
+  final AccountActionType accountActionType;
 
   /// The text for the call-to-action button or link.
-  final String? callToActionText;
+  final String callToActionText;
 
   /// The URL to navigate to when the call-to-action is triggered.
-  final String? callToActionUrl;
+  final String callToActionUrl;
 
   /// Converts this [AccountAction] instance to a JSON map.
   @override
@@ -99,10 +91,10 @@ class AccountAction extends FeedItem {
     return AccountAction(
       id: id ?? this.id,
       title: title ?? this.title,
-      description: description,
+      description: description ?? this.description,
       accountActionType: accountActionType ?? this.accountActionType,
-      callToActionText: callToActionText,
-      callToActionUrl: callToActionUrl,
+      callToActionText: callToActionText ?? this.callToActionText,
+      callToActionUrl: callToActionUrl ?? this.callToActionUrl,
     );
   }
 }

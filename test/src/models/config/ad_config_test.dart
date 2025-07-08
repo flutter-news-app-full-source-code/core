@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/models/remote_config/ad_config.dart';
+import 'package:ht_shared/src/models/config/ad_config.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -23,6 +23,8 @@ void main() {
       guestArticlesToReadBeforeShowingInterstitialAds: testGuestArticlesToRead,
       standardUserArticlesToReadBeforeShowingInterstitialAds:
           testStandardUserArticlesToRead,
+      premiumUserArticlesToReadBeforeShowingInterstitialAds:
+          testPremiumUserArticlesToRead,
     );
 
     group('constructor', () {
@@ -58,42 +60,42 @@ void main() {
     group('fromJson', () {
       test('returns correct instance from JSON', () {
         final json = <String, dynamic>{
-          'guest_ad_frequency': testGuestAdFrequency,
-          'guest_ad_placement_interval': testGuestAdPlacementInterval,
-          'authenticated_ad_frequency': testAuthenticatedAdFrequency,
-          'authenticated_ad_placement_interval':
+          'guestAdFrequency': testGuestAdFrequency,
+          'guestAdPlacementInterval': testGuestAdPlacementInterval,
+          'authenticatedAdFrequency': testAuthenticatedAdFrequency,
+          'authenticatedAdPlacementInterval':
               testAuthenticatedAdPlacementInterval,
-          'premium_ad_frequency': testPremiumAdFrequency,
-          'premium_ad_placement_interval': testPremiumAdPlacementInterval,
-          'guest_articles_to_read_before_showing_interstitial_ads':
+          'premiumAdFrequency': testPremiumAdFrequency,
+          'premiumAdPlacementInterval': testPremiumAdPlacementInterval,
+          'guestArticlesToReadBeforeShowingInterstitialAds':
               testGuestArticlesToRead,
-          'standard_user_articles_to_read_before_showing_interstitial_ads':
+          'standardUserArticlesToReadBeforeShowingInterstitialAds':
               testStandardUserArticlesToRead,
-          'premium_user_articles_to_read_before_showing_interstitial_ads':
+          'premiumUserArticlesToReadBeforeShowingInterstitialAds':
               testPremiumUserArticlesToRead,
         };
         final result = AdConfig.fromJson(json);
         expect(result, equals(adConfig));
       });
 
-      test('returns correct instance with default values for new fields', () {
+      test('returns correct instance from JSON with all fields', () {
         final json = <String, dynamic>{
-          'guest_ad_frequency': testGuestAdFrequency,
-          'guest_ad_placement_interval': testGuestAdPlacementInterval,
-          'authenticated_ad_frequency': testAuthenticatedAdFrequency,
-          'authenticated_ad_placement_interval':
+          'guestAdFrequency': testGuestAdFrequency,
+          'guestAdPlacementInterval': testGuestAdPlacementInterval,
+          'authenticatedAdFrequency': testAuthenticatedAdFrequency,
+          'authenticatedAdPlacementInterval':
               testAuthenticatedAdPlacementInterval,
-          'premium_ad_frequency': testPremiumAdFrequency,
-          'premium_ad_placement_interval': testPremiumAdPlacementInterval,
-          // New fields are omitted, so defaults should be used
+          'premiumAdFrequency': testPremiumAdFrequency,
+          'premiumAdPlacementInterval': testPremiumAdPlacementInterval,
+          'guestArticlesToReadBeforeShowingInterstitialAds':
+              testGuestArticlesToRead,
+          'standardUserArticlesToReadBeforeShowingInterstitialAds':
+              testStandardUserArticlesToRead,
+          'premiumUserArticlesToReadBeforeShowingInterstitialAds':
+              testPremiumUserArticlesToRead,
         };
         final result = AdConfig.fromJson(json);
-        expect(result.guestArticlesToReadBeforeShowingInterstitialAds, 5);
-        expect(
-          result.standardUserArticlesToReadBeforeShowingInterstitialAds,
-          5,
-        );
-        expect(result.premiumUserArticlesToReadBeforeShowingInterstitialAds, 5);
+        expect(result, equals(adConfig));
       });
     });
 
@@ -101,18 +103,18 @@ void main() {
       test('returns correct JSON map', () {
         final json = adConfig.toJson();
         expect(json, <String, dynamic>{
-          'guest_ad_frequency': testGuestAdFrequency,
-          'guest_ad_placement_interval': testGuestAdPlacementInterval,
-          'authenticated_ad_frequency': testAuthenticatedAdFrequency,
-          'authenticated_ad_placement_interval':
+          'guestAdFrequency': testGuestAdFrequency,
+          'guestAdPlacementInterval': testGuestAdPlacementInterval,
+          'authenticatedAdFrequency': testAuthenticatedAdFrequency,
+          'authenticatedAdPlacementInterval':
               testAuthenticatedAdPlacementInterval,
-          'premium_ad_frequency': testPremiumAdFrequency,
-          'premium_ad_placement_interval': testPremiumAdPlacementInterval,
-          'guest_articles_to_read_before_showing_interstitial_ads':
+          'premiumAdFrequency': testPremiumAdFrequency,
+          'premiumAdPlacementInterval': testPremiumAdPlacementInterval,
+          'guestArticlesToReadBeforeShowingInterstitialAds':
               testGuestArticlesToRead,
-          'standard_user_articles_to_read_before_showing_interstitial_ads':
+          'standardUserArticlesToReadBeforeShowingInterstitialAds':
               testStandardUserArticlesToRead,
-          'premium_user_articles_to_read_before_showing_interstitial_ads':
+          'premiumUserArticlesToReadBeforeShowingInterstitialAds':
               testPremiumUserArticlesToRead,
         });
       });
