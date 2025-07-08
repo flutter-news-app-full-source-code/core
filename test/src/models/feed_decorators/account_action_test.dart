@@ -1,4 +1,5 @@
 import 'package:ht_shared/ht_shared.dart';
+import 'package:ht_shared/src/enums/feed_action_type.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';
@@ -11,15 +12,15 @@ void main() {
       testId = const Uuid().v4();
     });
 
-    AccountAction createSubject({
+    FeedAction createSubject({
       String? id,
       String title = 'Test Title',
-      AccountActionType accountActionType = AccountActionType.linkAccount,
+      FeedActionType accountActionType = FeedActionType.linkAccount,
       String description = 'Test Description',
       String callToActionText = 'Test CTA',
       String callToActionUrl = 'https://test.com',
     }) {
-      return AccountAction(
+      return FeedAction(
         id: id ?? const Uuid().v4(),
         title: title,
         accountActionType: accountActionType,
@@ -61,7 +62,7 @@ void main() {
         id: testId,
         title: 'Title',
         description: 'Description',
-        accountActionType: AccountActionType.upgrade, // Changed from rateApp
+        accountActionType: FeedActionType.upgrade, // Changed from rateApp
         callToActionText: 'Click Me',
         callToActionUrl: 'https://cta.com',
       );
@@ -70,7 +71,7 @@ void main() {
         testId,
         'Title',
         'Description',
-        AccountActionType.upgrade, // Changed from rateApp
+        FeedActionType.upgrade, // Changed from rateApp
         'Click Me',
         'https://cta.com',
         'account_action',
@@ -89,12 +90,12 @@ void main() {
           'type': 'account_action',
         };
 
-        final instance = AccountAction.fromJson(json);
+        final instance = FeedAction.fromJson(json);
 
         expect(instance.id, testId);
         expect(instance.title, 'Sign Up Now');
         expect(instance.description, 'Create an account to save preferences.');
-        expect(instance.accountActionType, AccountActionType.linkAccount);
+        expect(instance.accountActionType, FeedActionType.linkAccount);
         expect(instance.callToActionText, 'Sign Up');
         expect(instance.callToActionUrl, 'https://example.com/signup');
         expect(instance.type, 'account_action');
@@ -111,12 +112,12 @@ void main() {
           'type': 'account_action',
         };
 
-        final instance = AccountAction.fromJson(json);
+        final instance = FeedAction.fromJson(json);
 
         expect(instance.id, testId);
         expect(instance.title, 'Simple Title');
         expect(instance.description, 'Simple Description');
-        expect(instance.accountActionType, AccountActionType.upgrade);
+        expect(instance.accountActionType, FeedActionType.upgrade);
         expect(instance.callToActionText, 'Simple CTA');
         expect(instance.callToActionUrl, 'https://simple.com');
       });
@@ -130,7 +131,7 @@ void main() {
         };
 
         expect(
-          () => AccountAction.fromJson(json),
+          () => FeedAction.fromJson(json),
           throwsA(isA<CheckedFromJsonException>()),
         );
       });
@@ -166,7 +167,7 @@ void main() {
           description: 'Simple Description',
           callToActionText: 'Simple CTA',
           callToActionUrl: 'https://simple.com',
-          accountActionType: AccountActionType.upgrade,
+          accountActionType: FeedActionType.upgrade,
         );
 
         final json = instance.toJson();
@@ -196,7 +197,7 @@ void main() {
         final copied = original.copyWith(
           title: 'New Title',
           description: 'New Description',
-          accountActionType: AccountActionType.upgrade,
+          accountActionType: FeedActionType.upgrade,
           callToActionText: 'New CTA',
           callToActionUrl: 'new.com',
         );
@@ -205,7 +206,7 @@ void main() {
         expect(copied.id, original.id); // ID should remain the same
         expect(copied.title, 'New Title');
         expect(copied.description, 'New Description');
-        expect(copied.accountActionType, AccountActionType.upgrade);
+        expect(copied.accountActionType, FeedActionType.upgrade);
         expect(copied.callToActionText, 'New CTA');
         expect(copied.callToActionUrl, 'new.com');
       });

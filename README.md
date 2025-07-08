@@ -22,7 +22,8 @@ Think of it as the common language 🗣️ that all parts of your news applicati
 This package includes well-defined Dart classes for:
 
 *   📰 **News Content:** `Headline`, `Category`, `Source`, `Country`
-*   🧩 **Feed System:** `FeedItem` (and its subtypes `Ad`, `EngagementContent`), `FeedItemAction`
+*   🧩 **Feed System:** `FeedItem` (and its subtypes `Ad`, `FeedAction`),
+    `FeedActionType`
 *   👤 **User Data:** `User`, `UserRole`, `Permission`, `UserContentPreferences`, `UserAppSettings`
 *   ⚙️ **Application Configuration:** `AppConfig` (containing `AdConfig` and `UserPreferenceConfig`)
 *   📊 **Dashboard:** `DashboardSummary`

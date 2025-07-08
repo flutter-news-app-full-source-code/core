@@ -12,7 +12,13 @@ final List<User> usersFixturesData = [
     appRole: AppUserRole.standardUser,
     dashboardRole: DashboardUserRole.admin,
     createdAt: DateTime.now().toUtc(),
-    lastAccountActionShownAt: DateTime.now().toUtc(),
+    feedActionStatus: const {
+      FeedActionType.linkAccount: UserFeedActionStatus(isCompleted: false),
+      FeedActionType.upgrade: UserFeedActionStatus(isCompleted: false),
+      FeedActionType.rateApp: UserFeedActionStatus(isCompleted: false),
+      FeedActionType.enableNotifications:
+          UserFeedActionStatus(isCompleted: false),
+    },
   ),
   // Add other initial users for testing if needed.
   // Example: A standard user

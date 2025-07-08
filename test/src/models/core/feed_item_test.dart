@@ -1,4 +1,5 @@
 import 'package:ht_shared/ht_shared.dart';
+import 'package:ht_shared/src/enums/feed_action_type.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -53,10 +54,10 @@ void main() {
       adType: AdType.banner,
       placement: AdPlacement.feedInlineStandardBanner,
     );
-    const mockAccountAction = AccountAction(
+    const mockAccountAction = FeedAction(
       id: 'engagement-1', // Keep id for consistency if tests rely on it
       title: 'Sign Up Now',
-      accountActionType: AccountActionType.linkAccount,
+      accountActionType: FeedActionType.linkAccount,
       description: 'Test Description',
       callToActionText: 'Test CTA',
       callToActionUrl: 'https://test.com',
@@ -101,7 +102,7 @@ void main() {
       test('dispatches to AccountAction.fromJson', () {
         final json = mockAccountAction.toJson();
         final feedItem = FeedItem.fromJson(json);
-        expect(feedItem, isA<AccountAction>());
+        expect(feedItem, isA<FeedAction>());
         expect(feedItem, equals(mockAccountAction));
       });
 

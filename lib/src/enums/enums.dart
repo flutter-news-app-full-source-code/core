@@ -1,3 +1,4 @@
+export 'feed_action_type.dart';
 export 'app_accent_theme.dart';
 export 'app_base_theme.dart';
 export 'app_font_weight.dart';

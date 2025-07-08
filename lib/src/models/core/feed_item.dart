@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
+import 'package:ht_shared/ht_shared.dart';
 import 'package:ht_shared/src/models/entities/category.dart';
 import 'package:ht_shared/src/models/entities/country.dart';
 import 'package:ht_shared/src/models/entities/headline.dart';
 import 'package:ht_shared/src/models/entities/source.dart';
-import 'package:ht_shared/src/models/feed_decorators/account_action.dart';
 import 'package:ht_shared/src/models/feed_decorators/ad.dart';
 
 /// {@template feed_item}
@@ -45,8 +45,8 @@ abstract class FeedItem extends Equatable {
         return Country.fromJson(json);
       case 'ad':
         return Ad.fromJson(json);
-      case 'account_action':
-        return AccountAction.fromJson(json);
+      case 'feed_action':
+        return FeedAction.fromJson(json);
       default:
         throw FormatException('Unknown FeedItem type: $type');
     }
