@@ -12,8 +12,8 @@ final sourcesFixturesData = <Source>[
     sourceType: SourceType.newsAgency,
     language: 'en',
     headquarters: countriesFixturesData[0], // United States
-    createdAt: DateTime.parse('2023-01-01T10:00:00Z'),
-    updatedAt: DateTime.parse('2023-01-01T10:00:00Z'),
+    createdAt: DateTime.parse('2023-01-01T10:00:000Z'),
+    updatedAt: DateTime.parse('2023-01-01T10:00:000Z'),
     status: ContentStatus.active,
   ),
   Source(
@@ -24,8 +24,8 @@ final sourcesFixturesData = <Source>[
     sourceType: SourceType.newsAgency,
     language: 'en',
     headquarters: countriesFixturesData[2], // United Kingdom
-    createdAt: DateTime.parse('2023-01-02T11:00:00Z'),
-    updatedAt: DateTime.parse('2023-01-02T11:00:00Z'),
+    createdAt: DateTime.parse('2023-01-02T11:00:000Z'),
+    updatedAt: DateTime.parse('2023-01-02T11:00:000Z'),
     status: ContentStatus.active,
   ),
   Source(
@@ -36,8 +36,8 @@ final sourcesFixturesData = <Source>[
     sourceType: SourceType.newsAgency,
     language: 'en',
     headquarters: countriesFixturesData[0], // United States
-    createdAt: DateTime.parse('2023-01-03T12:00:00Z'),
-    updatedAt: DateTime.parse('2023-01-03T12:00:00Z'),
+    createdAt: DateTime.parse('2023-01-03T12:00:000Z'),
+    updatedAt: DateTime.parse('2023-01-03T12:00:000Z'),
     status: ContentStatus.active,
   ),
   Source(
@@ -49,8 +49,8 @@ final sourcesFixturesData = <Source>[
     sourceType: SourceType.newsAgency,
     language: 'en',
     headquarters: countriesFixturesData[2], // United Kingdom
-    createdAt: DateTime.parse('2023-01-04T13:00:00Z'),
-    updatedAt: DateTime.parse('2023-01-04T13:00:00Z'),
+    createdAt: DateTime.parse('2023-01-04T13:00:000Z'),
+    updatedAt: DateTime.parse('2023-01-04T13:00:000Z'),
     status: ContentStatus.active,
   ),
   Source(
@@ -61,8 +61,8 @@ final sourcesFixturesData = <Source>[
     sourceType: SourceType.newsAgency,
     language: 'en',
     headquarters: countriesFixturesData[0], // United States
-    createdAt: DateTime.parse('2023-01-05T14:00:00Z'),
-    updatedAt: DateTime.parse('2023-01-05T14:00:00Z'),
+    createdAt: DateTime.parse('2023-01-05T14:00:000Z'),
+    updatedAt: DateTime.parse('2023-01-05T14:00:000Z'),
     status: ContentStatus.active,
   ),
   Source(
@@ -73,8 +73,8 @@ final sourcesFixturesData = <Source>[
     sourceType: SourceType.newsAgency,
     language: 'en',
     headquarters: countriesFixturesData[0], // United States
-    createdAt: DateTime.parse('2023-01-06T15:00:00Z'),
-    updatedAt: DateTime.parse('2023-01-06T15:00:00Z'),
+    createdAt: DateTime.parse('2023-01-06T15:00:000Z'),
+    updatedAt: DateTime.parse('2023-01-06T15:00:000Z'),
     status: ContentStatus.active,
   ),
   Source(
@@ -87,8 +87,8 @@ final sourcesFixturesData = <Source>[
     language: 'en',
     headquarters:
         countriesFixturesData[0], // United States (assuming for simplicity, actual is Qatar)
-    createdAt: DateTime.parse('2023-01-07T16:00:00Z'),
-    updatedAt: DateTime.parse('2023-01-07T16:00:00Z'),
+    createdAt: DateTime.parse('2023-01-07T16:00:000Z'),
+    updatedAt: DateTime.parse('2023-01-07T16:00:000Z'),
     status: ContentStatus.active,
   ),
   Source(
@@ -99,8 +99,8 @@ final sourcesFixturesData = <Source>[
     sourceType: SourceType.newsAgency,
     language: 'en',
     headquarters: countriesFixturesData[7], // China
-    createdAt: DateTime.parse('2023-01-08T17:00:00Z'),
-    updatedAt: DateTime.parse('2023-01-08T17:00:00Z'),
+    createdAt: DateTime.parse('2023-01-08T17:00:000Z'),
+    updatedAt: DateTime.parse('2023-01-08T17:00:000Z'),
     status: ContentStatus.active,
   ),
   Source(
@@ -111,8 +111,8 @@ final sourcesFixturesData = <Source>[
     sourceType: SourceType.newsAgency,
     language: 'en',
     headquarters: countriesFixturesData[8], // India
-    createdAt: DateTime.parse('2023-01-09T18:00:00Z'),
-    updatedAt: DateTime.parse('2023-01-09T18:00:00Z'),
+    createdAt: DateTime.parse('2023-01-09T18:00:000Z'),
+    updatedAt: DateTime.parse('2023-01-09T18:00:000Z'),
     status: ContentStatus.active,
   ),
   Source(
@@ -123,8 +123,8 @@ final sourcesFixturesData = <Source>[
     sourceType: SourceType.newsAgency,
     language: 'pt',
     headquarters: countriesFixturesData[9], // Brazil
-    createdAt: DateTime.parse('2023-01-10T19:00:00Z'),
-    updatedAt: DateTime.parse('2023-01-10T19:00:00Z'),
+    createdAt: DateTime.parse('2023-01-10T19:00:000Z'),
+    updatedAt: DateTime.parse('2023-01-10T19:00:000Z'),
     status: ContentStatus.active,
   ),
 ];
