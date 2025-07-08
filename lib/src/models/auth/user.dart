@@ -7,10 +7,6 @@ import 'package:meta/meta.dart';
 part 'user.g.dart';
 
 /// Represents a user within the system.
-///
-/// This model holds basic information about the user, including their
-/// unique identifier, email (if available), and their assigned [roles].
-
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class User extends Equatable {

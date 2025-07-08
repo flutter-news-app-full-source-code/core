@@ -1,6 +1,4 @@
 import 'package:ht_shared/ht_shared.dart';
-import 'package:ht_shared/src/enums/app_user_role.dart';
-import 'package:ht_shared/src/enums/dashboard_user_role.dart';
 
 /// A list of initial user data to be loaded into the in-memory user repository.
 ///

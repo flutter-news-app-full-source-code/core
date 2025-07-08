@@ -1,1714 +1,658 @@
-/// Headlines Demo Data
-const headlinesFixturesData = [
-  {
-    'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef',
-    'title': 'Dart Frog 1.0 Released!',
-    'description':
-        'The minimalist backend framework for Dart reaches a major milestone.',
-    'url': 'https://dartfrog.vgv.dev/docs/overview',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-04-20T10:00:00Z',
-    'source': {
-      'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Very Good Ventures Blog',
-      'url': 'https://vgv.dev/blog',
-      'source_type': 'blog',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description': 'News about software development and frameworks.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'b2c3d4e5-f6a7-8901-2345-67890abcdef0',
-    'title': 'Flutter Adaptive UI Best Practices',
-    'description':
-        'Building responsive and adaptive user interfaces in Flutter.',
-    'url': 'https://docs.flutter.dev/ui/layout/adaptive',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-04-22T14:30:00Z',
-    'source': {
-      'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Flutter Dev',
-      'url': 'https://flutter.dev',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Mobile Development',
-      'description': 'Articles related to mobile app development.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef1',
-    'title': 'New Study Shows Benefits of Dark Mode',
-    'description':
-        'Research indicates reduced eye strain with darker interfaces.',
-    'url': 'https://example.com/dark-mode-study',
-    'image_url': 'https://example.com/images/dark-mode.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-01T08:00:00Z',
-    'source': {
-      'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
-      'name': 'TechCrunch',
-      'url': 'https://techcrunch.com/',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description':
-          'News about software development, hardware, and the internet.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef2',
-    'title': 'Flutter Engage Highlights',
-    'description':
-        'Key announcements and sessions from the recent Flutter conference.',
-    'url': 'https://example.com/flutter-engage-highlights',
-    'image_url': 'https://example.com/images/flutter-engage.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-05T11:30:00Z',
-    'source': {
-      'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Flutter Dev',
-      'url': 'https://flutter.dev',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Mobile Development',
-      'description': 'Articles related to mobile app development.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'e5f6a7b8-c9d0-e123-f456-7890abcdef34',
-    'title': 'Global Stock Markets React to New Economic Data',
-    'description': 'Analysis of the latest trends in international finance.',
-    'url': 'https://example.com/global-markets',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-10T09:15:00Z',
-    'source': {
-      'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
-      'name': 'BBC News',
-      'url': 'https://www.bbc.com/news',
-      'source_type': 'national_news_outlet',
-      'language': 'en',
-      'headquarters': {
-        'id': 'country-gb',
-        'iso_code': 'GB',
-        'name': 'United Kingdom',
-        'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country',
-      },
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
-      'name': 'Business',
-      'description': 'News about companies, finance, and the economy.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'f6a7b8c9-d0e1-f234-a567-890abcdef56',
-    'title': 'Premier League Season Concludes',
-    'description': 'Review of the top moments and final standings.',
-    'url': 'https://example.com/premier-league-review',
-    'image_url': 'https://example.com/images/premier-league.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-15T16:00:00Z',
-    'source': {
-      'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
-      'name': 'BBC News',
-      'url': 'https://www.bbc.com/news',
-      'source_type': 'national_news_outlet',
-      'language': 'en',
-      'headquarters': {
-        'id': 'country-gb',
-        'iso_code': 'GB',
-        'name': 'United Kingdom',
-        'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country',
-      },
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
-      'name': 'Sports',
-      'description': 'Latest updates from the world of sports.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef78',
-    'title': 'New AI Model Achieves Breakthrough in Language Understanding',
-    'description':
-        'Researchers announce significant progress in natural language processing.',
-    'url': 'https://example.com/ai-breakthrough',
-    'image_url': 'https://example.com/images/ai-breakthrough.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-18T09:00:00Z',
-    'source': {
-      'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
-      'name': 'TechCrunch',
-      'url': 'https://techcrunch.com/',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description':
-          'News about software development, hardware, and the internet.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'b2c3d4e5-f6a7-8901-2345-67890abcdef90',
-    'title': 'Upcoming Features in Flutter 3.20',
-    'description':
-        "A look at what's coming in the next stable release of Flutter.",
-    'url': 'https://example.com/flutter-3-20-preview',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-20T14:00:00Z',
-    'source': {
-      'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Flutter Dev',
-      'url': 'https://flutter.dev',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Mobile Development',
-      'description': 'Articles related to mobile app development.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef12',
-    'title': 'Major Acquisition in the Semiconductor Industry',
-    'description':
-        'Company X acquires Company Y in a multi-billion dollar deal.',
-    'url': 'https://example.com/semiconductor-acquisition',
-    'image_url': 'https://example.com/images/acquisition.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-21T10:30:00Z',
-    'source': {
-      'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
-      'name': 'TechCrunch',
-      'url': 'https://techcrunch.com/',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
-      'name': 'Business',
-      'description': 'News about companies, finance, and the economy.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef34',
-    'title': 'Euro 2025 Qualifiers Update',
-    'description':
-        'Results and analysis from the latest international football matches.',
-    'url': 'https://example.com/euro-qualifiers',
-    'image_url': 'https://example.com/images/euro-qualifiers.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-22T19:45:00Z',
-    'source': {
-      'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
-      'name': 'BBC News',
-      'url': 'https://www.bbc.com/news',
-      'source_type': 'national_news_outlet',
-      'language': 'en',
-      'headquarters': {
-        'id': 'country-gb',
-        'iso_code': 'GB',
-        'name': 'United Kingdom',
-        'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country',
-      },
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
-      'name': 'Sports',
-      'description': 'Latest updates from the world of sports.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'e5f6a7b8-c9d0-e123-f456-7890abcdef56',
-    'title': 'The Future of Quantum Computing',
-    'description':
-        'Experts discuss the potential impact of quantum technology.',
-    'url': 'https://example.com/quantum-computing-future',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-23T11:00:00Z',
-    'source': {
-      'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Very Good Ventures Blog',
-      'url': 'https://vgv.dev/blog',
-      'source_type': 'blog',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description':
-          'News about software development, hardware, and the internet.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'f6a7b8c9-d0e1-f234-a567-890abcdef78',
-    'title': 'Building Cross-Platform Apps with Dart and Flutter',
-    'description':
-        'A guide to developing for multiple platforms from a single codebase.',
-    'url': 'https://example.com/cross-platform-guide',
-    'image_url': 'https://example.com/images/cross-platform.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-24T15:00:00Z',
-    'source': {
-      'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Flutter Dev',
-      'url': 'https://flutter.dev',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Mobile Development',
-      'description':
-          'Articles related to mobile app development for iOS and Android.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef90',
-    'title': 'Startup Funding Reaches Record Highs in Q2 2025',
-    'description': 'Venture capital investment continues to grow.',
-    'url': 'https://example.com/startup-funding-report',
-    'image_url': 'https://example.com/images/funding.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-25T09:00:00Z',
-    'source': {
-      'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
-      'name': 'TechCrunch',
-      'url': 'https://techcrunch.com/',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
-      'name': 'Business',
-      'description': 'News about companies, finance, and the economy.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'b2c3d4e5-f6a7-8901-2345-67890abcdef12',
-    'title': 'Wimbledon 2025 Preview',
-    'description':
-        'Analysis of the top contenders for the grass court championships.',
-    'url': 'https://example.com/wimbledon-preview',
-    'image_url': 'https://example.com/images/wimbledon.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-25T10:00:00Z',
-    'source': {
-      'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
-      'name': 'BBC News',
-      'url': 'https://www.bbc.com/news',
-      'source_type': 'national_news_outlet',
-      'language': 'en',
-      'headquarters': {
-        'id': 'country-gb',
-        'iso_code': 'GB',
-        'name': 'United Kingdom',
-        'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country',
-      },
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
-      'name': 'Sports',
-      'description': 'Latest updates from the world of sports.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef34',
-    'title': 'New Framework for Building Scalable Backend Services',
-    'description': 'Exploring a new approach to microservices architecture.',
-    'url': 'https://example.com/scalable-backend',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-25T11:00:00Z',
-    'source': {
-      'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Very Good Ventures Blog',
-      'url': 'https://vgv.dev/blog',
-      'source_type': 'blog',
-      'action': {
-        'type': 'open_internal_content',
-        'content_id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
-        'content_type': 'source',
-      },
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description':
-          'News about software development, hardware, and the internet.',
-      'action': {
-        'type': 'open_internal_content',
-        'content_id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-        'content_type': 'category',
-      },
-    },
-    'action': {
-      'type': 'open_internal_content',
-      'content_id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef34',
-      'content_type': 'headline',
-    },
-  },
-  {
-    'id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef56',
-    'title': 'Mobile App Security Best Practices for 2025',
-    'description':
-        'Key considerations for protecting user data in mobile applications.',
-    'url': 'https://example.com/mobile-security-guide',
-    'image_url': 'https://example.com/images/mobile-security.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-25T12:00:00Z',
-    'source': {
-      'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Flutter Dev',
-      'url': 'https://flutter.dev',
-      'source_type': 'specialized_publisher',
-      'action': {
-        'type': 'open_internal_content',
-        'content_id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-        'content_type': 'source',
-      },
-    },
-    'category': {
-      'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Mobile Development',
-      'description':
-          'Articles related to mobile app development for iOS and Android.',
-      'action': {
-        'type': 'open_internal_content',
-        'content_id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-        'content_type': 'category',
-      },
-    },
-    'action': {
-      'type': 'open_internal_content',
-      'content_id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef56',
-      'content_type': 'headline',
-    },
-  },
-  {
-    'id': 'e5f6a7b8-c9d0-e123-f456-7890abcdef78',
-    'title': 'Inflation Rates Continue to Fluctuate Globally',
-    'description': 'Economists analyze the latest reports on consumer prices.',
-    'url': 'https://example.com/inflation-report',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-25T13:00:00Z',
-    'source': {
-      'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
-      'name': 'BBC News',
-      'url': 'https://www.bbc.com/news',
-      'source_type': 'national_news_outlet',
-      'language': 'en',
-      'headquarters': {
-        'id': 'country-gb',
-        'iso_code': 'GB',
-        'name': 'United Kingdom',
-        'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country',
-      },
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
-      'name': 'Business',
-      'description': 'News about companies, finance, and the economy.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'f6a7b8c9-d0e1-f234-a567-890abcdef90',
-    'title': 'Champions League Final Preview',
-    'description':
-        'Analyzing the strengths and weaknesses of the two finalists.',
-    'url': 'https://example.com/champions-league-preview',
-    'image_url': 'https://example.com/images/champions-league.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-25T14:00:00Z',
-    'source': {
-      'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
-      'name': 'BBC News',
-      'url': 'https://www.bbc.com/news',
-      'source_type': 'national_news_outlet',
-      'language': 'en',
-      'headquarters': {
-        'id': 'country-gb',
-        'iso_code': 'GB',
-        'name': 'United Kingdom',
-        'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country',
-      },
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
-      'name': 'Sports',
-      'description': 'Latest updates from the world of sports.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef123',
-    'title': 'The Rise of Low-Code Development Platforms',
-    'description':
-        'How visual tools are changing the software development landscape.',
-    'url': 'https://example.com/low-code-platforms',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-25T15:00:00Z',
-    'source': {
-      'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Very Good Ventures Blog',
-      'url': 'https://vgv.dev/blog',
-      'source_type': 'blog',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description':
-          'News about software development, hardware, and the internet.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'b2c3d4e5-f6a7-8901-2345-67890abcdef456',
-    'title': 'State Management in Flutter: A Deep Dive',
-    'description':
-        'Comparing different approaches to managing application state.',
-    'url': 'https://example.com/flutter-state-management',
-    'image_url': 'https://example.com/images/state-management.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-25T16:00:00Z',
-    'source': {
-      'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Flutter Dev',
-      'url': 'https://flutter.dev',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Mobile Development',
-      'description':
-          'Articles related to mobile app development for iOS and Android.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef789',
-    'title': 'Impact of Global Supply Chain Issues on Tech Manufacturing',
-    'description': 'Analysis of how disruptions affect production and pricing.',
-    'url': 'https://example.com/supply-chain-impact',
-    'image_url': 'https://example.com/images/supply-chain.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-25T17:00:00Z',
-    'source': {
-      'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
-      'name': 'TechCrunch',
-      'url': 'https://techcrunch.com/',
-      'source_type': 'specialized_publisher',
-      'action': {
-        'type': 'open_internal_content',
-        'content_id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
-        'content_type': 'source',
-      },
-    },
-    'category': {
-      'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
-      'name': 'Business',
-      'description': 'News about companies, finance, and the economy.',
-      'action': {
-        'type': 'open_internal_content',
-        'content_id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
-        'content_type': 'category',
-      },
-    },
-    'action': {
-      'type': 'open_internal_content',
-      'content_id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef789',
-      'content_type': 'headline',
-    },
-  },
-  {
-    'id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef012',
-    'title': 'Cricket World Cup Preparations Underway',
-    'description':
-        'Teams finalize squads and strategies for the upcoming tournament.',
-    'url': 'https://example.com/cricket-world-cup-prep',
-    'image_url': 'https://example.com/images/cricket.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-25T18:00:00Z',
-    'source': {
-      'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
-      'name': 'BBC News',
-      'url': 'https://www.bbc.com/news',
-      'source_type': 'national_news_outlet',
-      'language': 'en',
-      'headquarters': {
-        'id': 'country-gb',
-        'iso_code': 'GB',
-        'name': 'United Kingdom',
-        'flag_url': 'https://example.com/flags/gb.png',
-        'action': {
-          'type': 'open_internal_content',
-          'content_id': 'country-gb',
-          'content_type': 'country',
-        },
-      },
-      'action': {
-        'type': 'open_internal_content',
-        'content_id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
-        'content_type': 'source',
-      },
-    },
-    'category': {
-      'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
-      'name': 'Sports',
-      'description': 'Latest updates from the world of sports.',
-      'action': {
-        'type': 'open_internal_content',
-        'content_id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
-        'content_type': 'category',
-      },
-    },
-    'action': {
-      'type': 'open_internal_content',
-      'content_id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef012',
-      'content_type': 'headline',
-    },
-  },
-  {
-    'id': 'e5f6a7b8-c9d0-e123-f456-7890abcdef345',
-    'title': 'Cybersecurity Threats on the Rise',
-    'description':
-        'New report highlights increasing risks for businesses and individuals.',
-    'url': 'https://example.com/cybersecurity-report',
-    'image_url': 'https://example.com/images/cybersecurity.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-25T19:00:00Z',
-    'source': {
-      'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
-      'name': 'TechCrunch',
-      'url': 'https://techcrunch.com/',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description':
-          'News about software development, hardware, and the internet.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'f6a7b8c9-d0e1-f234-a567-890abcdef678',
-    'title': 'Optimizing Flutter Performance',
-    'description': 'Tips and tricks for building fast and smooth Flutter apps.',
-    'url': 'https://example.com/flutter-performance',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-25T20:00:00Z',
-    'source': {
-      'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Flutter Dev',
-      'url': 'https://flutter.dev',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Mobile Development',
-      'description':
-          'Articles related to mobile app development for iOS and Android.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef901',
-    'title': 'Economic Forecast for the Next Quarter',
-    'description': 'Analysts provide their predictions for the global economy.',
-    'url': 'https://example.com/economic-forecast',
-    'image_url': 'https://example.com/images/economic-forecast.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-25T21:00:00Z',
-    'source': {
-      'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
-      'name': 'BBC News',
-      'url': 'https://www.bbc.com/news',
-      'source_type': 'national_news_outlet',
-      'language': 'en',
-      'headquarters': {
-        'id': 'country-gb',
-        'iso_code': 'GB',
-        'name': 'United Kingdom',
-        'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country',
-      },
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
-      'name': 'Business',
-      'description': 'News about companies, finance, and the economy.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'b2c3d4e5-f6a7-8901-2345-67890abcdef234',
-    'title': 'New Innovations in Renewable Energy',
-    'description': 'Breakthroughs in solar and wind power technology.',
-    'url': 'https://example.com/renewable-energy-innovations',
-    'image_url': 'https://example.com/images/renewable-energy.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-25T22:00:00Z',
-    'source': {
-      'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Very Good Ventures Blog',
-      'url': 'https://vgv.dev/blog',
-      'source_type': 'blog',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description':
-          'News about software development, hardware, and the internet.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef567',
-    'title': 'Designing User-Friendly Mobile Forms',
-    'description':
-        'Tips for creating intuitive and efficient form experiences on mobile.',
-    'url': 'https://example.com/mobile-forms-design',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-25T23:00:00Z',
-    'source': {
-      'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Flutter Dev',
-      'url': 'https://flutter.dev',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Mobile Development',
-      'description':
-          'Articles related to mobile app development for iOS and Android.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef890',
-    'title': 'The Impact of AI on the Job Market',
-    'description':
-        'Analyzing how artificial intelligence is reshaping industries and roles.',
-    'url': 'https://example.com/ai-job-market',
-    'image_url': 'https://example.com/images/ai-jobs.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-26T08:00:00Z',
-    'source': {
-      'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
-      'name': 'TechCrunch',
-      'url': 'https://techcrunch.com/',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description':
-          'News about software development, hardware, and the internet.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'e5f6a7b8-c9d0-e123-f456-7890abcdef1234',
-    'title': 'Understanding the Latest Privacy Regulations',
-    'description': 'A guide to navigating new data protection laws.',
-    'url': 'https://example.com/privacy-regulations',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-26T09:00:00Z',
-    'source': {
-      'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
-      'name': 'BBC News',
-      'url': 'https://www.bbc.com/news',
-      'source_type': 'national_news_outlet',
-      'language': 'en',
-      'headquarters': {
-        'id': 'country-gb',
-        'iso_code': 'GB',
-        'name': 'United Kingdom',
-        'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country',
-      },
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
-      'name': 'Business',
-      'description': 'News about companies, finance, and the economy.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'f6a7b8c9-d0e1-f234-a567-890abcdef5678',
-    'title': 'Exploring the Latest Trends in Mobile UI/UX',
-    'description':
-        "What's new in designing intuitive and engaging mobile interfaces.",
-    'url': 'https://example.com/mobile-ui-ux-trends',
-    'image_url': 'https://example.com/images/mobile-ui-ux.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-26T10:00:00Z',
-    'source': {
-      'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Flutter Dev',
-      'url': 'https://flutter.dev',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Mobile Development',
-      'description':
-          'Articles related to mobile app development for iOS and Android.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef9012',
-    'title': 'The Role of 5G in Future Technology',
-    'description':
-        'How faster networks will enable new applications and services.',
-    'url': 'https://example.com/5g-future',
-    'image_url': 'https://example.com/images/5g.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-26T11:00:00Z',
-    'source': {
-      'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Very Good Ventures Blog',
-      'url': 'https://vgv.dev/blog',
-      'source_type': 'blog',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description':
-          'News about software development, hardware, and the internet.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'b2c3d4e5-f6a7-8901-2345-67890abcdef3456',
-    'title': 'Building Accessible Flutter Apps',
-    'description': 'Ensuring your mobile applications are usable by everyone.',
-    'url': 'https://example.com/accessible-flutter',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-26T12:00:00Z',
-    'source': {
-      'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Flutter Dev',
-      'url': 'https://flutter.dev',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Mobile Development',
-      'description':
-          'Articles related to mobile app development for iOS and Android.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef7890',
-    'title': 'The Latest Trends in Venture Capital',
-    'description': 'Analyzing investment patterns across different sectors.',
-    'url': 'https://example.com/vc-trends',
-    'image_url': 'https://example.com/images/vc-trends.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-26T13:00:00Z',
-    'source': {
-      'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
-      'name': 'TechCrunch',
-      'url': 'https://techcrunch.com/',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
-      'name': 'Business',
-      'description': 'News about companies, finance, and the economy.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef12345',
-    'title': 'Six Nations Championship Review',
-    'description': 'Highlights and analysis from the recent rugby tournament.',
-    'url': 'https://example.com/six-nations-review',
-    'image_url': 'https://example.com/images/six-nations.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-26T14:00:00Z',
-    'source': {
-      'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
-      'name': 'BBC News',
-      'url': 'https://www.bbc.com/news',
-      'source_type': 'national_news_outlet',
-      'language': 'en',
-      'headquarters': {
-        'id': 'country-gb',
-        'iso_code': 'GB',
-        'name': 'United Kingdom',
-        'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country',
-      },
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
-      'name': 'Sports',
-      'description': 'Latest updates from the world of sports.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'e5f6a7b8-c9d0-e123-f456-7890abcdef67890',
-    'title': 'The Ethics of AI in Decision Making',
-    'description':
-        'Discussing fairness, bias, and transparency in artificial intelligence.',
-    'url': 'https://example.com/ai-ethics',
-    'image_url': 'https://example.com/images/ai-ethics.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-26T15:00:00Z',
-    'source': {
-      'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Very Good Ventures Blog',
-      'url': 'https://vgv.dev/blog',
-      'source_type': 'blog',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description':
-          'News about software development, hardware, and the internet.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'f6a7b8c9-d0e1-f234-a567-890abcdef123456',
-    'title': 'Mastering Flutter Animations',
-    'description':
-        "Creating smooth and engaging user interfaces with Flutter's animation framework.",
-    'url': 'https://example.com/flutter-animations',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-26T16:00:00Z',
-    'source': {
-      'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Flutter Dev',
-      'url': 'https://flutter.dev',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Mobile Development',
-      'description':
-          'Articles related to mobile app development for iOS and Android.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef78901',
-    'title': 'The Future of Electric Vehicles',
-    'description': 'Analyzing the growth and challenges of the EV market.',
-    'url': 'https://example.com/ev-future',
-    'image_url': 'https://example.com/images/ev-future.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-26T17:00:00Z',
-    'source': {
-      'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
-      'name': 'TechCrunch',
-      'url': 'https://techcrunch.com/',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description':
-          'News about software development, hardware, and the internet.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'b2c3d4e5-f6a7-8901-2345-67890abcdef234567',
-    'title': 'Building Scalable APIs with Dart Frog',
-    'description':
-        'Tips and best practices for developing robust backend services.',
-    'url': 'https://example.com/dart-frog-scalable-apis',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-26T18:00:00Z',
-    'source': {
-      'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Very Good Ventures Blog',
-      'url': 'https://vgv.dev/blog',
-      'source_type': 'blog',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description':
-          'News about software development, hardware, and the internet.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef89012',
-    'title': 'The Latest in Mobile Gaming Technology',
-    'description':
-        'Exploring new engines and trends in mobile game development.',
-    'url': 'https://example.com/mobile-gaming-tech',
-    'image_url': 'https://example.com/images/mobile-gaming.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-26T19:00:00Z',
-    'source': {
-      'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Flutter Dev',
-      'url': 'https://flutter.dev',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Mobile Development',
-      'description':
-          'Articles related to mobile app development for iOS and Android.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef34567',
-    'title': 'Global Economic Outlook: Challenges and Opportunities',
-    'description': 'A comprehensive review of the current economic climate.',
-    'url': 'https://example.com/global-economic-outlook',
-    'image_url': 'https://example.com/images/global-economy.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-26T20:00:00Z',
-    'source': {
-      'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
-      'name': 'BBC News',
-      'url': 'https://www.bbc.com/news',
-      'source_type': 'national_news_outlet',
-      'language': 'en',
-      'headquarters': {
-        'id': 'country-gb',
-        'iso_code': 'GB',
-        'name': 'United Kingdom',
-        'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country',
-      },
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
-      'name': 'Business',
-      'description': 'News about companies, finance, and the economy.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'e5f6a7b8-c9d0-e123-f456-7890abcdef89012',
-    'title': 'The Science Behind Athletic Performance',
-    'description': 'How training and nutrition impact sports results.',
-    'url': 'https://example.com/athletic-science',
-    'image_url': 'https://example.com/images/athletic-science.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-26T21:00:00Z',
-    'source': {
-      'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
-      'name': 'BBC News',
-      'url': 'https://www.bbc.com/news',
-      'source_type': 'national_news_outlet',
-      'language': 'en',
-      'headquarters': {
-        'id': 'country-gb',
-        'iso_code': 'GB',
-        'name': 'United Kingdom',
-        'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country',
-      },
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
-      'name': 'Sports',
-      'description': 'Latest updates from the world of sports.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'f6a7b8c9-d0e1-f234-a567-890abcdef345678',
-    'title': 'The Evolution of Web Development Frameworks',
-    'description':
-        'From traditional MVC to modern component-based architectures.',
-    'url': 'https://example.com/web-framework-evolution',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-26T22:00:00Z',
-    'source': {
-      'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Very Good Ventures Blog',
-      'url': 'https://vgv.dev/blog',
-      'source_type': 'blog',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description':
-          'News about software development, hardware, and the internet.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef90123',
-    'title': 'Building Offline-First Mobile Applications',
-    'description':
-        'Strategies for creating apps that work reliably without a network connection.',
-    'url': 'https://example.com/offline-first-apps',
-    'image_url': 'https://example.com/images/offline-first.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-26T23:00:00Z',
-    'source': {
-      'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Flutter Dev',
-      'url': 'https://flutter.dev',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Mobile Development',
-      'description':
-          'Articles related to mobile app development for iOS and Android.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'b2c3d4e5-f6a7-8901-2345-67890abcdef456789',
-    'title': 'Global Markets Close Mixed',
-    'description': "Summary of the day's trading activity.",
-    'url': 'https://example.com/market-close',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-27T00:00:00Z',
-    'source': {
-      'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
-      'name': 'TechCrunch',
-      'url': 'https://techcrunch.com/',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
-      'name': 'Business',
-      'description': 'News about companies, finance, and the economy.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef01234',
-    'title': 'New Training Regimens for Olympic Athletes',
-    'description':
-        'How sports science is optimizing performance for the next games.',
-    'url': 'https://example.com/olympic-training',
-    'image_url': 'https://example.com/images/olympic-training.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-27T01:00:00Z',
-    'source': {
-      'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
-      'name': 'BBC News',
-      'url': 'https://www.bbc.com/news',
-      'source_type': 'national_news_outlet',
-      'language': 'en',
-      'headquarters': {
-        'id': 'country-gb',
-        'iso_code': 'GB',
-        'name': 'United Kingdom',
-        'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country',
-      },
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
-      'name': 'Sports',
-      'description': 'Latest updates from the world of sports.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'd4e5f6a7-b8c9-d012-e345-f67890abcdef567890',
-    'title': 'The Future of Wearable Technology',
-    'description':
-        'Exploring the latest devices and their potential impact on health and lifestyle.',
-    'url': 'https://example.com/wearable-tech-future',
-    'image_url': 'https://example.com/images/wearable-tech.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-27T02:00:00Z',
-    'source': {
-      'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Very Good Ventures Blog',
-      'url': 'https://vgv.dev/blog',
-      'source_type': 'blog',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description':
-          'News about software development, hardware, and the internet.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'e5f6a7b8-c9d0-e123-f456-7890abcdef1234567',
-    'title': 'Building Robust Backend Services with Dart',
-    'description': "Leveraging Dart's features for server-side development.",
-    'url': 'https://example.com/dart-backend-services',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-27T03:00:00Z',
-    'source': {
-      'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Very Good Ventures Blog',
-      'url': 'https://vgv.dev/blog',
-      'source_type': 'blog',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description':
-          'News about software development, hardware, and the internet.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'f6a7b8c9-d0e1-f234-a567-890abcdef890123',
-    'title': 'The Latest in Mobile UI Design Trends',
-    'description':
-        'Exploring new patterns and aesthetics in mobile user interfaces.',
-    'url': 'https://example.com/mobile-ui-trends',
-    'image_url': 'https://example.com/images/mobile-ui-trends.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-27T04:00:00Z',
-    'source': {
-      'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Flutter Dev',
-      'url': 'https://flutter.dev',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Mobile Development',
-      'description':
-          'Articles related to mobile app development for iOS and Android.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': 'a1b2c3d4-e5f6-7890-1234-567890abcdef4567890',
-    'title': 'Understanding the Stock Market Volatility',
-    'description':
-        'Factors influencing recent fluctuations in global stock markets.',
-    'url': 'https://example.com/stock-market-volatility',
-    'image_url': 'https://example.com/images/stock-market.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-27T05:00:00Z',
-    'source': {
-      'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
-      'name': 'TechCrunch',
-      'url': 'https://techcrunch.com/',
-      'source_type': 'specialized_publisher',
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
-      'name': 'Business',
-      'description': 'News about companies, finance, and the economy.',
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': '0f8fad5b-d9cb-469f-a165-70867728950e',
-    'title': "VGV's Take on Cross-Platform Mobile Strategy for 2026",
-    'description':
-        'Exploring how Very Good Ventures approaches mobile development with an eye on future trends and framework choices.',
-    'url': 'https://example.com/vgv-mobile-strategy-2026',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-30T10:00:00Z',
-    'source': {
-      'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Very Good Ventures Blog',
-      'description': 'Insights from the Very Good Ventures team.',
-      'url': 'https://vgv.dev/blog',
-      'source_type': 'blog',
-      'language': 'en',
-      'headquarters': null,
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Mobile Development',
-      'description':
-          'Articles related to mobile app development for iOS and Android.',
-      'icon_url': null,
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': '1c9c07df-19e8-40e0-9f3a-6410bf9a0b5a',
-    'title': 'The Business of Open Source: A VGV Perspective',
-    'description':
-        'How Very Good Ventures balances community contributions with sustainable business models in the open-source world.',
-    'url': 'https://example.com/vgv-open-source-business',
-    'image_url': 'https://example.com/images/vgv-business.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-30T11:00:00Z',
-    'source': {
-      'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Very Good Ventures Blog',
-      'description': 'Insights from the Very Good Ventures team.',
-      'url': 'https://vgv.dev/blog',
-      'source_type': 'blog',
-      'language': 'en',
-      'headquarters': null,
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
-      'name': 'Business',
-      'description': 'News about companies, finance, and the economy.',
-      'icon_url': null,
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': '8f5dbf2e-0a3f-4a9c-8b7c-3e4d5f6a7b8c',
-    'title': 'VGV Team Builds Fantasy Sports App with Dart Frog',
-    'description':
-        'A case study on using Dart Frog for a high-performance backend for a new fantasy sports platform, by the VGV team.',
-    'url': 'https://example.com/vgv-fantasy-sports-dartfrog',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-30T12:00:00Z',
-    'source': {
-      'id': 's1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Very Good Ventures Blog',
-      'description': 'Insights from the Very Good Ventures team.',
-      'url': 'https://vgv.dev/blog',
-      'source_type': 'blog',
-      'language': 'en',
-      'headquarters': null,
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
-      'name': 'Sports',
-      'description': 'Latest updates from the world of sports.',
-      'icon_url': null,
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': '3a2b1c0d-ef98-7654-3210-fedcba987654',
-    'title': 'Flutter for Desktop: Expanding Horizons Beyond Mobile',
-    'description':
-        'The Flutter team discusses the growing capabilities and use cases for Flutter in desktop application development.',
-    'url': 'https://flutter.dev/desktop-future',
-    'image_url': 'https://example.com/images/flutter-desktop.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-30T13:00:00Z',
-    'source': {
-      'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Flutter Dev',
-      'description':
-          'Official documentation and news for the Flutter framework.',
-      'url': 'https://flutter.dev',
-      'source_type': 'specialized_publisher',
-      'language': 'fr',
-      'headquarters': null,
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description':
-          'News about software development, hardware, and the internet.',
-      'icon_url': null,
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': '4b3c2d1e-f0a9-8765-4321-0fedcba98765',
-    'title': 'How Businesses are Leveraging Flutter for Rapid MVP Development',
-    'description':
-        'Case studies and insights from the Flutter team on enterprises using Flutter to quickly build and iterate on new products.',
-    'url': 'https://flutter.dev/business-mvp-flutter',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-30T14:00:00Z',
-    'source': {
-      'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Flutter Dev',
-      'description':
-          'Official documentation and news for the Flutter framework.',
-      'url': 'https://flutter.dev',
-      'source_type': 'specialized_publisher',
-      'language': 'fr',
-      'headquarters': null,
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c3d4e5f6-a7b8-c901-d234-e56789abcdef',
-      'name': 'Business',
-      'description': 'News about companies, finance, and the economy.',
-      'icon_url': null,
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': '5c4d3e2f-1ba0-9876-5432-10fedcba9876',
-    'title': 'Building Engaging Sports Fan Apps with Flutter',
-    'description':
-        'The Flutter team showcases examples of sports applications built with Flutter, highlighting UI/UX possibilities.',
-    'url': 'https://flutter.dev/sports-apps-showcase',
-    'image_url': 'https://example.com/images/flutter-sports.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-30T15:00:00Z',
-    'source': {
-      'id': 's2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Flutter Dev',
-      'description':
-          'Official documentation and news for the Flutter framework.',
-      'url': 'https://flutter.dev',
-      'source_type': 'specialized_publisher',
-      'language': 'fr',
-      'headquarters': null,
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
-      'name': 'Sports',
-      'description': 'Latest updates from the world of sports.',
-      'icon_url': null,
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': '6d5e4f3a-2cb1-0987-6543-210fedcba987',
-    'title': "Mobile Gaming Startup 'PixelPlay' Raises 15M USD Series A",
-    'description':
-        "TechCrunch reports on PixelPlay's latest funding round to expand its mobile game portfolio and user acquisition efforts.",
-    'url': 'https://techcrunch.com/pixelplay-series-a',
-    'image_url': 'https://example.com/images/pixelplay.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-30T16:00:00Z',
-    'source': {
-      'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
-      'name': 'TechCrunch',
-      'description': 'Startup and technology news.',
-      'url': 'https://techcrunch.com/',
-      'source_type': 'specialized_publisher',
-      'language': 'en',
-      'headquarters': {
-        'id': 'country-us',
-        'iso_code': 'US',
-        'name': 'United States',
-        'flag_url': 'https://example.com/flags/us.png',
-        'type': 'country',
-      },
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Mobile Development',
-      'description':
-          'Articles related to mobile app development for iOS and Android.',
-      'icon_url': null,
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': '7e6f5a4b-3dc2-1098-7654-3210fedcba98',
-    'title': 'TechCrunch Disrupt: The Future of Sports Tech Startups',
-    'description':
-        'A panel at TechCrunch Disrupt discusses innovation in sports technology, from wearables to fan engagement platforms.',
-    'url': 'https://techcrunch.com/disrupt-sports-tech-2025',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-30T17:00:00Z',
-    'source': {
-      'id': 's3c4d5e6-f7a8-b901-c234-d56789abcdef',
-      'name': 'TechCrunch',
-      'description': 'Startup and technology news.',
-      'url': 'https://techcrunch.com/',
-      'source_type': 'specialized_publisher',
-      'language': 'en',
-      'headquarters': {
-        'id': 'country-us',
-        'iso_code': 'US',
-        'name': 'United States',
-        'flag_url': 'https://example.com/flags/us.png',
-        'type': 'country',
-      },
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c4e5f6a7-b8c9-d012-e345-f67890abcdef',
-      'name': 'Sports',
-      'description': 'Latest updates from the world of sports.',
-      'icon_url': null,
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': '8f7a6b5c-4ed3-2109-8765-43210fedcba9',
-    'title': 'UK Government Announces New Funding for AI Research',
-    'description':
-        "BBC News reports on a significant government investment aimed at boosting the UK's artificial intelligence capabilities.",
-    'url': 'https://www.bbc.com/news/technology-uk-ai-funding',
-    'image_url': 'https://example.com/images/uk-ai.png',
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-30T18:00:00Z',
-    'source': {
-      'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
-      'name': 'BBC News',
-      'description': 'British public service broadcaster.',
-      'url': 'https://www.bbc.com/news',
-      'source_type': 'national_news_outlet',
-      'language': 'en',
-      'headquarters': {
-        'id': 'country-gb',
-        'iso_code': 'GB',
-        'name': 'United Kingdom',
-        'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country',
-      },
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c1a2b3c4-d5e6-f789-0123-456789abcdef',
-      'name': 'Technology',
-      'description':
-          'News about software development, hardware, and the internet.',
-      'icon_url': null,
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
-  {
-    'id': '9a8b7c6d-5fe4-3210-9876-543210fedcba',
-    'title': 'BBC Investigates: The Rise of Mobile Banking Apps in the UK',
-    'description':
-        'A BBC News feature exploring the adoption and security of mobile banking applications across the United Kingdom.',
-    'url': 'https://www.bbc.com/news/business-mobile-banking-uk',
-    'image_url': null,
-    'created_at': '2025-04-15T12:00:00Z',
-    'updated_at': '2025-04-15T12:00:00Z',
-    'published_at': '2025-05-30T19:00:00Z',
-    'source': {
-      'id': 's4d5e6f7-a8b9-c012-d345-e67890abcdef',
-      'name': 'BBC News',
-      'description': 'British public service broadcaster.',
-      'url': 'https://www.bbc.com/news',
-      'source_type': 'national_news_outlet',
-      'language': 'en',
-      'headquarters': {
-        'id': 'country-gb',
-        'iso_code': 'GB',
-        'name': 'United Kingdom',
-        'flag_url': 'https://example.com/flags/gb.png',
-        'type': 'country',
-      },
-      'type': 'source',
-    },
-    'category': {
-      'id': 'c2b3c4d5-e6f7-a890-1234-567890abcdef',
-      'name': 'Mobile Development',
-      'description':
-          'Articles related to mobile app development for iOS and Android.',
-      'icon_url': null,
-      'type': 'category',
-    },
-    'type': 'headline',
-  },
+import 'package:ht_shared/src/enums/enums.dart';
+import 'package:ht_shared/src/fixtures/categories.dart';
+import 'package:ht_shared/src/fixtures/sources.dart';
+import 'package:ht_shared/src/models/entities/headline.dart';
+
+/// A list of predefined headlines for fixture data.
+final headlinesFixturesData = <Headline>[
+  Headline(
+    id: 'headline-1',
+    title: 'AI Breakthrough: New Model Achieves Human-Level Performance',
+    excerpt:
+        'Researchers announce a significant leap in artificial intelligence, with a new model demonstrating unprecedented capabilities.',
+    url: 'https://example.com/news/ai-breakthrough-1',
+    imageUrl: 'https://example.com/images/ai-breakthrough.jpg',
+    source: sourcesFixturesData[0], // TechCrunch
+    category: categoriesFixturesData[0], // Technology
+    createdAt: DateTime.now().subtract(Duration.zero),
+    updatedAt: DateTime.now().subtract(Duration.zero),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-2',
+    title: 'Local Team Wins Championship in Thrilling Final',
+    excerpt:
+        'The city celebrates as the underdog team clinches the national championship in a nail-biting finish.',
+    url: 'https://example.com/news/sports-championship-2',
+    imageUrl: 'https://example.com/images/sports-win.jpg',
+    source: sourcesFixturesData[1], // BBC News
+    category: categoriesFixturesData[1], // Sports
+    createdAt: DateTime.now().subtract(Duration.zero),
+    updatedAt: DateTime.now().subtract(Duration.zero),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-3',
+    title: 'Global Leaders Meet to Discuss Climate Change Policies',
+    excerpt:
+        'A summit of world leaders convenes to address urgent climate change issues and propose new international agreements.',
+    url: 'https://example.com/news/politics-climate-3',
+    imageUrl: 'https://example.com/images/climate-summit.jpg',
+    source: sourcesFixturesData[2], // The New York Times
+    category: categoriesFixturesData[2], // Politics
+    createdAt: DateTime.now().subtract(Duration.zero),
+    updatedAt: DateTime.now().subtract(Duration.zero),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-4',
+    title: 'New Planet Discovered in Distant Galaxy',
+    excerpt:
+        'Astronomers confirm the existence of a new exoplanet, sparking excitement in the scientific community.',
+    url: 'https://example.com/news/science-planet-4',
+    imageUrl: 'https://example.com/images/new-planet.jpg',
+    source: sourcesFixturesData[3], // The Guardian
+    category: categoriesFixturesData[3], // Science
+    createdAt: DateTime.now().subtract(Duration.zero),
+    updatedAt: DateTime.now().subtract(Duration.zero),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-5',
+    title: 'Breakthrough in Cancer Research Offers New Hope',
+    excerpt:
+        'A new study reveals a promising treatment approach for a common type of cancer, moving closer to a cure.',
+    url: 'https://example.com/news/health-cancer-5',
+    imageUrl: 'https://example.com/images/cancer-research.jpg',
+    source: sourcesFixturesData[4], // CNN
+    category: categoriesFixturesData[4], // Health
+    createdAt: DateTime.now().subtract(Duration.zero),
+    updatedAt: DateTime.now().subtract(Duration.zero),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-6',
+    title: 'Blockbuster Movie Breaks Box Office Records',
+    excerpt:
+        'The highly anticipated film shatters previous box office records in its opening weekend, delighting fans worldwide.',
+    url: 'https://example.com/news/entertainment-movie-6',
+    imageUrl: 'https://example.com/images/movie-record.jpg',
+    source: sourcesFixturesData[5], // Reuters
+    category: categoriesFixturesData[5], // Entertainment
+    createdAt: DateTime.now().subtract(const Duration(days: 1)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 1)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-7',
+    title: 'Stock Market Reaches All-Time High Amid Economic Boom',
+    excerpt:
+        'Major indices surge as strong economic data and corporate earnings drive investor confidence.',
+    url: 'https://example.com/news/business-market-7',
+    imageUrl: 'https://example.com/images/stock-market.jpg',
+    source: sourcesFixturesData[6], // Al Jazeera English
+    category: categoriesFixturesData[6], // Business
+    createdAt: DateTime.now().subtract(const Duration(days: 1)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 1)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-8',
+    title: 'New Travel Restrictions Lifted for Popular Destinations',
+    excerpt:
+        'Governments ease travel advisories, opening up new opportunities for international tourism.',
+    url: 'https://example.com/news/travel-restrictions-8',
+    imageUrl: 'https://example.com/images/travel-lifted.jpg',
+    source: sourcesFixturesData[7], // Xinhua News Agency
+    category: categoriesFixturesData[7], // Travel
+    createdAt: DateTime.now().subtract(const Duration(days: 1)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 1)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-9',
+    title: 'Michelin Star Chef Opens New Restaurant in City Center',
+    excerpt:
+        'A world-renowned chef brings their culinary expertise to the city with a highly anticipated new dining establishment.',
+    url: 'https://example.com/news/food-restaurant-9',
+    imageUrl: 'https://example.com/images/new-restaurant.jpg',
+    source: sourcesFixturesData[8], // The Times of India
+    category: categoriesFixturesData[8], // Food
+    createdAt: DateTime.now().subtract(const Duration(days: 1)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 1)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-10',
+    title: 'Innovative Teaching Methods Boost Student Engagement',
+    excerpt:
+        'Schools adopting new pedagogical approaches report significant improvements in student participation and learning outcomes.',
+    url: 'https://example.com/news/education-methods-10',
+    imageUrl: 'https://example.com/images/education-methods.jpg',
+    source: sourcesFixturesData[9], // Folha de S.Paulo
+    category: categoriesFixturesData[9], // Education
+    createdAt: DateTime.now().subtract(const Duration(days: 1)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 1)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-11',
+    title: 'Cybersecurity Firms Warn of New Global Threat',
+    excerpt:
+        'Experts advise immediate updates as a sophisticated new malware strain targets critical infrastructure worldwide.',
+    url: 'https://example.com/news/cybersecurity-threat-11',
+    imageUrl: 'https://example.com/images/cyber-threat.jpg',
+    source: sourcesFixturesData[0], // TechCrunch
+    category: categoriesFixturesData[0], // Technology
+    createdAt: DateTime.now().subtract(const Duration(days: 2)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 2)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-12',
+    title: 'Olympics Committee Announces Host City for 2032 Games',
+    excerpt:
+        'The highly anticipated decision for the next Summer Olympics host city has been revealed, promising a spectacular event.',
+    url: 'https://example.com/news/sports-olympics-12',
+    imageUrl: 'https://example.com/images/olympics-announcement.jpg',
+    source: sourcesFixturesData[1], // BBC News
+    category: categoriesFixturesData[1], // Sports
+    createdAt: DateTime.now().subtract(const Duration(days: 2)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 2)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-13',
+    title: 'New Bill Aims to Reform Healthcare System',
+    excerpt:
+        'Legislators introduce a comprehensive bill designed to address rising healthcare costs and expand access to services.',
+    url: 'https://example.com/news/politics-healthcare-13',
+    imageUrl: 'https://example.com/images/healthcare-bill.jpg',
+    source: sourcesFixturesData[2], // The New York Times
+    category: categoriesFixturesData[4], // Health
+    createdAt: DateTime.now().subtract(const Duration(days: 2)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 2)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-14',
+    title: 'Archaeologists Uncover Ancient City Ruins',
+    excerpt:
+        'A team of archaeologists makes a groundbreaking discovery, revealing a previously unknown ancient civilization.',
+    url: 'https://example.com/news/science-archaeology-14',
+    imageUrl: 'https://example.com/images/ancient-city.jpg',
+    source: sourcesFixturesData[3], // The Guardian
+    category: categoriesFixturesData[3], // Science
+    createdAt: DateTime.now().subtract(const Duration(days: 2)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 2)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-15',
+    title: 'Dietary Guidelines Updated for Public Health',
+    excerpt:
+        'New recommendations from health organizations aim to improve public nutrition and combat chronic diseases.',
+    url: 'https://example.com/news/health-diet-15',
+    imageUrl: 'https://example.com/images/dietary-guidelines.jpg',
+    source: sourcesFixturesData[4], // CNN
+    category: categoriesFixturesData[4], // Health
+    createdAt: DateTime.now().subtract(const Duration(days: 2)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 2)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-16',
+    title: 'Music Festival Announces Star-Studded Lineup',
+    excerpt:
+        'Fans eagerly await the annual music festival as organizers unveil a lineup featuring top artists from various genres.',
+    url: 'https://example.com/news/entertainment-music-16',
+    imageUrl: 'https://example.com/images/music-festival.jpg',
+    source: sourcesFixturesData[5], // Reuters
+    category: categoriesFixturesData[5], // Entertainment
+    createdAt: DateTime.now().subtract(const Duration(days: 3)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 3)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-17',
+    title: 'Tech Giant Acquires Startup in Multi-Billion Dollar Deal',
+    excerpt:
+        'A major technology company expands its portfolio with the acquisition of a promising startup, signaling market consolidation.',
+    url: 'https://example.com/news/business-acquisition-17',
+    imageUrl: 'https://example.com/images/tech-acquisition.jpg',
+    source: sourcesFixturesData[6], // Al Jazeera English
+    category: categoriesFixturesData[6], // Business
+    createdAt: DateTime.now().subtract(const Duration(days: 3)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 3)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-18',
+    title: 'Space Tourism Takes Off: First Commercial Flights Announced',
+    excerpt:
+        'The era of space tourism begins as companies unveil plans for regular commercial flights to orbit.',
+    url: 'https://example.com/news/travel-space-18',
+    imageUrl: 'https://example.com/images/space-tourism.jpg',
+    source: sourcesFixturesData[7], // Xinhua News Agency
+    category: categoriesFixturesData[7], // Travel
+    createdAt: DateTime.now().subtract(const Duration(days: 3)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 3)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-19',
+    title: 'Future of Food: Lab-Grown Meat Gains Popularity',
+    excerpt:
+        'As sustainability concerns grow, lab-grown meat alternatives are becoming a staple in modern diets.',
+    url: 'https://example.com/news/food-lab-meat-19',
+    imageUrl: 'https://example.com/images/lab-meat.jpg',
+    source: sourcesFixturesData[8], // The Times of India
+    category: categoriesFixturesData[8], // Food
+    createdAt: DateTime.now().subtract(const Duration(days: 3)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 3)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-20',
+    title: 'Online Learning Platforms See Surge in Enrollment',
+    excerpt:
+        'The shift to digital education continues as more students opt for flexible online courses and certifications.',
+    url: 'https://example.com/news/education-online-20',
+    imageUrl: 'https://example.com/images/online-learning.jpg',
+    source: sourcesFixturesData[9], // Folha de S.Paulo
+    category: categoriesFixturesData[9], // Education
+    createdAt: DateTime.now().subtract(const Duration(days: 3)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 3)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-21',
+    title: 'Quantum Computing Achieves New Milestone',
+    excerpt:
+        'Scientists report a significant advancement in quantum computing, bringing the technology closer to practical applications.',
+    url: 'https://example.com/news/tech-quantum-21',
+    imageUrl: 'https://example.com/images/quantum-computing.jpg',
+    source: sourcesFixturesData[0], // TechCrunch
+    category: categoriesFixturesData[0], // Technology
+    createdAt: DateTime.now().subtract(const Duration(days: 4)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 4)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-22',
+    title: 'World Cup Qualifiers: Unexpected Upsets Shake Rankings',
+    excerpt:
+        'Several top-ranked teams suffer surprising defeats in the latest World Cup qualifiers, reshuffling the global football landscape.',
+    url: 'https://example.com/news/sports-worldcup-22',
+    imageUrl: 'https://example.com/images/worldcup-upset.jpg',
+    source: sourcesFixturesData[1], // BBC News
+    category: categoriesFixturesData[1], // Sports
+    createdAt: DateTime.now().subtract(const Duration(days: 4)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 4)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-23',
+    title: 'Election Results: New Government Takes Power',
+    excerpt:
+        'Following a closely contested election, a new political party forms the government, promising significant policy changes.',
+    url: 'https://example.com/news/politics-election-23',
+    imageUrl: 'https://example.com/images/election-results.jpg',
+    source: sourcesFixturesData[2], // The New York Times
+    category: categoriesFixturesData[2], // Politics
+    createdAt: DateTime.now().subtract(const Duration(days: 4)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 4)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-24',
+    title: 'Breakthrough in Fusion Energy Research Announced',
+    excerpt:
+        'Scientists achieve a major milestone in fusion energy, bringing clean, limitless power closer to reality.',
+    url: 'https://example.com/news/science-fusion-24',
+    imageUrl: 'https://example.com/images/fusion-energy.jpg',
+    source: sourcesFixturesData[3], // The Guardian
+    category: categoriesFixturesData[3], // Science
+    createdAt: DateTime.now().subtract(const Duration(days: 4)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 4)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-25',
+    title: 'Mental Health Awareness Campaign Launched Globally',
+    excerpt:
+        'A new international initiative aims to destigmatize mental health issues and provide greater support resources.',
+    url: 'https://example.com/news/health-mental-25',
+    imageUrl: 'https://example.com/images/mental-health.jpg',
+    source: sourcesFixturesData[4], // CNN
+    category: categoriesFixturesData[4], // Health
+    createdAt: DateTime.now().subtract(const Duration(days: 4)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 4)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-26',
+    title: 'Gaming Industry Sees Record Growth in Virtual Reality',
+    excerpt:
+        'The virtual reality sector of the gaming industry experiences unprecedented expansion, driven by new hardware and immersive titles.',
+    url: 'https://example.com/news/entertainment-vr-26',
+    imageUrl: 'https://example.com/images/vr-gaming.jpg',
+    source: sourcesFixturesData[5], // Reuters
+    category: categoriesFixturesData[5], // Entertainment
+    createdAt: DateTime.now().subtract(const Duration(days: 5)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 5)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-27',
+    title: 'Global Supply Chain Disruptions Impacting Consumer Goods',
+    excerpt:
+        'Ongoing challenges in global logistics are leading to shortages and price increases for a wide range of consumer products.',
+    url: 'https://example.com/news/business-supplychain-27',
+    imageUrl: 'https://example.com/images/supply-chain.jpg',
+    source: sourcesFixturesData[6], // Al Jazeera English
+    category: categoriesFixturesData[6], // Business
+    createdAt: DateTime.now().subtract(const Duration(days: 5)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 5)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-28',
+    title: 'Arctic Expedition Discovers New Marine Species',
+    excerpt:
+        'Scientists on an Arctic research mission identify several previously unknown species of marine life, highlighting biodiversity.',
+    url: 'https://example.com/news/travel-arctic-28',
+    imageUrl: 'https://example.com/images/arctic-discovery.jpg',
+    source: sourcesFixturesData[7], // Xinhua News Agency
+    category: categoriesFixturesData[7], // Travel
+    createdAt: DateTime.now().subtract(const Duration(days: 5)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 5)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-29',
+    title: 'Rise of Plant-Based Cuisine: New Restaurants Open',
+    excerpt:
+        'The culinary scene is embracing plant-based diets with an increasing number of restaurants specializing in vegan and vegetarian dishes.',
+    url: 'https://example.com/news/food-plantbased-29',
+    imageUrl: 'https://example.com/images/plant-based.jpg',
+    source: sourcesFixturesData[8], // The Times of India
+    category: categoriesFixturesData[8], // Food
+    createdAt: DateTime.now().subtract(const Duration(days: 5)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 5)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-30',
+    title: 'Education Technology Transforms Classrooms',
+    excerpt:
+        'New digital tools and platforms are revolutionizing traditional classroom settings, enhancing interactive learning experiences.',
+    url: 'https://example.com/news/education-edtech-30',
+    imageUrl: 'https://example.com/images/edtech.jpg',
+    source: sourcesFixturesData[9], // Folha de S.Paulo
+    category: categoriesFixturesData[9], // Education
+    createdAt: DateTime.now().subtract(const Duration(days: 5)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 5)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-31',
+    title: 'SpaceX Launches New Satellite Constellation',
+    excerpt:
+        "Elon Musk's SpaceX successfully deploys a new batch of Starlink satellites, expanding global internet coverage.",
+    url: 'https://example.com/news/tech-spacex-31',
+    imageUrl: 'https://example.com/images/spacex-launch.jpg',
+    source: sourcesFixturesData[0], // TechCrunch
+    category: categoriesFixturesData[0], // Technology
+    createdAt: DateTime.now().subtract(const Duration(days: 6)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 6)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-32',
+    title: 'Football Legend Announces Retirement',
+    excerpt:
+        'A celebrated football player declares their retirement, marking the end of an illustrious career.',
+    url: 'https://example.com/news/sports-retirement-32',
+    imageUrl: 'https://example.com/images/football-retirement.jpg',
+    source: sourcesFixturesData[1], // BBC News
+    category: categoriesFixturesData[1], // Sports
+    createdAt: DateTime.now().subtract(const Duration(days: 6)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 6)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-33',
+    title: 'G7 Summit Concludes with Joint Statement on Global Economy',
+    excerpt:
+        'Leaders from the G7 nations issue a unified statement addressing economic challenges and future cooperation.',
+    url: 'https://example.com/news/politics-g7-33',
+    imageUrl: 'https://example.com/images/g7-summit.jpg',
+    source: sourcesFixturesData[2], // The New York Times
+    category: categoriesFixturesData[2], // Politics
+    createdAt: DateTime.now().subtract(const Duration(days: 6)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 6)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-34',
+    title: "Breakthrough in Alzheimer's Research Offers New Treatment Path",
+    excerpt:
+        "Scientists identify a novel therapeutic target for Alzheimer's disease, paving the way for more effective treatments.",
+    url: 'https://example.com/news/science-alzheimers-34',
+    imageUrl: 'https://example.com/images/alzheimers-research.jpg',
+    source: sourcesFixturesData[3], // The Guardian
+    category: categoriesFixturesData[4], // Health
+    createdAt: DateTime.now().subtract(const Duration(days: 6)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 6)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-35',
+    title: 'Global Vaccination Campaign Reaches Billions',
+    excerpt:
+        'International efforts to vaccinate the world population against a new virus achieve unprecedented reach.',
+    url: 'https://example.com/news/health-vaccine-35',
+    imageUrl: 'https://example.com/images/vaccine-campaign.jpg',
+    source: sourcesFixturesData[4], // CNN
+    category: categoriesFixturesData[4], // Health
+    createdAt: DateTime.now().subtract(const Duration(days: 6)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 6)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-36',
+    title: 'Streaming Wars Intensify with New Platform Launches',
+    excerpt:
+        'The competition in the streaming market heats up as several new services enter the fray, offering diverse content.',
+    url: 'https://example.com/news/entertainment-streaming-36',
+    imageUrl: 'https://example.com/images/streaming-wars.jpg',
+    source: sourcesFixturesData[5], // Reuters
+    category: categoriesFixturesData[5], // Entertainment
+    createdAt: DateTime.now().subtract(const Duration(days: 7)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 7)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-37',
+    title: 'Cryptocurrency Market Experiences Major Volatility',
+    excerpt:
+        'Digital currency values fluctuate wildly, prompting investors to reassess their strategies.',
+    url: 'https://example.com/news/business-crypto-37',
+    imageUrl: 'https://example.com/images/crypto-volatility.jpg',
+    source: sourcesFixturesData[6], // Al Jazeera English
+    category: categoriesFixturesData[0], // Technology
+    createdAt: DateTime.now().subtract(const Duration(days: 7)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 7)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-38',
+    title: 'Sustainable Tourism Initiatives Gain Momentum',
+    excerpt:
+        'Travel industry shifts towards eco-friendly practices, offering responsible options for environmentally conscious travelers.',
+    url: 'https://example.com/news/travel-sustainable-38',
+    imageUrl: 'https://example.com/images/sustainable-tourism.jpg',
+    source: sourcesFixturesData[7], // Xinhua News Agency
+    category: categoriesFixturesData[7], // Travel
+    createdAt: DateTime.now().subtract(const Duration(days: 7)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 7)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-39',
+    title: 'Food Security Summit Addresses Global Hunger',
+    excerpt:
+        'International conference focuses on strategies to combat food insecurity and ensure equitable access to nutrition worldwide.',
+    url: 'https://example.com/news/food-security-39',
+    imageUrl: 'https://example.com/images/food-security.jpg',
+    source: sourcesFixturesData[8], // The Times of India
+    category: categoriesFixturesData[8], // Food
+    createdAt: DateTime.now().subtract(const Duration(days: 7)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 7)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-40',
+    title: 'Robotics in Education: New Tools for Learning',
+    excerpt:
+        'Schools integrate advanced robotics into their curriculum, providing hands-on learning experiences for students.',
+    url: 'https://example.com/news/education-robotics-40',
+    imageUrl: 'https://example.com/images/robotics-education.jpg',
+    source: sourcesFixturesData[9], // Folha de S.Paulo
+    category: categoriesFixturesData[9], // Education
+    createdAt: DateTime.now().subtract(const Duration(days: 7)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 7)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-41',
+    title: 'AI Ethics Debate Intensifies Among Tech Leaders',
+    excerpt:
+        'Discussions around the ethical implications of artificial intelligence gain traction, with calls for stricter regulations.',
+    url: 'https://example.com/news/tech-ethics-41',
+    imageUrl: 'https://example.com/images/ai-ethics.jpg',
+    source: sourcesFixturesData[0], // TechCrunch
+    category: categoriesFixturesData[0], // Technology
+    createdAt: DateTime.now().subtract(const Duration(days: 8)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 8)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-42',
+    title: 'Esports Industry Sees Massive Investment Boom',
+    excerpt:
+        'The competitive gaming sector attracts record investments, solidifying its position as a major entertainment industry.',
+    url: 'https://example.com/news/sports-esports-42',
+    imageUrl: 'https://example.com/images/esports-boom.jpg',
+    source: sourcesFixturesData[1], // BBC News
+    category: categoriesFixturesData[1], // Sports
+    createdAt: DateTime.now().subtract(const Duration(days: 8)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 8)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-43',
+    title: 'International Sanctions Imposed on Rogue State',
+    excerpt:
+        "Global powers unite to impose new economic sanctions in response to a nation's controversial actions.",
+    url: 'https://example.com/news/politics-sanctions-43',
+    imageUrl: 'https://example.com/images/sanctions.jpg',
+    source: sourcesFixturesData[2], // The New York Times
+    category: categoriesFixturesData[2], // Politics
+    createdAt: DateTime.now().subtract(const Duration(days: 8)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 8)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-44',
+    title: 'New Species of Deep-Sea Creature Discovered',
+    excerpt:
+        'Oceanographers exploring the deepest parts of the ocean encounter a never-before-seen marine organism.',
+    url: 'https://example.com/news/science-deepsea-44',
+    imageUrl: 'https://example.com/images/deepsea-creature.jpg',
+    source: sourcesFixturesData[3], // The Guardian
+    category: categoriesFixturesData[3], // Science
+    createdAt: DateTime.now().subtract(const Duration(days: 8)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 8)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-45',
+    title: 'Global Health Crisis: New Pandemic Preparedness Plan',
+    excerpt:
+        'International health organizations unveil a comprehensive strategy to prevent and respond to future pandemics.',
+    url: 'https://example.com/news/health-pandemic-45',
+    imageUrl: 'https://example.com/images/pandemic-plan.jpg',
+    source: sourcesFixturesData[4], // CNN
+    category: categoriesFixturesData[4], // Health
+    createdAt: DateTime.now().subtract(const Duration(days: 8)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 8)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-46',
+    title: 'Hollywood Strikes Continue: Impact on Film Production',
+    excerpt:
+        'Ongoing labor disputes in Hollywood lead to widespread production halts, affecting upcoming movie and TV releases.',
+    url: 'https://example.com/news/entertainment-strikes-46',
+    imageUrl: 'https://example.com/images/hollywood-strikes.jpg',
+    source: sourcesFixturesData[5], // Reuters
+    category: categoriesFixturesData[5], // Entertainment
+    createdAt: DateTime.now().subtract(const Duration(days: 9)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 9)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-47',
+    title: 'Emerging Markets Show Strong Economic Resilience',
+    excerpt:
+        'Despite global uncertainties, several emerging economies demonstrate robust growth and attract foreign investment.',
+    url: 'https://example.com/news/business-emerging-47',
+    imageUrl: 'https://example.com/images/emerging-markets.jpg',
+    source: sourcesFixturesData[6], // Al Jazeera English
+    category: categoriesFixturesData[6], // Business
+    createdAt: DateTime.now().subtract(const Duration(days: 9)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 9)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-48',
+    title: 'Adventure Tourism Booms in Remote Regions',
+    excerpt:
+        'Travelers seek unique experiences in off-the-beaten-path destinations, boosting local economies in remote areas.',
+    url: 'https://example.com/news/travel-adventure-48',
+    imageUrl: 'https://example.com/images/adventure-tourism.jpg',
+    source: sourcesFixturesData[7], // Xinhua News Agency
+    category: categoriesFixturesData[7], // Travel
+    createdAt: DateTime.now().subtract(const Duration(days: 9)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 9)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-49',
+    title: 'The Rise of Sustainable Food Packaging',
+    excerpt:
+        'Innovations in eco-friendly packaging solutions are transforming the food industry, reducing environmental impact.',
+    url: 'https://example.com/news/food-packaging-49',
+    imageUrl: 'https://example.com/images/sustainable-packaging.jpg',
+    source: sourcesFixturesData[8], // The Times of India
+    category: categoriesFixturesData[8], // Food
+    createdAt: DateTime.now().subtract(const Duration(days: 9)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 9)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: 'headline-50',
+    title: 'Personalized Learning: Tailoring Education to Individual Needs',
+    excerpt:
+        "New educational models focus on customized learning paths, adapting to each student's pace and preferences.",
+    url: 'https://example.com/news/education-personalized-50',
+    imageUrl: 'https://example.com/images/personalized-learning.jpg',
+    source: sourcesFixturesData[9], // Folha de S.Paulo
+    category: categoriesFixturesData[9], // Education
+    createdAt: DateTime.now().subtract(const Duration(days: 9)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 9)),
+    status: ContentStatus.active,
+  ),
 ];

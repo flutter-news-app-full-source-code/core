@@ -11,7 +11,6 @@ void main() {
     const appRoleGuest = AppUserRole.guestUser;
     const appRolePremium = AppUserRole.premiumUser;
     const dashboardRoleAdmin = DashboardUserRole.admin;
-    const dashboardRolePublisher = DashboardUserRole.publisher;
     const dashboardRoleNone = DashboardUserRole.none;
     final testCreatedAt = DateTime.utc(2023);
     final testLastEngagementShownAt = DateTime.utc(2023, 1, 2);
