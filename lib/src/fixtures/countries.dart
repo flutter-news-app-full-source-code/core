@@ -18,7 +18,7 @@ final countriesFixturesData = <Country>[
     name: 'Canada',
     flagUrl: 'https://example.com/flags/ca.png',
     createdAt: DateTime.parse('2023-01-02T11:00:00Z'),
-    updatedAt: DateTime.parse('2023-01-02T11:00:000Z'),
+    updatedAt: DateTime.parse('2023-01-02T11:00:00Z'),
     status: ContentStatus.active,
   ),
   Country(

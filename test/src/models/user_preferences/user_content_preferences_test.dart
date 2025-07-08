@@ -42,6 +42,7 @@ void main() {
       url: 'http://example.com/headline',
       imageUrl: 'http://example.com/headline_image.png',
       source: mockSource,
+      eventCountry: mockCountry,
       topic: mockTopic,
       createdAt: DateTime.utc(2023),
       updatedAt: DateTime.utc(2023),
@@ -157,6 +158,7 @@ void main() {
                 'status': ContentStatus.active.name,
                 'type': 'source',
               },
+              'eventCountry': mockCountry.toJson(),
               'topic': {
                 'id': 'topic-1',
                 'name': 'Technology',
@@ -288,6 +290,7 @@ void main() {
           url: 'http://example.com/another_headline',
           imageUrl: 'http://example.com/another_headline_image.png',
           source: mockSource,
+          eventCountry: countriesFixturesData[0],
           topic: mockTopic,
           createdAt: DateTime.utc(2023),
           updatedAt: DateTime.utc(2023),

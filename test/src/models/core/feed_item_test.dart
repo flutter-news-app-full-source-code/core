@@ -41,6 +41,7 @@ void main() {
       url: 'http://example.com/headline',
       imageUrl: 'http://example.com/headline.jpg',
       source: mockSource,
+      eventCountry: mockCountry,
       topic: mockTopic,
       createdAt: testDateTime,
       updatedAt: testDateTime,

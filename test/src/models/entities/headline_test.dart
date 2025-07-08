@@ -56,6 +56,7 @@ void main() {
       url: 'http://example.com/full',
       imageUrl: 'http://example.com/full.jpg',
       source: sampleSource,
+      eventCountry: mockCountry,
       topic: sampleTopic,
       createdAt: testTime,
       updatedAt: testTime,
@@ -70,6 +71,7 @@ void main() {
       'url': 'http://example.com/full',
       'imageUrl': 'http://example.com/full.jpg',
       'source': sampleSourceJson,
+      'eventCountry': mockCountry.toJson(),
       'topic': sampleTopicJson,
       'createdAt': testTimeString,
       'updatedAt': testTimeString,
@@ -85,6 +87,7 @@ void main() {
       url: 'http://example.com/minimal',
       imageUrl: 'http://example.com/minimal.jpg',
       source: sampleSource,
+      eventCountry: mockCountry,
       topic: sampleTopic,
       createdAt: testTime,
       updatedAt: testTime,
@@ -99,6 +102,7 @@ void main() {
       'url': 'http://example.com/minimal',
       'imageUrl': 'http://example.com/minimal.jpg',
       'source': sampleSourceJson,
+      'eventCountry': mockCountry.toJson(),
       'topic': sampleTopicJson,
       'createdAt': testTimeString,
       'updatedAt': testTimeString,
@@ -197,6 +201,7 @@ void main() {
           url: 'url',
           imageUrl: 'img',
           source: sampleSource,
+          eventCountry: mockCountry,
           topic: sampleTopic,
           createdAt: testTime,
           updatedAt: testTime,
@@ -209,6 +214,7 @@ void main() {
           url: 'url',
           imageUrl: 'img',
           source: sampleSource,
+          eventCountry: mockCountry,
           topic: sampleTopic,
           createdAt: testTime,
           updatedAt: testTime,
@@ -225,6 +231,7 @@ void main() {
           url: 'url',
           imageUrl: 'img',
           source: sampleSource,
+          eventCountry: mockCountry,
           topic: sampleTopic,
           createdAt: testTime,
           updatedAt: testTime,
@@ -237,6 +244,7 @@ void main() {
           url: 'url',
           imageUrl: 'img',
           source: sampleSource,
+          eventCountry: mockCountry,
           topic: sampleTopic,
           createdAt: testTime,
           updatedAt: testTime,
@@ -249,6 +257,7 @@ void main() {
           url: 'url',
           imageUrl: 'img',
           source: sampleSource,
+          eventCountry: mockCountry,
           topic: sampleTopic,
           createdAt: testTime,
           updatedAt: testTime,
@@ -259,7 +268,7 @@ void main() {
       });
 
       test('props list should contain all relevant fields', () {
-        expect(fullHeadline.props.length, 11);
+        expect(fullHeadline.props.length, 12);
         expect(fullHeadline.props, [
           fullHeadline.id,
           fullHeadline.title,
@@ -270,6 +279,7 @@ void main() {
           fullHeadline.updatedAt,
           fullHeadline.status,
           fullHeadline.source,
+          fullHeadline.eventCountry,
           fullHeadline.topic,
           fullHeadline.type,
         ]);

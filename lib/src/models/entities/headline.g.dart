@@ -18,6 +18,10 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) =>
           'source',
           (v) => Source.fromJson(v as Map<String, dynamic>),
         ),
+        eventCountry: $checkedConvert(
+          'eventCountry',
+          (v) => Country.fromJson(v as Map<String, dynamic>),
+        ),
         topic: $checkedConvert(
           'topic',
           (v) => Topic.fromJson(v as Map<String, dynamic>),
@@ -45,6 +49,7 @@ Map<String, dynamic> _$HeadlineToJson(Headline instance) => <String, dynamic>{
   'url': instance.url,
   'imageUrl': instance.imageUrl,
   'source': instance.source.toJson(),
+  'eventCountry': instance.eventCountry.toJson(),
   'createdAt': dateTimeToJson(instance.createdAt),
   'updatedAt': dateTimeToJson(instance.updatedAt),
   'status': _$ContentStatusEnumMap[instance.status]!,

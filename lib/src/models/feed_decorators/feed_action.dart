@@ -73,7 +73,7 @@ class FeedAction extends FeedItem {
     String? id,
     String? title,
     String? description,
-    FeedActionType? accountActionType,
+    FeedActionType? feedActionType,
     String? callToActionText,
     String? callToActionUrl,
   }) {
@@ -81,7 +81,7 @@ class FeedAction extends FeedItem {
       id: id ?? this.id,
       title: title ?? this.title,
       description: description ?? this.description,
-      feedActionType: accountActionType ?? this.feedActionType,
+      feedActionType: feedActionType ?? this.feedActionType,
       callToActionText: callToActionText ?? this.callToActionText,
       callToActionUrl: callToActionUrl ?? this.callToActionUrl,
     );

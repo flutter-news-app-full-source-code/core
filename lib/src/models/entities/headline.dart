@@ -1,5 +1,6 @@
 import 'package:ht_shared/src/enums/enums.dart';
 import 'package:ht_shared/src/models/core/feed_item.dart';
+import 'package:ht_shared/src/models/entities/country.dart';
 import 'package:ht_shared/src/models/entities/source.dart';
 import 'package:ht_shared/src/models/entities/topic.dart';
 import 'package:ht_shared/src/utils/json_helpers.dart';
@@ -24,6 +25,7 @@ class Headline extends FeedItem {
     required this.url,
     required this.imageUrl,
     required this.source,
+    required this.eventCountry,
     required this.topic,
     required this.createdAt,
     required this.updatedAt,
@@ -51,6 +53,9 @@ class Headline extends FeedItem {
 
   /// Source or origin of the headline.
   final Source source;
+
+  /// The country where the news event took place.
+  final Country eventCountry;
 
   /// The internal timestamp recording when this headline was first ingested
   /// and saved into our system.
@@ -90,6 +95,7 @@ class Headline extends FeedItem {
     updatedAt,
     status,
     source,
+    eventCountry,
     topic,
     type,
   ];
@@ -109,6 +115,7 @@ class Headline extends FeedItem {
     DateTime? updatedAt,
     ContentStatus? status,
     Source? source,
+    Country? eventCountry,
     Topic? topic,
   }) {
     return Headline(
@@ -121,6 +128,7 @@ class Headline extends FeedItem {
       updatedAt: updatedAt ?? this.updatedAt,
       status: status ?? this.status,
       source: source ?? this.source,
+      eventCountry: eventCountry ?? this.eventCountry,
       topic: topic ?? this.topic,
     );
   }
