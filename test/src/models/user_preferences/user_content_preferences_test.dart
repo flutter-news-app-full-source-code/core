@@ -26,8 +26,8 @@ void main() {
       updatedAt: DateTime.utc(2023),
       status: ContentStatus.active,
     );
-    final mockCategory = Topic(
-      id: 'category-1',
+    final mockTopic = Topic(
+      id: 'topic-1',
       name: 'Technology',
       description: 'Technology news',
       iconUrl: 'http://example.com/tech_icon.png',
@@ -42,7 +42,7 @@ void main() {
       url: 'http://example.com/headline',
       imageUrl: 'http://example.com/headline_image.png',
       source: mockSource,
-      category: mockCategory,
+      topic: mockTopic,
       createdAt: DateTime.utc(2023),
       updatedAt: DateTime.utc(2023),
       status: ContentStatus.active,
@@ -52,7 +52,7 @@ void main() {
       id: 'user-1',
       followedCountries: [mockCountry],
       followedSources: [mockSource],
-      followedCategories: [mockCategory],
+      followedTopics: [mockTopic],
       savedHeadlines: const [],
     );
 
@@ -66,12 +66,12 @@ void main() {
           id: 'user-2',
           followedCountries: [],
           followedSources: [],
-          followedCategories: [],
+          followedTopics: [],
           savedHeadlines: [],
         );
         expect(defaultPreferences.followedCountries, isEmpty);
         expect(defaultPreferences.followedSources, isEmpty);
-        expect(defaultPreferences.followedCategories, isEmpty);
+        expect(defaultPreferences.followedTopics, isEmpty);
         expect(defaultPreferences.savedHeadlines, isEmpty);
       });
     });
@@ -116,16 +116,16 @@ void main() {
               'type': 'source',
             },
           ],
-          'followedCategories': [
+          'followedTopics': [
             {
-              'id': 'category-1',
+              'id': 'topic-1',
               'name': 'Technology',
               'description': 'Technology news',
               'iconUrl': 'http://example.com/tech_icon.png',
               'createdAt': '2023-01-01T00:00:00.000Z',
               'updatedAt': '2023-01-01T00:00:00.000Z',
               'status': ContentStatus.active.name,
-              'type': 'category',
+              'type': 'topic',
             },
           ],
           'savedHeadlines': [
@@ -157,15 +157,15 @@ void main() {
                 'status': ContentStatus.active.name,
                 'type': 'source',
               },
-              'category': {
-                'id': 'category-1',
+              'topic': {
+                'id': 'topic-1',
                 'name': 'Technology',
                 'description': 'Technology news',
                 'iconUrl': 'http://example.com/tech_icon.png',
                 'createdAt': '2023-01-01T00:00:00.000Z',
                 'updatedAt': '2023-01-01T00:00:00.000Z',
                 'status': ContentStatus.active.name,
-                'type': 'category',
+                'type': 'topic',
               },
               'createdAt': '2023-01-01T00:00:00.000Z',
               'updatedAt': '2023-01-01T00:00:00.000Z',
@@ -182,8 +182,8 @@ void main() {
         expect(result.followedCountries.first, mockCountry);
         expect(result.followedSources.length, 1);
         expect(result.followedSources.first, mockSource);
-        expect(result.followedCategories.length, 1);
-        expect(result.followedCategories.first, mockCategory);
+        expect(result.followedTopics.length, 1);
+        expect(result.followedTopics.first, mockTopic);
         expect(result.savedHeadlines.length, 1);
         expect(result.savedHeadlines.first, mockHeadline);
       });
@@ -193,7 +193,7 @@ void main() {
           'id': 'user-3',
           'followedCountries': [],
           'followedSources': [],
-          'followedCategories': [],
+          'followedTopics': [],
           'savedHeadlines': [],
         };
 
@@ -202,7 +202,7 @@ void main() {
         expect(result.id, 'user-3');
         expect(result.followedCountries, isEmpty);
         expect(result.followedSources, isEmpty);
-        expect(result.followedCategories, isEmpty);
+        expect(result.followedTopics, isEmpty);
         expect(result.savedHeadlines, isEmpty);
       });
 
@@ -213,7 +213,7 @@ void main() {
             'id': 'user-4',
             'followedCountries': [],
             'followedSources': [],
-            'followedCategories': [],
+            'followedTopics': [],
             'savedHeadlines': [],
           };
 
@@ -222,7 +222,7 @@ void main() {
           expect(result.id, 'user-4');
           expect(result.followedCountries, isEmpty);
           expect(result.followedSources, isEmpty);
-          expect(result.followedCategories, isEmpty);
+          expect(result.followedTopics, isEmpty);
           expect(result.savedHeadlines, isEmpty);
         },
       );
@@ -243,9 +243,9 @@ void main() {
         expect(json['followedSources'], isA<List>());
         expect((json['followedSources'] as List).length, 1);
         expect((json['followedSources'] as List).first['id'], 'source-1');
-        expect(json['followedCategories'], isA<List>());
-        expect((json['followedCategories'] as List).length, 1);
-        expect((json['followedCategories'] as List).first['id'], 'category-1');
+        expect(json['followedTopics'], isA<List>());
+        expect((json['followedTopics'] as List).length, 1);
+        expect((json['followedTopics'] as List).first['id'], 'topic-1');
         expect(json['savedHeadlines'], isA<List>());
         expect((json['savedHeadlines'] as List).length, 1);
         expect((json['savedHeadlines'] as List).first['id'], 'headline-1');
@@ -256,7 +256,7 @@ void main() {
           id: 'user-5',
           followedCountries: [],
           followedSources: [],
-          followedCategories: [],
+          followedTopics: [],
           savedHeadlines: [],
         );
         final json = emptyPreferences.toJson();
@@ -264,7 +264,7 @@ void main() {
         expect(json['id'], 'user-5');
         expect(json['followedCountries'], isEmpty);
         expect(json['followedSources'], isEmpty);
-        expect(json['followedCategories'], isEmpty);
+        expect(json['followedTopics'], isEmpty);
         expect(json['savedHeadlines'], isEmpty);
       });
     });
@@ -288,7 +288,7 @@ void main() {
           url: 'http://example.com/another_headline',
           imageUrl: 'http://example.com/another_headline_image.png',
           source: mockSource,
-          category: mockCategory,
+          topic: mockTopic,
           createdAt: DateTime.utc(2023),
           updatedAt: DateTime.utc(2023),
           status: ContentStatus.active,
@@ -307,8 +307,8 @@ void main() {
           userContentPreferences.followedSources,
         ); // Unchanged
         expect(
-          updatedPreferences.followedCategories,
-          userContentPreferences.followedCategories,
+          updatedPreferences.followedTopics,
+          userContentPreferences.followedTopics,
         ); // Unchanged
         expect(updatedPreferences.savedHeadlines, [mockHeadline, newHeadline]);
       });
@@ -328,14 +328,14 @@ void main() {
           id: 'user-6',
           followedCountries: [],
           followedSources: [],
-          followedCategories: [],
+          followedTopics: [],
           savedHeadlines: [],
         );
         const preferences2 = UserContentPreferences(
           id: 'user-6',
           followedCountries: [],
           followedSources: [],
-          followedCategories: [],
+          followedTopics: [],
           savedHeadlines: [],
         );
         expect(preferences1, preferences2);
@@ -346,14 +346,14 @@ void main() {
           id: 'user-7',
           followedCountries: [],
           followedSources: [],
-          followedCategories: [],
+          followedTopics: [],
           savedHeadlines: [],
         );
         const preferences2 = UserContentPreferences(
           id: 'user-8',
           followedCountries: [],
           followedSources: [],
-          followedCategories: [],
+          followedTopics: [],
           savedHeadlines: [],
         );
         expect(preferences1, isNot(equals(preferences2)));

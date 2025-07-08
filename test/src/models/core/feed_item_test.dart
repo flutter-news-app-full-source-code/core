@@ -1,5 +1,4 @@
 import 'package:ht_shared/ht_shared.dart';
-import 'package:ht_shared/src/enums/feed_action_type.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -26,8 +25,8 @@ void main() {
       updatedAt: testDateTime,
       status: ContentStatus.active,
     );
-    final mockCategory = Topic(
-      id: 'category-1',
+    final mockTopic = Topic(
+      id: 'topic-1',
       name: 'Technology',
       description: 'Technology news',
       iconUrl: 'http://example.com/tech.png',
@@ -42,7 +41,7 @@ void main() {
       url: 'http://example.com/headline',
       imageUrl: 'http://example.com/headline.jpg',
       source: mockSource,
-      category: mockCategory,
+      topic: mockTopic,
       createdAt: testDateTime,
       updatedAt: testDateTime,
       status: ContentStatus.active,
@@ -71,11 +70,11 @@ void main() {
         expect(feedItem, equals(mockHeadline));
       });
 
-      test('dispatches to Category.fromJson', () {
-        final json = mockCategory.toJson();
+      test('dispatches to Topic.fromJson', () {
+        final json = mockTopic.toJson();
         final feedItem = FeedItem.fromJson(json);
         expect(feedItem, isA<Topic>());
-        expect(feedItem, equals(mockCategory));
+        expect(feedItem, equals(mockTopic));
       });
 
       test('dispatches to Source.fromJson', () {
@@ -142,8 +141,8 @@ void main() {
         expect(deserialized.toJson(), equals(json));
       });
 
-      test('serializes Category correctly', () {
-        final json = mockCategory.toJson();
+      test('serializes Topic correctly', () {
+        final json = mockTopic.toJson();
         final deserialized = FeedItem.fromJson(json);
         expect(deserialized.toJson(), equals(json));
       });

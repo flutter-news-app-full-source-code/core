@@ -5,20 +5,20 @@ void main() {
   group('DashboardSummary', () {
     const id = 'test-id';
     const headlineCount = 100;
-    const categoryCount = 20;
+    const topicCount = 20;
     const sourceCount = 10;
 
     const summary = DashboardSummary(
       id: id,
       headlineCount: headlineCount,
-      categoryCount: categoryCount,
+      topicCount: topicCount,
       sourceCount: sourceCount,
     );
 
     final summaryJson = {
       'id': id,
       'headlineCount': headlineCount,
-      'categoryCount': categoryCount,
+      'topicCount': topicCount,
       'sourceCount': sourceCount,
     };
 
@@ -31,7 +31,7 @@ void main() {
         const DashboardSummary(
           id: id,
           headlineCount: headlineCount,
-          categoryCount: categoryCount,
+          topicCount: topicCount,
           sourceCount: sourceCount,
         ),
         equals(summary),
@@ -41,7 +41,7 @@ void main() {
     test('props are correct', () {
       expect(
         summary.props,
-        equals([id, headlineCount, categoryCount, sourceCount]),
+        equals([id, headlineCount, topicCount, sourceCount]),
       );
     });
 
@@ -65,12 +65,12 @@ void main() {
       test('copies with new headlineCount', () {
         final newSummary = summary.copyWith(headlineCount: 200);
         expect(newSummary.headlineCount, equals(200));
-        expect(newSummary.categoryCount, equals(categoryCount));
+        expect(newSummary.topicCount, equals(topicCount));
       });
 
-      test('copies with new categoryCount', () {
-        final newSummary = summary.copyWith(categoryCount: 30);
-        expect(newSummary.categoryCount, equals(30));
+      test('copies with new topicCount', () {
+        final newSummary = summary.copyWith(topicCount: 30);
+        expect(newSummary.topicCount, equals(30));
         expect(newSummary.headlineCount, equals(headlineCount));
       });
 

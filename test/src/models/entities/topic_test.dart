@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart'; // Added for CheckedFromJ
 import 'package:test/test.dart';
 
 void main() {
-  group('Category', () {
+  group('Topic', () {
     Topic createSubject({
       required String id,
       required String name,
@@ -25,7 +25,7 @@ void main() {
     }
 
     test('supports value equality', () {
-      const fixedId = 'fixed-category-id';
+      const fixedId = 'fixed-topic-id';
       final now = DateTime.now();
       expect(
         createSubject(
@@ -49,9 +49,9 @@ void main() {
       );
     });
 
-    test('constructor sets type to "category"', () {
+    test('constructor sets type to "topic"', () {
       final now = DateTime.now();
-      final category = createSubject(
+      final topic = createSubject(
         id: 'some-id',
         name: 'Sports',
         description: 'Description',
@@ -60,13 +60,13 @@ void main() {
         updatedAt: now,
         status: ContentStatus.active,
       );
-      expect(category.type, 'category');
+      expect(topic.type, 'topic');
     });
 
     test('props list contains all relevant fields', () {
       final now = DateTime.now();
-      final category = createSubject(
-        id: 'cat-123',
+      final topic = createSubject(
+        id: 'topic-123',
         name: 'Props Test',
         description: 'A test description',
         iconUrl: 'icon.png',
@@ -74,26 +74,26 @@ void main() {
         updatedAt: now,
         status: ContentStatus.active,
       );
-      expect(category.props, [
-        'cat-123',
+      expect(topic.props, [
+        'topic-123',
         'Props Test',
         'A test description',
         'icon.png',
         now, // createdAt
         now, // updatedAt
         ContentStatus.active, // status
-        'category', // type
+        'topic', // type
       ]);
     });
 
     group('fromJson', () {
-      test('creates correct Category object from valid JSON', () {
+      test('creates correct Topic object from valid JSON', () {
         final json = <String, dynamic>{
           'id': '123',
           'name': 'Science',
           'description': 'Science news',
           'iconUrl': 'http://example.com/science.png',
-          'type': 'category',
+          'type': 'topic',
           'status': 'active',
           'createdAt': DateTime.now().toIso8601String(),
           'updatedAt': DateTime.now().toIso8601String(),
@@ -117,7 +117,7 @@ void main() {
       test(
         'throws CheckedFromJsonException when required fields are missing',
         () {
-          final json = <String, dynamic>{'name': 'Art', 'type': 'category'};
+          final json = <String, dynamic>{'name': 'Art', 'type': 'topic'};
           expect(
             () => Topic.fromJson(json),
             throwsA(isA<CheckedFromJsonException>()),
@@ -136,15 +136,15 @@ void main() {
           'updatedAt': now.toIso8601String(),
           'status': 'archived',
         };
-        final category = Topic.fromJson(json);
-        expect(category.status, ContentStatus.archived);
+        final topic = Topic.fromJson(json);
+        expect(topic.status, ContentStatus.archived);
       });
     });
 
     group('toJson', () {
       test('produces correct JSON map', () {
         final now = DateTime.now();
-        final category = createSubject(
+        final topic = createSubject(
           id: '456',
           name: 'Business',
           description: 'Business news',
@@ -153,13 +153,13 @@ void main() {
           updatedAt: now,
           status: ContentStatus.active,
         );
-        expect(category.toJson(), <String, dynamic>{
+        expect(topic.toJson(), <String, dynamic>{
           'id': '456',
           'name': 'Business',
           'description': 'Business news',
           'iconUrl': 'http://example.com/business.png',
           'status': 'active',
-          'type': 'category',
+          'type': 'topic',
           'createdAt': now.toIso8601String(),
           'updatedAt': now.toIso8601String(),
         });
@@ -167,7 +167,7 @@ void main() {
 
       test('includes all fields in JSON (no null fields skipped)', () {
         final now = DateTime.now();
-        final category = createSubject(
+        final topic = createSubject(
           id: 'some-id',
           name: 'Health',
           description: 'Health news',
@@ -176,13 +176,13 @@ void main() {
           updatedAt: now,
           status: ContentStatus.active,
         );
-        expect(category.toJson(), <String, dynamic>{
-          'id': category.id,
+        expect(topic.toJson(), <String, dynamic>{
+          'id': topic.id,
           'name': 'Health',
           'description': 'Health news',
           'iconUrl': 'http://example.com/health.png',
           'status': 'active',
-          'type': 'category',
+          'type': 'topic',
           'createdAt': now.toIso8601String(),
           'updatedAt': now.toIso8601String(),
         });

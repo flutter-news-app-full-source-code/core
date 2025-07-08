@@ -34,17 +34,17 @@ void main() {
     };
     final sampleSource = Source.fromJson(sampleSourceJson);
 
-    final sampleCategoryJson = {
-      'id': 'cat-test',
-      'name': 'Test Category',
-      'description': 'A test category.',
-      'iconUrl': 'http://testcategory.com/icon.png',
+    final sampleTopicJson = {
+      'id': 'topic-test',
+      'name': 'Test Topic',
+      'description': 'A test topic.',
+      'iconUrl': 'http://testtopic.com/icon.png',
       'createdAt': testTimeString,
       'updatedAt': testTimeString,
       'status': ContentStatus.active.name,
-      'type': 'category',
+      'type': 'topic',
     };
-    final sampleCategory = Topic.fromJson(sampleCategoryJson);
+    final sampleTopic = Topic.fromJson(sampleTopicJson);
 
     final testId = const Uuid().v4();
 
@@ -56,7 +56,7 @@ void main() {
       url: 'http://example.com/full',
       imageUrl: 'http://example.com/full.jpg',
       source: sampleSource,
-      category: sampleCategory,
+      topic: sampleTopic,
       createdAt: testTime,
       updatedAt: testTime,
       status: ContentStatus.active,
@@ -70,7 +70,7 @@ void main() {
       'url': 'http://example.com/full',
       'imageUrl': 'http://example.com/full.jpg',
       'source': sampleSourceJson,
-      'category': sampleCategoryJson,
+      'topic': sampleTopicJson,
       'createdAt': testTimeString,
       'updatedAt': testTimeString,
       'status': ContentStatus.active.name,
@@ -85,7 +85,7 @@ void main() {
       url: 'http://example.com/minimal',
       imageUrl: 'http://example.com/minimal.jpg',
       source: sampleSource,
-      category: sampleCategory,
+      topic: sampleTopic,
       createdAt: testTime,
       updatedAt: testTime,
       status: ContentStatus.active,
@@ -99,7 +99,7 @@ void main() {
       'url': 'http://example.com/minimal',
       'imageUrl': 'http://example.com/minimal.jpg',
       'source': sampleSourceJson,
-      'category': sampleCategoryJson,
+      'topic': sampleTopicJson,
       'createdAt': testTimeString,
       'updatedAt': testTimeString,
       'status': ContentStatus.active.name,
@@ -112,7 +112,7 @@ void main() {
         expect(headline, equals(fullHeadline));
         expect(headline.id, testId);
         expect(headline.source, sampleSource);
-        expect(headline.category, sampleCategory);
+        expect(headline.topic, sampleTopic);
         expect(headline.createdAt, testTime);
         expect(headline.updatedAt, testTime);
       });
@@ -124,7 +124,7 @@ void main() {
         expect(headline.url, minimalHeadline.url);
         expect(headline.imageUrl, minimalHeadline.imageUrl);
         expect(headline.source, minimalHeadline.source);
-        expect(headline.category, minimalHeadline.category);
+        expect(headline.topic, minimalHeadline.topic);
         expect(headline.createdAt, minimalHeadline.createdAt);
         expect(headline.updatedAt, minimalHeadline.updatedAt);
         expect(headline.id, testId);
@@ -138,7 +138,7 @@ void main() {
 
       test('should handle null Source correctly', () => null);
 
-      test('should handle null Category correctly', () => null);
+      test('should handle null Topic correctly', () => null);
     });
 
     group('toJson', () {
@@ -156,7 +156,7 @@ void main() {
         expect(json['url'], minimalHeadline.url);
         expect(json['imageUrl'], minimalHeadline.imageUrl);
         expect(json['source'], sampleSourceJson);
-        expect(json['category'], sampleCategoryJson);
+        expect(json['topic'], sampleTopicJson);
         expect(json['createdAt'], testTimeString);
         expect(json['updatedAt'], testTimeString);
       });
@@ -177,7 +177,7 @@ void main() {
         expect(copiedHeadline.url, updatedUrl);
         expect(copiedHeadline.imageUrl, fullHeadline.imageUrl);
         expect(copiedHeadline.source, fullHeadline.source);
-        expect(copiedHeadline.category, fullHeadline.category);
+        expect(copiedHeadline.topic, fullHeadline.topic);
         expect(copiedHeadline.createdAt, fullHeadline.createdAt);
         expect(copiedHeadline.updatedAt, fullHeadline.updatedAt);
       });
@@ -197,7 +197,7 @@ void main() {
           url: 'url',
           imageUrl: 'img',
           source: sampleSource,
-          category: sampleCategory,
+          topic: sampleTopic,
           createdAt: testTime,
           updatedAt: testTime,
           status: ContentStatus.active,
@@ -209,7 +209,7 @@ void main() {
           url: 'url',
           imageUrl: 'img',
           source: sampleSource,
-          category: sampleCategory,
+          topic: sampleTopic,
           createdAt: testTime,
           updatedAt: testTime,
           status: ContentStatus.active,
@@ -225,7 +225,7 @@ void main() {
           url: 'url',
           imageUrl: 'img',
           source: sampleSource,
-          category: sampleCategory,
+          topic: sampleTopic,
           createdAt: testTime,
           updatedAt: testTime,
           status: ContentStatus.active,
@@ -237,7 +237,7 @@ void main() {
           url: 'url',
           imageUrl: 'img',
           source: sampleSource,
-          category: sampleCategory,
+          topic: sampleTopic,
           createdAt: testTime,
           updatedAt: testTime,
           status: ContentStatus.active,
@@ -249,7 +249,7 @@ void main() {
           url: 'url',
           imageUrl: 'img',
           source: sampleSource,
-          category: sampleCategory,
+          topic: sampleTopic,
           createdAt: testTime,
           updatedAt: testTime,
           status: ContentStatus.active,
@@ -270,7 +270,7 @@ void main() {
           fullHeadline.updatedAt,
           fullHeadline.status,
           fullHeadline.source,
-          fullHeadline.category,
+          fullHeadline.topic,
           fullHeadline.type,
         ]);
       });

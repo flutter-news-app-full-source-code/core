@@ -1,5 +1,4 @@
 import 'package:ht_shared/ht_shared.dart';
-import 'package:ht_shared/src/enums/feed_action_type.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:test/test.dart';
 import 'package:uuid/uuid.dart';

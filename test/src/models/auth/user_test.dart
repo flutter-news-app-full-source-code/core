@@ -11,7 +11,6 @@ void main() {
     const email = 'test@example.com';
     const appRoleStandard = AppUserRole.standardUser;
     const appRoleGuest = AppUserRole.guestUser;
-    const appRolePremium = AppUserRole.premiumUser;
     const dashboardRoleAdmin = DashboardUserRole.admin;
     const dashboardRoleNone = DashboardUserRole.none;
     final testCreatedAt = DateTime.utc(2023);
@@ -333,7 +332,7 @@ void main() {
           equals(const UserFeedActionStatus(isCompleted: false)),
         );
         expect(
-          user.feedAction - Status[FeedActionType.upgrade],
+          user.feedActionStatus[FeedActionType.upgrade],
           equals(const UserFeedActionStatus(isCompleted: false)),
         );
       });

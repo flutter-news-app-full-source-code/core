@@ -1,6 +1,6 @@
 import 'package:ht_shared/src/enums/enums.dart';
-import 'package:ht_shared/src/fixtures/topics.dart';
 import 'package:ht_shared/src/fixtures/sources.dart';
+import 'package:ht_shared/src/fixtures/topics.dart';
 import 'package:ht_shared/src/models/entities/headline.dart';
 
 /// A list of predefined headlines for fixture data.

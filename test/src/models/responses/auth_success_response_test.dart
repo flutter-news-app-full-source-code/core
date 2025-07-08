@@ -11,7 +11,7 @@ void main() {
       appRole: AppUserRole.standardUser,
       dashboardRole: DashboardUserRole.none,
       createdAt: DateTime.utc(2023),
-      lastAccountActionShownAt: DateTime.utc(2023),
+      feedActionStatus: const {},
     );
     const testToken = 'sample-jwt-token';
 
@@ -101,7 +101,7 @@ void main() {
           appRole: AppUserRole.guestUser,
           dashboardRole: DashboardUserRole.none,
           createdAt: DateTime.utc(2023),
-          lastAccountActionShownAt: DateTime.utc(2023),
+          feedActionStatus: const {},
         );
         final copiedResponse = authSuccessResponse.copyWith(user: updatedUser);
 
@@ -128,7 +128,7 @@ void main() {
           appRole: AppUserRole.guestUser,
           dashboardRole: DashboardUserRole.none,
           createdAt: DateTime.utc(2023),
-          lastAccountActionShownAt: DateTime.utc(2023),
+          feedActionStatus: const {},
         );
         const updatedToken = 'another-token-xyz';
         final copiedResponse = authSuccessResponse.copyWith(
@@ -157,7 +157,7 @@ void main() {
           appRole: AppUserRole.premiumUser,
           dashboardRole: DashboardUserRole.admin,
           createdAt: DateTime.utc(2023),
-          lastAccountActionShownAt: DateTime.utc(2023),
+          feedActionStatus: const {},
         );
         final response1 = AuthSuccessResponse(user: testUser, token: testToken);
         final response2 = AuthSuccessResponse(

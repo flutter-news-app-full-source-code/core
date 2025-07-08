@@ -6,8 +6,8 @@ enum ContentType {
   /// Refers to a news headline.
   headline,
 
-  /// Refers to a news category.
-  category,
+  /// Refers to a news topic.
+  topic,
 
   /// Refers to a news source.
   source,

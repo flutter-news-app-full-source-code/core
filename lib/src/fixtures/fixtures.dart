@@ -1,9 +1,9 @@
 export 'app_config.dart';
-export 'topics.dart';
 export 'countries.dart';
 export 'dashboard_summary.dart';
 export 'headlines.dart';
 export 'sources.dart';
+export 'topics.dart';
 export 'user_app_settings_fixtures.dart';
 export 'user_content_preferences_fixtures.dart';
 export 'users.dart';

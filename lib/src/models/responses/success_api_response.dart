@@ -14,7 +14,7 @@ part 'success_api_response.g.dart';
 ///
 /// The type [T] represents the type of the main data payload, which could be:
 /// - A single model object (e.g., `Headline`).
-/// - A list of model objects (e.g., `List<Category>`).
+/// - A list of model objects (e.g., `List<Topic>`).
 /// - A paginated response object (e.g., `PaginatedResponse<Source>`).
 /// {@endtemplate}
 @immutable

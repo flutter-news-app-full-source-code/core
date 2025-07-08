@@ -14,7 +14,7 @@ part 'user_feed_action_status.g.dart';
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class UserFeedActionStatus extends Equatable {
   /// {@macro user_feed_action_status}
-  const UserFeedActionStatus({this.lastShownAt, required this.isCompleted});
+  const UserFeedActionStatus({required this.isCompleted, this.lastShownAt});
 
   /// Creates a UserFeedActionStatus from JSON data.
   factory UserFeedActionStatus.fromJson(Map<String, dynamic> json) =>
