@@ -26,8 +26,8 @@ void main() {
       'sourceType': 'newsAgency', // Changed key to camelCase and value to match enum
       'language': 'en',
       'headquarters': mockCountry.toJson(),
-      'created_at': testTimeString,
-      'updated_at': testTimeString,
+      'createdAt': testTimeString,
+      'updatedAt': testTimeString,
       'status': ContentStatus.active.name,
       'type': 'source',
     };
@@ -37,9 +37,9 @@ void main() {
       'id': 'cat-test',
       'name': 'Test Category',
       'description': 'A test category.',
-      'icon_url': 'http://testcategory.com/icon.png',
-      'created_at': testTimeString,
-      'updated_at': testTimeString,
+      'iconUrl': 'http://testcategory.com/icon.png',
+      'createdAt': testTimeString,
+      'updatedAt': testTimeString,
       'status': ContentStatus.active.name,
       'type': 'category',
     };
@@ -68,12 +68,12 @@ void main() {
       'title': 'Full Headline Title',
       'description': 'Full description.',
       'url': 'http://example.com/full',
-      'image_url': 'http://example.com/full.jpg',
-      'published_at': testTimeString,
+      'imageUrl': 'http://example.com/full.jpg',
+      'publishedAt': testTimeString,
       'source': sampleSourceJson,
       'category': sampleCategoryJson,
-      'created_at': testTimeString,
-      'updated_at': testTimeString,
+      'createdAt': testTimeString,
+      'updatedAt': testTimeString,
       'status': ContentStatus.active.name,
       'type': 'headline',
     };
@@ -99,12 +99,12 @@ void main() {
       'title': 'Minimal Headline Title',
       'description': 'Minimal description.',
       'url': 'http://example.com/minimal',
-      'image_url': 'http://example.com/minimal.jpg',
-      'published_at': testTimeString,
+      'imageUrl': 'http://example.com/minimal.jpg',
+      'publishedAt': testTimeString,
       'source': sampleSourceJson,
       'category': sampleCategoryJson,
-      'created_at': testTimeString,
-      'updated_at': testTimeString,
+      'createdAt': testTimeString,
+      'updatedAt': testTimeString,
       'status': ContentStatus.active.name,
       'type': 'headline',
     };
@@ -159,12 +159,12 @@ void main() {
         expect(json['title'], minimalHeadline.title);
         expect(json['description'], minimalHeadline.description);
         expect(json['url'], minimalHeadline.url);
-        expect(json['image_url'], minimalHeadline.imageUrl);
-        expect(json['published_at'], testTimeString);
+        expect(json['imageUrl'], minimalHeadline.imageUrl);
+        expect(json['publishedAt'], testTimeString);
         expect(json['source'], sampleSourceJson);
         expect(json['category'], sampleCategoryJson);
-        expect(json['created_at'], testTimeString);
-        expect(json['updated_at'], testTimeString);
+        expect(json['createdAt'], testTimeString);
+        expect(json['updatedAt'], testTimeString);
       });
     });
 
