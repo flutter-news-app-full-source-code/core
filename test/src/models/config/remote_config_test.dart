@@ -26,8 +26,8 @@ void main() {
     );
 
     const mockAccountActionConfig = AccountActionConfig(
-      guestDaysBetweenAccountActions: 7,
-      standardUserDaysBetweenAccountActions: 14,
+      guestDaysBetweenActions: {FeedActionType.linkAccount: 7},
+      standardUserDaysBetweenActions: {FeedActionType.linkAccount: 14},
     );
 
     const mockAppStatus = AppStatus(
@@ -38,7 +38,7 @@ void main() {
       androidUpdateUrl: 'http://example.com/android',
     );
 
-    const remoteConfig = RemoteConfig(
+    final remoteConfig = RemoteConfig(
       id: 'app_config',
       userPreferenceConfig: mockUserPreferenceConfig,
       adConfig: mockAdConfig,
@@ -109,14 +109,14 @@ void main() {
 
     group('Equatable', () {
       test('instances with the same properties are equal', () {
-        const config1 = RemoteConfig(
+        final config1 = RemoteConfig(
           id: 'app_config',
           userPreferenceConfig: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
           accountActionConfig: mockAccountActionConfig,
           appStatus: mockAppStatus,
         );
-        const config2 = RemoteConfig(
+        final config2 = RemoteConfig(
           id: 'app_config',
           userPreferenceConfig: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
@@ -127,7 +127,7 @@ void main() {
       });
 
       test('instances with different properties are not equal', () {
-        const config1 = RemoteConfig(
+        final config1 = RemoteConfig(
           id: 'app_config',
           userPreferenceConfig: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
