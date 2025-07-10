@@ -40,7 +40,7 @@ void main() {
 
     const remoteConfig = RemoteConfig(
       id: 'app_config',
-      userPreferenceLimits: mockUserPreferenceConfig,
+      userPreferenceConfig: mockUserPreferenceConfig,
       adConfig: mockAdConfig,
       accountActionConfig: mockAccountActionConfig,
       appStatus: mockAppStatus,
@@ -50,7 +50,7 @@ void main() {
       test('returns correct instance', () {
         expect(remoteConfig, isA<RemoteConfig>());
         expect(remoteConfig.id, 'app_config');
-        expect(remoteConfig.userPreferenceLimits, mockUserPreferenceConfig);
+        expect(remoteConfig.userPreferenceConfig, mockUserPreferenceConfig);
         expect(remoteConfig.adConfig, mockAdConfig);
         expect(remoteConfig.accountActionConfig, mockAccountActionConfig);
         expect(remoteConfig.appStatus, mockAppStatus);
@@ -94,7 +94,7 @@ void main() {
 
         expect(updatedConfig.id, 'new_app_config');
         expect(
-          updatedConfig.userPreferenceLimits,
+          updatedConfig.userPreferenceConfig,
           mockUserPreferenceConfig,
         ); // Unchanged
         expect(updatedConfig.appStatus.isUnderMaintenance, true);
@@ -111,14 +111,14 @@ void main() {
       test('instances with the same properties are equal', () {
         const config1 = RemoteConfig(
           id: 'app_config',
-          userPreferenceLimits: mockUserPreferenceConfig,
+          userPreferenceConfig: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
           accountActionConfig: mockAccountActionConfig,
           appStatus: mockAppStatus,
         );
         const config2 = RemoteConfig(
           id: 'app_config',
-          userPreferenceLimits: mockUserPreferenceConfig,
+          userPreferenceConfig: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
           accountActionConfig: mockAccountActionConfig,
           appStatus: mockAppStatus,
@@ -129,7 +129,7 @@ void main() {
       test('instances with different properties are not equal', () {
         const config1 = RemoteConfig(
           id: 'app_config',
-          userPreferenceLimits: mockUserPreferenceConfig,
+          userPreferenceConfig: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
           accountActionConfig: mockAccountActionConfig,
           appStatus: mockAppStatus,

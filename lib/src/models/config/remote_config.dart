@@ -19,7 +19,7 @@ part 'remote_config.g.dart';
 class RemoteConfig extends Equatable {
   const RemoteConfig({
     required this.id,
-    required this.userPreferenceLimits,
+    required this.userPreferenceConfig,
     required this.adConfig,
     required this.accountActionConfig,
     required this.appStatus,
@@ -33,7 +33,7 @@ class RemoteConfig extends Equatable {
   final String id;
 
   /// Defines configuration settings related to user preference limits.
-  final UserPreferenceConfig userPreferenceLimits;
+  final UserPreferenceConfig userPreferenceConfig;
 
   /// Defines configuration settings related to ad display.
   final AdConfig adConfig;
@@ -57,7 +57,7 @@ class RemoteConfig extends Equatable {
   }) {
     return RemoteConfig(
       id: id ?? this.id,
-      userPreferenceLimits: userPreferenceLimits ?? this.userPreferenceLimits,
+      userPreferenceConfig: userPreferenceLimits ?? this.userPreferenceConfig,
       adConfig: adConfig ?? this.adConfig,
       accountActionConfig: accountActionConfig ?? this.accountActionConfig,
       appStatus: appStatus ?? this.appStatus, // Pass new field
@@ -67,7 +67,7 @@ class RemoteConfig extends Equatable {
   @override
   List<Object> get props => [
     id,
-    userPreferenceLimits,
+    userPreferenceConfig,
     adConfig,
     accountActionConfig,
     appStatus, // Add to props

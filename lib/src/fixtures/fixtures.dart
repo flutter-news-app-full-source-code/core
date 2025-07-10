@@ -1,4 +1,4 @@
-export 'app_config.dart';
+export 'remote_config.dart';
 export 'countries.dart';
 export 'dashboard_summary.dart';
 export 'headlines.dart';

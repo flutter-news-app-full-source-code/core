@@ -1,6 +1,6 @@
 /// Remote config Demo Data
-const Map<String, dynamic> appConfigFixtureData = {
-  'id': 'app_config',
+const Map<String, dynamic> remoteConfigFixtureData = {
+  'id': 'remote_config',
   // Kill Switch
   'kill_switch_enabled': false,
   'app_operational_status': 'active',
@@ -38,7 +38,16 @@ const Map<String, dynamic> appConfigFixtureData = {
     'premium_user_articles_to_read_before_showing_interstitial_ads': 50000,
   },
   'account_action_config': {
-    'guest_days_between_account_actions': 2,
-    'standard_user_days_between_account_actions': 7,
+    'guest_days_between_actions': {
+      'linkAccount': 2,
+      'rateApp': 14,
+      'followTopics': 3,
+      'followSources': 3,
+    },
+    'standard_user_days_between_actions': {
+      'upgrade': 7,
+      'rateApp': 30,
+      'enableNotifications': 10,
+    },
   },
 };
