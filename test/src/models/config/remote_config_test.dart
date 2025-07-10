@@ -20,22 +20,32 @@ void main() {
       authenticatedAdPlacementInterval: 5,
       premiumAdFrequency: 0,
       premiumAdPlacementInterval: 0,
-      guestArticlesToReadBeforeShowingInterstitialAds: 2,
-      standardUserArticlesToReadBeforeShowingInterstitialAds: 5,
-      premiumUserArticlesToReadBeforeShowingInterstitialAds: 0,
+      guestArticlesToReadBeforeShowingInterstitialAds: 5,
+      standardUserArticlesToReadBeforeShowingInterstitialAds: 10,
+      premiumUserArticlesToReadBeforeShowingInterstitialAds: 50000,
     );
 
     const mockAccountActionConfig = AccountActionConfig(
-      guestDaysBetweenActions: {FeedActionType.linkAccount: 7},
-      standardUserDaysBetweenActions: {FeedActionType.linkAccount: 14},
+      guestDaysBetweenActions: {
+        FeedActionType.linkAccount: 2,
+        FeedActionType.rateApp: 14,
+        FeedActionType.followTopics: 3,
+        FeedActionType.followSources: 3,
+      },
+      standardUserDaysBetweenActions: {
+        FeedActionType.upgrade: 7,
+        FeedActionType.rateApp: 30,
+        FeedActionType.enableNotifications: 10,
+      },
     );
 
     const mockAppStatus = AppStatus(
       isUnderMaintenance: false,
-      latestAppVersion: '1.0.0',
+      latestAppVersion: '1.1.0',
       isLatestVersionOnly: false,
-      iosUpdateUrl: 'http://example.com/ios',
-      androidUpdateUrl: 'http://example.com/android',
+      iosUpdateUrl: 'https://apps.apple.com/app/example/id1234567890',
+      androidUpdateUrl:
+          'https://play.google.com/store/apps/details?id=com.example.app',
     );
 
     const remoteConfig = RemoteConfig(
@@ -61,7 +71,7 @@ void main() {
       test('returns correct instance from JSON', () {
         final json = {
           'id': 'remote_config',
-          'userPreferenceLimits': mockUserPreferenceConfig.toJson(),
+          'userPreferenceConfig': mockUserPreferenceConfig.toJson(),
           'adConfig': mockAdConfig.toJson(),
           'accountActionConfig': mockAccountActionConfig.toJson(),
           'appStatus': mockAppStatus.toJson(),
@@ -78,7 +88,7 @@ void main() {
         final json = remoteConfig.toJson();
 
         expect(json['id'], 'remote_config');
-        expect(json['userPreferenceLimits'], mockUserPreferenceConfig.toJson());
+        expect(json['userPreferenceConfig'], mockUserPreferenceConfig.toJson());
         expect(json['adConfig'], mockAdConfig.toJson());
         expect(json['accountActionConfig'], mockAccountActionConfig.toJson());
         expect(json['appStatus'], mockAppStatus.toJson());
