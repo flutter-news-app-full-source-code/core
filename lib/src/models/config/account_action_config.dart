@@ -47,14 +47,14 @@ class AccountActionConfig extends Equatable {
     return AccountActionConfig(
       guestDaysBetweenActions:
           guestDaysBetweenActions ?? this.guestDaysBetweenActions,
-      standardUserDaysBetweenActions: standardUserDaysBetweenActions ??
-          this.standardUserDaysBetweenActions,
+      standardUserDaysBetweenActions:
+          standardUserDaysBetweenActions ?? this.standardUserDaysBetweenActions,
     );
   }
 
   @override
   List<Object> get props => [
-        guestDaysBetweenActions,
-        standardUserDaysBetweenActions,
+    guestDaysBetweenActions,
+    standardUserDaysBetweenActions,
   ];
 }

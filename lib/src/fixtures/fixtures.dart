@@ -1,7 +1,7 @@
-export 'remote_config.dart';
 export 'countries.dart';
 export 'dashboard_summary.dart';
 export 'headlines.dart';
+export 'remote_config.dart';
 export 'sources.dart';
 export 'topics.dart';
 export 'user_app_settings_fixtures.dart';

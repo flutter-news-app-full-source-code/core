@@ -15,22 +15,15 @@ void main() {
     group('constructor', () {
       test('assigns all properties correctly', () {
         expect(defaultConfig.guestDaysBetweenActions, guestDays);
-        expect(
-          defaultConfig.standardUserDaysBetweenActions,
-          standardUserDays,
-        );
+        expect(defaultConfig.standardUserDaysBetweenActions, standardUserDays);
       });
     });
 
     group('fromJson', () {
       test('returns correct instance from JSON', () {
         final json = {
-          'guestDaysBetweenActions': {
-            'linkAccount': 7,
-          },
-          'standardUserDaysBetweenActions': {
-            'linkAccount': 14,
-          },
+          'guestDaysBetweenActions': {'linkAccount': 7},
+          'standardUserDaysBetweenActions': {'linkAccount': 14},
         };
         final result = AccountActionConfig.fromJson(json);
         expect(result, equals(defaultConfig));
@@ -38,19 +31,14 @@ void main() {
 
       test('parses a complete object with different values', () {
         final json = {
-          'guestDaysBetweenActions': {
-            'linkAccount': 5,
-          },
-          'standardUserDaysBetweenActions': {
-            'linkAccount': 10,
-          },
+          'guestDaysBetweenActions': {'linkAccount': 5},
+          'standardUserDaysBetweenActions': {'linkAccount': 10},
         };
         final result = AccountActionConfig.fromJson(json);
         expect(result.guestDaysBetweenActions, {FeedActionType.linkAccount: 5});
-        expect(
-          result.standardUserDaysBetweenActions,
-          {FeedActionType.linkAccount: 10},
-        );
+        expect(result.standardUserDaysBetweenActions, {
+          FeedActionType.linkAccount: 10,
+        });
       });
     });
 
@@ -58,12 +46,8 @@ void main() {
       test('returns correct JSON map', () {
         final json = defaultConfig.toJson();
         expect(json, {
-          'guestDaysBetweenActions': {
-            'linkAccount': 7,
-          },
-          'standardUserDaysBetweenActions': {
-            'linkAccount': 14,
-          },
+          'guestDaysBetweenActions': {'linkAccount': 7},
+          'standardUserDaysBetweenActions': {'linkAccount': 14},
         });
       });
     });
@@ -80,10 +64,9 @@ void main() {
           standardUserDaysBetweenActions: {FeedActionType.linkAccount: 2},
         );
         expect(copy.guestDaysBetweenActions, {FeedActionType.linkAccount: 1});
-        expect(
-          copy.standardUserDaysBetweenActions,
-          {FeedActionType.linkAccount: 2},
-        );
+        expect(copy.standardUserDaysBetweenActions, {
+          FeedActionType.linkAccount: 2,
+        });
       });
 
       test('copies correctly when some arguments are provided', () {
