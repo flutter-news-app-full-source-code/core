@@ -11,7 +11,7 @@ RemoteConfig _$RemoteConfigFromJson(Map<String, dynamic> json) =>
       final val = RemoteConfig(
         id: $checkedConvert('id', (v) => v as String),
         userPreferenceConfig: $checkedConvert(
-          'userPreferenceLimits',
+          'userPreferenceConfig',
           (v) => UserPreferenceConfig.fromJson(v as Map<String, dynamic>),
         ),
         adConfig: $checkedConvert(
@@ -33,7 +33,7 @@ RemoteConfig _$RemoteConfigFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$RemoteConfigToJson(RemoteConfig instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'userPreferenceLimits': instance.userPreferenceConfig.toJson(),
+      'userPreferenceConfig': instance.userPreferenceConfig.toJson(),
       'adConfig': instance.adConfig.toJson(),
       'accountActionConfig': instance.accountActionConfig.toJson(),
       'appStatus': instance.appStatus.toJson(),

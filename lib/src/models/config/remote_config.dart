@@ -50,14 +50,14 @@ class RemoteConfig extends Equatable {
   /// Creates a new [RemoteConfig] instance with specified changes.
   RemoteConfig copyWith({
     String? id,
-    UserPreferenceConfig? userPreferenceLimits,
+    UserPreferenceConfig? userPreferenceConfig,
     AdConfig? adConfig,
     AccountActionConfig? accountActionConfig,
     AppStatus? appStatus, // New optional parameter
   }) {
     return RemoteConfig(
       id: id ?? this.id,
-      userPreferenceConfig: userPreferenceLimits ?? this.userPreferenceConfig,
+      userPreferenceConfig: userPreferenceConfig ?? this.userPreferenceConfig,
       adConfig: adConfig ?? this.adConfig,
       accountActionConfig: accountActionConfig ?? this.accountActionConfig,
       appStatus: appStatus ?? this.appStatus, // Pass new field
