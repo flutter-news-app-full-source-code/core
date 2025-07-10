@@ -38,8 +38,8 @@ void main() {
       androidUpdateUrl: 'http://example.com/android',
     );
 
-    final remoteConfig = RemoteConfig(
-      id: 'app_config',
+    const remoteConfig = RemoteConfig(
+      id: 'remote_config',
       userPreferenceConfig: mockUserPreferenceConfig,
       adConfig: mockAdConfig,
       accountActionConfig: mockAccountActionConfig,
@@ -49,7 +49,7 @@ void main() {
     group('constructor', () {
       test('returns correct instance', () {
         expect(remoteConfig, isA<RemoteConfig>());
-        expect(remoteConfig.id, 'app_config');
+        expect(remoteConfig.id, 'remote_config');
         expect(remoteConfig.userPreferenceConfig, mockUserPreferenceConfig);
         expect(remoteConfig.adConfig, mockAdConfig);
         expect(remoteConfig.accountActionConfig, mockAccountActionConfig);
@@ -60,7 +60,7 @@ void main() {
     group('fromJson', () {
       test('returns correct instance from JSON', () {
         final json = {
-          'id': 'app_config',
+          'id': 'remote_config',
           'userPreferenceLimits': mockUserPreferenceConfig.toJson(),
           'adConfig': mockAdConfig.toJson(),
           'accountActionConfig': mockAccountActionConfig.toJson(),
@@ -77,7 +77,7 @@ void main() {
       test('returns correct JSON map', () {
         final json = remoteConfig.toJson();
 
-        expect(json['id'], 'app_config');
+        expect(json['id'], 'remote_config');
         expect(json['userPreferenceLimits'], mockUserPreferenceConfig.toJson());
         expect(json['adConfig'], mockAdConfig.toJson());
         expect(json['accountActionConfig'], mockAccountActionConfig.toJson());
@@ -109,15 +109,15 @@ void main() {
 
     group('Equatable', () {
       test('instances with the same properties are equal', () {
-        final config1 = RemoteConfig(
-          id: 'app_config',
+        const config1 = RemoteConfig(
+          id: 'remote_config',
           userPreferenceConfig: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
           accountActionConfig: mockAccountActionConfig,
           appStatus: mockAppStatus,
         );
-        final config2 = RemoteConfig(
-          id: 'app_config',
+        const config2 = RemoteConfig(
+          id: 'remote_config',
           userPreferenceConfig: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
           accountActionConfig: mockAccountActionConfig,
@@ -127,8 +127,8 @@ void main() {
       });
 
       test('instances with different properties are not equal', () {
-        final config1 = RemoteConfig(
-          id: 'app_config',
+        const config1 = RemoteConfig(
+          id: 'remote_config',
           userPreferenceConfig: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
           accountActionConfig: mockAccountActionConfig,
