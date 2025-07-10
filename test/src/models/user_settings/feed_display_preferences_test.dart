@@ -1,5 +1,5 @@
+import 'package:ht_shared/src/enums/headline_density.dart';
 import 'package:ht_shared/src/enums/headline_image_style.dart';
-import 'package:ht_shared/src/exceptions/headline_density.dart';
 import 'package:ht_shared/src/models/user_settings/feed_display_preferences.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:test/test.dart';
