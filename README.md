@@ -15,7 +15,7 @@ Think of it as the common language 🗣️ that all parts of your news applicati
 *   **🚀 Rapid Development:** Start building features faster with pre-defined, robust models for common news application needs. No reinventing the wheel!
 *   **🔗 Seamless Integration:** Enables the Flutter mobile app, web dashboard, and Dart Frog API to work together flawlessly.
 *   **🎯 Consistency by Design:** Reduces errors and simplifies maintenance by providing a single source of truth for core data definitions.
-*   **🌟 Foundation for Rich Features:** Includes models for user personalization (`UserContentPreferences`, `UserAppSettings`), dynamic feed items (`Ad`, `EngagementContent`), application-wide settings (`AppConfig`, `UserPreferenceConfig`, `AdConfig`), and standardized API responses.
+*   **🌟 Foundation for Rich Features:** Includes models for user personalization (`UserContentPreferences`, `UserAppSettings`), dynamic feed items (`Ad`, `EngagementContent`), application-wide settings (`RemoteConfig`, `UserPreferenceConfig`, `AdConfig`, `AppStatus`, `AccountActionConfig`), and standardized API responses.
 
 ## 🎁 Key Models Provided
 
@@ -25,13 +25,13 @@ This package includes well-defined Dart classes for:
 *   🧩 **Feed System:** `FeedItem` (and its subtypes `Ad`, `FeedAction`),
     `FeedActionType`
 *   👤 **User Data:** `User`, `UserRole`, `Permission`, `UserContentPreferences`, `UserAppSettings`
-*   ⚙️ **Application Configuration:** `AppConfig` (containing `AdConfig` and `UserPreferenceConfig`)
+*   ⚙️ **Application Configuration:** `RemoteConfig` (containing `AdConfig`, `UserPreferenceConfig`, `AppStatus`, and `AccountActionConfig`)
 *   📊 **Dashboard:** `DashboardSummary`
 *   📡 **API Communication:** `PaginatedResponse`, `SuccessApiResponse`, and a comprehensive `HtHttpException` hierarchy for standardized error handling.
 
 ## 📊 Sample Data / Fixtures
 
-To further accelerate development and provide immediate demonstration capabilities, `ht_shared` now includes a set of **pre-defined, in-memory fixture data** for core models like `Headline`, `Topic`, `Source`, `Country`, and `AppConfig`. These fixtures are directly embedded as Dart constants, enabling:
+To further accelerate development and provide immediate demonstration capabilities, `ht_shared` now includes a set of **pre-defined, in-memory fixture data** for core models like `Headline`, `Topic`, `Source`, `Country`, and `RemoteConfig`. These fixtures are directly embedded as Dart constants, enabling:
 
 *   **⚡ Instant Setup:** Quickly initialize in-memory data stores for testing or local development without needing a backend.
 *   **🧪 Reliable Testing:** Use consistent, realistic data for unit and integration tests.
