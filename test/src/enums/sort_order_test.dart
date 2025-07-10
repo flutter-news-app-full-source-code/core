@@ -4,10 +4,7 @@ import 'package:test/test.dart';
 void main() {
   group('SortOrder', () {
     test('has correct values', () {
-      expect(SortOrder.values, containsAll([
-        SortOrder.asc,
-        SortOrder.desc,
-      ]));
+      expect(SortOrder.values, containsAll([SortOrder.asc, SortOrder.desc]));
     });
 
     test('has correct string values', () {
@@ -16,14 +13,8 @@ void main() {
     });
 
     test('can be created from string values', () {
-      expect(
-        SortOrder.values.byName('asc'),
-        SortOrder.asc,
-      );
-      expect(
-        SortOrder.values.byName('desc'),
-        SortOrder.desc,
-      );
+      expect(SortOrder.values.byName('asc'), SortOrder.asc);
+      expect(SortOrder.values.byName('desc'), SortOrder.desc);
     });
   });
 }

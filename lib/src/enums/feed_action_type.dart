@@ -4,7 +4,7 @@ import 'package:ht_shared/src/models/feed_decorators/feed_action.dart';
 /// Defines the specific type or purpose of an [FeedAction] item.
 /// {@endtemplate}
 enum FeedActionType {
-  /// A call-to-action to link an anonymous account to an 
+  /// A call-to-action to link an anonymous account to an
   /// email by authenticating.
   linkAccount,
 

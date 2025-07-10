@@ -4,11 +4,14 @@ import 'package:test/test.dart';
 void main() {
   group('HeadlineImageStyle', () {
     test('has correct values', () {
-      expect(HeadlineImageStyle.values, containsAll([
-        HeadlineImageStyle.hidden,
-        HeadlineImageStyle.smallThumbnail,
-        HeadlineImageStyle.largeThumbnail,
-      ]));
+      expect(
+        HeadlineImageStyle.values,
+        containsAll([
+          HeadlineImageStyle.hidden,
+          HeadlineImageStyle.smallThumbnail,
+          HeadlineImageStyle.largeThumbnail,
+        ]),
+      );
     });
 
     test('has correct string values', () {

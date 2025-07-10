@@ -16,8 +16,9 @@ final List<User> usersFixturesData = [
       FeedActionType.linkAccount: UserFeedActionStatus(isCompleted: false),
       FeedActionType.upgrade: UserFeedActionStatus(isCompleted: false),
       FeedActionType.rateApp: UserFeedActionStatus(isCompleted: false),
-      FeedActionType.enableNotifications:
-          UserFeedActionStatus(isCompleted: false),
+      FeedActionType.enableNotifications: UserFeedActionStatus(
+        isCompleted: false,
+      ),
     },
   ),
   // Add other initial users for testing if needed.

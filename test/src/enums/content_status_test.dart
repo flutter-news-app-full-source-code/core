@@ -4,11 +4,14 @@ import 'package:test/test.dart';
 void main() {
   group('ContentStatus', () {
     test('has correct values', () {
-      expect(ContentStatus.values, containsAll([
-        ContentStatus.active,
-        ContentStatus.draft,
-        ContentStatus.archived,
-      ]));
+      expect(
+        ContentStatus.values,
+        containsAll([
+          ContentStatus.active,
+          ContentStatus.draft,
+          ContentStatus.archived,
+        ]),
+      );
     });
 
     test('has correct string values', () {
@@ -18,18 +21,9 @@ void main() {
     });
 
     test('can be created from string values', () {
-      expect(
-        ContentStatus.values.byName('active'),
-        ContentStatus.active,
-      );
-      expect(
-        ContentStatus.values.byName('draft'),
-        ContentStatus.draft,
-      );
-      expect(
-        ContentStatus.values.byName('archived'),
-        ContentStatus.archived,
-      );
+      expect(ContentStatus.values.byName('active'), ContentStatus.active);
+      expect(ContentStatus.values.byName('draft'), ContentStatus.draft);
+      expect(ContentStatus.values.byName('archived'), ContentStatus.archived);
     });
   });
 }

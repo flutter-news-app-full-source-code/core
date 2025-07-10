@@ -26,8 +26,7 @@ class Topic extends FeedItem {
   }) : super(type: 'topic');
 
   /// Creates a Topic instance from a JSON map.
-  factory Topic.fromJson(Map<String, dynamic> json) =>
-      _$TopicFromJson(json);
+  factory Topic.fromJson(Map<String, dynamic> json) => _$TopicFromJson(json);
 
   /// The unique identifier of the topic.
   final String id;

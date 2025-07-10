@@ -124,16 +124,14 @@ Map<FeedActionType, UserFeedActionStatus> _feedActionStatusFromJson(
 ) {
   // First, deserialize the existing data from JSON into a type-safe map.
   // This map will only contain entries that were present in the JSON.
-  final existingStatuses = json.map(
-    (key, value) {
-      // Find the enum value that matches the string key from the JSON.
-      final actionType = FeedActionType.values.byName(key);
-      return MapEntry(
-        actionType,
-        UserFeedActionStatus.fromJson(value as Map<String, dynamic>),
-      );
-    },
-  );
+  final existingStatuses = json.map((key, value) {
+    // Find the enum value that matches the string key from the JSON.
+    final actionType = FeedActionType.values.byName(key);
+    return MapEntry(
+      actionType,
+      UserFeedActionStatus.fromJson(value as Map<String, dynamic>),
+    );
+  });
 
   // Now, create the final, complete map by iterating over all possible
   // FeedActionType enum values and providing a default where one doesn't exist.

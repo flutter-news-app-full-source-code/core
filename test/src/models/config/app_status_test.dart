@@ -60,16 +60,22 @@ void main() {
         expect(AppStatus.fromJson(json), equals(appStatus));
       });
 
-      test('throws FormatException on invalid JSON (missing required field)', () {
-        final json = <String, dynamic>{
-          'isUnderMaintenance': false,
-          'latestAppVersion': '1.0.0',
-          // 'isLatestVersionOnly' is missing
-          'iosUpdateUrl': 'https://ios.example.com',
-          'androidUpdateUrl': 'https://android.example.com',
-        };
-        expect(() => AppStatus.fromJson(json), throwsA(isA<CheckedFromJsonException>()));
-      });
+      test(
+        'throws FormatException on invalid JSON (missing required field)',
+        () {
+          final json = <String, dynamic>{
+            'isUnderMaintenance': false,
+            'latestAppVersion': '1.0.0',
+            // 'isLatestVersionOnly' is missing
+            'iosUpdateUrl': 'https://ios.example.com',
+            'androidUpdateUrl': 'https://android.example.com',
+          };
+          expect(
+            () => AppStatus.fromJson(json),
+            throwsA(isA<CheckedFromJsonException>()),
+          );
+        },
+      );
     });
 
     group('toJson', () {
