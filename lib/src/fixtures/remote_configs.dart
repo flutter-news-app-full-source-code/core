@@ -2,7 +2,7 @@ import 'package:ht_shared/ht_shared.dart';
 
 /// A list of initial remote config data to be loaded into the in-memory
 /// remote config repository.
-final List<RemoteConfig> remoteConfigFixturesData = [
+final List<RemoteConfig> remoteConfigsFixturesData = [
   const RemoteConfig(
     id: 'remote_config',
     appStatus: AppStatus(
