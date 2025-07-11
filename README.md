@@ -1,6 +1,6 @@
 # 🛠️ ht_shared
 
-![coverage: percentage](https://img.shields.io/badge/coverage-67-green)
+![coverage: percentage](https://img.shields.io/badge/coverage-68-green)
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 [![License: PolyForm Free Trial](https://img.shields.io/badge/License-PolyForm%20Free%20Trial-blue)](https://polyformproject.org/licenses/free-trial/1.0.0)
 
@@ -27,7 +27,8 @@ This package includes well-defined Dart classes for:
 *   👤 **User Data:** `User`, `UserRole`, `Permission`, `UserContentPreferences`, `UserAppSettings`
 *   ⚙️ **Application Configuration:** `RemoteConfig` (containing `AdConfig`, `UserPreferenceConfig`, `AppStatus`, and `AccountActionConfig`)
 *   📊 **Dashboard:** `DashboardSummary`
-*   📡 **API Communication:** `PaginatedResponse`, `SuccessApiResponse`, and a comprehensive `HtHttpException` hierarchy for standardized error handling.
+*   🔍 **Querying & Pagination:** `SortOption` and `PaginationOptions` to build flexible, server-side queries.
+*   📡 **API Communication:** `PaginatedResponse`, `SuccessApiResponse`, and a comprehensive `HtHttpException` hierarchy for standardized responses and error handling.
 
 ## 📊 Sample Data / Fixtures
 
