@@ -1,10 +1,11 @@
 import 'package:ht_shared/src/enums/enums.dart';
+import 'package:ht_shared/src/fixtures/fixture_ids.dart';
 import 'package:ht_shared/src/models/entities/country.dart';
 
 /// A list of predefined countries for fixture data.
 final countriesFixturesData = <Country>[
   Country(
-    id: 'country-1',
+    id: kCountryId1,
     isoCode: 'US',
     name: 'United States',
     flagUrl: 'https://example.com/flags/us.png',
@@ -13,7 +14,7 @@ final countriesFixturesData = <Country>[
     status: ContentStatus.active,
   ),
   Country(
-    id: 'country-2',
+    id: kCountryId2,
     isoCode: 'CA',
     name: 'Canada',
     flagUrl: 'https://example.com/flags/ca.png',
@@ -22,7 +23,7 @@ final countriesFixturesData = <Country>[
     status: ContentStatus.active,
   ),
   Country(
-    id: 'country-3',
+    id: kCountryId3,
     isoCode: 'GB',
     name: 'United Kingdom',
     flagUrl: 'https://example.com/flags/gb.png',
@@ -31,7 +32,7 @@ final countriesFixturesData = <Country>[
     status: ContentStatus.active,
   ),
   Country(
-    id: 'country-4',
+    id: kCountryId4,
     isoCode: 'DE',
     name: 'Germany',
     flagUrl: 'https://example.com/flags/de.png',
@@ -40,7 +41,7 @@ final countriesFixturesData = <Country>[
     status: ContentStatus.active,
   ),
   Country(
-    id: 'country-5',
+    id: kCountryId5,
     isoCode: 'FR',
     name: 'France',
     flagUrl: 'https://example.com/flags/fr.png',
@@ -49,7 +50,7 @@ final countriesFixturesData = <Country>[
     status: ContentStatus.active,
   ),
   Country(
-    id: 'country-6',
+    id: kCountryId6,
     isoCode: 'AU',
     name: 'Australia',
     flagUrl: 'https://example.com/flags/au.png',
@@ -58,7 +59,7 @@ final countriesFixturesData = <Country>[
     status: ContentStatus.active,
   ),
   Country(
-    id: 'country-7',
+    id: kCountryId7,
     isoCode: 'JP',
     name: 'Japan',
     flagUrl: 'https://example.com/flags/jp.png',
@@ -67,7 +68,7 @@ final countriesFixturesData = <Country>[
     status: ContentStatus.active,
   ),
   Country(
-    id: 'country-8',
+    id: kCountryId8,
     isoCode: 'CN',
     name: 'China',
     flagUrl: 'https://example.com/flags/cn.png',
@@ -76,7 +77,7 @@ final countriesFixturesData = <Country>[
     status: ContentStatus.active,
   ),
   Country(
-    id: 'country-9',
+    id: kCountryId9,
     isoCode: 'IN',
     name: 'India',
     flagUrl: 'https://example.com/flags/in.png',
@@ -85,7 +86,7 @@ final countriesFixturesData = <Country>[
     status: ContentStatus.active,
   ),
   Country(
-    id: 'country-10',
+    id: kCountryId10,
     isoCode: 'BR',
     name: 'Brazil',
     flagUrl: 'https://example.com/flags/br.png',
