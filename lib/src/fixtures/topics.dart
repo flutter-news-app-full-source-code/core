@@ -1,10 +1,11 @@
 import 'package:ht_shared/src/enums/enums.dart';
+import 'package:ht_shared/src/fixtures/fixture_ids.dart';
 import 'package:ht_shared/src/models/entities/topic.dart';
 
 /// A list of predefined topics for fixture data.
 final topicsFixturesData = <Topic>[
   Topic(
-    id: '1',
+    id: kTopicId1,
     name: 'Technology',
     description: 'News and updates from the world of technology.',
     iconUrl: 'https://example.com/icons/tech.png',
@@ -13,7 +14,7 @@ final topicsFixturesData = <Topic>[
     status: ContentStatus.active,
   ),
   Topic(
-    id: '2',
+    id: kTopicId2,
     name: 'Sports',
     description: 'Latest scores, highlights, and news from sports.',
     iconUrl: 'https://example.com/icons/sports.png',
@@ -22,7 +23,7 @@ final topicsFixturesData = <Topic>[
     status: ContentStatus.active,
   ),
   Topic(
-    id: '3',
+    id: kTopicId3,
     name: 'Politics',
     description: 'Updates on political events and government policies.',
     iconUrl: 'https://example.com/icons/politics.png',
@@ -31,7 +32,7 @@ final topicsFixturesData = <Topic>[
     status: ContentStatus.active,
   ),
   Topic(
-    id: '4',
+    id: kTopicId4,
     name: 'Science',
     description: 'Discoveries and breakthroughs in scientific research.',
     iconUrl: 'https://example.com/icons/science.png',
@@ -40,7 +41,7 @@ final topicsFixturesData = <Topic>[
     status: ContentStatus.active,
   ),
   Topic(
-    id: '5',
+    id: kTopicId5,
     name: 'Health',
     description: 'Information and advice on health and wellness.',
     iconUrl: 'https://example.com/icons/health.png',
@@ -49,7 +50,7 @@ final topicsFixturesData = <Topic>[
     status: ContentStatus.active,
   ),
   Topic(
-    id: '6',
+    id: kTopicId6,
     name: 'Entertainment',
     description: 'News from movies, music, and pop culture.',
     iconUrl: 'https://example.com/icons/entertainment.png',
@@ -58,7 +59,7 @@ final topicsFixturesData = <Topic>[
     status: ContentStatus.active,
   ),
   Topic(
-    id: '7',
+    id: kTopicId7,
     name: 'Business',
     description: 'Financial markets, economy, and corporate news.',
     iconUrl: 'https://example.com/icons/business.png',
@@ -67,7 +68,7 @@ final topicsFixturesData = <Topic>[
     status: ContentStatus.active,
   ),
   Topic(
-    id: '8',
+    id: kTopicId8,
     name: 'Travel',
     description: 'Guides, tips, and news for travelers.',
     iconUrl: 'https://example.com/icons/travel.png',
@@ -76,7 +77,7 @@ final topicsFixturesData = <Topic>[
     status: ContentStatus.active,
   ),
   Topic(
-    id: '9',
+    id: kTopicId9,
     name: 'Food',
     description: 'Recipes, culinary trends, and food industry news.',
     iconUrl: 'https://example.com/icons/food.png',
@@ -85,7 +86,7 @@ final topicsFixturesData = <Topic>[
     status: ContentStatus.active,
   ),
   Topic(
-    id: '10',
+    id: kTopicId10,
     name: 'Education',
     description: 'Developments in education and learning.',
     iconUrl: 'https://example.com/icons/education.png',
