@@ -1,11 +1,12 @@
 import 'package:ht_shared/src/enums/enums.dart';
 import 'package:ht_shared/src/fixtures/countries.dart';
+import 'package:ht_shared/src/fixtures/fixture_ids.dart';
 import 'package:ht_shared/src/models/entities/source.dart';
 
 /// A list of predefined sources for fixture data.
 final sourcesFixturesData = <Source>[
   Source(
-    id: 'source-1',
+    id: kSourceId1,
     name: 'TechCrunch',
     description: 'Leading online publisher of technology news.',
     url: 'https://techcrunch.com',
@@ -17,7 +18,7 @@ final sourcesFixturesData = <Source>[
     status: ContentStatus.active,
   ),
   Source(
-    id: 'source-2',
+    id: kSourceId2,
     name: 'BBC News',
     description: 'Breaking news, sport, TV, radio and a whole lot more.',
     url: 'https://www.bbc.com/news',
@@ -29,7 +30,7 @@ final sourcesFixturesData = <Source>[
     status: ContentStatus.active,
   ),
   Source(
-    id: 'source-3',
+    id: kSourceId3,
     name: 'The New York Times',
     description: 'Breaking News, World News & Multimedia.',
     url: 'https://www.nytimes.com',
@@ -41,7 +42,7 @@ final sourcesFixturesData = <Source>[
     status: ContentStatus.active,
   ),
   Source(
-    id: 'source-4',
+    id: kSourceId4,
     name: 'The Guardian',
     description:
         'Latest news, sport, business, comment and reviews from the Guardian.',
@@ -54,7 +55,7 @@ final sourcesFixturesData = <Source>[
     status: ContentStatus.active,
   ),
   Source(
-    id: 'source-5',
+    id: kSourceId5,
     name: 'CNN',
     description: 'Breaking News, Latest News and Videos.',
     url: 'https://edition.cnn.com',
@@ -66,7 +67,7 @@ final sourcesFixturesData = <Source>[
     status: ContentStatus.active,
   ),
   Source(
-    id: 'source-6',
+    id: kSourceId6,
     name: 'Reuters',
     description: 'Business, financial, national and international news.',
     url: 'https://www.reuters.com',
@@ -78,7 +79,7 @@ final sourcesFixturesData = <Source>[
     status: ContentStatus.active,
   ),
   Source(
-    id: 'source-7',
+    id: kSourceId7,
     name: 'Al Jazeera English',
     description:
         'News, analysis, and opinion from the Middle East and around the world.',
@@ -92,7 +93,7 @@ final sourcesFixturesData = <Source>[
     status: ContentStatus.active,
   ),
   Source(
-    id: 'source-8',
+    id: kSourceId8,
     name: 'Xinhua News Agency',
     description: "Official press agency of the People's Republic of China.",
     url: 'http://www.xinhuanet.com/english/',
@@ -104,7 +105,7 @@ final sourcesFixturesData = <Source>[
     status: ContentStatus.active,
   ),
   Source(
-    id: 'source-9',
+    id: kSourceId9,
     name: 'The Times of India',
     description: 'Latest and Breaking News from India.',
     url: 'https://timesofindia.indiatimes.com/',
@@ -116,7 +117,7 @@ final sourcesFixturesData = <Source>[
     status: ContentStatus.active,
   ),
   Source(
-    id: 'source-10',
+    id: kSourceId10,
     name: 'Folha de S.Paulo',
     description: 'Brazilian daily newspaper.',
     url: 'https://www.folha.uol.com.br/',
