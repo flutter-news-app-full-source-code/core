@@ -1,5 +1,6 @@
 import 'package:ht_shared/src/enums/app_accent_theme.dart';
 import 'package:ht_shared/src/enums/app_base_theme.dart';
+import 'package:ht_shared/src/fixtures/fixture_ids.dart';
 import 'package:ht_shared/src/enums/app_font_weight.dart';
 import 'package:ht_shared/src/enums/app_text_scale_factor.dart';
 import 'package:ht_shared/src/enums/headline_density.dart';
@@ -11,7 +12,7 @@ import 'package:ht_shared/src/models/user_settings/user_app_settings.dart';
 /// User App Settings Demo Data
 final List<UserAppSettings> userAppSettingsFixturesData = [
   const UserAppSettings(
-    id: 'admin-user-id',
+    id: kAdminUserId,
     displaySettings: DisplaySettings(
       baseTheme: AppBaseTheme.system,
       accentTheme: AppAccentTheme.defaultBlue,
