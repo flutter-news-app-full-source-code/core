@@ -1,7 +1,11 @@
+import 'package:ht_shared/ht_shared.dart';
+
 /// Dashboard Summary Demo Data
-const dashboardSummaryFixtureData = {
-  'id': 'dashboard_summary',
-  'headline_count': 1234,
-  'topic_count': 56,
-  'source_count': 78,
-};
+final List<DashboardSummary> dashboardSummaryFixturesData = [
+  const DashboardSummary(
+    id: kDashboardSummaryId,
+    headlineCount: 1234,
+    topicCount: 56,
+    sourceCount: 78,
+  ),
+];
