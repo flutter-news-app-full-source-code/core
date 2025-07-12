@@ -1,10 +1,11 @@
 import 'package:ht_shared/ht_shared.dart';
+import 'package:ht_shared/src/fixtures/fixture_ids.dart';
 
 /// A list of initial remote config data to be loaded into the in-memory
 /// remote config repository.
 final List<RemoteConfig> remoteConfigsFixturesData = [
   const RemoteConfig(
-    id: 'remote_config',
+    id: kRemoteConfigId,
     appStatus: AppStatus(
       isUnderMaintenance: false,
       latestAppVersion: '1.1.0',
