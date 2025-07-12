@@ -1,5 +1,6 @@
 export 'countries.dart';
 export 'dashboard_summary.dart';
+export 'fixture_ids.dart';
 export 'headlines.dart';
 export 'remote_configs.dart';
 export 'sources.dart';

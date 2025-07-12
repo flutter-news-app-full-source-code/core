@@ -7,18 +7,15 @@ import 'package:ht_shared/ht_shared.dart';
 final List<User> usersFixturesData = [
   // The initial administrator user.
   User(
-    id: 'admin-user-id', // A fixed, predictable ID for the admin.
+    id: kAdminUserId, // A fixed, predictable ID for the admin.
     email: 'admin@example.com',
     appRole: AppUserRole.standardUser,
     dashboardRole: DashboardUserRole.admin,
     createdAt: DateTime.now().toUtc(),
-    feedActionStatus: const {
-      FeedActionType.linkAccount: UserFeedActionStatus(isCompleted: false),
-      FeedActionType.upgrade: UserFeedActionStatus(isCompleted: false),
-      FeedActionType.rateApp: UserFeedActionStatus(isCompleted: false),
-      FeedActionType.enableNotifications: UserFeedActionStatus(
-        isCompleted: false,
-      ),
+    feedActionStatus: {
+      // Ensure all feed action types have a default status.
+      for (final type in FeedActionType.values)
+        type: const UserFeedActionStatus(isCompleted: false),
     },
   ),
   // Add other initial users for testing if needed.
