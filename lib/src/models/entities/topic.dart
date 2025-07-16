@@ -8,8 +8,6 @@ part 'topic.g.dart';
 
 /// {@template topic}
 /// Represents a news topic.
-///
-/// Contains details like ID, name, description, and an optional icon URL.
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
