@@ -45,7 +45,7 @@ For commercial licensing options that grant the right to build and distribute un
 
 ## 🚀 Getting Started
 
-To integrate `core` into a component of the [**Flutter News App - Full Source Code Toolkit**](https://github.com/flutter-news-app-full-source-code) (or your custom Dart/Flutter project):
+To integrate `core` into a component of the [**Flutter News App - Full Source Code Toolkit**](https://github.com/flutter-news-app-full-source-code) :
 
 1.  Add `core` as a dependency in your `pubspec.yaml` file:
 
