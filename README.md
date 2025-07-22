@@ -1,10 +1,10 @@
 # 🛠️ core
 
-![coverage: percentage](https://img.shields.io/badge/coverage-68-green)
+![coverage: percentage](https://img.shields.io/badge/coverage-67-green)
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 [![License: PolyForm Free Trial](https://img.shields.io/badge/License-PolyForm%20Free%20Trial-blue)](https://polyformproject.org/licenses/free-trial/1.0.0)
 
-The essential shared Dart package providing the **Core Data Models** for the **Flutter Full News App**. it ensures data consistency and accelerates development across our Flutter mobile app, web dashboard, and Dart Frog backend API.
+The essential shared Dart package providing the **Core Data Models** for the **Flutter News App - Full Source Code Toolkit**. it ensures data consistency and accelerates development across our Flutter mobile app, web dashboard, and Dart Frog backend API.
 
 Think of it as the common language 🗣️ that all parts of your news application will speak!
 
@@ -42,7 +42,7 @@ To further accelerate development and provide immediate demonstration capabiliti
 `core` is source-available as part of the Flutter Full News App ecosystem.
 
 To acquire a commercial license for building unlimited news applications, please visit 
-the [Flutter Full News App GitHub organization page](https://github.com/flutter-full-news-app-source-code)
+the [Flutter Full News App GitHub organization page](https://github.com/flutter-news-app-full-source-code)
 for more details.
 
 ## 🚀 Getting Started 
@@ -55,7 +55,7 @@ To integrate `core` into a Flutter Full News App component (or your custom Dart/
     dependencies:
       core:
         git:
-          url: https://github.com/flutter-full-news-app-source-code/core.git
+          url: https://github.com/flutter-news-app-full-source-code/core.git
           # You might want to pin to a specific ref/tag in a real project:
           # ref: main 
     ```
