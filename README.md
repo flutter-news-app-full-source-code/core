@@ -4,7 +4,7 @@
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 [![License: PolyForm Free Trial](https://img.shields.io/badge/License-PolyForm%20Free%20Trial-blue)](https://polyformproject.org/licenses/free-trial/1.0.0)
 
-The essential shared Dart package providing the **Core Data Models** for the **Flutter News App - Full Source Code Toolkit**. it ensures data consistency and accelerates development across our Flutter mobile app, web dashboard, and Dart Frog backend API.
+The essential shared Dart package providing the **Core Data Models** for the [**Flutter News App - Full Source Code Toolkit**](https://github.com/flutter-news-app-full-source-code). it ensures data consistency and accelerates development across our Flutter mobile app, web dashboard, and Dart Frog backend API.
 
 Think of it as the common language 🗣️ that all parts of your news application will speak!
 
@@ -37,13 +37,12 @@ To further accelerate development and provide immediate demonstration capabiliti
 *   **🧪 Reliable Testing:** Use consistent, realistic data for unit and integration tests.
 *   **🚀 Rapid Prototyping:** Jumpstart UI development and feature implementation with readily available sample content.
 
-## 🔑 Access and Licensing
+## 🔑 Licensing
 
-`core` is source-available as part of the Flutter Full News App ecosystem.
+This package is source-available and licensed under the [PolyForm Free Trial 1.0.0](LICENSE). Please review the terms before use.
 
-To acquire a commercial license for building unlimited news applications, please visit 
-the [Flutter Full News App GitHub organization page](https://github.com/flutter-news-app-full-source-code)
-for more details.
+For commercial licensing options that grant the right to build and distribute unlimited applications, please visit the main [**Flutter News App - Full Source Code Toolkit**](https://github.com/flutter-news-app-full-source-code) organization.
+
 
 ## 🚀 Getting Started 
 
