@@ -1,5 +1,5 @@
-import 'package:ht_shared/ht_shared.dart';
-import 'package:ht_shared/src/enums/feed_action_type.dart';
+import 'package:core/core.dart';
+import 'package:core/src/enums/feed_action_type.dart';
 import 'package:test/test.dart';
 
 void main() {

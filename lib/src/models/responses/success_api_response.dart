@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:ht_shared/src/models/responses/response_metadata.dart';
+import 'package:core/src/models/responses/response_metadata.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 

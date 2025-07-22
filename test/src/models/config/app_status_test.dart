@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/models/config/app_status.dart';
+import 'package:core/src/models/config/app_status.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:test/test.dart';
 

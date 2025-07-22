@@ -1,4 +1,4 @@
-import 'package:ht_shared/ht_shared.dart';
+import 'package:core/core.dart';
 
 /// Exception specifically thrown for failures during an authentication attempt.
 ///

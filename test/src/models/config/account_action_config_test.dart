@@ -1,5 +1,5 @@
-import 'package:ht_shared/src/enums/feed_action_type.dart';
-import 'package:ht_shared/src/models/config/account_action_config.dart';
+import 'package:core/src/enums/feed_action_type.dart';
+import 'package:core/src/models/config/account_action_config.dart';
 import 'package:test/test.dart';
 
 void main() {

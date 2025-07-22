@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/models/feed_decorators/ad.dart';
+import 'package:core/src/models/feed_decorators/ad.dart';
 import 'package:test/test.dart';
 
 void main() {

@@ -1,4 +1,4 @@
-import 'package:ht_shared/ht_shared.dart';
+import 'package:core/core.dart';
 
 /// Exception thrown for 400 Bad Request errors.
 final class BadRequestException extends HtHttpException {

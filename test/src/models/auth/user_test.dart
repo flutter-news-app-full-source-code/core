@@ -1,8 +1,8 @@
-import 'package:ht_shared/src/enums/app_user_role.dart';
-import 'package:ht_shared/src/enums/dashboard_user_role.dart';
-import 'package:ht_shared/src/enums/feed_action_type.dart';
-import 'package:ht_shared/src/models/auth/user.dart';
-import 'package:ht_shared/src/models/auth/user_feed_action_status.dart';
+import 'package:core/src/enums/app_user_role.dart';
+import 'package:core/src/enums/dashboard_user_role.dart';
+import 'package:core/src/enums/feed_action_type.dart';
+import 'package:core/src/models/auth/user.dart';
+import 'package:core/src/models/auth/user_feed_action_status.dart';
 import 'package:test/test.dart';
 
 void main() {

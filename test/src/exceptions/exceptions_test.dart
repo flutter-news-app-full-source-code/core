@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/exceptions/exceptions.dart';
+import 'package:core/src/exceptions/exceptions.dart';
 import 'package:test/test.dart';
 
 void main() {

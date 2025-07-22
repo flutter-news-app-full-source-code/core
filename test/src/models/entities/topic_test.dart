@@ -1,4 +1,4 @@
-import 'package:ht_shared/ht_shared.dart';
+import 'package:core/core.dart';
 import 'package:json_annotation/json_annotation.dart'; // Added for CheckedFromJsonException
 import 'package:test/test.dart';
 

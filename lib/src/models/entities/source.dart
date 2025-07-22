@@ -1,7 +1,7 @@
-import 'package:ht_shared/src/enums/enums.dart';
-import 'package:ht_shared/src/models/core/feed_item.dart';
-import 'package:ht_shared/src/models/entities/country.dart';
-import 'package:ht_shared/src/utils/utils.dart';
+import 'package:core/src/enums/enums.dart';
+import 'package:core/src/models/core/feed_item.dart';
+import 'package:core/src/models/entities/country.dart';
+import 'package:core/src/utils/utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 

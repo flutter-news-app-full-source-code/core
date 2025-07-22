@@ -1,5 +1,5 @@
-import 'package:ht_shared/ht_shared.dart';
-import 'package:ht_shared/src/fixtures/fixture_ids.dart';
+import 'package:core/core.dart';
+import 'package:core/src/fixtures/fixture_ids.dart';
 
 /// A list of initial remote config data to be loaded into the in-memory
 /// remote config repository.

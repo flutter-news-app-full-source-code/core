@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/models/auth/permission.dart';
+import 'package:core/src/models/auth/permission.dart';
 import 'package:test/test.dart';
 
 void main() {

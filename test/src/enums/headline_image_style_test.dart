@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/enums/headline_image_style.dart';
+import 'package:core/src/enums/headline_image_style.dart';
 import 'package:test/test.dart';
 
 void main() {

@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/models/auth/user_feed_action_status.dart';
+import 'package:core/src/models/auth/user_feed_action_status.dart';
 import 'package:test/test.dart';
 
 void main() {

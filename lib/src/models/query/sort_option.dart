@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:ht_shared/src/enums/sort_order.dart';
+import 'package:core/src/enums/sort_order.dart';
 import 'package:meta/meta.dart';
 
 /// {@template sort_option}

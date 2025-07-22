@@ -1,4 +1,4 @@
-import 'package:ht_shared/ht_shared.dart';
+import 'package:core/core.dart';
 
 /// A list of initial user data to be loaded into the in-memory user repository.
 ///

@@ -1,4 +1,4 @@
-import 'package:ht_shared/ht_shared.dart';
+import 'package:core/core.dart';
 
 /// Exception thrown for general operation failures that are not covered by
 /// more specific exceptions like [NetworkException], [ServerException],

@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/enums/sort_order.dart';
+import 'package:core/src/enums/sort_order.dart';
 import 'package:test/test.dart';
 
 void main() {

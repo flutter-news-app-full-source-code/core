@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/enums/app_accent_theme.dart';
+import 'package:core/src/enums/app_accent_theme.dart';
 import 'package:test/test.dart';
 
 void main() {

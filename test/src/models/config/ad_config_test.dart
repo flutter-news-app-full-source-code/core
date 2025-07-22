@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/models/config/ad_config.dart';
+import 'package:core/src/models/config/ad_config.dart';
 import 'package:test/test.dart';
 
 void main() {

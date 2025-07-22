@@ -1,7 +1,7 @@
-import 'package:ht_shared/src/enums/enums.dart';
-import 'package:ht_shared/src/fixtures/countries.dart';
-import 'package:ht_shared/src/fixtures/fixture_ids.dart';
-import 'package:ht_shared/src/models/entities/source.dart';
+import 'package:core/src/enums/enums.dart';
+import 'package:core/src/fixtures/countries.dart';
+import 'package:core/src/fixtures/fixture_ids.dart';
+import 'package:core/src/models/entities/source.dart';
 
 /// A list of predefined sources for fixture data.
 final sourcesFixturesData = <Source>[

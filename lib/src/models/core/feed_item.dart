@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:ht_shared/ht_shared.dart';
+import 'package:core/core.dart';
 
 /// {@template feed_item}
 /// An abstract base class for all items that can appear in a mixed content

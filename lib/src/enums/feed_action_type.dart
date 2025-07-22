@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/models/feed_decorators/feed_action.dart';
+import 'package:core/src/models/feed_decorators/feed_action.dart';
 
 /// {@template account_action_type}
 /// Defines the specific type or purpose of an [FeedAction] item.

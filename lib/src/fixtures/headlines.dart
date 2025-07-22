@@ -1,9 +1,9 @@
-import 'package:ht_shared/src/enums/enums.dart';
-import 'package:ht_shared/src/fixtures/countries.dart';
-import 'package:ht_shared/src/fixtures/fixture_ids.dart';
-import 'package:ht_shared/src/fixtures/sources.dart';
-import 'package:ht_shared/src/fixtures/topics.dart';
-import 'package:ht_shared/src/models/entities/headline.dart';
+import 'package:core/src/enums/enums.dart';
+import 'package:core/src/fixtures/countries.dart';
+import 'package:core/src/fixtures/fixture_ids.dart';
+import 'package:core/src/fixtures/sources.dart';
+import 'package:core/src/fixtures/topics.dart';
+import 'package:core/src/models/entities/headline.dart';
 
 /// A list of predefined headlines for fixture data.
 final headlinesFixturesData = <Headline>[

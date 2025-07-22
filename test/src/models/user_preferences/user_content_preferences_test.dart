@@ -1,6 +1,6 @@
 // ignore_for_file: inference_failure_on_collection_literal, strict_raw_type, avoid_dynamic_calls
 
-import 'package:ht_shared/ht_shared.dart'; // Import the barrel file
+import 'package:core/core.dart'; // Import the barrel file
 import 'package:test/test.dart';
 
 void main() {

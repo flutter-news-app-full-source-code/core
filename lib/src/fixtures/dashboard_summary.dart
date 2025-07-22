@@ -1,4 +1,4 @@
-import 'package:ht_shared/ht_shared.dart';
+import 'package:core/core.dart';
 
 /// Dashboard Summary Demo Data
 final List<DashboardSummary> dashboardSummaryFixturesData = [

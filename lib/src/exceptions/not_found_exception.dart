@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/exceptions/ht_http_exception.dart';
+import 'package:core/src/exceptions/ht_http_exception.dart';
 
 /// Exception thrown for 404 Not Found errors.
 final class NotFoundException extends HtHttpException {

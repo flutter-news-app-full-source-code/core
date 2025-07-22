@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/models/core/feed_item.dart';
+import 'package:core/src/models/core/feed_item.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 

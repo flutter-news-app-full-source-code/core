@@ -1,6 +1,6 @@
 // ignore_for_file: inference_failure_on_collection_literal
 
-import 'package:ht_shared/ht_shared.dart';
+import 'package:core/core.dart';
 import 'package:test/test.dart';
 
 void main() {

@@ -1,4 +1,4 @@
-import 'package:ht_shared/src/enums/content_status.dart';
+import 'package:core/src/enums/content_status.dart';
 import 'package:test/test.dart';
 
 void main() {
