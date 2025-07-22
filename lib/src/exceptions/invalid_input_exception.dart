@@ -6,7 +6,7 @@ import 'package:core/core.dart';
 /// be used for client-side validation failures before a request is sent.
 /// Use the [message] to provide specific details about the validation failure
 /// (e.g., "Invalid email format", "Code must be 6 digits").
-final class InvalidInputException extends HtHttpException {
+final class InvalidInputException extends HttpException {
   /// {@macro invalid_input_exception}
   const InvalidInputException(super.message);
 }

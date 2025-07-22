@@ -8,7 +8,7 @@ import 'package:core/core.dart';
 ///
 /// Use this for errors like incorrect password, invalid verification code,
 /// or other credential-specific failures during the login/verification process.
-final class AuthenticationException extends HtHttpException {
+final class AuthenticationException extends HttpException {
   /// {@macro authentication_exception}
   const AuthenticationException(super.message);
 }

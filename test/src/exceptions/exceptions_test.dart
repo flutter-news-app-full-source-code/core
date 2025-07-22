@@ -5,13 +5,13 @@ void main() {
   group('HtHttpException', () {
     test('constructor sets message', () {
       const message = 'Test message';
-      const exception = HtHttpException(message);
+      const exception = HttpException(message);
       expect(exception.message, message);
     });
 
     test('toString includes runtimeType and message', () {
       const message = 'Test message';
-      const exception = HtHttpException(message);
+      const exception = HttpException(message);
       expect(exception.toString(), 'HtHttpException: $message');
     });
   });

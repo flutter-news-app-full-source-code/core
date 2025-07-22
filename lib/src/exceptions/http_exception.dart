@@ -9,7 +9,7 @@
 /// Client implementations should catch their specific internal errors (like
 /// network issues, database constraint violations, item not found in a local
 /// cache, etc.) and map them to the most semantically appropriate subclass
-/// of [HtHttpException].
+/// of [HttpException].
 ///
 /// The [message] field is crucial and should be used to provide specific
 /// context about the error's origin and details.
@@ -23,9 +23,9 @@
 ///   `UnknownException("Data Parsing Error: Could not parse the received data.")`
 /// - An HTTP client encountering a server error (5xx) might throw:
 ///   `ServerException("API Error: The server encountered an internal error.")`
-class HtHttpException implements Exception {
+class HttpException implements Exception {
   /// {@macro ht_http_exception}
-  const HtHttpException(this.message);
+  const HttpException(this.message);
 
   /// The error message providing specific context about the failure.
   final String message;
