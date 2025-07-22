@@ -1,7 +1,7 @@
 name: core
 description: Shared utilities and models.
 publish_to: none
-repository: https://github.com/headlines-toolkit/ht-shared
+repository: https://github.com/flutter-full-news-app-source-code/core
 
 environment:
   sdk: ^3.8.0

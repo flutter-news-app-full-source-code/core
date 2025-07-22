@@ -2,7 +2,7 @@ import 'package:core/src/exceptions/exceptions.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('HtHttpException', () {
+  group('HttpException', () {
     test('constructor sets message', () {
       const message = 'Test message';
       const exception = HttpException(message);
@@ -12,7 +12,7 @@ void main() {
     test('toString includes runtimeType and message', () {
       const message = 'Test message';
       const exception = HttpException(message);
-      expect(exception.toString(), 'HtHttpException: $message');
+      expect(exception.toString(), 'HttpException: $message');
     });
   });
 
