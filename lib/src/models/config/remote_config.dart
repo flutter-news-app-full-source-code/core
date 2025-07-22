@@ -1,8 +1,8 @@
-import 'package:equatable/equatable.dart';
 import 'package:core/src/models/config/account_action_config.dart';
 import 'package:core/src/models/config/ad_config.dart';
 import 'package:core/src/models/config/app_status.dart'; // New import
 import 'package:core/src/models/config/user_preference_config.dart';
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'remote_config.g.dart';

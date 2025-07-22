@@ -1,5 +1,5 @@
-import 'package:equatable/equatable.dart';
 import 'package:core/src/enums/feed_action_type.dart';
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 

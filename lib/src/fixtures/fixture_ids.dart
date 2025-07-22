@@ -7,6 +7,8 @@
 
 // --- Singleton and User-Specific IDs ---
 
+// ignore_for_file: dangling_library_doc_comments
+
 /// ID for the admin user fixture.
 const kAdminUserId = '6643b1b7a4a4e6e1a8e7b1c1';
 

@@ -1,5 +1,5 @@
-import 'package:equatable/equatable.dart';
 import 'package:core/core.dart'; // For User model
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 

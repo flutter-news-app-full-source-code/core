@@ -1,6 +1,6 @@
-import 'package:equatable/equatable.dart';
 import 'package:core/src/models/user_settings/display_settings.dart';
 import 'package:core/src/models/user_settings/feed_display_preferences.dart';
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
