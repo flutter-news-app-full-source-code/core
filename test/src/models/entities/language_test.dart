@@ -26,22 +26,22 @@ void main() {
 
     // Helper to create a Language instance
     Language createSubject({
-      String id = testId,
-      String code = testCode,
-      String name = testName,
-      String nativeName = testNativeName,
+      String? id,
+      String? code,
+      String? name,
+      String? nativeName,
       DateTime? createdAt,
       DateTime? updatedAt,
-      ContentStatus status = ContentStatus.active,
+      ContentStatus? status,
     }) {
       return Language(
-        id: id,
-        code: code,
-        name: name,
-        nativeName: nativeName,
+        id: id ?? testId,
+        code: code ?? testCode,
+        name: name ?? testName,
+        nativeName: nativeName ?? testNativeName,
         createdAt: createdAt ?? testDateTime,
         updatedAt: updatedAt ?? testDateTime,
-        status: status,
+        status: status ?? ContentStatus.active,
       );
     }
 
