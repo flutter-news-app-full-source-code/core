@@ -10,9 +10,20 @@ void main() {
     const testDescription = 'A source for testing purposes.';
     const testUrl = 'https://example.com/test';
     const testType = SourceType.specializedPublisher;
-    const testLanguage = 'en';
     final testDateTime = DateTime.utc(2024, 4, 17, 13);
     final testDateTimeString = testDateTime.toIso8601String();
+
+    // Use a valid Language instance for testing
+    final testLanguage = Language(
+      id: 'lang-uuid-123',
+      code: 'en',
+      name: 'English',
+      nativeName: 'English',
+      createdAt: testDateTime,
+      updatedAt: testDateTime,
+      status: ContentStatus.active,
+    );
+    final testLanguageJson = testLanguage.toJson();
 
     // Use a valid Country instance for testing
     final testCountry = Country(
@@ -194,7 +205,7 @@ void main() {
         expect(json['status'], 'active');
         expect(json['type'], 'source');
         expect(json['sourceType'], 'specializedPublisher');
-        expect(json['language'], testLanguage);
+        expect(json['language'], testLanguageJson);
         expect(json['headquarters'], testHeadquartersJson);
         expect(json['createdAt'], testDateTimeString);
         expect(json['updatedAt'], testDateTimeString);
@@ -210,7 +221,7 @@ void main() {
         expect(json['status'], 'active');
         expect(json['type'], 'source');
         expect(json['sourceType'], 'specializedPublisher'); // Use direct string
-        expect(json['language'], testLanguage);
+        expect(json['language'], testLanguageJson);
         expect(json['headquarters'], testHeadquartersJson);
       });
 
@@ -244,7 +255,7 @@ void main() {
           'description': testDescription,
           'url': testUrl,
           'sourceType': testType.name,
-          'language': testLanguage,
+          'language': testLanguageJson,
           'headquarters': testHeadquartersJson,
           'createdAt': testDateTimeString,
           'updatedAt': testDateTimeString,
@@ -271,7 +282,7 @@ void main() {
           'type': 'source',
           'status': 'active',
           'sourceType': 'specializedPublisher', // Use direct string
-          'language': testLanguage,
+          'language': testLanguageJson,
           'headquarters': testHeadquartersJson,
           'createdAt': testDateTimeString,
           'updatedAt': testDateTimeString,
@@ -294,7 +305,7 @@ void main() {
           'description': testDescription,
           'url': testUrl,
           'sourceType': testType.name,
-          'language': testLanguage,
+          'language': testLanguageJson,
           'headquarters': testHeadquartersJson,
           'createdAt': testDateTimeString,
           'updatedAt': testDateTimeString,
@@ -317,7 +328,7 @@ void main() {
           'url': 'https://example.com/test',
           'type': 'source',
           'sourceType': 'specializedPublisher',
-          'language': 'en',
+          'language': testLanguageJson,
           'headquarters': testHeadquartersJson,
           'createdAt': testDateTimeString,
           'updatedAt': testDateTimeString,
@@ -327,7 +338,7 @@ void main() {
         expect(source.description, 'Test Description');
         expect(source.url, 'https://example.com/test');
         expect(source.sourceType, SourceType.specializedPublisher);
-        expect(source.language, 'en');
+        expect(source.language, testLanguage);
         expect(source.headquarters, testCountry);
         expect(source.createdAt, testDateTime);
         expect(source.updatedAt, testDateTime);
@@ -364,7 +375,15 @@ void main() {
         const updatedDesc = 'New description.';
         const updatedUrl = 'https://new.example.com';
         const updatedType = SourceType.blog;
-        const updatedLang = 'fr';
+        final updatedLang = Language(
+          id: 'lang-uuid-456',
+          code: 'fr',
+          name: 'French',
+          nativeName: 'Français',
+          createdAt: testDateTime,
+          updatedAt: testDateTime,
+          status: ContentStatus.active,
+        );
         final updatedCountry = Country(
           isoCode: 'YY',
           name: 'Newland',
