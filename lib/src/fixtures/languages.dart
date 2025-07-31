@@ -1,11 +1,10 @@
 import 'package:core/core.dart';
-import 'package:uuid/uuid.dart';
 
-const _uuid = Uuid();
+import 'package:core/src/fixtures/fixture_ids.dart';
 
 final languagesFixturesData = <Language>[
   Language(
-    id: _uuid.v4(),
+    id: kAbkhazId,
     code: 'ab',
     name: 'Abkhaz',
     nativeName: 'аҧсуа',
@@ -14,7 +13,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kAfarId,
     code: 'aa',
     name: 'Afar',
     nativeName: 'Afaraf',
@@ -23,7 +22,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kAfrikaansId,
     code: 'af',
     name: 'Afrikaans',
     nativeName: 'Afrikaans',
@@ -32,7 +31,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kAkanId,
     code: 'ak',
     name: 'Akan',
     nativeName: 'Akan',
@@ -41,7 +40,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kAlbanianId,
     code: 'sq',
     name: 'Albanian',
     nativeName: 'Shqip',
@@ -50,7 +49,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kAmharicId,
     code: 'am',
     name: 'Amharic',
     nativeName: 'አማርኛ',
@@ -59,7 +58,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kArabicId,
     code: 'ar',
     name: 'Arabic',
     nativeName: 'العربية',
@@ -68,7 +67,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kAragoneseId,
     code: 'an',
     name: 'Aragonese',
     nativeName: 'Aragonés',
@@ -77,7 +76,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kArmenianId,
     code: 'hy',
     name: 'Armenian',
     nativeName: 'Հայերեն',
@@ -86,7 +85,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kAssameseId,
     code: 'as',
     name: 'Assamese',
     nativeName: 'অসমীয়া',
@@ -95,7 +94,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kAvaricId,
     code: 'av',
     name: 'Avaric',
     nativeName: 'авар мацӀ, магӀарул мацӀ',
@@ -104,7 +103,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kAvestanId,
     code: 'ae',
     name: 'Avestan',
     nativeName: 'avesta',
@@ -113,7 +112,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kAymaraId,
     code: 'ay',
     name: 'Aymara',
     nativeName: 'aymar aru',
@@ -122,7 +121,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kAzerbaijaniId,
     code: 'az',
     name: 'Azerbaijani',
     nativeName: 'azərbaycan dili',
@@ -131,7 +130,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kBambaraId,
     code: 'bm',
     name: 'Bambara',
     nativeName: 'bamanankan',
@@ -140,7 +139,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kBashkirId,
     code: 'ba',
     name: 'Bashkir',
     nativeName: 'башҡорт теле',
@@ -149,7 +148,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kBasqueId,
     code: 'eu',
     name: 'Basque',
     nativeName: 'euskara, euskera',
@@ -158,7 +157,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kBelarusianId,
     code: 'be',
     name: 'Belarusian',
     nativeName: 'Беларуская',
@@ -167,7 +166,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kBengaliId,
     code: 'bn',
     name: 'Bengali',
     nativeName: 'বাংলা',
@@ -176,7 +175,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kBihariId,
     code: 'bh',
     name: 'Bihari',
     nativeName: 'भोजपुरी',
@@ -185,7 +184,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kBislamaId,
     code: 'bi',
     name: 'Bislama',
     nativeName: 'Bislama',
@@ -194,7 +193,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kBosnianId,
     code: 'bs',
     name: 'Bosnian',
     nativeName: 'bosanski jezik',
@@ -203,7 +202,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kBretonId,
     code: 'br',
     name: 'Breton',
     nativeName: 'brezhoneg',
@@ -212,7 +211,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kBulgarianId,
     code: 'bg',
     name: 'Bulgarian',
     nativeName: 'български език',
@@ -221,7 +220,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kBurmeseId,
     code: 'my',
     name: 'Burmese',
     nativeName: 'ဗမာစာ',
@@ -230,7 +229,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kCatalanValencianId,
     code: 'ca',
     name: 'Catalan; Valencian',
     nativeName: 'Català',
@@ -239,7 +238,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kChamorroId,
     code: 'ch',
     name: 'Chamorro',
     nativeName: 'Chamoru',
@@ -248,7 +247,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kChechenId,
     code: 'ce',
     name: 'Chechen',
     nativeName: 'нохчийн мотт',
@@ -257,7 +256,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kChichewaChewaNyanjaId,
     code: 'ny',
     name: 'Chichewa; Chewa; Nyanja',
     nativeName: 'chiCheŵa, chinyanja',
@@ -266,7 +265,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kChineseId,
     code: 'zh',
     name: 'Chinese',
     nativeName: '中文 (Zhōngwén), 汉语, 漢語',
@@ -275,7 +274,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kChuvashId,
     code: 'cv',
     name: 'Chuvash',
     nativeName: 'чӑваш чӗлхи',
@@ -284,7 +283,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kCornishId,
     code: 'kw',
     name: 'Cornish',
     nativeName: 'Kernewek',
@@ -293,7 +292,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kCorsicanId,
     code: 'co',
     name: 'Corsican',
     nativeName: 'corsu, lingua corsa',
@@ -302,7 +301,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kCreeId,
     code: 'cr',
     name: 'Cree',
     nativeName: 'ᓀᐦᐃᔭᐍᐏᐣ',
@@ -311,7 +310,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kCroatianId,
     code: 'hr',
     name: 'Croatian',
     nativeName: 'hrvatski',
@@ -320,7 +319,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kCzechId,
     code: 'cs',
     name: 'Czech',
     nativeName: 'česky, čeština',
@@ -329,7 +328,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kDanishId,
     code: 'da',
     name: 'Danish',
     nativeName: 'dansk',
@@ -338,7 +337,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kDivehiDhivehiMaldivianId,
     code: 'dv',
     name: 'Divehi; Dhivehi; Maldivian;',
     nativeName: 'ދިވެހި',
@@ -347,7 +346,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kDutchId,
     code: 'nl',
     name: 'Dutch',
     nativeName: 'Nederlands, Vlaams',
@@ -356,7 +355,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kEnglishId,
     code: 'en',
     name: 'English',
     nativeName: 'English',
@@ -365,7 +364,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kEsperantoId,
     code: 'eo',
     name: 'Esperanto',
     nativeName: 'Esperanto',
@@ -374,7 +373,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kEstonianId,
     code: 'et',
     name: 'Estonian',
     nativeName: 'eesti, eesti keel',
@@ -383,7 +382,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kEweId,
     code: 'ee',
     name: 'Ewe',
     nativeName: 'Eʋegbe',
@@ -392,7 +391,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kFaroeseId,
     code: 'fo',
     name: 'Faroese',
     nativeName: 'føroyskt',
@@ -401,7 +400,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kFijianId,
     code: 'fj',
     name: 'Fijian',
     nativeName: 'vosa Vakaviti',
@@ -410,7 +409,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kFinnishId,
     code: 'fi',
     name: 'Finnish',
     nativeName: 'suomi, suomen kieli',
@@ -419,7 +418,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kFrenchId,
     code: 'fr',
     name: 'French',
     nativeName: 'français, langue française',
@@ -428,7 +427,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kFulaFulahPulaarPularId,
     code: 'ff',
     name: 'Fula; Fulah; Pulaar; Pular',
     nativeName: 'Fulfulde, Pulaar, Pular',
@@ -437,7 +436,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kGalicianId,
     code: 'gl',
     name: 'Galician',
     nativeName: 'Galego',
@@ -446,7 +445,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kGeorgianId,
     code: 'ka',
     name: 'Georgian',
     nativeName: 'ქართული',
@@ -455,7 +454,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kGermanId,
     code: 'de',
     name: 'German',
     nativeName: 'Deutsch',
@@ -464,7 +463,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kGreekModernId,
     code: 'el',
     name: 'Greek, Modern',
     nativeName: 'Ελληνικά',
@@ -473,7 +472,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kGuaraniId,
     code: 'gn',
     name: 'Guaraní',
     nativeName: 'Avañeẽ',
@@ -482,7 +481,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kGujaratiId,
     code: 'gu',
     name: 'Gujarati',
     nativeName: 'ગુજરાતી',
@@ -491,7 +490,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kHaitianHaitianCreoleId,
     code: 'ht',
     name: 'Haitian; Haitian Creole',
     nativeName: 'Kreyòl ayisyen',
@@ -500,7 +499,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kHausaId,
     code: 'ha',
     name: 'Hausa',
     nativeName: 'Hausa, هَوُسَ',
@@ -509,7 +508,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kHebrewModernId,
     code: 'he',
     name: 'Hebrew (modern)',
     nativeName: 'עברית',
@@ -518,7 +517,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kHereroId,
     code: 'hz',
     name: 'Herero',
     nativeName: 'Otjiherero',
@@ -527,7 +526,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kHindiId,
     code: 'hi',
     name: 'Hindi',
     nativeName: 'हिन्दी, हिंदी',
@@ -536,7 +535,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kHiriMotuId,
     code: 'ho',
     name: 'Hiri Motu',
     nativeName: 'Hiri Motu',
@@ -545,7 +544,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kHungarianId,
     code: 'hu',
     name: 'Hungarian',
     nativeName: 'Magyar',
@@ -554,7 +553,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kInterlinguaId,
     code: 'ia',
     name: 'Interlingua',
     nativeName: 'Interlingua',
@@ -563,7 +562,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kIndonesianId,
     code: 'id',
     name: 'Indonesian',
     nativeName: 'Bahasa Indonesia',
@@ -572,7 +571,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kInterlingueId,
     code: 'ie',
     name: 'Interlingue',
     nativeName: 'Originally called Occidental; then Interlingue after WWII',
@@ -581,7 +580,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kIrishId,
     code: 'ga',
     name: 'Irish',
     nativeName: 'Gaeilge',
@@ -590,7 +589,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kIgboId,
     code: 'ig',
     name: 'Igbo',
     nativeName: 'Asụsụ Igbo',
@@ -599,7 +598,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kInupiaqId,
     code: 'ik',
     name: 'Inupiaq',
     nativeName: 'Iñupiaq, Iñupiatun',
@@ -608,7 +607,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kIdoId,
     code: 'io',
     name: 'Ido',
     nativeName: 'Ido',
@@ -617,7 +616,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kIcelandicId,
     code: 'is',
     name: 'Icelandic',
     nativeName: 'Íslenska',
@@ -626,7 +625,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kItalianId,
     code: 'it',
     name: 'Italian',
     nativeName: 'Italiano',
@@ -635,7 +634,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kInuktitutId,
     code: 'iu',
     name: 'Inuktitut',
     nativeName: 'ᐃᓄᒃᑎᑐᑦ',
@@ -644,7 +643,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kJapaneseId,
     code: 'ja',
     name: 'Japanese',
     nativeName: '日本語 (にほんご／にっぽんご)',
@@ -653,7 +652,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kJavaneseId,
     code: 'jv',
     name: 'Javanese',
     nativeName: 'basa Jawa',
@@ -662,7 +661,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kKalaallisutGreenlandicId,
     code: 'kl',
     name: 'Kalaallisut, Greenlandic',
     nativeName: 'kalaallisut, kalaallit oqaasii',
@@ -671,7 +670,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kKannadaId,
     code: 'kn',
     name: 'Kannada',
     nativeName: 'ಕನ್ನಡ',
@@ -680,7 +679,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kKanuriId,
     code: 'kr',
     name: 'Kanuri',
     nativeName: 'Kanuri',
@@ -689,7 +688,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kKashmiriId,
     code: 'ks',
     name: 'Kashmiri',
     nativeName: 'कश्मीरी, كشميري‎',
@@ -698,7 +697,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kKazakhId,
     code: 'kk',
     name: 'Kazakh',
     nativeName: 'Қазақ тілі',
@@ -707,7 +706,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kKhmerId,
     code: 'km',
     name: 'Khmer',
     nativeName: 'ភាសាខ្មែរ',
@@ -716,7 +715,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kKikuyuGikuyuId,
     code: 'ki',
     name: 'Kikuyu, Gikuyu',
     nativeName: 'Gĩkũyũ',
@@ -725,7 +724,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kKinyarwandaId,
     code: 'rw',
     name: 'Kinyarwanda',
     nativeName: 'Ikinyarwanda',
@@ -734,7 +733,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kKirghizKyrgyzId,
     code: 'ky',
     name: 'Kirghiz, Kyrgyz',
     nativeName: 'кыргыз тили',
@@ -743,7 +742,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kKomiId,
     code: 'kv',
     name: 'Komi',
     nativeName: 'коми кыв',
@@ -752,7 +751,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kKongoId,
     code: 'kg',
     name: 'Kongo',
     nativeName: 'KiKongo',
@@ -761,7 +760,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kKoreanId,
     code: 'ko',
     name: 'Korean',
     nativeName: '한국어 (韓國語), 조선말 (朝鮮語)',
@@ -770,7 +769,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kKurdishId,
     code: 'ku',
     name: 'Kurdish',
     nativeName: 'Kurdî, كوردی‎',
@@ -779,7 +778,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kKwanyamaKuanyamaId,
     code: 'kj',
     name: 'Kwanyama, Kuanyama',
     nativeName: 'Kuanyama',
@@ -788,7 +787,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kLatinId,
     code: 'la',
     name: 'Latin',
     nativeName: 'latine, lingua latina',
@@ -797,7 +796,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kLuxembourgishLetzeburgeschId,
     code: 'lb',
     name: 'Luxembourgish, Letzeburgesch',
     nativeName: 'Lëtzebuergesch',
@@ -806,7 +805,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kLugandaId,
     code: 'lg',
     name: 'Luganda',
     nativeName: 'Luganda',
@@ -815,7 +814,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kLimburgishLimburganLimburgerId,
     code: 'li',
     name: 'Limburgish, Limburgan, Limburger',
     nativeName: 'Limburgs',
@@ -824,7 +823,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kLingalaId,
     code: 'ln',
     name: 'Lingala',
     nativeName: 'Lingála',
@@ -833,7 +832,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kLaoId,
     code: 'lo',
     name: 'Lao',
     nativeName: 'ພາສາລາວ',
@@ -842,7 +841,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kLithuanianId,
     code: 'lt',
     name: 'Lithuanian',
     nativeName: 'lietuvių kalba',
@@ -851,7 +850,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kLubaKatangaId,
     code: 'lu',
     name: 'Luba-Katanga',
     nativeName: '',
@@ -860,7 +859,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kLatvianId,
     code: 'lv',
     name: 'Latvian',
     nativeName: 'latviešu valoda',
@@ -869,7 +868,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kManxId,
     code: 'gv',
     name: 'Manx',
     nativeName: 'Gaelg, Gailck',
@@ -878,7 +877,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kMacedonianId,
     code: 'mk',
     name: 'Macedonian',
     nativeName: 'македонски јазик',
@@ -887,7 +886,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kMalagasyId,
     code: 'mg',
     name: 'Malagasy',
     nativeName: 'Malagasy fiteny',
@@ -896,7 +895,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kMalayId,
     code: 'ms',
     name: 'Malay',
     nativeName: 'bahasa Melayu, بهاس ملايو‎',
@@ -905,7 +904,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kMalayalamId,
     code: 'ml',
     name: 'Malayalam',
     nativeName: 'മലയാളം',
@@ -914,7 +913,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kMalteseId,
     code: 'mt',
     name: 'Maltese',
     nativeName: 'Malti',
@@ -923,7 +922,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kMaoriId,
     code: 'mi',
     name: 'Māori',
     nativeName: 'te reo Māori',
@@ -932,7 +931,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kMarathiMarathId,
     code: 'mr',
     name: 'Marathi (Marāṭhī)',
     nativeName: 'मराठी',
@@ -941,7 +940,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kMarshalleseId,
     code: 'mh',
     name: 'Marshallese',
     nativeName: 'Kajin M̧ajeļ',
@@ -950,7 +949,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kMongolianId,
     code: 'mn',
     name: 'Mongolian',
     nativeName: 'монгол',
@@ -959,7 +958,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kNauruId,
     code: 'na',
     name: 'Nauru',
     nativeName: 'Ekakairũ Naoero',
@@ -968,7 +967,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kNavajoNavahoId,
     code: 'nv',
     name: 'Navajo, Navaho',
     nativeName: 'Diné bizaad, Dinékʼehǰí',
@@ -977,7 +976,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kNorwegianBokmalId,
     code: 'nb',
     name: 'Norwegian Bokmål',
     nativeName: 'Norsk bokmål',
@@ -986,7 +985,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kNorthNdebeleId,
     code: 'nd',
     name: 'North Ndebele',
     nativeName: 'isiNdebele',
@@ -995,7 +994,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kNepaliId,
     code: 'ne',
     name: 'Nepali',
     nativeName: 'नेपाली',
@@ -1004,7 +1003,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kNdongaId,
     code: 'ng',
     name: 'Ndonga',
     nativeName: 'Owambo',
@@ -1013,7 +1012,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kNorwegianNynorskId,
     code: 'nn',
     name: 'Norwegian Nynorsk',
     nativeName: 'Norsk nynorsk',
@@ -1022,7 +1021,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kNorwegianId,
     code: 'no',
     name: 'Norwegian',
     nativeName: 'Norsk',
@@ -1031,7 +1030,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kNuosuId,
     code: 'ii',
     name: 'Nuosu',
     nativeName: 'ꆈꌠ꒿ Nuosuhxop',
@@ -1040,7 +1039,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kSouthNdebeleId,
     code: 'nr',
     name: 'South Ndebele',
     nativeName: 'isiNdebele',
@@ -1049,7 +1048,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kOccitanId,
     code: 'oc',
     name: 'Occitan',
     nativeName: 'Occitan',
@@ -1058,7 +1057,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kOjibweOjibwaId,
     code: 'oj',
     name: 'Ojibwe, Ojibwa',
     nativeName: 'ᐊᓂᔑᓈᐯᒧᐎᓐ',
@@ -1067,7 +1066,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kOldChurchSlavonicChurchSlavicChurchSlavonicOldBulgarianOldSlavonicId,
     code: 'cu',
     name:
         'Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic',
@@ -1077,7 +1076,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kOromoId,
     code: 'om',
     name: 'Oromo',
     nativeName: 'Afaan Oromoo',
@@ -1086,7 +1085,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kOriyaId,
     code: 'or',
     name: 'Oriya',
     nativeName: 'ଓଡ଼ିଆ',
@@ -1095,7 +1094,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kOssetianOsseticId,
     code: 'os',
     name: 'Ossetian, Ossetic',
     nativeName: 'ирон æвзаг',
@@ -1104,7 +1103,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kPanjabiPunjabiId,
     code: 'pa',
     name: 'Panjabi, Punjabi',
     nativeName: 'ਪੰਜਾਬੀ, پنجابی‎',
@@ -1113,7 +1112,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kPaliId,
     code: 'pi',
     name: 'Pāli',
     nativeName: 'पाऴि',
@@ -1122,7 +1121,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kPersianId,
     code: 'fa',
     name: 'Persian',
     nativeName: 'فارسی',
@@ -1131,7 +1130,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kPolishId,
     code: 'pl',
     name: 'Polish',
     nativeName: 'polski',
@@ -1140,7 +1139,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kPashtoPushtoId,
     code: 'ps',
     name: 'Pashto, Pushto',
     nativeName: 'پښتو',
@@ -1149,7 +1148,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kPortugueseId,
     code: 'pt',
     name: 'Portuguese',
     nativeName: 'Português',
@@ -1158,7 +1157,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kQuechuaId,
     code: 'qu',
     name: 'Quechua',
     nativeName: 'Runa Simi, Kichwa',
@@ -1167,7 +1166,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kRomanshId,
     code: 'rm',
     name: 'Romansh',
     nativeName: 'rumantsch grischun',
@@ -1176,7 +1175,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kKirundiId,
     code: 'rn',
     name: 'Kirundi',
     nativeName: 'kiRundi',
@@ -1185,7 +1184,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kRomanianMoldavianMoldovanId,
     code: 'ro',
     name: 'Romanian, Moldavian, Moldovan',
     nativeName: 'română',
@@ -1194,7 +1193,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kRussianId,
     code: 'ru',
     name: 'Russian',
     nativeName: 'русский язык',
@@ -1203,7 +1202,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kSanskritSamskrtaId,
     code: 'sa',
     name: 'Sanskrit (Saṁskṛta)',
     nativeName: 'संस्कृतम्',
@@ -1212,7 +1211,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kSardinianId,
     code: 'sc',
     name: 'Sardinian',
     nativeName: 'sardu',
@@ -1221,7 +1220,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kSindhiId,
     code: 'sd',
     name: 'Sindhi',
     nativeName: 'सिन्धी, سنڌي، سندھی‎',
@@ -1230,7 +1229,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kNorthernSamiId,
     code: 'se',
     name: 'Northern Sami',
     nativeName: 'Davvisámegiella',
@@ -1239,7 +1238,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kSamoanId,
     code: 'sm',
     name: 'Samoan',
     nativeName: 'gagana faa Samoa',
@@ -1248,7 +1247,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kSangoId,
     code: 'sg',
     name: 'Sango',
     nativeName: 'yângâ tî sängö',
@@ -1257,7 +1256,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kSerbianId,
     code: 'sr',
     name: 'Serbian',
     nativeName: 'српски језик',
@@ -1266,7 +1265,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kScottishGaelicGaelicId,
     code: 'gd',
     name: 'Scottish Gaelic; Gaelic',
     nativeName: 'Gàidhlig',
@@ -1275,7 +1274,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kShonaId,
     code: 'sn',
     name: 'Shona',
     nativeName: 'chiShona',
@@ -1284,7 +1283,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kSinhalaSinhaleseId,
     code: 'si',
     name: 'Sinhala, Sinhalese',
     nativeName: 'සිංහල',
@@ -1293,7 +1292,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kSlovakId,
     code: 'sk',
     name: 'Slovak',
     nativeName: 'slovenčina',
@@ -1302,7 +1301,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kSloveneId,
     code: 'sl',
     name: 'Slovene',
     nativeName: 'slovenščina',
@@ -1311,7 +1310,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kSomaliId,
     code: 'so',
     name: 'Somali',
     nativeName: 'Soomaaliga, af Soomaali',
@@ -1320,7 +1319,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kSouthernSothoId,
     code: 'st',
     name: 'Southern Sotho',
     nativeName: 'Sesotho',
@@ -1329,7 +1328,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kSpanishCastilianId,
     code: 'es',
     name: 'Spanish; Castilian',
     nativeName: 'español, castellano',
@@ -1338,7 +1337,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kSundaneseId,
     code: 'su',
     name: 'Sundanese',
     nativeName: 'Basa Sunda',
@@ -1347,7 +1346,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kSwahiliId,
     code: 'sw',
     name: 'Swahili',
     nativeName: 'Kiswahili',
@@ -1356,7 +1355,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kSwatiId,
     code: 'ss',
     name: 'Swati',
     nativeName: 'SiSwati',
@@ -1365,7 +1364,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kSwedishId,
     code: 'sv',
     name: 'Swedish',
     nativeName: 'svenska',
@@ -1374,7 +1373,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kTamilId,
     code: 'ta',
     name: 'Tamil',
     nativeName: 'தமிழ்',
@@ -1383,7 +1382,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kTeluguId,
     code: 'te',
     name: 'Telugu',
     nativeName: 'తెలుగు',
@@ -1392,7 +1391,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kTajikId,
     code: 'tg',
     name: 'Tajik',
     nativeName: 'тоҷикӣ, toğikī, تاجیکی‎',
@@ -1401,7 +1400,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kThaiId,
     code: 'th',
     name: 'Thai',
     nativeName: 'ไทย',
@@ -1410,7 +1409,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kTigrinyaId,
     code: 'ti',
     name: 'Tigrinya',
     nativeName: 'ትግርኛ',
@@ -1419,7 +1418,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kTibetanStandardTibetanCentralId,
     code: 'bo',
     name: 'Tibetan Standard, Tibetan, Central',
     nativeName: 'བོད་ཡིག',
@@ -1428,7 +1427,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kTurkmenId,
     code: 'tk',
     name: 'Turkmen',
     nativeName: 'Türkmen, Түркмен',
@@ -1437,7 +1436,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kTagalogId,
     code: 'tl',
     name: 'Tagalog',
     nativeName: 'Wikang Tagalog, ᜏᜒᜃᜅ᜔ ᜆᜄᜎᜓᜄ᜔',
@@ -1446,7 +1445,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kTswanaId,
     code: 'tn',
     name: 'Tswana',
     nativeName: 'Setswana',
@@ -1455,7 +1454,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kTongaTongaIslandsId,
     code: 'to',
     name: 'Tonga (Tonga Islands)',
     nativeName: 'faka Tonga',
@@ -1464,7 +1463,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kTurkishId,
     code: 'tr',
     name: 'Turkish',
     nativeName: 'Türkçe',
@@ -1473,7 +1472,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kTsongaId,
     code: 'ts',
     name: 'Tsonga',
     nativeName: 'Xitsonga',
@@ -1482,7 +1481,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kTatarId,
     code: 'tt',
     name: 'Tatar',
     nativeName: 'татарча, tatarça, تاتارچا‎',
@@ -1491,7 +1490,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kTwiId,
     code: 'tw',
     name: 'Twi',
     nativeName: 'Twi',
@@ -1500,7 +1499,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kTahitianId,
     code: 'ty',
     name: 'Tahitian',
     nativeName: 'Reo Tahiti',
@@ -1509,7 +1508,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kUighurUyghurId,
     code: 'ug',
     name: 'Uighur, Uyghur',
     nativeName: 'Uyƣurqə, ئۇيغۇرچە‎',
@@ -1518,7 +1517,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kUkrainianId,
     code: 'uk',
     name: 'Ukrainian',
     nativeName: 'українська',
@@ -1527,7 +1526,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kUrduId,
     code: 'ur',
     name: 'Urdu',
     nativeName: 'اردو',
@@ -1536,7 +1535,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kUzbekId,
     code: 'uz',
     name: 'Uzbek',
     nativeName: 'zbek, Ўзбек, أۇزبېك‎',
@@ -1545,7 +1544,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kVendaId,
     code: 've',
     name: 'Venda',
     nativeName: 'Tshivenḓa',
@@ -1554,7 +1553,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kVietnameseId,
     code: 'vi',
     name: 'Vietnamese',
     nativeName: 'Tiếng Việt',
@@ -1563,7 +1562,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kVolapukId,
     code: 'vo',
     name: 'Volapük',
     nativeName: 'Volapük',
@@ -1572,7 +1571,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kWalloonId,
     code: 'wa',
     name: 'Walloon',
     nativeName: 'Walon',
@@ -1581,7 +1580,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kWelshId,
     code: 'cy',
     name: 'Welsh',
     nativeName: 'Cymraeg',
@@ -1590,7 +1589,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kWolofId,
     code: 'wo',
     name: 'Wolof',
     nativeName: 'Wollof',
@@ -1599,7 +1598,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kWesternFrisianId,
     code: 'fy',
     name: 'Western Frisian',
     nativeName: 'Frysk',
@@ -1608,7 +1607,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kXhosaId,
     code: 'xh',
     name: 'Xhosa',
     nativeName: 'isiXhosa',
@@ -1617,7 +1616,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kYiddishId,
     code: 'yi',
     name: 'Yiddish',
     nativeName: 'ייִדיש',
@@ -1626,7 +1625,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kYorubaId,
     code: 'yo',
     name: 'Yoruba',
     nativeName: 'Yorùbá',
@@ -1635,7 +1634,7 @@ final languagesFixturesData = <Language>[
     status: ContentStatus.active,
   ),
   Language(
-    id: _uuid.v4(),
+    id: kZhuangChuangId,
     code: 'za',
     name: 'Zhuang, Chuang',
     nativeName: 'Saɯ cueŋƅ, Saw cuengh',
