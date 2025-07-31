@@ -5,7 +5,7 @@ import 'package:core/src/models/models.dart';
 /// A list of predefined countries for fixture data.
 final countriesFixturesData = <Country>[
   Country(
-    id: FixtureIds.afghanistan,
+    id: kAfghanistanId,
     name: 'Afghanistan',
     isoCode: 'AF',
     flagUrl: 'https://flagcdn.com/h40/af.png',
@@ -14,7 +14,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.alandIslands,
+    id: kAlandIslandsId,
     name: 'Åland Islands',
     isoCode: 'AX',
     flagUrl: 'https://flagcdn.com/h40/ax.png',
@@ -23,7 +23,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.albania,
+    id: kAlbaniaId,
     name: 'Albania',
     isoCode: 'AL',
     flagUrl: 'https://flagcdn.com/h40/al.png',
@@ -32,7 +32,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.algeria,
+    id: kAlgeriaId,
     name: 'Algeria',
     isoCode: 'DZ',
     flagUrl: 'https://flagcdn.com/h40/dz.png',
@@ -41,7 +41,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.americanSamoa,
+    id: kAmericanSamoaId,
     name: 'American Samoa',
     isoCode: 'AS',
     flagUrl: 'https://flagcdn.com/h40/as.png',
@@ -50,7 +50,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.andorra,
+    id: kAndorraId,
     name: 'AndorrA',
     isoCode: 'AD',
     flagUrl: 'https://flagcdn.com/h40/ad.png',
@@ -59,7 +59,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.angola,
+    id: kAngolaId,
     name: 'Angola',
     isoCode: 'AO',
     flagUrl: 'https://flagcdn.com/h40/ao.png',
@@ -68,7 +68,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.anguilla,
+    id: kAnguillaId,
     name: 'Anguilla',
     isoCode: 'AI',
     flagUrl: 'https://flagcdn.com/h40/ai.png',
@@ -77,7 +77,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.antarctica,
+    id: kAntarcticaId,
     name: 'Antarctica',
     isoCode: 'AQ',
     flagUrl: 'https://flagcdn.com/h40/aq.png',
@@ -86,7 +86,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.antiguaAndBarbuda,
+    id: kAntiguaAndBarbudaId,
     name: 'Antigua and Barbuda',
     isoCode: 'AG',
     flagUrl: 'https://flagcdn.com/h40/ag.png',
@@ -95,7 +95,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.argentina,
+    id: kArgentinaId,
     name: 'Argentina',
     isoCode: 'AR',
     flagUrl: 'https://flagcdn.com/h40/ar.png',
@@ -104,7 +104,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.armenia,
+    id: kArmeniaId,
     name: 'Armenia',
     isoCode: 'AM',
     flagUrl: 'https://flagcdn.com/h40/am.png',
@@ -113,7 +113,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.aruba,
+    id: kArubaId,
     name: 'Aruba',
     isoCode: 'AW',
     flagUrl: 'https://flagcdn.com/h40/aw.png',
@@ -122,7 +122,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.australia,
+    id: kAustraliaId,
     name: 'Australia',
     isoCode: 'AU',
     flagUrl: 'https://flagcdn.com/h40/au.png',
@@ -131,7 +131,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.austria,
+    id: kAustriaId,
     name: 'Austria',
     isoCode: 'AT',
     flagUrl: 'https://flagcdn.com/h40/at.png',
@@ -140,7 +140,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.azerbaijan,
+    id: kAzerbaijanId,
     name: 'Azerbaijan',
     isoCode: 'AZ',
     flagUrl: 'https://flagcdn.com/h40/az.png',
@@ -149,7 +149,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.bahamas,
+    id: kBahamasId,
     name: 'Bahamas',
     isoCode: 'BS',
     flagUrl: 'https://flagcdn.com/h40/bs.png',
@@ -158,7 +158,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.bahrain,
+    id: kBahrainId,
     name: 'Bahrain',
     isoCode: 'BH',
     flagUrl: 'https://flagcdn.com/h40/bh.png',
@@ -167,7 +167,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.bangladesh,
+    id: kBangladeshId,
     name: 'Bangladesh',
     isoCode: 'BD',
     flagUrl: 'https://flagcdn.com/h40/bd.png',
@@ -176,7 +176,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.barbados,
+    id: kBarbadosId,
     name: 'Barbados',
     isoCode: 'BB',
     flagUrl: 'https://flagcdn.com/h40/bb.png',
@@ -185,7 +185,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.belarus,
+    id: kBelarusId,
     name: 'Belarus',
     isoCode: 'BY',
     flagUrl: 'https://flagcdn.com/h40/by.png',
@@ -194,7 +194,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.belgium,
+    id: kBelgiumId,
     name: 'Belgium',
     isoCode: 'BE',
     flagUrl: 'https://flagcdn.com/h40/be.png',
@@ -203,7 +203,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.belize,
+    id: kBelizeId,
     name: 'Belize',
     isoCode: 'BZ',
     flagUrl: 'https://flagcdn.com/h40/bz.png',
@@ -212,7 +212,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.benin,
+    id: kBeninId,
     name: 'Benin',
     isoCode: 'BJ',
     flagUrl: 'https://flagcdn.com/h40/bj.png',
@@ -221,7 +221,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.bermuda,
+    id: kBermudaId,
     name: 'Bermuda',
     isoCode: 'BM',
     flagUrl: 'https://flagcdn.com/h40/bm.png',
@@ -230,7 +230,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.bhutan,
+    id: kBhutanId,
     name: 'Bhutan',
     isoCode: 'BT',
     flagUrl: 'https://flagcdn.com/h40/bt.png',
@@ -239,7 +239,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.bolivia,
+    id: kBoliviaId,
     name: 'Bolivia',
     isoCode: 'BO',
     flagUrl: 'https://flagcdn.com/h40/bo.png',
@@ -248,7 +248,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.bosniaAndHerzegovina,
+    id: kBosniaAndHerzegovinaId,
     name: 'Bosnia and Herzegovina',
     isoCode: 'BA',
     flagUrl: 'https://flagcdn.com/h40/ba.png',
@@ -257,7 +257,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.botswana,
+    id: kBotswanaId,
     name: 'Botswana',
     isoCode: 'BW',
     flagUrl: 'https://flagcdn.com/h40/bw.png',
@@ -266,7 +266,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.bouvetIsland,
+    id: kBouvetIslandId,
     name: 'Bouvet Island',
     isoCode: 'BV',
     flagUrl: 'https://flagcdn.com/h40/bv.png',
@@ -275,7 +275,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.brazil,
+    id: kBrazilId,
     name: 'Brazil',
     isoCode: 'BR',
     flagUrl: 'https://flagcdn.com/h40/br.png',
@@ -284,7 +284,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.britishIndianOceanTerritory,
+    id: kBritishIndianOceanTerritoryId,
     name: 'British Indian Ocean Territory',
     isoCode: 'IO',
     flagUrl: 'https://flagcdn.com/h40/io.png',
@@ -293,7 +293,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.bruneiDarussalam,
+    id: kBruneiDarussalamId,
     name: 'Brunei Darussalam',
     isoCode: 'BN',
     flagUrl: 'https://flagcdn.com/h40/bn.png',
@@ -302,7 +302,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.bulgaria,
+    id: kBulgariaId,
     name: 'Bulgaria',
     isoCode: 'BG',
     flagUrl: 'https://flagcdn.com/h40/bg.png',
@@ -311,7 +311,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.burkinaFaso,
+    id: kBurkinaFasoId,
     name: 'Burkina Faso',
     isoCode: 'BF',
     flagUrl: 'https://flagcdn.com/h40/bf.png',
@@ -320,7 +320,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.burundi,
+    id: kBurundiId,
     name: 'Burundi',
     isoCode: 'BI',
     flagUrl: 'https://flagcdn.com/h40/bi.png',
@@ -329,7 +329,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.cambodia,
+    id: kCambodiaId,
     name: 'Cambodia',
     isoCode: 'KH',
     flagUrl: 'https://flagcdn.com/h40/kh.png',
@@ -338,7 +338,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.cameroon,
+    id: kCameroonId,
     name: 'Cameroon',
     isoCode: 'CM',
     flagUrl: 'https://flagcdn.com/h40/cm.png',
@@ -347,7 +347,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.canada,
+    id: kCanadaId,
     name: 'Canada',
     isoCode: 'CA',
     flagUrl: 'https://flagcdn.com/h40/ca.png',
@@ -356,7 +356,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.capeVerde,
+    id: kCapeVerdeId,
     name: 'Cape Verde',
     isoCode: 'CV',
     flagUrl: 'https://flagcdn.com/h40/cv.png',
@@ -365,7 +365,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.caymanIslands,
+    id: kCaymanIslandsId,
     name: 'Cayman Islands',
     isoCode: 'KY',
     flagUrl: 'https://flagcdn.com/h40/ky.png',
@@ -374,7 +374,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.centralAfricanRepublic,
+    id: kCentralAfricanRepublicId,
     name: 'Central African Republic',
     isoCode: 'CF',
     flagUrl: 'https://flagcdn.com/h40/cf.png',
@@ -383,7 +383,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.chad,
+    id: kChadId,
     name: 'Chad',
     isoCode: 'TD',
     flagUrl: 'https://flagcdn.com/h40/td.png',
@@ -392,7 +392,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.chile,
+    id: kChileId,
     name: 'Chile',
     isoCode: 'CL',
     flagUrl: 'https://flagcdn.com/h40/cl.png',
@@ -401,7 +401,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.china,
+    id: kChinaId,
     name: 'China',
     isoCode: 'CN',
     flagUrl: 'https://flagcdn.com/h40/cn.png',
@@ -410,7 +410,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.christmasIsland,
+    id: kChristmasIslandId,
     name: 'Christmas Island',
     isoCode: 'CX',
     flagUrl: 'https://flagcdn.com/h40/cx.png',
@@ -419,7 +419,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.cocosKeelingIslands,
+    id: kCocosKeelingIslandsId,
     name: 'Cocos (Keeling) Islands',
     isoCode: 'CC',
     flagUrl: 'https://flagcdn.com/h40/cc.png',
@@ -428,7 +428,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.colombia,
+    id: kColombiaId,
     name: 'Colombia',
     isoCode: 'CO',
     flagUrl: 'https://flagcdn.com/h40/co.png',
@@ -437,7 +437,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.comoros,
+    id: kComorosId,
     name: 'Comoros',
     isoCode: 'KM',
     flagUrl: 'https://flagcdn.com/h40/km.png',
@@ -446,7 +446,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.congo,
+    id: kCongoId,
     name: 'Congo',
     isoCode: 'CG',
     flagUrl: 'https://flagcdn.com/h40/cg.png',
@@ -455,7 +455,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.congoTheDemocraticRepublicOfThe,
+    id: kCongoTheDemocraticRepublicOfTheId,
     name: 'Congo, The Democratic Republic of the',
     isoCode: 'CD',
     flagUrl: 'https://flagcdn.com/h40/cd.png',
@@ -464,7 +464,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.cookIslands,
+    id: kCookIslandsId,
     name: 'Cook Islands',
     isoCode: 'CK',
     flagUrl: 'https://flagcdn.com/h40/ck.png',
@@ -473,7 +473,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.costaRica,
+    id: kCostaRicaId,
     name: 'Costa Rica',
     isoCode: 'CR',
     flagUrl: 'https://flagcdn.com/h40/cr.png',
@@ -482,7 +482,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.coteDIvoire,
+    id: kCoteDIvoireId,
     name: 'Cote D\'Ivoire',
     isoCode: 'CI',
     flagUrl: 'https://flagcdn.com/h40/ci.png',
@@ -491,7 +491,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.croatia,
+    id: kCroatiaId,
     name: 'Croatia',
     isoCode: 'HR',
     flagUrl: 'https://flagcdn.com/h40/hr.png',
@@ -500,7 +500,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.cuba,
+    id: kCubaId,
     name: 'Cuba',
     isoCode: 'CU',
     flagUrl: 'https://flagcdn.com/h40/cu.png',
@@ -509,7 +509,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.cyprus,
+    id: kCyprusId,
     name: 'Cyprus',
     isoCode: 'CY',
     flagUrl: 'https://flagcdn.com/h40/cy.png',
@@ -518,7 +518,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.czechRepublic,
+    id: kCzechRepublicId,
     name: 'Czech Republic',
     isoCode: 'CZ',
     flagUrl: 'https://flagcdn.com/h40/cz.png',
@@ -527,7 +527,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.denmark,
+    id: kDenmarkId,
     name: 'Denmark',
     isoCode: 'DK',
     flagUrl: 'https://flagcdn.com/h40/dk.png',
@@ -536,7 +536,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.djibouti,
+    id: kDjiboutiId,
     name: 'Djibouti',
     isoCode: 'DJ',
     flagUrl: 'https://flagcdn.com/h40/dj.png',
@@ -545,7 +545,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.dominica,
+    id: kDominicaId,
     name: 'Dominica',
     isoCode: 'DM',
     flagUrl: 'https://flagcdn.com/h40/dm.png',
@@ -554,7 +554,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.dominicanRepublic,
+    id: kDominicanRepublicId,
     name: 'Dominican Republic',
     isoCode: 'DO',
     flagUrl: 'https://flagcdn.com/h40/do.png',
@@ -563,7 +563,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.ecuador,
+    id: kEcuadorId,
     name: 'Ecuador',
     isoCode: 'EC',
     flagUrl: 'https://flagcdn.com/h40/ec.png',
@@ -572,7 +572,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.egypt,
+    id: kEgyptId,
     name: 'Egypt',
     isoCode: 'EG',
     flagUrl: 'https://flagcdn.com/h40/eg.png',
@@ -581,7 +581,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.elSalvador,
+    id: kElSalvadorId,
     name: 'El Salvador',
     isoCode: 'SV',
     flagUrl: 'https://flagcdn.com/h40/sv.png',
@@ -590,7 +590,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.equatorialGuinea,
+    id: kEquatorialGuineaId,
     name: 'Equatorial Guinea',
     isoCode: 'GQ',
     flagUrl: 'https://flagcdn.com/h40/gq.png',
@@ -599,7 +599,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.eritrea,
+    id: kEritreaId,
     name: 'Eritrea',
     isoCode: 'ER',
     flagUrl: 'https://flagcdn.com/h40/er.png',
@@ -608,7 +608,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.estonia,
+    id: kEstoniaId,
     name: 'Estonia',
     isoCode: 'EE',
     flagUrl: 'https://flagcdn.com/h40/ee.png',
@@ -617,7 +617,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.ethiopia,
+    id: kEthiopiaId,
     name: 'Ethiopia',
     isoCode: 'ET',
     flagUrl: 'https://flagcdn.com/h40/et.png',
@@ -626,7 +626,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.falklandIslandsMalvinas,
+    id: kFalklandIslandsMalvinasId,
     name: 'Falkland Islands (Malvinas)',
     isoCode: 'FK',
     flagUrl: 'https://flagcdn.com/h40/fk.png',
@@ -635,7 +635,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.faroeIslands,
+    id: kFaroeIslandsId,
     name: 'Faroe Islands',
     isoCode: 'FO',
     flagUrl: 'https://flagcdn.com/h40/fo.png',
@@ -644,7 +644,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.fiji,
+    id: kFijiId,
     name: 'Fiji',
     isoCode: 'FJ',
     flagUrl: 'https://flagcdn.com/h40/fj.png',
@@ -653,7 +653,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.finland,
+    id: kFinlandId,
     name: 'Finland',
     isoCode: 'FI',
     flagUrl: 'https://flagcdn.com/h40/fi.png',
@@ -662,7 +662,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.france,
+    id: kFranceId,
     name: 'France',
     isoCode: 'FR',
     flagUrl: 'https://flagcdn.com/h40/fr.png',
@@ -671,7 +671,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.frenchGuiana,
+    id: kFrenchGuianaId,
     name: 'French Guiana',
     isoCode: 'GF',
     flagUrl: 'https://flagcdn.com/h40/gf.png',
@@ -680,7 +680,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.frenchPolynesia,
+    id: kFrenchPolynesiaId,
     name: 'French Polynesia',
     isoCode: 'PF',
     flagUrl: 'https://flagcdn.com/h40/pf.png',
@@ -689,7 +689,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.frenchSouthernTerritories,
+    id: kFrenchSouthernTerritoriesId,
     name: 'French Southern Territories',
     isoCode: 'TF',
     flagUrl: 'https://flagcdn.com/h40/tf.png',
@@ -698,7 +698,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.gabon,
+    id: kGabonId,
     name: 'Gabon',
     isoCode: 'GA',
     flagUrl: 'https://flagcdn.com/h40/ga.png',
@@ -707,7 +707,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.gambia,
+    id: kGambiaId,
     name: 'Gambia',
     isoCode: 'GM',
     flagUrl: 'https://flagcdn.com/h40/gm.png',
@@ -716,7 +716,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.georgia,
+    id: kGeorgiaId,
     name: 'Georgia',
     isoCode: 'GE',
     flagUrl: 'https://flagcdn.com/h40/ge.png',
@@ -725,7 +725,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.germany,
+    id: kGermanyId,
     name: 'Germany',
     isoCode: 'DE',
     flagUrl: 'https://flagcdn.com/h40/de.png',
@@ -734,7 +734,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.ghana,
+    id: kGhanaId,
     name: 'Ghana',
     isoCode: 'GH',
     flagUrl: 'https://flagcdn.com/h40/gh.png',
@@ -743,7 +743,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.gibraltar,
+    id: kGibraltarId,
     name: 'Gibraltar',
     isoCode: 'GI',
     flagUrl: 'https://flagcdn.com/h40/gi.png',
@@ -752,7 +752,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.greece,
+    id: kGreeceId,
     name: 'Greece',
     isoCode: 'GR',
     flagUrl: 'https://flagcdn.com/h40/gr.png',
@@ -761,7 +761,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.greenland,
+    id: kGreenlandId,
     name: 'Greenland',
     isoCode: 'GL',
     flagUrl: 'https://flagcdn.com/h40/gl.png',
@@ -770,7 +770,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.grenada,
+    id: kGrenadaId,
     name: 'Grenada',
     isoCode: 'GD',
     flagUrl: 'https://flagcdn.com/h40/gd.png',
@@ -779,7 +779,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.guadeloupe,
+    id: kGuadeloupeId,
     name: 'Guadeloupe',
     isoCode: 'GP',
     flagUrl: 'https://flagcdn.com/h40/gp.png',
@@ -788,7 +788,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.guam,
+    id: kGuamId,
     name: 'Guam',
     isoCode: 'GU',
     flagUrl: 'https://flagcdn.com/h40/gu.png',
@@ -797,7 +797,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.guatemala,
+    id: kGuatemalaId,
     name: 'Guatemala',
     isoCode: 'GT',
     flagUrl: 'https://flagcdn.com/h40/gt.png',
@@ -806,7 +806,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.guernsey,
+    id: kGuernseyId,
     name: 'Guernsey',
     isoCode: 'GG',
     flagUrl: 'https://flagcdn.com/h40/gg.png',
@@ -815,7 +815,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.guinea,
+    id: kGuineaId,
     name: 'Guinea',
     isoCode: 'GN',
     flagUrl: 'https://flagcdn.com/h40/gn.png',
@@ -824,7 +824,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.guineaBissau,
+    id: kGuineaBissauId,
     name: 'Guinea-Bissau',
     isoCode: 'GW',
     flagUrl: 'https://flagcdn.com/h40/gw.png',
@@ -833,7 +833,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.guyana,
+    id: kGuyanaId,
     name: 'Guyana',
     isoCode: 'GY',
     flagUrl: 'https://flagcdn.com/h40/gy.png',
@@ -842,7 +842,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.haiti,
+    id: kHaitiId,
     name: 'Haiti',
     isoCode: 'HT',
     flagUrl: 'https://flagcdn.com/h40/ht.png',
@@ -851,7 +851,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.heardIslandAndMcdonaldIslands,
+    id: kHeardIslandAndMcdonaldIslandsId,
     name: 'Heard Island and Mcdonald Islands',
     isoCode: 'HM',
     flagUrl: 'https://flagcdn.com/h40/hm.png',
@@ -860,7 +860,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.holySeeVaticanCityState,
+    id: kHolySeeVaticanCityStateId,
     name: 'Holy See (Vatican City State)',
     isoCode: 'VA',
     flagUrl: 'https://flagcdn.com/h40/va.png',
@@ -869,7 +869,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.honduras,
+    id: kHondurasId,
     name: 'Honduras',
     isoCode: 'HN',
     flagUrl: 'https://flagcdn.com/h40/hn.png',
@@ -878,7 +878,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.hongKong,
+    id: kHongKongId,
     name: 'Hong Kong',
     isoCode: 'HK',
     flagUrl: 'https://flagcdn.com/h40/hk.png',
@@ -887,7 +887,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.hungary,
+    id: kHungaryId,
     name: 'Hungary',
     isoCode: 'HU',
     flagUrl: 'https://flagcdn.com/h40/hu.png',
@@ -896,7 +896,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.iceland,
+    id: kIcelandId,
     name: 'Iceland',
     isoCode: 'IS',
     flagUrl: 'https://flagcdn.com/h40/is.png',
@@ -905,7 +905,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.india,
+    id: kIndiaId,
     name: 'India',
     isoCode: 'IN',
     flagUrl: 'https://flagcdn.com/h40/in.png',
@@ -914,7 +914,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.indonesia,
+    id: kIndonesiaId,
     name: 'Indonesia',
     isoCode: 'ID',
     flagUrl: 'https://flagcdn.com/h40/id.png',
@@ -923,7 +923,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.iranIslamicRepublicOf,
+    id: kIranIslamicRepublicOfId,
     name: 'Iran, Islamic Republic Of',
     isoCode: 'IR',
     flagUrl: 'https://flagcdn.com/h40/ir.png',
@@ -932,7 +932,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.iraq,
+    id: kIraqId,
     name: 'Iraq',
     isoCode: 'IQ',
     flagUrl: 'https://flagcdn.com/h40/iq.png',
@@ -941,7 +941,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.ireland,
+    id: kIrelandId,
     name: 'Ireland',
     isoCode: 'IE',
     flagUrl: 'https://flagcdn.com/h40/ie.png',
@@ -950,7 +950,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.isleOfMan,
+    id: kIsleOfManId,
     name: 'Isle of Man',
     isoCode: 'IM',
     flagUrl: 'https://flagcdn.com/h40/im.png',
@@ -959,7 +959,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.israel,
+    id: kIsraelId,
     name: 'Israel',
     isoCode: 'IL',
     flagUrl: 'https://flagcdn.com/h40/il.png',
@@ -968,7 +968,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.italy,
+    id: kItalyId,
     name: 'Italy',
     isoCode: 'IT',
     flagUrl: 'https://flagcdn.com/h40/it.png',
@@ -977,7 +977,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.jamaica,
+    id: kJamaicaId,
     name: 'Jamaica',
     isoCode: 'JM',
     flagUrl: 'https://flagcdn.com/h40/jm.png',
@@ -986,7 +986,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.japan,
+    id: kJapanId,
     name: 'Japan',
     isoCode: 'JP',
     flagUrl: 'https://flagcdn.com/h40/jp.png',
@@ -995,7 +995,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.jersey,
+    id: kJerseyId,
     name: 'Jersey',
     isoCode: 'JE',
     flagUrl: 'https://flagcdn.com/h40/je.png',
@@ -1004,7 +1004,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.jordan,
+    id: kJordanId,
     name: 'Jordan',
     isoCode: 'JO',
     flagUrl: 'https://flagcdn.com/h40/jo.png',
@@ -1013,7 +1013,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.kazakhstan,
+    id: kKazakhstanId,
     name: 'Kazakhstan',
     isoCode: 'KZ',
     flagUrl: 'https://flagcdn.com/h40/kz.png',
@@ -1022,7 +1022,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.kenya,
+    id: kKenyaId,
     name: 'Kenya',
     isoCode: 'KE',
     flagUrl: 'https://flagcdn.com/h40/ke.png',
@@ -1031,7 +1031,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.kiribati,
+    id: kKiribatiId,
     name: 'Kiribati',
     isoCode: 'KI',
     flagUrl: 'https://flagcdn.com/h40/ki.png',
@@ -1040,7 +1040,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.koreaDemocraticPeoplesRepublicOf,
+    id: kKoreaDemocraticPeoplesRepublicOfId,
     name: 'Korea, Democratic People\'S Republic of',
     isoCode: 'KP',
     flagUrl: 'https://flagcdn.com/h40/kp.png',
@@ -1049,7 +1049,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.koreaRepublicOf,
+    id: kKoreaRepublicOfId,
     name: 'Korea, Republic of',
     isoCode: 'KR',
     flagUrl: 'https://flagcdn.com/h40/kr.png',
@@ -1058,7 +1058,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.kuwait,
+    id: kKuwaitId,
     name: 'Kuwait',
     isoCode: 'KW',
     flagUrl: 'https://flagcdn.com/h40/kw.png',
@@ -1067,7 +1067,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.kyrgyzstan,
+    id: kKyrgyzstanId,
     name: 'Kyrgyzstan',
     isoCode: 'KG',
     flagUrl: 'https://flagcdn.com/h40/kg.png',
@@ -1076,7 +1076,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.laoPeoplesDemocraticRepublic,
+    id: kLaoPeoplesDemocraticRepublicId,
     name: 'Lao People\'S Democratic Republic',
     isoCode: 'LA',
     flagUrl: 'https://flagcdn.com/h40/la.png',
@@ -1085,7 +1085,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.latvia,
+    id: kLatviaId,
     name: 'Latvia',
     isoCode: 'LV',
     flagUrl: 'https://flagcdn.com/h40/lv.png',
@@ -1094,7 +1094,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.lebanon,
+    id: kLebanonId,
     name: 'Lebanon',
     isoCode: 'LB',
     flagUrl: 'https://flagcdn.com/h40/lb.png',
@@ -1103,7 +1103,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.lesotho,
+    id: kLesothoId,
     name: 'Lesotho',
     isoCode: 'LS',
     flagUrl: 'https://flagcdn.com/h40/ls.png',
@@ -1112,7 +1112,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.liberia,
+    id: kLiberiaId,
     name: 'Liberia',
     isoCode: 'LR',
     flagUrl: 'https://flagcdn.com/h40/lr.png',
@@ -1121,7 +1121,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.libyanArabJamahiriya,
+    id: kLibyanArabJamahiriyaId,
     name: 'Libyan Arab Jamahiriya',
     isoCode: 'LY',
     flagUrl: 'https://flagcdn.com/h40/ly.png',
@@ -1130,7 +1130,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.liechtenstein,
+    id: kLiechtensteinId,
     name: 'Liechtenstein',
     isoCode: 'LI',
     flagUrl: 'https://flagcdn.com/h40/li.png',
@@ -1139,7 +1139,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.lithuania,
+    id: kLithuaniaId,
     name: 'Lithuania',
     isoCode: 'LT',
     flagUrl: 'https://flagcdn.com/h40/lt.png',
@@ -1148,7 +1148,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.luxembourg,
+    id: kLuxembourgId,
     name: 'Luxembourg',
     isoCode: 'LU',
     flagUrl: 'https://flagcdn.com/h40/lu.png',
@@ -1157,7 +1157,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.macao,
+    id: kMacaoId,
     name: 'Macao',
     isoCode: 'MO',
     flagUrl: 'https://flagcdn.com/h40/mo.png',
@@ -1166,7 +1166,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.macedoniaTheFormerYugoslavRepublicOf,
+    id: kMacedoniaTheFormerYugoslavRepublicOfId,
     name: 'Macedonia, The Former Yugoslav Republic of',
     isoCode: 'MK',
     flagUrl: 'https://flagcdn.com/h40/mk.png',
@@ -1175,7 +1175,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.madagascar,
+    id: kMadagascarId,
     name: 'Madagascar',
     isoCode: 'MG',
     flagUrl: 'https://flagcdn.com/h40/mg.png',
@@ -1184,7 +1184,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.malawi,
+    id: kMalawiId,
     name: 'Malawi',
     isoCode: 'MW',
     flagUrl: 'https://flagcdn.com/h40/mw.png',
@@ -1193,7 +1193,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.malaysia,
+    id: kMalaysiaId,
     name: 'Malaysia',
     isoCode: 'MY',
     flagUrl: 'https://flagcdn.com/h40/my.png',
@@ -1202,7 +1202,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.maldives,
+    id: kMaldivesId,
     name: 'Maldives',
     isoCode: 'MV',
     flagUrl: 'https://flagcdn.com/h40/mv.png',
@@ -1211,7 +1211,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.mali,
+    id: kMaliId,
     name: 'Mali',
     isoCode: 'ML',
     flagUrl: 'https://flagcdn.com/h40/ml.png',
@@ -1220,7 +1220,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.malta,
+    id: kMaltaId,
     name: 'Malta',
     isoCode: 'MT',
     flagUrl: 'https://flagcdn.com/h40/mt.png',
@@ -1229,7 +1229,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.marshallIslands,
+    id: kMarshallIslandsId,
     name: 'Marshall Islands',
     isoCode: 'MH',
     flagUrl: 'https://flagcdn.com/h40/mh.png',
@@ -1238,7 +1238,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.martinique,
+    id: kMartiniqueId,
     name: 'Martinique',
     isoCode: 'MQ',
     flagUrl: 'https://flagcdn.com/h40/mq.png',
@@ -1247,7 +1247,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.mauritania,
+    id: kMauritaniaId,
     name: 'Mauritania',
     isoCode: 'MR',
     flagUrl: 'https://flagcdn.com/h40/mr.png',
@@ -1256,7 +1256,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.mauritius,
+    id: kMauritiusId,
     name: 'Mauritius',
     isoCode: 'MU',
     flagUrl: 'https://flagcdn.com/h40/mu.png',
@@ -1265,7 +1265,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.mayotte,
+    id: kMayotteId,
     name: 'Mayotte',
     isoCode: 'YT',
     flagUrl: 'https://flagcdn.com/h40/yt.png',
@@ -1274,7 +1274,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.mexico,
+    id: kMexicoId,
     name: 'Mexico',
     isoCode: 'MX',
     flagUrl: 'https://flagcdn.com/h40/mx.png',
@@ -1283,7 +1283,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.micronesiaFederatedStatesOf,
+    id: kMicronesiaFederatedStatesOfId,
     name: 'Micronesia, Federated States of',
     isoCode: 'FM',
     flagUrl: 'https://flagcdn.com/h40/fm.png',
@@ -1292,7 +1292,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.moldovaRepublicOf,
+    id: kMoldovaRepublicOfId,
     name: 'Moldova, Republic of',
     isoCode: 'MD',
     flagUrl: 'https://flagcdn.com/h40/md.png',
@@ -1301,7 +1301,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.monaco,
+    id: kMonacoId,
     name: 'Monaco',
     isoCode: 'MC',
     flagUrl: 'https://flagcdn.com/h40/mc.png',
@@ -1310,7 +1310,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.mongolia,
+    id: kMongoliaId,
     name: 'Mongolia',
     isoCode: 'MN',
     flagUrl: 'https://flagcdn.com/h40/mn.png',
@@ -1319,7 +1319,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.montserrat,
+    id: kMontserratId,
     name: 'Montserrat',
     isoCode: 'MS',
     flagUrl: 'https://flagcdn.com/h40/ms.png',
@@ -1328,7 +1328,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.morocco,
+    id: kMoroccoId,
     name: 'Morocco',
     isoCode: 'MA',
     flagUrl: 'https://flagcdn.com/h40/ma.png',
@@ -1337,7 +1337,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.mozambique,
+    id: kMozambiqueId,
     name: 'Mozambique',
     isoCode: 'MZ',
     flagUrl: 'https://flagcdn.com/h40/mz.png',
@@ -1346,7 +1346,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.myanmar,
+    id: kMyanmarId,
     name: 'Myanmar',
     isoCode: 'MM',
     flagUrl: 'https://flagcdn.com/h40/mm.png',
@@ -1355,7 +1355,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.namibia,
+    id: kNamibiaId,
     name: 'Namibia',
     isoCode: 'NA',
     flagUrl: 'https://flagcdn.com/h40/na.png',
@@ -1364,7 +1364,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.nauru,
+    id: kNauruId,
     name: 'Nauru',
     isoCode: 'NR',
     flagUrl: 'https://flagcdn.com/h40/nr.png',
@@ -1373,7 +1373,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.nepal,
+    id: kNepalId,
     name: 'Nepal',
     isoCode: 'NP',
     flagUrl: 'https://flagcdn.com/h40/np.png',
@@ -1382,7 +1382,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.netherlands,
+    id: kNetherlandsId,
     name: 'Netherlands',
     isoCode: 'NL',
     flagUrl: 'https://flagcdn.com/h40/nl.png',
@@ -1391,7 +1391,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.netherlandsAntilles,
+    id: kNetherlandsAntillesId,
     name: 'Netherlands Antilles',
     isoCode: 'AN',
     flagUrl: 'https://flagcdn.com/h40/an.png',
@@ -1400,7 +1400,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.newCaledonia,
+    id: kNewCaledoniaId,
     name: 'New Caledonia',
     isoCode: 'NC',
     flagUrl: 'https://flagcdn.com/h40/nc.png',
@@ -1409,7 +1409,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.newZealand,
+    id: kNewZealandId,
     name: 'New Zealand',
     isoCode: 'NZ',
     flagUrl: 'https://flagcdn.com/h40/nz.png',
@@ -1418,7 +1418,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.nicaragua,
+    id: kNicaraguaId,
     name: 'Nicaragua',
     isoCode: 'NI',
     flagUrl: 'https://flagcdn.com/h40/ni.png',
@@ -1427,7 +1427,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.niger,
+    id: kNigerId,
     name: 'Niger',
     isoCode: 'NE',
     flagUrl: 'https://flagcdn.com/h40/ne.png',
@@ -1436,7 +1436,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.nigeria,
+    id: kNigeriaId,
     name: 'Nigeria',
     isoCode: 'NG',
     flagUrl: 'https://flagcdn.com/h40/ng.png',
@@ -1445,7 +1445,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.niue,
+    id: kNiueId,
     name: 'Niue',
     isoCode: 'NU',
     flagUrl: 'https://flagcdn.com/h40/nu.png',
@@ -1454,7 +1454,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.norfolkIsland,
+    id: kNorfolkIslandId,
     name: 'Norfolk Island',
     isoCode: 'NF',
     flagUrl: 'https://flagcdn.com/h40/nf.png',
@@ -1463,7 +1463,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.northernMarianaIslands,
+    id: kNorthernMarianaIslandsId,
     name: 'Northern Mariana Islands',
     isoCode: 'MP',
     flagUrl: 'https://flagcdn.com/h40/mp.png',
@@ -1472,7 +1472,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.norway,
+    id: kNorwayId,
     name: 'Norway',
     isoCode: 'NO',
     flagUrl: 'https://flagcdn.com/h40/no.png',
@@ -1481,7 +1481,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.oman,
+    id: kOmanId,
     name: 'Oman',
     isoCode: 'OM',
     flagUrl: 'https://flagcdn.com/h40/om.png',
@@ -1490,7 +1490,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.pakistan,
+    id: kPakistanId,
     name: 'Pakistan',
     isoCode: 'PK',
     flagUrl: 'https://flagcdn.com/h40/pk.png',
@@ -1499,7 +1499,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.palau,
+    id: kPalauId,
     name: 'Palau',
     isoCode: 'PW',
     flagUrl: 'https://flagcdn.com/h40/pw.png',
@@ -1508,7 +1508,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.palestinianTerritoryOccupied,
+    id: kPalestinianTerritoryOccupiedId,
     name: 'Palestinian Territory, Occupied',
     isoCode: 'PS',
     flagUrl: 'https://flagcdn.com/h40/ps.png',
@@ -1517,7 +1517,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.panama,
+    id: kPanamaId,
     name: 'Panama',
     isoCode: 'PA',
     flagUrl: 'https://flagcdn.com/h40/pa.png',
@@ -1526,7 +1526,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.papuaNewGuinea,
+    id: kPapuaNewGuineaId,
     name: 'Papua New Guinea',
     isoCode: 'PG',
     flagUrl: 'https://flagcdn.com/h40/pg.png',
@@ -1535,7 +1535,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.paraguay,
+    id: kParaguayId,
     name: 'Paraguay',
     isoCode: 'PY',
     flagUrl: 'https://flagcdn.com/h40/py.png',
@@ -1544,7 +1544,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.peru,
+    id: kPeruId,
     name: 'Peru',
     isoCode: 'PE',
     flagUrl: 'https://flagcdn.com/h40/pe.png',
@@ -1553,7 +1553,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.philippines,
+    id: kPhilippinesId,
     name: 'Philippines',
     isoCode: 'PH',
     flagUrl: 'https://flagcdn.com/h40/ph.png',
@@ -1562,7 +1562,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.pitcairn,
+    id: kPitcairnId,
     name: 'Pitcairn',
     isoCode: 'PN',
     flagUrl: 'https://flagcdn.com/h40/pn.png',
@@ -1571,7 +1571,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.poland,
+    id: kPolandId,
     name: 'Poland',
     isoCode: 'PL',
     flagUrl: 'https://flagcdn.com/h40/pl.png',
@@ -1580,7 +1580,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.portugal,
+    id: kPortugalId,
     name: 'Portugal',
     isoCode: 'PT',
     flagUrl: 'https://flagcdn.com/h40/pt.png',
@@ -1589,7 +1589,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.puertoRico,
+    id: kPuertoRicoId,
     name: 'Puerto Rico',
     isoCode: 'PR',
     flagUrl: 'https://flagcdn.com/h40/pr.png',
@@ -1598,7 +1598,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.qatar,
+    id: kQatarId,
     name: 'Qatar',
     isoCode: 'QA',
     flagUrl: 'https://flagcdn.com/h40/qa.png',
@@ -1607,7 +1607,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.reunion,
+    id: kReunionId,
     name: 'Reunion',
     isoCode: 'RE',
     flagUrl: 'https://flagcdn.com/h40/re.png',
@@ -1616,7 +1616,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.romania,
+    id: kRomaniaId,
     name: 'Romania',
     isoCode: 'RO',
     flagUrl: 'https://flagcdn.com/h40/ro.png',
@@ -1625,7 +1625,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.russianFederation,
+    id: kRussianFederationId,
     name: 'Russian Federation',
     isoCode: 'RU',
     flagUrl: 'https://flagcdn.com/h40/ru.png',
@@ -1634,7 +1634,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.rwanda,
+    id: kRwandaId,
     name: 'RWANDA',
     isoCode: 'RW',
     flagUrl: 'https://flagcdn.com/h40/rw.png',
@@ -1643,7 +1643,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.saintHelena,
+    id: kSaintHelenaId,
     name: 'Saint Helena',
     isoCode: 'SH',
     flagUrl: 'https://flagcdn.com/h40/sh.png',
@@ -1652,7 +1652,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.saintKittsAndNevis,
+    id: kSaintKittsAndNevisId,
     name: 'Saint Kitts and Nevis',
     isoCode: 'KN',
     flagUrl: 'https://flagcdn.com/h40/kn.png',
@@ -1661,7 +1661,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.saintLucia,
+    id: kSaintLuciaId,
     name: 'Saint Lucia',
     isoCode: 'LC',
     flagUrl: 'https://flagcdn.com/h40/lc.png',
@@ -1670,7 +1670,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.saintPierreAndMiquelon,
+    id: kSaintPierreAndMiquelonId,
     name: 'Saint Pierre and Miquelon',
     isoCode: 'PM',
     flagUrl: 'https://flagcdn.com/h40/pm.png',
@@ -1679,7 +1679,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.saintVincentAndTheGrenadines,
+    id: kSaintVincentAndTheGrenadinesId,
     name: 'Saint Vincent and the Grenadines',
     isoCode: 'VC',
     flagUrl: 'https://flagcdn.com/h40/vc.png',
@@ -1688,7 +1688,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.samoa,
+    id: kSamoaId,
     name: 'Samoa',
     isoCode: 'WS',
     flagUrl: 'https://flagcdn.com/h40/ws.png',
@@ -1697,7 +1697,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.sanMarino,
+    id: kSanMarinoId,
     name: 'San Marino',
     isoCode: 'SM',
     flagUrl: 'https://flagcdn.com/h40/sm.png',
@@ -1706,7 +1706,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.saoTomeAndPrincipe,
+    id: kSaoTomeAndPrincipeId,
     name: 'Sao Tome and Principe',
     isoCode: 'ST',
     flagUrl: 'https://flagcdn.com/h40/st.png',
@@ -1715,7 +1715,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.saudiArabia,
+    id: kSaudiArabiaId,
     name: 'Saudi Arabia',
     isoCode: 'SA',
     flagUrl: 'https://flagcdn.com/h40/sa.png',
@@ -1724,7 +1724,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.senegal,
+    id: kSenegalId,
     name: 'Senegal',
     isoCode: 'SN',
     flagUrl: 'https://flagcdn.com/h40/sn.png',
@@ -1733,7 +1733,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.serbiaAndMontenegro,
+    id: kSerbiaAndMontenegroId,
     name: 'Serbia and Montenegro',
     isoCode: 'CS',
     flagUrl: 'https://flagcdn.com/h40/cs.png',
@@ -1742,7 +1742,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.seychelles,
+    id: kSeychellesId,
     name: 'Seychelles',
     isoCode: 'SC',
     flagUrl: 'https://flagcdn.com/h40/sc.png',
@@ -1751,7 +1751,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.sierraLeone,
+    id: kSierraLeoneId,
     name: 'Sierra Leone',
     isoCode: 'SL',
     flagUrl: 'https://flagcdn.com/h40/sl.png',
@@ -1760,7 +1760,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.singapore,
+    id: kSingaporeId,
     name: 'Singapore',
     isoCode: 'SG',
     flagUrl: 'https://flagcdn.com/h40/sg.png',
@@ -1769,7 +1769,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.slovakia,
+    id: kSlovakiaId,
     name: 'Slovakia',
     isoCode: 'SK',
     flagUrl: 'https://flagcdn.com/h40/sk.png',
@@ -1778,7 +1778,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.slovenia,
+    id: kSloveniaId,
     name: 'Slovenia',
     isoCode: 'SI',
     flagUrl: 'https://flagcdn.com/h40/si.png',
@@ -1787,7 +1787,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.solomonIslands,
+    id: kSolomonIslandsId,
     name: 'Solomon Islands',
     isoCode: 'SB',
     flagUrl: 'https://flagcdn.com/h40/sb.png',
@@ -1796,7 +1796,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.somalia,
+    id: kSomaliaId,
     name: 'Somalia',
     isoCode: 'SO',
     flagUrl: 'https://flagcdn.com/h40/so.png',
@@ -1805,7 +1805,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.southAfrica,
+    id: kSouthAfricaId,
     name: 'South Africa',
     isoCode: 'ZA',
     flagUrl: 'https://flagcdn.com/h40/za.png',
@@ -1814,7 +1814,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.southGeorgiaAndTheSouthSandwichIslands,
+    id: kSouthGeorgiaAndTheSouthSandwichIslandsId,
     name: 'South Georgia and the South Sandwich Islands',
     isoCode: 'GS',
     flagUrl: 'https://flagcdn.com/h40/gs.png',
@@ -1823,7 +1823,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.spain,
+    id: kSpainId,
     name: 'Spain',
     isoCode: 'ES',
     flagUrl: 'https://flagcdn.com/h40/es.png',
@@ -1832,7 +1832,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.sriLanka,
+    id: kSriLankaId,
     name: 'Sri Lanka',
     isoCode: 'LK',
     flagUrl: 'https://flagcdn.com/h40/lk.png',
@@ -1841,7 +1841,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.sudan,
+    id: kSudanId,
     name: 'Sudan',
     isoCode: 'SD',
     flagUrl: 'https://flagcdn.com/h40/sd.png',
@@ -1850,7 +1850,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.suriname,
+    id: kSurinameId,
     name: 'Suriname',
     isoCode: 'SR',
     flagUrl: 'https://flagcdn.com/h40/sr.png',
@@ -1859,7 +1859,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.svalbardAndJanMayen,
+    id: kSvalbardAndJanMayenId,
     name: 'Svalbard and Jan Mayen',
     isoCode: 'SJ',
     flagUrl: 'https://flagcdn.com/h40/sj.png',
@@ -1868,7 +1868,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.swaziland,
+    id: kSwazilandId,
     name: 'Swaziland',
     isoCode: 'SZ',
     flagUrl: 'https://flagcdn.com/h40/sz.png',
@@ -1877,7 +1877,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.sweden,
+    id: kSwedenId,
     name: 'Sweden',
     isoCode: 'SE',
     flagUrl: 'https://flagcdn.com/h40/se.png',
@@ -1886,7 +1886,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.switzerland,
+    id: kSwitzerlandId,
     name: 'Switzerland',
     isoCode: 'CH',
     flagUrl: 'https://flagcdn.com/h40/ch.png',
@@ -1895,7 +1895,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.syrianArabRepublic,
+    id: kSyrianArabRepublicId,
     name: 'Syrian Arab Republic',
     isoCode: 'SY',
     flagUrl: 'https://flagcdn.com/h40/sy.png',
@@ -1904,7 +1904,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.taiwanProvinceOfChina,
+    id: kTaiwanProvinceOfChinaId,
     name: 'Taiwan, Province of China',
     isoCode: 'TW',
     flagUrl: 'https://flagcdn.com/h40/tw.png',
@@ -1913,7 +1913,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.tajikistan,
+    id: kTajikistanId,
     name: 'Tajikistan',
     isoCode: 'TJ',
     flagUrl: 'https://flagcdn.com/h40/tj.png',
@@ -1922,7 +1922,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.tanzaniaUnitedRepublicOf,
+    id: kTanzaniaUnitedRepublicOfId,
     name: 'Tanzania, United Republic of',
     isoCode: 'TZ',
     flagUrl: 'https://flagcdn.com/h40/tz.png',
@@ -1931,7 +1931,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.thailand,
+    id: kThailandId,
     name: 'Thailand',
     isoCode: 'TH',
     flagUrl: 'https://flagcdn.com/h40/th.png',
@@ -1940,7 +1940,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.timorLeste,
+    id: kTimorLesteId,
     name: 'Timor-Leste',
     isoCode: 'TL',
     flagUrl: 'https://flagcdn.com/h40/tl.png',
@@ -1949,7 +1949,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.togo,
+    id: kTogoId,
     name: 'Togo',
     isoCode: 'TG',
     flagUrl: 'https://flagcdn.com/h40/tg.png',
@@ -1958,7 +1958,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.tokelau,
+    id: kTokelauId,
     name: 'Tokelau',
     isoCode: 'TK',
     flagUrl: 'https://flagcdn.com/h40/tk.png',
@@ -1967,7 +1967,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.tonga,
+    id: kTongaId,
     name: 'Tonga',
     isoCode: 'TO',
     flagUrl: 'https://flagcdn.com/h40/to.png',
@@ -1976,7 +1976,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.trinidadAndTobago,
+    id: kTrinidadAndTobagoId,
     name: 'Trinidad and Tobago',
     isoCode: 'TT',
     flagUrl: 'https://flagcdn.com/h40/tt.png',
@@ -1985,7 +1985,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.tunisia,
+    id: kTunisiaId,
     name: 'Tunisia',
     isoCode: 'TN',
     flagUrl: 'https://flagcdn.com/h40/tn.png',
@@ -1994,7 +1994,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.turkey,
+    id: kTurkeyId,
     name: 'Turkey',
     isoCode: 'TR',
     flagUrl: 'https://flagcdn.com/h40/tr.png',
@@ -2003,7 +2003,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.turkmenistan,
+    id: kTurkmenistanId,
     name: 'Turkmenistan',
     isoCode: 'TM',
     flagUrl: 'https://flagcdn.com/h40/tm.png',
@@ -2012,7 +2012,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.turksAndCaicosIslands,
+    id: kTurksAndCaicosIslandsId,
     name: 'Turks and Caicos Islands',
     isoCode: 'TC',
     flagUrl: 'https://flagcdn.com/h40/tc.png',
@@ -2021,7 +2021,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.tuvalu,
+    id: kTuvaluId,
     name: 'Tuvalu',
     isoCode: 'TV',
     flagUrl: 'https://flagcdn.com/h40/tv.png',
@@ -2030,7 +2030,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.uganda,
+    id: kUgandaId,
     name: 'Uganda',
     isoCode: 'UG',
     flagUrl: 'https://flagcdn.com/h40/ug.png',
@@ -2039,7 +2039,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.ukraine,
+    id: kUkraineId,
     name: 'Ukraine',
     isoCode: 'UA',
     flagUrl: 'https://flagcdn.com/h40/ua.png',
@@ -2048,7 +2048,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.unitedArabEmirates,
+    id: kUnitedArabEmiratesId,
     name: 'United Arab Emirates',
     isoCode: 'AE',
     flagUrl: 'https://flagcdn.com/h40/ae.png',
@@ -2057,7 +2057,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.unitedKingdom,
+    id: kUnitedKingdomId,
     name: 'United Kingdom',
     isoCode: 'GB',
     flagUrl: 'https://flagcdn.com/h40/gb.png',
@@ -2066,7 +2066,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.unitedStates,
+    id: kUnitedStatesId,
     name: 'United States',
     isoCode: 'US',
     flagUrl: 'https://flagcdn.com/h40/us.png',
@@ -2075,7 +2075,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.unitedStatesMinorOutlyingIslands,
+    id: kUnitedStatesMinorOutlyingIslandsId,
     name: 'United States Minor Outlying Islands',
     isoCode: 'UM',
     flagUrl: 'https://flagcdn.com/h40/um.png',
@@ -2084,7 +2084,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.uruguay,
+    id: kUruguayId,
     name: 'Uruguay',
     isoCode: 'UY',
     flagUrl: 'https://flagcdn.com/h40/uy.png',
@@ -2093,7 +2093,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.uzbekistan,
+    id: kUzbekistanId,
     name: 'Uzbekistan',
     isoCode: 'UZ',
     flagUrl: 'https://flagcdn.com/h40/uz.png',
@@ -2102,7 +2102,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.vanuatu,
+    id: kVanuatuId,
     name: 'Vanuatu',
     isoCode: 'VU',
     flagUrl: 'https://flagcdn.com/h40/vu.png',
@@ -2111,7 +2111,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.venezuela,
+    id: kVenezuelaId,
     name: 'Venezuela',
     isoCode: 'VE',
     flagUrl: 'https://flagcdn.com/h40/ve.png',
@@ -2120,7 +2120,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.vietNam,
+    id: kVietNamId,
     name: 'Viet Nam',
     isoCode: 'VN',
     flagUrl: 'https://flagcdn.com/h40/vn.png',
@@ -2129,7 +2129,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.virginIslandsBritish,
+    id: kVirginIslandsBritishId,
     name: 'Virgin Islands, British',
     isoCode: 'VG',
     flagUrl: 'https://flagcdn.com/h40/vg.png',
@@ -2138,7 +2138,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.virginIslandsUS,
+    id: kVirginIslandsUSId,
     name: 'Virgin Islands, U.S.',
     isoCode: 'VI',
     flagUrl: 'https://flagcdn.com/h40/vi.png',
@@ -2147,7 +2147,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.wallisAndFutuna,
+    id: kWallisAndFutunaId,
     name: 'Wallis and Futuna',
     isoCode: 'WF',
     flagUrl: 'https://flagcdn.com/h40/wf.png',
@@ -2156,7 +2156,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.westernSahara,
+    id: kWesternSaharaId,
     name: 'Western Sahara',
     isoCode: 'EH',
     flagUrl: 'https://flagcdn.com/h40/eh.png',
@@ -2165,7 +2165,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.yemen,
+    id: kYemenId,
     name: 'Yemen',
     isoCode: 'YE',
     flagUrl: 'https://flagcdn.com/h40/ye.png',
@@ -2174,7 +2174,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.zambia,
+    id: kZambiaId,
     name: 'Zambia',
     isoCode: 'ZM',
     flagUrl: 'https://flagcdn.com/h40/zm.png',
@@ -2183,7 +2183,7 @@ final countriesFixturesData = <Country>[
     updatedAt: DateTime(2024, 1, 1),
   ),
   Country(
-    id: FixtureIds.zimbabwe,
+    id: kZimbabweId,
     name: 'Zimbabwe',
     isoCode: 'ZW',
     flagUrl: 'https://flagcdn.com/h40/zw.png',
