@@ -1,6 +1,7 @@
 import 'package:core/src/enums/enums.dart';
 import 'package:core/src/models/core/feed_item.dart';
 import 'package:core/src/models/entities/country.dart';
+import 'package:core/src/models/entities/language.dart';
 import 'package:core/src/utils/utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -51,8 +52,8 @@ class Source extends FeedItem {
 
   final SourceType sourceType;
 
-  /// The language code of the source (e.g., 'en', 'fr').
-  final String language;
+  /// The language of the source.
+  final Language language;
 
   /// The country where the source is headquartered.
   final Country headquarters;
@@ -84,7 +85,7 @@ class Source extends FeedItem {
     name,
     description,
     url,
-    sourceType, // Changed from _sourceType
+  sourceType,
     language,
     headquarters,
     createdAt,
@@ -101,7 +102,7 @@ class Source extends FeedItem {
     String? description,
     String? url,
     SourceType? sourceType,
-    String? language,
+    Language? language,
     Country? headquarters,
     DateTime? createdAt,
     DateTime? updatedAt,
@@ -112,7 +113,7 @@ class Source extends FeedItem {
       name: name ?? this.name,
       description: description ?? this.description,
       url: url ?? this.url,
-      sourceType: sourceType ?? this.sourceType, // Changed from _sourceType
+      sourceType: sourceType ?? this.sourceType,
       language: language ?? this.language,
       headquarters: headquarters ?? this.headquarters,
       createdAt: createdAt ?? this.createdAt,
