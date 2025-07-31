@@ -483,7 +483,7 @@ final countriesFixturesData = <Country>[
   ),
   Country(
     id: kCoteDIvoireId,
-    name: 'Cote D\'Ivoire',
+    name: "Cote D'Ivoire",
     isoCode: 'CI',
     flagUrl: 'https://flagcdn.com/h40/ci.png',
     status: ContentStatus.active,
@@ -1041,7 +1041,7 @@ final countriesFixturesData = <Country>[
   ),
   Country(
     id: kKoreaDemocraticPeoplesRepublicOfId,
-    name: 'Korea, Democratic People\'S Republic of',
+    name: "Korea, Democratic People'S Republic of",
     isoCode: 'KP',
     flagUrl: 'https://flagcdn.com/h40/kp.png',
     status: ContentStatus.active,
@@ -1077,7 +1077,7 @@ final countriesFixturesData = <Country>[
   ),
   Country(
     id: kLaoPeoplesDemocraticRepublicId,
-    name: 'Lao People\'S Democratic Republic',
+    name: "Lao People'S Democratic Republic",
     isoCode: 'LA',
     flagUrl: 'https://flagcdn.com/h40/la.png',
     status: ContentStatus.active,

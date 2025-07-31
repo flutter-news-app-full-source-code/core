@@ -1,6 +1,5 @@
 import 'package:core/core.dart';
 
-import 'package:core/src/fixtures/fixture_ids.dart';
 
 final languagesFixturesData = <Language>[
   Language(
