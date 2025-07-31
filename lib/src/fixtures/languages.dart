@@ -1,7 +1,7 @@
 import 'package:core/core.dart';
 import 'package:uuid/uuid.dart';
 
-final _uuid = Uuid();
+const _uuid = Uuid();
 
 final languagesFixturesData = <Language>[
   Language(
