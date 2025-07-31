@@ -14,13 +14,22 @@ void main() {
       updatedAt: DateTime.utc(2023),
       status: ContentStatus.active,
     );
+    final mockLanguage = Language(
+      id: 'lang-en',
+      name: 'English',
+      code: 'en',
+      nativeName: 'English',
+      createdAt: DateTime.utc(2023),
+      updatedAt: DateTime.utc(2023),
+      status: ContentStatus.active,
+    );
     final mockSource = Source(
       id: 'source-1',
       name: 'Example News',
       description: 'A news source for examples',
       url: 'http://example.com',
       sourceType: SourceType.newsAgency,
-      language: 'en',
+      language: mockLanguage,
       headquarters: mockCountry,
       createdAt: DateTime.utc(2023),
       updatedAt: DateTime.utc(2023),
@@ -100,7 +109,15 @@ void main() {
               'description': 'A news source for examples',
               'url': 'http://example.com',
               'sourceType': 'newsAgency',
-              'language': 'en',
+              'language': {
+                'id': 'lang-en',
+                'name': 'English',
+                'code': 'en',
+                'nativeName': 'English',
+                'createdAt': '2023-01-01T00:00:00.000Z',
+                'updatedAt': '2023-01-01T00:00:00.000Z',
+                'status': 'active'
+              },
               'headquarters': {
                 'id': 'country-1',
                 'isoCode': 'US',
@@ -142,7 +159,15 @@ void main() {
                 'description': 'A news source for examples',
                 'url': 'http://example.com',
                 'sourceType': 'newsAgency',
-                'language': 'en',
+                'language': {
+                  'id': 'lang-en',
+                  'name': 'English',
+                  'code': 'en',
+                  'nativeName': 'English',
+                  'createdAt': '2023-01-01T00:00:00.000Z',
+                  'updatedAt': '2023-01-01T00:00:00.000Z',
+                  'status': 'active'
+                },
                 'headquarters': {
                   'id': 'country-1',
                   'isoCode': 'US',
@@ -290,7 +315,7 @@ void main() {
           url: 'http://example.com/another_headline',
           imageUrl: 'http://example.com/another_headline_image.png',
           source: mockSource,
-          eventCountry: countriesFixturesData[0],
+          eventCountry: mockCountry,
           topic: mockTopic,
           createdAt: DateTime.utc(2023),
           updatedAt: DateTime.utc(2023),
