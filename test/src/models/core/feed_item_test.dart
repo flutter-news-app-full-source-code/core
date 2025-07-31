@@ -13,13 +13,22 @@ void main() {
       updatedAt: testDateTime,
       status: ContentStatus.active,
     );
+    final mockLanguage = Language(
+      id: 'lang-en',
+      name: 'English',
+      code: 'en',
+      nativeName: 'English',
+      createdAt: testDateTime,
+      updatedAt: testDateTime,
+      status: ContentStatus.active,
+    );
     final mockSource = Source(
       id: 'source-1',
       name: 'Example News',
       description: 'A reliable news source.',
       url: 'http://example.com',
       sourceType: SourceType.newsAgency,
-      language: 'en',
+      language: mockLanguage,
       headquarters: mockCountry,
       createdAt: testDateTime,
       updatedAt: testDateTime,
