@@ -18,6 +18,15 @@ void main() {
     );
 
     // Sample data for nested models
+    final mockLanguageJson = {
+      'id': 'lang-en',
+      'name': 'English',
+      'code': 'en',
+      'nativeName': 'English',
+      'createdAt': testTimeString,
+      'updatedAt': testTimeString,
+      'status': ContentStatus.active.name,
+    };
     final sampleSourceJson = {
       'id': 'src-test',
       'name': 'Test Source',
@@ -25,7 +34,7 @@ void main() {
       'url': 'http://testsource.com',
       'sourceType':
           'newsAgency', // Changed key to camelCase and value to match enum
-      'language': 'en',
+      'language': mockLanguageJson,
       'headquarters': mockCountry.toJson(),
       'createdAt': testTimeString,
       'updatedAt': testTimeString,

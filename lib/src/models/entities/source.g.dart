@@ -17,7 +17,10 @@ Source _$SourceFromJson(Map<String, dynamic> json) =>
           'sourceType',
           (v) => $enumDecode(_$SourceTypeEnumMap, v),
         ),
-        language: $checkedConvert('language', (v) => v as String),
+        language: $checkedConvert(
+          'language',
+          (v) => Language.fromJson(v as Map<String, dynamic>),
+        ),
         headquarters: $checkedConvert(
           'headquarters',
           (v) => Country.fromJson(v as Map<String, dynamic>),
@@ -44,7 +47,7 @@ Map<String, dynamic> _$SourceToJson(Source instance) => <String, dynamic>{
   'description': instance.description,
   'url': instance.url,
   'sourceType': _$SourceTypeEnumMap[instance.sourceType]!,
-  'language': instance.language,
+  'language': instance.language.toJson(),
   'headquarters': instance.headquarters.toJson(),
   'createdAt': dateTimeToJson(instance.createdAt),
   'updatedAt': dateTimeToJson(instance.updatedAt),
