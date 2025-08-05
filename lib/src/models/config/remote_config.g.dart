@@ -26,6 +26,14 @@ RemoteConfig _$RemoteConfigFromJson(Map<String, dynamic> json) =>
           'appStatus',
           (v) => AppStatus.fromJson(v as Map<String, dynamic>),
         ),
+        createdAt: $checkedConvert(
+          'createdAt',
+          (v) => dateTimeFromJson(v as String?),
+        ),
+        updatedAt: $checkedConvert(
+          'updatedAt',
+          (v) => dateTimeFromJson(v as String?),
+        ),
       );
       return val;
     });
@@ -37,4 +45,6 @@ Map<String, dynamic> _$RemoteConfigToJson(RemoteConfig instance) =>
       'adConfig': instance.adConfig.toJson(),
       'accountActionConfig': instance.accountActionConfig.toJson(),
       'appStatus': instance.appStatus.toJson(),
+      'createdAt': dateTimeToJson(instance.createdAt),
+      'updatedAt': dateTimeToJson(instance.updatedAt),
     };

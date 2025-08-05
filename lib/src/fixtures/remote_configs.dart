@@ -15,7 +15,7 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       androidUpdateUrl:
           'https://play.google.com/store/apps/details?id=com.example.app',
     ),
-    userPreferenceConfig: UserPreferenceConfig(
+    userPreferenceConfig: const UserPreferenceConfig(
       guestFollowedItemsLimit: 5,
       guestSavedHeadlinesLimit: 10,
       authenticatedFollowedItemsLimit: 15,
@@ -23,7 +23,7 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       premiumFollowedItemsLimit: 30,
       premiumSavedHeadlinesLimit: 100,
     ),
-    adConfig: AdConfig(
+    adConfig: const AdConfig(
       guestAdFrequency: 5,
       guestAdPlacementInterval: 3,
       authenticatedAdFrequency: 10,
@@ -34,7 +34,7 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       standardUserArticlesToReadBeforeShowingInterstitialAds: 10,
       premiumUserArticlesToReadBeforeShowingInterstitialAds: 50000,
     ),
-    accountActionConfig: AccountActionConfig(
+    accountActionConfig: const AccountActionConfig(
       guestDaysBetweenActions: {
         FeedActionType.linkAccount: 2,
         FeedActionType.rateApp: 14,
