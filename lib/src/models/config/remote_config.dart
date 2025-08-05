@@ -1,7 +1,8 @@
 import 'package:core/src/models/config/account_action_config.dart';
 import 'package:core/src/models/config/ad_config.dart';
-import 'package:core/src/models/config/app_status.dart'; // New import
+import 'package:core/src/models/config/app_status.dart';
 import 'package:core/src/models/config/user_preference_config.dart';
+import 'package:core/src/utils/json_helpers.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -23,6 +24,8 @@ class RemoteConfig extends Equatable {
     required this.adConfig,
     required this.accountActionConfig,
     required this.appStatus,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   /// Factory method to create an [RemoteConfig] instance from a JSON map.
@@ -42,7 +45,15 @@ class RemoteConfig extends Equatable {
   final AccountActionConfig accountActionConfig;
 
   /// Defines configuration settings related to the overall application status (maintenance, updates).
-  final AppStatus appStatus; // New field
+  final AppStatus appStatus;
+
+  /// The creation timestamp of the remote config.
+  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  final DateTime createdAt;
+
+  /// The last update timestamp of the remote config.
+  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  final DateTime updatedAt;
 
   /// Converts this [RemoteConfig] instance to a JSON map.
   Map<String, dynamic> toJson() => _$RemoteConfigToJson(this);
@@ -53,14 +64,18 @@ class RemoteConfig extends Equatable {
     UserPreferenceConfig? userPreferenceConfig,
     AdConfig? adConfig,
     AccountActionConfig? accountActionConfig,
-    AppStatus? appStatus, // New optional parameter
+    AppStatus? appStatus,
+    DateTime? createdAt,
+    DateTime? updatedAt,
   }) {
     return RemoteConfig(
       id: id ?? this.id,
       userPreferenceConfig: userPreferenceConfig ?? this.userPreferenceConfig,
       adConfig: adConfig ?? this.adConfig,
       accountActionConfig: accountActionConfig ?? this.accountActionConfig,
-      appStatus: appStatus ?? this.appStatus, // Pass new field
+      appStatus: appStatus ?? this.appStatus,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
     );
   }
 
@@ -70,7 +85,9 @@ class RemoteConfig extends Equatable {
     userPreferenceConfig,
     adConfig,
     accountActionConfig,
-    appStatus, // Add to props
+    appStatus,
+    createdAt,
+    updatedAt,
   ];
 
   @override
