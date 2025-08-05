@@ -3,9 +3,11 @@ import 'package:core/core.dart';
 /// A list of initial remote config data to be loaded into the in-memory
 /// remote config repository.
 final List<RemoteConfig> remoteConfigsFixturesData = [
-  const RemoteConfig(
+  RemoteConfig(
     id: kRemoteConfigId,
-    appStatus: AppStatus(
+    createdAt: DateTime.now(),
+    updatedAt: DateTime.now(),
+    appStatus: const AppStatus(
       isUnderMaintenance: false,
       latestAppVersion: '1.1.0',
       isLatestVersionOnly: false,
