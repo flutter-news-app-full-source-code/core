@@ -48,12 +48,14 @@ void main() {
           'https://play.google.com/store/apps/details?id=com.example.app',
     );
 
-    const remoteConfig = RemoteConfig(
+    final remoteConfig = RemoteConfig(
       id: 'remote_config',
       userPreferenceConfig: mockUserPreferenceConfig,
       adConfig: mockAdConfig,
       accountActionConfig: mockAccountActionConfig,
       appStatus: mockAppStatus,
+      createdAt: DateTime(2023),
+      updatedAt: DateTime(2023),
     );
 
     group('constructor', () {
@@ -119,30 +121,36 @@ void main() {
 
     group('Equatable', () {
       test('instances with the same properties are equal', () {
-        const config1 = RemoteConfig(
+        final config1 = RemoteConfig(
           id: 'remote_config',
           userPreferenceConfig: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
           accountActionConfig: mockAccountActionConfig,
           appStatus: mockAppStatus,
+          createdAt: DateTime(2023),
+          updatedAt: DateTime(2023),
         );
-        const config2 = RemoteConfig(
+        final config2 = RemoteConfig(
           id: 'remote_config',
           userPreferenceConfig: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
           accountActionConfig: mockAccountActionConfig,
           appStatus: mockAppStatus,
+          createdAt: DateTime(2023),
+          updatedAt: DateTime(2023),
         );
         expect(config1, config2);
       });
 
       test('instances with different properties are not equal', () {
-        const config1 = RemoteConfig(
+        final config1 = RemoteConfig(
           id: 'remote_config',
           userPreferenceConfig: mockUserPreferenceConfig,
           adConfig: mockAdConfig,
           accountActionConfig: mockAccountActionConfig,
           appStatus: mockAppStatus,
+          createdAt: DateTime(2023),
+          updatedAt: DateTime(2023),
         );
         final config2 = remoteConfig.copyWith(id: 'different_id');
         expect(config1, isNot(equals(config2)));
