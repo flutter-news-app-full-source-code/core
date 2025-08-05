@@ -48,14 +48,17 @@ void main() {
           'https://play.google.com/store/apps/details?id=com.example.app',
     );
 
+    final createdAt = DateTime(2023);
+    final updatedAt = DateTime(2023);
+
     final remoteConfig = RemoteConfig(
       id: 'remote_config',
       userPreferenceConfig: mockUserPreferenceConfig,
       adConfig: mockAdConfig,
       accountActionConfig: mockAccountActionConfig,
       appStatus: mockAppStatus,
-      createdAt: DateTime(2023),
-      updatedAt: DateTime(2023),
+      createdAt: createdAt,
+      updatedAt: updatedAt,
     );
 
     group('constructor', () {
@@ -77,6 +80,8 @@ void main() {
           'adConfig': mockAdConfig.toJson(),
           'accountActionConfig': mockAccountActionConfig.toJson(),
           'appStatus': mockAppStatus.toJson(),
+          'createdAt': createdAt.toIso8601String(),
+          'updatedAt': updatedAt.toIso8601String(),
         };
 
         final result = RemoteConfig.fromJson(json);
@@ -94,6 +99,8 @@ void main() {
         expect(json['adConfig'], mockAdConfig.toJson());
         expect(json['accountActionConfig'], mockAccountActionConfig.toJson());
         expect(json['appStatus'], mockAppStatus.toJson());
+        expect(json['createdAt'], createdAt.toIso8601String());
+        expect(json['updatedAt'], updatedAt.toIso8601String());
       });
     });
 
@@ -127,8 +134,8 @@ void main() {
           adConfig: mockAdConfig,
           accountActionConfig: mockAccountActionConfig,
           appStatus: mockAppStatus,
-          createdAt: DateTime(2023),
-          updatedAt: DateTime(2023),
+          createdAt: createdAt,
+          updatedAt: updatedAt,
         );
         final config2 = RemoteConfig(
           id: 'remote_config',
@@ -136,8 +143,8 @@ void main() {
           adConfig: mockAdConfig,
           accountActionConfig: mockAccountActionConfig,
           appStatus: mockAppStatus,
-          createdAt: DateTime(2023),
-          updatedAt: DateTime(2023),
+          createdAt: createdAt,
+          updatedAt: updatedAt,
         );
         expect(config1, config2);
       });
@@ -149,8 +156,8 @@ void main() {
           adConfig: mockAdConfig,
           accountActionConfig: mockAccountActionConfig,
           appStatus: mockAppStatus,
-          createdAt: DateTime(2023),
-          updatedAt: DateTime(2023),
+          createdAt: createdAt,
+          updatedAt: updatedAt,
         );
         final config2 = remoteConfig.copyWith(id: 'different_id');
         expect(config1, isNot(equals(config2)));
