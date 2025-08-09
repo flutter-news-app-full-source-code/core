@@ -18,9 +18,9 @@ enum FeedActionType {
   /// news or personalized alerts.
   enableNotifications,
 
-  /// A call-to-action for users to follow 5 topics to personalize their feed.
+  /// A call-to-action for users to follow topics to personalize their feed.
   followTopics,
 
-  /// A call-to-action for users to follow 5 sources to personalize their feed.
+  /// A call-to-action for users to follow sources to personalize their feed.
   followSources,
 }
