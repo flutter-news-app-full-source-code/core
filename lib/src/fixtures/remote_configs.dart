@@ -1,4 +1,8 @@
 import 'package:core/core.dart';
+import 'package:core/src/enums/app_user_role.dart';
+import 'package:core/src/enums/feed_decorator_type.dart';
+import 'package:core/src/models/config/feed_decorator_settings.dart';
+import 'package:core/src/models/config/role_specific_settings.dart';
 
 /// A list of initial remote config data to be loaded into the in-memory
 /// remote config repository.
@@ -34,18 +38,20 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       standardUserArticlesToReadBeforeShowingInterstitialAds: 10,
       premiumUserArticlesToReadBeforeShowingInterstitialAds: 50000,
     ),
-    accountActionConfig: const AccountActionConfig(
-      guestDaysBetweenActions: {
-        FeedActionType.linkAccount: 2,
-        FeedActionType.rateApp: 14,
-        FeedActionType.followTopics: 3,
-        FeedActionType.followSources: 3,
-      },
-      standardUserDaysBetweenActions: {
-        FeedActionType.upgrade: 7,
-        FeedActionType.rateApp: 30,
-        FeedActionType.enableNotifications: 10,
-      },
-    ),
+    feedDecoratorConfig: {
+      FeedDecoratorType.rateApp: CallToActionSettings(
+        enabled: true,
+        defaultDaysBetweenViews: 30,
+        roleOverrides: {
+          AppUserRole.guestUser: const RoleSpecificSettings(daysBetweenViews: 14),
+        },
+      ),
+      FeedDecoratorType.suggestedTopics: ContentCollectionSettings(
+        enabled: true,
+        defaultDaysBetweenViews: 7,
+        itemsToDisplay: 5,
+        roleOverrides: {},
+      ),
+    },
   ),
 ];
