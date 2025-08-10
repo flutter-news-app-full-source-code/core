@@ -1,4 +1,6 @@
 import 'package:core/core.dart';
+import 'package:core/src/models/feed_decorators/call_to_action_item.dart';
+import 'package:core/src/models/feed_decorators/content_collection_item.dart';
 import 'package:equatable/equatable.dart';
 
 /// {@template feed_item}
@@ -40,8 +42,34 @@ abstract class FeedItem extends Equatable {
         return Country.fromJson(json);
       case 'ad':
         return Ad.fromJson(json);
-      case 'feed_action':
-        return FeedAction.fromJson(json);
+      case 'callToAction':
+        return CallToActionItem.fromJson(json);
+      case 'contentCollection':
+        final contentType = json['contentType'] as String?;
+        if (contentType == null) {
+          throw const FormatException(
+            'Missing "contentType" for contentCollection.',
+          );
+        }
+        switch (contentType) {
+          case 'topic':
+            return ContentCollectionItem<Topic>.fromJson(
+              json,
+              (json) => Topic.fromJson(json as Map<String, dynamic>),
+            );
+          case 'source':
+            return ContentCollectionItem<Source>.fromJson(
+              json,
+              (json) => Source.fromJson(json as Map<String, dynamic>),
+            );
+          case 'country':
+            return ContentCollectionItem<Country>.fromJson(
+              json,
+              (json) => Country.fromJson(json as Map<String, dynamic>),
+            );
+          default:
+            throw FormatException('Unknown contentType: $contentType');
+        }
       default:
         throw FormatException('Unknown FeedItem type: $type');
     }
