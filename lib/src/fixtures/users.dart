@@ -5,20 +5,12 @@ import 'package:core/core.dart';
 /// This list includes a pre-configured administrator user, which is essential
 /// for accessing the dashboard in a development environment.
 final List<User> usersFixturesData = [
-  // The initial administrator user.
   User(
-    id: kAdminUserId, // A fixed, predictable ID for the admin.
+    id: kAdminUserId,
     email: 'admin@example.com',
-    appRole: AppUserRole.standardUser,
+    appRole: AppUserRole.premiumUser,
     dashboardRole: DashboardUserRole.admin,
-    createdAt: DateTime.now().toUtc(),
-    feedActionStatus: {
-      // Ensure all feed action types have a default status.
-      for (final type in FeedActionType.values)
-        type: const UserFeedActionStatus(isCompleted: false),
-    },
+    createdAt: DateTime.now(),
+    feedDecoratorStatus: const {},
   ),
-  // Add other initial users for testing if needed.
-  // Example: A standard user
-  // User( ... ),
 ];
