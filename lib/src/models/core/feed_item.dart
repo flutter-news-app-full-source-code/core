@@ -78,9 +78,6 @@ abstract class FeedItem extends Equatable {
   /// The type of the feed item, used as a discriminator for deserialization.
   final String type;
 
-  /// Converts this [FeedItem] instance to a JSON map.
-  Map<String, dynamic> toJson();
-
   @override
   List<Object?> get props => [type];
 }
