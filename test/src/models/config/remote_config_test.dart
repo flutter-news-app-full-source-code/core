@@ -1,165 +1,78 @@
 import 'package:core/core.dart';
+import 'package:core/src/fixtures/remote_configs.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('RemoteConfig', () {
-    // Mock instances for dependencies
-    const mockUserPreferenceConfig = UserPreferenceConfig(
-      guestFollowedItemsLimit: 5,
-      guestSavedHeadlinesLimit: 10,
-      authenticatedFollowedItemsLimit: 15,
-      authenticatedSavedHeadlinesLimit: 30,
-      premiumFollowedItemsLimit: 30,
-      premiumSavedHeadlinesLimit: 100,
-    );
-
-    const mockAdConfig = AdConfig(
-      guestAdFrequency: 5,
-      guestAdPlacementInterval: 3,
-      authenticatedAdFrequency: 10,
-      authenticatedAdPlacementInterval: 5,
-      premiumAdFrequency: 0,
-      premiumAdPlacementInterval: 0,
-      guestArticlesToReadBeforeShowingInterstitialAds: 5,
-      standardUserArticlesToReadBeforeShowingInterstitialAds: 10,
-      premiumUserArticlesToReadBeforeShowingInterstitialAds: 50000,
-    );
-
-    const mockAccountActionConfig = AccountActionConfig(
-      guestDaysBetweenActions: {
-        FeedActionType.linkAccount: 2,
-        FeedActionType.rateApp: 14,
-        FeedActionType.followTopics: 3,
-        FeedActionType.followSources: 3,
-      },
-      standardUserDaysBetweenActions: {
-        FeedActionType.upgrade: 7,
-        FeedActionType.rateApp: 30,
-        FeedActionType.enableNotifications: 10,
-      },
-    );
-
-    const mockAppStatus = AppStatus(
-      isUnderMaintenance: false,
-      latestAppVersion: '1.1.0',
-      isLatestVersionOnly: false,
-      iosUpdateUrl: 'https://apps.apple.com/app/example/id1234567890',
-      androidUpdateUrl:
-          'https://play.google.com/store/apps/details?id=com.example.app',
-    );
-
-    final createdAt = DateTime(2023);
-    final updatedAt = DateTime(2023);
-
-    final remoteConfig = RemoteConfig(
-      id: 'remote_config',
-      userPreferenceConfig: mockUserPreferenceConfig,
-      adConfig: mockAdConfig,
-      accountActionConfig: mockAccountActionConfig,
-      appStatus: mockAppStatus,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-    );
+    final remoteConfigFixture = remoteConfigsFixturesData.first;
 
     group('constructor', () {
       test('returns correct instance', () {
-        expect(remoteConfig, isA<RemoteConfig>());
-        expect(remoteConfig.id, 'remote_config');
-        expect(remoteConfig.userPreferenceConfig, mockUserPreferenceConfig);
-        expect(remoteConfig.adConfig, mockAdConfig);
-        expect(remoteConfig.accountActionConfig, mockAccountActionConfig);
-        expect(remoteConfig.appStatus, mockAppStatus);
+        expect(remoteConfigFixture, isA<RemoteConfig>());
+        expect(remoteConfigFixture.id, isA<String>());
+        expect(
+          remoteConfigFixture.userPreferenceConfig,
+          isA<UserPreferenceConfig>(),
+        );
+        expect(remoteConfigFixture.adConfig, isA<AdConfig>());
+        expect(
+          remoteConfigFixture.feedDecoratorConfig,
+          isA<Map<FeedDecoratorType, FeedDecoratorSettings>>(),
+        );
+        expect(remoteConfigFixture.appStatus, isA<AppStatus>());
       });
     });
 
     group('fromJson', () {
       test('returns correct instance from JSON', () {
-        final json = {
-          'id': 'remote_config',
-          'userPreferenceConfig': mockUserPreferenceConfig.toJson(),
-          'adConfig': mockAdConfig.toJson(),
-          'accountActionConfig': mockAccountActionConfig.toJson(),
-          'appStatus': mockAppStatus.toJson(),
-          'createdAt': createdAt.toIso8601String(),
-          'updatedAt': updatedAt.toIso8601String(),
-        };
-
+        final json = remoteConfigFixture.toJson();
         final result = RemoteConfig.fromJson(json);
-
-        expect(result, remoteConfig);
+        expect(result, remoteConfigFixture);
       });
     });
 
     group('toJson', () {
       test('returns correct JSON map', () {
-        final json = remoteConfig.toJson();
-
-        expect(json['id'], 'remote_config');
-        expect(json['userPreferenceConfig'], mockUserPreferenceConfig.toJson());
-        expect(json['adConfig'], mockAdConfig.toJson());
-        expect(json['accountActionConfig'], mockAccountActionConfig.toJson());
-        expect(json['appStatus'], mockAppStatus.toJson());
-        expect(json['createdAt'], createdAt.toIso8601String());
-        expect(json['updatedAt'], updatedAt.toIso8601String());
+        final json = remoteConfigFixture.toJson();
+        final fromJson = RemoteConfig.fromJson(json);
+        expect(fromJson.toJson(), json);
       });
     });
 
     group('copyWith', () {
       test('returns a new instance with updated values', () {
-        final updatedConfig = remoteConfig.copyWith(
+        final updatedConfig = remoteConfigFixture.copyWith(
           id: 'new_app_config',
-          appStatus: mockAppStatus.copyWith(isUnderMaintenance: true),
+          appStatus: remoteConfigFixture.appStatus.copyWith(
+            isUnderMaintenance: true,
+          ),
         );
 
         expect(updatedConfig.id, 'new_app_config');
         expect(
           updatedConfig.userPreferenceConfig,
-          mockUserPreferenceConfig,
+          remoteConfigFixture.userPreferenceConfig,
         ); // Unchanged
         expect(updatedConfig.appStatus.isUnderMaintenance, true);
-        expect(updatedConfig, isNot(equals(remoteConfig)));
+        expect(updatedConfig, isNot(equals(remoteConfigFixture)));
       });
 
       test('returns the same instance if no changes are made', () {
-        final updatedConfig = remoteConfig.copyWith();
-        expect(updatedConfig, equals(remoteConfig));
+        final updatedConfig = remoteConfigFixture.copyWith();
+        expect(updatedConfig, equals(remoteConfigFixture));
       });
     });
 
     group('Equatable', () {
       test('instances with the same properties are equal', () {
-        final config1 = RemoteConfig(
-          id: 'remote_config',
-          userPreferenceConfig: mockUserPreferenceConfig,
-          adConfig: mockAdConfig,
-          accountActionConfig: mockAccountActionConfig,
-          appStatus: mockAppStatus,
-          createdAt: createdAt,
-          updatedAt: updatedAt,
-        );
-        final config2 = RemoteConfig(
-          id: 'remote_config',
-          userPreferenceConfig: mockUserPreferenceConfig,
-          adConfig: mockAdConfig,
-          accountActionConfig: mockAccountActionConfig,
-          appStatus: mockAppStatus,
-          createdAt: createdAt,
-          updatedAt: updatedAt,
-        );
+        final config1 = remoteConfigFixture.copyWith();
+        final config2 = remoteConfigFixture.copyWith();
         expect(config1, config2);
       });
 
       test('instances with different properties are not equal', () {
-        final config1 = RemoteConfig(
-          id: 'remote_config',
-          userPreferenceConfig: mockUserPreferenceConfig,
-          adConfig: mockAdConfig,
-          accountActionConfig: mockAccountActionConfig,
-          appStatus: mockAppStatus,
-          createdAt: createdAt,
-          updatedAt: updatedAt,
-        );
-        final config2 = remoteConfig.copyWith(id: 'different_id');
+        final config1 = remoteConfigFixture.copyWith();
+        final config2 = remoteConfigFixture.copyWith(id: 'different_id');
         expect(config1, isNot(equals(config2)));
       });
     });
