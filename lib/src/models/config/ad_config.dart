@@ -1,7 +1,4 @@
-import 'package:core/core.dart' show RemoteConfig;
-import 'package:core/src/models/config/config.dart' show RemoteConfig;
-import 'package:core/src/models/config/remote_config.dart' show RemoteConfig;
-import 'package:core/src/models/models.dart' show RemoteConfig;
+import 'package:core/src/models/config/remote_config.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';

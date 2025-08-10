@@ -1,6 +1,5 @@
-import 'package:core/core.dart' show RemoteConfig, UserContentPreferences;
-import 'package:core/src/models/models.dart'
-    show RemoteConfig, UserContentPreferences;
+import 'package:core/src/models/config/remote_config.dart';
+import 'package:core/src/models/user_preferences/user_content_preferences.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
