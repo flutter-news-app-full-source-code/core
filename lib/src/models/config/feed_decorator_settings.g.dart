@@ -6,41 +6,18 @@ part of 'feed_decorator_settings.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-FeedDecoratorSettings _$FeedDecoratorSettingsFromJson(
-  Map<String, dynamic> json,
-) => $checkedCreate('FeedDecoratorSettings', json, ($checkedConvert) {
-  final val = FeedDecoratorSettings(
-    category: $checkedConvert(
-      'category',
-      (v) => $enumDecode(_$FeedDecoratorCategoryEnumMap, v),
-    ),
-    enabled: $checkedConvert('enabled', (v) => v as bool),
-    defaultDaysBetweenViews: $checkedConvert(
-      'defaultDaysBetweenViews',
-      (v) => (v as num).toInt(),
-    ),
-    roleOverrides: $checkedConvert(
-      'roleOverrides',
-      (v) => (v as Map<String, dynamic>).map(
-        (k, e) => MapEntry(
-          $enumDecode(_$AppUserRoleEnumMap, k),
-          RoleSpecificSettings.fromJson(e as Map<String, dynamic>),
-        ),
-      ),
-    ),
-  );
-  return val;
-});
-
 Map<String, dynamic> _$FeedDecoratorSettingsToJson(
   FeedDecoratorSettings instance,
 ) => <String, dynamic>{
+  'stringify': instance.stringify,
+  'hashCode': instance.hashCode,
   'category': _$FeedDecoratorCategoryEnumMap[instance.category]!,
   'enabled': instance.enabled,
   'defaultDaysBetweenViews': instance.defaultDaysBetweenViews,
   'roleOverrides': instance.roleOverrides.map(
     (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e.toJson()),
   ),
+  'props': instance.props,
 };
 
 const _$FeedDecoratorCategoryEnumMap = {

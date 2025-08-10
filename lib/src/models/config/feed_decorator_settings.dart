@@ -14,7 +14,12 @@ part 'feed_decorator_settings.g.dart';
 /// and includes a factory constructor for polymorphic deserialization.
 /// {@endtemplate}
 @immutable
-@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
+@JsonSerializable(
+  explicitToJson: true,
+  includeIfNull: true,
+  checked: true,
+  createFactory: false,
+)
 abstract class FeedDecoratorSettings extends Equatable {
   /// {@macro feed_decorator_settings}
   const FeedDecoratorSettings({
@@ -57,7 +62,17 @@ abstract class FeedDecoratorSettings extends Equatable {
   final Map<AppUserRole, RoleSpecificSettings> roleOverrides;
 
   /// Converts this [FeedDecoratorSettings] instance to a JSON map.
-  Map<String, dynamic> toJson();
+  ///
+  /// This method acts as a dispatcher, calling the correct `toJson` method
+  /// on the concrete subclass.
+  Map<String, dynamic> toJson() {
+    switch (category) {
+      case FeedDecoratorCategory.callToAction:
+        return (this as CallToActionSettings).toJson();
+      case FeedDecoratorCategory.contentCollection:
+        return (this as ContentCollectionSettings).toJson();
+    }
+  }
 
   @override
   List<Object> get props =>
