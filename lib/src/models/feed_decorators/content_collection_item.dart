@@ -20,12 +20,13 @@ part 'content_collection_item.g.dart';
 )
 class ContentCollectionItem<T extends FeedItem> extends FeedItem {
   /// {@macro content_collection_item}
-  const ContentCollectionItem({
+  ContentCollectionItem({
     required this.id,
     required this.decoratorType,
     required this.title,
     required this.items,
-  }) : super(type: 'contentCollection');
+  }) : assert(items.isNotEmpty, 'items cannot be empty'),
+       super(type: 'contentCollection');
 
   /// Factory method to create a [ContentCollectionItem] instance from a JSON map.
   factory ContentCollectionItem.fromJson(
@@ -48,9 +49,7 @@ class ContentCollectionItem<T extends FeedItem> extends FeedItem {
   Map<String, dynamic> toJson(Object? Function(T value) toJsonT) {
     final json = _$ContentCollectionItemToJson(this, toJsonT);
     json['type'] = type;
-    if (items.isNotEmpty) {
-      json['contentType'] = items.first.type;
-    }
+    json['contentType'] = items.first.type;
     return json;
   }
 

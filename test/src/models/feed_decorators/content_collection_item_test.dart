@@ -20,6 +20,20 @@ void main() {
       title: 'Suggested Sources',
     );
 
+    group('constructor', () {
+      test('throws AssertionError if items is empty', () {
+        expect(
+          () => ContentCollectionItem<Topic>(
+            id: 'cc-topic-1',
+            decoratorType: FeedDecoratorType.suggestedTopics,
+            items: const [],
+            title: 'Suggested Topics',
+          ),
+          throwsA(isA<AssertionError>()),
+        );
+      });
+    });
+
     group('supports value equality', () {
       test('for Topic collection', () {
         final item1 = ContentCollectionItem<Topic>(
