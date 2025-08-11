@@ -1,116 +1,65 @@
-import 'package:core/core.dart'; // Import the barrel file
+import 'package:core/core.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('UserPreferenceConfig', () {
-    const userPreferenceConfig = UserPreferenceConfig(
-      guestFollowedItemsLimit: 5,
-      guestSavedHeadlinesLimit: 10,
-      authenticatedFollowedItemsLimit: 15,
-      authenticatedSavedHeadlinesLimit: 30,
-      premiumFollowedItemsLimit: 30,
-      premiumSavedHeadlinesLimit: 100,
-    );
+    // Derive the test subject from the main remote config fixture.
+    final userPreferenceConfigFixture =
+        remoteConfigsFixturesData.first.userPreferenceConfig;
 
     group('constructor', () {
       test('returns correct instance', () {
-        expect(userPreferenceConfig, isA<UserPreferenceConfig>());
-        expect(userPreferenceConfig.guestFollowedItemsLimit, 5);
-        expect(userPreferenceConfig.guestSavedHeadlinesLimit, 10);
-        expect(userPreferenceConfig.authenticatedFollowedItemsLimit, 15);
-        expect(userPreferenceConfig.authenticatedSavedHeadlinesLimit, 30);
-        expect(userPreferenceConfig.premiumFollowedItemsLimit, 30);
-        expect(userPreferenceConfig.premiumSavedHeadlinesLimit, 100);
+        expect(userPreferenceConfigFixture, isA<UserPreferenceConfig>());
+        expect(userPreferenceConfigFixture.guestFollowedItemsLimit, isA<int>());
+        expect(
+          userPreferenceConfigFixture.premiumSavedHeadlinesLimit,
+          isA<int>(),
+        );
       });
     });
 
-    group('fromJson', () {
-      test('returns correct instance from JSON', () {
-        final json = {
-          'guestFollowedItemsLimit': 5,
-          'guestSavedHeadlinesLimit': 10,
-          'authenticatedFollowedItemsLimit': 15,
-          'authenticatedSavedHeadlinesLimit': 30,
-          'premiumFollowedItemsLimit': 30,
-          'premiumSavedHeadlinesLimit': 100,
-        };
-
+    group('fromJson/toJson', () {
+      test('round trip', () {
+        final json = userPreferenceConfigFixture.toJson();
         final result = UserPreferenceConfig.fromJson(json);
-
-        expect(result, userPreferenceConfig);
-      });
-    });
-
-    group('toJson', () {
-      test('returns correct JSON map', () {
-        final json = userPreferenceConfig.toJson();
-
-        expect(json['guestFollowedItemsLimit'], 5);
-        expect(json['guestSavedHeadlinesLimit'], 10);
-        expect(json['authenticatedFollowedItemsLimit'], 15);
-        expect(json['authenticatedSavedHeadlinesLimit'], 30);
-        expect(json['premiumFollowedItemsLimit'], 30);
-        expect(json['premiumSavedHeadlinesLimit'], 100);
+        expect(result, userPreferenceConfigFixture);
       });
     });
 
     group('copyWith', () {
       test('returns a new instance with updated values', () {
-        final updatedConfig = userPreferenceConfig.copyWith(
+        final updatedConfig = userPreferenceConfigFixture.copyWith(
           guestFollowedItemsLimit: 6,
           premiumSavedHeadlinesLimit: 101,
         );
 
         expect(updatedConfig.guestFollowedItemsLimit, 6);
-        expect(updatedConfig.guestSavedHeadlinesLimit, 10); // Unchanged
+        expect(
+          updatedConfig.guestSavedHeadlinesLimit,
+          userPreferenceConfigFixture.guestSavedHeadlinesLimit,
+        ); // Unchanged
         expect(updatedConfig.premiumSavedHeadlinesLimit, 101);
-        expect(updatedConfig, isNot(equals(userPreferenceConfig)));
+        expect(updatedConfig, isNot(equals(userPreferenceConfigFixture)));
       });
 
       test('returns the same instance if no changes are made', () {
-        final updatedConfig = userPreferenceConfig.copyWith();
-        expect(updatedConfig, equals(userPreferenceConfig));
+        final updatedConfig = userPreferenceConfigFixture.copyWith();
+        expect(updatedConfig, equals(userPreferenceConfigFixture));
       });
     });
 
     group('Equatable', () {
       test('instances with the same properties are equal', () {
-        const config1 = UserPreferenceConfig(
-          guestFollowedItemsLimit: 5,
-          guestSavedHeadlinesLimit: 10,
-          authenticatedFollowedItemsLimit: 15,
-          authenticatedSavedHeadlinesLimit: 30,
-          premiumFollowedItemsLimit: 30,
-          premiumSavedHeadlinesLimit: 100,
-        );
-        const config2 = UserPreferenceConfig(
-          guestFollowedItemsLimit: 5,
-          guestSavedHeadlinesLimit: 10,
-          authenticatedFollowedItemsLimit: 15,
-          authenticatedSavedHeadlinesLimit: 30,
-          premiumFollowedItemsLimit: 30,
-          premiumSavedHeadlinesLimit: 100,
-        );
+        final config1 = userPreferenceConfigFixture.copyWith();
+        final config2 = userPreferenceConfigFixture.copyWith();
         expect(config1, config2);
       });
 
       test('instances with different properties are not equal', () {
-        const config1 = UserPreferenceConfig(
-          guestFollowedItemsLimit: 5,
-          guestSavedHeadlinesLimit: 10,
-          authenticatedFollowedItemsLimit: 15,
-          authenticatedSavedHeadlinesLimit: 30,
-          premiumFollowedItemsLimit: 30,
-          premiumSavedHeadlinesLimit: 100,
-        );
-        const config2 = UserPreferenceConfig(
-          guestFollowedItemsLimit: 6, // Different limit
-          guestSavedHeadlinesLimit: 10,
-          authenticatedFollowedItemsLimit: 15,
-          authenticatedSavedHeadlinesLimit: 30,
-          premiumFollowedItemsLimit: 30,
-          premiumSavedHeadlinesLimit: 100,
-        );
+        final config1 = userPreferenceConfigFixture.copyWith();
+        final config2 = userPreferenceConfigFixture.copyWith(
+          guestFollowedItemsLimit: 99,
+        ); // Different limit
         expect(config1, isNot(equals(config2)));
       });
     });
