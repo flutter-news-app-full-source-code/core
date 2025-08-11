@@ -56,7 +56,6 @@ class Country extends FeedItem {
   final ContentStatus status;
 
   /// Converts this Country instance into a JSON map.
-  @override
   Map<String, dynamic> toJson() {
     final json = _$CountryToJson(this);
     json['type'] = type;

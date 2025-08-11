@@ -51,7 +51,6 @@ class Topic extends FeedItem {
   final ContentStatus status;
 
   /// Converts this Topic instance to a JSON map.
-  @override
   Map<String, dynamic> toJson() {
     final json = _$TopicToJson(this);
     json['type'] = type;

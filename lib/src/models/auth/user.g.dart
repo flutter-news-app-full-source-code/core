@@ -23,9 +23,9 @@ User _$UserFromJson(Map<String, dynamic> json) =>
           'createdAt',
           (v) => _dateTimeFromJson(v as String),
         ),
-        feedActionStatus: $checkedConvert(
-          'feedActionStatus',
-          (v) => _feedActionStatusFromJson(v as Map<String, dynamic>),
+        feedDecoratorStatus: $checkedConvert(
+          'feedDecoratorStatus',
+          (v) => _feedDecoratorStatusFromJson(v as Map<String, dynamic>),
         ),
       );
       return val;
@@ -37,7 +37,9 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
   'appRole': _$AppUserRoleEnumMap[instance.appRole]!,
   'dashboardRole': _$DashboardUserRoleEnumMap[instance.dashboardRole]!,
   'createdAt': _dateTimeToJson(instance.createdAt),
-  'feedActionStatus': _feedActionStatusToJson(instance.feedActionStatus),
+  'feedDecoratorStatus': _feedDecoratorStatusToJson(
+    instance.feedDecoratorStatus,
+  ),
 };
 
 const _$AppUserRoleEnumMap = {

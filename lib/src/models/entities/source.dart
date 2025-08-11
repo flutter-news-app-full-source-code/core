@@ -72,7 +72,6 @@ class Source extends FeedItem {
   final ContentStatus status;
 
   /// Converts this [Source] instance to a JSON map.
-  @override
   Map<String, dynamic> toJson() {
     final json = _$SourceToJson(this);
     json['type'] = type;

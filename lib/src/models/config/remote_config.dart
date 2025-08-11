@@ -1,6 +1,7 @@
-import 'package:core/src/models/config/account_action_config.dart';
+import 'package:core/src/enums/feed_decorator_type.dart';
 import 'package:core/src/models/config/ad_config.dart';
 import 'package:core/src/models/config/app_status.dart';
+import 'package:core/src/models/config/feed_decorator_settings.dart';
 import 'package:core/src/models/config/user_preference_config.dart';
 import 'package:core/src/utils/json_helpers.dart';
 import 'package:equatable/equatable.dart';
@@ -12,7 +13,7 @@ part 'remote_config.g.dart';
 ///
 /// This model serves as a central container for various configuration
 /// settings that can be fetched from a remote source. It includes settings
-/// for user preference limits, ad display, and account actions.
+/// for user preference limits, ad display, and feed decorators.
 ///
 /// There should typically be only one instance of this configuration,
 /// identified by a fixed ID (e.g., 'app_config').
@@ -22,7 +23,7 @@ class RemoteConfig extends Equatable {
     required this.id,
     required this.userPreferenceConfig,
     required this.adConfig,
-    required this.accountActionConfig,
+    required this.feedDecoratorConfig,
     required this.appStatus,
     required this.createdAt,
     required this.updatedAt,
@@ -41,8 +42,8 @@ class RemoteConfig extends Equatable {
   /// Defines configuration settings related to ad display.
   final AdConfig adConfig;
 
-  /// Defines configuration settings related to account action display.
-  final AccountActionConfig accountActionConfig;
+  /// Defines configuration settings for all feed decorators.
+  final Map<FeedDecoratorType, FeedDecoratorSettings> feedDecoratorConfig;
 
   /// Defines configuration settings related to the overall application status (maintenance, updates).
   final AppStatus appStatus;
@@ -63,7 +64,7 @@ class RemoteConfig extends Equatable {
     String? id,
     UserPreferenceConfig? userPreferenceConfig,
     AdConfig? adConfig,
-    AccountActionConfig? accountActionConfig,
+    Map<FeedDecoratorType, FeedDecoratorSettings>? feedDecoratorConfig,
     AppStatus? appStatus,
     DateTime? createdAt,
     DateTime? updatedAt,
@@ -72,7 +73,7 @@ class RemoteConfig extends Equatable {
       id: id ?? this.id,
       userPreferenceConfig: userPreferenceConfig ?? this.userPreferenceConfig,
       adConfig: adConfig ?? this.adConfig,
-      accountActionConfig: accountActionConfig ?? this.accountActionConfig,
+      feedDecoratorConfig: feedDecoratorConfig ?? this.feedDecoratorConfig,
       appStatus: appStatus ?? this.appStatus,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
@@ -81,14 +82,14 @@ class RemoteConfig extends Equatable {
 
   @override
   List<Object> get props => [
-    id,
-    userPreferenceConfig,
-    adConfig,
-    accountActionConfig,
-    appStatus,
-    createdAt,
-    updatedAt,
-  ];
+        id,
+        userPreferenceConfig,
+        adConfig,
+        feedDecoratorConfig,
+        appStatus,
+        createdAt,
+        updatedAt,
+      ];
 
   @override
   bool get stringify => true;

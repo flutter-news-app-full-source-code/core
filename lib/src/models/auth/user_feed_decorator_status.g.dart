@@ -1,15 +1,15 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_feed_action_status.dart';
+part of 'user_feed_decorator_status.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-UserFeedActionStatus _$UserFeedActionStatusFromJson(
+UserFeedDecoratorStatus _$UserFeedDecoratorStatusFromJson(
   Map<String, dynamic> json,
-) => $checkedCreate('UserFeedActionStatus', json, ($checkedConvert) {
-  final val = UserFeedActionStatus(
+) => $checkedCreate('UserFeedDecoratorStatus', json, ($checkedConvert) {
+  final val = UserFeedDecoratorStatus(
     isCompleted: $checkedConvert('isCompleted', (v) => v as bool),
     lastShownAt: $checkedConvert(
       'lastShownAt',
@@ -19,8 +19,8 @@ UserFeedActionStatus _$UserFeedActionStatusFromJson(
   return val;
 });
 
-Map<String, dynamic> _$UserFeedActionStatusToJson(
-  UserFeedActionStatus instance,
+Map<String, dynamic> _$UserFeedDecoratorStatusToJson(
+  UserFeedDecoratorStatus instance,
 ) => <String, dynamic>{
   'lastShownAt': _dateTimeToJson(instance.lastShownAt),
   'isCompleted': instance.isCompleted,

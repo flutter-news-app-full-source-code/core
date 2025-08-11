@@ -18,9 +18,14 @@ RemoteConfig _$RemoteConfigFromJson(Map<String, dynamic> json) =>
           'adConfig',
           (v) => AdConfig.fromJson(v as Map<String, dynamic>),
         ),
-        accountActionConfig: $checkedConvert(
-          'accountActionConfig',
-          (v) => AccountActionConfig.fromJson(v as Map<String, dynamic>),
+        feedDecoratorConfig: $checkedConvert(
+          'feedDecoratorConfig',
+          (v) => (v as Map<String, dynamic>).map(
+            (k, e) => MapEntry(
+              $enumDecode(_$FeedDecoratorTypeEnumMap, k),
+              FeedDecoratorSettings.fromJson(e as Map<String, dynamic>),
+            ),
+          ),
         ),
         appStatus: $checkedConvert(
           'appStatus',
@@ -43,8 +48,19 @@ Map<String, dynamic> _$RemoteConfigToJson(RemoteConfig instance) =>
       'id': instance.id,
       'userPreferenceConfig': instance.userPreferenceConfig.toJson(),
       'adConfig': instance.adConfig.toJson(),
-      'accountActionConfig': instance.accountActionConfig.toJson(),
+      'feedDecoratorConfig': instance.feedDecoratorConfig.map(
+        (k, e) => MapEntry(_$FeedDecoratorTypeEnumMap[k]!, e.toJson()),
+      ),
       'appStatus': instance.appStatus.toJson(),
       'createdAt': dateTimeToJson(instance.createdAt),
       'updatedAt': dateTimeToJson(instance.updatedAt),
     };
+
+const _$FeedDecoratorTypeEnumMap = {
+  FeedDecoratorType.linkAccount: 'linkAccount',
+  FeedDecoratorType.upgrade: 'upgrade',
+  FeedDecoratorType.rateApp: 'rateApp',
+  FeedDecoratorType.enableNotifications: 'enableNotifications',
+  FeedDecoratorType.suggestedTopics: 'suggestedTopics',
+  FeedDecoratorType.suggestedSources: 'suggestedSources',
+};
