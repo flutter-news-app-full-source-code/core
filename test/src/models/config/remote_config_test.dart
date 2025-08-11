@@ -22,19 +22,11 @@ void main() {
       });
     });
 
-    group('fromJson', () {
-      test('returns correct instance from JSON', () {
+    group('fromJson/toJson', () {
+      test('round trip', () {
         final json = remoteConfigFixture.toJson();
         final result = RemoteConfig.fromJson(json);
         expect(result, remoteConfigFixture);
-      });
-    });
-
-    group('toJson', () {
-      test('returns correct JSON map', () {
-        final json = remoteConfigFixture.toJson();
-        final fromJson = RemoteConfig.fromJson(json);
-        expect(fromJson.toJson(), json);
       });
     });
 
