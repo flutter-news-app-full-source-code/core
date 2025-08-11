@@ -8,11 +8,8 @@ void main() {
       isCompleted: true,
       lastShownAt: now,
     );
-    final statusNotCompleted = UserFeedDecoratorStatus(
-      isCompleted: false,
-      lastShownAt: now,
-    );
-    final statusNeverShown = const UserFeedDecoratorStatus(isCompleted: false);
+
+    const statusNeverShown = UserFeedDecoratorStatus(isCompleted: false);
 
     test('supports value equality', () {
       expect(
