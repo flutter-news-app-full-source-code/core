@@ -1,8 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/enums/app_user_role.dart';
-import 'package:core/src/enums/feed_decorator_type.dart';
-import 'package:core/src/models/config/feed_decorator_settings.dart';
-import 'package:core/src/models/config/role_specific_settings.dart';
 
 /// A list of initial remote config data to be loaded into the in-memory
 /// remote config repository.

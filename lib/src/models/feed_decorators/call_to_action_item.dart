@@ -46,7 +46,6 @@ class CallToActionItem extends FeedItem {
   /// The URL to navigate to when the call-to-action is triggered.
   final String callToActionUrl;
 
-  @override
   Map<String, dynamic> toJson() {
     final json = _$CallToActionItemToJson(this);
     json['type'] = type;

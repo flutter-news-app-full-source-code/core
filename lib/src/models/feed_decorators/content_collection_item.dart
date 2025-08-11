@@ -45,7 +45,6 @@ class ContentCollectionItem<T extends FeedItem> extends FeedItem {
   /// The list of items to display in the collection.
   final List<T> items;
 
-  @override
   Map<String, dynamic> toJson(Object? Function(T value) toJsonT) {
     final json = _$ContentCollectionItemToJson(this, toJsonT);
     json['type'] = type;

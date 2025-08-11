@@ -77,7 +77,6 @@ class Headline extends FeedItem {
   final Topic topic;
 
   /// Converts this [Headline] instance to a JSON map.
-  @override
   Map<String, dynamic> toJson() {
     final json = _$HeadlineToJson(this);
     json['type'] = type;

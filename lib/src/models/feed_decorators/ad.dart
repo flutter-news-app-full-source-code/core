@@ -69,7 +69,6 @@ class Ad extends FeedItem {
   final AdPlacement placement;
 
   /// Converts this [Ad] instance to a JSON map.
-  @override
   Map<String, dynamic> toJson() {
     final json = _$AdToJson(this);
     json['type'] = type;
