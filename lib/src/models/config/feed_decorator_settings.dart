@@ -35,8 +35,10 @@ abstract class FeedDecoratorSettings extends Equatable {
   /// This factory uses the `category` field to determine which concrete
   /// subclass to instantiate.
   factory FeedDecoratorSettings.fromJson(Map<String, dynamic> json) {
-    final category =
-        $enumDecode(_$FeedDecoratorCategoryEnumMap, json['category']);
+    final category = $enumDecode(
+      _$FeedDecoratorCategoryEnumMap,
+      json['category'],
+    );
     switch (category) {
       case FeedDecoratorCategory.callToAction:
         return CallToActionSettings.fromJson(json);
@@ -75,8 +77,12 @@ abstract class FeedDecoratorSettings extends Equatable {
   }
 
   @override
-  List<Object> get props =>
-      [category, enabled, defaultDaysBetweenViews, roleOverrides];
+  List<Object> get props => [
+    category,
+    enabled,
+    defaultDaysBetweenViews,
+    roleOverrides,
+  ];
 }
 
 /// {@template call_to_action_settings}
@@ -97,7 +103,11 @@ class CallToActionSettings extends FeedDecoratorSettings {
       _$CallToActionSettingsFromJson(json);
 
   @override
-  Map<String, dynamic> toJson() => _$CallToActionSettingsToJson(this);
+  Map<String, dynamic> toJson() {
+    final json = _$CallToActionSettingsToJson(this);
+    json['category'] = _$FeedDecoratorCategoryEnumMap[category];
+    return json;
+  }
 }
 
 /// {@template content_collection_settings}
@@ -122,7 +132,11 @@ class ContentCollectionSettings extends FeedDecoratorSettings {
   final int itemsToDisplay;
 
   @override
-  Map<String, dynamic> toJson() => _$ContentCollectionSettingsToJson(this);
+  Map<String, dynamic> toJson() {
+    final json = _$ContentCollectionSettingsToJson(this);
+    json['category'] = _$FeedDecoratorCategoryEnumMap[category];
+    return json;
+  }
 
   @override
   List<Object> get props => [...super.props, itemsToDisplay];
