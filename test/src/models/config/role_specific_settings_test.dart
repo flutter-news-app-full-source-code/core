@@ -6,7 +6,7 @@ void main() {
     // Fixture derived from the main remote config fixture
     final roleSpecificSettingsFixture = remoteConfigsFixturesData
         .first
-        .feedDecoratorConfig[FeedDecoratorType.linkAccount]!
+        .feedDecoratorConfig[FeedDecoratorType.rateApp]!
         .roleOverrides[AppUserRole.guestUser]!;
 
     test('can be instantiated', () {
