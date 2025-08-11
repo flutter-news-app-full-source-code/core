@@ -5,7 +5,7 @@ void main() {
   group('FeedDecoratorSettings', () {
     // Fixtures derived from the main remote config fixture
     final callToActionFixture = remoteConfigsFixturesData
-        .first.feedDecoratorConfig[FeedDecoratorType.linkAccount]!
+        .first.feedDecoratorConfig[FeedDecoratorType.rateApp]!
       as CallToActionSettings;
 
     final contentCollectionFixture = remoteConfigsFixturesData
