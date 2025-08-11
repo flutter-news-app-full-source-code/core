@@ -108,6 +108,21 @@ class CallToActionSettings extends FeedDecoratorSettings {
     json['category'] = _$FeedDecoratorCategoryEnumMap[category];
     return json;
   }
+
+  /// Creates a copy of this [CallToActionSettings] but with the given fields
+  /// replaced with the new values.
+  CallToActionSettings copyWith({
+    bool? enabled,
+    int? defaultDaysBetweenViews,
+    Map<AppUserRole, RoleSpecificSettings>? roleOverrides,
+  }) {
+    return CallToActionSettings(
+      enabled: enabled ?? this.enabled,
+      defaultDaysBetweenViews:
+          defaultDaysBetweenViews ?? this.defaultDaysBetweenViews,
+      roleOverrides: roleOverrides ?? this.roleOverrides,
+    );
+  }
 }
 
 /// {@template content_collection_settings}
@@ -136,6 +151,23 @@ class ContentCollectionSettings extends FeedDecoratorSettings {
     final json = _$ContentCollectionSettingsToJson(this);
     json['category'] = _$FeedDecoratorCategoryEnumMap[category];
     return json;
+  }
+
+  /// Creates a copy of this [ContentCollectionSettings] but with the given
+  /// fields replaced with the new values.
+  ContentCollectionSettings copyWith({
+    bool? enabled,
+    int? defaultDaysBetweenViews,
+    Map<AppUserRole, RoleSpecificSettings>? roleOverrides,
+    int? itemsToDisplay,
+  }) {
+    return ContentCollectionSettings(
+      enabled: enabled ?? this.enabled,
+      defaultDaysBetweenViews:
+          defaultDaysBetweenViews ?? this.defaultDaysBetweenViews,
+      roleOverrides: roleOverrides ?? this.roleOverrides,
+      itemsToDisplay: itemsToDisplay ?? this.itemsToDisplay,
+    );
   }
 
   @override
