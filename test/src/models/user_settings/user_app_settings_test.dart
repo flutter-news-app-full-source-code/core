@@ -34,7 +34,15 @@ void main() {
         final newDisplaySettings = original.displaySettings.copyWith(
           accentTheme: AppAccentTheme.newsRed,
         );
-        const newLanguage = 'es';
+        final newLanguage = Language(
+          id: 'lang-es',
+          code: 'es',
+          name: 'Spanish',
+          nativeName: 'Español',
+          createdAt: DateTime.now(),
+          updatedAt: DateTime.now(),
+          status: ContentStatus.active,
+        );
         final newFeedPreferences = original.feedPreferences.copyWith(
           headlineDensity: HeadlineDensity.compact,
         );
