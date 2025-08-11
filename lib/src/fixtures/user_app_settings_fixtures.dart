@@ -11,17 +11,25 @@ import 'package:core/src/models/user_settings/user_app_settings.dart';
 
 /// User App Settings Demo Data
 final List<UserAppSettings> userAppSettingsFixturesData = [
-  const UserAppSettings(
+  UserAppSettings(
     id: kAdminUserId,
-    displaySettings: DisplaySettings(
+    displaySettings: const DisplaySettings(
       baseTheme: AppBaseTheme.system,
       accentTheme: AppAccentTheme.defaultBlue,
       fontFamily: 'SystemDefault',
       textScaleFactor: AppTextScaleFactor.medium,
       fontWeight: AppFontWeight.regular,
     ),
-    language: 'en',
-    feedPreferences: FeedDisplayPreferences(
+    language: Language(
+      id: 'lang-en',
+      code: 'en',
+      name: 'English',
+      nativeName: 'English',
+      createdAt: DateTime.now(),
+      updatedAt: DateTime.now(),
+      status: ContentStatus.active,
+    ),
+    feedPreferences: const FeedDisplayPreferences(
       headlineDensity: HeadlineDensity.standard,
       headlineImageStyle: HeadlineImageStyle.smallThumbnail,
       showSourceInHeadlineFeed: true,
