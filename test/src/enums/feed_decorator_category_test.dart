@@ -15,10 +15,7 @@ void main() {
 
     test('has correct string values', () {
       expect(FeedDecoratorCategory.callToAction.name, 'callToAction');
-      expect(
-        FeedDecoratorCategory.contentCollection.name,
-        'contentCollection',
-      );
+      expect(FeedDecoratorCategory.contentCollection.name, 'contentCollection');
     });
 
     test('can be created from string values', () {

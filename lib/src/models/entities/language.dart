@@ -55,14 +55,14 @@ class Language extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        code,
-        name,
-        nativeName,
-        createdAt,
-        updatedAt,
-        status,
-      ];
+    id,
+    code,
+    name,
+    nativeName,
+    createdAt,
+    updatedAt,
+    status,
+  ];
 
   /// Creates a copy of this [Language] but with the given fields replaced with
   /// the new values.

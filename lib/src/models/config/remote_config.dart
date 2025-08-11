@@ -82,14 +82,14 @@ class RemoteConfig extends Equatable {
 
   @override
   List<Object> get props => [
-        id,
-        userPreferenceConfig,
-        adConfig,
-        feedDecoratorConfig,
-        appStatus,
-        createdAt,
-        updatedAt,
-      ];
+    id,
+    userPreferenceConfig,
+    adConfig,
+    feedDecoratorConfig,
+    appStatus,
+    createdAt,
+    updatedAt,
+  ];
 
   @override
   bool get stringify => true;

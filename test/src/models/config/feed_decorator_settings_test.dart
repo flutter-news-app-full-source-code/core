@@ -4,13 +4,15 @@ import 'package:test/test.dart';
 void main() {
   group('FeedDecoratorSettings', () {
     // Fixtures derived from the main remote config fixture
-    final callToActionFixture = remoteConfigsFixturesData
-        .first.feedDecoratorConfig[FeedDecoratorType.rateApp]!
-      as CallToActionSettings;
+    final callToActionFixture =
+        remoteConfigsFixturesData.first.feedDecoratorConfig[FeedDecoratorType
+                .rateApp]!
+            as CallToActionSettings;
 
-    final contentCollectionFixture = remoteConfigsFixturesData
-        .first.feedDecoratorConfig[FeedDecoratorType.suggestedTopics]!
-      as ContentCollectionSettings;
+    final contentCollectionFixture =
+        remoteConfigsFixturesData.first.feedDecoratorConfig[FeedDecoratorType
+                .suggestedTopics]!
+            as ContentCollectionSettings;
 
     group('Polymorphic Deserialization', () {
       test('correctly deserializes CallToActionSettings', () {

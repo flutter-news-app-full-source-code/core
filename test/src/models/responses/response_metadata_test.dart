@@ -34,21 +34,27 @@ void main() {
         expect(json, equals(metadataJson));
       });
 
-      test('fromJson throws CheckedFromJsonException for missing requestId', () {
-        final json = {'timestamp': timestamp.toIso8601String()};
-        expect(
-          () => ResponseMetadata.fromJson(json),
-          throwsA(isA<CheckedFromJsonException>()),
-        );
-      });
+      test(
+        'fromJson throws CheckedFromJsonException for missing requestId',
+        () {
+          final json = {'timestamp': timestamp.toIso8601String()};
+          expect(
+            () => ResponseMetadata.fromJson(json),
+            throwsA(isA<CheckedFromJsonException>()),
+          );
+        },
+      );
 
-      test('fromJson throws CheckedFromJsonException for missing timestamp', () {
-        final json = {'requestId': requestId};
-        expect(
-          () => ResponseMetadata.fromJson(json),
-          throwsA(isA<CheckedFromJsonException>()),
-        );
-      });
+      test(
+        'fromJson throws CheckedFromJsonException for missing timestamp',
+        () {
+          final json = {'requestId': requestId};
+          expect(
+            () => ResponseMetadata.fromJson(json),
+            throwsA(isA<CheckedFromJsonException>()),
+          );
+        },
+      );
     });
 
     group('copyWith', () {

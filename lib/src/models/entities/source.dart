@@ -84,7 +84,7 @@ class Source extends FeedItem {
     name,
     description,
     url,
-  sourceType,
+    sourceType,
     language,
     headquarters,
     createdAt,

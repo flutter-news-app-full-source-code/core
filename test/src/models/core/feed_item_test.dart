@@ -213,10 +213,7 @@ void main() {
         );
         final deserialized =
             FeedItem.fromJson(json) as ContentCollectionItem<Topic>;
-        expect(
-          deserialized.toJson((topic) => topic.toJson()),
-          equals(json),
-        );
+        expect(deserialized.toJson((topic) => topic.toJson()), equals(json));
       });
     });
   });

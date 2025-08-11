@@ -21,10 +21,7 @@ void main() {
       expect(FeedDecoratorType.linkAccount.name, 'linkAccount');
       expect(FeedDecoratorType.upgrade.name, 'upgrade');
       expect(FeedDecoratorType.rateApp.name, 'rateApp');
-      expect(
-        FeedDecoratorType.enableNotifications.name,
-        'enableNotifications',
-      );
+      expect(FeedDecoratorType.enableNotifications.name, 'enableNotifications');
       expect(FeedDecoratorType.suggestedTopics.name, 'suggestedTopics');
       expect(FeedDecoratorType.suggestedSources.name, 'suggestedSources');
     });
@@ -61,14 +58,8 @@ void main() {
         FeedDecoratorType.linkAccount.toString(),
         'FeedDecoratorType.linkAccount',
       );
-      expect(
-        FeedDecoratorType.upgrade.toString(),
-        'FeedDecoratorType.upgrade',
-      );
-      expect(
-        FeedDecoratorType.rateApp.toString(),
-        'FeedDecoratorType.rateApp',
-      );
+      expect(FeedDecoratorType.upgrade.toString(), 'FeedDecoratorType.upgrade');
+      expect(FeedDecoratorType.rateApp.toString(), 'FeedDecoratorType.rateApp');
       expect(
         FeedDecoratorType.enableNotifications.toString(),
         'FeedDecoratorType.enableNotifications',

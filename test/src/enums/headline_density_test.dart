@@ -21,10 +21,7 @@ void main() {
     });
 
     test('can be created from string values', () {
-      expect(
-        HeadlineDensity.values.byName('compact'),
-        HeadlineDensity.compact,
-      );
+      expect(HeadlineDensity.values.byName('compact'), HeadlineDensity.compact);
       expect(
         HeadlineDensity.values.byName('standard'),
         HeadlineDensity.standard,
@@ -36,14 +33,8 @@ void main() {
     });
 
     test('has correct toString representation', () {
-      expect(
-        HeadlineDensity.compact.toString(),
-        'HeadlineDensity.compact',
-      );
-      expect(
-        HeadlineDensity.standard.toString(),
-        'HeadlineDensity.standard',
-      );
+      expect(HeadlineDensity.compact.toString(), 'HeadlineDensity.compact');
+      expect(HeadlineDensity.standard.toString(), 'HeadlineDensity.standard');
       expect(
         HeadlineDensity.comfortable.toString(),
         'HeadlineDensity.comfortable',

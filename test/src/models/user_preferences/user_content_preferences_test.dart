@@ -10,13 +10,14 @@ void main() {
     final mockHeadline = headlinesFixturesData.first;
 
     // Use the base fixture and copyWith to create a populated version for tests
-    final userContentPreferencesFixture =
-        userContentPreferencesFixturesData.first.copyWith(
-      followedCountries: [mockCountry],
-      followedSources: [mockSource],
-      followedTopics: [mockTopic],
-      savedHeadlines: [],
-    );
+    final userContentPreferencesFixture = userContentPreferencesFixturesData
+        .first
+        .copyWith(
+          followedCountries: [mockCountry],
+          followedSources: [mockSource],
+          followedTopics: [mockTopic],
+          savedHeadlines: [],
+        );
 
     group('constructor', () {
       test('returns correct instance', () {
@@ -92,8 +93,9 @@ void main() {
 
       test('instances with different properties are not equal', () {
         final preferences1 = userContentPreferencesFixture.copyWith();
-        final preferences2 =
-            userContentPreferencesFixture.copyWith(id: 'user-8');
+        final preferences2 = userContentPreferencesFixture.copyWith(
+          id: 'user-8',
+        );
         expect(preferences1, isNot(equals(preferences2)));
       });
     });
