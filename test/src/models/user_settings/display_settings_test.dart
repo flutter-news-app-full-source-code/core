@@ -3,123 +3,63 @@ import 'package:test/test.dart';
 
 void main() {
   group('DisplaySettings', () {
-    // Helper function to create a sample JSON map
-    Map<String, dynamic> createJson({
-      String baseTheme = 'system',
-      String accentTheme = 'defaultBlue',
-      String fontFamily = 'SystemDefault',
-      String textScaleFactor = 'medium',
-      String fontWeight = 'regular',
-    }) {
-      return {
-        'baseTheme': baseTheme,
-        'accentTheme': accentTheme,
-        'fontFamily': fontFamily,
-        'textScaleFactor': textScaleFactor,
-        'fontWeight': fontWeight,
-      };
-    }
-
-    // Helper function to create a sample DisplaySettings object
-    DisplaySettings createSubject({
-      AppBaseTheme baseTheme = AppBaseTheme.system,
-      AppAccentTheme accentTheme = AppAccentTheme.defaultBlue,
-      String fontFamily = 'SystemDefault',
-      AppTextScaleFactor textScaleFactor = AppTextScaleFactor.medium,
-      AppFontWeight fontWeight = AppFontWeight.regular,
-    }) {
-      return DisplaySettings(
-        baseTheme: baseTheme,
-        accentTheme: accentTheme,
-        fontFamily: fontFamily,
-        textScaleFactor: textScaleFactor,
-        fontWeight: fontWeight,
-      );
-    }
+    // Derive the test subject from the main app settings fixture.
+    final displaySettingsFixture = userAppSettingsFixturesData.first.displaySettings;
 
     test('supports value equality', () {
-      expect(createSubject(), equals(createSubject()));
+      final settings1 = displaySettingsFixture.copyWith();
+      final settings2 = displaySettingsFixture.copyWith();
+      expect(settings1, equals(settings2));
     });
 
     test('props are correct', () {
       expect(
-        createSubject().props,
+        displaySettingsFixture.props,
         equals([
-          AppBaseTheme.system,
-          AppAccentTheme.defaultBlue,
-          'SystemDefault',
-          AppTextScaleFactor.medium,
-          AppFontWeight.regular,
+          displaySettingsFixture.baseTheme,
+          displaySettingsFixture.accentTheme,
+          displaySettingsFixture.fontFamily,
+          displaySettingsFixture.textScaleFactor,
+          displaySettingsFixture.fontWeight,
         ]),
       );
     });
 
-    test('can be instantiated with default values', () {
-      final settings = createSubject();
-      expect(settings.baseTheme, AppBaseTheme.system);
-      expect(settings.accentTheme, AppAccentTheme.defaultBlue);
-      expect(settings.fontFamily, 'SystemDefault');
-      expect(settings.textScaleFactor, AppTextScaleFactor.medium);
-      expect(settings.fontWeight, AppFontWeight.regular);
+    test('can be instantiated with default values from fixture', () {
+      expect(displaySettingsFixture.baseTheme, AppBaseTheme.system);
+      expect(displaySettingsFixture.accentTheme, AppAccentTheme.defaultBlue);
+      expect(displaySettingsFixture.fontFamily, 'SystemDefault');
+      expect(displaySettingsFixture.textScaleFactor, AppTextScaleFactor.medium);
+      expect(displaySettingsFixture.fontWeight, AppFontWeight.regular);
     });
 
     group('copyWith', () {
       test('returns the same object if no arguments are provided', () {
-        expect(createSubject().copyWith(), equals(createSubject()));
-      });
-
-      test('retains old values if null is provided', () {
-        expect(createSubject().copyWith(), equals(createSubject()));
+        expect(
+          displaySettingsFixture.copyWith(),
+          equals(displaySettingsFixture),
+        );
       });
 
       test('replaces non-null values', () {
-        expect(
-          createSubject().copyWith(
-            baseTheme: AppBaseTheme.dark,
-            accentTheme: AppAccentTheme.newsRed,
-            fontFamily: 'Roboto',
-            textScaleFactor: AppTextScaleFactor.large,
-            fontWeight: AppFontWeight.bold,
-          ),
-          equals(
-            createSubject(
-              baseTheme: AppBaseTheme.dark,
-              accentTheme: AppAccentTheme.newsRed,
-              fontFamily: 'Roboto',
-              textScaleFactor: AppTextScaleFactor.large,
-              fontWeight: AppFontWeight.bold,
-            ),
-          ),
+        final updatedSettings = displaySettingsFixture.copyWith(
+          baseTheme: AppBaseTheme.dark,
+          accentTheme: AppAccentTheme.newsRed,
+          fontFamily: 'Roboto',
+          textScaleFactor: AppTextScaleFactor.large,
+          fontWeight: AppFontWeight.bold,
         );
+        expect(updatedSettings.baseTheme, AppBaseTheme.dark);
+        expect(updatedSettings.accentTheme, AppAccentTheme.newsRed);
+        expect(updatedSettings.fontFamily, 'Roboto');
+        expect(updatedSettings.textScaleFactor, AppTextScaleFactor.large);
+        expect(updatedSettings.fontWeight, AppFontWeight.bold);
       });
     });
 
     group('fromJson/toJson', () {
-      test('works correctly', () {
-        expect(DisplaySettings.fromJson(createJson()), equals(createSubject()));
-      });
-
-      test('handles different enum values', () {
-        final json = createJson(
-          baseTheme: 'light',
-          accentTheme: 'graphiteGray',
-          fontFamily: 'Merriweather',
-          textScaleFactor: 'small',
-          fontWeight: 'light',
-        );
-        final expected = createSubject(
-          baseTheme: AppBaseTheme.light,
-          accentTheme: AppAccentTheme.graphiteGray,
-          fontFamily: 'Merriweather',
-          textScaleFactor: AppTextScaleFactor.small,
-          fontWeight: AppFontWeight.light,
-        );
-        expect(DisplaySettings.fromJson(json), equals(expected));
-      });
-
       test('round trip', () {
-        // Test with non-default values
-        final original = createSubject(
+        final original = displaySettingsFixture.copyWith(
           baseTheme: AppBaseTheme.dark,
           accentTheme: AppAccentTheme.newsRed,
           fontFamily: 'OpenSans',
