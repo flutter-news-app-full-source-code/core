@@ -1,3 +1,4 @@
+import 'package:core/src/models/entities/language.dart';
 import 'package:core/src/models/user_settings/display_settings.dart';
 import 'package:core/src/models/user_settings/feed_display_preferences.dart';
 import 'package:equatable/equatable.dart';
@@ -39,8 +40,8 @@ class UserAppSettings extends Equatable {
   /// User-configurable settings related to the application's visual appearance.
   final DisplaySettings displaySettings;
 
-  /// The selected application language code (ISO 639-1).
-  final AppLanguage language;
+  /// The selected application language.
+  final Language language;
 
   /// User-configurable settings for how content feeds are displayed.
   final FeedDisplayPreferences feedPreferences;
@@ -56,7 +57,7 @@ class UserAppSettings extends Equatable {
   UserAppSettings copyWith({
     String? id,
     DisplaySettings? displaySettings,
-    AppLanguage? language,
+    Language? language,
     FeedDisplayPreferences? feedPreferences,
   }) {
     return UserAppSettings(
@@ -67,12 +68,3 @@ class UserAppSettings extends Equatable {
     );
   }
 }
-
-/// {@template app_language}
-/// Represents the selected application language.
-///
-/// Typically stored as an ISO 639-1 language code (e.g., 'en', 'ar').
-/// The application using this client is responsible for knowing which
-/// language codes it supports and how to map them to localized resources.
-/// {@endtemplate}
-typedef AppLanguage = String;
