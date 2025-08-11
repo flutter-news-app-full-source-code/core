@@ -38,12 +38,12 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       standardUserArticlesToReadBeforeShowingInterstitialAds: 10,
       premiumUserArticlesToReadBeforeShowingInterstitialAds: 50000,
     ),
-    feedDecoratorConfig: {
+    feedDecoratorConfig: const {
       FeedDecoratorType.rateApp: CallToActionSettings(
         enabled: true,
         defaultDaysBetweenViews: 30,
         roleOverrides: {
-          AppUserRole.guestUser: const RoleSpecificSettings(daysBetweenViews: 14),
+          AppUserRole.guestUser: RoleSpecificSettings(daysBetweenViews: 14),
         },
       ),
       FeedDecoratorType.suggestedTopics: ContentCollectionSettings(

@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/fixtures/remote_configs.dart';
 import 'package:test/test.dart';
 
 void main() {

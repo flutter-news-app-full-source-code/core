@@ -1,6 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/models/feed_decorators/call_to_action_item.dart';
-import 'package:core/src/models/feed_decorators/content_collection_item.dart';
 import 'package:equatable/equatable.dart';
 
 /// {@template feed_item}
