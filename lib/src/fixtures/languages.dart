@@ -1,6 +1,5 @@
 import 'package:core/core.dart';
 
-
 final languagesFixturesData = <Language>[
   Language(
     id: kAbkhazId,

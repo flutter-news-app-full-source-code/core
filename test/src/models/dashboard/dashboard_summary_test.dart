@@ -10,10 +10,7 @@ void main() {
     });
 
     test('supports value equality', () {
-      expect(
-        summaryFixture.copyWith(),
-        equals(summaryFixture),
-      );
+      expect(summaryFixture.copyWith(), equals(summaryFixture));
     });
 
     test('props are correct', () {
@@ -54,19 +51,13 @@ void main() {
       test('copies with new topicCount', () {
         final newSummary = summaryFixture.copyWith(topicCount: 30);
         expect(newSummary.topicCount, equals(30));
-        expect(
-          newSummary.headlineCount,
-          equals(summaryFixture.headlineCount),
-        );
+        expect(newSummary.headlineCount, equals(summaryFixture.headlineCount));
       });
 
       test('copies with new sourceCount', () {
         final newSummary = summaryFixture.copyWith(sourceCount: 15);
         expect(newSummary.sourceCount, equals(15));
-        expect(
-          newSummary.headlineCount,
-          equals(summaryFixture.headlineCount),
-        );
+        expect(newSummary.headlineCount, equals(summaryFixture.headlineCount));
       });
     });
   });

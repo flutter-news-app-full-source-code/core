@@ -56,10 +56,7 @@ void main() {
           showSourceInHeadlineFeed: false,
         );
         expect(updated.showSourceInHeadlineFeed, isFalse);
-        expect(
-          updated.showPublishDateInHeadlineFeed,
-          isTrue,
-        );
+        expect(updated.showPublishDateInHeadlineFeed, isTrue);
       });
     });
   });

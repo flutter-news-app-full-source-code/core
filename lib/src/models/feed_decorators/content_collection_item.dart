@@ -48,6 +48,9 @@ class ContentCollectionItem<T extends FeedItem> extends FeedItem {
   Map<String, dynamic> toJson(Object? Function(T value) toJsonT) {
     final json = _$ContentCollectionItemToJson(this, toJsonT);
     json['type'] = type;
+    if (items.isNotEmpty) {
+      json['contentType'] = items.first.type;
+    }
     return json;
   }
 

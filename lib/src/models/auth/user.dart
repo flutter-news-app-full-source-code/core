@@ -65,13 +65,13 @@ class User extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        email,
-        appRole,
-        dashboardRole,
-        createdAt,
-        feedDecoratorStatus,
-      ];
+    id,
+    email,
+    appRole,
+    dashboardRole,
+    createdAt,
+    feedDecoratorStatus,
+  ];
 
   @override
   String toString() {

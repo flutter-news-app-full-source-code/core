@@ -37,10 +37,7 @@ void main() {
 
     group('fromJson', () {
       test('works correctly when json is valid', () {
-        expect(
-          Country.fromJson(countryJson),
-          equals(countryFixture),
-        );
+        expect(Country.fromJson(countryJson), equals(countryFixture));
       });
 
       test('throws CheckedFromJsonException for missing required fields', () {
@@ -67,10 +64,7 @@ void main() {
 
     group('toJson', () {
       test('works correctly', () {
-        expect(
-          countryFixture.toJson(),
-          equals(countryJson),
-        );
+        expect(countryFixture.toJson(), equals(countryJson));
       });
     });
   });

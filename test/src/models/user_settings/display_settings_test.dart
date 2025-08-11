@@ -4,7 +4,8 @@ import 'package:test/test.dart';
 void main() {
   group('DisplaySettings', () {
     // Derive the test subject from the main app settings fixture.
-    final displaySettingsFixture = userAppSettingsFixturesData.first.displaySettings;
+    final displaySettingsFixture =
+        userAppSettingsFixturesData.first.displaySettings;
 
     test('supports value equality', () {
       final settings1 = displaySettingsFixture.copyWith();

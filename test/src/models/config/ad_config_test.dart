@@ -46,7 +46,8 @@ void main() {
           adConfigFixture.premiumAdFrequency,
           adConfigFixture.premiumAdPlacementInterval,
           adConfigFixture.guestArticlesToReadBeforeShowingInterstitialAds,
-          adConfigFixture.standardUserArticlesToReadBeforeShowingInterstitialAds,
+          adConfigFixture
+              .standardUserArticlesToReadBeforeShowingInterstitialAds,
           adConfigFixture.premiumUserArticlesToReadBeforeShowingInterstitialAds,
         ]);
       });

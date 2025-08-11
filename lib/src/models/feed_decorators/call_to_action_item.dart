@@ -54,12 +54,12 @@ class CallToActionItem extends FeedItem {
 
   @override
   List<Object?> get props => [
-        id,
-        decoratorType,
-        title,
-        description,
-        callToActionText,
-        callToActionUrl,
-        type,
-      ];
+    id,
+    decoratorType,
+    title,
+    description,
+    callToActionText,
+    callToActionUrl,
+    type,
+  ];
 }

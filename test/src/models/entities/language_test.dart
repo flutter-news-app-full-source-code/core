@@ -36,10 +36,7 @@ void main() {
 
     group('fromJson', () {
       test('works correctly when json is valid', () {
-        expect(
-          Language.fromJson(languageJson),
-          equals(languageFixture),
-        );
+        expect(Language.fromJson(languageJson), equals(languageFixture));
       });
 
       test('throws CheckedFromJsonException for missing fields', () {
@@ -66,10 +63,7 @@ void main() {
 
     group('toJson', () {
       test('works correctly', () {
-        expect(
-          languageFixture.toJson(),
-          equals(languageJson),
-        );
+        expect(languageFixture.toJson(), equals(languageJson));
       });
     });
 

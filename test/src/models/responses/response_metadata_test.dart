@@ -1,4 +1,5 @@
 import 'package:core/core.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -6,136 +7,108 @@ void main() {
     final timestamp = DateTime.utc(2024, 5, 20, 10, 30);
     const requestId = 'req-12345';
 
-    final fullMetadata = ResponseMetadata(
+    final metadata = ResponseMetadata(
       requestId: requestId,
       timestamp: timestamp,
     );
 
-    final fullJson = {
+    final metadataJson = {
       'requestId': requestId,
       'timestamp': timestamp.toIso8601String(),
     };
 
-    final partialMetadataRequestId = ResponseMetadata(
-      requestId: requestId,
-      timestamp: DateTime.utc(2023), // Default timestamp
-    );
-    final partialJsonRequestId = {
-      'requestId': requestId,
-      'timestamp': '2023-01-01T00:00:00.000Z',
-    };
+    test('can be instantiated', () {
+      expect(metadata, isA<ResponseMetadata>());
+      expect(metadata.requestId, requestId);
+      expect(metadata.timestamp, timestamp);
+    });
 
-    final partialMetadataTimestamp = ResponseMetadata(
-      requestId: 'default-req-id', // Default requestId
-      timestamp: timestamp,
-    );
-    final partialJsonTimestamp = {
-      'requestId': 'default-req-id',
-      'timestamp': timestamp.toIso8601String(),
-    };
+    group('serialization', () {
+      test('fromJson creates correct object from valid JSON', () {
+        final fromJson = ResponseMetadata.fromJson(metadataJson);
+        expect(fromJson, equals(metadata));
+      });
 
-    final emptyMetadata = ResponseMetadata(
-      requestId: 'default-req-id',
-      timestamp: DateTime.utc(2023),
-    );
-    final emptyJson = {
-      'requestId': 'default-req-id',
-      'timestamp': '2023-01-01T00:00:00.000Z',
-    };
+      test('toJson produces correct JSON map', () {
+        final json = metadata.toJson();
+        expect(json, equals(metadataJson));
+      });
 
-    test('supports value equality', () {
-      expect(
-        fullMetadata,
-        equals(ResponseMetadata(requestId: requestId, timestamp: timestamp)),
+      test(
+        'fromJson throws CheckedFromJsonException for missing requestId',
+        () {
+          final json = {'timestamp': timestamp.toIso8601String()};
+          expect(
+            () => ResponseMetadata.fromJson(json),
+            throwsA(isA<CheckedFromJsonException>()),
+          );
+        },
       );
-      expect(
-        fullMetadata,
-        isNot(equals(partialMetadataRequestId)),
-      ); // Still not equal due to different default values
-      expect(
-        fullMetadata,
-        isNot(equals(partialMetadataTimestamp)),
-      ); // Still not equal due to different default values
-      expect(
-        fullMetadata,
-        isNot(equals(emptyMetadata)),
-      ); // Still not equal due to different default values
+
+      test(
+        'fromJson throws CheckedFromJsonException for missing timestamp',
+        () {
+          final json = {'requestId': requestId};
+          expect(
+            () => ResponseMetadata.fromJson(json),
+            throwsA(isA<CheckedFromJsonException>()),
+          );
+        },
+      );
     });
 
-    test('fromJson creates correct object from full JSON', () {
-      expect(ResponseMetadata.fromJson(fullJson), equals(fullMetadata));
+    group('copyWith', () {
+      test('creates an identical copy with no new values', () {
+        final copied = metadata.copyWith();
+        expect(copied, equals(metadata));
+        expect(identical(copied, metadata), isFalse);
+      });
+
+      test('creates a copy with an updated requestId', () {
+        const newRequestId = 'req-67890';
+        final copied = metadata.copyWith(requestId: newRequestId);
+        expect(copied.requestId, newRequestId);
+        expect(copied.timestamp, metadata.timestamp);
+      });
+
+      test('creates a copy with an updated timestamp', () {
+        final newTimestamp = DateTime.utc(2025);
+        final copied = metadata.copyWith(timestamp: newTimestamp);
+        expect(copied.timestamp, newTimestamp);
+        expect(copied.requestId, metadata.requestId);
+      });
     });
 
-    test(
-      'fromJson creates correct object from JSON with default timestamp',
-      () {
-        expect(
-          ResponseMetadata.fromJson(partialJsonRequestId),
-          equals(partialMetadataRequestId),
+    group('Equatable', () {
+      test('instances with the same values are equal', () {
+        final instance1 = ResponseMetadata(
+          requestId: requestId,
+          timestamp: timestamp,
         );
-      },
-    );
-
-    test(
-      'fromJson creates correct object from JSON with default requestId',
-      () {
-        expect(
-          ResponseMetadata.fromJson(partialJsonTimestamp),
-          equals(partialMetadataTimestamp),
+        final instance2 = ResponseMetadata(
+          requestId: requestId,
+          timestamp: timestamp,
         );
-      },
-    );
+        expect(instance1, equals(instance2));
+        expect(instance1.hashCode, equals(instance2.hashCode));
+      });
 
-    test('fromJson creates correct object from JSON with all defaults', () {
-      expect(ResponseMetadata.fromJson(emptyJson), equals(emptyMetadata));
-    });
+      test('instances with different values are not equal', () {
+        final instance1 = ResponseMetadata(
+          requestId: 'req-1',
+          timestamp: timestamp,
+        );
+        final instance2 = ResponseMetadata(
+          requestId: 'req-2',
+          timestamp: timestamp,
+        );
+        expect(instance1, isNot(equals(instance2)));
+        expect(instance1.hashCode, isNot(equals(instance2.hashCode)));
+      });
 
-    test('toJson produces correct full JSON', () {
-      expect(fullMetadata.toJson(), equals(fullJson));
-    });
-
-    test('toJson produces correct JSON with default timestamp', () {
-      expect(partialMetadataRequestId.toJson(), equals(partialJsonRequestId));
-    });
-
-    test('toJson produces correct JSON with default requestId', () {
-      expect(partialMetadataTimestamp.toJson(), equals(partialJsonTimestamp));
-    });
-
-    test('toJson produces correct JSON with all defaults', () {
-      expect(emptyMetadata.toJson(), equals(emptyJson));
-    });
-
-    test('copyWith creates a copy with updated values', () {
-      final updatedTimestamp = DateTime.utc(2025);
-      const updatedRequestId = 'req-67890';
-
-      expect(
-        fullMetadata.copyWith(requestId: updatedRequestId),
-        equals(
-          ResponseMetadata(requestId: updatedRequestId, timestamp: timestamp),
-        ),
-      );
-      expect(
-        fullMetadata.copyWith(timestamp: updatedTimestamp),
-        equals(
-          ResponseMetadata(requestId: requestId, timestamp: updatedTimestamp),
-        ),
-      );
-      expect(
-        fullMetadata.copyWith(
-          requestId: updatedRequestId,
-          timestamp: updatedTimestamp,
-        ),
-        equals(
-          ResponseMetadata(
-            requestId: updatedRequestId,
-            timestamp: updatedTimestamp,
-          ),
-        ),
-      );
-      // Test copyWith with null to ensure it keeps original value
-      expect(fullMetadata.copyWith(), equals(fullMetadata));
+      test('props list is correct', () {
+        expect(metadata.props, [requestId, timestamp]);
+      });
     });
   });
 }

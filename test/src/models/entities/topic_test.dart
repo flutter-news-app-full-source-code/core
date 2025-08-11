@@ -32,10 +32,7 @@ void main() {
 
     group('fromJson', () {
       test('creates correct Topic object from valid JSON', () {
-        expect(
-          Topic.fromJson(topicJson),
-          equals(topicFixture),
-        );
+        expect(Topic.fromJson(topicJson), equals(topicFixture));
       });
 
       test(
@@ -50,8 +47,9 @@ void main() {
       );
 
       test('deserializes with a non-default status', () {
-        final archivedTopic =
-            topicFixture.copyWith(status: ContentStatus.archived);
+        final archivedTopic = topicFixture.copyWith(
+          status: ContentStatus.archived,
+        );
         final json = archivedTopic.toJson();
         final topic = Topic.fromJson(json);
         expect(topic.status, ContentStatus.archived);

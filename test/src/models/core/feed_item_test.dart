@@ -25,6 +25,20 @@ void main() {
       callToActionUrl: 'https://example.com/link-account',
     );
 
+    final mockContentCollectionTopic = ContentCollectionItem<Topic>(
+      id: 'cc-topic-1',
+      decoratorType: FeedDecoratorType.suggestedTopics,
+      items: topicsFixturesData.take(3).toList(),
+      title: 'Suggested Topics',
+    );
+
+    final mockContentCollectionSource = ContentCollectionItem<Source>(
+      id: 'cc-source-1',
+      decoratorType: FeedDecoratorType.suggestedSources,
+      items: sourcesFixturesData.take(3).toList(),
+      title: 'Suggested Sources',
+    );
+
     group('fromJson', () {
       test('dispatches to Headline.fromJson', () {
         final json = mockHeadline.toJson();
@@ -67,6 +81,65 @@ void main() {
         expect(feedItem, isA<CallToActionItem>());
         expect(feedItem, equals(mockCallToAction));
       });
+
+      test('dispatches to ContentCollectionItem<Topic>.fromJson', () {
+        final json = mockContentCollectionTopic.toJson(
+          (topic) => topic.toJson(),
+        );
+        final feedItem = FeedItem.fromJson(json);
+        expect(feedItem, isA<ContentCollectionItem<Topic>>());
+        expect(feedItem, equals(mockContentCollectionTopic));
+      });
+
+      test('dispatches to ContentCollectionItem<Source>.fromJson', () {
+        final json = mockContentCollectionSource.toJson(
+          (source) => source.toJson(),
+        );
+        final feedItem = FeedItem.fromJson(json);
+        expect(feedItem, isA<ContentCollectionItem<Source>>());
+        expect(feedItem, equals(mockContentCollectionSource));
+      });
+
+      test(
+        'throws FormatException for contentCollection if contentType is missing',
+        () {
+          final json = <String, dynamic>{
+            'type': 'contentCollection',
+            'id': 'cc-1',
+          };
+          expect(
+            () => FeedItem.fromJson(json),
+            throwsA(
+              isA<FormatException>().having(
+                (e) => e.message,
+                'message',
+                'Missing "contentType" for contentCollection.',
+              ),
+            ),
+          );
+        },
+      );
+
+      test(
+        'throws FormatException for contentCollection if contentType is unknown',
+        () {
+          final json = <String, dynamic>{
+            'type': 'contentCollection',
+            'contentType': 'unknown_content',
+            'id': 'cc-1',
+          };
+          expect(
+            () => FeedItem.fromJson(json),
+            throwsA(
+              isA<FormatException>().having(
+                (e) => e.message,
+                'message',
+                'Unknown contentType: unknown_content',
+              ),
+            ),
+          );
+        },
+      );
 
       test('throws FormatException if type is missing', () {
         final json = <String, dynamic>{'id': 'some-id'};
@@ -132,6 +205,15 @@ void main() {
         final json = mockCallToAction.toJson();
         final deserialized = FeedItem.fromJson(json) as CallToActionItem;
         expect(deserialized.toJson(), equals(json));
+      });
+
+      test('serializes ContentCollectionItem<Topic> correctly', () {
+        final json = mockContentCollectionTopic.toJson(
+          (topic) => topic.toJson(),
+        );
+        final deserialized =
+            FeedItem.fromJson(json) as ContentCollectionItem<Topic>;
+        expect(deserialized.toJson((topic) => topic.toJson()), equals(json));
       });
     });
   });
