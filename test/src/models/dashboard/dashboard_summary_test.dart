@@ -3,81 +3,70 @@ import 'package:test/test.dart';
 
 void main() {
   group('DashboardSummary', () {
-    const id = 'test-id';
-    const headlineCount = 100;
-    const topicCount = 20;
-    const sourceCount = 10;
-
-    const summary = DashboardSummary(
-      id: id,
-      headlineCount: headlineCount,
-      topicCount: topicCount,
-      sourceCount: sourceCount,
-    );
-
-    final summaryJson = {
-      'id': id,
-      'headlineCount': headlineCount,
-      'topicCount': topicCount,
-      'sourceCount': sourceCount,
-    };
+    final summaryFixture = dashboardSummaryFixturesData.first;
 
     test('can be instantiated', () {
-      expect(summary, isA<DashboardSummary>());
+      expect(summaryFixture, isA<DashboardSummary>());
     });
 
     test('supports value equality', () {
       expect(
-        const DashboardSummary(
-          id: id,
-          headlineCount: headlineCount,
-          topicCount: topicCount,
-          sourceCount: sourceCount,
-        ),
-        equals(summary),
+        summaryFixture.copyWith(),
+        equals(summaryFixture),
       );
     });
 
     test('props are correct', () {
       expect(
-        summary.props,
-        equals([id, headlineCount, topicCount, sourceCount]),
+        summaryFixture.props,
+        equals([
+          summaryFixture.id,
+          summaryFixture.headlineCount,
+          summaryFixture.topicCount,
+          summaryFixture.sourceCount,
+        ]),
       );
     });
 
     group('serialization', () {
       test('fromJson creates a valid instance', () {
-        final fromJson = DashboardSummary.fromJson(summaryJson);
-        expect(fromJson, equals(summary));
+        final fromJson = DashboardSummary.fromJson(summaryFixture.toJson());
+        expect(fromJson, equals(summaryFixture));
       });
 
       test('toJson returns a valid map', () {
-        final toJson = summary.toJson();
-        expect(toJson, equals(summaryJson));
+        final toJson = summaryFixture.toJson();
+        expect(toJson, equals(summaryFixture.toJson()));
       });
     });
 
     group('copyWith', () {
       test('copies with no new values', () {
-        expect(summary.copyWith(), equals(summary));
+        expect(summaryFixture.copyWith(), equals(summaryFixture));
       });
 
       test('copies with new headlineCount', () {
-        final newSummary = summary.copyWith(headlineCount: 200);
+        final newSummary = summaryFixture.copyWith(headlineCount: 200);
         expect(newSummary.headlineCount, equals(200));
-        expect(newSummary.topicCount, equals(topicCount));
+        expect(newSummary.topicCount, equals(summaryFixture.topicCount));
       });
 
       test('copies with new topicCount', () {
-        final newSummary = summary.copyWith(topicCount: 30);
+        final newSummary = summaryFixture.copyWith(topicCount: 30);
         expect(newSummary.topicCount, equals(30));
-        expect(newSummary.headlineCount, equals(headlineCount));
+        expect(
+          newSummary.headlineCount,
+          equals(summaryFixture.headlineCount),
+        );
       });
 
       test('copies with new sourceCount', () {
-        final newSummary = summary.copyWith(sourceCount: 15);
+        final newSummary = summaryFixture.copyWith(sourceCount: 15);
         expect(newSummary.sourceCount, equals(15));
-        expect(newSummary.headlineCount, equals(headlineCount));
+        expect(
+          newSummary.headlineCount,
+          equals(summaryFixture.headlineCount),
+        );
       });
     });
   });

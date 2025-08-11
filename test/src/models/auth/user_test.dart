@@ -1,9 +1,4 @@
-import 'package:core/src/enums/app_user_role.dart';
-import 'package:core/src/enums/dashboard_user_role.dart';
-import 'package:core/src/enums/feed_decorator_type.dart';
-import 'package:core/src/fixtures/users.dart';
-import 'package:core/src/models/auth/user.dart';
-import 'package:core/src/models/auth/user_feed_decorator_status.dart';
+import 'package:core/core.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -40,13 +35,11 @@ void main() {
 
     group('copyWith', () {
       test('copies all fields', () {
-        final original = adminUserFixture.copyWith();
-        final copy = original.copyWith();
-        expect(copy, equals(original));
+        final copy = adminUserFixture.copyWith();
+        expect(copy, equals(adminUserFixture));
       });
 
       test('updates specified fields', () {
-        final original = adminUserFixture.copyWith();
         const newEmail = 'new@example.com';
         const newAppRole = AppUserRole.premiumUser;
         const newDashboardRole = DashboardUserRole.admin;
@@ -58,7 +51,7 @@ void main() {
           ),
         };
 
-        final copied = original.copyWith(
+        final copied = adminUserFixture.copyWith(
           email: newEmail,
           appRole: newAppRole,
           dashboardRole: newDashboardRole,
@@ -66,7 +59,7 @@ void main() {
           feedDecoratorStatus: newFeedDecoratorStatus,
         );
 
-        expect(copied.id, original.id);
+        expect(copied.id, adminUserFixture.id);
         expect(copied.email, newEmail);
         expect(copied.appRole, newAppRole);
         expect(copied.dashboardRole, newDashboardRole);
@@ -77,16 +70,18 @@ void main() {
 
     group('JSON serialization', () {
       test('works correctly with a complete status map', () {
-        final user = adminUserFixture.copyWith();
-        final json = user.toJson();
+        final json = adminUserFixture.toJson();
         final deserializedUser = User.fromJson(json);
 
         // Compare individual properties since fromJson hydrates the status map
-        expect(deserializedUser.id, equals(user.id));
-        expect(deserializedUser.email, equals(user.email));
-        expect(deserializedUser.appRole, equals(user.appRole));
-        expect(deserializedUser.dashboardRole, equals(user.dashboardRole));
-        expect(deserializedUser.createdAt, equals(user.createdAt));
+        expect(deserializedUser.id, equals(adminUserFixture.id));
+        expect(deserializedUser.email, equals(adminUserFixture.email));
+        expect(deserializedUser.appRole, equals(adminUserFixture.appRole));
+        expect(
+          deserializedUser.dashboardRole,
+          equals(adminUserFixture.dashboardRole),
+        );
+        expect(deserializedUser.createdAt, equals(adminUserFixture.createdAt));
 
         // Verify that the map is hydrated
         expect(
@@ -97,7 +92,7 @@ void main() {
 
       test('deserializes from incomplete JSON and hydrates the map', () {
         // JSON with only one action status defined
-        final incompleteJson = {
+        final incompleteJson = <String, dynamic>{
           'id': 'test-id',
           'email': 'test@example.com',
           'appRole': 'standardUser',
