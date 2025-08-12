@@ -40,10 +40,12 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
         enabled: true,
         visibleTo: {
           AppUserRole.guestUser: FeedDecoratorRoleConfig(daysBetweenViews: 14),
-          AppUserRole.standardUser:
-              FeedDecoratorRoleConfig(daysBetweenViews: 30),
-          AppUserRole.premiumUser:
-              FeedDecoratorRoleConfig(daysBetweenViews: 60),
+          AppUserRole.standardUser: FeedDecoratorRoleConfig(
+            daysBetweenViews: 30,
+          ),
+          AppUserRole.premiumUser: FeedDecoratorRoleConfig(
+            daysBetweenViews: 60,
+          ),
         },
       ),
       FeedDecoratorType.suggestedTopics: FeedDecoratorConfig(
@@ -52,8 +54,9 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
         itemsToDisplay: 5,
         visibleTo: {
           AppUserRole.guestUser: FeedDecoratorRoleConfig(daysBetweenViews: 7),
-          AppUserRole.standardUser:
-              FeedDecoratorRoleConfig(daysBetweenViews: 14),
+          AppUserRole.standardUser: FeedDecoratorRoleConfig(
+            daysBetweenViews: 14,
+          ),
         },
       ),
     },

@@ -8,7 +8,10 @@ void main() {
     });
 
     test('throws FormatException when json is not a valid date string', () {
-      expect(() => dateTimeFromJson('not a date'), throwsA(isA<FormatException>()));
+      expect(
+        () => dateTimeFromJson('not a date'),
+        throwsA(isA<FormatException>()),
+      );
     });
 
     test('returns DateTime when json is a valid date string', () {

@@ -6,8 +6,7 @@ void main() {
     final remoteConfig = remoteConfigsFixturesData.first;
     final rateAppDecorator =
         remoteConfig.feedDecoratorConfig[FeedDecoratorType.rateApp]!;
-    final guestRoleConfig =
-        rateAppDecorator.visibleTo[AppUserRole.guestUser]!;
+    final guestRoleConfig = rateAppDecorator.visibleTo[AppUserRole.guestUser]!;
 
     test('can be instantiated', () {
       expect(guestRoleConfig, isA<FeedDecoratorRoleConfig>());
@@ -35,10 +34,7 @@ void main() {
 
     group('toJson', () {
       test('works correctly', () {
-        expect(
-          guestRoleConfig.toJson(),
-          equals({'daysBetweenViews': 14}),
-        );
+        expect(guestRoleConfig.toJson(), equals({'daysBetweenViews': 14}));
       });
     });
   });

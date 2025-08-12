@@ -20,13 +20,13 @@ class FeedDecoratorConfig extends Equatable {
     required this.visibleTo,
     this.itemsToDisplay,
   }) : assert(
-          (category == FeedDecoratorCategory.contentCollection &&
-                  itemsToDisplay != null) ||
-              (category == FeedDecoratorCategory.callToAction &&
-                  itemsToDisplay == null),
-          'itemsToDisplay must be set for contentCollection and must be null '
-          'for callToAction.',
-        );
+         (category == FeedDecoratorCategory.contentCollection &&
+                 itemsToDisplay != null) ||
+             (category == FeedDecoratorCategory.callToAction &&
+                 itemsToDisplay == null),
+         'itemsToDisplay must be set for contentCollection and must be null '
+         'for callToAction.',
+       );
 
   /// Factory constructor for creating a new [FeedDecoratorConfig] instance
   /// from a map.
@@ -52,10 +52,5 @@ class FeedDecoratorConfig extends Equatable {
   Map<String, dynamic> toJson() => _$FeedDecoratorConfigToJson(this);
 
   @override
-  List<Object?> get props => [
-        category,
-        enabled,
-        visibleTo,
-        itemsToDisplay,
-      ];
+  List<Object?> get props => [category, enabled, visibleTo, itemsToDisplay];
 }
