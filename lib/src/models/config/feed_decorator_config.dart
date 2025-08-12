@@ -53,4 +53,20 @@ class FeedDecoratorConfig extends Equatable {
 
   @override
   List<Object?> get props => [category, enabled, visibleTo, itemsToDisplay];
+
+  /// Creates a copy of this [FeedDecoratorConfig] but with the given fields
+  /// replaced with the new values.
+  FeedDecoratorConfig copyWith({
+    FeedDecoratorCategory? category,
+    bool? enabled,
+    Map<AppUserRole, FeedDecoratorRoleConfig>? visibleTo,
+    int? itemsToDisplay,
+  }) {
+    return FeedDecoratorConfig(
+      category: category ?? this.category,
+      enabled: enabled ?? this.enabled,
+      visibleTo: visibleTo ?? this.visibleTo,
+      itemsToDisplay: itemsToDisplay ?? this.itemsToDisplay,
+    );
+  }
 }
