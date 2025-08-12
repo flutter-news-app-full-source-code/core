@@ -16,7 +16,7 @@ void main() {
         expect(remoteConfigFixture.adConfig, isA<AdConfig>());
         expect(
           remoteConfigFixture.feedDecoratorConfig,
-          isA<Map<FeedDecoratorType, FeedDecoratorSettings>>(),
+          isA<Map<FeedDecoratorType, FeedDecoratorConfig>>(),
         );
         expect(remoteConfigFixture.appStatus, isA<AppStatus>());
       });
