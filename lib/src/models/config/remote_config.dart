@@ -1,7 +1,7 @@
 import 'package:core/src/enums/feed_decorator_type.dart';
 import 'package:core/src/models/config/ad_config.dart';
 import 'package:core/src/models/config/app_status.dart';
-import 'package:core/src/models/config/feed_decorator_settings.dart';
+import 'package:core/src/models/config/feed_decorator_config.dart';
 import 'package:core/src/models/config/user_preference_config.dart';
 import 'package:core/src/utils/json_helpers.dart';
 import 'package:equatable/equatable.dart';
@@ -43,7 +43,7 @@ class RemoteConfig extends Equatable {
   final AdConfig adConfig;
 
   /// Defines configuration settings for all feed decorators.
-  final Map<FeedDecoratorType, FeedDecoratorSettings> feedDecoratorConfig;
+  final Map<FeedDecoratorType, FeedDecoratorConfig> feedDecoratorConfig;
 
   /// Defines configuration settings related to the overall application status (maintenance, updates).
   final AppStatus appStatus;
@@ -64,7 +64,7 @@ class RemoteConfig extends Equatable {
     String? id,
     UserPreferenceConfig? userPreferenceConfig,
     AdConfig? adConfig,
-    Map<FeedDecoratorType, FeedDecoratorSettings>? feedDecoratorConfig,
+    Map<FeedDecoratorType, FeedDecoratorConfig>? feedDecoratorConfig,
     AppStatus? appStatus,
     DateTime? createdAt,
     DateTime? updatedAt,

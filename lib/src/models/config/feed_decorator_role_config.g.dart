@@ -1,15 +1,15 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'role_specific_settings.dart';
+part of 'feed_decorator_role_config.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-RoleSpecificSettings _$RoleSpecificSettingsFromJson(
+FeedDecoratorRoleConfig _$FeedDecoratorRoleConfigFromJson(
   Map<String, dynamic> json,
-) => $checkedCreate('RoleSpecificSettings', json, ($checkedConvert) {
-  final val = RoleSpecificSettings(
+) => $checkedCreate('FeedDecoratorRoleConfig', json, ($checkedConvert) {
+  final val = FeedDecoratorRoleConfig(
     daysBetweenViews: $checkedConvert(
       'daysBetweenViews',
       (v) => (v as num).toInt(),
@@ -18,6 +18,6 @@ RoleSpecificSettings _$RoleSpecificSettingsFromJson(
   return val;
 });
 
-Map<String, dynamic> _$RoleSpecificSettingsToJson(
-  RoleSpecificSettings instance,
+Map<String, dynamic> _$FeedDecoratorRoleConfigToJson(
+  FeedDecoratorRoleConfig instance,
 ) => <String, dynamic>{'daysBetweenViews': instance.daysBetweenViews};
