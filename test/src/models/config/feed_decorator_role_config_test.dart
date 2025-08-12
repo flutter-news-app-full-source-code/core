@@ -23,6 +23,18 @@ void main() {
       expect(guestRoleConfig.props, equals([14]));
     });
 
+    group('copyWith', () {
+      test('returns the same object if no changes are made', () {
+        expect(guestRoleConfig.copyWith(), equals(guestRoleConfig));
+      });
+
+      test('returns a new object with updated daysBetweenViews', () {
+        final updatedConfig = guestRoleConfig.copyWith(daysBetweenViews: 7);
+        expect(updatedConfig, isNot(equals(guestRoleConfig)));
+        expect(updatedConfig.daysBetweenViews, 7);
+      });
+    });
+
     group('fromJson', () {
       test('works correctly', () {
         expect(
