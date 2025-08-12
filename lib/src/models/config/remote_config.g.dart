@@ -23,7 +23,7 @@ RemoteConfig _$RemoteConfigFromJson(Map<String, dynamic> json) =>
           (v) => (v as Map<String, dynamic>).map(
             (k, e) => MapEntry(
               $enumDecode(_$FeedDecoratorTypeEnumMap, k),
-              FeedDecoratorSettings.fromJson(e as Map<String, dynamic>),
+              FeedDecoratorConfig.fromJson(e as Map<String, dynamic>),
             ),
           ),
         ),
