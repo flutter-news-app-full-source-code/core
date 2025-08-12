@@ -28,4 +28,12 @@ class FeedDecoratorRoleConfig extends Equatable {
 
   @override
   List<Object> get props => [daysBetweenViews];
+
+  /// Creates a copy of this [FeedDecoratorRoleConfig] but with the given fields
+  /// replaced with the new values.
+  FeedDecoratorRoleConfig copyWith({int? daysBetweenViews}) {
+    return FeedDecoratorRoleConfig(
+      daysBetweenViews: daysBetweenViews ?? this.daysBetweenViews,
+    );
+  }
 }
