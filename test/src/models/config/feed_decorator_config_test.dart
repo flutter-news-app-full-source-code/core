@@ -43,8 +43,7 @@ void main() {
         expect(rateAppDecorator.copyWith(), equals(rateAppDecorator));
       });
 
-      test(
-          'throws an assertion error if category is changed to '
+      test('throws an assertion error if category is changed to '
           'contentCollection without itemsToDisplay', () {
         expect(
           () => rateAppDecorator.copyWith(
