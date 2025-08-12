@@ -1,6 +1,6 @@
 # 🛠️ core
 
-![coverage: percentage](https://img.shields.io/badge/coverage-98-green)
+![coverage: percentage](https://img.shields.io/badge/coverage-99-green)
 [![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 [![License: PolyForm Free Trial](https://img.shields.io/badge/License-PolyForm%20Free%20Trial-blue)](https://polyformproject.org/licenses/free-trial/1.0.0)
 
@@ -24,7 +24,7 @@ This package includes well-defined Dart classes for:
 *   **News & Content Entities:** `Headline`, `Topic`, `Source`, `Country`, `Language`
 *   **Feed System:** `FeedItem` (the abstract base class for all feed content) and its concrete subtypes like `Headline`, `Ad`, `CallToActionItem`, and `ContentCollectionItem`.
 *   **User Data:** `User`, `AppUserRole`, `DashboardUserRole`, `Permission`, `UserContentPreferences`, `UserAppSettings`
-*   **Application Configuration:** `RemoteConfig` (containing `AdConfig`, `UserPreferenceConfig`, `AppStatus`, and `FeedDecoratorSettings`)
+*   **Application Configuration:** `RemoteConfig` (containing `AdConfig`, `UserPreferenceConfig`, `AppStatus`, and `FeedDecoratorConfig`)
 *   **Dashboard:** `DashboardSummary`
 *   **Querying & Pagination:** `SortOption` and `PaginationOptions` to build flexible, server-side queries.
 *   **API Communication:** `PaginatedResponse`, `SuccessApiResponse`, and a comprehensive `HttpException` hierarchy for standardized responses and error handling.
