@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part 'paginated_reponse.g.dart';
+part 'paginated_response.g.dart';
 
 /// {@template paginated_response}
 /// A generic class to represent a paginated response.
