@@ -38,6 +38,48 @@ void main() {
       );
     });
 
+    group('copyWith', () {
+      test('returns the same object if no changes are made', () {
+        expect(rateAppDecorator.copyWith(), equals(rateAppDecorator));
+      });
+
+      test(
+          'throws an assertion error if category is changed to '
+          'contentCollection without itemsToDisplay', () {
+        expect(
+          () => rateAppDecorator.copyWith(
+            category: FeedDecoratorCategory.contentCollection,
+          ),
+          throwsA(isA<AssertionError>()),
+        );
+      });
+
+      test('returns a new object with updated enabled status', () {
+        final updatedConfig = rateAppDecorator.copyWith(enabled: false);
+        expect(updatedConfig, isNot(equals(rateAppDecorator)));
+        expect(updatedConfig.enabled, isFalse);
+      });
+
+      test('returns a new object with updated visibleTo map', () {
+        final newVisibleTo = Map<AppUserRole, FeedDecoratorRoleConfig>.from(
+          rateAppDecorator.visibleTo,
+        )..remove(AppUserRole.guestUser);
+        final updatedConfig = rateAppDecorator.copyWith(
+          visibleTo: newVisibleTo,
+        );
+        expect(updatedConfig, isNot(equals(rateAppDecorator)));
+        expect(updatedConfig.visibleTo, equals(newVisibleTo));
+      });
+
+      test('returns a new object with updated itemsToDisplay', () {
+        final updatedConfig = suggestedTopicsDecorator.copyWith(
+          itemsToDisplay: 10,
+        );
+        expect(updatedConfig, isNot(equals(suggestedTopicsDecorator)));
+        expect(updatedConfig.itemsToDisplay, 10);
+      });
+    });
+
     test('props are correct', () {
       final guestRoleConfig =
           rateAppDecorator.visibleTo[AppUserRole.guestUser]!;
