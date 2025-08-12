@@ -35,18 +35,26 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       premiumUserArticlesToReadBeforeShowingInterstitialAds: 50000,
     ),
     feedDecoratorConfig: const {
-      FeedDecoratorType.rateApp: CallToActionSettings(
+      FeedDecoratorType.rateApp: FeedDecoratorConfig(
+        category: FeedDecoratorCategory.callToAction,
         enabled: true,
-        defaultDaysBetweenViews: 30,
-        roleOverrides: {
-          AppUserRole.guestUser: RoleSpecificSettings(daysBetweenViews: 14),
+        visibleTo: {
+          AppUserRole.guestUser: FeedDecoratorRoleConfig(daysBetweenViews: 14),
+          AppUserRole.standardUser:
+              FeedDecoratorRoleConfig(daysBetweenViews: 30),
+          AppUserRole.premiumUser:
+              FeedDecoratorRoleConfig(daysBetweenViews: 60),
         },
       ),
-      FeedDecoratorType.suggestedTopics: ContentCollectionSettings(
+      FeedDecoratorType.suggestedTopics: FeedDecoratorConfig(
+        category: FeedDecoratorCategory.contentCollection,
         enabled: true,
-        defaultDaysBetweenViews: 7,
         itemsToDisplay: 5,
-        roleOverrides: {},
+        visibleTo: {
+          AppUserRole.guestUser: FeedDecoratorRoleConfig(daysBetweenViews: 7),
+          AppUserRole.standardUser:
+              FeedDecoratorRoleConfig(daysBetweenViews: 14),
+        },
       ),
     },
   ),
