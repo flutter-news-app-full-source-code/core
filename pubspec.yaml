@@ -4,7 +4,7 @@ publish_to: none
 repository: https://github.com/flutter-news-app-full-source-code/core
 
 environment:
-  sdk: ^3.8.0
+  sdk: ^3.9.0
 
 dependencies:
   equatable: ^2.0.7
