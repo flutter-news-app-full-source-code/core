@@ -1,4 +1,8 @@
-import 'package:core/src/models/config/remote_config.dart';
+import 'package:core/src/enums/ad_platform_type.dart';
+import 'package:core/src/models/config/ad_platform_identifiers.dart';
+import 'package:core/src/models/config/article_ad_configuration.dart';
+import 'package:core/src/models/config/feed_ad_configuration.dart';
+import 'package:core/src/models/config/local_ad.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -6,126 +10,68 @@ import 'package:meta/meta.dart';
 part 'ad_config.g.dart';
 
 /// {@template ad_config}
-/// Defines configuration settings related to ad injection and display,
-/// tiered by user role.
-///
-/// This model is part of the overall [RemoteConfig] and is used to control
-/// how ads are integrated into the application's feed or other content areas
-/// based on the user's authentication status or subscription level.
-///
-/// **Ad Injection Logic Explained:**
-///
-/// - __`AdFrequency`__: This determines *how often* an ad *can* be injected relative to the number of primary content items. For example, an `adFrequency` of 5 means an ad *could* be placed after every 5 primary items. It sets the overall density of ads in the feed.
-///
-/// - __`AdPlacementInterval`__: This sets a *minimum number of primary items* that must appear *before* the *first* ad is placed. It prevents ads from appearing right at the very beginning of the feed, ensuring the user sees some initial content first.
-///
-/// So, `AdFrequency` controls the spacing of ads *throughout* the feed (after the initial interval), while `AdPlacementInterval` controls where the *very first* ad can appear.
-///
-/// Think of it like this:
-///
-/// - `AdPlacementInterval` = 3: No ads will appear in the first 3 primary items.
-/// - `AdFrequency` = 5: After the first 3 items, an ad *could* appear after item #5, then potentially after item #10, #15, etc.
+/// This is the main container for all ad-related configurations.
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class AdConfig extends Equatable {
   /// {@macro ad_config}
   const AdConfig({
-    required this.guestAdFrequency,
-    required this.guestAdPlacementInterval,
-    required this.authenticatedAdFrequency,
-    required this.authenticatedAdPlacementInterval,
-    required this.premiumAdFrequency,
-    required this.premiumAdPlacementInterval,
-    required this.guestArticlesToReadBeforeShowingInterstitialAds,
-    required this.standardUserArticlesToReadBeforeShowingInterstitialAds,
-    required this.premiumUserArticlesToReadBeforeShowingInterstitialAds,
+    required this.primaryAdPlatform,
+    required this.platformAdIdentifiers,
+    required this.localAdsCatalog,
+    required this.feedAdConfiguration,
+    required this.articleAdConfiguration,
   });
 
-  /// Factory method to create an [AdConfig] instance from a JSON map.
+  /// Creates an [AdConfig] from JSON data.
   factory AdConfig.fromJson(Map<String, dynamic> json) =>
       _$AdConfigFromJson(json);
 
-  /// See class documentation for details on AdFrequency.
-  final int guestAdFrequency;
-
-  /// See class documentation for details on AdPlacementInterval.
-  final int guestAdPlacementInterval;
-
-  /// See class documentation for details on AdFrequency.
-  final int authenticatedAdFrequency;
-
-  /// See class documentation for details on AdPlacementInterval.
-  final int authenticatedAdPlacementInterval;
-
-  /// See class documentation for details on AdFrequency.
-  final int premiumAdFrequency;
-
-  /// See class documentation for details on AdPlacementInterval.
-  final int premiumAdPlacementInterval;
-
-  /// The number of articles a guest user needs to read before an
-  /// interstitial ad is shown.
-  final int guestArticlesToReadBeforeShowingInterstitialAds;
-
-  /// The number of articles a standard user needs to read before an
-  /// interstitial ad is shown.
-  final int standardUserArticlesToReadBeforeShowingInterstitialAds;
-
-  /// The number of articles a premium user needs to read before an
-  /// interstitial ad is shown.
-  final int premiumUserArticlesToReadBeforeShowingInterstitialAds;
-
-  /// Converts this [AdConfig] instance to a JSON map.
+  /// Converts this [AdConfig] instance to JSON data.
   Map<String, dynamic> toJson() => _$AdConfigToJson(this);
+
+  /// Global choice: AdMob or Local.
+  final AdPlatformType primaryAdPlatform;
+
+  /// Map to store identifiers for all platforms.
+  final Map<AdPlatformType, AdPlatformIdentifiers> platformAdIdentifiers;
+
+  /// All defined local ads by ID.
+  final Map<String, LocalAd> localAdsCatalog;
+
+  /// Configuration for main feed, search feed, similar headlines feed.
+  final FeedAdConfiguration feedAdConfiguration;
+
+  /// Configuration for article page ads.
+  final ArticleAdConfiguration articleAdConfiguration;
+
+  @override
+  List<Object> get props => [
+    primaryAdPlatform,
+    platformAdIdentifiers,
+    localAdsCatalog,
+    feedAdConfiguration,
+    articleAdConfiguration,
+  ];
 
   /// Creates a copy of this [AdConfig] but with the given fields replaced
   /// with the new values.
   AdConfig copyWith({
-    int? guestAdFrequency,
-    int? guestAdPlacementInterval,
-    int? authenticatedAdFrequency,
-    int? authenticatedAdPlacementInterval,
-    int? premiumAdFrequency,
-    int? premiumAdPlacementInterval,
-    int? guestArticlesToReadBeforeShowingInterstitialAds,
-    int? standardUserArticlesToReadBeforeShowingInterstitialAds,
-    int? premiumUserArticlesToReadBeforeShowingInterstitialAds,
+    AdPlatformType? primaryAdPlatform,
+    Map<AdPlatformType, AdPlatformIdentifiers>? platformAdIdentifiers,
+    Map<String, LocalAd>? localAdsCatalog,
+    FeedAdConfiguration? feedAdConfiguration,
+    ArticleAdConfiguration? articleAdConfiguration,
   }) {
     return AdConfig(
-      guestAdFrequency: guestAdFrequency ?? this.guestAdFrequency,
-      guestAdPlacementInterval:
-          guestAdPlacementInterval ?? this.guestAdPlacementInterval,
-      authenticatedAdFrequency:
-          authenticatedAdFrequency ?? this.authenticatedAdFrequency,
-      authenticatedAdPlacementInterval:
-          authenticatedAdPlacementInterval ??
-          this.authenticatedAdPlacementInterval,
-      premiumAdFrequency: premiumAdFrequency ?? this.premiumAdFrequency,
-      premiumAdPlacementInterval:
-          premiumAdPlacementInterval ?? this.premiumAdPlacementInterval,
-      guestArticlesToReadBeforeShowingInterstitialAds:
-          guestArticlesToReadBeforeShowingInterstitialAds ??
-          this.guestArticlesToReadBeforeShowingInterstitialAds,
-      standardUserArticlesToReadBeforeShowingInterstitialAds:
-          standardUserArticlesToReadBeforeShowingInterstitialAds ??
-          this.standardUserArticlesToReadBeforeShowingInterstitialAds,
-      premiumUserArticlesToReadBeforeShowingInterstitialAds:
-          premiumUserArticlesToReadBeforeShowingInterstitialAds ??
-          this.premiumUserArticlesToReadBeforeShowingInterstitialAds,
+      primaryAdPlatform: primaryAdPlatform ?? this.primaryAdPlatform,
+      platformAdIdentifiers:
+          platformAdIdentifiers ?? this.platformAdIdentifiers,
+      localAdsCatalog: localAdsCatalog ?? this.localAdsCatalog,
+      feedAdConfiguration: feedAdConfiguration ?? this.feedAdConfiguration,
+      articleAdConfiguration:
+          articleAdConfiguration ?? this.articleAdConfiguration,
     );
   }
-
-  @override
-  List<Object> get props => [
-    guestAdFrequency,
-    guestAdPlacementInterval,
-    authenticatedAdFrequency,
-    authenticatedAdPlacementInterval,
-    premiumAdFrequency,
-    premiumAdPlacementInterval,
-    guestArticlesToReadBeforeShowingInterstitialAds,
-    standardUserArticlesToReadBeforeShowingInterstitialAds,
-    premiumUserArticlesToReadBeforeShowingInterstitialAds,
-  ];
 }

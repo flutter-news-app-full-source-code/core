@@ -1,3 +1,4 @@
+export 'ad_platform_type.dart';
 export 'app_accent_theme.dart';
 export 'app_base_theme.dart';
 export 'app_font_weight.dart';
@@ -10,5 +11,6 @@ export 'feed_decorator_category.dart';
 export 'feed_decorator_type.dart';
 export 'headline_density.dart';
 export 'headline_image_style.dart';
+export 'in_article_ad_slot_type.dart';
 export 'sort_order.dart';
 export 'source_type.dart';

@@ -9,57 +9,50 @@ part of 'ad_config.dart';
 AdConfig _$AdConfigFromJson(Map<String, dynamic> json) =>
     $checkedCreate('AdConfig', json, ($checkedConvert) {
       final val = AdConfig(
-        guestAdFrequency: $checkedConvert(
-          'guestAdFrequency',
-          (v) => (v as num).toInt(),
+        primaryAdPlatform: $checkedConvert(
+          'primaryAdPlatform',
+          (v) => $enumDecode(_$AdPlatformTypeEnumMap, v),
         ),
-        guestAdPlacementInterval: $checkedConvert(
-          'guestAdPlacementInterval',
-          (v) => (v as num).toInt(),
+        platformAdIdentifiers: $checkedConvert(
+          'platformAdIdentifiers',
+          (v) => (v as Map<String, dynamic>).map(
+            (k, e) => MapEntry(
+              $enumDecode(_$AdPlatformTypeEnumMap, k),
+              AdPlatformIdentifiers.fromJson(e as Map<String, dynamic>),
+            ),
+          ),
         ),
-        authenticatedAdFrequency: $checkedConvert(
-          'authenticatedAdFrequency',
-          (v) => (v as num).toInt(),
+        localAdsCatalog: $checkedConvert(
+          'localAdsCatalog',
+          (v) => (v as Map<String, dynamic>).map(
+            (k, e) => MapEntry(k, LocalAd.fromJson(e as Map<String, dynamic>)),
+          ),
         ),
-        authenticatedAdPlacementInterval: $checkedConvert(
-          'authenticatedAdPlacementInterval',
-          (v) => (v as num).toInt(),
+        feedAdConfiguration: $checkedConvert(
+          'feedAdConfiguration',
+          (v) => FeedAdConfiguration.fromJson(v as Map<String, dynamic>),
         ),
-        premiumAdFrequency: $checkedConvert(
-          'premiumAdFrequency',
-          (v) => (v as num).toInt(),
-        ),
-        premiumAdPlacementInterval: $checkedConvert(
-          'premiumAdPlacementInterval',
-          (v) => (v as num).toInt(),
-        ),
-        guestArticlesToReadBeforeShowingInterstitialAds: $checkedConvert(
-          'guestArticlesToReadBeforeShowingInterstitialAds',
-          (v) => (v as num).toInt(),
-        ),
-        standardUserArticlesToReadBeforeShowingInterstitialAds: $checkedConvert(
-          'standardUserArticlesToReadBeforeShowingInterstitialAds',
-          (v) => (v as num).toInt(),
-        ),
-        premiumUserArticlesToReadBeforeShowingInterstitialAds: $checkedConvert(
-          'premiumUserArticlesToReadBeforeShowingInterstitialAds',
-          (v) => (v as num).toInt(),
+        articleAdConfiguration: $checkedConvert(
+          'articleAdConfiguration',
+          (v) => ArticleAdConfiguration.fromJson(v as Map<String, dynamic>),
         ),
       );
       return val;
     });
 
 Map<String, dynamic> _$AdConfigToJson(AdConfig instance) => <String, dynamic>{
-  'guestAdFrequency': instance.guestAdFrequency,
-  'guestAdPlacementInterval': instance.guestAdPlacementInterval,
-  'authenticatedAdFrequency': instance.authenticatedAdFrequency,
-  'authenticatedAdPlacementInterval': instance.authenticatedAdPlacementInterval,
-  'premiumAdFrequency': instance.premiumAdFrequency,
-  'premiumAdPlacementInterval': instance.premiumAdPlacementInterval,
-  'guestArticlesToReadBeforeShowingInterstitialAds':
-      instance.guestArticlesToReadBeforeShowingInterstitialAds,
-  'standardUserArticlesToReadBeforeShowingInterstitialAds':
-      instance.standardUserArticlesToReadBeforeShowingInterstitialAds,
-  'premiumUserArticlesToReadBeforeShowingInterstitialAds':
-      instance.premiumUserArticlesToReadBeforeShowingInterstitialAds,
+  'primaryAdPlatform': _$AdPlatformTypeEnumMap[instance.primaryAdPlatform]!,
+  'platformAdIdentifiers': instance.platformAdIdentifiers.map(
+    (k, e) => MapEntry(_$AdPlatformTypeEnumMap[k]!, e.toJson()),
+  ),
+  'localAdsCatalog': instance.localAdsCatalog.map(
+    (k, e) => MapEntry(k, e.toJson()),
+  ),
+  'feedAdConfiguration': instance.feedAdConfiguration.toJson(),
+  'articleAdConfiguration': instance.articleAdConfiguration.toJson(),
+};
+
+const _$AdPlatformTypeEnumMap = {
+  AdPlatformType.admob: 'admob',
+  AdPlatformType.local: 'local',
 };

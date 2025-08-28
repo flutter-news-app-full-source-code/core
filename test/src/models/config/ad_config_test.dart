@@ -3,15 +3,45 @@ import 'package:test/test.dart';
 
 void main() {
   group('AdConfig', () {
-    // Derive the test subject from the main remote config fixture.
     final adConfigFixture = remoteConfigsFixturesData.first.adConfig;
 
-    group('constructor', () {
-      test('returns correct instance', () {
-        expect(adConfigFixture, isA<AdConfig>());
-        expect(adConfigFixture.guestAdFrequency, isA<int>());
-        expect(adConfigFixture.premiumAdFrequency, isA<int>());
-      });
+    test('can be instantiated', () {
+      expect(adConfigFixture, isA<AdConfig>());
+      expect(adConfigFixture.primaryAdPlatform, AdPlatformType.admob);
+      expect(
+        adConfigFixture.platformAdIdentifiers,
+        isA<Map<AdPlatformType, AdPlatformIdentifiers>>(),
+      );
+      expect(adConfigFixture.localAdsCatalog, isA<Map<String, LocalAd>>());
+      expect(adConfigFixture.feedAdConfiguration, isA<FeedAdConfiguration>());
+      expect(
+        adConfigFixture.articleAdConfiguration,
+        isA<ArticleAdConfiguration>(),
+      );
+    });
+
+    test('supports value equality', () {
+      final config1 = adConfigFixture.copyWith();
+      final config2 = adConfigFixture.copyWith();
+      expect(config1, equals(config2));
+    });
+
+    test('copyWith returns a new instance with updated values', () {
+      final updatedConfig = adConfigFixture.copyWith(
+        primaryAdPlatform: AdPlatformType.local,
+        feedAdConfiguration: adConfigFixture.feedAdConfiguration.copyWith(
+          enabled: false,
+        ),
+      );
+
+      expect(updatedConfig.primaryAdPlatform, AdPlatformType.local);
+      expect(updatedConfig.feedAdConfiguration.enabled, isFalse);
+      expect(updatedConfig, isNot(equals(adConfigFixture)));
+    });
+
+    test('copyWith returns same instance if no changes', () {
+      final updatedConfig = adConfigFixture.copyWith();
+      expect(updatedConfig, equals(adConfigFixture));
     });
 
     group('fromJson/toJson', () {
@@ -19,37 +49,6 @@ void main() {
         final json = adConfigFixture.toJson();
         final result = AdConfig.fromJson(json);
         expect(result, equals(adConfigFixture));
-      });
-    });
-
-    group('Equatable', () {
-      test('instances with same properties are equal', () {
-        final adConfig1 = adConfigFixture.copyWith();
-        final adConfig2 = adConfigFixture.copyWith();
-        expect(adConfig1, adConfig2);
-      });
-
-      test('instances with different properties are not equal', () {
-        final adConfig1 = adConfigFixture.copyWith();
-        final adConfig2 = adConfigFixture.copyWith(
-          premiumUserArticlesToReadBeforeShowingInterstitialAds: 99,
-        );
-        expect(adConfig1, isNot(equals(adConfig2)));
-      });
-
-      test('props list contains all relevant fields', () {
-        expect(adConfigFixture.props, [
-          adConfigFixture.guestAdFrequency,
-          adConfigFixture.guestAdPlacementInterval,
-          adConfigFixture.authenticatedAdFrequency,
-          adConfigFixture.authenticatedAdPlacementInterval,
-          adConfigFixture.premiumAdFrequency,
-          adConfigFixture.premiumAdPlacementInterval,
-          adConfigFixture.guestArticlesToReadBeforeShowingInterstitialAds,
-          adConfigFixture
-              .standardUserArticlesToReadBeforeShowingInterstitialAds,
-          adConfigFixture.premiumUserArticlesToReadBeforeShowingInterstitialAds,
-        ]);
       });
     });
   });
