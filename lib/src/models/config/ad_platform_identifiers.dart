@@ -1,3 +1,7 @@
+import 'package:core/core.dart' show AdConfig;
+import 'package:core/src/models/config/ad_config.dart' show AdConfig;
+import 'package:core/src/models/config/config.dart' show AdConfig;
+import 'package:core/src/models/models.dart' show AdConfig;
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -65,10 +69,8 @@ class AdPlatformIdentifiers extends Equatable {
       feedBannerAdId: feedBannerAdId ?? this.feedBannerAdId,
       articleInterstitialAdId:
           articleInterstitialAdId ?? this.articleInterstitialAdId,
-      inArticleNativeAdId:
-          inArticleNativeAdId ?? this.inArticleNativeAdId,
-      inArticleBannerAdId:
-          inArticleBannerAdId ?? this.inArticleBannerAdId,
+      inArticleNativeAdId: inArticleNativeAdId ?? this.inArticleNativeAdId,
+      inArticleBannerAdId: inArticleBannerAdId ?? this.inArticleBannerAdId,
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/models/config/article_interstitial_ad_frequency_config.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -15,8 +14,7 @@ class ArticleInterstitialAdConfiguration extends Equatable {
   /// {@macro article_interstitial_ad_configuration}
   const ArticleInterstitialAdConfiguration({
     required this.enabled,
-    this.adType = AdType.interstitial,
-    required this.frequencyConfig,
+    required this.frequencyConfig, this.adType = AdType.interstitial,
   }) : assert(
          adType == AdType.interstitial,
          'Article interstitial ads must be of type interstitial.',
@@ -25,8 +23,7 @@ class ArticleInterstitialAdConfiguration extends Equatable {
   /// Creates an [ArticleInterstitialAdConfiguration] from JSON data.
   factory ArticleInterstitialAdConfiguration.fromJson(
     Map<String, dynamic> json,
-  ) =>
-      _$ArticleInterstitialAdConfigurationFromJson(json);
+  ) => _$ArticleInterstitialAdConfigurationFromJson(json);
 
   /// Converts this [ArticleInterstitialAdConfiguration] instance to JSON data.
   Map<String, dynamic> toJson() =>

@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/models/config/feed_ad_frequency_config.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';

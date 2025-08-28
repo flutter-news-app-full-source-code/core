@@ -1,14 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/enums/ad_platform_type.dart';
-import 'package:core/src/enums/in_article_ad_slot_type.dart';
-import 'package:core/src/models/config/ad_platform_identifiers.dart';
-import 'package:core/src/models/config/article_ad_configuration.dart';
-import 'package:core/src/models/config/article_interstitial_ad_configuration.dart';
-import 'package:core/src/models/config/article_interstitial_ad_frequency_config.dart';
-import 'package:core/src/models/config/feed_ad_configuration.dart';
-import 'package:core/src/models/config/feed_ad_frequency_config.dart';
-import 'package:core/src/models/config/in_article_ad_slot_configuration.dart';
-import 'package:core/src/models/config/local_ad.dart';
 
 /// A list of initial remote config data to be loaded into the in-memory
 /// remote config repository.

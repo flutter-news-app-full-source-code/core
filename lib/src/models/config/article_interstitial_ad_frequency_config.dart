@@ -20,8 +20,7 @@ class ArticleInterstitialAdFrequencyConfig extends Equatable {
   /// Creates an [ArticleInterstitialAdFrequencyConfig] from JSON data.
   factory ArticleInterstitialAdFrequencyConfig.fromJson(
     Map<String, dynamic> json,
-  ) =>
-      _$ArticleInterstitialAdFrequencyConfigFromJson(json);
+  ) => _$ArticleInterstitialAdFrequencyConfigFromJson(json);
 
   /// Converts this [ArticleInterstitialAdFrequencyConfig] instance to JSON data.
   Map<String, dynamic> toJson() =>

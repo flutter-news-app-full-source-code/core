@@ -18,14 +18,11 @@ class InArticleAdSlotConfiguration extends Equatable {
   });
 
   /// Creates an [InArticleAdSlotConfiguration] from JSON data.
-  factory InArticleAdSlotConfiguration.fromJson(
-    Map<String, dynamic> json,
-  ) =>
+  factory InArticleAdSlotConfiguration.fromJson(Map<String, dynamic> json) =>
       _$InArticleAdSlotConfigurationFromJson(json);
 
   /// Converts this [InArticleAdSlotConfiguration] instance to JSON data.
-  Map<String, dynamic> toJson() =>
-      _$InArticleAdSlotConfigurationToJson(this);
+  Map<String, dynamic> toJson() => _$InArticleAdSlotConfigurationToJson(this);
 
   /// The type of the in-article ad slot.
   final InArticleAdSlotType slotType;

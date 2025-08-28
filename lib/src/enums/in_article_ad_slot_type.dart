@@ -7,7 +7,7 @@ enum InArticleAdSlotType {
 
   /// Ad placed just before a "Continue Reading" button.
   aboveArticleContinueReadingButton,
-  
+
   /// Ad placed just after a "Continue Reading" button.
   belowArticleContinueReadingButton,
 }
