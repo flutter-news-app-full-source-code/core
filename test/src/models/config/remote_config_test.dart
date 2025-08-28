@@ -37,6 +37,9 @@ void main() {
           appStatus: remoteConfigFixture.appStatus.copyWith(
             isUnderMaintenance: true,
           ),
+          adConfig: remoteConfigFixture.adConfig.copyWith(
+            primaryAdPlatform: AdPlatformType.local,
+          ),
         );
 
         expect(updatedConfig.id, 'new_app_config');
@@ -45,6 +48,7 @@ void main() {
           remoteConfigFixture.userPreferenceConfig,
         ); // Unchanged
         expect(updatedConfig.appStatus.isUnderMaintenance, true);
+        expect(updatedConfig.adConfig.primaryAdPlatform, AdPlatformType.local);
         expect(updatedConfig, isNot(equals(remoteConfigFixture)));
       });
 
