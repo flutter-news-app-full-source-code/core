@@ -4,7 +4,10 @@ import 'package:test/test.dart';
 void main() {
   group('FeedAdFrequencyConfig', () {
     final feedAdFrequencyConfigFixture = remoteConfigsFixturesData
-        .first.adConfig.feedAdConfiguration.frequencyConfig;
+        .first
+        .adConfig
+        .feedAdConfiguration
+        .frequencyConfig;
 
     test('can be instantiated', () {
       expect(feedAdFrequencyConfigFixture, isA<FeedAdFrequencyConfig>());

@@ -1,7 +1,3 @@
-import 'package:core/core.dart' show AdConfig;
-import 'package:core/src/models/config/ad_config.dart' show AdConfig;
-import 'package:core/src/models/config/config.dart' show AdConfig;
-import 'package:core/src/models/models.dart' show AdConfig;
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -10,7 +6,7 @@ part 'ad_platform_identifiers.g.dart';
 
 /// {@template ad_platform_identifiers}
 /// Holds all ad identifiers for a specific platform (AdMob, Local etc ).
-/// This object is generic and will be stored in a map in [AdConfig].
+/// This object is generic and will be stored in a map in "AdConfig".
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)

@@ -4,7 +4,10 @@ import 'package:test/test.dart';
 void main() {
   group('ArticleInterstitialAdConfiguration', () {
     final interstitialAdConfigurationFixture = remoteConfigsFixturesData
-        .first.adConfig.articleAdConfiguration.interstitialAdConfiguration;
+        .first
+        .adConfig
+        .articleAdConfiguration
+        .interstitialAdConfiguration;
 
     test('can be instantiated', () {
       expect(

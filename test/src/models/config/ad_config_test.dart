@@ -8,10 +8,16 @@ void main() {
     test('can be instantiated', () {
       expect(adConfigFixture, isA<AdConfig>());
       expect(adConfigFixture.primaryAdPlatform, AdPlatformType.admob);
-      expect(adConfigFixture.platformAdIdentifiers, isA<Map<AdPlatformType, AdPlatformIdentifiers>>());
+      expect(
+        adConfigFixture.platformAdIdentifiers,
+        isA<Map<AdPlatformType, AdPlatformIdentifiers>>(),
+      );
       expect(adConfigFixture.localAdsCatalog, isA<Map<String, LocalAd>>());
       expect(adConfigFixture.feedAdConfiguration, isA<FeedAdConfiguration>());
-      expect(adConfigFixture.articleAdConfiguration, isA<ArticleAdConfiguration>());
+      expect(
+        adConfigFixture.articleAdConfiguration,
+        isA<ArticleAdConfiguration>(),
+      );
     });
 
     test('supports value equality', () {
@@ -23,7 +29,9 @@ void main() {
     test('copyWith returns a new instance with updated values', () {
       final updatedConfig = adConfigFixture.copyWith(
         primaryAdPlatform: AdPlatformType.local,
-        feedAdConfiguration: adConfigFixture.feedAdConfiguration.copyWith(enabled: false),
+        feedAdConfiguration: adConfigFixture.feedAdConfiguration.copyWith(
+          enabled: false,
+        ),
       );
 
       expect(updatedConfig.primaryAdPlatform, AdPlatformType.local);

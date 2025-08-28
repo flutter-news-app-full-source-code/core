@@ -4,16 +4,24 @@ import 'package:test/test.dart';
 void main() {
   group('AdPlatformIdentifiers', () {
     final admobIdentifiersFixture = remoteConfigsFixturesData
-        .first.adConfig.platformAdIdentifiers[AdPlatformType.admob]!;
+        .first
+        .adConfig
+        .platformAdIdentifiers[AdPlatformType.admob]!;
     final localIdentifiersFixture = remoteConfigsFixturesData
-        .first.adConfig.platformAdIdentifiers[AdPlatformType.local]!;
+        .first
+        .adConfig
+        .platformAdIdentifiers[AdPlatformType.local]!;
 
     test('can be instantiated (AdMob)', () {
       expect(admobIdentifiersFixture, isA<AdPlatformIdentifiers>());
-      expect(admobIdentifiersFixture.feedNativeAdId,
-          'ca-app-pub-3940256099942544/2247696110',);
-      expect(admobIdentifiersFixture.articleInterstitialAdId,
-          'ca-app-pub-3940256099942544/1033173712',);
+      expect(
+        admobIdentifiersFixture.feedNativeAdId,
+        'ca-app-pub-3940256099942544/2247696110',
+      );
+      expect(
+        admobIdentifiersFixture.articleInterstitialAdId,
+        'ca-app-pub-3940256099942544/1033173712',
+      );
     });
 
     test('can be instantiated (Local)', () {

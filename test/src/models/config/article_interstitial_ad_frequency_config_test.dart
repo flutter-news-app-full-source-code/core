@@ -44,10 +44,7 @@ void main() {
         standardUserArticlesToReadBeforeShowingInterstitialAds: 11,
       );
 
-      expect(
-        updatedConfig.guestArticlesToReadBeforeShowingInterstitialAds,
-        6,
-      );
+      expect(updatedConfig.guestArticlesToReadBeforeShowingInterstitialAds, 6);
       expect(
         updatedConfig.standardUserArticlesToReadBeforeShowingInterstitialAds,
         11,

@@ -9,7 +9,10 @@ void main() {
     test('can be instantiated', () {
       expect(articleAdConfigurationFixture, isA<ArticleAdConfiguration>());
       expect(articleAdConfigurationFixture.enabled, isTrue);
-      expect(articleAdConfigurationFixture.defaultInArticleAdType, AdType.native);
+      expect(
+        articleAdConfigurationFixture.defaultInArticleAdType,
+        AdType.native,
+      );
       expect(
         articleAdConfigurationFixture.interstitialAdConfiguration,
         isA<ArticleInterstitialAdConfiguration>(),
@@ -42,19 +45,22 @@ void main() {
       expect(updatedConfig, equals(articleAdConfigurationFixture));
     });
 
-    test('throws AssertionError if defaultInArticleAdType is not native or banner', () {
-      expect(
-        () => ArticleAdConfiguration(
-          enabled: true,
-          defaultInArticleAdType: AdType.interstitial,
-          interstitialAdConfiguration:
-              articleAdConfigurationFixture.interstitialAdConfiguration,
-          inArticleAdSlotConfigurations:
-              articleAdConfigurationFixture.inArticleAdSlotConfigurations,
-        ),
-        throwsA(isA<AssertionError>()),
-      );
-    });
+    test(
+      'throws AssertionError if defaultInArticleAdType is not native or banner',
+      () {
+        expect(
+          () => ArticleAdConfiguration(
+            enabled: true,
+            defaultInArticleAdType: AdType.interstitial,
+            interstitialAdConfiguration:
+                articleAdConfigurationFixture.interstitialAdConfiguration,
+            inArticleAdSlotConfigurations:
+                articleAdConfigurationFixture.inArticleAdSlotConfigurations,
+          ),
+          throwsA(isA<AssertionError>()),
+        );
+      },
+    );
 
     group('fromJson/toJson', () {
       test('round trip', () {

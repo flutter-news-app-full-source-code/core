@@ -14,7 +14,8 @@ class ArticleInterstitialAdConfiguration extends Equatable {
   /// {@macro article_interstitial_ad_configuration}
   const ArticleInterstitialAdConfiguration({
     required this.enabled,
-    required this.frequencyConfig, this.adType = AdType.interstitial,
+    required this.frequencyConfig,
+    this.adType = AdType.interstitial,
   }) : assert(
          adType == AdType.interstitial,
          'Article interstitial ads must be of type interstitial.',

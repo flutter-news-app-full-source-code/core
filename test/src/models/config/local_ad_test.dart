@@ -4,15 +4,23 @@ import 'package:test/test.dart';
 void main() {
   group('LocalAd', () {
     final localAdFixture = remoteConfigsFixturesData
-        .first.adConfig.localAdsCatalog['local_feed_native_ad_id']!;
+        .first
+        .adConfig
+        .localAdsCatalog['local_feed_native_ad_id']!;
 
     test('can be instantiated', () {
       expect(localAdFixture, isA<LocalAd>());
       expect(localAdFixture.id, 'local_feed_native_ad_id');
       expect(localAdFixture.title, 'Local Native Ad Title');
       expect(localAdFixture.subtitle, 'This is a local native ad description.');
-      expect(localAdFixture.imageUrl, 'https://example.com/local_native_ad.png');
-      expect(localAdFixture.targetUrl, 'https://example.com/local_native_ad_target');
+      expect(
+        localAdFixture.imageUrl,
+        'https://example.com/local_native_ad.png',
+      );
+      expect(
+        localAdFixture.targetUrl,
+        'https://example.com/local_native_ad_target',
+      );
       expect(localAdFixture.adType, AdType.native);
     });
 
