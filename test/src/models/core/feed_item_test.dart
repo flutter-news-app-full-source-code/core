@@ -8,12 +8,13 @@ void main() {
     final mockSource = sourcesFixturesData.first;
     final mockCountry = countriesFixturesData.first;
 
-    const mockAd = Ad(
-      id: 'ad-1',
-      imageUrl: 'http://example.com/ad.jpg',
-      targetUrl: 'http://example.com/ad-target',
+    const mockLocalAd = LocalAd(
+      id: 'local-ad-1',
+      title: 'Test Local Ad',
+      subtitle: 'This is a test local ad.',
+      imageUrl: 'http://example.com/local_ad.jpg',
+      targetUrl: 'http://example.com/local_ad_target',
       adType: AdType.banner,
-      placement: AdPlacement.feedInlineStandardBanner,
     );
 
     const mockCallToAction = CallToActionItem(
@@ -69,10 +70,10 @@ void main() {
       });
 
       test('dispatches to Ad.fromJson', () {
-        final json = mockAd.toJson();
+        final json = mockLocalAd.toJson();
         final feedItem = FeedItem.fromJson(json);
-        expect(feedItem, isA<Ad>());
-        expect(feedItem, equals(mockAd));
+        expect(feedItem, isA<LocalAd>());
+        expect(feedItem, equals(mockLocalAd));
       });
 
       test('dispatches to CallToAction.fromJson', () {
@@ -196,8 +197,8 @@ void main() {
       });
 
       test('serializes Ad correctly', () {
-        final json = mockAd.toJson();
-        final deserialized = FeedItem.fromJson(json) as Ad;
+        final json = mockLocalAd.toJson();
+        final deserialized = FeedItem.fromJson(json) as LocalAd;
         expect(deserialized.toJson(), equals(json));
       });
 

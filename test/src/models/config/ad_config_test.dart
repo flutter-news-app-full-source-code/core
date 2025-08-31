@@ -12,7 +12,6 @@ void main() {
         adConfigFixture.platformAdIdentifiers,
         isA<Map<AdPlatformType, AdPlatformIdentifiers>>(),
       );
-      expect(adConfigFixture.localAdsCatalog, isA<Map<String, LocalAd>>());
       expect(adConfigFixture.feedAdConfiguration, isA<FeedAdConfiguration>());
       expect(
         adConfigFixture.articleAdConfiguration,
