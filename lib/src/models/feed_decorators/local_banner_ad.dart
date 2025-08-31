@@ -11,13 +11,13 @@ part 'local_banner_ad.g.dart';
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
-class LocalBannerAd extends FeedItem {
+class LocalBannerAd extends LocalAd {
   /// {@macro local_banner_ad}
   const LocalBannerAd({
     required this.id,
     required this.imageUrl,
     required this.targetUrl,
-  }) : super(type: 'localBannerAd');
+  }) : super(adType: AdType.banner);
 
   /// Creates a [LocalBannerAd] from JSON data.
   factory LocalBannerAd.fromJson(Map<String, dynamic> json) =>
@@ -32,10 +32,11 @@ class LocalBannerAd extends FeedItem {
   /// The URL to navigate to when the local banner ad is clicked.
   final String targetUrl;
 
-
+  @override
   Map<String, dynamic> toJson() {
     final json = _$LocalBannerAdToJson(this);
-    json['type'] = type;
+    json['adType'] = adType.name; // Add adType for LocalAd routing
+    json['type'] = type; // Add FeedItem type
     return json;
   }
 
@@ -44,6 +45,7 @@ class LocalBannerAd extends FeedItem {
     id,
     imageUrl,
     targetUrl,
+    adType,
     type,
   ];
 
