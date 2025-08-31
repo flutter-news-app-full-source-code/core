@@ -60,7 +60,9 @@ abstract class LocalAd extends FeedItem {
         final videoAdItem = item as LocalVideoAd;
         return videoAdItem.toJson();
       default:
-        throw FormatException('Unknown LocalAd type for toJson: ${item.adType}');
+        throw FormatException(
+          'Unknown LocalAd type for toJson: ${item.adType}',
+        );
     }
   }
 

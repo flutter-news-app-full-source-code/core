@@ -112,7 +112,6 @@ void main() {
         final json = mockLocalVideoAd.toJson();
         expect(LocalAd.toJson(mockLocalVideoAd), equals(json));
       });
-
     });
 
     // Test props for a concrete LocalAd subclass (LocalNativeAd)
