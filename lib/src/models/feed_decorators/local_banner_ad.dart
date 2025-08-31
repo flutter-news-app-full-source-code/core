@@ -17,7 +17,7 @@ class LocalBannerAd extends LocalAd {
     required this.id,
     required this.imageUrl,
     required this.targetUrl,
-  }) : super(adType: AdType.banner);
+  }) : super(adType: 'banner');
 
   /// Creates a [LocalBannerAd] from JSON data.
   factory LocalBannerAd.fromJson(Map<String, dynamic> json) =>
@@ -32,30 +32,19 @@ class LocalBannerAd extends LocalAd {
   /// The URL to navigate to when the local banner ad is clicked.
   final String targetUrl;
 
-  @override
   Map<String, dynamic> toJson() {
     final json = _$LocalBannerAdToJson(this);
-    json['adType'] = adType.name; // Add adType for LocalAd routing
-    json['type'] = type; // Add FeedItem type
+    json['adType'] = adType;
+    json['type'] = type;
     return json;
   }
 
   @override
-  List<Object?> get props => [
-    id,
-    imageUrl,
-    targetUrl,
-    adType,
-    type,
-  ];
+  List<Object?> get props => [id, imageUrl, targetUrl, adType, type];
 
   /// Creates a copy of this [LocalBannerAd] but with the given fields replaced with
   /// the new values.
-  LocalBannerAd copyWith({
-    String? id,
-    String? imageUrl,
-    String? targetUrl,
-  }) {
+  LocalBannerAd copyWith({String? id, String? imageUrl, String? targetUrl}) {
     return LocalBannerAd(
       id: id ?? this.id,
       imageUrl: imageUrl ?? this.imageUrl,
