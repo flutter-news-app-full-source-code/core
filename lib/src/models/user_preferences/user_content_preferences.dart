@@ -4,7 +4,7 @@ import 'package:core/src/models/entities/source.dart';
 import 'package:core/src/models/entities/topic.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart'; // Import meta for @immutable
+import 'package:meta/meta.dart';
 
 part 'user_content_preferences.g.dart';
 
@@ -66,7 +66,7 @@ class UserContentPreferences extends Equatable {
   ];
 
   @override
-  bool get stringify => true; // Add stringify for better debugging output
+  bool get stringify => true;
 
   /// Creates a copy of this [UserContentPreferences] but with the given fields
   /// replaced with the new values.

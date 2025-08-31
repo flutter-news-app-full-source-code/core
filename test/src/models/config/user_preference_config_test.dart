@@ -37,7 +37,7 @@ void main() {
         expect(
           updatedConfig.guestSavedHeadlinesLimit,
           userPreferenceConfigFixture.guestSavedHeadlinesLimit,
-        ); // Unchanged
+        );
         expect(updatedConfig.premiumSavedHeadlinesLimit, 101);
         expect(updatedConfig, isNot(equals(userPreferenceConfigFixture)));
       });
@@ -59,7 +59,7 @@ void main() {
         final config1 = userPreferenceConfigFixture.copyWith();
         final config2 = userPreferenceConfigFixture.copyWith(
           guestFollowedItemsLimit: 99,
-        ); // Different limit
+        );
         expect(config1, isNot(equals(config2)));
       });
     });

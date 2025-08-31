@@ -95,7 +95,7 @@ void main() {
         const updatedName = 'Updated Source Name';
         final updatedCopy = sourceFixture.copyWith(name: updatedName);
         expect(updatedCopy.name, updatedName);
-        expect(updatedCopy.id, sourceFixture.id); // Unchanged
+        expect(updatedCopy.id, sourceFixture.id);
       });
 
       test('updates multiple fields simultaneously', () {
@@ -108,10 +108,10 @@ void main() {
           status: updatedStatus,
         );
 
-        expect(updatedCopy.id, sourceFixture.id); // Unchanged
-        expect(updatedCopy.name, updatedName); // Changed
-        expect(updatedCopy.sourceType, updatedType); // Changed
-        expect(updatedCopy.status, updatedStatus); // Changed
+        expect(updatedCopy.id, sourceFixture.id);
+        expect(updatedCopy.name, updatedName);
+        expect(updatedCopy.sourceType, updatedType);
+        expect(updatedCopy.status, updatedStatus);
       });
     });
   });

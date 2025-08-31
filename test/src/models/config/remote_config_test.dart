@@ -46,7 +46,7 @@ void main() {
         expect(
           updatedConfig.userPreferenceConfig,
           remoteConfigFixture.userPreferenceConfig,
-        ); // Unchanged
+        );
         expect(updatedConfig.appStatus.isUnderMaintenance, true);
         expect(updatedConfig.adConfig.primaryAdPlatform, AdPlatformType.local);
         expect(updatedConfig, isNot(equals(remoteConfigFixture)));

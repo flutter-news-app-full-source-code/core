@@ -522,3 +522,11 @@ const kXhosaId = '6643c000a4a4e6e1a8e7b0b2';
 const kYiddishId = '6643c000a4a4e6e1a8e7b0b3';
 const kYorubaId = '6643c000a4a4e6e1a8e7b0b4';
 const kZhuangChuangId = '6643c000a4a4e6e1a8e7b0b5';
+
+// --- LocalAds Fixture IDs ---
+const kLocalAd1Id = '1563c000a4a4e6e1a8e7f0f1';
+const kLocalAd2Id = '2563c000a4a4e6e1a8e7f0f2';
+const kLocalAd3Id = '3563c000a4a4e6e1a8e7f0f3';
+const kLocalAd4Id = '4563c000a4a4e6e1a8e7f0f4';
+const kLocalAd5Id = '5563c000a4a4e6e1a8e7f0f5';
+const kLocalAd6Id = '6563c000a4a4e6e1a8e7f0f6';

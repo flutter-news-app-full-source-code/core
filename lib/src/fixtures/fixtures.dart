@@ -3,6 +3,7 @@ export 'dashboard_summary.dart';
 export 'fixture_ids.dart';
 export 'headlines.dart';
 export 'languages.dart';
+export 'local_ads.dart';
 export 'remote_configs.dart';
 export 'sources.dart';
 export 'topics.dart';
