@@ -18,7 +18,7 @@ class LocalInterstitialAd extends LocalAd {
     required this.id,
     required this.imageUrl,
     required this.targetUrl,
-  }) : super(adType: AdType.interstitial);
+  }) : super(adType: 'interstitial');
 
   /// Creates a [LocalInterstitialAd] from JSON data.
   factory LocalInterstitialAd.fromJson(Map<String, dynamic> json) =>
@@ -33,22 +33,15 @@ class LocalInterstitialAd extends LocalAd {
   /// The URL to navigate to when the local interstitial ad is clicked.
   final String targetUrl;
 
-  @override
   Map<String, dynamic> toJson() {
     final json = _$LocalInterstitialAdToJson(this);
-    json['adType'] = adType.name; // Add adType for LocalAd routing
-    json['type'] = type; // Add FeedItem type
+    json['adType'] = adType;
+    json['type'] = type;
     return json;
   }
 
   @override
-  List<Object?> get props => [
-    id,
-    imageUrl,
-    targetUrl,
-    adType,
-    type,
-  ];
+  List<Object?> get props => [id, imageUrl, targetUrl, adType, type];
 
   /// Creates a copy of this [LocalInterstitialAd] but with the given fields
   /// replaced with the new values.
