@@ -12,7 +12,7 @@ part 'local_native_ad.g.dart';
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
-class LocalNativeAd extends FeedItem {
+class LocalNativeAd extends LocalAd {
   /// {@macro local_native_ad}
   const LocalNativeAd({
     required this.id,
@@ -20,7 +20,7 @@ class LocalNativeAd extends FeedItem {
     required this.subtitle,
     required this.imageUrl,
     required this.targetUrl,
-  }) : super(type: 'localNativeAd');
+  }) : super(adType: AdType.native);
 
   /// Creates a [LocalNativeAd] from JSON data.
   factory LocalNativeAd.fromJson(Map<String, dynamic> json) =>
@@ -41,9 +41,11 @@ class LocalNativeAd extends FeedItem {
   /// The URL to navigate to when the local native ad is clicked.
   final String targetUrl;
 
+  @override
   Map<String, dynamic> toJson() {
     final json = _$LocalNativeAdToJson(this);
-    json['type'] = type;
+    json['adType'] = adType.name; // Add adType for LocalAd routing
+    json['type'] = type; // Add FeedItem type
     return json;
   }
 
@@ -54,6 +56,7 @@ class LocalNativeAd extends FeedItem {
     subtitle,
     imageUrl,
     targetUrl,
+    adType,
     type,
   ];
 
