@@ -17,7 +17,7 @@ class LocalVideoAd extends LocalAd {
     required this.id,
     required this.videoUrl,
     required this.targetUrl,
-  }) : super(adType: AdType.video);
+  }) : super(adType: 'video');
 
   /// Creates a [LocalVideoAd] from JSON data.
   factory LocalVideoAd.fromJson(Map<String, dynamic> json) =>
@@ -32,30 +32,19 @@ class LocalVideoAd extends LocalAd {
   /// The URL to navigate to when the local video ad is clicked.
   final String targetUrl;
 
-  @override
   Map<String, dynamic> toJson() {
     final json = _$LocalVideoAdToJson(this);
-    json['adType'] = adType.name; // Add adType for LocalAd routing
-    json['type'] = type; // Add FeedItem type
+    json['adType'] = adType;
+    json['type'] = type;
     return json;
   }
 
   @override
-  List<Object?> get props => [
-    id,
-    videoUrl,
-    targetUrl,
-    adType,
-    type,
-  ];
+  List<Object?> get props => [id, videoUrl, targetUrl, adType, type];
 
   /// Creates a copy of this [LocalVideoAd] but with the given fields
   /// replaced with the new values.
-  LocalVideoAd copyWith({
-    String? id,
-    String? videoUrl,
-    String? targetUrl,
-  }) {
+  LocalVideoAd copyWith({String? id, String? videoUrl, String? targetUrl}) {
     return LocalVideoAd(
       id: id ?? this.id,
       videoUrl: videoUrl ?? this.videoUrl,
