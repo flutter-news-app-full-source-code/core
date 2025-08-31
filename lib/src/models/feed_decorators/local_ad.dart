@@ -35,7 +35,7 @@ abstract class LocalAd extends FeedItem {
       case 'video':
         return LocalVideoAd.fromJson(json);
       default:
-        throw FormatException('Unknown LocalAds type: $adType');
+        throw FormatException('Unknown LocalAd type: $adType');
     }
   }
 
