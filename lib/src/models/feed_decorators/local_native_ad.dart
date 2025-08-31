@@ -1,0 +1,77 @@
+import 'package:core/core.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
+
+part 'local_native_ad.g.dart';
+
+/// {@template local_native_ad}
+/// Defines a custom native ad that can be served locally.
+///
+/// Native ads are designed to blend seamlessly with the feed content,
+/// typically including a title, subtitle, image, and a target URL.
+/// {@endtemplate}
+@immutable
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
+class LocalNativeAd extends FeedItem {
+  /// {@macro local_native_ad}
+  const LocalNativeAd({
+    required this.id,
+    required this.title,
+    required this.subtitle,
+    required this.imageUrl,
+    required this.targetUrl,
+  }) : super(type: 'localNativeAd');
+
+  /// Creates a [LocalNativeAd] from JSON data.
+  factory LocalNativeAd.fromJson(Map<String, dynamic> json) =>
+      _$LocalNativeAdFromJson(json);
+
+  /// Unique identifier for the local native ad.
+  final String id;
+
+  /// The main title or headline of the local native ad.
+  final String title;
+
+  /// The subtitle or description of the local native ad, providing more context.
+  final String subtitle;
+
+  /// The URL of the image associated with the local native ad.
+  final String imageUrl;
+
+  /// The URL to navigate to when the local native ad is clicked.
+  final String targetUrl;
+
+  Map<String, dynamic> toJson() {
+    final json = _$LocalNativeAdToJson(this);
+    json['type'] = type;
+    return json;
+  }
+
+  @override
+  List<Object?> get props => [
+    id,
+    title,
+    subtitle,
+    imageUrl,
+    targetUrl,
+    type,
+  ];
+
+  /// Creates a copy of this [LocalNativeAd] but with the given fields replaced with
+  /// the new values.
+  LocalNativeAd copyWith({
+    String? id,
+    String? title,
+    String? subtitle,
+    String? imageUrl,
+    String? targetUrl,
+  }) {
+    return LocalNativeAd(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      subtitle: subtitle ?? this.subtitle,
+      imageUrl: imageUrl ?? this.imageUrl,
+      targetUrl: targetUrl ?? this.targetUrl,
+    );
+  }
+}
