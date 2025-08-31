@@ -11,13 +11,13 @@ part 'local_video_ad.g.dart';
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
-class LocalVideoAd extends FeedItem {
+class LocalVideoAd extends LocalAd {
   /// {@macro local_video_ad}
   const LocalVideoAd({
     required this.id,
     required this.videoUrl,
     required this.targetUrl,
-  }) : super(type: 'localVideoAd');
+  }) : super(adType: AdType.video);
 
   /// Creates a [LocalVideoAd] from JSON data.
   factory LocalVideoAd.fromJson(Map<String, dynamic> json) =>
@@ -32,18 +32,30 @@ class LocalVideoAd extends FeedItem {
   /// The URL to navigate to when the local video ad is clicked.
   final String targetUrl;
 
+  @override
   Map<String, dynamic> toJson() {
     final json = _$LocalVideoAdToJson(this);
-    json['type'] = type;
+    json['adType'] = adType.name; // Add adType for LocalAd routing
+    json['type'] = type; // Add FeedItem type
     return json;
   }
 
   @override
-  List<Object?> get props => [id, videoUrl, targetUrl, type];
+  List<Object?> get props => [
+    id,
+    videoUrl,
+    targetUrl,
+    adType,
+    type,
+  ];
 
   /// Creates a copy of this [LocalVideoAd] but with the given fields
   /// replaced with the new values.
-  LocalVideoAd copyWith({String? id, String? videoUrl, String? targetUrl}) {
+  LocalVideoAd copyWith({
+    String? id,
+    String? videoUrl,
+    String? targetUrl,
+  }) {
     return LocalVideoAd(
       id: id ?? this.id,
       videoUrl: videoUrl ?? this.videoUrl,
