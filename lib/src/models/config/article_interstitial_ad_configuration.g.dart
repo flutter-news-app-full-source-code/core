@@ -13,15 +13,15 @@ ArticleInterstitialAdConfiguration _$ArticleInterstitialAdConfigurationFromJson(
 ) {
   final val = ArticleInterstitialAdConfiguration(
     enabled: $checkedConvert('enabled', (v) => v as bool),
-    adType: $checkedConvert(
-      'adType',
-      (v) => $enumDecodeNullable(_$AdTypeEnumMap, v) ?? AdType.interstitial,
-    ),
     frequencyConfig: $checkedConvert(
       'frequencyConfig',
       (v) => ArticleInterstitialAdFrequencyConfig.fromJson(
         v as Map<String, dynamic>,
       ),
+    ),
+    adType: $checkedConvert(
+      'adType',
+      (v) => $enumDecodeNullable(_$AdTypeEnumMap, v) ?? AdType.interstitial,
     ),
   );
   return val;

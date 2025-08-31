@@ -38,10 +38,10 @@ abstract class FeedItem extends Equatable {
         return Source.fromJson(json);
       case 'country':
         return Country.fromJson(json);
-      case 'ad':
-        return Ad.fromJson(json);
       case 'callToAction':
         return CallToActionItem.fromJson(json);
+      case 'localAd':
+        return LocalAd.fromJson(json);
       case 'contentCollection':
         final contentType = json['contentType'] as String?;
         if (contentType == null) {

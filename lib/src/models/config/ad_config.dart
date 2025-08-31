@@ -2,7 +2,6 @@ import 'package:core/src/enums/ad_platform_type.dart';
 import 'package:core/src/models/config/ad_platform_identifiers.dart';
 import 'package:core/src/models/config/article_ad_configuration.dart';
 import 'package:core/src/models/config/feed_ad_configuration.dart';
-import 'package:core/src/models/config/local_ad.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -19,7 +18,6 @@ class AdConfig extends Equatable {
   const AdConfig({
     required this.primaryAdPlatform,
     required this.platformAdIdentifiers,
-    required this.localAdsCatalog,
     required this.feedAdConfiguration,
     required this.articleAdConfiguration,
   });
@@ -37,9 +35,6 @@ class AdConfig extends Equatable {
   /// Map to store identifiers for all platforms.
   final Map<AdPlatformType, AdPlatformIdentifiers> platformAdIdentifiers;
 
-  /// All defined local ads by ID.
-  final Map<String, LocalAd> localAdsCatalog;
-
   /// Configuration for main feed, search feed, similar headlines feed.
   final FeedAdConfiguration feedAdConfiguration;
 
@@ -50,7 +45,6 @@ class AdConfig extends Equatable {
   List<Object> get props => [
     primaryAdPlatform,
     platformAdIdentifiers,
-    localAdsCatalog,
     feedAdConfiguration,
     articleAdConfiguration,
   ];
@@ -60,7 +54,6 @@ class AdConfig extends Equatable {
   AdConfig copyWith({
     AdPlatformType? primaryAdPlatform,
     Map<AdPlatformType, AdPlatformIdentifiers>? platformAdIdentifiers,
-    Map<String, LocalAd>? localAdsCatalog,
     FeedAdConfiguration? feedAdConfiguration,
     ArticleAdConfiguration? articleAdConfiguration,
   }) {
@@ -68,7 +61,6 @@ class AdConfig extends Equatable {
       primaryAdPlatform: primaryAdPlatform ?? this.primaryAdPlatform,
       platformAdIdentifiers:
           platformAdIdentifiers ?? this.platformAdIdentifiers,
-      localAdsCatalog: localAdsCatalog ?? this.localAdsCatalog,
       feedAdConfiguration: feedAdConfiguration ?? this.feedAdConfiguration,
       articleAdConfiguration:
           articleAdConfiguration ?? this.articleAdConfiguration,

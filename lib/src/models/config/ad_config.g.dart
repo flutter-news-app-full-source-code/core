@@ -22,12 +22,6 @@ AdConfig _$AdConfigFromJson(Map<String, dynamic> json) =>
             ),
           ),
         ),
-        localAdsCatalog: $checkedConvert(
-          'localAdsCatalog',
-          (v) => (v as Map<String, dynamic>).map(
-            (k, e) => MapEntry(k, LocalAd.fromJson(e as Map<String, dynamic>)),
-          ),
-        ),
         feedAdConfiguration: $checkedConvert(
           'feedAdConfiguration',
           (v) => FeedAdConfiguration.fromJson(v as Map<String, dynamic>),
@@ -44,9 +38,6 @@ Map<String, dynamic> _$AdConfigToJson(AdConfig instance) => <String, dynamic>{
   'primaryAdPlatform': _$AdPlatformTypeEnumMap[instance.primaryAdPlatform]!,
   'platformAdIdentifiers': instance.platformAdIdentifiers.map(
     (k, e) => MapEntry(_$AdPlatformTypeEnumMap[k]!, e.toJson()),
-  ),
-  'localAdsCatalog': instance.localAdsCatalog.map(
-    (k, e) => MapEntry(k, e.toJson()),
   ),
   'feedAdConfiguration': instance.feedAdConfiguration.toJson(),
   'articleAdConfiguration': instance.articleAdConfiguration.toJson(),

@@ -1,4 +1,6 @@
-import 'package:core/core.dart';
+import 'package:core/src/enums/enums.dart';
+import 'package:core/src/models/config/article_interstitial_ad_configuration.dart';
+import 'package:core/src/models/config/in_article_ad_slot_configuration.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';

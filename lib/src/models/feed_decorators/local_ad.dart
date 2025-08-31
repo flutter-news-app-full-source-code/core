@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -11,7 +10,7 @@ part 'local_ad.g.dart';
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
-class LocalAd extends Equatable {
+class LocalAd extends FeedItem {
   /// {@macro local_ad}
   const LocalAd({
     required this.id,
@@ -20,14 +19,18 @@ class LocalAd extends Equatable {
     required this.imageUrl,
     required this.targetUrl,
     required this.adType,
-  });
+  }) : super(type: 'localAd');
 
   /// Creates a [LocalAd] from JSON data.
   factory LocalAd.fromJson(Map<String, dynamic> json) =>
       _$LocalAdFromJson(json);
 
   /// Converts this [LocalAd] instance to JSON data.
-  Map<String, dynamic> toJson() => _$LocalAdToJson(this);
+  Map<String, dynamic> toJson() {
+    final json = _$LocalAdToJson(this);
+    json['type'] = type;
+    return json;
+  }
 
   /// Unique identifier for the local ad.
   final String id;
@@ -48,7 +51,15 @@ class LocalAd extends Equatable {
   final AdType adType;
 
   @override
-  List<Object?> get props => [id, title, subtitle, imageUrl, targetUrl, adType];
+  List<Object?> get props => [
+    id,
+    title,
+    subtitle,
+    imageUrl,
+    targetUrl,
+    adType,
+    type,
+  ];
 
   /// Creates a copy of this [LocalAd] but with the given fields replaced with
   /// the new values.
