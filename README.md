@@ -15,14 +15,14 @@ Think of it as the common language 🗣️ that all parts of your news applicati
 *   **🔗 Seamless Integration:** Enables the Flutter mobile app, web dashboard, and Dart Frog API to work together flawlessly using a shared language.
 *   **🎯 Consistency by Design:** Reduces errors and simplifies maintenance by providing a single source of truth for all core data definitions.
 *   **🛡️ Standardized Error Handling:** Includes a comprehensive hierarchy of `HttpException` subtypes for predictable error management across all layers.
-*   **🌟 Foundation for Rich Features:** Provides models for user personalization (`UserContentPreferences`, `UserAppSettings`), dynamic feed items (e.g., `Ad`, `CallToActionItem`, `ContentCollectionItem`), remote configuration (`RemoteConfig`), and standardized API responses.
+*   **🌟 Foundation for Rich Features:** Provides models for user personalization (`UserContentPreferences`, `UserAppSettings`), dynamic feed items (e.g., `LocalAd`, `CallToActionItem`, `ContentCollectionItem`), remote configuration (`RemoteConfig`), and standardized API responses.
 
 ## 🎁 Key Models Provided
 
 This package includes well-defined Dart classes for:
 
 *   **News & Content Entities:** `Headline`, `Topic`, `Source`, `Country`, `Language`
-*   **Feed System:** `FeedItem` (the abstract base class for all feed content) and its concrete subtypes like `Headline`, `Ad`, `CallToActionItem`, and `ContentCollectionItem`.
+*   **Feed System:** `FeedItem` (the abstract base class for all feed content) and its concrete subtypes like `Headline`, `LocalAd`, `CallToActionItem`, and `ContentCollectionItem`.
 *   **User Data:** `User`, `AppUserRole`, `DashboardUserRole`, `Permission`, `UserContentPreferences`, `UserAppSettings`
 *   **Application Configuration:** `RemoteConfig` (containing `AdConfig`, `UserPreferenceConfig`, `AppStatus`, and `FeedDecoratorConfig`)
 *   **Dashboard:** `DashboardSummary`
