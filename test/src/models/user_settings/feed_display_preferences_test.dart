@@ -30,7 +30,7 @@ void main() {
       test(
         'throws CheckedFromJsonException when required fields are missing',
         () {
-          final json = <String, dynamic>{}; // Empty JSON
+          final json = <String, dynamic>{};
           expect(
             () => FeedDisplayPreferences.fromJson(json),
             throwsA(isA<CheckedFromJsonException>()),

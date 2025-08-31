@@ -67,11 +67,11 @@ void main() {
         expect(
           updatedPreferences.followedSources,
           userContentPreferencesFixture.followedSources,
-        ); // Unchanged
+        );
         expect(
           updatedPreferences.followedTopics,
           userContentPreferencesFixture.followedTopics,
-        ); // Unchanged
+        );
         expect(updatedPreferences.savedHeadlines, [mockHeadline, newHeadline]);
       });
 
