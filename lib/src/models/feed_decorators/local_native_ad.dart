@@ -20,7 +20,7 @@ class LocalNativeAd extends LocalAd {
     required this.subtitle,
     required this.imageUrl,
     required this.targetUrl,
-  }) : super(adType: AdType.native);
+  }) : super(adType: 'native');
 
   /// Creates a [LocalNativeAd] from JSON data.
   factory LocalNativeAd.fromJson(Map<String, dynamic> json) =>
@@ -41,11 +41,10 @@ class LocalNativeAd extends LocalAd {
   /// The URL to navigate to when the local native ad is clicked.
   final String targetUrl;
 
-  @override
   Map<String, dynamic> toJson() {
     final json = _$LocalNativeAdToJson(this);
-    json['adType'] = adType.name; // Add adType for LocalAd routing
-    json['type'] = type; // Add FeedItem type
+    json['adType'] = adType;
+    json['type'] = type;
     return json;
   }
 
