@@ -39,6 +39,31 @@ abstract class LocalAd extends FeedItem {
     }
   }
 
+  /// Static factory method to serialize a [LocalAd] instance to a JSON map.
+  ///
+  /// This factory uses the `adType` field of the provided [item] to dispatch
+  /// to the correct concrete `toJson` method.
+  ///
+  /// Throws [FormatException] if the `adType` field is missing or unknown.
+  static Map<String, dynamic> toJson(LocalAd item) {
+    switch (item.adType) {
+      case 'native':
+        final nativeAdItem = item as LocalNativeAd;
+        return nativeAdItem.toJson();
+      case 'banner':
+        final bannerAdItem = item as LocalBannerAd;
+        return bannerAdItem.toJson();
+      case 'interstitial':
+        final interstitialAdItem = item as LocalInterstitialAd;
+        return interstitialAdItem.toJson();
+      case 'video':
+        final videoAdItem = item as LocalVideoAd;
+        return videoAdItem.toJson();
+      default:
+        throw FormatException('Unknown LocalAd type for toJson: ${item.adType}');
+    }
+  }
+
   /// The type of the ad (e.g., banner, native, interstitial, video).
   final String adType;
 

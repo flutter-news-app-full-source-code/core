@@ -73,6 +73,51 @@ abstract class FeedItem extends Equatable {
     }
   }
 
+  /// Static factory method to serialize a [FeedItem] instance to a JSON map.
+  ///
+  /// This factory uses the `type` field of the provided [item] to dispatch
+  /// to the correct concrete `toJson` method.
+  ///
+  /// Throws [FormatException] if the `type` field is missing or unknown.
+  static Map<String, dynamic> toJson(FeedItem item) {
+    switch (item.type) {
+      case 'headline':
+        final headlineItem = item as Headline;
+        return headlineItem.toJson();
+      case 'topic':
+        final topicItem = item as Topic;
+        return topicItem.toJson();
+      case 'source':
+        final sourceItem = item as Source;
+        return sourceItem.toJson();
+      case 'country':
+        final countryItem = item as Country;
+        return countryItem.toJson();
+      case 'callToAction':
+        final callToActionItem = item as CallToActionItem;
+        return callToActionItem.toJson();
+      case 'localAd':
+        final localAdItem = item as LocalAd;
+        return LocalAd.toJson(localAdItem);
+      case 'contentCollection':
+        // For ContentCollectionItem, we need to know the generic type T
+        // to call its toJson method correctly.
+        // This requires a runtime type check and casting.
+        if (item is ContentCollectionItem<Topic>) {
+          return item.toJson((topic) => topic.toJson());
+        } else if (item is ContentCollectionItem<Source>) {
+          return item.toJson((source) => source.toJson());
+        } else if (item is ContentCollectionItem<Country>) {
+          return item.toJson((country) => country.toJson());
+        }
+        throw FormatException(
+          'Unknown ContentCollectionItem generic type: ${item.runtimeType}',
+        );
+      default:
+        throw FormatException('Unknown FeedItem type for toJson: ${item.type}');
+    }
+  }
+
   /// The type of the feed item, used as a discriminator for deserialization.
   final String type;
 
