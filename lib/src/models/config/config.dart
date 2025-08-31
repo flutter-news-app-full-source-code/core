@@ -9,6 +9,5 @@ export 'feed_ad_frequency_config.dart';
 export 'feed_decorator_config.dart';
 export 'feed_decorator_role_config.dart';
 export 'in_article_ad_slot_configuration.dart';
-export 'local_ad.dart';
 export 'remote_config.dart';
 export 'user_preference_config.dart';
