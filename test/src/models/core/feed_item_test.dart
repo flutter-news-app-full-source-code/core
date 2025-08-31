@@ -8,14 +8,10 @@ void main() {
     final mockSource = sourcesFixturesData.first;
     final mockCountry = countriesFixturesData.first;
 
-    const mockLocalAd = LocalAd(
-      id: 'local-ad-1',
-      title: 'Test Local Ad',
-      subtitle: 'This is a test local ad.',
-      imageUrl: 'http://example.com/local_ad.jpg',
-      targetUrl: 'http://example.com/local_ad_target',
-      adType: AdType.banner,
-    );
+    // Use fixture data for LocalAd
+    final mockLocalAd =
+        localAdsFixturesData.firstWhere((ad) => ad.adType == 'native')
+            as LocalNativeAd;
 
     const mockCallToAction = CallToActionItem(
       id: 'cta-1',
@@ -69,10 +65,10 @@ void main() {
         expect(feedItem, equals(mockCountry));
       });
 
-      test('dispatches to Ad.fromJson', () {
+      test('dispatches to LocalNativeAd.fromJson', () {
         final json = mockLocalAd.toJson();
         final feedItem = FeedItem.fromJson(json);
-        expect(feedItem, isA<LocalAd>());
+        expect(feedItem, isA<LocalNativeAd>());
         expect(feedItem, equals(mockLocalAd));
       });
 
@@ -196,9 +192,9 @@ void main() {
         expect(deserialized.toJson(), equals(json));
       });
 
-      test('serializes Ad correctly', () {
+      test('serializes LocalNativeAd correctly', () {
         final json = mockLocalAd.toJson();
-        final deserialized = FeedItem.fromJson(json) as LocalAd;
+        final deserialized = FeedItem.fromJson(json) as LocalNativeAd;
         expect(deserialized.toJson(), equals(json));
       });
 
