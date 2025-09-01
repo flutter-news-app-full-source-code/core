@@ -1,4 +1,6 @@
 import 'package:core/core.dart';
+import 'package:core/src/enums/enums.dart';
+import 'package:core/src/utils/utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -20,6 +22,9 @@ class LocalNativeAd extends LocalAd {
     required this.subtitle,
     required this.imageUrl,
     required this.targetUrl,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.status,
   }) : super(adType: 'native');
 
   /// Creates a [LocalNativeAd] from JSON data.
@@ -27,6 +32,7 @@ class LocalNativeAd extends LocalAd {
       _$LocalNativeAdFromJson(json);
 
   /// Unique identifier for the local native ad.
+  @override
   final String id;
 
   /// The main title or headline of the local native ad.
@@ -40,6 +46,17 @@ class LocalNativeAd extends LocalAd {
 
   /// The URL to navigate to when the local native ad is clicked.
   final String targetUrl;
+
+  /// The creation timestamp of the local native ad.
+  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  final DateTime createdAt;
+
+  /// The last update timestamp of the local native ad.
+  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  final DateTime updatedAt;
+
+  /// The current status of the local native ad.
+  final ContentStatus status;
 
   Map<String, dynamic> toJson() {
     final json = _$LocalNativeAdToJson(this);
@@ -55,6 +72,9 @@ class LocalNativeAd extends LocalAd {
     subtitle,
     imageUrl,
     targetUrl,
+    createdAt,
+    updatedAt,
+    status,
     adType,
     type,
   ];
@@ -67,6 +87,9 @@ class LocalNativeAd extends LocalAd {
     String? subtitle,
     String? imageUrl,
     String? targetUrl,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    ContentStatus? status,
   }) {
     return LocalNativeAd(
       id: id ?? this.id,
@@ -74,6 +97,9 @@ class LocalNativeAd extends LocalAd {
       subtitle: subtitle ?? this.subtitle,
       imageUrl: imageUrl ?? this.imageUrl,
       targetUrl: targetUrl ?? this.targetUrl,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      status: status ?? this.status,
     );
   }
 }
