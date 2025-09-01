@@ -1,5 +1,5 @@
 import 'package:core/core.dart';
-import 'package:core/src/enums/enums.dart'; // Import ContentStatus
+// Import ContentStatus
 
 /// A list of predefined local ads for fixture data.
 final localAdsFixturesData = <LocalAd>[

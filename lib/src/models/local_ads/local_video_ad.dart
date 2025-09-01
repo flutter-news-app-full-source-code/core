@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/enums/enums.dart';
 import 'package:core/src/utils/utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
