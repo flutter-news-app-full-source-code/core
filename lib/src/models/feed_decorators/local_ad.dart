@@ -69,6 +69,9 @@ abstract class LocalAd extends FeedItem {
   /// The type of the ad (e.g., banner, native, interstitial, video).
   final String adType;
 
+  /// A unique identifier for the local ad instance, typically a UUID.
+  String get id;
+
   @override
   List<Object?> get props => [adType, type];
 }
