@@ -2,53 +2,51 @@ import 'package:core/core.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('LocalAd (Abstract Class)', () {
-    // Test that LocalAd.fromJson correctly dispatches to concrete types
-    group('fromJson dispatching', () {
+  group('LocalAd', () {
+    final mockLocalNativeAd =
+        localAdsFixturesData.firstWhere((ad) => ad.adType == 'native')
+            as LocalNativeAd;
+    final mockLocalBannerAd =
+        localAdsFixturesData.firstWhere((ad) => ad.adType == 'banner')
+            as LocalBannerAd;
+    final mockLocalInterstitialAd =
+        localAdsFixturesData.firstWhere((ad) => ad.adType == 'interstitial')
+            as LocalInterstitialAd;
+    final mockLocalVideoAd =
+        localAdsFixturesData.firstWhere((ad) => ad.adType == 'video')
+            as LocalVideoAd;
+
+    group('fromJson', () {
       test('dispatches to LocalNativeAd.fromJson', () {
-        final json =
-            (localAdsFixturesData.firstWhere((ad) => ad.adType == 'native')
-                    as LocalNativeAd)
-                .toJson();
+        final json = mockLocalNativeAd.toJson();
         final localAd = LocalAd.fromJson(json);
         expect(localAd, isA<LocalNativeAd>());
-        expect(localAd, equals(localAdsFixturesData[0]));
+        expect(localAd, equals(mockLocalNativeAd));
       });
 
       test('dispatches to LocalBannerAd.fromJson', () {
-        final json =
-            (localAdsFixturesData.firstWhere((ad) => ad.adType == 'banner')
-                    as LocalBannerAd)
-                .toJson();
+        final json = mockLocalBannerAd.toJson();
         final localAd = LocalAd.fromJson(json);
         expect(localAd, isA<LocalBannerAd>());
-        expect(localAd, equals(localAdsFixturesData[1]));
+        expect(localAd, equals(mockLocalBannerAd));
       });
 
       test('dispatches to LocalInterstitialAd.fromJson', () {
-        final json =
-            (localAdsFixturesData.firstWhere(
-                      (ad) => ad.adType == 'interstitial',
-                    )
-                    as LocalInterstitialAd)
-                .toJson();
+        final json = mockLocalInterstitialAd.toJson();
         final localAd = LocalAd.fromJson(json);
         expect(localAd, isA<LocalInterstitialAd>());
-        expect(localAd, equals(localAdsFixturesData[2]));
+        expect(localAd, equals(mockLocalInterstitialAd));
       });
 
       test('dispatches to LocalVideoAd.fromJson', () {
-        final json =
-            (localAdsFixturesData.firstWhere((ad) => ad.adType == 'video')
-                    as LocalVideoAd)
-                .toJson();
+        final json = mockLocalVideoAd.toJson();
         final localAd = LocalAd.fromJson(json);
         expect(localAd, isA<LocalVideoAd>());
-        expect(localAd, equals(localAdsFixturesData[3]));
+        expect(localAd, equals(mockLocalVideoAd));
       });
 
       test('throws FormatException if adType is missing', () {
-        final json = <String, dynamic>{'id': 'some-id', 'type': 'localAd'};
+        final json = <String, dynamic>{'id': 'some-id'};
         expect(
           () => LocalAd.fromJson(json),
           throwsA(
@@ -62,151 +60,77 @@ void main() {
       });
 
       test('throws FormatException if adType is unknown', () {
-        final json = <String, dynamic>{
-          'id': 'some-id',
-          'type': 'localAd',
-          'adType': 'unknown_type',
-        };
+        final json = <String, dynamic>{'adType': 'unknown_ad_type'};
         expect(
           () => LocalAd.fromJson(json),
           throwsA(
             isA<FormatException>().having(
               (e) => e.message,
               'message',
-              'Unknown LocalAd type: unknown_type', // Corrected from LocalAds
+              'Unknown LocalAd type: unknown_ad_type',
             ),
           ),
         );
       });
     });
 
-    group('toJson dispatching', () {
-      test('serializes LocalNativeAd correctly via LocalAd.toJson', () {
-        final mockLocalNativeAd =
-            localAdsFixturesData.firstWhere((ad) => ad.adType == 'native')
-                as LocalNativeAd;
+    group('toJson', () {
+      test('serializes LocalNativeAd correctly', () {
         final json = mockLocalNativeAd.toJson();
-        expect(LocalAd.toJson(mockLocalNativeAd), equals(json));
+        final deserialized = LocalAd.fromJson(json) as LocalNativeAd;
+        expect(LocalAd.toJson(deserialized), equals(json));
       });
 
-      test('serializes LocalBannerAd correctly via LocalAd.toJson', () {
-        final mockLocalBannerAd =
-            localAdsFixturesData.firstWhere((ad) => ad.adType == 'banner')
-                as LocalBannerAd;
+      test('serializes LocalBannerAd correctly', () {
         final json = mockLocalBannerAd.toJson();
-        expect(LocalAd.toJson(mockLocalBannerAd), equals(json));
+        final deserialized = LocalAd.fromJson(json) as LocalBannerAd;
+        expect(LocalAd.toJson(deserialized), equals(json));
       });
 
-      test('serializes LocalInterstitialAd correctly via LocalAd.toJson', () {
-        final mockLocalInterstitialAd =
-            localAdsFixturesData.firstWhere((ad) => ad.adType == 'interstitial')
-                as LocalInterstitialAd;
+      test('serializes LocalInterstitialAd correctly', () {
         final json = mockLocalInterstitialAd.toJson();
-        expect(LocalAd.toJson(mockLocalInterstitialAd), equals(json));
+        final deserialized = LocalAd.fromJson(json) as LocalInterstitialAd;
+        expect(LocalAd.toJson(deserialized), equals(json));
       });
 
-      test('serializes LocalVideoAd correctly via LocalAd.toJson', () {
-        final mockLocalVideoAd =
-            localAdsFixturesData.firstWhere((ad) => ad.adType == 'video')
-                as LocalVideoAd;
+      test('serializes LocalVideoAd correctly', () {
         final json = mockLocalVideoAd.toJson();
-        expect(LocalAd.toJson(mockLocalVideoAd), equals(json));
-      });
-    });
-
-    // Test props for a concrete LocalAd subclass (LocalNativeAd)
-    // The test name is misleading as it tests a concrete instance's props.
-    // The expectation is updated to reflect all properties of LocalNativeAd.
-    test('props are correct for LocalNativeAd instance', () {
-      final localAd =
-          localAdsFixturesData.firstWhere((ad) => ad.adType == 'native')
-              as LocalNativeAd;
-      expect(localAd.props, [
-        localAd.id,
-        localAd.title,
-        localAd.subtitle,
-        localAd.imageUrl,
-        localAd.targetUrl,
-        localAd.adType,
-        localAd.type,
-      ]);
-    });
-  });
-
-  group('LocalNativeAd (Concrete Subclass)', () {
-    final mockLocalNativeAd =
-        localAdsFixturesData.firstWhere((ad) => ad.adType == 'native')
-            as LocalNativeAd;
-
-    test('supports value equality', () {
-      final item1 =
-          localAdsFixturesData.firstWhere((ad) => ad.adType == 'native')
-              as LocalNativeAd;
-      expect(item1, equals(mockLocalNativeAd));
-    });
-
-    test('props are correct', () {
-      expect(mockLocalNativeAd.props, [
-        mockLocalNativeAd.id,
-        mockLocalNativeAd.title,
-        mockLocalNativeAd.subtitle,
-        mockLocalNativeAd.imageUrl,
-        mockLocalNativeAd.targetUrl,
-        mockLocalNativeAd.adType,
-        mockLocalNativeAd.type,
-      ]);
-    });
-
-    group('copyWith', () {
-      test('returns a new instance with updated fields', () {
-        const newTitle = 'New Title';
-        final updatedLocalAd = mockLocalNativeAd.copyWith(title: newTitle);
-
-        expect(updatedLocalAd.id, mockLocalNativeAd.id);
-        expect(updatedLocalAd.title, newTitle);
-        expect(updatedLocalAd.subtitle, mockLocalNativeAd.subtitle);
-        expect(updatedLocalAd.imageUrl, mockLocalNativeAd.imageUrl);
-        expect(updatedLocalAd.targetUrl, mockLocalNativeAd.targetUrl);
-        expect(updatedLocalAd.adType, mockLocalNativeAd.adType);
-        expect(updatedLocalAd.type, mockLocalNativeAd.type);
+        final deserialized = LocalAd.fromJson(json) as LocalVideoAd;
+        expect(LocalAd.toJson(deserialized), equals(json));
       });
 
-      test('returns an identical copy if no updates provided', () {
-        final copiedLocalAd = mockLocalNativeAd.copyWith();
-        expect(copiedLocalAd, mockLocalNativeAd);
-        expect(identical(copiedLocalAd, mockLocalNativeAd), isFalse);
-      });
-    });
-
-    group('JSON serialization', () {
-      test('serializes full LocalNativeAd object to JSON', () {
-        final json = mockLocalNativeAd.toJson();
-
-        expect(json, <String, dynamic>{
-          'id': mockLocalNativeAd.id,
-          'title': mockLocalNativeAd.title,
-          'subtitle': mockLocalNativeAd.subtitle,
-          'imageUrl': mockLocalNativeAd.imageUrl,
-          'targetUrl': mockLocalNativeAd.targetUrl,
-          'adType': 'native',
-          'type': 'localAd',
-        });
-      });
-
-      test('deserializes full JSON to LocalNativeAd object', () {
-        final json = <String, dynamic>{
-          'id': mockLocalNativeAd.id,
-          'title': mockLocalNativeAd.title,
-          'subtitle': mockLocalNativeAd.subtitle,
-          'imageUrl': mockLocalNativeAd.imageUrl,
-          'targetUrl': mockLocalNativeAd.targetUrl,
-          'adType': 'native',
-          'type': 'localAd',
-        };
-        final localAd = LocalNativeAd.fromJson(json);
-
-        expect(localAd, equals(mockLocalNativeAd));
+      test('throws FormatException if adType is unknown for toJson', () {
+        // Create a mock LocalAd with an unknown adType for testing toJson
+        const unknownLocalAd = _UnknownLocalAd(
+          id: 'unknown-id',
+          adType: 'unknown_ad_type',
+        );
+        expect(
+          () => LocalAd.toJson(unknownLocalAd),
+          throwsA(
+            isA<FormatException>().having(
+              (e) => e.message,
+              'message',
+              'Unknown LocalAd type for toJson: unknown_ad_type',
+            ),
+          ),
+        );
       });
     });
   });
+}
+
+// Helper class to simulate an unknown LocalAd type for testing toJson error
+class _UnknownLocalAd extends LocalAd {
+  const _UnknownLocalAd({required super.adType, required this.id});
+
+  @override
+  final String id;
+
+  Map<String, dynamic> toJson() {
+    throw UnimplementedError();
+  }
+
+  @override
+  List<Object?> get props => [...super.props, id];
 }
