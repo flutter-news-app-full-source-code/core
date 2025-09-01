@@ -14,6 +14,18 @@ LocalNativeAd _$LocalNativeAdFromJson(Map<String, dynamic> json) =>
         subtitle: $checkedConvert('subtitle', (v) => v as String),
         imageUrl: $checkedConvert('imageUrl', (v) => v as String),
         targetUrl: $checkedConvert('targetUrl', (v) => v as String),
+        createdAt: $checkedConvert(
+          'createdAt',
+          (v) => dateTimeFromJson(v as String?),
+        ),
+        updatedAt: $checkedConvert(
+          'updatedAt',
+          (v) => dateTimeFromJson(v as String?),
+        ),
+        status: $checkedConvert(
+          'status',
+          (v) => $enumDecode(_$ContentStatusEnumMap, v),
+        ),
       );
       return val;
     });
@@ -25,4 +37,13 @@ Map<String, dynamic> _$LocalNativeAdToJson(LocalNativeAd instance) =>
       'subtitle': instance.subtitle,
       'imageUrl': instance.imageUrl,
       'targetUrl': instance.targetUrl,
+      'createdAt': dateTimeToJson(instance.createdAt),
+      'updatedAt': dateTimeToJson(instance.updatedAt),
+      'status': _$ContentStatusEnumMap[instance.status]!,
     };
+
+const _$ContentStatusEnumMap = {
+  ContentStatus.active: 'active',
+  ContentStatus.draft: 'draft',
+  ContentStatus.archived: 'archived',
+};
