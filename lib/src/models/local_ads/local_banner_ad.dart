@@ -1,4 +1,6 @@
 import 'package:core/core.dart';
+import 'package:core/src/enums/enums.dart';
+import 'package:core/src/utils/utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -17,6 +19,9 @@ class LocalBannerAd extends LocalAd {
     required this.id,
     required this.imageUrl,
     required this.targetUrl,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.status,
   }) : super(adType: 'banner');
 
   /// Creates a [LocalBannerAd] from JSON data.
@@ -24,6 +29,7 @@ class LocalBannerAd extends LocalAd {
       _$LocalBannerAdFromJson(json);
 
   /// Unique identifier for the local banner ad.
+  @override
   final String id;
 
   /// The URL of the image for the local banner ad.
@@ -31,6 +37,17 @@ class LocalBannerAd extends LocalAd {
 
   /// The URL to navigate to when the local banner ad is clicked.
   final String targetUrl;
+
+  /// The creation timestamp of the local banner ad.
+  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  final DateTime createdAt;
+
+  /// The last update timestamp of the local banner ad.
+  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  final DateTime updatedAt;
+
+  /// The current status of the local banner ad.
+  final ContentStatus status;
 
   Map<String, dynamic> toJson() {
     final json = _$LocalBannerAdToJson(this);
@@ -40,15 +57,34 @@ class LocalBannerAd extends LocalAd {
   }
 
   @override
-  List<Object?> get props => [id, imageUrl, targetUrl, adType, type];
+  List<Object?> get props => [
+    id,
+    imageUrl,
+    targetUrl,
+    createdAt,
+    updatedAt,
+    status,
+    adType,
+    type,
+  ];
 
   /// Creates a copy of this [LocalBannerAd] but with the given fields replaced with
   /// the new values.
-  LocalBannerAd copyWith({String? id, String? imageUrl, String? targetUrl}) {
+  LocalBannerAd copyWith({
+    String? id,
+    String? imageUrl,
+    String? targetUrl,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    ContentStatus? status,
+  }) {
     return LocalBannerAd(
       id: id ?? this.id,
       imageUrl: imageUrl ?? this.imageUrl,
       targetUrl: targetUrl ?? this.targetUrl,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      status: status ?? this.status,
     );
   }
 }
