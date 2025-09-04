@@ -1,6 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/models/config/interstitial_ad_frequency_config.dart';
-import 'package:core/src/models/config/interstitial_ad_configuration.dart';
 
 /// A list of initial remote config data to be loaded into the in-memory
 /// remote config repository.
@@ -41,7 +39,7 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
           feedNativeAdId: 'local_feed_native_ad_id',
           feedBannerAdId: 'local_feed_banner_ad_id',
           feedToArticleInterstitialAdId:
-              'local_feed_to_article__interstitial_ad_id',
+              'local_feed_to_article_interstitial_ad_id',
           inArticleNativeAdId: 'local_in_article_native_ad_id',
           inArticleBannerAdId: 'local_in_article_banner_ad_id',
         ),
