@@ -30,16 +30,15 @@ void main() {
       test('returns a new instance with updated values', () {
         final updatedConfig = interstitialAdConfigFixture.copyWith(
           enabled: false,
-          feedInterstitialAdFrequencyConfig:
-              interstitialAdConfigFixture.feedInterstitialAdFrequencyConfig
-                  .copyWith(
-            guestTransitionsBeforeShowingInterstitialAds: 10,
-          ),
+          feedInterstitialAdFrequencyConfig: interstitialAdConfigFixture
+              .feedInterstitialAdFrequencyConfig
+              .copyWith(guestTransitionsBeforeShowingInterstitialAds: 10),
         );
 
         expect(updatedConfig.enabled, false);
         expect(
-          updatedConfig.feedInterstitialAdFrequencyConfig
+          updatedConfig
+              .feedInterstitialAdFrequencyConfig
               .guestTransitionsBeforeShowingInterstitialAds,
           10,
         );
@@ -69,7 +68,10 @@ void main() {
 
   group('FeedInterstitialAdFrequencyConfig', () {
     final frequencyConfigFixture = remoteConfigsFixturesData
-        .first.adConfig.interstitialAdConfiguration.feedInterstitialAdFrequencyConfig;
+        .first
+        .adConfig
+        .interstitialAdConfiguration
+        .feedInterstitialAdFrequencyConfig;
 
     group('constructor', () {
       test('returns correct instance', () {

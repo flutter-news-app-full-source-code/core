@@ -4,7 +4,10 @@ import 'package:test/test.dart';
 void main() {
   group('InterstitialAdFrequencyConfig', () {
     final frequencyConfigFixture = remoteConfigsFixturesData
-        .first.adConfig.interstitialAdConfiguration.feedInterstitialAdFrequencyConfig;
+        .first
+        .adConfig
+        .interstitialAdConfiguration
+        .feedInterstitialAdFrequencyConfig;
 
     group('constructor', () {
       test('returns correct instance', () {

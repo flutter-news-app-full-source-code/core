@@ -5,7 +5,7 @@ import 'package:meta/meta.dart';
 part 'interstitial_ad_frequency_config.g.dart';
 
 /// {@template interstitial_ad_frequency_config}
-/// Encapsulates user-role-based frequency for interstitial ads shown 
+/// Encapsulates user-role-based frequency for interstitial ads shown
 /// during page transitions.
 /// {@endtemplate}
 @immutable
@@ -23,8 +23,7 @@ class InterstitialAdFrequencyConfig extends Equatable {
       _$InterstitialAdFrequencyConfigFromJson(json);
 
   /// Converts this [InterstitialAdFrequencyConfig] instance to JSON data.
-  Map<String, dynamic> toJson() =>
-      _$InterstitialAdFrequencyConfigToJson(this);
+  Map<String, dynamic> toJson() => _$InterstitialAdFrequencyConfigToJson(this);
 
   /// The number of page transitions a guest user needs to make
   /// before an interstitial ad is shown.
