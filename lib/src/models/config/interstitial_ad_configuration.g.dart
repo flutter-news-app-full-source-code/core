@@ -1,23 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'article_interstitial_ad_configuration.dart';
+part of 'interstitial_ad_configuration.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-ArticleInterstitialAdConfiguration _$ArticleInterstitialAdConfigurationFromJson(
+InterstitialAdConfiguration _$InterstitialAdConfigurationFromJson(
   Map<String, dynamic> json,
-) => $checkedCreate('ArticleInterstitialAdConfiguration', json, (
-  $checkedConvert,
-) {
-  final val = ArticleInterstitialAdConfiguration(
+) => $checkedCreate('InterstitialAdConfiguration', json, ($checkedConvert) {
+  final val = InterstitialAdConfiguration(
     enabled: $checkedConvert('enabled', (v) => v as bool),
-    frequencyConfig: $checkedConvert(
-      'frequencyConfig',
-      (v) => ArticleInterstitialAdFrequencyConfig.fromJson(
-        v as Map<String, dynamic>,
-      ),
+    feedInterstitialAdFrequencyConfig: $checkedConvert(
+      'feedInterstitialAdFrequencyConfig',
+      (v) => InterstitialAdFrequencyConfig.fromJson(v as Map<String, dynamic>),
     ),
     adType: $checkedConvert(
       'adType',
@@ -27,12 +23,14 @@ ArticleInterstitialAdConfiguration _$ArticleInterstitialAdConfigurationFromJson(
   return val;
 });
 
-Map<String, dynamic> _$ArticleInterstitialAdConfigurationToJson(
-  ArticleInterstitialAdConfiguration instance,
+Map<String, dynamic> _$InterstitialAdConfigurationToJson(
+  InterstitialAdConfiguration instance,
 ) => <String, dynamic>{
   'enabled': instance.enabled,
   'adType': _$AdTypeEnumMap[instance.adType]!,
-  'frequencyConfig': instance.frequencyConfig.toJson(),
+  'feedInterstitialAdFrequencyConfig': instance
+      .feedInterstitialAdFrequencyConfig
+      .toJson(),
 };
 
 const _$AdTypeEnumMap = {

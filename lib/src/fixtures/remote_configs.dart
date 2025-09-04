@@ -24,19 +24,22 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       premiumSavedHeadlinesLimit: 100,
     ),
     adConfig: const AdConfig(
+      enabled: true, // Global ad switch
       primaryAdPlatform: AdPlatformType.admob,
       platformAdIdentifiers: {
         AdPlatformType.admob: AdPlatformIdentifiers(
           feedNativeAdId: 'ca-app-pub-3940256099942544/2247696110',
           feedBannerAdId: 'ca-app-pub-3940256099942544/6300978111',
-          articleInterstitialAdId: 'ca-app-pub-3940256099942544/1033173712',
+          feedToArticleInterstitialAdId:
+              'ca-app-pub-3940256099942544/1033173712',
           inArticleNativeAdId: 'ca-app-pub-3940256099942544/3986624511',
           inArticleBannerAdId: 'ca-app-pub-3940256099942544/6300978111',
         ),
         AdPlatformType.local: AdPlatformIdentifiers(
           feedNativeAdId: 'local_feed_native_ad_id',
           feedBannerAdId: 'local_feed_banner_ad_id',
-          articleInterstitialAdId: 'local_article_interstitial_ad_id',
+          feedToArticleInterstitialAdId:
+              'local_feed_to_article_interstitial_ad_id',
           inArticleNativeAdId: 'local_in_article_native_ad_id',
           inArticleBannerAdId: 'local_in_article_banner_ad_id',
         ),
@@ -56,15 +59,6 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       articleAdConfiguration: ArticleAdConfiguration(
         enabled: true,
         defaultInArticleAdType: AdType.native,
-        interstitialAdConfiguration: ArticleInterstitialAdConfiguration(
-          enabled: true,
-          adType: AdType.interstitial,
-          frequencyConfig: ArticleInterstitialAdFrequencyConfig(
-            guestArticlesToReadBeforeShowingInterstitialAds: 5,
-            standardUserArticlesToReadBeforeShowingInterstitialAds: 10,
-            premiumUserArticlesToReadBeforeShowingInterstitialAds: 50000,
-          ),
-        ),
         inArticleAdSlotConfigurations: [
           InArticleAdSlotConfiguration(
             slotType: InArticleAdSlotType.belowMainArticleImage,
@@ -79,6 +73,14 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
             enabled: true,
           ),
         ],
+      ),
+      interstitialAdConfiguration: InterstitialAdConfiguration(
+        enabled: true,
+        feedInterstitialAdFrequencyConfig: InterstitialAdFrequencyConfig(
+          guestTransitionsBeforeShowingInterstitialAds: 5,
+          standardUserTransitionsBeforeShowingInterstitialAds: 10,
+          premiumUserTransitionsBeforeShowingInterstitialAds: 50000,
+        ),
       ),
     ),
     feedDecoratorConfig: const {
