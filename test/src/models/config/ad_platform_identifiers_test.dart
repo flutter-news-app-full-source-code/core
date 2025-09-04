@@ -19,7 +19,7 @@ void main() {
         'ca-app-pub-3940256099942544/2247696110',
       );
       expect(
-        admobIdentifiersFixture.articleInterstitialAdId,
+        admobIdentifiersFixture.feedToArticleInterstitialAdId,
         'ca-app-pub-3940256099942544/1033173712',
       );
     });
@@ -28,8 +28,8 @@ void main() {
       expect(localIdentifiersFixture, isA<AdPlatformIdentifiers>());
       expect(localIdentifiersFixture.feedNativeAdId, 'local_feed_native_ad_id');
       expect(
-        localIdentifiersFixture.articleInterstitialAdId,
-        'local_article_interstitial_ad_id',
+        localIdentifiersFixture.feedToArticleInterstitialAdId,
+        'local_feed_to_article_interstitial_ad_id',
       );
     });
 

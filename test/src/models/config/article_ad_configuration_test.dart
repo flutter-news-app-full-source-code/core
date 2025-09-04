@@ -14,10 +14,6 @@ void main() {
         AdType.native,
       );
       expect(
-        articleAdConfigurationFixture.interstitialAdConfiguration,
-        isA<ArticleInterstitialAdConfiguration>(),
-      );
-      expect(
         articleAdConfigurationFixture.inArticleAdSlotConfigurations,
         isA<List<InArticleAdSlotConfiguration>>(),
       );
@@ -52,8 +48,6 @@ void main() {
           () => ArticleAdConfiguration(
             enabled: true,
             defaultInArticleAdType: AdType.interstitial,
-            interstitialAdConfiguration:
-                articleAdConfigurationFixture.interstitialAdConfiguration,
             inArticleAdSlotConfigurations:
                 articleAdConfigurationFixture.inArticleAdSlotConfigurations,
           ),
