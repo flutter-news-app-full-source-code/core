@@ -12,8 +12,8 @@ AdPlatformIdentifiers _$AdPlatformIdentifiersFromJson(
   final val = AdPlatformIdentifiers(
     feedNativeAdId: $checkedConvert('feedNativeAdId', (v) => v as String?),
     feedBannerAdId: $checkedConvert('feedBannerAdId', (v) => v as String?),
-    articleInterstitialAdId: $checkedConvert(
-      'articleInterstitialAdId',
+    feedToArticleInterstitialAdId: $checkedConvert(
+      'feedToArticleInterstitialAdId',
       (v) => v as String?,
     ),
     inArticleNativeAdId: $checkedConvert(
@@ -33,7 +33,7 @@ Map<String, dynamic> _$AdPlatformIdentifiersToJson(
 ) => <String, dynamic>{
   'feedNativeAdId': instance.feedNativeAdId,
   'feedBannerAdId': instance.feedBannerAdId,
-  'articleInterstitialAdId': instance.articleInterstitialAdId,
+  'feedToArticleInterstitialAdId': instance.feedToArticleInterstitialAdId,
   'inArticleNativeAdId': instance.inArticleNativeAdId,
   'inArticleBannerAdId': instance.inArticleBannerAdId,
 };

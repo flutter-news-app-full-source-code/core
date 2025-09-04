@@ -15,12 +15,6 @@ ArticleAdConfiguration _$ArticleAdConfigurationFromJson(
       'defaultInArticleAdType',
       (v) => $enumDecode(_$AdTypeEnumMap, v),
     ),
-    interstitialAdConfiguration: $checkedConvert(
-      'interstitialAdConfiguration',
-      (v) => ArticleInterstitialAdConfiguration.fromJson(
-        v as Map<String, dynamic>,
-      ),
-    ),
     inArticleAdSlotConfigurations: $checkedConvert(
       'inArticleAdSlotConfigurations',
       (v) => (v as List<dynamic>)
@@ -40,7 +34,6 @@ Map<String, dynamic> _$ArticleAdConfigurationToJson(
 ) => <String, dynamic>{
   'enabled': instance.enabled,
   'defaultInArticleAdType': _$AdTypeEnumMap[instance.defaultInArticleAdType]!,
-  'interstitialAdConfiguration': instance.interstitialAdConfiguration.toJson(),
   'inArticleAdSlotConfigurations': instance.inArticleAdSlotConfigurations
       .map((e) => e.toJson())
       .toList(),
