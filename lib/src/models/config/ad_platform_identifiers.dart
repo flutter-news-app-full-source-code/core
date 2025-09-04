@@ -15,7 +15,7 @@ class AdPlatformIdentifiers extends Equatable {
   const AdPlatformIdentifiers({
     this.feedNativeAdId,
     this.feedBannerAdId,
-    this.articleInterstitialAdId,
+    this.feedToArticleInterstitialAdId,
     this.inArticleNativeAdId,
     this.inArticleBannerAdId,
   });
@@ -33,8 +33,8 @@ class AdPlatformIdentifiers extends Equatable {
   /// ID for banner ads in feeds.
   final String? feedBannerAdId;
 
-  /// ID for interstitial ads in articles.
-  final String? articleInterstitialAdId;
+  /// ID for interstitial ads during feed-to-article transitions.
+  final String? feedToArticleInterstitialAdId;
 
   /// ID for native in-article ads.
   final String? inArticleNativeAdId;
@@ -46,7 +46,7 @@ class AdPlatformIdentifiers extends Equatable {
   List<Object?> get props => [
     feedNativeAdId,
     feedBannerAdId,
-    articleInterstitialAdId,
+    feedToArticleInterstitialAdId,
     inArticleNativeAdId,
     inArticleBannerAdId,
   ];
@@ -56,15 +56,15 @@ class AdPlatformIdentifiers extends Equatable {
   AdPlatformIdentifiers copyWith({
     String? feedNativeAdId,
     String? feedBannerAdId,
-    String? articleInterstitialAdId,
+    String? feedToArticleInterstitialAdId,
     String? inArticleNativeAdId,
     String? inArticleBannerAdId,
   }) {
     return AdPlatformIdentifiers(
       feedNativeAdId: feedNativeAdId ?? this.feedNativeAdId,
       feedBannerAdId: feedBannerAdId ?? this.feedBannerAdId,
-      articleInterstitialAdId:
-          articleInterstitialAdId ?? this.articleInterstitialAdId,
+      feedToArticleInterstitialAdId:
+          feedToArticleInterstitialAdId ?? this.feedToArticleInterstitialAdId,
       inArticleNativeAdId: inArticleNativeAdId ?? this.inArticleNativeAdId,
       inArticleBannerAdId: inArticleBannerAdId ?? this.inArticleBannerAdId,
     );
