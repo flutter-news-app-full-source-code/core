@@ -25,7 +25,7 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
     ),
     adConfig: const AdConfig(
       enabled: true, // Global ad switch
-      primaryAdPlatform: AdPlatformType.admob,
+      primaryAdPlatform: AdPlatformType.local,
       platformAdIdentifiers: {
         AdPlatformType.admob: AdPlatformIdentifiers(
           feedNativeAdId: 'ca-app-pub-3940256099942544/2247696110',
