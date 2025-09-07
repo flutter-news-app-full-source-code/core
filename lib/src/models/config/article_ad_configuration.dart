@@ -1,4 +1,5 @@
 import 'package:core/src/enums/enums.dart';
+import 'package:core/src/enums/banner_ad_shape.dart'; // Explicitly import new enum
 import 'package:core/src/models/config/in_article_ad_slot_configuration.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -16,13 +17,9 @@ class ArticleAdConfiguration extends Equatable {
   /// {@macro article_ad_configuration}
   const ArticleAdConfiguration({
     required this.enabled,
-    required this.defaultInArticleAdType,
     required this.inArticleAdSlotConfigurations,
-  }) : assert(
-         defaultInArticleAdType == AdType.native ||
-             defaultInArticleAdType == AdType.banner,
-         'Default in-article ad type must be native or banner.',
-       );
+    required this.bannerAdShape,
+  });
 
   /// Creates an [ArticleAdConfiguration] from JSON data.
   factory ArticleAdConfiguration.fromJson(Map<String, dynamic> json) =>
@@ -34,8 +31,8 @@ class ArticleAdConfiguration extends Equatable {
   /// Master switch to enable or disable all in-article ads (excluding interstitial).
   final bool enabled;
 
-  /// Default [AdType] for all in-article ad slots.
-  final AdType defaultInArticleAdType;
+  /// The preferred shape for banner ads displayed in articles.
+  final BannerAdShape bannerAdShape;
 
   /// List of configurations for individual in-article ad slots.
   final List<InArticleAdSlotConfiguration> inArticleAdSlotConfigurations;
@@ -43,7 +40,7 @@ class ArticleAdConfiguration extends Equatable {
   @override
   List<Object?> get props => [
     enabled,
-    defaultInArticleAdType,
+    bannerAdShape,
     inArticleAdSlotConfigurations,
   ];
 
@@ -51,15 +48,14 @@ class ArticleAdConfiguration extends Equatable {
   /// replaced with the new values.
   ArticleAdConfiguration copyWith({
     bool? enabled,
-    AdType? defaultInArticleAdType,
     List<InArticleAdSlotConfiguration>? inArticleAdSlotConfigurations,
+    BannerAdShape? bannerAdShape,
   }) {
     return ArticleAdConfiguration(
       enabled: enabled ?? this.enabled,
-      defaultInArticleAdType:
-          defaultInArticleAdType ?? this.defaultInArticleAdType,
       inArticleAdSlotConfigurations:
           inArticleAdSlotConfigurations ?? this.inArticleAdSlotConfigurations,
+      bannerAdShape: bannerAdShape ?? this.bannerAdShape,
     );
   }
 }

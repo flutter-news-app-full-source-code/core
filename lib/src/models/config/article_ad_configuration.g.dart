@@ -11,10 +11,6 @@ ArticleAdConfiguration _$ArticleAdConfigurationFromJson(
 ) => $checkedCreate('ArticleAdConfiguration', json, ($checkedConvert) {
   final val = ArticleAdConfiguration(
     enabled: $checkedConvert('enabled', (v) => v as bool),
-    defaultInArticleAdType: $checkedConvert(
-      'defaultInArticleAdType',
-      (v) => $enumDecode(_$AdTypeEnumMap, v),
-    ),
     inArticleAdSlotConfigurations: $checkedConvert(
       'inArticleAdSlotConfigurations',
       (v) => (v as List<dynamic>)
@@ -25,6 +21,10 @@ ArticleAdConfiguration _$ArticleAdConfigurationFromJson(
           )
           .toList(),
     ),
+    bannerAdShape: $checkedConvert(
+      'bannerAdShape',
+      (v) => $enumDecode(_$BannerAdShapeEnumMap, v),
+    ),
   );
   return val;
 });
@@ -33,15 +33,13 @@ Map<String, dynamic> _$ArticleAdConfigurationToJson(
   ArticleAdConfiguration instance,
 ) => <String, dynamic>{
   'enabled': instance.enabled,
-  'defaultInArticleAdType': _$AdTypeEnumMap[instance.defaultInArticleAdType]!,
+  'bannerAdShape': _$BannerAdShapeEnumMap[instance.bannerAdShape]!,
   'inArticleAdSlotConfigurations': instance.inArticleAdSlotConfigurations
       .map((e) => e.toJson())
       .toList(),
 };
 
-const _$AdTypeEnumMap = {
-  AdType.banner: 'banner',
-  AdType.native: 'native',
-  AdType.video: 'video',
-  AdType.interstitial: 'interstitial',
+const _$BannerAdShapeEnumMap = {
+  BannerAdShape.square: 'square',
+  BannerAdShape.rectangle: 'rectangle',
 };
