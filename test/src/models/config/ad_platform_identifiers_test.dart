@@ -26,10 +26,13 @@ void main() {
 
     test('can be instantiated (Local)', () {
       expect(localIdentifiersFixture, isA<AdPlatformIdentifiers>());
-      expect(localIdentifiersFixture.feedNativeAdId, 'local_feed_native_ad_id');
+      expect(
+        localIdentifiersFixture.feedNativeAdId,
+        '1563c000a4a4e6e1a8e7f0f1',
+      );
       expect(
         localIdentifiersFixture.feedToArticleInterstitialAdId,
-        'local_feed_to_article_interstitial_ad_id',
+        '3563c000a4a4e6e1a8e7f0f3',
       );
     });
 
@@ -50,9 +53,16 @@ void main() {
       expect(updatedIdentifiers, isNot(equals(admobIdentifiersFixture)));
     });
 
-    test('copyWith returns same instance if no changes', () {
+    test('copyWith returns a new instance even if no changes', () {
       final updatedIdentifiers = admobIdentifiersFixture.copyWith();
-      expect(updatedIdentifiers, equals(admobIdentifiersFixture));
+      expect(
+        updatedIdentifiers,
+        equals(admobIdentifiersFixture),
+      ); // Checks if values are the same
+      expect(
+        updatedIdentifiers,
+        isNot(same(admobIdentifiersFixture)),
+      ); // Checks if it's a new object in memory
     });
 
     group('fromJson/toJson', () {
