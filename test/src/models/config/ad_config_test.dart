@@ -7,7 +7,7 @@ void main() {
 
     test('can be instantiated', () {
       expect(adConfigFixture, isA<AdConfig>());
-      expect(adConfigFixture.primaryAdPlatform, AdPlatformType.admob);
+      expect(adConfigFixture.primaryAdPlatform, AdPlatformType.demo);
       expect(
         adConfigFixture.platformAdIdentifiers,
         isA<Map<AdPlatformType, AdPlatformIdentifiers>>(),
