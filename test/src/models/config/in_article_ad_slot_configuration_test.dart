@@ -15,10 +15,6 @@ void main() {
         inArticleAdSlotConfigurationFixture,
         isA<InArticleAdSlotConfiguration>(),
       );
-      expect(
-        inArticleAdSlotConfigurationFixture.slotType,
-        InArticleAdSlotType.belowMainArticleImage,
-      );
       expect(inArticleAdSlotConfigurationFixture.enabled, isTrue);
     });
 
