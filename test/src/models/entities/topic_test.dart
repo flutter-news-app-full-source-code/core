@@ -26,7 +26,7 @@ void main() {
         topicFixture.createdAt,
         topicFixture.updatedAt,
         topicFixture.status,
-        'topic', // type
+        'topic',
       ]);
     });
 

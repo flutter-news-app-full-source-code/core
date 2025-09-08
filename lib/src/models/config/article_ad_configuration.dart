@@ -1,4 +1,4 @@
-import 'package:core/src/enums/banner_ad_shape.dart'; // Explicitly import new enum
+import 'package:core/src/enums/banner_ad_shape.dart';
 import 'package:core/src/models/config/in_article_ad_slot_configuration.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';

@@ -38,8 +38,8 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       premiumSavedHeadlinesLimit: 100,
     ),
     adConfig: const AdConfig(
-      enabled: true, // Global ad switch
-      primaryAdPlatform: AdPlatformType.demo, // Use the new demo type
+      enabled: true,
+      primaryAdPlatform: AdPlatformType.demo,
       platformAdIdentifiers: {
         AdPlatformType.admob: AdPlatformIdentifiers(
           feedNativeAdId: 'ca-app-pub-3940256099942544/2247696110',
@@ -56,8 +56,7 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
           inArticleNativeAdId: '1563c000a4a4e6e1a8e7f0f1',
           inArticleBannerAdId: '2563c000a4a4e6e1a8e7f0f2',
         ),
-        AdPlatformType.demo:
-            demoAdPlatformIdentifiers, // Add demo platform identifiers
+        AdPlatformType.demo: demoAdPlatformIdentifiers,
       },
       feedAdConfiguration: FeedAdConfiguration(
         enabled: true,
@@ -73,7 +72,7 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       ),
       articleAdConfiguration: ArticleAdConfiguration(
         enabled: true,
-        bannerAdShape: BannerAdShape.rectangle, // New required field
+        bannerAdShape: BannerAdShape.rectangle,
         inArticleAdSlotConfigurations: [
           InArticleAdSlotConfiguration(
             slotType: InArticleAdSlotType.aboveArticleContinueReadingButton,
