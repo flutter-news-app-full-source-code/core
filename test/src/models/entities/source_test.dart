@@ -35,7 +35,7 @@ void main() {
             sourceFixture.createdAt,
             sourceFixture.updatedAt,
             sourceFixture.status,
-            'source', // type
+            'source',
           ]),
         );
       });

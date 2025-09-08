@@ -15,7 +15,7 @@ void main() {
 
     // Sample JSON map corresponding to the instance
     final authSuccessResponseJson = {
-      'user': testUser.toJson(), // Use User's toJson
+      'user': testUser.toJson(),
       'token': testToken,
     };
 

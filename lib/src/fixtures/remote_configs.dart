@@ -1,4 +1,18 @@
 import 'package:core/core.dart';
+import 'package:core/src/enums/banner_ad_shape.dart';
+
+/// Ad identifiers for the [AdPlatformType.demo] platform.
+///
+/// These identifiers are placeholders and are not actively used for loading
+/// ads. They exist to satisfy the data contract of [AdPlatformIdentifiers]
+/// when [AdPlatformType.demo] is the primary ad platform.
+const AdPlatformIdentifiers demoAdPlatformIdentifiers = AdPlatformIdentifiers(
+  feedNativeAdId: 'will_not_be_used',
+  feedBannerAdId: 'will_not_be_used',
+  feedToArticleInterstitialAdId: 'will_not_be_used',
+  inArticleNativeAdId: 'will_not_be_used',
+  inArticleBannerAdId: 'will_not_be_used',
+);
 
 /// A list of initial remote config data to be loaded into the in-memory
 /// remote config repository.
@@ -24,8 +38,8 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       premiumSavedHeadlinesLimit: 100,
     ),
     adConfig: const AdConfig(
-      enabled: true, // Global ad switch
-      primaryAdPlatform: AdPlatformType.local,
+      enabled: true,
+      primaryAdPlatform: AdPlatformType.demo,
       platformAdIdentifiers: {
         AdPlatformType.admob: AdPlatformIdentifiers(
           feedNativeAdId: 'ca-app-pub-3940256099942544/2247696110',
@@ -42,6 +56,7 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
           inArticleNativeAdId: '1563c000a4a4e6e1a8e7f0f1',
           inArticleBannerAdId: '2563c000a4a4e6e1a8e7f0f2',
         ),
+        AdPlatformType.demo: demoAdPlatformIdentifiers,
       },
       feedAdConfiguration: FeedAdConfiguration(
         enabled: true,
@@ -57,12 +72,8 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       ),
       articleAdConfiguration: ArticleAdConfiguration(
         enabled: true,
-        defaultInArticleAdType: AdType.native,
+        bannerAdShape: BannerAdShape.rectangle,
         inArticleAdSlotConfigurations: [
-          InArticleAdSlotConfiguration(
-            slotType: InArticleAdSlotType.belowMainArticleImage,
-            enabled: true,
-          ),
           InArticleAdSlotConfiguration(
             slotType: InArticleAdSlotType.aboveArticleContinueReadingButton,
             enabled: true,
