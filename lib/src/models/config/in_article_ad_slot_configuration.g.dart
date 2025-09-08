@@ -27,7 +27,6 @@ Map<String, dynamic> _$InArticleAdSlotConfigurationToJson(
 };
 
 const _$InArticleAdSlotTypeEnumMap = {
-  InArticleAdSlotType.belowMainArticleImage: 'belowMainArticleImage',
   InArticleAdSlotType.aboveArticleContinueReadingButton:
       'aboveArticleContinueReadingButton',
   InArticleAdSlotType.belowArticleContinueReadingButton:

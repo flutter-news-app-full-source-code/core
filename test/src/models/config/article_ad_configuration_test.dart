@@ -1,4 +1,5 @@
 import 'package:core/core.dart';
+import 'package:core/src/enums/banner_ad_shape.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -10,8 +11,8 @@ void main() {
       expect(articleAdConfigurationFixture, isA<ArticleAdConfiguration>());
       expect(articleAdConfigurationFixture.enabled, isTrue);
       expect(
-        articleAdConfigurationFixture.defaultInArticleAdType,
-        AdType.native,
+        articleAdConfigurationFixture.bannerAdShape,
+        BannerAdShape.rectangle,
       );
       expect(
         articleAdConfigurationFixture.inArticleAdSlotConfigurations,
@@ -28,11 +29,11 @@ void main() {
     test('copyWith returns a new instance with updated values', () {
       final updatedConfig = articleAdConfigurationFixture.copyWith(
         enabled: false,
-        defaultInArticleAdType: AdType.banner,
+        bannerAdShape: BannerAdShape.rectangle,
       );
 
       expect(updatedConfig.enabled, isFalse);
-      expect(updatedConfig.defaultInArticleAdType, AdType.banner);
+      expect(updatedConfig.bannerAdShape, BannerAdShape.rectangle);
       expect(updatedConfig, isNot(equals(articleAdConfigurationFixture)));
     });
 
@@ -40,21 +41,6 @@ void main() {
       final updatedConfig = articleAdConfigurationFixture.copyWith();
       expect(updatedConfig, equals(articleAdConfigurationFixture));
     });
-
-    test(
-      'throws AssertionError if defaultInArticleAdType is not native or banner',
-      () {
-        expect(
-          () => ArticleAdConfiguration(
-            enabled: true,
-            defaultInArticleAdType: AdType.interstitial,
-            inArticleAdSlotConfigurations:
-                articleAdConfigurationFixture.inArticleAdSlotConfigurations,
-          ),
-          throwsA(isA<AssertionError>()),
-        );
-      },
-    );
 
     group('fromJson/toJson', () {
       test('round trip', () {

@@ -2,7 +2,7 @@ import 'package:core/src/enums/ad_platform_type.dart';
 import 'package:core/src/models/config/ad_platform_identifiers.dart';
 import 'package:core/src/models/config/article_ad_configuration.dart';
 import 'package:core/src/models/config/feed_ad_configuration.dart';
-import 'package:core/src/models/config/interstitial_ad_configuration.dart'; // New import
+import 'package:core/src/models/config/interstitial_ad_configuration.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
