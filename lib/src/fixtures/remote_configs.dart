@@ -50,12 +50,11 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
           inArticleBannerAdId: 'ca-app-pub-3940256099942544/6300978111',
         ),
         AdPlatformType.local: AdPlatformIdentifiers(
-          feedNativeAdId: 'local_feed_native_ad_id',
-          feedBannerAdId: 'local_feed_banner_ad_id',
-          feedToArticleInterstitialAdId:
-              'local_feed_to_article_interstitial_ad_id',
-          inArticleNativeAdId: 'local_in_article_native_ad_id',
-          inArticleBannerAdId: 'local_in_article_banner_ad_id',
+          feedNativeAdId: '1563c000a4a4e6e1a8e7f0f1',
+          feedBannerAdId: '2563c000a4a4e6e1a8e7f0f2',
+          feedToArticleInterstitialAdId: '3563c000a4a4e6e1a8e7f0f3',
+          inArticleNativeAdId: '1563c000a4a4e6e1a8e7f0f1',
+          inArticleBannerAdId: '2563c000a4a4e6e1a8e7f0f2',
         ),
         AdPlatformType.demo:
             demoAdPlatformIdentifiers, // Add demo platform identifiers
