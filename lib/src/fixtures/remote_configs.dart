@@ -6,8 +6,7 @@ import 'package:core/src/enums/banner_ad_shape.dart';
 /// These identifiers are placeholders and are not actively used for loading
 /// ads. They exist to satisfy the data contract of [AdPlatformIdentifiers]
 /// when [AdPlatformType.demo] is the primary ad platform.
-const AdPlatformIdentifiers demoAdPlatformIdentifiers =
-    AdPlatformIdentifiers(
+const AdPlatformIdentifiers demoAdPlatformIdentifiers = AdPlatformIdentifiers(
   feedNativeAdId: 'will_not_be_used',
   feedBannerAdId: 'will_not_be_used',
   feedToArticleInterstitialAdId: 'will_not_be_used',
@@ -58,7 +57,8 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
           inArticleNativeAdId: 'local_in_article_native_ad_id',
           inArticleBannerAdId: 'local_in_article_banner_ad_id',
         ),
-        AdPlatformType.demo: demoAdPlatformIdentifiers, // Add demo platform identifiers
+        AdPlatformType.demo:
+            demoAdPlatformIdentifiers, // Add demo platform identifiers
       },
       feedAdConfiguration: FeedAdConfiguration(
         enabled: true,
