@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/enums/banner_ad_shape.dart';
 
 /// Ad identifiers for the [AdPlatformType.demo] platform.
 ///
