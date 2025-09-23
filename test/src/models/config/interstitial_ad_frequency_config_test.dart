@@ -3,27 +3,18 @@ import 'package:test/test.dart';
 
 void main() {
   group('InterstitialAdFrequencyConfig', () {
+    // Access the InterstitialAdFrequencyConfig from the fixture's visibleTo map
     final frequencyConfigFixture = remoteConfigsFixturesData
         .first
         .adConfig
         .interstitialAdConfiguration
-        .feedInterstitialAdFrequencyConfig;
+        .visibleTo[AppUserRole.guestUser]!;
 
     group('constructor', () {
       test('returns correct instance', () {
         expect(frequencyConfigFixture, isA<InterstitialAdFrequencyConfig>());
         expect(
-          frequencyConfigFixture.guestTransitionsBeforeShowingInterstitialAds,
-          isA<int>(),
-        );
-        expect(
-          frequencyConfigFixture
-              .standardUserTransitionsBeforeShowingInterstitialAds,
-          isA<int>(),
-        );
-        expect(
-          frequencyConfigFixture
-              .premiumUserTransitionsBeforeShowingInterstitialAds,
+          frequencyConfigFixture.transitionsBeforeShowingInterstitialAds,
           isA<int>(),
         );
       });
@@ -40,10 +31,10 @@ void main() {
     group('copyWith', () {
       test('returns a new instance with updated values', () {
         final updatedConfig = frequencyConfigFixture.copyWith(
-          guestTransitionsBeforeShowingInterstitialAds: 7,
+          transitionsBeforeShowingInterstitialAds: 7,
         );
 
-        expect(updatedConfig.guestTransitionsBeforeShowingInterstitialAds, 7);
+        expect(updatedConfig.transitionsBeforeShowingInterstitialAds, 7);
         expect(updatedConfig, isNot(equals(frequencyConfigFixture)));
       });
 
@@ -63,7 +54,7 @@ void main() {
       test('instances with different properties are not equal', () {
         final config1 = frequencyConfigFixture.copyWith();
         final config2 = frequencyConfigFixture.copyWith(
-          guestTransitionsBeforeShowingInterstitialAds: 100,
+          transitionsBeforeShowingInterstitialAds: 100,
         );
         expect(config1, isNot(equals(config2)));
       });
