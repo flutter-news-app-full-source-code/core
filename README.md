@@ -1,35 +1,51 @@
-# 🛠️ core
+<div align="center">
+  <img src="https://avatars.githubusercontent.com/u/202675624?s=400&u=dc72a2b53e8158956a3b672f8e52e39394b6b610&v=4" alt="Flutter News App Toolkit Logo" width="220">
+  <h1>Core Package</h1>
+  <p><strong>The essential shared Dart package providing core data models and utilities for the Flutter News App Toolkit.</strong></p>
+</div>
 
-![coverage: percentage](https://img.shields.io/badge/coverage-97-green)
-[![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
-[![License: PolyForm Free Trial](https://img.shields.io/badge/License-PolyForm%20Free%20Trial-blue)](https://polyformproject.org/licenses/free-trial/1.0.0)
+<p align="center">
+  <img src="https://img.shields.io/badge/coverage-97-green?style=for-the-badge" alt="coverage: 97%">
+</p>
 
-The essential shared Dart package providing the **Core Data Models** for the [**Flutter News App - Full Source Code Toolkit**](https://github.com/flutter-news-app-full-source-code). It ensures data consistency and accelerates development across the Flutter mobile app, web dashboard, and Dart Frog backend API.
+This `core` package serves as the foundational shared library for the [**Flutter News App Full Source Code Toolkit**](https://github.com/flutter-news-app-full-source-code). It defines the common language and data structures—including models for news content, user data, and remote configurations—that ensure consistency and accelerate development across the Flutter mobile app, web dashboard, and Dart Frog backend API.
 
-Think of it as the common language 🗣️ that all parts of your news application will speak!
+## ⭐ Feature Showcase: The Foundation for a Robust News Platform
 
-## 🌟 Core Benefits
+This package provides the critical building blocks for a professional news application ecosystem.
 
-*   **🧱 Unified Data Structure:** Guarantees that `Headline`, `Source`, `User`, and configuration data are handled identically across the entire [**Flutter News App - Full Source Code Toolkit**](https://github.com/flutter-news-app-full-source-code).
-*   **🚀 Rapid Development:** Start building features faster with pre-defined, robust models for common news application needs.
-*   **🔗 Seamless Integration:** Enables the Flutter mobile app, web dashboard, and Dart Frog API to work together flawlessly using a shared language.
-*   **🎯 Consistency by Design:** Reduces errors and simplifies maintenance by providing a single source of truth for all core data definitions.
-*   **🛡️ Standardized Error Handling:** Includes a comprehensive hierarchy of `HttpException` subtypes for predictable error management across all layers.
-*   **🌟 Foundation for Rich Features:** Provides models for user personalization (`UserContentPreferences`, `UserAppSettings`), dynamic feed items (e.g., `LocalAd`, `CallToActionItem`, `ContentCollectionItem`), remote configuration (`RemoteConfig`), and standardized API responses.
+<details>
+<summary><strong>🧱 Unified Data Models</strong></summary>
 
-## 🎁 Key Models Provided
+### 📰 News & Content Entities
+- **`Headline`, `Topic`, `Source`, `Country`, `Language`:** Comprehensive models for all core news content, ensuring consistent representation across the entire toolkit.
+- **`FeedItem`:** An abstract base class for all items that can appear in a mixed content feed, supporting diverse content types like headlines, ads, and suggested content.
 
-This package includes well-defined Dart classes for:
+### 🔐 User & Authentication Data
+- **`User`, `AppUserRole`, `DashboardUserRole`, `Permission`:** Robust models for user profiles, roles, and permissions, enabling secure and personalized experiences.
+- **`UserContentPreferences`, `UserAppSettings`:** Detailed models for storing user-specific content preferences (e.g., followed topics, saved headlines) and application settings (e.g., theme, language).
 
-*   **News & Content Entities:** `Headline`, `Topic`, `Source`, `Country`, `Language`
-*   **Feed System:** `FeedItem` (the abstract base class for all feed content) and its concrete subtypes like `Headline`, `LocalAd`, `CallToActionItem`, and `ContentCollectionItem`.
-*   **User Data:** `User`, `AppUserRole`, `DashboardUserRole`, `Permission`, `UserContentPreferences`, `UserAppSettings`
-*   **Application Configuration:** `RemoteConfig` (containing `AdConfig`, `UserPreferenceConfig`, `AppStatus`, and `FeedDecoratorConfig`)
-*   **Dashboard:** `DashboardSummary`
-*   **Querying & Pagination:** `SortOption` and `PaginationOptions` to build flexible, server-side queries.
-*   **API Communication:** `PaginatedResponse`, `SuccessApiResponse`, and a comprehensive `HttpException` hierarchy for standardized responses and error handling.
+### ⚙️ Application Configuration
+- **`RemoteConfig`:** A central container for all dynamic application settings, fetched from a remote source. This includes:
+    - **`AdConfig`:** Master configuration for all advertising, now featuring **highly flexible, role-based control** over ad visibility and frequency for feed, article, and interstitial ads. This allows for granular control over monetization strategies per user segment.
+    - **`UserPreferenceConfig`:** Defines user preference limits (e.g., max followed items, saved headlines) tiered by user role.
+    - **`AppStatus`:** Manages application-wide status, including maintenance mode and force update directives.
+    - **`FeedDecoratorConfig`:** Configures dynamic in-feed elements like calls-to-action and content collections, with role-based visibility.
 
-## 📊 Sample Data / Fixtures
+### 📊 Dashboard & Analytics
+- **`DashboardSummary`:** Provides a model for aggregated statistics, useful for administrative dashboards.
+
+### 🔍 Querying & API Communication
+- **`SortOption`, `PaginationOptions`:** Models for building flexible, server-side queries with sorting and pagination capabilities.
+- **`PaginatedResponse`, `SuccessApiResponse`:** Standardized response wrappers for consistent API communication.
+- **`HttpException` Hierarchy:** A comprehensive set of custom exceptions for predictable and standardized error handling across all layers of the application.
+
+> **💡 Your Advantage:** You get a meticulously designed, production-quality data layer that forms the backbone of a scalable news platform. This package eliminates the need to define core data structures from scratch, saving months of development time and ensuring architectural consistency.
+
+</details>
+
+<details>
+<summary><strong>🧪 Sample Data & Fixtures</strong></summary>
 
 To further accelerate development and provide immediate demonstration capabilities, `core` includes a set of **pre-defined, in-memory fixture data** for core models like `Headline`, `Topic`, `Source`, `Country`, and `RemoteConfig`. These fixtures are directly embedded as Dart constants, enabling:
 
@@ -37,30 +53,10 @@ To further accelerate development and provide immediate demonstration capabiliti
 *   **🧪 Reliable Testing:** Use consistent, realistic data for unit and integration tests.
 *   **🚀 Rapid Prototyping:** Jumpstart UI development and feature implementation with readily available sample content.
 
+> **💡 Your Advantage:** Leverage ready-to-use sample data for rapid prototyping, reliable testing, and instant setup of development environments, significantly accelerating your workflow.
+
+</details>
+
 ## 🔑 Licensing
 
-This package is source-available and licensed under the [PolyForm Free Trial 1.0.0](LICENSE). Please review the terms before use.
-
-For commercial licensing options that grant the right to build and distribute unlimited applications, please visit the main [**Flutter News App - Full Source Code Toolkit**](https://github.com/flutter-news-app-full-source-code) organization.
-
-## 🚀 Getting Started
-
-To integrate `core` into a component of the [**Flutter News App - Full Source Code Toolkit**](https://github.com/flutter-news-app-full-source-code) :
-
-1.  Add `core` as a dependency in your `pubspec.yaml` file:
-
-    ```yaml
-    dependencies:
-      core:
-        git:
-          url: https://github.com/flutter-news-app-full-source-code/core.git
-          # You might want to pin to a specific ref/tag in a real project:
-          # ref: main
-    ```
-
-2.  Run `dart pub get` (or `flutter pub get` for Flutter projects).
-
-3.  Import `package:core/core.dart` to access all shared models and utilities.
-
-    ```dart
-    import 'package:core/core.dart';
+This `core` package is an integral part of the [**Flutter News App Full Source Code Toolkit**](https://github.com/flutter-news-app-full-source-code). For comprehensive details regarding licensing, including trial and commercial options for the entire toolkit, please refer to the main toolkit organization page.
