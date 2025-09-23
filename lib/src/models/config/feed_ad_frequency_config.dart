@@ -52,21 +52,14 @@ class FeedAdFrequencyConfig extends Equatable {
   final int adPlacementInterval;
 
   @override
-  List<Object> get props => [
-    adFrequency,
-    adPlacementInterval,
-  ];
+  List<Object> get props => [adFrequency, adPlacementInterval];
 
   /// Creates a copy of this [FeedAdFrequencyConfig] but with the given fields
   /// replaced with the new values.
-  FeedAdFrequencyConfig copyWith({
-    int? adFrequency,
-    int? adPlacementInterval,
-  }) {
+  FeedAdFrequencyConfig copyWith({int? adFrequency, int? adPlacementInterval}) {
     return FeedAdFrequencyConfig(
       adFrequency: adFrequency ?? this.adFrequency,
-      adPlacementInterval:
-          adPlacementInterval ?? this.adPlacementInterval,
+      adPlacementInterval: adPlacementInterval ?? this.adPlacementInterval,
     );
   }
 }

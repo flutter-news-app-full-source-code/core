@@ -1,5 +1,5 @@
-import 'package:core/src/enums/banner_ad_shape.dart';
 import 'package:core/src/enums/app_user_role.dart';
+import 'package:core/src/enums/banner_ad_shape.dart';
 import 'package:core/src/enums/in_article_ad_slot_type.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -40,11 +40,7 @@ class ArticleAdConfiguration extends Equatable {
   final Map<AppUserRole, Map<InArticleAdSlotType, bool>> visibleTo;
 
   @override
-  List<Object?> get props => [
-    enabled,
-    bannerAdShape,
-    visibleTo,
-  ];
+  List<Object?> get props => [enabled, bannerAdShape, visibleTo];
 
   /// Creates a copy of this [ArticleAdConfiguration] but with the given fields
   /// replaced with the new values.

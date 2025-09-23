@@ -106,9 +106,7 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
           AppUserRole.standardUser: FeedDecoratorRoleConfig(
             daysBetweenViews: 30,
           ),
-          AppUserRole.premiumUser: FeedDecoratorRoleConfig(
-            daysBetweenViews: 0,
-          ),
+          AppUserRole.premiumUser: FeedDecoratorRoleConfig(daysBetweenViews: 0),
         },
       ),
       FeedDecoratorType.suggestedTopics: FeedDecoratorConfig(

@@ -42,11 +42,7 @@ class InterstitialAdConfiguration extends Equatable {
   final Map<AppUserRole, InterstitialAdFrequencyConfig> visibleTo;
 
   @override
-  List<Object?> get props => [
-    enabled,
-    adType,
-    visibleTo,
-  ];
+  List<Object?> get props => [enabled, adType, visibleTo];
 
   /// Creates a copy of this [InterstitialAdConfiguration] but with
   /// the given fields replaced with the new values.

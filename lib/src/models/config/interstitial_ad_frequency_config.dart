@@ -28,9 +28,7 @@ class InterstitialAdFrequencyConfig extends Equatable {
   final int transitionsBeforeShowingInterstitialAds;
 
   @override
-  List<Object> get props => [
-    transitionsBeforeShowingInterstitialAds,
-  ];
+  List<Object> get props => [transitionsBeforeShowingInterstitialAds];
 
   /// Creates a copy of this [InterstitialAdFrequencyConfig] but with
   /// the given fields replaced with the new values.
