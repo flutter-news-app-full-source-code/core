@@ -6,11 +6,11 @@ import 'package:core/core.dart';
 /// ads. They exist to satisfy the data contract of [AdPlatformIdentifiers]
 /// when [AdPlatformType.demo] is the primary ad platform.
 const AdPlatformIdentifiers demoAdPlatformIdentifiers = AdPlatformIdentifiers(
-  feedNativeAdId: 'will_not_be_used',
-  feedBannerAdId: 'will_not_be_used',
-  feedToArticleInterstitialAdId: 'will_not_be_used',
-  inArticleNativeAdId: 'will_not_be_used',
-  inArticleBannerAdId: 'will_not_be_used',
+  feedNativeAdId: '_',
+  feedBannerAdId: '_',
+  feedToArticleInterstitialAdId: '_',
+  inArticleNativeAdId: '_',
+  inArticleBannerAdId: '_',
 );
 
 /// A list of initial remote config data to be loaded into the in-memory
@@ -88,7 +88,7 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
         feedInterstitialAdFrequencyConfig: InterstitialAdFrequencyConfig(
           guestTransitionsBeforeShowingInterstitialAds: 5,
           standardUserTransitionsBeforeShowingInterstitialAds: 10,
-          premiumUserTransitionsBeforeShowingInterstitialAds: 50000,
+          premiumUserTransitionsBeforeShowingInterstitialAds: 0,
         ),
       ),
     ),
@@ -102,7 +102,7 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
             daysBetweenViews: 30,
           ),
           AppUserRole.premiumUser: FeedDecoratorRoleConfig(
-            daysBetweenViews: 60,
+            daysBetweenViews: 0,
           ),
         },
       ),
