@@ -1,5 +1,6 @@
 import 'package:core/src/enums/banner_ad_shape.dart';
-import 'package:core/src/models/config/in_article_ad_slot_configuration.dart';
+import 'package:core/src/enums/app_user_role.dart';
+import 'package:core/src/enums/in_article_ad_slot_type.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -16,8 +17,8 @@ class ArticleAdConfiguration extends Equatable {
   /// {@macro article_ad_configuration}
   const ArticleAdConfiguration({
     required this.enabled,
-    required this.inArticleAdSlotConfigurations,
     required this.bannerAdShape,
+    required this.visibleTo,
   });
 
   /// Creates an [ArticleAdConfiguration] from JSON data.
@@ -33,27 +34,28 @@ class ArticleAdConfiguration extends Equatable {
   /// The preferred shape for banner ads displayed in articles.
   final BannerAdShape bannerAdShape;
 
-  /// List of configurations for individual in-article ad slots.
-  final List<InArticleAdSlotConfiguration> inArticleAdSlotConfigurations;
+  /// Explicitly defines which user roles can see in-article ad slots
+  /// and which specific slots are enabled for them. If a role is not
+  /// in this map, they will not see in-article ads.
+  final Map<AppUserRole, Map<InArticleAdSlotType, bool>> visibleTo;
 
   @override
   List<Object?> get props => [
     enabled,
     bannerAdShape,
-    inArticleAdSlotConfigurations,
+    visibleTo,
   ];
 
   /// Creates a copy of this [ArticleAdConfiguration] but with the given fields
   /// replaced with the new values.
   ArticleAdConfiguration copyWith({
     bool? enabled,
-    List<InArticleAdSlotConfiguration>? inArticleAdSlotConfigurations,
+    Map<AppUserRole, Map<InArticleAdSlotType, bool>>? visibleTo,
     BannerAdShape? bannerAdShape,
   }) {
     return ArticleAdConfiguration(
       enabled: enabled ?? this.enabled,
-      inArticleAdSlotConfigurations:
-          inArticleAdSlotConfigurations ?? this.inArticleAdSlotConfigurations,
+      visibleTo: visibleTo ?? this.visibleTo,
       bannerAdShape: bannerAdShape ?? this.bannerAdShape,
     );
   }
