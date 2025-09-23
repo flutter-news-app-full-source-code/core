@@ -6,6 +6,8 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/coverage-97%25-green?style=for-the-badge" alt="coverage: 97%">
+  <a href="https://flutter-news-app-full-source-code.github.io/docs/"><img src="https://img.shields.io/badge/LIVE_DOCS-VIEW-slategray?style=for-the-badge" alt="Live Docs: View"></a>
+  <a href="https://github.com/flutter-news-app-full-source-code"><img src="https://img.shields.io/badge/MAIN_PROJECT-BROWSE-purple?style=for-the-badge" alt="Main Project: Browse"></a>
 </p>
 
 This `core` package serves as the foundational shared library for the [**Flutter News App Full Source Code Toolkit**](https://github.com/flutter-news-app-full-source-code). It defines the common language and data structures—including models for news content, user data, and remote configurations—that ensure consistency and accelerate development across the Flutter mobile app, web dashboard, and Dart Frog backend API.
