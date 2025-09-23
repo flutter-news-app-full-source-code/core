@@ -60,36 +60,41 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       feedAdConfiguration: FeedAdConfiguration(
         enabled: true,
         adType: AdType.native,
-        frequencyConfig: FeedAdFrequencyConfig(
-          guestAdFrequency: 5,
-          guestAdPlacementInterval: 3,
-          authenticatedAdFrequency: 10,
-          authenticatedAdPlacementInterval: 5,
-          premiumAdFrequency: 0,
-          premiumAdPlacementInterval: 0,
-        ),
+        visibleTo: {
+          AppUserRole.guestUser: FeedAdFrequencyConfig(
+            adFrequency: 5,
+            adPlacementInterval: 3,
+          ),
+          AppUserRole.standardUser: FeedAdFrequencyConfig(
+            adFrequency: 10,
+            adPlacementInterval: 5,
+          ),
+        },
       ),
       articleAdConfiguration: ArticleAdConfiguration(
         enabled: true,
         bannerAdShape: BannerAdShape.rectangle,
-        inArticleAdSlotConfigurations: [
-          InArticleAdSlotConfiguration(
-            slotType: InArticleAdSlotType.aboveArticleContinueReadingButton,
-            enabled: true,
-          ),
-          InArticleAdSlotConfiguration(
-            slotType: InArticleAdSlotType.belowArticleContinueReadingButton,
-            enabled: true,
-          ),
-        ],
+        visibleTo: {
+          AppUserRole.guestUser: {
+            InArticleAdSlotType.aboveArticleContinueReadingButton: true,
+            InArticleAdSlotType.belowArticleContinueReadingButton: true,
+          },
+          AppUserRole.standardUser: {
+            InArticleAdSlotType.aboveArticleContinueReadingButton: true,
+            InArticleAdSlotType.belowArticleContinueReadingButton: true,
+          },
+        },
       ),
       interstitialAdConfiguration: InterstitialAdConfiguration(
         enabled: true,
-        feedInterstitialAdFrequencyConfig: InterstitialAdFrequencyConfig(
-          guestTransitionsBeforeShowingInterstitialAds: 5,
-          standardUserTransitionsBeforeShowingInterstitialAds: 10,
-          premiumUserTransitionsBeforeShowingInterstitialAds: 0,
-        ),
+        visibleTo: {
+          AppUserRole.guestUser: InterstitialAdFrequencyConfig(
+            transitionsBeforeShowingInterstitialAds: 5,
+          ),
+          AppUserRole.standardUser: InterstitialAdFrequencyConfig(
+            transitionsBeforeShowingInterstitialAds: 10,
+          ),
+        },
       ),
     ),
     feedDecoratorConfig: const {
