@@ -11,9 +11,14 @@ InterstitialAdConfiguration _$InterstitialAdConfigurationFromJson(
 ) => $checkedCreate('InterstitialAdConfiguration', json, ($checkedConvert) {
   final val = InterstitialAdConfiguration(
     enabled: $checkedConvert('enabled', (v) => v as bool),
-    feedInterstitialAdFrequencyConfig: $checkedConvert(
-      'feedInterstitialAdFrequencyConfig',
-      (v) => InterstitialAdFrequencyConfig.fromJson(v as Map<String, dynamic>),
+    visibleTo: $checkedConvert(
+      'visibleTo',
+      (v) => (v as Map<String, dynamic>).map(
+        (k, e) => MapEntry(
+          $enumDecode(_$AppUserRoleEnumMap, k),
+          InterstitialAdFrequencyConfig.fromJson(e as Map<String, dynamic>),
+        ),
+      ),
     ),
     adType: $checkedConvert(
       'adType',
@@ -28,9 +33,15 @@ Map<String, dynamic> _$InterstitialAdConfigurationToJson(
 ) => <String, dynamic>{
   'enabled': instance.enabled,
   'adType': _$AdTypeEnumMap[instance.adType]!,
-  'feedInterstitialAdFrequencyConfig': instance
-      .feedInterstitialAdFrequencyConfig
-      .toJson(),
+  'visibleTo': instance.visibleTo.map(
+    (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e.toJson()),
+  ),
+};
+
+const _$AppUserRoleEnumMap = {
+  AppUserRole.premiumUser: 'premiumUser',
+  AppUserRole.standardUser: 'standardUser',
+  AppUserRole.guestUser: 'guestUser',
 };
 
 const _$AdTypeEnumMap = {

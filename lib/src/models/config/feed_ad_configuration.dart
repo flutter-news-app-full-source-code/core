@@ -16,7 +16,7 @@ class FeedAdConfiguration extends Equatable {
   const FeedAdConfiguration({
     required this.enabled,
     required this.adType,
-    required this.frequencyConfig,
+    required this.visibleTo,
   }) : assert(
          adType == AdType.native || adType == AdType.banner,
          'Feed ads must be of type native or banner.',
@@ -35,23 +35,25 @@ class FeedAdConfiguration extends Equatable {
   /// Defines the type of ad (Native or Banner) for the entire feed placement.
   final AdType adType;
 
-  /// User-role-based ad frequency and placement intervals for feed ads.
-  final FeedAdFrequencyConfig frequencyConfig;
+  /// Explicitly defines which user roles can see this feed ad configuration
+  /// and their specific frequency settings. If a role is not in this map,
+  /// they will not see feed ads.
+  final Map<AppUserRole, FeedAdFrequencyConfig> visibleTo;
 
   @override
-  List<Object?> get props => [enabled, adType, frequencyConfig];
+  List<Object?> get props => [enabled, adType, visibleTo];
 
   /// Creates a copy of this [FeedAdConfiguration] but with the given fields
   /// replaced with the new values.
   FeedAdConfiguration copyWith({
     bool? enabled,
     AdType? adType,
-    FeedAdFrequencyConfig? frequencyConfig,
+    Map<AppUserRole, FeedAdFrequencyConfig>? visibleTo,
   }) {
     return FeedAdConfiguration(
       enabled: enabled ?? this.enabled,
       adType: adType ?? this.adType,
-      frequencyConfig: frequencyConfig ?? this.frequencyConfig,
+      visibleTo: visibleTo ?? this.visibleTo,
     );
   }
 }

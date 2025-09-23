@@ -11,8 +11,8 @@ void main() {
       expect(feedAdConfigurationFixture.enabled, isTrue);
       expect(feedAdConfigurationFixture.adType, AdType.native);
       expect(
-        feedAdConfigurationFixture.frequencyConfig,
-        isA<FeedAdFrequencyConfig>(),
+        feedAdConfigurationFixture.visibleTo,
+        isA<Map<AppUserRole, FeedAdFrequencyConfig>>(),
       );
     });
 
@@ -26,10 +26,17 @@ void main() {
       final updatedConfig = feedAdConfigurationFixture.copyWith(
         enabled: false,
         adType: AdType.banner,
+        visibleTo: {
+          AppUserRole.guestUser: const FeedAdFrequencyConfig(
+            adFrequency: 7,
+            adPlacementInterval: 2,
+          ),
+        },
       );
 
       expect(updatedConfig.enabled, isFalse);
       expect(updatedConfig.adType, AdType.banner);
+      expect(updatedConfig.visibleTo.length, 1);
       expect(updatedConfig, isNot(equals(feedAdConfigurationFixture)));
     });
 
@@ -43,7 +50,7 @@ void main() {
         () => FeedAdConfiguration(
           enabled: true,
           adType: AdType.interstitial,
-          frequencyConfig: feedAdConfigurationFixture.frequencyConfig,
+          visibleTo: feedAdConfigurationFixture.visibleTo,
         ),
         throwsA(isA<AssertionError>()),
       );

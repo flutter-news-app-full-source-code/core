@@ -12,8 +12,8 @@ void main() {
         expect(interstitialAdConfigFixture.enabled, isA<bool>());
         expect(interstitialAdConfigFixture.adType, AdType.interstitial);
         expect(
-          interstitialAdConfigFixture.feedInterstitialAdFrequencyConfig,
-          isA<InterstitialAdFrequencyConfig>(),
+          interstitialAdConfigFixture.visibleTo,
+          isA<Map<AppUserRole, InterstitialAdFrequencyConfig>>(),
         );
       });
     });
@@ -30,16 +30,18 @@ void main() {
       test('returns a new instance with updated values', () {
         final updatedConfig = interstitialAdConfigFixture.copyWith(
           enabled: false,
-          feedInterstitialAdFrequencyConfig: interstitialAdConfigFixture
-              .feedInterstitialAdFrequencyConfig
-              .copyWith(guestTransitionsBeforeShowingInterstitialAds: 10),
+          visibleTo: {
+            AppUserRole.guestUser: const InterstitialAdFrequencyConfig(
+              transitionsBeforeShowingInterstitialAds: 10,
+            ),
+          },
         );
 
         expect(updatedConfig.enabled, false);
         expect(
           updatedConfig
-              .feedInterstitialAdFrequencyConfig
-              .guestTransitionsBeforeShowingInterstitialAds,
+              .visibleTo[AppUserRole.guestUser]!
+              .transitionsBeforeShowingInterstitialAds,
           10,
         );
         expect(updatedConfig, isNot(equals(interstitialAdConfigFixture)));
@@ -61,74 +63,6 @@ void main() {
       test('instances with different properties are not equal', () {
         final config1 = interstitialAdConfigFixture.copyWith();
         final config2 = interstitialAdConfigFixture.copyWith(enabled: false);
-        expect(config1, isNot(equals(config2)));
-      });
-    });
-  });
-
-  group('FeedInterstitialAdFrequencyConfig', () {
-    final frequencyConfigFixture = remoteConfigsFixturesData
-        .first
-        .adConfig
-        .interstitialAdConfiguration
-        .feedInterstitialAdFrequencyConfig;
-
-    group('constructor', () {
-      test('returns correct instance', () {
-        expect(frequencyConfigFixture, isA<InterstitialAdFrequencyConfig>());
-        expect(
-          frequencyConfigFixture.guestTransitionsBeforeShowingInterstitialAds,
-          isA<int>(),
-        );
-        expect(
-          frequencyConfigFixture
-              .standardUserTransitionsBeforeShowingInterstitialAds,
-          isA<int>(),
-        );
-        expect(
-          frequencyConfigFixture
-              .premiumUserTransitionsBeforeShowingInterstitialAds,
-          isA<int>(),
-        );
-      });
-    });
-
-    group('fromJson/toJson', () {
-      test('round trip', () {
-        final json = frequencyConfigFixture.toJson();
-        final result = InterstitialAdFrequencyConfig.fromJson(json);
-        expect(result, frequencyConfigFixture);
-      });
-    });
-
-    group('copyWith', () {
-      test('returns a new instance with updated values', () {
-        final updatedConfig = frequencyConfigFixture.copyWith(
-          guestTransitionsBeforeShowingInterstitialAds: 7,
-        );
-
-        expect(updatedConfig.guestTransitionsBeforeShowingInterstitialAds, 7);
-        expect(updatedConfig, isNot(equals(frequencyConfigFixture)));
-      });
-
-      test('returns the same instance if no changes are made', () {
-        final updatedConfig = frequencyConfigFixture.copyWith();
-        expect(updatedConfig, equals(frequencyConfigFixture));
-      });
-    });
-
-    group('Equatable', () {
-      test('instances with the same properties are equal', () {
-        final config1 = frequencyConfigFixture.copyWith();
-        final config2 = frequencyConfigFixture.copyWith();
-        expect(config1, config2);
-      });
-
-      test('instances with different properties are not equal', () {
-        final config1 = frequencyConfigFixture.copyWith();
-        final config2 = frequencyConfigFixture.copyWith(
-          guestTransitionsBeforeShowingInterstitialAds: 100,
-        );
         expect(config1, isNot(equals(config2)));
       });
     });

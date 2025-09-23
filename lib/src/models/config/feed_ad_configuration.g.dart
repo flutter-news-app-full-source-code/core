@@ -14,9 +14,14 @@ FeedAdConfiguration _$FeedAdConfigurationFromJson(Map<String, dynamic> json) =>
           'adType',
           (v) => $enumDecode(_$AdTypeEnumMap, v),
         ),
-        frequencyConfig: $checkedConvert(
-          'frequencyConfig',
-          (v) => FeedAdFrequencyConfig.fromJson(v as Map<String, dynamic>),
+        visibleTo: $checkedConvert(
+          'visibleTo',
+          (v) => (v as Map<String, dynamic>).map(
+            (k, e) => MapEntry(
+              $enumDecode(_$AppUserRoleEnumMap, k),
+              FeedAdFrequencyConfig.fromJson(e as Map<String, dynamic>),
+            ),
+          ),
         ),
       );
       return val;
@@ -27,7 +32,9 @@ Map<String, dynamic> _$FeedAdConfigurationToJson(
 ) => <String, dynamic>{
   'enabled': instance.enabled,
   'adType': _$AdTypeEnumMap[instance.adType]!,
-  'frequencyConfig': instance.frequencyConfig.toJson(),
+  'visibleTo': instance.visibleTo.map(
+    (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e.toJson()),
+  ),
 };
 
 const _$AdTypeEnumMap = {
@@ -35,4 +42,10 @@ const _$AdTypeEnumMap = {
   AdType.native: 'native',
   AdType.video: 'video',
   AdType.interstitial: 'interstitial',
+};
+
+const _$AppUserRoleEnumMap = {
+  AppUserRole.premiumUser: 'premiumUser',
+  AppUserRole.standardUser: 'standardUser',
+  AppUserRole.guestUser: 'guestUser',
 };

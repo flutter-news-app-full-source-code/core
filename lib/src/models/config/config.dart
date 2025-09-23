@@ -6,7 +6,6 @@ export 'feed_ad_configuration.dart';
 export 'feed_ad_frequency_config.dart';
 export 'feed_decorator_config.dart';
 export 'feed_decorator_role_config.dart';
-export 'in_article_ad_slot_configuration.dart';
 export 'interstitial_ad_configuration.dart';
 export 'interstitial_ad_frequency_config.dart';
 export 'remote_config.dart';

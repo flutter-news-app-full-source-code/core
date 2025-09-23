@@ -11,19 +11,23 @@ ArticleAdConfiguration _$ArticleAdConfigurationFromJson(
 ) => $checkedCreate('ArticleAdConfiguration', json, ($checkedConvert) {
   final val = ArticleAdConfiguration(
     enabled: $checkedConvert('enabled', (v) => v as bool),
-    inArticleAdSlotConfigurations: $checkedConvert(
-      'inArticleAdSlotConfigurations',
-      (v) => (v as List<dynamic>)
-          .map(
-            (e) => InArticleAdSlotConfiguration.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList(),
-    ),
     bannerAdShape: $checkedConvert(
       'bannerAdShape',
       (v) => $enumDecode(_$BannerAdShapeEnumMap, v),
+    ),
+    visibleTo: $checkedConvert(
+      'visibleTo',
+      (v) => (v as Map<String, dynamic>).map(
+        (k, e) => MapEntry(
+          $enumDecode(_$AppUserRoleEnumMap, k),
+          (e as Map<String, dynamic>).map(
+            (k, e) => MapEntry(
+              $enumDecode(_$InArticleAdSlotTypeEnumMap, k),
+              e as bool,
+            ),
+          ),
+        ),
+      ),
     ),
   );
   return val;
@@ -34,12 +38,28 @@ Map<String, dynamic> _$ArticleAdConfigurationToJson(
 ) => <String, dynamic>{
   'enabled': instance.enabled,
   'bannerAdShape': _$BannerAdShapeEnumMap[instance.bannerAdShape]!,
-  'inArticleAdSlotConfigurations': instance.inArticleAdSlotConfigurations
-      .map((e) => e.toJson())
-      .toList(),
+  'visibleTo': instance.visibleTo.map(
+    (k, e) => MapEntry(
+      _$AppUserRoleEnumMap[k]!,
+      e.map((k, e) => MapEntry(_$InArticleAdSlotTypeEnumMap[k]!, e)),
+    ),
+  ),
 };
 
 const _$BannerAdShapeEnumMap = {
   BannerAdShape.square: 'square',
   BannerAdShape.rectangle: 'rectangle',
+};
+
+const _$InArticleAdSlotTypeEnumMap = {
+  InArticleAdSlotType.aboveArticleContinueReadingButton:
+      'aboveArticleContinueReadingButton',
+  InArticleAdSlotType.belowArticleContinueReadingButton:
+      'belowArticleContinueReadingButton',
+};
+
+const _$AppUserRoleEnumMap = {
+  AppUserRole.premiumUser: 'premiumUser',
+  AppUserRole.standardUser: 'standardUser',
+  AppUserRole.guestUser: 'guestUser',
 };

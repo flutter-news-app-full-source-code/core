@@ -10,28 +10,9 @@ FeedAdFrequencyConfig _$FeedAdFrequencyConfigFromJson(
   Map<String, dynamic> json,
 ) => $checkedCreate('FeedAdFrequencyConfig', json, ($checkedConvert) {
   final val = FeedAdFrequencyConfig(
-    guestAdFrequency: $checkedConvert(
-      'guestAdFrequency',
-      (v) => (v as num).toInt(),
-    ),
-    guestAdPlacementInterval: $checkedConvert(
-      'guestAdPlacementInterval',
-      (v) => (v as num).toInt(),
-    ),
-    authenticatedAdFrequency: $checkedConvert(
-      'authenticatedAdFrequency',
-      (v) => (v as num).toInt(),
-    ),
-    authenticatedAdPlacementInterval: $checkedConvert(
-      'authenticatedAdPlacementInterval',
-      (v) => (v as num).toInt(),
-    ),
-    premiumAdFrequency: $checkedConvert(
-      'premiumAdFrequency',
-      (v) => (v as num).toInt(),
-    ),
-    premiumAdPlacementInterval: $checkedConvert(
-      'premiumAdPlacementInterval',
+    adFrequency: $checkedConvert('adFrequency', (v) => (v as num).toInt()),
+    adPlacementInterval: $checkedConvert(
+      'adPlacementInterval',
       (v) => (v as num).toInt(),
     ),
   );
@@ -41,10 +22,6 @@ FeedAdFrequencyConfig _$FeedAdFrequencyConfigFromJson(
 Map<String, dynamic> _$FeedAdFrequencyConfigToJson(
   FeedAdFrequencyConfig instance,
 ) => <String, dynamic>{
-  'guestAdFrequency': instance.guestAdFrequency,
-  'guestAdPlacementInterval': instance.guestAdPlacementInterval,
-  'authenticatedAdFrequency': instance.authenticatedAdFrequency,
-  'authenticatedAdPlacementInterval': instance.authenticatedAdPlacementInterval,
-  'premiumAdFrequency': instance.premiumAdFrequency,
-  'premiumAdPlacementInterval': instance.premiumAdPlacementInterval,
+  'adFrequency': instance.adFrequency,
+  'adPlacementInterval': instance.adPlacementInterval,
 };
