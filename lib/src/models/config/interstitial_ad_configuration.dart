@@ -1,4 +1,5 @@
 import 'package:core/src/enums/ad_type.dart';
+import 'package:core/src/enums/app_user_role.dart';
 import 'package:core/src/models/config/interstitial_ad_frequency_config.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -15,7 +16,7 @@ class InterstitialAdConfiguration extends Equatable {
   /// {@macro interstitial_ad_configuration}
   const InterstitialAdConfiguration({
     required this.enabled,
-    required this.feedInterstitialAdFrequencyConfig,
+    required this.visibleTo,
     this.adType = AdType.interstitial,
   }) : assert(
          adType == AdType.interstitial,
@@ -35,15 +36,16 @@ class InterstitialAdConfiguration extends Equatable {
   /// The type of the ad, fixed to [AdType.interstitial].
   final AdType adType;
 
-  /// User-role-based frequency for interstitial ads shown during feed-to-item
-  /// page transitions (e.g., clicking a headline to read the full article).
-  final InterstitialAdFrequencyConfig feedInterstitialAdFrequencyConfig;
+  /// Explicitly defines which user roles can see this interstitial ad
+  /// configuration and their specific frequency settings. If a role is not
+  /// in this map, they will not see interstitial ads.
+  final Map<AppUserRole, InterstitialAdFrequencyConfig> visibleTo;
 
   @override
   List<Object?> get props => [
     enabled,
     adType,
-    feedInterstitialAdFrequencyConfig,
+    visibleTo,
   ];
 
   /// Creates a copy of this [InterstitialAdConfiguration] but with
@@ -51,14 +53,12 @@ class InterstitialAdConfiguration extends Equatable {
   InterstitialAdConfiguration copyWith({
     bool? enabled,
     AdType? adType,
-    InterstitialAdFrequencyConfig? feedInterstitialAdFrequencyConfig,
+    Map<AppUserRole, InterstitialAdFrequencyConfig>? visibleTo,
   }) {
     return InterstitialAdConfiguration(
       enabled: enabled ?? this.enabled,
       adType: adType ?? this.adType,
-      feedInterstitialAdFrequencyConfig:
-          feedInterstitialAdFrequencyConfig ??
-          this.feedInterstitialAdFrequencyConfig,
+      visibleTo: visibleTo ?? this.visibleTo,
     );
   }
 }
