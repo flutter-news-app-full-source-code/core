@@ -17,6 +17,10 @@ void main() {
         adConfigFixture.articleAdConfiguration,
         isA<ArticleAdConfiguration>(),
       );
+      expect(
+        adConfigFixture.interstitialAdConfiguration,
+        isA<InterstitialAdConfiguration>(),
+      );
     });
 
     test('supports value equality', () {
@@ -31,10 +35,15 @@ void main() {
         feedAdConfiguration: adConfigFixture.feedAdConfiguration.copyWith(
           enabled: false,
         ),
+        interstitialAdConfiguration:
+            adConfigFixture.interstitialAdConfiguration.copyWith(
+          enabled: false,
+        ),
       );
 
       expect(updatedConfig.primaryAdPlatform, AdPlatformType.local);
       expect(updatedConfig.feedAdConfiguration.enabled, isFalse);
+      expect(updatedConfig.interstitialAdConfiguration.enabled, isFalse);
       expect(updatedConfig, isNot(equals(adConfigFixture)));
     });
 
