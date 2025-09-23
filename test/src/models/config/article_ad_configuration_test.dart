@@ -14,8 +14,8 @@ void main() {
         BannerAdShape.rectangle,
       );
       expect(
-        articleAdConfigurationFixture.inArticleAdSlotConfigurations,
-        isA<List<InArticleAdSlotConfiguration>>(),
+        articleAdConfigurationFixture.visibleTo,
+        isA<Map<AppUserRole, Map<InArticleAdSlotType, bool>>>(),
       );
     });
 
@@ -28,11 +28,17 @@ void main() {
     test('copyWith returns a new instance with updated values', () {
       final updatedConfig = articleAdConfigurationFixture.copyWith(
         enabled: false,
-        bannerAdShape: BannerAdShape.rectangle,
+        bannerAdShape: BannerAdShape.square,
+        visibleTo: {
+          AppUserRole.guestUser: {
+            InArticleAdSlotType.aboveArticleContinueReadingButton: false,
+          },
+        },
       );
 
       expect(updatedConfig.enabled, isFalse);
-      expect(updatedConfig.bannerAdShape, BannerAdShape.rectangle);
+      expect(updatedConfig.bannerAdShape, BannerAdShape.square);
+      expect(updatedConfig.visibleTo[AppUserRole.guestUser]!.length, 1);
       expect(updatedConfig, isNot(equals(articleAdConfigurationFixture)));
     });
 
