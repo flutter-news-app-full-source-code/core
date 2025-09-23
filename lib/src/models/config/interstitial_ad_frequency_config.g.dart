@@ -10,16 +10,8 @@ InterstitialAdFrequencyConfig _$InterstitialAdFrequencyConfigFromJson(
   Map<String, dynamic> json,
 ) => $checkedCreate('InterstitialAdFrequencyConfig', json, ($checkedConvert) {
   final val = InterstitialAdFrequencyConfig(
-    guestTransitionsBeforeShowingInterstitialAds: $checkedConvert(
-      'guestTransitionsBeforeShowingInterstitialAds',
-      (v) => (v as num).toInt(),
-    ),
-    standardUserTransitionsBeforeShowingInterstitialAds: $checkedConvert(
-      'standardUserTransitionsBeforeShowingInterstitialAds',
-      (v) => (v as num).toInt(),
-    ),
-    premiumUserTransitionsBeforeShowingInterstitialAds: $checkedConvert(
-      'premiumUserTransitionsBeforeShowingInterstitialAds',
+    transitionsBeforeShowingInterstitialAds: $checkedConvert(
+      'transitionsBeforeShowingInterstitialAds',
       (v) => (v as num).toInt(),
     ),
   );
@@ -29,10 +21,6 @@ InterstitialAdFrequencyConfig _$InterstitialAdFrequencyConfigFromJson(
 Map<String, dynamic> _$InterstitialAdFrequencyConfigToJson(
   InterstitialAdFrequencyConfig instance,
 ) => <String, dynamic>{
-  'guestTransitionsBeforeShowingInterstitialAds':
-      instance.guestTransitionsBeforeShowingInterstitialAds,
-  'standardUserTransitionsBeforeShowingInterstitialAds':
-      instance.standardUserTransitionsBeforeShowingInterstitialAds,
-  'premiumUserTransitionsBeforeShowingInterstitialAds':
-      instance.premiumUserTransitionsBeforeShowingInterstitialAds,
+  'transitionsBeforeShowingInterstitialAds':
+      instance.transitionsBeforeShowingInterstitialAds,
 };
