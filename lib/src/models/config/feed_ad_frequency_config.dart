@@ -4,8 +4,8 @@ import 'package:json_annotation/json_annotation.dart';
 part 'feed_ad_frequency_config.g.dart';
 
 /// {@template feed_ad_frequency_config}
-/// Encapsulates user-role-based ad frequency and placement intervals
-/// for feed-like ads.
+/// Encapsulates ad frequency and placement intervals for feed-like ads
+/// for a specific user role.
 ///
 /// **Ad Injection Logic Explained:**
 ///
@@ -34,12 +34,8 @@ part 'feed_ad_frequency_config.g.dart';
 class FeedAdFrequencyConfig extends Equatable {
   /// {@macro feed_ad_frequency_config}
   const FeedAdFrequencyConfig({
-    required this.guestAdFrequency,
-    required this.guestAdPlacementInterval,
-    required this.authenticatedAdFrequency,
-    required this.authenticatedAdPlacementInterval,
-    required this.premiumAdFrequency,
-    required this.premiumAdPlacementInterval,
+    required this.adFrequency,
+    required this.adPlacementInterval,
   });
 
   /// Creates a [FeedAdFrequencyConfig] from JSON data.
@@ -50,55 +46,27 @@ class FeedAdFrequencyConfig extends Equatable {
   Map<String, dynamic> toJson() => _$FeedAdFrequencyConfigToJson(this);
 
   /// See class documentation for details on AdFrequency.
-  final int guestAdFrequency;
+  final int adFrequency;
 
   /// See class documentation for details on AdPlacementInterval.
-  final int guestAdPlacementInterval;
-
-  /// See class documentation for details on AdFrequency.
-  final int authenticatedAdFrequency;
-
-  /// See class documentation for details on AdPlacementInterval.
-  final int authenticatedAdPlacementInterval;
-
-  /// See class documentation for details on AdFrequency.
-  final int premiumAdFrequency;
-
-  /// See class documentation for details on AdPlacementInterval.
-  final int premiumAdPlacementInterval;
+  final int adPlacementInterval;
 
   @override
   List<Object> get props => [
-    guestAdFrequency,
-    guestAdPlacementInterval,
-    authenticatedAdFrequency,
-    authenticatedAdPlacementInterval,
-    premiumAdFrequency,
-    premiumAdPlacementInterval,
+    adFrequency,
+    adPlacementInterval,
   ];
 
   /// Creates a copy of this [FeedAdFrequencyConfig] but with the given fields
   /// replaced with the new values.
   FeedAdFrequencyConfig copyWith({
-    int? guestAdFrequency,
-    int? guestAdPlacementInterval,
-    int? authenticatedAdFrequency,
-    int? authenticatedAdPlacementInterval,
-    int? premiumAdFrequency,
-    int? premiumAdPlacementInterval,
+    int? adFrequency,
+    int? adPlacementInterval,
   }) {
     return FeedAdFrequencyConfig(
-      guestAdFrequency: guestAdFrequency ?? this.guestAdFrequency,
-      guestAdPlacementInterval:
-          guestAdPlacementInterval ?? this.guestAdPlacementInterval,
-      authenticatedAdFrequency:
-          authenticatedAdFrequency ?? this.authenticatedAdFrequency,
-      authenticatedAdPlacementInterval:
-          authenticatedAdPlacementInterval ??
-          this.authenticatedAdPlacementInterval,
-      premiumAdFrequency: premiumAdFrequency ?? this.premiumAdFrequency,
-      premiumAdPlacementInterval:
-          premiumAdPlacementInterval ?? this.premiumAdPlacementInterval,
+      adFrequency: adFrequency ?? this.adFrequency,
+      adPlacementInterval:
+          adPlacementInterval ?? this.adPlacementInterval,
     );
   }
 }
