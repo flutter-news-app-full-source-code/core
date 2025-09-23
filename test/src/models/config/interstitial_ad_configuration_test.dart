@@ -39,7 +39,8 @@ void main() {
 
         expect(updatedConfig.enabled, false);
         expect(
-          updatedConfig.visibleTo[AppUserRole.guestUser]!
+          updatedConfig
+              .visibleTo[AppUserRole.guestUser]!
               .transitionsBeforeShowingInterstitialAds,
           10,
         );

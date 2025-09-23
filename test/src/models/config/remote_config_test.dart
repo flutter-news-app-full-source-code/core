@@ -39,10 +39,10 @@ void main() {
           ),
           adConfig: remoteConfigFixture.adConfig.copyWith(
             primaryAdPlatform: AdPlatformType.local,
-            feedAdConfiguration:
-                remoteConfigFixture.adConfig.feedAdConfiguration.copyWith(
-              enabled: false,
-            ),
+            feedAdConfiguration: remoteConfigFixture
+                .adConfig
+                .feedAdConfiguration
+                .copyWith(enabled: false),
           ),
         );
 

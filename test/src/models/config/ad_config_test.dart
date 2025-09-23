@@ -35,10 +35,8 @@ void main() {
         feedAdConfiguration: adConfigFixture.feedAdConfiguration.copyWith(
           enabled: false,
         ),
-        interstitialAdConfiguration:
-            adConfigFixture.interstitialAdConfiguration.copyWith(
-          enabled: false,
-        ),
+        interstitialAdConfiguration: adConfigFixture.interstitialAdConfiguration
+            .copyWith(enabled: false),
       );
 
       expect(updatedConfig.primaryAdPlatform, AdPlatformType.local);
