@@ -5,7 +5,7 @@
 </div>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/coverage-97-green?style=for-the-badge" alt="coverage: 97%">
+  <img src="https://img.shields.io/badge/coverage-97%25-green?style=for-the-badge" alt="coverage: 97%">
 </p>
 
 This `core` package serves as the foundational shared library for the [**Flutter News App Full Source Code Toolkit**](https://github.com/flutter-news-app-full-source-code). It defines the common language and data structures—including models for news content, user data, and remote configurations—that ensure consistency and accelerate development across the Flutter mobile app, web dashboard, and Dart Frog backend API.
