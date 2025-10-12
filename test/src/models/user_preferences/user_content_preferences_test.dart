@@ -8,6 +8,7 @@ void main() {
     final mockSource = sourcesFixturesData.first;
     final mockTopic = topicsFixturesData.first;
     final mockHeadline = headlinesFixturesData.first;
+    final mockSavedFilter = savedFiltersFixturesData.first;
 
     // Use the base fixture and copyWith to create a populated version for tests
     final userContentPreferencesFixture = userContentPreferencesFixturesData
@@ -17,6 +18,7 @@ void main() {
           followedSources: [mockSource],
           followedTopics: [mockTopic],
           savedHeadlines: [],
+          savedFilters: [mockSavedFilter],
         );
 
     group('constructor', () {
@@ -31,6 +33,7 @@ void main() {
         expect(defaultPreferences.followedSources, isEmpty);
         expect(defaultPreferences.followedTopics, isEmpty);
         expect(defaultPreferences.savedHeadlines, isEmpty);
+        expect(defaultPreferences.savedFilters, isEmpty);
       });
     });
 
@@ -38,6 +41,7 @@ void main() {
       test('round trip with all fields populated', () {
         final preferencesWithSaved = userContentPreferencesFixture.copyWith(
           savedHeadlines: [mockHeadline],
+          savedFilters: [mockSavedFilter],
         );
         final json = preferencesWithSaved.toJson();
         final result = UserContentPreferences.fromJson(json);
@@ -56,9 +60,11 @@ void main() {
       test('returns a new instance with updated fields', () {
         final newCountry = countriesFixturesData[1];
         final newHeadline = headlinesFixturesData[1];
+        final newSavedFilter = savedFiltersFixturesData[1];
 
         final updatedPreferences = userContentPreferencesFixture.copyWith(
           followedCountries: [newCountry],
+          savedFilters: [mockSavedFilter, newSavedFilter],
           savedHeadlines: [mockHeadline, newHeadline],
         );
 
@@ -72,6 +78,10 @@ void main() {
           updatedPreferences.followedTopics,
           userContentPreferencesFixture.followedTopics,
         );
+        expect(updatedPreferences.savedFilters, [
+          mockSavedFilter,
+          newSavedFilter,
+        ]);
         expect(updatedPreferences.savedHeadlines, [mockHeadline, newHeadline]);
       });
 

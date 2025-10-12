@@ -1,5 +1,6 @@
 import 'package:core/src/models/config/remote_config.dart';
 import 'package:core/src/models/user_preferences/user_content_preferences.dart';
+import 'package:core/src/models/user_presets/saved_filter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -22,17 +23,8 @@ part 'user_preference_config.g.dart';
 ///   Countries, up to 5 Sources, and up to 5 Categories).
 /// - Saved Headlines: The limit applies to the total number of headlines
 ///   a user can save.
-///
-/// **Tiered Limits defaults:**
-/// - **Guest User:**
-///   - Followed Items (Countries, Sources, Categories): 5 each
-///   - Saved Headlines: 10
-/// - **Authenticated User:**
-///   - Followed Items (Countries, Sources, Categories): 15 each
-///   - Saved Headlines: 30
-/// - **Premium User:**
-///   - Followed Items (Countries, Sources, Categories): 30 each
-///   - Saved Headlines: 100
+/// - Saved Filters: The limit applies to the total number of [SavedFilter]
+///   a user can save.
 ///
 /// These limits are configurable to balance performance (allowing fetching
 /// full objects within these limits) and feature differentiation across tiers.
@@ -49,6 +41,9 @@ class UserPreferenceConfig extends Equatable {
     required this.authenticatedSavedHeadlinesLimit,
     required this.premiumFollowedItemsLimit,
     required this.premiumSavedHeadlinesLimit,
+    required this.guestSavedFiltersLimit,
+    required this.authenticatedSavedFiltersLimit,
+    required this.premiumSavedFiltersLimit,
   });
 
   /// Factory method to create a [UserPreferenceConfig] instance from a JSON map.
@@ -76,6 +71,15 @@ class UserPreferenceConfig extends Equatable {
   /// Maximum number of headlines a Premium user can save.
   final int premiumSavedHeadlinesLimit;
 
+  /// Maximum number of filters a Guest user can save.
+  final int guestSavedFiltersLimit;
+
+  /// Maximum number of filters an Authenticated user can save.
+  final int authenticatedSavedFiltersLimit;
+
+  /// Maximum number of filters a Premium user can save.
+  final int premiumSavedFiltersLimit;
+
   /// Converts this [UserPreferenceConfig] instance to a JSON map.
   Map<String, dynamic> toJson() => _$UserPreferenceConfigToJson(this);
 
@@ -88,6 +92,9 @@ class UserPreferenceConfig extends Equatable {
     int? authenticatedSavedHeadlinesLimit,
     int? premiumFollowedItemsLimit,
     int? premiumSavedHeadlinesLimit,
+    int? guestSavedFiltersLimit,
+    int? authenticatedSavedFiltersLimit,
+    int? premiumSavedFiltersLimit,
   }) {
     return UserPreferenceConfig(
       guestFollowedItemsLimit:
@@ -104,6 +111,12 @@ class UserPreferenceConfig extends Equatable {
           premiumFollowedItemsLimit ?? this.premiumFollowedItemsLimit,
       premiumSavedHeadlinesLimit:
           premiumSavedHeadlinesLimit ?? this.premiumSavedHeadlinesLimit,
+      guestSavedFiltersLimit:
+          guestSavedFiltersLimit ?? this.guestSavedFiltersLimit,
+      authenticatedSavedFiltersLimit:
+          authenticatedSavedFiltersLimit ?? this.authenticatedSavedFiltersLimit,
+      premiumSavedFiltersLimit:
+          premiumSavedFiltersLimit ?? this.premiumSavedFiltersLimit,
     );
   }
 
@@ -115,6 +128,9 @@ class UserPreferenceConfig extends Equatable {
     authenticatedSavedHeadlinesLimit,
     premiumFollowedItemsLimit,
     premiumSavedHeadlinesLimit,
+    guestSavedFiltersLimit,
+    authenticatedSavedFiltersLimit,
+    premiumSavedFiltersLimit,
   ];
 
   @override

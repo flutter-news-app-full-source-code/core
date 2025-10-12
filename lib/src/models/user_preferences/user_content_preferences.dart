@@ -2,6 +2,7 @@ import 'package:core/src/models/entities/country.dart';
 import 'package:core/src/models/entities/headline.dart';
 import 'package:core/src/models/entities/source.dart';
 import 'package:core/src/models/entities/topic.dart';
+import 'package:core/src/models/user_presets/saved_filter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -32,6 +33,7 @@ class UserContentPreferences extends Equatable {
     required this.followedSources,
     required this.followedTopics,
     required this.savedHeadlines,
+    required this.savedFilters,
   });
 
   /// Factory method to create a [UserContentPreferences] instance from a JSON map.
@@ -53,6 +55,9 @@ class UserContentPreferences extends Equatable {
   /// List of headlines the user has saved.
   final List<Headline> savedHeadlines;
 
+  /// List of filter combinations the user has saved.
+  final List<SavedFilter> savedFilters;
+
   /// Converts this [UserContentPreferences] instance to a JSON map.
   Map<String, dynamic> toJson() => _$UserContentPreferencesToJson(this);
 
@@ -63,6 +68,7 @@ class UserContentPreferences extends Equatable {
     followedSources,
     followedTopics,
     savedHeadlines,
+    savedFilters,
   ];
 
   @override
@@ -76,6 +82,7 @@ class UserContentPreferences extends Equatable {
     List<Source>? followedSources,
     List<Topic>? followedTopics,
     List<Headline>? savedHeadlines,
+    List<SavedFilter>? savedFilters,
   }) {
     return UserContentPreferences(
       id: id ?? this.id,
@@ -83,6 +90,7 @@ class UserContentPreferences extends Equatable {
       followedSources: followedSources ?? this.followedSources,
       followedTopics: followedTopics ?? this.followedTopics,
       savedHeadlines: savedHeadlines ?? this.savedHeadlines,
+      savedFilters: savedFilters ?? this.savedFilters,
     );
   }
 }

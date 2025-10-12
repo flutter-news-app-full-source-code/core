@@ -35,6 +35,9 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       authenticatedSavedHeadlinesLimit: 30,
       premiumFollowedItemsLimit: 30,
       premiumSavedHeadlinesLimit: 100,
+      guestSavedFiltersLimit: 3,
+      authenticatedSavedFiltersLimit: 10,
+      premiumSavedFiltersLimit: 25,
     ),
     adConfig: const AdConfig(
       enabled: true,

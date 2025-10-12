@@ -530,3 +530,7 @@ const kLocalAd3Id = '3563c000a4a4e6e1a8e7f0f3';
 const kLocalAd4Id = '4563c000a4a4e6e1a8e7f0f4';
 const kLocalAd5Id = '5563c000a4a4e6e1a8e7f0f5';
 const kLocalAd6Id = '6563c000a4a4e6e1a8e7f0f6';
+
+/// Saved filters Fixture IDs.
+const String kSavedFilterId1 = 'saved_search_1';
+const String kSavedFilterId2 = 'saved_search_2';
