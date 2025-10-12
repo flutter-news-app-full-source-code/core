@@ -8,4 +8,5 @@ export 'local_ads/local_ads.dart';
 export 'query/query.dart';
 export 'responses/responses.dart';
 export 'user_preferences/user_preferences.dart';
+export 'user_presets/user_presets.dart';
 export 'user_settings/user_settings.dart';

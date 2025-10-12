@@ -25,7 +25,7 @@ class SavedFilter extends Equatable {
 
   /// Factory method to create a [SavedFilter] instance from a JSON map.
   factory SavedFilter.fromJson(Map<String, dynamic> json) =>
-      _$SavedfilterFromJson(json);
+      _$SavedFilterFromJson(json);
 
   /// The unique identifier for the saved filter.
   final String id;
@@ -46,7 +46,7 @@ class SavedFilter extends Equatable {
   final List<Country> countries;
 
   /// Converts this [SavedFilter] instance to a JSON map.
-  Map<String, dynamic> toJson() => _$SavedfilterToJson(this);
+  Map<String, dynamic> toJson() => _$SavedFilterToJson(this);
 
   @override
   List<Object?> get props => [id, name, topics, sources, countries];
