@@ -8,6 +8,6 @@ export 'remote_configs.dart';
 export 'saved_filter.dart';
 export 'sources.dart';
 export 'topics.dart';
-export 'user_app_settings_fixtures.dart';
-export 'user_content_preferences_fixtures.dart';
+export 'user_app_settings.dart';
+export 'user_content_preferences.dart';
 export 'users.dart';
