@@ -2,7 +2,7 @@ import 'package:core/src/fixtures/countries.dart';
 import 'package:core/src/fixtures/fixture_ids.dart';
 import 'package:core/src/fixtures/sources.dart';
 import 'package:core/src/fixtures/topics.dart';
-import 'package:core/src/models/saved_filter.dart';
+import 'package:core/src/models/user_presets/saved_filter.dart';
 
 /// A list of predefined saved searches for fixture data.
 final savedFiltersFixturesData = <SavedFilter>[
@@ -22,7 +22,7 @@ final savedFiltersFixturesData = <SavedFilter>[
     id: kSavedFilterId2,
     name: 'US Business News',
     topics: [topicsFixturesData.firstWhere((t) => t.name == 'Business')],
-    sources: [],
+    sources: const [],
     countries: [
       countriesFixturesData.firstWhere((c) => c.name == 'United States'),
     ],
