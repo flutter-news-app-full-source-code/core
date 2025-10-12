@@ -3,6 +3,7 @@ import 'package:core/src/models/entities/source.dart';
 import 'package:core/src/models/entities/topic.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
 
 part 'saved_filter.g.dart';
 
@@ -12,6 +13,7 @@ part 'saved_filter.g.dart';
 /// This model stores a named set of criteria, including topics, sources, and
 /// countries, allowing users to quickly re-apply complex filters.
 /// {@endtemplate}
+@immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class SavedFilter extends Equatable {
   /// {@macro saved_filter}
