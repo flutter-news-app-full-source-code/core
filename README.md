@@ -27,6 +27,9 @@ This package provides the critical building blocks for a professional news appli
 - **`User`, `AppUserRole`, `DashboardUserRole`, `Permission`:** Robust models for user profiles, roles, and permissions, enabling secure and personalized experiences.
 - **`UserContentPreferences`, `UserAppSettings`:** Detailed models for storing user-specific content preferences (e.g., followed topics, saved headlines) and application settings (e.g., theme, language).
 
+### 💾 User Presets
+- **`SavedFilter`:** A model for storing user-defined filter combinations.
+
 ### ⚙️ Application Configuration
 - **`RemoteConfig`:** A central container for all dynamic application settings, fetched from a remote source. This includes:
     - **`AdConfig`:** Master configuration for all advertising, now featuring **highly flexible, role-based control** over ad visibility and frequency for feed, article, and interstitial ads. This allows for granular control over monetization strategies per user segment.
