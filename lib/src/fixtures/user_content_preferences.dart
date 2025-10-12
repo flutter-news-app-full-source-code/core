@@ -9,5 +9,6 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
     followedSources: [],
     followedTopics: [],
     savedHeadlines: [],
+    savedFilters: [],
   ),
 ];
