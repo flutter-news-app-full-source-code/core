@@ -51,10 +51,7 @@ void main() {
       test('round trip with empty lists', () {
         final emptyPreferences = userContentPreferencesFixturesData.first;
         final json = emptyPreferences.toJson();
-        final result = UserContentPreferences.fromJson(
-          // ignore: inference_failure_on_collection_literal
-          json..['savedFilters'] = [],
-        );
+        final result = UserContentPreferences.fromJson(json);
         expect(result, equals(emptyPreferences));
       });
     });
