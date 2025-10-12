@@ -1,8 +1,8 @@
 import 'package:core/src/models/entities/country.dart';
 import 'package:core/src/models/entities/headline.dart';
-import 'package:core/src/models/saved_filter.dart';
 import 'package:core/src/models/entities/source.dart';
 import 'package:core/src/models/entities/topic.dart';
+import 'package:core/src/models/user_presets/saved_filter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';

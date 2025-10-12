@@ -1,6 +1,6 @@
 import 'package:core/src/models/config/remote_config.dart';
 import 'package:core/src/models/user_preferences/user_content_preferences.dart';
-import 'package:core/src/models/saved_filter.dart';
+import 'package:core/src/models/user_presets/saved_filter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -113,8 +113,8 @@ class UserPreferenceConfig extends Equatable {
           premiumSavedHeadlinesLimit ?? this.premiumSavedHeadlinesLimit,
       guestSavedFiltersLimit:
           guestSavedFiltersLimit ?? this.guestSavedFiltersLimit,
-      authenticatedSavedFiltersLimit: authenticatedSavedFiltersLimit ??
-          this.authenticatedSavedFiltersLimit,
+      authenticatedSavedFiltersLimit:
+          authenticatedSavedFiltersLimit ?? this.authenticatedSavedFiltersLimit,
       premiumSavedFiltersLimit:
           premiumSavedFiltersLimit ?? this.premiumSavedFiltersLimit,
     );
