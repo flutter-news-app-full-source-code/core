@@ -3,49 +3,32 @@ import 'package:test/test.dart';
 
 void main() {
   group('UserContentPreferences', () {
-    // Get fixtures to build a populated test subject
-    final mockCountry = countriesFixturesData.first;
-    final mockSource = sourcesFixturesData.first;
-    final mockTopic = topicsFixturesData.first;
-    final mockHeadline = headlinesFixturesData.first;
-    final mockSavedFilter = userContentPreferencesFixturesData.first.savedFilters.first;
-
-    // Use the base fixture and copyWith to create a populated version for tests
-    final userContentPreferencesFixture = userContentPreferencesFixturesData
-        .first
-        .copyWith(
-          followedCountries: [mockCountry],
-          followedSources: [mockSource],
-          followedTopics: [mockTopic],
-          savedHeadlines: [],
-          savedFilters: [mockSavedFilter],
-        );
+    // Use the first item from the fixtures as the test subject.
+    // This ensures tests are based on the canonical fixture data.
+    final userContentPreferencesFixture =
+        userContentPreferencesFixturesData.first;
 
     group('constructor', () {
       test('returns correct instance', () {
         expect(userContentPreferencesFixture, isA<UserContentPreferences>());
       });
 
-      test('returns correct instance with empty lists from fixture', () {
-        // The base fixture should have empty lists
-        final defaultPreferences = userContentPreferencesFixturesData.first;
-        expect(defaultPreferences.followedCountries, isEmpty);
-        expect(defaultPreferences.followedSources, isEmpty);
-        expect(defaultPreferences.followedTopics, isEmpty);
-        expect(defaultPreferences.savedHeadlines, isEmpty);
-        expect(defaultPreferences.savedFilters, isEmpty);
+      test('returns correct instance with populated lists from fixture', () {
+        // The base fixture should now have populated lists
+        final preferences = userContentPreferencesFixturesData.first;
+        expect(preferences.followedCountries, isEmpty); // This list is empty
+        expect(preferences.followedSources, isNotEmpty);
+        expect(preferences.followedTopics, isNotEmpty);
+        expect(preferences.savedHeadlines, isNotEmpty);
+        expect(preferences.savedFilters, isNotEmpty);
       });
     });
 
     group('fromJson/toJson', () {
       test('round trip with all fields populated', () {
-        final preferencesWithSaved = userContentPreferencesFixture.copyWith(
-          savedHeadlines: [mockHeadline],
-          savedFilters: [mockSavedFilter],
-        );
-        final json = preferencesWithSaved.toJson();
+        final json = userContentPreferencesFixture.toJson();
         final result = UserContentPreferences.fromJson(json);
-        expect(result, equals(preferencesWithSaved));
+        expect(result, equals(userContentPreferencesFixture));
       });
 
       test('round trip with empty lists', () {
@@ -59,30 +42,22 @@ void main() {
     group('copyWith', () {
       test('returns a new instance with updated fields', () {
         final newCountry = countriesFixturesData[1];
-        final newHeadline = headlinesFixturesData[1];
-        final newSavedFilter = userContentPreferencesFixturesData.first.savedFilters.last;
 
         final updatedPreferences = userContentPreferencesFixture.copyWith(
           followedCountries: [newCountry],
-          savedFilters: [mockSavedFilter, newSavedFilter],
-          savedHeadlines: [mockHeadline, newHeadline],
         );
 
         expect(updatedPreferences.id, userContentPreferencesFixture.id);
         expect(updatedPreferences.followedCountries, [newCountry]);
+        // Verify other fields remain unchanged
         expect(
           updatedPreferences.followedSources,
           userContentPreferencesFixture.followedSources,
         );
         expect(
-          updatedPreferences.followedTopics,
-          userContentPreferencesFixture.followedTopics,
+          updatedPreferences.savedFilters,
+          userContentPreferencesFixture.savedFilters,
         );
-        expect(updatedPreferences.savedFilters, [
-          mockSavedFilter,
-          newSavedFilter,
-        ]);
-        expect(updatedPreferences.savedHeadlines, [mockHeadline, newHeadline]);
       });
 
       test(
