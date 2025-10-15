@@ -8,7 +8,7 @@ void main() {
     final mockSource = sourcesFixturesData.first;
     final mockTopic = topicsFixturesData.first;
     final mockHeadline = headlinesFixturesData.first;
-    final mockSavedFilter = savedFiltersFixturesData.first;
+    final mockSavedFilter = userContentPreferencesFixturesData.first.savedFilters.first;
 
     // Use the base fixture and copyWith to create a populated version for tests
     final userContentPreferencesFixture = userContentPreferencesFixturesData
@@ -60,7 +60,7 @@ void main() {
       test('returns a new instance with updated fields', () {
         final newCountry = countriesFixturesData[1];
         final newHeadline = headlinesFixturesData[1];
-        final newSavedFilter = savedFiltersFixturesData[1];
+        final newSavedFilter = userContentPreferencesFixturesData.first.savedFilters.last;
 
         final updatedPreferences = userContentPreferencesFixture.copyWith(
           followedCountries: [newCountry],
