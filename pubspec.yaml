@@ -2,7 +2,7 @@ name: core
 description: Shared utilities and models.
 publish_to: none
 repository: https://github.com/flutter-news-app-full-source-code/core
-version: 1.2.0
+version: 1.2.1
 
 environment:
   sdk: ^3.9.0
