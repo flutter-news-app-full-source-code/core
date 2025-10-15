@@ -5,7 +5,6 @@ export 'headlines.dart';
 export 'languages.dart';
 export 'local_ads.dart';
 export 'remote_configs.dart';
-export 'saved_filter.dart';
 export 'sources.dart';
 export 'topics.dart';
 export 'user_app_settings.dart';
