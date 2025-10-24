@@ -38,6 +38,30 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
         sources: const [],
         countries: const [],
       ),
+      SavedFilter(
+        id: kSavedFilterId3,
+        name: 'Global Sports',
+        topics: [topicsFixturesData[1]], // Sports
+        sources: [sourcesFixturesData[40]], // ESPN
+        countries: const [],
+      ),
+      SavedFilter(
+        id: kSavedFilterId4,
+        name: 'Science News',
+        topics: [topicsFixturesData[3]], // Science
+        sources: [sourcesFixturesData[41]], // Nature
+        countries: const [],
+      ),
+      SavedFilter(
+        id: kSavedFilterId5,
+        name: 'Political News',
+        topics: [topicsFixturesData[2]], // Politics
+        sources: [
+          sourcesFixturesData[1], // BBC News
+          sourcesFixturesData[2], // The New York Times
+        ],
+        countries: const [],
+      ),
     ],
   ),
 ];

@@ -1029,3 +1029,7 @@ const kLocalAd6Id = '6563c000a4a4e6e1a8e7f0f6';
 /// Saved filters Fixture IDs.
 const String kSavedFilterId1 = 'saved_search_1';
 const String kSavedFilterId2 = 'saved_search_2';
+const String kSavedFilterId3 = 'saved_search_3';
+const String kSavedFilterId4 = 'saved_search_4';
+const String kSavedFilterId5 = 'saved_search_5';
+const String kSavedFilterId6 = 'saved_search_6';
