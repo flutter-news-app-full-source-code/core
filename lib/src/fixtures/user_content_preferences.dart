@@ -13,6 +13,8 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
     followedSources: [
       sourcesFixturesData[0], // TechCrunch
       sourcesFixturesData[1], // BBC News
+      sourcesFixturesData[10], // San Francisco Chronicle
+      sourcesFixturesData[40], // ESPN
     ],
     followedTopics: [
       topicsFixturesData[0], // Technology
