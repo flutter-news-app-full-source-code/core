@@ -11,7 +11,7 @@ final sourcesFixturesData = <Source>[
     name: 'TechCrunch',
     description: 'Leading online publisher of technology news.',
     url: 'https://techcrunch.com',
-    logoUrl: 'https://logo.clearbit.com/techcrunch.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/techcrunch.com',
     sourceType: SourceType.newsAgency,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -24,7 +24,7 @@ final sourcesFixturesData = <Source>[
     name: 'BBC News',
     description: 'Breaking news, sport, TV, radio and a whole lot more.',
     url: 'https://www.bbc.com/news',
-    logoUrl: 'https://logo.clearbit.com/bbc.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/bbc.com',
     sourceType: SourceType.newsAgency,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[2], // United Kingdom
@@ -37,7 +37,7 @@ final sourcesFixturesData = <Source>[
     name: 'The New York Times',
     description: 'Breaking News, World News & Multimedia.',
     url: 'https://www.nytimes.com',
-    logoUrl: 'https://logo.clearbit.com/nytimes.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/nytimes.com',
     sourceType: SourceType.newsAgency,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -51,7 +51,7 @@ final sourcesFixturesData = <Source>[
     description:
         'Latest news, sport, business, comment and reviews from the Guardian.',
     url: 'https://www.theguardian.com',
-    logoUrl: 'https://logo.clearbit.com/theguardian.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/theguardian.com',
     sourceType: SourceType.newsAgency,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[2], // United Kingdom
@@ -64,7 +64,7 @@ final sourcesFixturesData = <Source>[
     name: 'CNN',
     description: 'Breaking News, Latest News and Videos.',
     url: 'https://edition.cnn.com',
-    logoUrl: 'https://logo.clearbit.com/cnn.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/cnn.com',
     sourceType: SourceType.newsAgency,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -77,7 +77,7 @@ final sourcesFixturesData = <Source>[
     name: 'Reuters',
     description: 'Business, financial, national and international news.',
     url: 'https://www.reuters.com',
-    logoUrl: 'https://logo.clearbit.com/reuters.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/reuters.com',
     sourceType: SourceType.newsAgency,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -91,7 +91,7 @@ final sourcesFixturesData = <Source>[
     description:
         'News, analysis, and opinion from the Middle East and around the world.',
     url: 'https://www.aljazeera.com',
-    logoUrl: 'https://logo.clearbit.com/aljazeera.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/aljazeera.com',
     sourceType: SourceType.newsAgency,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters:
@@ -105,7 +105,7 @@ final sourcesFixturesData = <Source>[
     name: 'Xinhua News Agency',
     description: "Official press agency of the People's Republic of China.",
     url: 'http://www.xinhuanet.com/english/',
-    logoUrl: 'https://logo.clearbit.com/xinhuanet.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/xinhuanet.com',
     sourceType: SourceType.newsAgency,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[7], // China
@@ -118,7 +118,7 @@ final sourcesFixturesData = <Source>[
     name: 'The Times of India',
     description: 'Latest and Breaking News from India.',
     url: 'https://timesofindia.indiatimes.com/',
-    logoUrl: 'https://logo.clearbit.com/indiatimes.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/indiatimes.com',
     sourceType: SourceType.newsAgency,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[8], // India
@@ -131,7 +131,7 @@ final sourcesFixturesData = <Source>[
     name: 'Folha de S.Paulo',
     description: 'Brazilian daily newspaper.',
     url: 'https://www.folha.uol.com.br/',
-    logoUrl: 'https://logo.clearbit.com/uol.com.br?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/uol.com.br',
     sourceType: SourceType.newsAgency,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'pt'),
     headquarters: countriesFixturesData[9], // Brazil
@@ -144,7 +144,7 @@ final sourcesFixturesData = <Source>[
     name: 'San Francisco Chronicle',
     description: 'News from the San Francisco Bay Area.',
     url: 'https://www.sfchronicle.com',
-    logoUrl: 'https://logo.clearbit.com/sfchronicle.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/sfchronicle.com',
     sourceType: SourceType.localNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -157,7 +157,7 @@ final sourcesFixturesData = <Source>[
     name: 'Manchester Evening News',
     description: 'Covering Greater Manchester, UK.',
     url: 'https://www.manchestereveningnews.co.uk',
-    logoUrl: 'https://logo.clearbit.com/manchestereveningnews.co.uk?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/manchestereveningnews.co.uk',
     sourceType: SourceType.localNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[2], // United Kingdom
@@ -170,7 +170,7 @@ final sourcesFixturesData = <Source>[
     name: 'The Sydney Morning Herald',
     description: 'Independent journalism for Sydney, Australia.',
     url: 'https://www.smh.com.au',
-    logoUrl: 'https://logo.clearbit.com/smh.com.au?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/smh.com.au',
     sourceType: SourceType.localNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[3], // Australia
@@ -183,7 +183,7 @@ final sourcesFixturesData = <Source>[
     name: 'Le Parisien',
     description: 'Local news for Paris and the Île-de-France region.',
     url: 'https://www.leparisien.fr',
-    logoUrl: 'https://logo.clearbit.com/leparisien.fr?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/leparisien.fr',
     sourceType: SourceType.localNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'fr'),
     headquarters: countriesFixturesData[5], // France
@@ -196,7 +196,7 @@ final sourcesFixturesData = <Source>[
     name: 'The Toronto Star',
     description: 'News and stories for Toronto, Canada.',
     url: 'https://www.thestar.com',
-    logoUrl: 'https://logo.clearbit.com/thestar.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/thestar.com',
     sourceType: SourceType.localNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[1], // Canada
@@ -209,7 +209,7 @@ final sourcesFixturesData = <Source>[
     name: 'Berliner Morgenpost',
     description: 'Daily news for Berlin, Germany.',
     url: 'https://www.morgenpost.de',
-    logoUrl: 'https://logo.clearbit.com/morgenpost.de?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/morgenpost.de',
     sourceType: SourceType.localNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'de'),
     headquarters: countriesFixturesData[4], // Germany
@@ -222,7 +222,7 @@ final sourcesFixturesData = <Source>[
     name: 'The Asahi Shimbun (Tokyo)',
     description: 'Local and national news from a Tokyo perspective.',
     url: 'https://www.asahi.com/area/tokyo/',
-    logoUrl: 'https://logo.clearbit.com/asahi.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/asahi.com',
     sourceType: SourceType.localNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'ja'),
     headquarters: countriesFixturesData[6], // Japan
@@ -235,7 +235,7 @@ final sourcesFixturesData = <Source>[
     name: 'Hindustan Times (Mumbai)',
     description: 'Latest news from Mumbai, India.',
     url: 'https://www.hindustantimes.com/mumbai-news',
-    logoUrl: 'https://logo.clearbit.com/hindustantimes.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/hindustantimes.com',
     sourceType: SourceType.localNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[8], // India
@@ -248,7 +248,7 @@ final sourcesFixturesData = <Source>[
     name: 'O Globo (Rio de Janeiro)',
     description: 'News from Rio de Janeiro, Brazil.',
     url: 'https://oglobo.globo.com/rio/',
-    logoUrl: 'https://logo.clearbit.com/globo.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/globo.com',
     sourceType: SourceType.localNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'pt'),
     headquarters: countriesFixturesData[9], // Brazil
@@ -261,7 +261,7 @@ final sourcesFixturesData = <Source>[
     name: 'La Vanguardia (Barcelona)',
     description: 'News from Barcelona and Catalonia, Spain.',
     url: 'https://www.lavanguardia.com/local/barcelona',
-    logoUrl: 'https://logo.clearbit.com/lavanguardia.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/lavanguardia.com',
     sourceType: SourceType.localNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'es'),
     headquarters: countriesFixturesData[10], // Spain
@@ -274,7 +274,7 @@ final sourcesFixturesData = <Source>[
     name: 'USA Today',
     description: 'National news from across the United States.',
     url: 'https://www.usatoday.com',
-    logoUrl: 'https://logo.clearbit.com/usatoday.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/usatoday.com',
     sourceType: SourceType.nationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -287,7 +287,7 @@ final sourcesFixturesData = <Source>[
     name: 'The Globe and Mail',
     description: "Canada's national newspaper.",
     url: 'https://www.theglobeandmail.com',
-    logoUrl: 'https://logo.clearbit.com/theglobeandmail.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/theglobeandmail.com',
     sourceType: SourceType.nationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[1], // Canada
@@ -300,7 +300,7 @@ final sourcesFixturesData = <Source>[
     name: 'The Australian',
     description: 'National news of Australia.',
     url: 'https://www.theaustralian.com.au',
-    logoUrl: 'https://logo.clearbit.com/theaustralian.com.au?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/theaustralian.com.au',
     sourceType: SourceType.nationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[3], // Australia
@@ -313,7 +313,7 @@ final sourcesFixturesData = <Source>[
     name: 'Le Monde',
     description: 'French national daily newspaper.',
     url: 'https://www.lemonde.fr',
-    logoUrl: 'https://logo.clearbit.com/lemonde.fr?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/lemonde.fr',
     sourceType: SourceType.nationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'fr'),
     headquarters: countriesFixturesData[5], // France
@@ -326,7 +326,7 @@ final sourcesFixturesData = <Source>[
     name: 'Frankfurter Allgemeine Zeitung',
     description: 'German national newspaper.',
     url: 'https://www.faz.net',
-    logoUrl: 'https://logo.clearbit.com/faz.net?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/faz.net',
     sourceType: SourceType.nationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'de'),
     headquarters: countriesFixturesData[4], // Germany
@@ -339,7 +339,7 @@ final sourcesFixturesData = <Source>[
     name: 'The Yomiuri Shimbun',
     description: 'Japanese national newspaper.',
     url: 'https://www.yomiuri.co.jp',
-    logoUrl: 'https://logo.clearbit.com/yomiuri.co.jp?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/yomiuri.co.jp',
     sourceType: SourceType.nationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'ja'),
     headquarters: countriesFixturesData[6], // Japan
@@ -352,7 +352,7 @@ final sourcesFixturesData = <Source>[
     name: "People's Daily",
     description: 'Official newspaper of the Central Committee of the CCP.',
     url: 'http://en.people.cn',
-    logoUrl: 'https://logo.clearbit.com/people.cn?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/people.cn',
     sourceType: SourceType.nationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[7], // China
@@ -365,7 +365,7 @@ final sourcesFixturesData = <Source>[
     name: 'O Estado de S. Paulo',
     description: 'Brazilian national newspaper.',
     url: 'https://www.estadao.com.br',
-    logoUrl: 'https://logo.clearbit.com/estadao.com.br?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/estadao.com.br',
     sourceType: SourceType.nationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'pt'),
     headquarters: countriesFixturesData[9], // Brazil
@@ -378,7 +378,7 @@ final sourcesFixturesData = <Source>[
     name: 'El País',
     description: 'Spanish national daily newspaper.',
     url: 'https://elpais.com',
-    logoUrl: 'https://logo.clearbit.com/elpais.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/elpais.com',
     sourceType: SourceType.nationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'es'),
     headquarters: countriesFixturesData[10], // Spain
@@ -391,7 +391,7 @@ final sourcesFixturesData = <Source>[
     name: 'Corriere della Sera',
     description: 'Italian national daily newspaper.',
     url: 'https://www.corriere.it',
-    logoUrl: 'https://logo.clearbit.com/corriere.it?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/corriere.it',
     sourceType: SourceType.nationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'it'),
     headquarters: countriesFixturesData[11], // Italy
@@ -404,7 +404,7 @@ final sourcesFixturesData = <Source>[
     name: 'CNN International',
     description: 'Global news coverage from CNN.',
     url: 'https://edition.cnn.com',
-    logoUrl: 'https://logo.clearbit.com/cnn.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/cnn.com',
     sourceType: SourceType.internationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -417,7 +417,7 @@ final sourcesFixturesData = <Source>[
     name: 'BBC World News',
     description: 'International news from the BBC.',
     url: 'https://www.bbc.com/news/world',
-    logoUrl: 'https://logo.clearbit.com/bbc.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/bbc.com',
     sourceType: SourceType.internationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[2], // United Kingdom
@@ -430,7 +430,7 @@ final sourcesFixturesData = <Source>[
     name: 'The Economist',
     description: 'In-depth analysis of international news and business.',
     url: 'https://www.economist.com',
-    logoUrl: 'https://logo.clearbit.com/economist.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/economist.com',
     sourceType: SourceType.internationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[2], // United Kingdom
@@ -443,7 +443,7 @@ final sourcesFixturesData = <Source>[
     name: 'France 24',
     description: 'French perspective on international current events.',
     url: 'https://www.france24.com/en/',
-    logoUrl: 'https://logo.clearbit.com/france24.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/france24.com',
     sourceType: SourceType.internationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[5], // France
@@ -456,7 +456,7 @@ final sourcesFixturesData = <Source>[
     name: 'Deutsche Welle',
     description: "Germany's international broadcaster.",
     url: 'https://www.dw.com/en/',
-    logoUrl: 'https://logo.clearbit.com/dw.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/dw.com',
     sourceType: SourceType.internationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[4], // Germany
@@ -469,7 +469,7 @@ final sourcesFixturesData = <Source>[
     name: 'The Wall Street Journal',
     description: 'Global business and financial news.',
     url: 'https://www.wsj.com',
-    logoUrl: 'https://logo.clearbit.com/wsj.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/wsj.com',
     sourceType: SourceType.internationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -482,7 +482,7 @@ final sourcesFixturesData = <Source>[
     name: 'Associated Press (AP)',
     description: 'Global news network.',
     url: 'https://apnews.com',
-    logoUrl: 'https://logo.clearbit.com/apnews.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/apnews.com',
     sourceType: SourceType.internationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -495,7 +495,7 @@ final sourcesFixturesData = <Source>[
     name: 'Agence France-Presse (AFP)',
     description: 'International news agency based in Paris.',
     url: 'https://www.afp.com/en',
-    logoUrl: 'https://logo.clearbit.com/afp.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/afp.com',
     sourceType: SourceType.internationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[5], // France
@@ -508,7 +508,7 @@ final sourcesFixturesData = <Source>[
     name: 'RT',
     description: 'Russian state-funded international television network.',
     url: 'https://www.rt.com',
-    logoUrl: 'https://logo.clearbit.com/rt.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/rt.com',
     sourceType: SourceType.internationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[12], // Russia
@@ -521,7 +521,7 @@ final sourcesFixturesData = <Source>[
     name: 'CGTN',
     description: 'Chinese state-funded international television network.',
     url: 'https://www.cgtn.com',
-    logoUrl: 'https://logo.clearbit.com/cgtn.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/cgtn.com',
     sourceType: SourceType.internationalNewsOutlet,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[7], // China
@@ -534,7 +534,7 @@ final sourcesFixturesData = <Source>[
     name: 'ESPN',
     description: 'The worldwide leader in sports.',
     url: 'https://www.espn.com',
-    logoUrl: 'https://logo.clearbit.com/espn.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/espn.com',
     sourceType: SourceType.specializedPublisher,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -547,7 +547,7 @@ final sourcesFixturesData = <Source>[
     name: 'Nature',
     description: 'International journal of science.',
     url: 'https://www.nature.com',
-    logoUrl: 'https://logo.clearbit.com/nature.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/nature.com',
     sourceType: SourceType.specializedPublisher,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[2], // United Kingdom
@@ -560,7 +560,7 @@ final sourcesFixturesData = <Source>[
     name: 'The Hollywood Reporter',
     description: 'The definitive voice of the entertainment industry.',
     url: 'https://www.hollywoodreporter.com',
-    logoUrl: 'https://logo.clearbit.com/hollywoodreporter.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/hollywoodreporter.com',
     sourceType: SourceType.specializedPublisher,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -573,7 +573,7 @@ final sourcesFixturesData = <Source>[
     name: 'Vogue',
     description: 'Fashion, beauty, and lifestyle.',
     url: 'https://www.vogue.com',
-    logoUrl: 'https://logo.clearbit.com/vogue.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/vogue.com',
     sourceType: SourceType.specializedPublisher,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -586,7 +586,7 @@ final sourcesFixturesData = <Source>[
     name: 'National Geographic',
     description: 'Science, exploration, and adventure.',
     url: 'https://www.nationalgeographic.com',
-    logoUrl: 'https://logo.clearbit.com/nationalgeographic.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/nationalgeographic.com',
     sourceType: SourceType.specializedPublisher,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -599,7 +599,7 @@ final sourcesFixturesData = <Source>[
     name: 'Wired',
     description: 'How technology is changing every aspect of our lives.',
     url: 'https://www.wired.com',
-    logoUrl: 'https://logo.clearbit.com/wired.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/wired.com',
     sourceType: SourceType.specializedPublisher,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -612,7 +612,7 @@ final sourcesFixturesData = <Source>[
     name: 'Bon Appétit',
     description: 'Food and cooking magazine.',
     url: 'https://www.bonappetit.com',
-    logoUrl: 'https://logo.clearbit.com/bonappetit.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/bonappetit.com',
     sourceType: SourceType.specializedPublisher,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -625,7 +625,7 @@ final sourcesFixturesData = <Source>[
     name: 'Architectural Digest',
     description: 'The international design authority.',
     url: 'https://www.architecturaldigest.com',
-    logoUrl: 'https://logo.clearbit.com/architecturaldigest.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/architecturaldigest.com',
     sourceType: SourceType.specializedPublisher,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -638,7 +638,7 @@ final sourcesFixturesData = <Source>[
     name: 'Car and Driver',
     description: 'Automotive news and reviews.',
     url: 'https://www.caranddriver.com',
-    logoUrl: 'https://logo.clearbit.com/caranddriver.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/caranddriver.com',
     sourceType: SourceType.specializedPublisher,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -651,7 +651,7 @@ final sourcesFixturesData = <Source>[
     name: 'PC Gamer',
     description: 'Global authority on PC games.',
     url: 'https://www.pcgamer.com',
-    logoUrl: 'https://logo.clearbit.com/pcgamer.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/pcgamer.com',
     sourceType: SourceType.specializedPublisher,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[2], // United Kingdom
@@ -664,7 +664,7 @@ final sourcesFixturesData = <Source>[
     name: 'Stratechery by Ben Thompson',
     description: 'Analysis of the strategy and business of technology.',
     url: 'https://stratechery.com',
-    logoUrl: 'https://logo.clearbit.com/stratechery.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/stratechery.com',
     sourceType: SourceType.blog,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -677,7 +677,7 @@ final sourcesFixturesData = <Source>[
     name: 'Daring Fireball',
     description: 'By John Gruber. On technology and Apple.',
     url: 'https://daringfireball.net',
-    logoUrl: 'https://logo.clearbit.com/daringfireball.net?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/daringfireball.net',
     sourceType: SourceType.blog,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -690,7 +690,7 @@ final sourcesFixturesData = <Source>[
     name: 'Wait But Why',
     description: 'A popular long-form, stick-figure-illustrated blog.',
     url: 'https://waitbutwhy.com',
-    logoUrl: 'https://logo.clearbit.com/waitbutwhy.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/waitbutwhy.com',
     sourceType: SourceType.blog,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -703,7 +703,7 @@ final sourcesFixturesData = <Source>[
     name: 'Smitten Kitchen',
     description: 'A home cooking blog from a tiny kitchen in New York City.',
     url: 'https://smittenkitchen.com',
-    logoUrl: 'https://logo.clearbit.com/smittenkitchen.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/smittenkitchen.com',
     sourceType: SourceType.blog,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -716,7 +716,7 @@ final sourcesFixturesData = <Source>[
     name: 'The Verge',
     description: 'A technology news and media network operated by Vox Media.',
     url: 'https://www.theverge.com',
-    logoUrl: 'https://logo.clearbit.com/theverge.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/theverge.com',
     sourceType: SourceType.blog,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -729,7 +729,7 @@ final sourcesFixturesData = <Source>[
     name: 'Gizmodo',
     description: 'A design, technology, science and science fiction website.',
     url: 'https://gizmodo.com',
-    logoUrl: 'https://logo.clearbit.com/gizmodo.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/gizmodo.com',
     sourceType: SourceType.blog,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -742,7 +742,7 @@ final sourcesFixturesData = <Source>[
     name: 'Kotaku',
     description: 'A video game website and blog.',
     url: 'https://kotaku.com',
-    logoUrl: 'https://logo.clearbit.com/kotaku.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/kotaku.com',
     sourceType: SourceType.blog,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -755,7 +755,7 @@ final sourcesFixturesData = <Source>[
     name: 'Lifehacker',
     description: 'A weblog about life hacks and software.',
     url: 'https://lifehacker.com',
-    logoUrl: 'https://logo.clearbit.com/lifehacker.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/lifehacker.com',
     sourceType: SourceType.blog,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -768,7 +768,7 @@ final sourcesFixturesData = <Source>[
     name: 'Mashable',
     description: 'A global, multi-platform media and entertainment company.',
     url: 'https://mashable.com',
-    logoUrl: 'https://logo.clearbit.com/mashable.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/mashable.com',
     sourceType: SourceType.blog,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -781,7 +781,7 @@ final sourcesFixturesData = <Source>[
     name: 'Engadget',
     description: 'A multilingual technology blog network.',
     url: 'https://www.engadget.com',
-    logoUrl: 'https://logo.clearbit.com/engadget.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/engadget.com',
     sourceType: SourceType.blog,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -794,7 +794,7 @@ final sourcesFixturesData = <Source>[
     name: 'WhiteHouse.gov',
     description: 'Official website of the White House.',
     url: 'https://www.whitehouse.gov',
-    logoUrl: 'https://logo.clearbit.com/whitehouse.gov?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/whitehouse.gov',
     sourceType: SourceType.governmentSource,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -807,7 +807,7 @@ final sourcesFixturesData = <Source>[
     name: 'GOV.UK',
     description: 'The official website for UK government services.',
     url: 'https://www.gov.uk',
-    logoUrl: 'https://logo.clearbit.com/gov.uk?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/gov.uk',
     sourceType: SourceType.governmentSource,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[2], // United Kingdom
@@ -820,7 +820,7 @@ final sourcesFixturesData = <Source>[
     name: 'Canada.ca',
     description: 'Official website of the Government of Canada.',
     url: 'https://www.canada.ca/en.html',
-    logoUrl: 'https://logo.clearbit.com/canada.ca?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/canada.ca',
     sourceType: SourceType.governmentSource,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[1], // Canada
@@ -833,7 +833,7 @@ final sourcesFixturesData = <Source>[
     name: 'Australia.gov.au',
     description: 'Official website of the Australian Government.',
     url: 'https://www.australia.gov.au',
-    logoUrl: 'https://logo.clearbit.com/australia.gov.au?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/australia.gov.au',
     sourceType: SourceType.governmentSource,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[3], // Australia
@@ -846,7 +846,7 @@ final sourcesFixturesData = <Source>[
     name: 'Bundesregierung.de',
     description: 'Official website of the German Federal Government.',
     url: 'https://www.bundesregierung.de/breg-de',
-    logoUrl: 'https://logo.clearbit.com/bundesregierung.de?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/bundesregierung.de',
     sourceType: SourceType.governmentSource,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'de'),
     headquarters: countriesFixturesData[4], // Germany
@@ -859,7 +859,7 @@ final sourcesFixturesData = <Source>[
     name: 'Gouvernement.fr',
     description: 'Official website of the French Government.',
     url: 'https://www.gouvernement.fr',
-    logoUrl: 'https://logo.clearbit.com/gouvernement.fr?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/gouvernement.fr',
     sourceType: SourceType.governmentSource,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'fr'),
     headquarters: countriesFixturesData[5], // France
@@ -872,7 +872,7 @@ final sourcesFixturesData = <Source>[
     name: 'Kantei.go.jp',
     description: 'Official website of the Prime Minister of Japan.',
     url: 'https://japan.kantei.go.jp',
-    logoUrl: 'https://logo.clearbit.com/kantei.go.jp?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/kantei.go.jp',
     sourceType: SourceType.governmentSource,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[6], // Japan
@@ -885,7 +885,7 @@ final sourcesFixturesData = <Source>[
     name: 'India.gov.in',
     description: 'National Portal of India.',
     url: 'https://www.india.gov.in',
-    logoUrl: 'https://logo.clearbit.com/india.gov.in?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/india.gov.in',
     sourceType: SourceType.governmentSource,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[8], // India
@@ -898,7 +898,7 @@ final sourcesFixturesData = <Source>[
     name: 'Gov.br',
     description: 'Official website of the Brazilian Government.',
     url: 'https://www.gov.br/pt-br',
-    logoUrl: 'https://logo.clearbit.com/gov.br?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/gov.br',
     sourceType: SourceType.governmentSource,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'pt'),
     headquarters: countriesFixturesData[9], // Brazil
@@ -911,7 +911,7 @@ final sourcesFixturesData = <Source>[
     name: 'English.gov.cn',
     description: 'Official web portal of the Chinese Government.',
     url: 'http://english.gov.cn',
-    logoUrl: 'https://logo.clearbit.com/gov.cn?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/gov.cn',
     sourceType: SourceType.governmentSource,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[7], // China
@@ -924,7 +924,7 @@ final sourcesFixturesData = <Source>[
     name: 'Google News',
     description: 'A news aggregator service developed by Google.',
     url: 'https://news.google.com',
-    logoUrl: 'https://logo.clearbit.com/google.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/google.com',
     sourceType: SourceType.aggregator,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -937,7 +937,7 @@ final sourcesFixturesData = <Source>[
     name: 'Apple News',
     description: 'A news aggregator app by Apple Inc.',
     url: 'https://www.apple.com/apple-news/',
-    logoUrl: 'https://logo.clearbit.com/apple.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/apple.com',
     sourceType: SourceType.aggregator,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -950,7 +950,7 @@ final sourcesFixturesData = <Source>[
     name: 'Feedly',
     description: 'A news aggregator application for various web browsers.',
     url: 'https://feedly.com',
-    logoUrl: 'https://logo.clearbit.com/feedly.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/feedly.com',
     sourceType: SourceType.aggregator,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -963,7 +963,7 @@ final sourcesFixturesData = <Source>[
     name: 'Flipboard',
     description: 'A social-network aggregation, magazine-format mobile app.',
     url: 'https://flipboard.com',
-    logoUrl: 'https://logo.clearbit.com/flipboard.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/flipboard.com',
     sourceType: SourceType.aggregator,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -976,7 +976,7 @@ final sourcesFixturesData = <Source>[
     name: 'SmartNews',
     description: 'A mobile app for discovering news.',
     url: 'https://www.smartnews.com',
-    logoUrl: 'https://logo.clearbit.com/smartnews.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/smartnews.com',
     sourceType: SourceType.aggregator,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[6], // Japan
@@ -989,7 +989,7 @@ final sourcesFixturesData = <Source>[
     name: 'Inoreader',
     description: 'A web-based content and RSS feed reader.',
     url: 'https://www.inoreader.com',
-    logoUrl: 'https://logo.clearbit.com/inoreader.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/inoreader.com',
     sourceType: SourceType.aggregator,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[13], // Bulgaria
@@ -1002,7 +1002,7 @@ final sourcesFixturesData = <Source>[
     name: 'The Old Reader',
     description: 'A simple, web-based RSS reader.',
     url: 'https://theoldreader.com',
-    logoUrl: 'https://logo.clearbit.com/theoldreader.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/theoldreader.com',
     sourceType: SourceType.aggregator,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -1015,7 +1015,7 @@ final sourcesFixturesData = <Source>[
     name: 'NewsBlur',
     description: 'A personal news reader.',
     url: 'https://newsblur.com',
-    logoUrl: 'https://logo.clearbit.com/newsblur.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/newsblur.com',
     sourceType: SourceType.aggregator,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -1028,7 +1028,7 @@ final sourcesFixturesData = <Source>[
     name: 'Pocket',
     description: 'An application for managing a reading list of articles.',
     url: 'https://getpocket.com',
-    logoUrl: 'https://logo.clearbit.com/getpocket.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/getpocket.com',
     sourceType: SourceType.aggregator,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -1041,7 +1041,7 @@ final sourcesFixturesData = <Source>[
     name: 'Digg',
     description: 'A news aggregator with a curated front page.',
     url: 'https://digg.com',
-    logoUrl: 'https://logo.clearbit.com/digg.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/digg.com',
     sourceType: SourceType.aggregator,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -1054,7 +1054,7 @@ final sourcesFixturesData = <Source>[
     name: 'PR Newswire',
     description: 'A distributor of press releases.',
     url: 'https://www.prnewswire.com',
-    logoUrl: 'https://logo.clearbit.com/prnewswire.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/prnewswire.com',
     sourceType: SourceType.other,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -1067,7 +1067,7 @@ final sourcesFixturesData = <Source>[
     name: 'arXiv',
     description: 'An open-access archive for scholarly articles.',
     url: 'https://arxiv.org',
-    logoUrl: 'https://logo.clearbit.com/arxiv.org?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/arxiv.org',
     sourceType: SourceType.other,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -1080,7 +1080,7 @@ final sourcesFixturesData = <Source>[
     name: 'The Lancet',
     description: 'A weekly peer-reviewed general medical journal.',
     url: 'https://www.thelancet.com',
-    logoUrl: 'https://logo.clearbit.com/thelancet.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/thelancet.com',
     sourceType: SourceType.other,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[2], // United Kingdom
@@ -1093,7 +1093,7 @@ final sourcesFixturesData = <Source>[
     name: 'Google AI Blog',
     description: 'The latest news from Google AI.',
     url: 'https://ai.googleblog.com',
-    logoUrl: 'https://logo.clearbit.com/googleblog.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/googleblog.com',
     sourceType: SourceType.other,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -1106,7 +1106,7 @@ final sourcesFixturesData = <Source>[
     name: 'Microsoft PressPass',
     description: 'Official news and information from Microsoft.',
     url: 'https://news.microsoft.com',
-    logoUrl: 'https://logo.clearbit.com/microsoft.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/microsoft.com',
     sourceType: SourceType.other,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -1119,7 +1119,7 @@ final sourcesFixturesData = <Source>[
     name: 'JSTOR',
     description: 'A digital library of academic journals, books, and sources.',
     url: 'https://www.jstor.org',
-    logoUrl: 'https://logo.clearbit.com/jstor.org?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/jstor.org',
     sourceType: SourceType.other,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -1132,7 +1132,7 @@ final sourcesFixturesData = <Source>[
     name: 'Business Wire',
     description: 'A company that disseminates press releases.',
     url: 'https://www.businesswire.com',
-    logoUrl: 'https://logo.clearbit.com/businesswire.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/businesswire.com',
     sourceType: SourceType.other,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -1145,7 +1145,7 @@ final sourcesFixturesData = <Source>[
     name: 'PLOS ONE',
     description: 'A peer-reviewed open access scientific journal.',
     url: 'https://journals.plos.org/plosone/',
-    logoUrl: 'https://logo.clearbit.com/plos.org?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/plos.org',
     sourceType: SourceType.other,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -1158,7 +1158,7 @@ final sourcesFixturesData = <Source>[
     name: 'Apple Newsroom',
     description: 'Official press releases from Apple.',
     url: 'https://www.apple.com/newsroom/',
-    logoUrl: 'https://logo.clearbit.com/apple.com?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/apple.com',
     sourceType: SourceType.other,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
@@ -1171,7 +1171,7 @@ final sourcesFixturesData = <Source>[
     name: 'The New England Journal of Medicine',
     description: 'A weekly medical journal.',
     url: 'https://www.nejm.org',
-    logoUrl: 'https://logo.clearbit.com/nejm.org?size=200',
+    logoUrl: 'https://api.companyenrich.com/logo/nejm.org',
     sourceType: SourceType.other,
     language: languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
     headquarters: countriesFixturesData[0], // United States
