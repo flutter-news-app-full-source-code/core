@@ -22,6 +22,7 @@ class Source extends FeedItem {
     required this.name,
     required this.description,
     required this.url,
+    required this.logoUrl,
     required this.sourceType,
     required this.language,
     required this.headquarters,
@@ -45,6 +46,9 @@ class Source extends FeedItem {
 
   /// The URL of the source's homepage.
   final String url;
+
+  /// The URL for the source's logo.
+  final String logoUrl;
 
   /// The type of the source (e.g., newsAgency, blog).
   /// If an unknown value is encountered during deserialization,
@@ -84,6 +88,7 @@ class Source extends FeedItem {
     name,
     description,
     url,
+    logoUrl,
     sourceType,
     language,
     headquarters,
@@ -100,6 +105,7 @@ class Source extends FeedItem {
     String? name,
     String? description,
     String? url,
+    String? logoUrl,
     SourceType? sourceType,
     Language? language,
     Country? headquarters,
@@ -112,6 +118,7 @@ class Source extends FeedItem {
       name: name ?? this.name,
       description: description ?? this.description,
       url: url ?? this.url,
+      logoUrl: logoUrl ?? this.logoUrl,
       sourceType: sourceType ?? this.sourceType,
       language: language ?? this.language,
       headquarters: headquarters ?? this.headquarters,

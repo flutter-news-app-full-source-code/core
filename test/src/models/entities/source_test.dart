@@ -13,6 +13,7 @@ void main() {
         expect(sourceFixture.name, isNotNull);
         expect(sourceFixture.description, isNotNull);
         expect(sourceFixture.url, isNotNull);
+        expect(sourceFixture.logoUrl, isNotNull);
         expect(sourceFixture.sourceType, isNotNull);
         expect(sourceFixture.language, isNotNull);
         expect(sourceFixture.headquarters, isNotNull);
@@ -29,6 +30,7 @@ void main() {
             sourceFixture.name,
             sourceFixture.description,
             sourceFixture.url,
+            sourceFixture.logoUrl,
             sourceFixture.sourceType,
             sourceFixture.language,
             sourceFixture.headquarters,
@@ -93,9 +95,14 @@ void main() {
 
       test('updates individual fields correctly', () {
         const updatedName = 'Updated Source Name';
-        final updatedCopy = sourceFixture.copyWith(name: updatedName);
+        const updatedLogo = 'https://example.com/logo.png';
+        final updatedCopy = sourceFixture.copyWith(
+          name: updatedName,
+          logoUrl: updatedLogo,
+        );
         expect(updatedCopy.name, updatedName);
         expect(updatedCopy.id, sourceFixture.id);
+        expect(updatedCopy.logoUrl, updatedLogo);
       });
 
       test('updates multiple fields simultaneously', () {
