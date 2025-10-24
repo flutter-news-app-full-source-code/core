@@ -1,4 +1,8 @@
-# 1.3.0 - 2025-10-16
+# 1.3.1 - 2025-10-24
+
+- **chore**: fixed the url of the source fixtures.
+
+# 1.3.0 - 2025-10-24
 
 - **BREAKING** feat!: add required `logoUrl` property to `Source` model.
 - **chore**: add more fixtures.
