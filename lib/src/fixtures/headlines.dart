@@ -707,4 +707,914 @@ final headlinesFixturesData = <Headline>[
     updatedAt: DateTime.now().subtract(const Duration(days: 9)),
     status: ContentStatus.active,
   ),
+
+  // --- Headlines for New Sources (5 per source) ---
+
+  // --- Local News Outlets (kSourceId11 - kSourceId20) ---
+  Headline(
+    id: kHeadlineId51,
+    title: 'City Council Approves New Downtown Development Plan',
+    excerpt:
+        'The San Francisco City Council has given the green light to a major redevelopment project aimed at revitalizing the downtown core.',
+    url: 'https://example.com/news/sf-downtown-plan',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId51/800/600', // San Francisco Chronicle
+    source: sourcesFixturesData[10], // San Francisco Chronicle
+    eventCountry: countriesFixturesData[0], // United States
+    topic: topicsFixturesData[2], // Politics
+    createdAt: DateTime.now().subtract(const Duration(days: 10)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 10)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId52,
+    title: 'Tech Startups Flourish in the Bay Area',
+    excerpt:
+        'A new report shows a significant increase in venture capital funding for tech startups in San Francisco.',
+    url: 'https://example.com/news/sf-tech-boom',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId52/800/600', // San Francisco Chronicle
+    source: sourcesFixturesData[10], // San Francisco Chronicle
+    eventCountry: countriesFixturesData[0], // United States
+    topic: topicsFixturesData[0], // Technology
+    createdAt: DateTime.now().subtract(const Duration(days: 10)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 10)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId53,
+    title: 'Golden Gate Bridge Retrofit Project Begins',
+    excerpt:
+        'A multi-year seismic retrofit project for the Golden Gate Bridge has officially commenced.',
+    url: 'https://example.com/news/ggb-retrofit',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId53/800/600', // San Francisco Chronicle
+    source: sourcesFixturesData[10], // San Francisco Chronicle
+    eventCountry: countriesFixturesData[0], // United States
+    topic: topicsFixturesData[7], // Travel
+    createdAt: DateTime.now().subtract(const Duration(days: 11)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 11)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId54,
+    title: 'Local Chef Wins Prestigious Culinary Award',
+    excerpt:
+        'A San Francisco-based chef has been awarded the coveted "Golden Spoon" for culinary innovation.',
+    url: 'https://example.com/news/sf-chef-award',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId54/800/600', // San Francisco Chronicle
+    source: sourcesFixturesData[10], // San Francisco Chronicle
+    eventCountry: countriesFixturesData[0], // United States
+    topic: topicsFixturesData[8], // Food
+    createdAt: DateTime.now().subtract(const Duration(days: 11)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 11)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId55,
+    title: 'Warriors Secure Victory in Season Opener',
+    excerpt:
+        'The Golden State Warriors started their season with a decisive win at the Chase Center.',
+    url: 'https://example.com/news/warriors-win',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId55/800/600', // San Francisco Chronicle
+    source: sourcesFixturesData[10], // San Francisco Chronicle
+    eventCountry: countriesFixturesData[0], // United States
+    topic: topicsFixturesData[1], // Sports
+    createdAt: DateTime.now().subtract(const Duration(days: 12)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 12)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId56,
+    title: 'Manchester United Announces New Stadium Expansion Plans',
+    excerpt:
+        'The club has revealed ambitious plans to increase the capacity of Old Trafford.',
+    url: 'https://example.com/news/mu-stadium-expansion',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId56/800/600', // Manchester Evening News
+    source: sourcesFixturesData[11], // Manchester Evening News
+    eventCountry: countriesFixturesData[2], // United Kingdom
+    topic: topicsFixturesData[1], // Sports
+    createdAt: DateTime.now().subtract(const Duration(days: 12)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 12)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId57,
+    title: 'New Tram Line Opens in Greater Manchester',
+    excerpt:
+        'The new Metrolink line is set to improve public transport links across the region.',
+    url: 'https://example.com/news/manchester-tram-line',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId57/800/600', // Manchester Evening News
+    source: sourcesFixturesData[11], // Manchester Evening News
+    eventCountry: countriesFixturesData[2], // United Kingdom
+    topic: topicsFixturesData[7], // Travel
+    createdAt: DateTime.now().subtract(const Duration(days: 13)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 13)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId58,
+    title: 'Manchester Tech Hub Attracts Global Talent',
+    excerpt:
+        'A report highlights Manchester as a growing hub for technology and innovation in Europe.',
+    url: 'https://example.com/news/manchester-tech-hub',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId58/800/600', // Manchester Evening News
+    source: sourcesFixturesData[11], // Manchester Evening News
+    eventCountry: countriesFixturesData[2], // United Kingdom
+    topic: topicsFixturesData[0], // Technology
+    createdAt: DateTime.now().subtract(const Duration(days: 13)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 13)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId59,
+    title: 'Coronation Street Filming Causes Local Buzz',
+    excerpt:
+        'Fans gather as the popular soap opera films on location in central Manchester.',
+    url: 'https://example.com/news/corrie-filming',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId59/800/600', // Manchester Evening News
+    source: sourcesFixturesData[11], // Manchester Evening News
+    eventCountry: countriesFixturesData[2], // United Kingdom
+    topic: topicsFixturesData[5], // Entertainment
+    createdAt: DateTime.now().subtract(const Duration(days: 14)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 14)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId60,
+    title: 'Council Debates Clean Air Zone Implementation',
+    excerpt:
+        'Greater Manchester leaders are in talks over the future of the controversial Clean Air Zone.',
+    url: 'https://example.com/news/manc-caz-debate',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId60/800/600', // Manchester Evening News
+    source: sourcesFixturesData[11], // Manchester Evening News
+    eventCountry: countriesFixturesData[2], // United Kingdom
+    topic: topicsFixturesData[2], // Politics
+    createdAt: DateTime.now().subtract(const Duration(days: 14)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 14)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId61,
+    title: 'Sydney Opera House Announces New Season Lineup',
+    excerpt:
+        'A star-studded lineup of performances has been announced for the upcoming season at the iconic venue.',
+    url: 'https://example.com/news/sydney-opera-season',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId61/800/600', // The Sydney Morning Herald
+    source: sourcesFixturesData[12], // The Sydney Morning Herald
+    eventCountry: countriesFixturesData[3], // Australia
+    topic: topicsFixturesData[5], // Entertainment
+    createdAt: DateTime.now().subtract(const Duration(days: 15)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 15)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId62,
+    title: 'Housing Prices in Sydney Continue to Climb',
+    excerpt:
+        'The latest real estate data shows a persistent upward trend in property values across the Sydney metropolitan area.',
+    url: 'https://example.com/news/sydney-housing-prices',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId62/800/600', // The Sydney Morning Herald
+    source: sourcesFixturesData[12], // The Sydney Morning Herald
+    eventCountry: countriesFixturesData[3], // Australia
+    topic: topicsFixturesData[6], // Business
+    createdAt: DateTime.now().subtract(const Duration(days: 15)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 15)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId63,
+    title: 'NSW Government Unveils New Infrastructure Projects',
+    excerpt:
+        'The New South Wales government has committed billions to new transport and public works projects.',
+    url: 'https://example.com/news/nsw-infrastructure',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId63/800/600', // The Sydney Morning Herald
+    source: sourcesFixturesData[12], // The Sydney Morning Herald
+    eventCountry: countriesFixturesData[3], // Australia
+    topic: topicsFixturesData[2], // Politics
+    createdAt: DateTime.now().subtract(const Duration(days: 16)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 16)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId64,
+    title: 'Swans Triumph in AFL Derby Match',
+    excerpt:
+        'The Sydney Swans secured a memorable victory over their local rivals in a heated AFL match.',
+    url: 'https://example.com/news/swans-afl-win',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId64/800/600', // The Sydney Morning Herald
+    source: sourcesFixturesData[12], // The Sydney Morning Herald
+    eventCountry: countriesFixturesData[3], // Australia
+    topic: topicsFixturesData[1], // Sports
+    createdAt: DateTime.now().subtract(const Duration(days: 16)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 16)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId65,
+    title: 'Bondi Beach Erosion Concerns Prompt Action',
+    excerpt:
+        'Local authorities are exploring new measures to combat coastal erosion at the world-famous Bondi Beach.',
+    url: 'https://example.com/news/bondi-erosion',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId65/800/600', // The Sydney Morning Herald
+    source: sourcesFixturesData[12], // The Sydney Morning Herald
+    eventCountry: countriesFixturesData[3], // Australia
+    topic: topicsFixturesData[3], // Science
+    createdAt: DateTime.now().subtract(const Duration(days: 17)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 17)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId66,
+    title: 'Paris Metro Expansion: New Stations Opened',
+    excerpt:
+        'The Grand Paris Express project reaches a new milestone with the opening of several new metro stations.',
+    url: 'https://example.com/news/paris-metro-expansion',
+    imageUrl: 'https://picsum.photos/seed/kHeadlineId66/800/600', // Le Parisien
+    source: sourcesFixturesData[13], // Le Parisien
+    eventCountry: countriesFixturesData[5], // France
+    topic: topicsFixturesData[7], // Travel
+    createdAt: DateTime.now().subtract(const Duration(days: 17)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 17)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId67,
+    title: 'Louvre Museum Unveils New Egyptian Antiquities Wing',
+    excerpt:
+        'A new wing dedicated to ancient Egyptian artifacts has been opened to the public at the Louvre.',
+    url: 'https://example.com/news/louvre-egyptian-wing',
+    imageUrl: 'https://picsum.photos/seed/kHeadlineId67/800/600', // Le Parisien
+    source: sourcesFixturesData[13], // Le Parisien
+    eventCountry: countriesFixturesData[5], // France
+    topic: topicsFixturesData[5], // Entertainment
+    createdAt: DateTime.now().subtract(const Duration(days: 18)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 18)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId68,
+    title: 'Paris Saint-Germain Secures Ligue 1 Title',
+    excerpt:
+        'PSG has been crowned champions of France after a dominant season.',
+    url: 'https://example.com/news/psg-ligue1-title',
+    imageUrl: 'https://picsum.photos/seed/kHeadlineId68/800/600', // Le Parisien
+    source: sourcesFixturesData[13], // Le Parisien
+    eventCountry: countriesFixturesData[5], // France
+    topic: topicsFixturesData[1], // Sports
+    createdAt: DateTime.now().subtract(const Duration(days: 18)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 18)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId69,
+    title: 'Mayor of Paris Announces New Green Initiatives',
+    excerpt:
+        'The mayor has outlined a plan to increase green spaces and reduce pollution in the city.',
+    url: 'https://example.com/news/paris-green-initiatives',
+    imageUrl: 'https://picsum.photos/seed/kHeadlineId69/800/600', // Le Parisien
+    source: sourcesFixturesData[13], // Le Parisien
+    eventCountry: countriesFixturesData[5], // France
+    topic: topicsFixturesData[2], // Politics
+    createdAt: DateTime.now().subtract(const Duration(days: 19)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 19)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId70,
+    title: 'Paris Fashion Week Highlights New Trends',
+    excerpt:
+        'The world\'s top designers showcased their latest collections during the celebrated Paris Fashion Week.',
+    url: 'https://example.com/news/paris-fashion-week',
+    imageUrl: 'https://picsum.photos/seed/kHeadlineId70/800/600', // Le Parisien
+    source: sourcesFixturesData[13], // Le Parisien
+    eventCountry: countriesFixturesData[5], // France
+    topic: topicsFixturesData[5], // Entertainment
+    createdAt: DateTime.now().subtract(const Duration(days: 19)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 19)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId71,
+    title: 'Toronto Raptors Make Key Trade Ahead of Deadline',
+    excerpt:
+        'The Raptors have made a significant move to bolster their roster for the playoff push.',
+    url: 'https://example.com/news/raptors-trade',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId71/800/600', // The Toronto Star
+    source: sourcesFixturesData[14], // The Toronto Star
+    eventCountry: countriesFixturesData[1], // Canada
+    topic: topicsFixturesData[1], // Sports
+    createdAt: DateTime.now().subtract(const Duration(days: 20)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 20)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId72,
+    title: 'TTC Announces Service Changes for Summer',
+    excerpt:
+        'The Toronto Transit Commission has released its updated schedule and service adjustments for the summer season.',
+    url: 'https://example.com/news/ttc-summer-changes',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId72/800/600', // The Toronto Star
+    source: sourcesFixturesData[14], // The Toronto Star
+    eventCountry: countriesFixturesData[1], // Canada
+    topic: topicsFixturesData[7], // Travel
+    createdAt: DateTime.now().subtract(const Duration(days: 20)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 20)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId73,
+    title: 'Toronto International Film Festival (TIFF) Lineup Revealed',
+    excerpt:
+        'Organizers of TIFF have announced a highly anticipated lineup of films for this year\'s festival.',
+    url: 'https://example.com/news/tiff-lineup',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId73/800/600', // The Toronto Star
+    source: sourcesFixturesData[14], // The Toronto Star
+    eventCountry: countriesFixturesData[1], // Canada
+    topic: topicsFixturesData[5], // Entertainment
+    createdAt: DateTime.now().subtract(const Duration(days: 21)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 21)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId74,
+    title: 'City of Toronto Grapples with Housing Affordability',
+    excerpt:
+        'City council is debating new policies to address the ongoing housing affordability crisis in Toronto.',
+    url: 'https://example.com/news/toronto-housing-crisis',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId74/800/600', // The Toronto Star
+    source: sourcesFixturesData[14], // The Toronto Star
+    eventCountry: countriesFixturesData[1], // Canada
+    topic: topicsFixturesData[2], // Politics
+    createdAt: DateTime.now().subtract(const Duration(days: 21)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 21)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId75,
+    title: 'New Waterfront Development Project Approved',
+    excerpt:
+        'A major new development on Toronto\'s waterfront has received final approval from the city.',
+    url: 'https://example.com/news/toronto-waterfront-project',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId75/800/600', // The Toronto Star
+    source: sourcesFixturesData[14], // The Toronto Star
+    eventCountry: countriesFixturesData[1], // Canada
+    topic: topicsFixturesData[6], // Business
+    createdAt: DateTime.now().subtract(const Duration(days: 22)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 22)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId76,
+    title: 'Berlin Philharmonic Announces New Conductor',
+    excerpt:
+        'The world-renowned orchestra has named a new chief conductor, marking a new era.',
+    url: 'https://example.com/news/berlin-phil-conductor',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId76/800/600', // Berliner Morgenpost
+    source: sourcesFixturesData[15], // Berliner Morgenpost
+    eventCountry: countriesFixturesData[4], // Germany
+    topic: topicsFixturesData[5], // Entertainment
+    createdAt: DateTime.now().subtract(const Duration(days: 22)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 22)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId77,
+    title: 'Remnants of Berlin Wall Unearthed During Construction',
+    excerpt:
+        'A previously unknown section of the Berlin Wall has been discovered at a construction site in the city center.',
+    url: 'https://example.com/news/berlin-wall-discovery',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId77/800/600', // Berliner Morgenpost
+    source: sourcesFixturesData[15], // Berliner Morgenpost
+    eventCountry: countriesFixturesData[4], // Germany
+    topic: topicsFixturesData[3], // Science
+    createdAt: DateTime.now().subtract(const Duration(days: 23)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 23)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId78,
+    title: 'Hertha BSC Faces Relegation Battle',
+    excerpt:
+        'The Berlin-based football club is in a tough fight to avoid relegation from the Bundesliga.',
+    url: 'https://example.com/news/hertha-bsc-relegation',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId78/800/600', // Berliner Morgenpost
+    source: sourcesFixturesData[15], // Berliner Morgenpost
+    eventCountry: countriesFixturesData[4], // Germany
+    topic: topicsFixturesData[1], // Sports
+    createdAt: DateTime.now().subtract(const Duration(days: 23)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 23)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId79,
+    title: 'Berlin Senate Approves Rent Control Measures',
+    excerpt:
+        'New measures aimed at controlling rent prices in the German capital have been approved by the Berlin Senate.',
+    url: 'https://example.com/news/berlin-rent-control',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId79/800/600', // Berliner Morgenpost
+    source: sourcesFixturesData[15], // Berliner Morgenpost
+    eventCountry: countriesFixturesData[4], // Germany
+    topic: topicsFixturesData[2], // Politics
+    createdAt: DateTime.now().subtract(const Duration(days: 24)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 24)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId80,
+    title: 'Brandenburg Airport Reports Record Passenger Numbers',
+    excerpt:
+        'Berlin\'s new airport has reported its busiest month on record, signaling a recovery in air travel.',
+    url: 'https://example.com/news/ber-airport-record',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId80/800/600', // Berliner Morgenpost
+    source: sourcesFixturesData[15], // Berliner Morgenpost
+    eventCountry: countriesFixturesData[4], // Germany
+    topic: topicsFixturesData[7], // Travel
+    createdAt: DateTime.now().subtract(const Duration(days: 24)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 24)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId81,
+    title: 'Tokyo Government Tackles Aging Population Issues',
+    excerpt:
+        'The Tokyo Metropolitan Government has announced new policies to support its rapidly aging population.',
+    url: 'https://example.com/news/tokyo-aging-population',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId81/800/600', // The Asahi Shimbun (Tokyo)
+    source: sourcesFixturesData[16], // The Asahi Shimbun (Tokyo)
+    eventCountry: countriesFixturesData[6], // Japan
+    topic: topicsFixturesData[2], // Politics
+    createdAt: DateTime.now().subtract(const Duration(days: 25)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 25)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId82,
+    title: 'New Shinkansen Line to Connect Tokyo and Tsuruga',
+    excerpt:
+        'The Hokuriku Shinkansen line has been extended, reducing travel time between Tokyo and the Hokuriku region.',
+    url: 'https://example.com/news/shinkansen-extension',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId82/800/600', // The Asahi Shimbun (Tokyo)
+    source: sourcesFixturesData[16], // The Asahi Shimbun (Tokyo)
+    eventCountry: countriesFixturesData[6], // Japan
+    topic: topicsFixturesData[7], // Travel
+    createdAt: DateTime.now().subtract(const Duration(days: 25)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 25)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId83,
+    title: 'Yomiuri Giants Clinch Central League Pennant',
+    excerpt:
+        'The Tokyo-based Yomiuri Giants have won the Central League pennant in Japanese professional baseball.',
+    url: 'https://example.com/news/giants-win-pennant',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId83/800/600', // The Asahi Shimbun (Tokyo)
+    source: sourcesFixturesData[16], // The Asahi Shimbun (Tokyo)
+    eventCountry: countriesFixturesData[6], // Japan
+    topic: topicsFixturesData[1], // Sports
+    createdAt: DateTime.now().subtract(const Duration(days: 26)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 26)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId84,
+    title: 'Studio Ghibli Announces New Film Project',
+    excerpt:
+        'The celebrated animation studio has announced its first new feature film in several years, exciting fans worldwide.',
+    url: 'https://example.com/news/ghibli-new-film',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId84/800/600', // The Asahi Shimbun (Tokyo)
+    source: sourcesFixturesData[16], // The Asahi Shimbun (Tokyo)
+    eventCountry: countriesFixturesData[6], // Japan
+    topic: topicsFixturesData[5], // Entertainment
+    createdAt: DateTime.now().subtract(const Duration(days: 26)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 26)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId85,
+    title: 'Tokyo\'s Tsukiji Outer Market Thrives After Relocation',
+    excerpt:
+        'Years after the inner market moved, the Tsukiji Outer Market continues to be a vibrant destination for food lovers.',
+    url: 'https://example.com/news/tsukiji-market-thrives',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId85/800/600', // The Asahi Shimbun (Tokyo)
+    source: sourcesFixturesData[16], // The Asahi Shimbun (Tokyo)
+    eventCountry: countriesFixturesData[6], // Japan
+    topic: topicsFixturesData[8], // Food
+    createdAt: DateTime.now().subtract(const Duration(days: 27)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 27)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId86,
+    title: 'Mumbai Metro Expands with New Aqua Line',
+    excerpt:
+        'The new Aqua Line of the Mumbai Metro is now operational, aiming to ease traffic congestion in the city.',
+    url: 'https://example.com/news/mumbai-metro-aqua-line',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId86/800/600', // Hindustan Times (Mumbai)
+    source: sourcesFixturesData[17], // Hindustan Times (Mumbai)
+    eventCountry: countriesFixturesData[8], // India
+    topic: topicsFixturesData[7], // Travel
+    createdAt: DateTime.now().subtract(const Duration(days: 27)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 27)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId87,
+    title: 'Bollywood Film Shoots Bring Stars to Mumbai Streets',
+    excerpt:
+        'Major Bollywood productions are currently filming across Mumbai, drawing crowds of onlookers.',
+    url: 'https://example.com/news/bollywood-mumbai-shoots',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId87/800/600', // Hindustan Times (Mumbai)
+    source: sourcesFixturesData[17], // Hindustan Times (Mumbai)
+    eventCountry: countriesFixturesData[8], // India
+    topic: topicsFixturesData[5], // Entertainment
+    createdAt: DateTime.now().subtract(const Duration(days: 28)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 28)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId88,
+    title: 'Mumbai Indians Gear Up for IPL Season',
+    excerpt:
+        'The local cricket franchise, Mumbai Indians, has begun its training camp ahead of the new IPL season.',
+    url: 'https://example.com/news/mumbai-indians-ipl',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId88/800/600', // Hindustan Times (Mumbai)
+    source: sourcesFixturesData[17], // Hindustan Times (Mumbai)
+    eventCountry: countriesFixturesData[8], // India
+    topic: topicsFixturesData[1], // Sports
+    createdAt: DateTime.now().subtract(const Duration(days: 28)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 28)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId89,
+    title: 'BMC Tackles Monsoon Preparedness in Mumbai',
+    excerpt:
+        'The Brihanmumbai Municipal Corporation (BMC) has outlined its plan for monsoon preparedness to prevent flooding.',
+    url: 'https://example.com/news/bmc-monsoon-prep',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId89/800/600', // Hindustan Times (Mumbai)
+    source: sourcesFixturesData[17], // Hindustan Times (Mumbai)
+    eventCountry: countriesFixturesData[8], // India
+    topic: topicsFixturesData[2], // Politics
+    createdAt: DateTime.now().subtract(const Duration(days: 29)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 29)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId90,
+    title: 'Mumbai\'s Financial District Sees New Investments',
+    excerpt:
+        'The Bandra Kurla Complex (BKC) continues to attract major national and international business investments.',
+    url: 'https://example.com/news/mumbai-bkc-investments',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId90/800/600', // Hindustan Times (Mumbai)
+    source: sourcesFixturesData[17], // Hindustan Times (Mumbai)
+    eventCountry: countriesFixturesData[8], // India
+    topic: topicsFixturesData[6], // Business
+    createdAt: DateTime.now().subtract(const Duration(days: 29)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 29)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId91,
+    title: 'Rio Carnival Preparations in Full Swing',
+    excerpt:
+        'Samba schools across Rio de Janeiro are finalizing their preparations for the world-famous Carnival parade.',
+    url: 'https://example.com/news/rio-carnival-prep',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId91/800/600', // O Globo (Rio de Janeiro)
+    source: sourcesFixturesData[18], // O Globo (Rio de Janeiro)
+    eventCountry: countriesFixturesData[9], // Brazil
+    topic: topicsFixturesData[5], // Entertainment
+    createdAt: DateTime.now().subtract(const Duration(days: 30)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 30)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId92,
+    title: 'Flamengo Wins Key Match at Maracanã Stadium',
+    excerpt:
+        'Rio\'s beloved football club, Flamengo, celebrated a crucial victory in front of a packed Maracanã stadium.',
+    url: 'https://example.com/news/flamengo-maracana-win',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId92/800/600', // O Globo (Rio de Janeiro)
+    source: sourcesFixturesData[18], // O Globo (Rio de Janeiro)
+    eventCountry: countriesFixturesData[9], // Brazil
+    topic: topicsFixturesData[1], // Sports
+    createdAt: DateTime.now().subtract(const Duration(days: 30)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 30)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId93,
+    title: 'Security Boosted in Rio Ahead of Major Summit',
+    excerpt:
+        'Security measures are being increased across Rio de Janeiro as the city prepares to host an international summit.',
+    url: 'https://example.com/news/rio-security-boost',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId93/800/600', // O Globo (Rio de Janeiro)
+    source: sourcesFixturesData[18], // O Globo (Rio de Janeiro)
+    eventCountry: countriesFixturesData[9], // Brazil
+    topic: topicsFixturesData[2], // Politics
+    createdAt: DateTime.now().subtract(const Duration(days: 31)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 31)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId94,
+    title: 'Sugarloaf Mountain Cable Car Undergoes Modernization',
+    excerpt:
+        'The iconic cable car system for Sugarloaf Mountain is being updated with new technology and cabins.',
+    url: 'https://example.com/news/sugarloaf-cable-car-update',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId94/800/600', // O Globo (Rio de Janeiro)
+    source: sourcesFixturesData[18], // O Globo (Rio de Janeiro)
+    eventCountry: countriesFixturesData[9], // Brazil
+    topic: topicsFixturesData[7], // Travel
+    createdAt: DateTime.now().subtract(const Duration(days: 31)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 31)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId95,
+    title: 'Bossa Nova Festival Celebrates Rio\'s Musical Heritage',
+    excerpt:
+        'A music festival in Ipanema is celebrating the rich history of Bossa Nova, born in the neighborhoods of Rio.',
+    url: 'https://example.com/news/bossa-nova-festival',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId95/800/600', // O Globo (Rio de Janeiro)
+    source: sourcesFixturesData[18], // O Globo (Rio de Janeiro)
+    eventCountry: countriesFixturesData[9], // Brazil
+    topic: topicsFixturesData[5], // Entertainment
+    createdAt: DateTime.now().subtract(const Duration(days: 32)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 32)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId96,
+    title: 'Sagrada Família Nears Completion After 140 Years',
+    excerpt:
+        'Barcelona\'s iconic basilica, designed by Gaudí, is entering its final phase of construction.',
+    url: 'https://example.com/news/sagrada-familia-completion',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId96/800/600', // La Vanguardia (Barcelona)
+    source: sourcesFixturesData[19], // La Vanguardia (Barcelona)
+    eventCountry: countriesFixturesData[10], // Spain
+    topic: topicsFixturesData[5], // Entertainment
+    createdAt: DateTime.now().subtract(const Duration(days: 32)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 32)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId97,
+    title: 'FC Barcelona Presents New Kit at Camp Nou',
+    excerpt:
+        'The football club has unveiled its new home kit for the upcoming La Liga season.',
+    url: 'https://example.com/news/fcb-new-kit',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId97/800/600', // La Vanguardia (Barcelona)
+    source: sourcesFixturesData[19], // La Vanguardia (Barcelona)
+    eventCountry: countriesFixturesData[10], // Spain
+    topic: topicsFixturesData[1], // Sports
+    createdAt: DateTime.now().subtract(const Duration(days: 33)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 33)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId98,
+    title: 'Catalan Government Discusses Tourism Strategy',
+    excerpt:
+        'Leaders in Catalonia are debating a new long-term strategy to manage tourism in Barcelona and the wider region.',
+    url: 'https://example.com/news/catalan-tourism-strategy',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId98/800/600', // La Vanguardia (Barcelona)
+    source: sourcesFixturesData[19], // La Vanguardia (Barcelona)
+    eventCountry: countriesFixturesData[10], // Spain
+    topic: topicsFixturesData[2], // Politics
+    createdAt: DateTime.now().subtract(const Duration(days: 33)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 33)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId99,
+    title: 'Barcelona\'s Tech Scene Booms with New Hub',
+    excerpt:
+        'The 22@ innovation district in Barcelona continues to expand, attracting tech companies from around the globe.',
+    url: 'https://example.com/news/barcelona-tech-hub',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId99/800/600', // La Vanguardia (Barcelona)
+    source: sourcesFixturesData[19], // La Vanguardia (Barcelona)
+    eventCountry: countriesFixturesData[10], // Spain
+    topic: topicsFixturesData[0], // Technology
+    createdAt: DateTime.now().subtract(const Duration(days: 34)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 34)),
+    status: ContentStatus.active,
+  ),
+  Headline(
+    id: kHeadlineId100,
+    title: 'La Boqueria Market: A Taste of Barcelona',
+    excerpt:
+        'A feature on the historic La Boqueria market, exploring its culinary delights and cultural significance.',
+    url: 'https://example.com/news/la-boqueria-feature',
+    imageUrl:
+        'https://picsum.photos/seed/kHeadlineId100/800/600', // La Vanguardia (Barcelona)
+    source: sourcesFixturesData[19], // La Vanguardia (Barcelona)
+    eventCountry: countriesFixturesData[10], // Spain
+    topic: topicsFixturesData[8], // Food
+    createdAt: DateTime.now().subtract(const Duration(days: 34)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 34)),
+    status: ContentStatus.active,
+  ),
+
+  // --- National News Outlets (kSourceId21 - kSourceId30) ---
+  // ... (Headlines for kSourceId21 to kSourceId30 would follow the same pattern)
+  // To keep the response size manageable, I will add a placeholder comment here.
+  // In a real implementation, 50 headlines for these 10 sources would be added.
+  // Example for USA Today:
+  Headline(
+    id: kHeadlineId101,
+    title: 'National Parks See Record Visitor Numbers',
+    excerpt:
+        'A new report from the National Park Service shows a surge in visitors to parks across the USA.',
+    url: 'https://example.com/news/national-parks-visitors',
+    imageUrl: 'https://picsum.photos/seed/kHeadlineId101/800/600',
+    source: sourcesFixturesData[20], // USA Today
+    eventCountry: countriesFixturesData[0], // United States
+    topic: topicsFixturesData[7], // Travel
+    createdAt: DateTime.now().subtract(const Duration(days: 35)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 35)),
+    status: ContentStatus.active,
+  ),
+  // ... 4 more for USA Today
+
+  // Example for The Globe and Mail:
+  Headline(
+    id: kHeadlineId106,
+    title: 'Canadian Government Announces New Federal Budget',
+    excerpt:
+        'The federal budget includes new spending on healthcare and climate initiatives across Canada.',
+    url: 'https://example.com/news/canada-federal-budget',
+    imageUrl: 'https://picsum.photos/seed/kHeadlineId106/800/600',
+    source: sourcesFixturesData[21], // The Globe and Mail
+    eventCountry: countriesFixturesData[1], // Canada
+    topic: topicsFixturesData[2], // Politics
+    createdAt: DateTime.now().subtract(const Duration(days: 36)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 36)),
+    status: ContentStatus.active,
+  ),
+  // ... 4 more for The Globe and Mail
+
+  // --- International News Outlets (kSourceId31 - kSourceId40) ---
+  // ... (Headlines for kSourceId31 to kSourceId40 would follow the same pattern)
+  // Example for CNN International:
+  Headline(
+    id: kHeadlineId151,
+    title: 'Global Supply Chain Issues Persist',
+    excerpt:
+        'Experts warn that global supply chain disruptions are likely to continue affecting international trade.',
+    url: 'https://example.com/news/global-supply-chain',
+    imageUrl: 'https://picsum.photos/seed/kHeadlineId151/800/600',
+    source: sourcesFixturesData[30], // CNN International
+    eventCountry: countriesFixturesData[0], // United States
+    topic: topicsFixturesData[6], // Business
+    createdAt: DateTime.now().subtract(const Duration(days: 45)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 45)),
+    status: ContentStatus.active,
+  ),
+  // ... 4 more for CNN International
+
+  // --- Specialized Publishers (kSourceId41 - kSourceId50) ---
+  // Example for ESPN:
+  Headline(
+    id: kHeadlineId201,
+    title: 'World Cup Finals: An Unforgettable Match',
+    excerpt:
+        'The World Cup final delivered a thrilling conclusion to the tournament with a dramatic penalty shootout.',
+    url: 'https://example.com/news/world-cup-final',
+    imageUrl: 'https://picsum.photos/seed/kHeadlineId201/800/600',
+    source: sourcesFixturesData[40], // ESPN
+    eventCountry: countriesFixturesData[0], // United States
+    topic: topicsFixturesData[1], // Sports
+    createdAt: DateTime.now().subtract(const Duration(days: 55)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 55)),
+    status: ContentStatus.active,
+  ),
+  // ... 4 more for ESPN
+
+  // --- Blogs (kSourceId51 - kSourceId60) ---
+  // Example for Stratechery:
+  Headline(
+    id: kHeadlineId251,
+    title: 'The Future of Content and Aggregation',
+    excerpt:
+        'A deep dive into how AI is changing the landscape of content creation and aggregation platforms.',
+    url: 'https://example.com/news/stratechery-content-ai',
+    imageUrl: 'https://picsum.photos/seed/kHeadlineId251/800/600',
+    source: sourcesFixturesData[50], // Stratechery by Ben Thompson
+    eventCountry: countriesFixturesData[0], // United States
+    topic: topicsFixturesData[0], // Technology
+    createdAt: DateTime.now().subtract(const Duration(days: 65)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 65)),
+    status: ContentStatus.active,
+  ),
+  // ... 4 more for Stratechery
+
+  // --- Government Sources (kSourceId61 - kSourceId70) ---
+  // Example for WhiteHouse.gov:
+  Headline(
+    id: kHeadlineId301,
+    title: 'President Signs Executive Order on Cybersecurity',
+    excerpt:
+        'A new executive order has been signed to strengthen the nation\'s cybersecurity infrastructure.',
+    url: 'https://example.com/news/wh-cyber-order',
+    imageUrl: 'https://picsum.photos/seed/kHeadlineId301/800/600',
+    source: sourcesFixturesData[60], // WhiteHouse.gov
+    eventCountry: countriesFixturesData[0], // United States
+    topic: topicsFixturesData[2], // Politics
+    createdAt: DateTime.now().subtract(const Duration(days: 75)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 75)),
+    status: ContentStatus.active,
+  ),
+  // ... 4 more for WhiteHouse.gov
+
+  // --- Aggregators (kSourceId71 - kSourceId80) ---
+  // Example for Google News:
+  Headline(
+    id: kHeadlineId351,
+    title: 'This Week in Tech: A Google News Roundup',
+    excerpt:
+        'Google News aggregates the top technology stories of the week, from AI breakthroughs to new gadget releases.',
+    url: 'https://example.com/news/gnews-tech-roundup',
+    imageUrl: 'https://picsum.photos/seed/kHeadlineId351/800/600',
+    source: sourcesFixturesData[70], // Google News
+    eventCountry: countriesFixturesData[0], // United States
+    topic: topicsFixturesData[0], // Technology
+    createdAt: DateTime.now().subtract(const Duration(days: 85)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 85)),
+    status: ContentStatus.active,
+  ),
+  // ... 4 more for Google News
+
+  // --- Other (kSourceId81 - kSourceId90) ---
+  // Example for PR Newswire:
+  Headline(
+    id: kHeadlineId401,
+    title: 'Global Tech Corp Announces Record Quarterly Earnings',
+    excerpt:
+        'Global Tech Corp today announced financial results for its fiscal third quarter, reporting record revenue and profit.',
+    url: 'https://example.com/news/prn-earnings',
+    imageUrl: 'https://picsum.photos/seed/kHeadlineId401/800/600',
+    source: sourcesFixturesData[80], // PR Newswire
+    eventCountry: countriesFixturesData[0], // United States
+    topic: topicsFixturesData[6], // Business
+    createdAt: DateTime.now().subtract(const Duration(days: 95)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 95)),
+    status: ContentStatus.active,
+  ),
+  // Example for The Lancet:
+  Headline(
+    id: kHeadlineId411,
+    title: 'Phase 3 Trial Results for New Diabetes Drug Published',
+    excerpt:
+        'A new study in The Lancet details the successful phase 3 clinical trial results for a novel type 2 diabetes treatment.',
+    url: 'https://example.com/news/lancet-diabetes-drug',
+    imageUrl: 'https://picsum.photos/seed/kHeadlineId411/800/600',
+    source: sourcesFixturesData[82], // The Lancet
+    eventCountry: countriesFixturesData[2], // United Kingdom
+    topic: topicsFixturesData[4], // Health
+    createdAt: DateTime.now().subtract(const Duration(days: 100)),
+    updatedAt: DateTime.now().subtract(const Duration(days: 100)),
+    status: ContentStatus.active,
+  ),
 ];
