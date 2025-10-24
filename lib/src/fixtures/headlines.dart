@@ -996,7 +996,7 @@ final headlinesFixturesData = <Headline>[
     id: kHeadlineId70,
     title: 'Paris Fashion Week Highlights New Trends',
     excerpt:
-        'The world\'s top designers showcased their latest collections during the celebrated Paris Fashion Week.',
+        "The world's top designers showcased their latest collections during the celebrated Paris Fashion Week.",
     url: 'https://example.com/news/paris-fashion-week',
     imageUrl: 'https://picsum.photos/seed/kHeadlineId70/800/600', // Le Parisien
     source: sourcesFixturesData[13], // Le Parisien
@@ -1040,7 +1040,7 @@ final headlinesFixturesData = <Headline>[
     id: kHeadlineId73,
     title: 'Toronto International Film Festival (TIFF) Lineup Revealed',
     excerpt:
-        'Organizers of TIFF have announced a highly anticipated lineup of films for this year\'s festival.',
+        "Organizers of TIFF have announced a highly anticipated lineup of films for this year's festival.",
     url: 'https://example.com/news/tiff-lineup',
     imageUrl:
         'https://picsum.photos/seed/kHeadlineId73/800/600', // The Toronto Star
@@ -1070,7 +1070,7 @@ final headlinesFixturesData = <Headline>[
     id: kHeadlineId75,
     title: 'New Waterfront Development Project Approved',
     excerpt:
-        'A major new development on Toronto\'s waterfront has received final approval from the city.',
+        "A major new development on Toronto's waterfront has received final approval from the city.",
     url: 'https://example.com/news/toronto-waterfront-project',
     imageUrl:
         'https://picsum.photos/seed/kHeadlineId75/800/600', // The Toronto Star
@@ -1145,7 +1145,7 @@ final headlinesFixturesData = <Headline>[
     id: kHeadlineId80,
     title: 'Brandenburg Airport Reports Record Passenger Numbers',
     excerpt:
-        'Berlin\'s new airport has reported its busiest month on record, signaling a recovery in air travel.',
+        "Berlin's new airport has reported its busiest month on record, signaling a recovery in air travel.",
     url: 'https://example.com/news/ber-airport-record',
     imageUrl:
         'https://picsum.photos/seed/kHeadlineId80/800/600', // Berliner Morgenpost
@@ -1218,7 +1218,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId85,
-    title: 'Tokyo\'s Tsukiji Outer Market Thrives After Relocation',
+    title: "Tokyo's Tsukiji Outer Market Thrives After Relocation",
     excerpt:
         'Years after the inner market moved, the Tsukiji Outer Market continues to be a vibrant destination for food lovers.',
     url: 'https://example.com/news/tsukiji-market-thrives',
@@ -1293,7 +1293,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId90,
-    title: 'Mumbai\'s Financial District Sees New Investments',
+    title: "Mumbai's Financial District Sees New Investments",
     excerpt:
         'The Bandra Kurla Complex (BKC) continues to attract major national and international business investments.',
     url: 'https://example.com/news/mumbai-bkc-investments',
@@ -1325,7 +1325,7 @@ final headlinesFixturesData = <Headline>[
     id: kHeadlineId92,
     title: 'Flamengo Wins Key Match at Maracanã Stadium',
     excerpt:
-        'Rio\'s beloved football club, Flamengo, celebrated a crucial victory in front of a packed Maracanã stadium.',
+        "Rio's beloved football club, Flamengo, celebrated a crucial victory in front of a packed Maracanã stadium.",
     url: 'https://example.com/news/flamengo-maracana-win',
     imageUrl:
         'https://picsum.photos/seed/kHeadlineId92/800/600', // O Globo (Rio de Janeiro)
@@ -1368,7 +1368,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId95,
-    title: 'Bossa Nova Festival Celebrates Rio\'s Musical Heritage',
+    title: "Bossa Nova Festival Celebrates Rio's Musical Heritage",
     excerpt:
         'A music festival in Ipanema is celebrating the rich history of Bossa Nova, born in the neighborhoods of Rio.',
     url: 'https://example.com/news/bossa-nova-festival',
@@ -1385,7 +1385,7 @@ final headlinesFixturesData = <Headline>[
     id: kHeadlineId96,
     title: 'Sagrada Família Nears Completion After 140 Years',
     excerpt:
-        'Barcelona\'s iconic basilica, designed by Gaudí, is entering its final phase of construction.',
+        "Barcelona's iconic basilica, designed by Gaudí, is entering its final phase of construction.",
     url: 'https://example.com/news/sagrada-familia-completion',
     imageUrl:
         'https://picsum.photos/seed/kHeadlineId96/800/600', // La Vanguardia (Barcelona)
@@ -1428,7 +1428,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId99,
-    title: 'Barcelona\'s Tech Scene Booms with New Hub',
+    title: "Barcelona's Tech Scene Booms with New Hub",
     excerpt:
         'The 22@ innovation district in Barcelona continues to expand, attracting tech companies from around the globe.',
     url: 'https://example.com/news/barcelona-tech-hub',
@@ -1556,7 +1556,7 @@ final headlinesFixturesData = <Headline>[
     id: kHeadlineId301,
     title: 'President Signs Executive Order on Cybersecurity',
     excerpt:
-        'A new executive order has been signed to strengthen the nation\'s cybersecurity infrastructure.',
+        "A new executive order has been signed to strengthen the nation's cybersecurity infrastructure.",
     url: 'https://example.com/news/wh-cyber-order',
     imageUrl: 'https://picsum.photos/seed/kHeadlineId301/800/600',
     source: sourcesFixturesData[60], // WhiteHouse.gov
