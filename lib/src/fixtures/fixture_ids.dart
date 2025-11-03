@@ -16,7 +16,7 @@ const kRemoteConfigId = '6643b1b7a4a4e6e1a8e7b1c2';
 const kDashboardSummaryId = '6643b1b7a4a4e6e1a8e7b1c3';
 
 // --- User Fixture IDs ---
-const kAdminUserId = '6643b1b7a4a4e6e1a8e7b1c1'; // Adminstrator
+const kAdminUserId = '6643b1b7a4a4e6e1a8e7b1c1'; // Administrator
 const kUser1Id = 'a1a1b1b7a4a4e6e1a8e7b1c1'; // Publisher (Premium)
 const kUser2Id = 'a1a1b1b7a4a4e6e1a8e7b1c2'; // Publisher (Standard)
 const kUser3Id = 'a1a1b1b7a4a4e6e1a8e7b1c3'; // Standard User
