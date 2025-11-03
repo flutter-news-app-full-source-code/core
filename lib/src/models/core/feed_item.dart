@@ -40,8 +40,6 @@ abstract class FeedItem extends Equatable {
         return Country.fromJson(json);
       case 'callToAction':
         return CallToActionItem.fromJson(json);
-      case 'localAd':
-        return LocalAd.fromJson(json);
       case 'contentCollection':
         final contentType = json['contentType'] as String?;
         if (contentType == null) {
@@ -96,9 +94,6 @@ abstract class FeedItem extends Equatable {
       case 'callToAction':
         final callToActionItem = item as CallToActionItem;
         return callToActionItem.toJson();
-      case 'localAd':
-        final localAdItem = item as LocalAd;
-        return LocalAd.toJson(localAdItem);
       case 'contentCollection':
         // For ContentCollectionItem, we need to know the generic type T
         // to call its toJson method correctly.
