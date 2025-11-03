@@ -4,7 +4,6 @@ export 'core/core.dart';
 export 'dashboard/dashboard.dart';
 export 'entities/entities.dart';
 export 'feed_decorators/feed_decorators.dart';
-export 'local_ads/local_ads.dart';
 export 'query/query.dart';
 export 'responses/responses.dart';
 export 'user_preferences/user_preferences.dart';
