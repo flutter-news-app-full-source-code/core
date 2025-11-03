@@ -7,10 +7,11 @@ void main() {
         .first
         .adConfig
         .platformAdIdentifiers[AdPlatformType.admob]!;
-    final localIdentifiersFixture = remoteConfigsFixturesData
+    
+    final demoIdentifiersFixture = remoteConfigsFixturesData
         .first
         .adConfig
-        .platformAdIdentifiers[AdPlatformType.local]!;
+        .platformAdIdentifiers[AdPlatformType.demo]!;
 
     test('can be instantiated (AdMob)', () {
       expect(admobIdentifiersFixture, isA<AdPlatformIdentifiers>());
@@ -24,15 +25,15 @@ void main() {
       );
     });
 
-    test('can be instantiated (Local)', () {
-      expect(localIdentifiersFixture, isA<AdPlatformIdentifiers>());
+    test('can be instantiated (Demo)', () {
+      expect(demoIdentifiersFixture, isA<AdPlatformIdentifiers>());
       expect(
-        localIdentifiersFixture.feedNativeAdId,
-        '1563c000a4a4e6e1a8e7f0f1',
+        demoIdentifiersFixture.feedNativeAdId,
+        '_',
       );
       expect(
-        localIdentifiersFixture.feedToArticleInterstitialAdId,
-        '3563c000a4a4e6e1a8e7f0f3',
+        demoIdentifiersFixture.feedToArticleInterstitialAdId,
+        '_',
       );
     });
 
@@ -72,10 +73,10 @@ void main() {
         expect(result, equals(admobIdentifiersFixture));
       });
 
-      test('round trip (Local)', () {
-        final json = localIdentifiersFixture.toJson();
+      test('round trip (Demo)', () {
+        final json = demoIdentifiersFixture.toJson();
         final result = AdPlatformIdentifiers.fromJson(json);
-        expect(result, equals(localIdentifiersFixture));
+        expect(result, equals(demoIdentifiersFixture));
       });
     });
   });
