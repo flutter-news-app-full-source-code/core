@@ -3,7 +3,8 @@ import 'package:test/test.dart';
 
 void main() {
   group('SavedFilter', () {
-    final mockSavedFilter = userContentPreferencesFixturesData.first.savedFilters.first;
+    final mockSavedFilter =
+        userContentPreferencesFixturesData.first.savedFilters.first;
 
     group('constructor', () {
       test('returns correct instance', () {
