@@ -64,4 +64,78 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
       ),
     ],
   ),
+  UserContentPreferences(
+    id: kUser1Id, // Publisher (Premium)
+    followedCountries: const [],
+    followedSources: [
+      sourcesFixturesData[0], // TechCrunch
+      sourcesFixturesData[1], // BBC News
+    ],
+    followedTopics: [
+      topicsFixturesData[0], // Technology
+      topicsFixturesData[6], // Business
+    ],
+    savedHeadlines: [headlinesFixturesData[2], headlinesFixturesData[3]],
+    savedFilters: [
+      SavedFilter(
+        id: 'pub_saved_1',
+        name: 'My Tech Feed',
+        topics: [topicsFixturesData[0]],
+        sources: [sourcesFixturesData[0]],
+        countries: const [],
+      ),
+    ],
+  ),
+  UserContentPreferences(
+    id: kUser2Id, // Publisher (Standard)
+    followedCountries: const [],
+    followedSources: [
+      sourcesFixturesData[3], // The Guardian
+      sourcesFixturesData[4], // CNN
+    ],
+    followedTopics: [
+      topicsFixturesData[2], // Politics
+      topicsFixturesData[4], // Health
+    ],
+    savedHeadlines: [headlinesFixturesData[4], headlinesFixturesData[5]],
+    savedFilters: const [],
+  ),
+  // Add preferences for users 3-10
+  ...List.generate(8, (index) {
+    final userId = [
+      kUser3Id,
+      kUser4Id,
+      kUser5Id,
+      kUser6Id,
+      kUser7Id,
+      kUser8Id,
+      kUser9Id,
+      kUser10Id,
+    ][index];
+    return UserContentPreferences(
+      id: userId,
+      followedCountries: const [],
+      followedSources: [
+        sourcesFixturesData[index % 10],
+        sourcesFixturesData[(index + 1) % 10],
+      ],
+      followedTopics: [
+        topicsFixturesData[index % 5],
+        topicsFixturesData[(index + 1) % 5],
+      ],
+      savedHeadlines: [
+        headlinesFixturesData[index * 2],
+        headlinesFixturesData[index * 2 + 1],
+      ],
+      savedFilters: [
+        SavedFilter(
+          id: 'user_${index + 3}_saved_1',
+          name: 'Filter for User ${index + 3}',
+          topics: [topicsFixturesData[index % 5]],
+          sources: [sourcesFixturesData[index % 10]],
+          countries: const [],
+        ),
+      ],
+    );
+  }),
 ];

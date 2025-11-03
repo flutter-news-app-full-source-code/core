@@ -9,14 +9,24 @@
 
 // ignore_for_file: dangling_library_doc_comments
 
-/// ID for the admin user fixture.
-const kAdminUserId = '6643b1b7a4a4e6e1a8e7b1c1';
-
 /// ID for the singleton RemoteConfig fixture.
 const kRemoteConfigId = '6643b1b7a4a4e6e1a8e7b1c2';
 
 /// ID for the singleton DashboardSummary fixture.
 const kDashboardSummaryId = '6643b1b7a4a4e6e1a8e7b1c3';
+
+// --- User Fixture IDs ---
+const kAdminUserId = '6643b1b7a4a4e6e1a8e7b1c1'; // Administrator
+const kUser1Id = 'a1a1b1b7a4a4e6e1a8e7b1c1'; // Publisher (Premium)
+const kUser2Id = 'a1a1b1b7a4a4e6e1a8e7b1c2'; // Publisher (Standard)
+const kUser3Id = 'a1a1b1b7a4a4e6e1a8e7b1c3'; // Standard User
+const kUser4Id = 'a1a1b1b7a4a4e6e1a8e7b1c4'; // Standard User
+const kUser5Id = 'a1a1b1b7a4a4e6e1a8e7b1c5'; // Standard User
+const kUser6Id = 'a1a1b1b7a4a4e6e1a8e7b1c6'; // Standard User
+const kUser7Id = 'a1a1b1b7a4a4e6e1a8e7b1c7'; // Standard User
+const kUser8Id = 'a1a1b1b7a4a4e6e1a8e7b1c8'; // Standard User
+const kUser9Id = 'a1a1b1b7a4a4e6e1a8e7b1c9'; // Standard User
+const kUser10Id = 'a1a1b1b7a4a4e6e1a8e7b1ca'; // Standard User
 
 // --- Country Fixture IDs ---
 const kAfghanistanId = '6643b21ca4a4e6e1a8e7b1c4';
