@@ -1,18 +1,5 @@
 import 'package:core/core.dart';
 
-/// Ad identifiers for the [AdPlatformType.demo] platform.
-///
-/// These identifiers are placeholders and are not actively used for loading
-/// ads. They exist to satisfy the data contract of [AdPlatformIdentifiers]
-/// when [AdPlatformType.demo] is the primary ad platform.
-const AdPlatformIdentifiers demoAdPlatformIdentifiers = AdPlatformIdentifiers(
-  feedNativeAdId: '_',
-  feedBannerAdId: '_',
-  feedToArticleInterstitialAdId: '_',
-  inArticleNativeAdId: '_',
-  inArticleBannerAdId: '_',
-);
-
 /// A list of initial remote config data to be loaded into the in-memory
 /// remote config repository.
 final List<RemoteConfig> remoteConfigsFixturesData = [
@@ -51,14 +38,13 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
           inArticleNativeAdId: 'ca-app-pub-3940256099942544/3986624511',
           inArticleBannerAdId: 'ca-app-pub-3940256099942544/6300978111',
         ),
-        AdPlatformType.local: AdPlatformIdentifiers(
-          feedNativeAdId: '1563c000a4a4e6e1a8e7f0f1',
-          feedBannerAdId: '2563c000a4a4e6e1a8e7f0f2',
-          feedToArticleInterstitialAdId: '3563c000a4a4e6e1a8e7f0f3',
-          inArticleNativeAdId: '1563c000a4a4e6e1a8e7f0f1',
-          inArticleBannerAdId: '2563c000a4a4e6e1a8e7f0f2',
+        AdPlatformType.demo: AdPlatformIdentifiers(
+          feedNativeAdId: '_',
+          feedBannerAdId: '_',
+          feedToArticleInterstitialAdId: '_',
+          inArticleNativeAdId: '_',
+          inArticleBannerAdId: '_',
         ),
-        AdPlatformType.demo: demoAdPlatformIdentifiers,
       },
       feedAdConfiguration: FeedAdConfiguration(
         enabled: true,

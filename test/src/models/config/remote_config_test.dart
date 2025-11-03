@@ -38,7 +38,7 @@ void main() {
             isUnderMaintenance: true,
           ),
           adConfig: remoteConfigFixture.adConfig.copyWith(
-            primaryAdPlatform: AdPlatformType.local,
+            primaryAdPlatform: AdPlatformType.admob,
             feedAdConfiguration: remoteConfigFixture
                 .adConfig
                 .feedAdConfiguration
@@ -52,7 +52,7 @@ void main() {
           remoteConfigFixture.userPreferenceConfig,
         );
         expect(updatedConfig.appStatus.isUnderMaintenance, true);
-        expect(updatedConfig.adConfig.primaryAdPlatform, AdPlatformType.local);
+        expect(updatedConfig.adConfig.primaryAdPlatform, AdPlatformType.admob);
         expect(updatedConfig.adConfig.feedAdConfiguration.enabled, isFalse);
         expect(updatedConfig, isNot(equals(remoteConfigFixture)));
       });

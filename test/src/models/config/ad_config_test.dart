@@ -31,7 +31,7 @@ void main() {
 
     test('copyWith returns a new instance with updated values', () {
       final updatedConfig = adConfigFixture.copyWith(
-        primaryAdPlatform: AdPlatformType.local,
+        primaryAdPlatform: AdPlatformType.admob,
         feedAdConfiguration: adConfigFixture.feedAdConfiguration.copyWith(
           enabled: false,
         ),
@@ -39,7 +39,7 @@ void main() {
             .copyWith(enabled: false),
       );
 
-      expect(updatedConfig.primaryAdPlatform, AdPlatformType.local);
+      expect(updatedConfig.primaryAdPlatform, AdPlatformType.admob);
       expect(updatedConfig.feedAdConfiguration.enabled, isFalse);
       expect(updatedConfig.interstitialAdConfiguration.enabled, isFalse);
       expect(updatedConfig, isNot(equals(adConfigFixture)));

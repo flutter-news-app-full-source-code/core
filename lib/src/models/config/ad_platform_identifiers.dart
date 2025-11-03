@@ -5,7 +5,7 @@ import 'package:meta/meta.dart';
 part 'ad_platform_identifiers.g.dart';
 
 /// {@template ad_platform_identifiers}
-/// Holds all ad identifiers for a specific platform (AdMob, Local etc ).
+/// Holds all ad identifiers for a specific platform (AdMob, Demo etc ).
 /// This object is generic and will be stored in a map in "AdConfig".
 /// {@endtemplate}
 @immutable

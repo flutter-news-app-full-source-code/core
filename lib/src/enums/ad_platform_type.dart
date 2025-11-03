@@ -5,9 +5,6 @@ enum AdPlatformType {
   /// Google AdMob platform.
   admob,
 
-  /// Local custom ad platform.
-  local,
-
   /// Represents a placeholder ad platform for demonstration purposes.
   ///
   /// When this type is selected, it indicates that ads should be handled

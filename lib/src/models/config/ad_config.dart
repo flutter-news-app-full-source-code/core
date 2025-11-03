@@ -35,7 +35,7 @@ class AdConfig extends Equatable {
   /// Global switch to enable or disable all ads in the application.
   final bool enabled;
 
-  /// Global choice: AdMob or Local.
+  /// Global choice: AdMob or Demo.
   final AdPlatformType primaryAdPlatform;
 
   /// Map to store identifiers for all platforms.
