@@ -7,7 +7,7 @@ void main() {
         .first
         .adConfig
         .platformAdIdentifiers[AdPlatformType.admob]!;
-    
+
     final demoIdentifiersFixture = remoteConfigsFixturesData
         .first
         .adConfig
@@ -27,14 +27,8 @@ void main() {
 
     test('can be instantiated (Demo)', () {
       expect(demoIdentifiersFixture, isA<AdPlatformIdentifiers>());
-      expect(
-        demoIdentifiersFixture.feedNativeAdId,
-        '_',
-      );
-      expect(
-        demoIdentifiersFixture.feedToArticleInterstitialAdId,
-        '_',
-      );
+      expect(demoIdentifiersFixture.feedNativeAdId, '_');
+      expect(demoIdentifiersFixture.feedToArticleInterstitialAdId, '_');
     });
 
     test('supports value equality', () {
