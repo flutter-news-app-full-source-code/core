@@ -5,9 +5,9 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part '../notifications/device.g.dart';
+part 'push_notification_device.g.dart';
 
-/// {@template device}
+/// {@template push_notification_device}
 /// Represents a user's device that is registered for push notifications.
 ///
 /// This model stores the device token, the push notification provider, the
@@ -15,9 +15,9 @@ part '../notifications/device.g.dart';
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
-class Device extends Equatable {
-  /// {@macro device}
-  const Device({
+class PushNotificationDevice extends Equatable {
+  /// {@macro push_notification_device}
+  const PushNotificationDevice({
     required this.id,
     required this.userId,
     required this.token,
@@ -27,8 +27,8 @@ class Device extends Equatable {
     required this.updatedAt,
   });
 
-  /// Creates a [Device] from JSON data.
-  factory Device.fromJson(Map<String, dynamic> json) => _$DeviceFromJson(json);
+  /// Creates a [PushNotificationDevice] from JSON data.
+  factory PushNotificationDevice.fromJson(Map<String, dynamic> json) => _$PushNotificationDeviceFromJson(json);
 
   /// The unique identifier for this device registration.
   final String id;
@@ -53,8 +53,8 @@ class Device extends Equatable {
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
   final DateTime updatedAt;
 
-  /// Converts this [Device] instance to JSON data.
-  Map<String, dynamic> toJson() => _$DeviceToJson(this);
+  /// Converts this [PushNotificationDevice] instance to JSON data.
+  Map<String, dynamic> toJson() => _$PushNotificationDeviceToJson(this);
 
   @override
   List<Object> get props => [
@@ -67,9 +67,9 @@ class Device extends Equatable {
     updatedAt,
   ];
 
-  /// Creates a copy of this [Device] but with the given fields replaced with
+  /// Creates a copy of this [PushNotificationDevice] but with the given fields replaced with
   /// the new values.
-  Device copyWith({
+  PushNotificationDevice copyWith({
     String? id,
     String? userId,
     String? token,
@@ -78,7 +78,7 @@ class Device extends Equatable {
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
-    return Device(
+    return PushNotificationDevice(
       id: id ?? this.id,
       userId: userId ?? this.userId,
       token: token ?? this.token,
