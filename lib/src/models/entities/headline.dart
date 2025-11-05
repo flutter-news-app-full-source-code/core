@@ -30,6 +30,7 @@ class Headline extends FeedItem {
     required this.createdAt,
     required this.updatedAt,
     required this.status,
+    required this.isBreaking,
   }) : super(type: 'headline');
 
   /// Creates a [Headline] instance from a JSON map.
@@ -73,6 +74,12 @@ class Headline extends FeedItem {
   /// ensuring backward compatibility. This is suitable for ingested content.
   final ContentStatus status;
 
+  /// A flag indicating whether this headline is considered "breaking news".
+  ///
+  /// This is editorially controlled and used to trigger immediate push
+  /// notifications for users subscribed to `breakingOnly` alerts.
+  final bool isBreaking;
+
   /// Topic of the current headline.
   final Topic topic;
 
@@ -85,19 +92,20 @@ class Headline extends FeedItem {
 
   @override
   List<Object?> get props => [
-    id,
-    title,
-    excerpt,
-    url,
-    imageUrl,
-    createdAt,
-    updatedAt,
-    status,
-    source,
-    eventCountry,
-    topic,
-    type,
-  ];
+        id,
+        title,
+        excerpt,
+        url,
+        imageUrl,
+        createdAt,
+        updatedAt,
+        status,
+        source,
+        eventCountry,
+        topic,
+        isBreaking,
+        type,
+      ];
 
   @override
   bool get stringify => true;
@@ -116,6 +124,7 @@ class Headline extends FeedItem {
     Source? source,
     Country? eventCountry,
     Topic? topic,
+    bool? isBreaking,
   }) {
     return Headline(
       id: id ?? this.id,
@@ -129,6 +138,7 @@ class Headline extends FeedItem {
       source: source ?? this.source,
       eventCountry: eventCountry ?? this.eventCountry,
       topic: topic ?? this.topic,
+      isBreaking: isBreaking ?? this.isBreaking,
     );
   }
 }
