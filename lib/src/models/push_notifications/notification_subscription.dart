@@ -3,9 +3,9 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part 'push_notification_subscription.g.dart';
+part '../notifications/notification_subscription.g.dart';
 
-/// {@template push_notification_subscription}
+/// {@template notification_subscription}
 /// Represents a user's saved notification filter.
 ///
 /// This model stores a named set of criteria, including topics, sources, and
@@ -15,9 +15,9 @@ part 'push_notification_subscription.g.dart';
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
-class PushNotificationSubscription extends Equatable {
-  /// {@macro push_notification_subscription}
-  const PushNotificationSubscription({
+class NotificationSubscription extends Equatable {
+  /// {@macro notification_subscription}
+  const NotificationSubscription({
     required this.id,
     required this.userId,
     required this.name,
@@ -27,9 +27,9 @@ class PushNotificationSubscription extends Equatable {
     required this.deliveryTypes,
   });
 
-  /// Creates a [PushNotificationSubscription] from JSON data.
-  factory PushNotificationSubscription.fromJson(Map<String, dynamic> json) =>
-      _$PushNotificationSubscriptionFromJson(json);
+  /// Creates a [NotificationSubscription] from JSON data.
+  factory NotificationSubscription.fromJson(Map<String, dynamic> json) =>
+      _$NotificationSubscriptionFromJson(json);
 
   /// The unique identifier for the notification subscription.
   final String id;
@@ -58,8 +58,8 @@ class PushNotificationSubscription extends Equatable {
   /// `dailyDigest` notifications for the same subscription.
   final Set<PushNotificationSubscriptionDeliveryType> deliveryTypes;
 
-  /// Converts this [PushNotificationSubscription] instance to JSON data.
-  Map<String, dynamic> toJson() => _$PushNotificationSubscriptionToJson(this);
+  /// Converts this [NotificationSubscription] instance to JSON data.
+  Map<String, dynamic> toJson() => _$NotificationSubscriptionToJson(this);
 
   @override
   List<Object> get props => [
@@ -72,9 +72,9 @@ class PushNotificationSubscription extends Equatable {
     deliveryTypes,
   ];
 
-  /// Creates a copy of this [PushNotificationSubscription] but with the given
+  /// Creates a copy of this [NotificationSubscription] but with the given
   /// fields replaced with the new values.
-  PushNotificationSubscription copyWith({
+  NotificationSubscription copyWith({
     String? id,
     String? userId,
     String? name,
@@ -83,7 +83,7 @@ class PushNotificationSubscription extends Equatable {
     List<String>? countries,
     Set<PushNotificationSubscriptionDeliveryType>? deliveryTypes,
   }) {
-    return PushNotificationSubscription(
+    return NotificationSubscription(
       id: id ?? this.id,
       userId: userId ?? this.userId,
       name: name ?? this.name,
