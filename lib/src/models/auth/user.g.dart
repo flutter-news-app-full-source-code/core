@@ -27,6 +27,11 @@ User _$UserFromJson(Map<String, dynamic> json) =>
           'feedDecoratorStatus',
           (v) => _feedDecoratorStatusFromJson(v as Map<String, dynamic>),
         ),
+        pushNotificationSubscriptions: $checkedConvert(
+          'pushNotificationSubscriptions',
+          (v) =>
+              _pushNotificationSubscriptionsFromJson(v as Map<String, dynamic>),
+        ),
       );
       return val;
     });
@@ -39,6 +44,9 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
   'createdAt': _dateTimeToJson(instance.createdAt),
   'feedDecoratorStatus': _feedDecoratorStatusToJson(
     instance.feedDecoratorStatus,
+  ),
+  'pushNotificationSubscriptions': _pushNotificationSubscriptionsToJson(
+    instance.pushNotificationSubscriptions,
   ),
 };
 

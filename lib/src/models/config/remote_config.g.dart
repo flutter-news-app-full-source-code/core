@@ -10,9 +10,9 @@ RemoteConfig _$RemoteConfigFromJson(Map<String, dynamic> json) =>
     $checkedCreate('RemoteConfig', json, ($checkedConvert) {
       final val = RemoteConfig(
         id: $checkedConvert('id', (v) => v as String),
-        userPreferenceConfig: $checkedConvert(
-          'userPreferenceConfig',
-          (v) => UserPreferenceConfig.fromJson(v as Map<String, dynamic>),
+        appStatus: $checkedConvert(
+          'appStatus',
+          (v) => AppStatus.fromJson(v as Map<String, dynamic>),
         ),
         adConfig: $checkedConvert(
           'adConfig',
@@ -27,9 +27,13 @@ RemoteConfig _$RemoteConfigFromJson(Map<String, dynamic> json) =>
             ),
           ),
         ),
-        appStatus: $checkedConvert(
-          'appStatus',
-          (v) => AppStatus.fromJson(v as Map<String, dynamic>),
+        userPreferenceConfig: $checkedConvert(
+          'userPreferenceConfig',
+          (v) => UserPreferenceConfig.fromJson(v as Map<String, dynamic>),
+        ),
+        pushNotificationConfig: $checkedConvert(
+          'pushNotificationConfig',
+          (v) => PushNotificationConfig.fromJson(v as Map<String, dynamic>),
         ),
         createdAt: $checkedConvert(
           'createdAt',
@@ -52,6 +56,7 @@ Map<String, dynamic> _$RemoteConfigToJson(RemoteConfig instance) =>
         (k, e) => MapEntry(_$FeedDecoratorTypeEnumMap[k]!, e.toJson()),
       ),
       'appStatus': instance.appStatus.toJson(),
+      'pushNotificationConfig': instance.pushNotificationConfig.toJson(),
       'createdAt': dateTimeToJson(instance.createdAt),
       'updatedAt': dateTimeToJson(instance.updatedAt),
     };
