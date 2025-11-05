@@ -1,4 +1,3 @@
-import 'package:core/src/enums/device_platform.dart';
 import 'package:core/src/enums/push_notification_provider.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
