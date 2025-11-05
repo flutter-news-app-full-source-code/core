@@ -1,4 +1,8 @@
 import 'package:core/core.dart';
+import 'package:core/src/enums/push_notification_provider.dart';
+import 'package:core/src/models/config/firebase_provider_config.dart';
+import 'package:core/src/models/config/one_signal_provider_config.dart';
+import 'package:core/src/models/config/push_notification_config.dart';
 
 /// A list of initial remote config data to be loaded into the in-memory
 /// remote config repository.
@@ -110,5 +114,52 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
         },
       ),
     },
+    pushNotificationConfig: const PushNotificationConfig(
+      enabled: true,
+      primaryProvider: PushNotificationProvider.firebase,
+      providerConfigs: {
+        PushNotificationProvider.firebase: FirebaseProviderConfig(
+          projectId: 'your-firebase-project-id',
+          clientEmail: 'your-firebase-client-email',
+          privateKey: 'your-firebase-private-key',
+        ),
+        PushNotificationProvider.oneSignal: OneSignalProviderConfig(
+          appId: 'your-onesignal-app-id',
+          restApiKey: 'your-onesignal-rest-api-key',
+        ),
+      },
+      deliveryConfigs: {
+        SubscriptionDeliveryType.dailyDigest : NotificationDeliveryConfig(
+          enabled: true,
+          visibleTo: {
+            AppUserRole.guestUser: NotificationSubscriptionLimit(
+              isAllowed: true,
+              maxSubscriptions: 1,
+            ),
+            AppUserRole.standardUser: NotificationSubscriptionLimit(
+              isAllowed: true,
+              maxSubscriptions: 3,
+            ),
+            AppUserRole.premiumUser: NotificationSubscriptionLimit(
+              isAllowed: true,
+              maxSubscriptions: 10,
+            ),
+          },
+        ),
+        SubscriptionDeliveryType.breakingOnly: NotificationDeliveryConfig(
+          enabled: true,
+          visibleTo: {
+            AppUserRole.guestUser:
+                NotificationSubscriptionLimit(isAllowed: false),
+            AppUserRole.standardUser: NotificationSubscriptionLimit(
+              isAllowed: true,
+              maxSubscriptions: 5,
+            ),
+            AppUserRole.premiumUser:
+                NotificationSubscriptionLimit(isAllowed: true),
+          },
+        ),
+      },
+    ),
   ),
 ];
