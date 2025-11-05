@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part 'notification_payload.g.dart';
+part '../notifications/notification_payload.g.dart';
 
 /// {@template notification_payload}
 /// Represents the generic structure of a push notification message.

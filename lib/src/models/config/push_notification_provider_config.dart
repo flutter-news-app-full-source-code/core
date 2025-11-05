@@ -1,6 +1,6 @@
-import 'package:core/src/enums/enums.dart';
-import 'package:core/src/models/remote_config/firebase_provider_config.dart';
-import 'package:core/src/models/remote_config/one_signal_provider_config.dart';
+import 'package:core/src/enums/push_notification_provider.dart';
+import 'package:core/src/models/config/firebase_provider_config.dart';
+import 'package:core/src/models/config/one_signal_provider_config.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 

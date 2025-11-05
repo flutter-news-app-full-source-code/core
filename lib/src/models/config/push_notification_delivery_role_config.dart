@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part '../../../../push_notification_delivery_role_config.g.dart';
+part 'push_notification_delivery_role_config.g.dart';
 
 /// {@template push_notification_delivery_role_config}
 /// Defines the role-specific settings for a single push notification delivery type.

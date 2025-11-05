@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part 'device.g.dart';
+part '../notifications/device.g.dart';
 
 /// {@template device}
 /// Represents a user's device that is registered for push notifications.

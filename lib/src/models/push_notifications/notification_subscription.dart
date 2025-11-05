@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part 'notification_subscription.g.dart';
+part '../notifications/notification_subscription.g.dart';
 
 /// {@template notification_subscription}
 /// Represents a user's saved notification filter.

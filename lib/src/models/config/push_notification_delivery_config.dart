@@ -1,10 +1,10 @@
 import 'package:core/src/enums/app_user_role.dart';
-import 'package:core/src/models/remote_config/notification_delivery_role_config.dart';
+import 'package:core/src/models/config/push_notification_delivery_role_config.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part '../../../../push_notification_delivery_config.g.dart';
+part 'push_notification_delivery_config.g.dart';
 
 /// {@template push_notification_delivery_config}
 /// Defines the configuration for a single push notification delivery type, such as
@@ -29,7 +29,7 @@ class PushNotificationDeliveryConfig extends Equatable {
   ///
   /// The key is the [AppUserRole], and the value is the role-specific
   /// configuration, including subscription limits.
-  final Map<AppUserRole, NotificationDeliveryRoleConfig> visibleTo;
+  final Map<AppUserRole, PushNotificationDeliveryRoleConfig> visibleTo;
 
   /// Converts this instance to JSON data.
   Map<String, dynamic> toJson() => _$PushNotificationDeliveryConfigToJson(this);
