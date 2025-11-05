@@ -27,12 +27,18 @@ This package provides the critical building blocks for a professional news appli
 - **`User`, `AppUserRole`, `DashboardUserRole`, `Permission`:** Robust models for user profiles, roles, and permissions, enabling secure and personalized experiences.
 - **`UserContentPreferences`, `UserAppSettings`:** Detailed models for storing user-specific content preferences (e.g., followed topics, saved headlines) and application settings (e.g., theme, language).
 
+### 📲 Push Notifications & Subscriptions
+- **`NotificationSubscription`:** A model for storing user-defined notification subscriptions.
+- **`Device`:** Represents a user's device registered for push notifications.
+- **`NotificationPayload`:** Defines the structure for a push notification message.
+
 ### 💾 User Presets
 - **`SavedFilter`:** A model for storing user-defined filter combinations.
 
 ### ⚙️ Application Configuration
 - **`RemoteConfig`:** A central container for all dynamic application settings, fetched from a remote source. This includes:
     - **`AdConfig`:** Master configuration for all advertising, now featuring **highly flexible, role-based control** over ad visibility and frequency for feed, article, and interstitial ads. This allows for granular control over monetization strategies per user segment.
+    - **`PushNotificationConfig`:** Manages global settings for the push notification system.
     - **`UserPreferenceConfig`:** Defines user preference limits (e.g., max followed items, saved headlines) tiered by user role.
     - **`AppStatus`:** Manages application-wide status, including maintenance mode and force update directives.
     - **`FeedDecoratorConfig`:** Configures dynamic in-feed elements like calls-to-action and content collections, with role-based visibility.
