@@ -2,9 +2,9 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part '../notifications/notification_payload.g.dart';
+part 'push_notification_payload.g.dart';
 
-/// {@template notification_payload}
+/// {@template push_notification_payload}
 /// Represents the generic structure of a push notification message.
 ///
 /// This model defines the content of a notification, such as its title and
@@ -13,18 +13,18 @@ part '../notifications/notification_payload.g.dart';
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
-class NotificationPayload extends Equatable {
-  /// {@macro notification_payload}
-  const NotificationPayload({
+class PushNotificationPayload extends Equatable {
+  /// {@macro push_notification_payload}
+  const PushNotificationPayload({
     required this.title,
     required this.body,
     required this.data,
     this.imageUrl,
   });
 
-  /// Creates a [NotificationPayload] from JSON data.
-  factory NotificationPayload.fromJson(Map<String, dynamic> json) =>
-      _$NotificationPayloadFromJson(json);
+  /// Creates a [PushNotificationPayload] from JSON data.
+  factory PushNotificationPayload.fromJson(Map<String, dynamic> json) =>
+      _$PushNotificationPayloadFromJson(json);
 
   /// The title of the notification.
   final String title;
@@ -42,21 +42,21 @@ class NotificationPayload extends Equatable {
   /// For example: `{'contentType': 'headline', 'id': 'headline-123'}`.
   final Map<String, dynamic> data;
 
-  /// Converts this [NotificationPayload] instance to JSON data.
-  Map<String, dynamic> toJson() => _$NotificationPayloadToJson(this);
+  /// Converts this [PushNotificationPayload] instance to JSON data.
+  Map<String, dynamic> toJson() => _$PushNotificationPayloadToJson(this);
 
   @override
   List<Object?> get props => [title, body, imageUrl, data];
 
-  /// Creates a copy of this [NotificationPayload] but with the given fields
+  /// Creates a copy of this [PushNotificationPayload] but with the given fields
   /// replaced with the new values.
-  NotificationPayload copyWith({
+  PushNotificationPayload copyWith({
     String? title,
     String? body,
     String? imageUrl,
     Map<String, dynamic>? data,
   }) {
-    return NotificationPayload(
+    return PushNotificationPayload(
       title: title ?? this.title,
       body: body ?? this.body,
       imageUrl: imageUrl ?? this.imageUrl,
