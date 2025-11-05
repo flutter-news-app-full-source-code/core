@@ -1,4 +1,3 @@
-
 import 'package:core/core.dart';
 import 'package:core/src/models/config/push_notification_config.dart';
 import 'package:equatable/equatable.dart';
@@ -19,10 +18,10 @@ class RemoteConfig extends Equatable {
   /// Creates a new [RemoteConfig] instance.
   const RemoteConfig({
     required this.id,
-    required this.userPreferenceConfig,
+    required this.appStatus,
     required this.adConfig,
     required this.feedDecoratorConfig,
-    required this.appStatus,
+    required this.userPreferenceConfig,
     required this.pushNotificationConfig,
     required this.createdAt,
     required this.updatedAt,
@@ -88,15 +87,15 @@ class RemoteConfig extends Equatable {
 
   @override
   List<Object> get props => [
-        id,
-        userPreferenceConfig,
-        adConfig,
-        feedDecoratorConfig,
-        appStatus,
-        pushNotificationConfig,
-        createdAt,
-        updatedAt,
-      ];
+    id,
+    userPreferenceConfig,
+    adConfig,
+    feedDecoratorConfig,
+    appStatus,
+    pushNotificationConfig,
+    createdAt,
+    updatedAt,
+  ];
 
   @override
   bool get stringify => true;
