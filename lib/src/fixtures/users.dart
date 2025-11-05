@@ -12,6 +12,7 @@ final List<User> usersFixturesData = [
     dashboardRole: DashboardUserRole.admin,
     createdAt: DateTime.now(),
     feedDecoratorStatus: const {},
+    pushNotificationSubscriptions: const {},
   ),
   User(
     id: kUser1Id,
@@ -20,6 +21,7 @@ final List<User> usersFixturesData = [
     dashboardRole: DashboardUserRole.publisher,
     createdAt: DateTime.now(),
     feedDecoratorStatus: const {},
+    pushNotificationSubscriptions: const {},
   ),
   User(
     id: kUser2Id,
@@ -28,6 +30,7 @@ final List<User> usersFixturesData = [
     dashboardRole: DashboardUserRole.publisher,
     createdAt: DateTime.now(),
     feedDecoratorStatus: const {},
+    pushNotificationSubscriptions: const {},
   ),
   User(
     id: kUser3Id,
@@ -36,6 +39,7 @@ final List<User> usersFixturesData = [
     dashboardRole: DashboardUserRole.none,
     createdAt: DateTime.now(),
     feedDecoratorStatus: const {},
+    pushNotificationSubscriptions: const {},
   ),
   User(
     id: kUser4Id,
@@ -44,6 +48,7 @@ final List<User> usersFixturesData = [
     dashboardRole: DashboardUserRole.none,
     createdAt: DateTime.now(),
     feedDecoratorStatus: const {},
+    pushNotificationSubscriptions: const {},
   ),
   User(
     id: kUser5Id,
@@ -52,6 +57,7 @@ final List<User> usersFixturesData = [
     dashboardRole: DashboardUserRole.none,
     createdAt: DateTime.now(),
     feedDecoratorStatus: const {},
+    pushNotificationSubscriptions: const {},
   ),
   User(
     id: kUser6Id,
@@ -60,6 +66,7 @@ final List<User> usersFixturesData = [
     dashboardRole: DashboardUserRole.none,
     createdAt: DateTime.now(),
     feedDecoratorStatus: const {},
+    pushNotificationSubscriptions: const {},
   ),
   User(
     id: kUser7Id,
@@ -68,6 +75,7 @@ final List<User> usersFixturesData = [
     dashboardRole: DashboardUserRole.none,
     createdAt: DateTime.now(),
     feedDecoratorStatus: const {},
+    pushNotificationSubscriptions: const {},
   ),
   User(
     id: kUser8Id,
@@ -76,6 +84,7 @@ final List<User> usersFixturesData = [
     dashboardRole: DashboardUserRole.none,
     createdAt: DateTime.now(),
     feedDecoratorStatus: const {},
+    pushNotificationSubscriptions: const {},
   ),
   User(
     id: kUser9Id,
@@ -84,6 +93,7 @@ final List<User> usersFixturesData = [
     dashboardRole: DashboardUserRole.none,
     createdAt: DateTime.now(),
     feedDecoratorStatus: const {},
+    pushNotificationSubscriptions: const {},
   ),
   User(
     id: kUser10Id,
@@ -92,5 +102,6 @@ final List<User> usersFixturesData = [
     dashboardRole: DashboardUserRole.none,
     createdAt: DateTime.now(),
     feedDecoratorStatus: const {},
+    pushNotificationSubscriptions: const {},
   ),
 ];

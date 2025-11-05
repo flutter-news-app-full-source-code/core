@@ -9,6 +9,7 @@ import 'package:core/src/models/entities/headline.dart';
 final headlinesFixturesData = <Headline>[
   Headline(
     id: kHeadlineId1,
+    isBreaking: false,
     title: 'AI Breakthrough: New Model Achieves Human-Level Performance',
     excerpt:
         'Researchers announce a significant leap in artificial intelligence, with a new model demonstrating unprecedented capabilities.',
@@ -23,6 +24,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId2,
+    isBreaking: false,
     title: 'Local Team Wins Championship in Thrilling Final',
     excerpt:
         'The city celebrates as the underdog team clinches the national championship in a nail-biting finish.',
@@ -37,6 +39,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId3,
+    isBreaking: false,
     title: 'Global Leaders Meet to Discuss Climate Change Policies',
     excerpt:
         'A summit of world leaders convenes to address urgent climate change issues and propose new international agreements.',
@@ -51,6 +54,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId4,
+    isBreaking: false,
     title: 'New Planet Discovered in Distant Galaxy',
     excerpt:
         'Astronomers confirm the existence of a new exoplanet, sparking excitement in the scientific community.',
@@ -65,6 +69,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId5,
+    isBreaking: false,
     title: 'Breakthrough in Cancer Research Offers New Hope',
     excerpt:
         'A new study reveals a promising treatment approach for a common type of cancer, moving closer to a cure.',
@@ -79,6 +84,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId6,
+    isBreaking: false,
     title: 'Blockbuster Movie Breaks Box Office Records',
     excerpt:
         'The highly anticipated film shatters previous box office records in its opening weekend, delighting fans worldwide.',
@@ -93,6 +99,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId7,
+    isBreaking: false,
     title: 'Stock Market Reaches All-Time High Amid Economic Boom',
     excerpt:
         'Major indices surge as strong economic data and corporate earnings drive investor confidence.',
@@ -107,6 +114,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId8,
+    isBreaking: false,
     title: 'New Travel Restrictions Lifted for Popular Destinations',
     excerpt:
         'Governments ease travel advisories, opening up new opportunities for international tourism.',
@@ -121,6 +129,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId9,
+    isBreaking: false,
     title: 'Michelin Star Chef Opens New Restaurant in City Center',
     excerpt:
         'A world-renowned chef brings their culinary expertise to the city with a highly anticipated new dining establishment.',
@@ -135,6 +144,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId10,
+    isBreaking: false,
     title: 'Innovative Teaching Methods Boost Student Engagement',
     excerpt:
         'Schools adopting new pedagogical approaches report significant improvements in student participation and learning outcomes.',
@@ -149,6 +159,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId11,
+    isBreaking: false,
     title: 'Cybersecurity Firms Warn of New Global Threat',
     excerpt:
         'Experts advise immediate updates as a sophisticated new malware strain targets critical infrastructure worldwide.',
@@ -163,6 +174,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId12,
+    isBreaking: false,
     title: 'Olympics Committee Announces Host City for 2032 Games',
     excerpt:
         'The highly anticipated decision for the next Summer Olympics host city has been revealed, promising a spectacular event.',
@@ -177,6 +189,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId13,
+    isBreaking: false,
     title: 'New Bill Aims to Reform Healthcare System',
     excerpt:
         'Legislators introduce a comprehensive bill designed to address rising healthcare costs and expand access to services.',
@@ -191,6 +204,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId14,
+    isBreaking: false,
     title: 'Archaeologists Uncover Ancient City Ruins',
     excerpt:
         'A team of archaeologists makes a groundbreaking discovery, revealing a previously unknown ancient civilization.',
@@ -205,6 +219,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId15,
+    isBreaking: false,
     title: 'Dietary Guidelines Updated for Public Health',
     excerpt:
         'New recommendations from health organizations aim to improve public nutrition and combat chronic diseases.',
@@ -219,6 +234,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId16,
+    isBreaking: false,
     title: 'Music Festival Announces Star-Studded Lineup',
     excerpt:
         'Fans eagerly await the annual music festival as organizers unveil a lineup featuring top artists from various genres.',
@@ -233,6 +249,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId17,
+    isBreaking: false,
     title: 'Tech Giant Acquires Startup in Multi-Billion Dollar Deal',
     excerpt:
         'A major technology company expands its portfolio with the acquisition of a promising startup, signaling market consolidation.',
@@ -247,6 +264,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId18,
+    isBreaking: false,
     title: 'Space Tourism Takes Off: First Commercial Flights Announced',
     excerpt:
         'The era of space tourism begins as companies unveil plans for regular commercial flights to orbit.',
@@ -261,6 +279,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId19,
+    isBreaking: false,
     title: 'Future of Food: Lab-Grown Meat Gains Popularity',
     excerpt:
         'As sustainability concerns grow, lab-grown meat alternatives are becoming a staple in modern diets.',
@@ -275,6 +294,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId20,
+    isBreaking: false,
     title: 'Online Learning Platforms See Surge in Enrollment',
     excerpt:
         'The shift to digital education continues as more students opt for flexible online courses and certifications.',
@@ -289,6 +309,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId21,
+    isBreaking: false,
     title: 'Quantum Computing Achieves New Milestone',
     excerpt:
         'Scientists report a significant advancement in quantum computing, bringing the technology closer to practical applications.',
@@ -303,6 +324,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId22,
+    isBreaking: false,
     title: 'World Cup Qualifiers: Unexpected Upsets Shake Rankings',
     excerpt:
         'Several top-ranked teams suffer surprising defeats in the latest World Cup qualifiers, reshuffling the global football landscape.',
@@ -317,6 +339,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId23,
+    isBreaking: false,
     title: 'Election Results: New Government Takes Power',
     excerpt:
         'Following a closely contested election, a new political party forms the government, promising significant policy changes.',
@@ -331,6 +354,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId24,
+    isBreaking: false,
     title: 'Breakthrough in Fusion Energy Research Announced',
     excerpt:
         'Scientists achieve a major milestone in fusion energy, bringing clean, limitless power closer to reality.',
@@ -345,6 +369,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId25,
+    isBreaking: false,
     title: 'Mental Health Awareness Campaign Launched Globally',
     excerpt:
         'A new international initiative aims to destigmatize mental health issues and provide greater support resources.',
@@ -359,6 +384,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId26,
+    isBreaking: false,
     title: 'Gaming Industry Sees Record Growth in Virtual Reality',
     excerpt:
         'The virtual reality sector of the gaming industry experiences unprecedented expansion, driven by new hardware and immersive titles.',
@@ -373,6 +399,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId27,
+    isBreaking: false,
     title: 'Global Supply Chain Disruptions Impacting Consumer Goods',
     excerpt:
         'Ongoing challenges in global logistics are leading to shortages and price increases for a wide range of consumer products.',
@@ -387,6 +414,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId28,
+    isBreaking: false,
     title: 'Arctic Expedition Discovers New Marine Species',
     excerpt:
         'Scientists on an Arctic research mission identify several previously unknown species of marine life, highlighting biodiversity.',
@@ -401,6 +429,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId29,
+    isBreaking: false,
     title: 'Rise of Plant-Based Cuisine: New Restaurants Open',
     excerpt:
         'The culinary scene is embracing plant-based diets with an increasing number of restaurants specializing in vegan and vegetarian dishes.',
@@ -415,6 +444,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId30,
+    isBreaking: false,
     title: 'Education Technology Transforms Classrooms',
     excerpt:
         'New digital tools and platforms are revolutionizing traditional classroom settings, enhancing interactive learning experiences.',
@@ -429,6 +459,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId31,
+    isBreaking: false,
     title: 'SpaceX Launches New Satellite Constellation',
     excerpt:
         "Elon Musk's SpaceX successfully deploys a new batch of Starlink satellites, expanding global internet coverage.",
@@ -443,6 +474,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId32,
+    isBreaking: false,
     title: 'Football Legend Announces Retirement',
     excerpt:
         'A celebrated football player declares their retirement, marking the end of an illustrious career.',
@@ -457,6 +489,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId33,
+    isBreaking: false,
     title: 'G7 Summit Concludes with Joint Statement on Global Economy',
     excerpt:
         'Leaders from the G7 nations issue a unified statement addressing economic challenges and future cooperation.',
@@ -471,6 +504,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId34,
+    isBreaking: false,
     title: "Breakthrough in Alzheimer's Research Offers New Treatment Path",
     excerpt:
         "Scientists identify a novel therapeutic target for Alzheimer's disease, paving the way for more effective treatments.",
@@ -485,6 +519,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId35,
+    isBreaking: false,
     title: 'Global Vaccination Campaign Reaches Billions',
     excerpt:
         'International efforts to vaccinate the world population against a new virus achieve unprecedented reach.',
@@ -499,6 +534,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId36,
+    isBreaking: false,
     title: 'Streaming Wars Intensify with New Platform Launches',
     excerpt:
         'The competition in the streaming market heats up as several new services enter the fray, offering diverse content.',
@@ -513,6 +549,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId37,
+    isBreaking: false,
     title: 'Cryptocurrency Market Experiences Major Volatility',
     excerpt:
         'Digital currency values fluctuate wildly, prompting investors to reassess their strategies.',
@@ -527,6 +564,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId38,
+    isBreaking: false,
     title: 'Sustainable Tourism Initiatives Gain Momentum',
     excerpt:
         'Travel industry shifts towards eco-friendly practices, offering responsible options for environmentally conscious travelers.',
@@ -541,6 +579,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId39,
+    isBreaking: false,
     title: 'Food Security Summit Addresses Global Hunger',
     excerpt:
         'International conference focuses on strategies to combat food insecurity and ensure equitable access to nutrition worldwide.',
@@ -555,6 +594,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId40,
+    isBreaking: false,
     title: 'Robotics in Education: New Tools for Learning',
     excerpt:
         'Schools integrate advanced robotics into their curriculum, providing hands-on learning experiences for students.',
@@ -569,6 +609,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId41,
+    isBreaking: false,
     title: 'AI Ethics Debate Intensifies Among Tech Leaders',
     excerpt:
         'Discussions around the ethical implications of artificial intelligence gain traction, with calls for stricter regulations.',
@@ -583,6 +624,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId42,
+    isBreaking: false,
     title: 'Esports Industry Sees Massive Investment Boom',
     excerpt:
         'The competitive gaming sector attracts record investments, solidifying its position as a major entertainment industry.',
@@ -597,6 +639,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId43,
+    isBreaking: false,
     title: 'International Sanctions Imposed on Rogue State',
     excerpt:
         "Global powers unite to impose new economic sanctions in response to a nation's controversial actions.",
@@ -611,6 +654,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId44,
+    isBreaking: false,
     title: 'New Species of Deep-Sea Creature Discovered',
     excerpt:
         'Oceanographers exploring the deepest parts of the ocean encounter a never-before-seen marine organism.',
@@ -625,6 +669,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId45,
+    isBreaking: false,
     title: 'Global Health Crisis: New Pandemic Preparedness Plan',
     excerpt:
         'International health organizations unveil a comprehensive strategy to prevent and respond to future pandemics.',
@@ -639,6 +684,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId46,
+    isBreaking: false,
     title: 'Hollywood Strikes Continue: Impact on Film Production',
     excerpt:
         'Ongoing labor disputes in Hollywood lead to widespread production halts, affecting upcoming movie and TV releases.',
@@ -653,6 +699,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId47,
+    isBreaking: false,
     title: 'Emerging Markets Show Strong Economic Resilience',
     excerpt:
         'Despite global uncertainties, several emerging economies demonstrate robust growth and attract foreign investment.',
@@ -667,6 +714,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId48,
+    isBreaking: false,
     title: 'Adventure Tourism Booms in Remote Regions',
     excerpt:
         'Travelers seek unique experiences in off-the-beaten-path destinations, boosting local economies in remote areas.',
@@ -681,6 +729,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId49,
+    isBreaking: false,
     title: 'The Rise of Sustainable Food Packaging',
     excerpt:
         'Innovations in eco-friendly packaging solutions are transforming the food industry, reducing environmental impact.',
@@ -695,6 +744,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId50,
+    isBreaking: false,
     title: 'Personalized Learning: Tailoring Education to Individual Needs',
     excerpt:
         "New educational models focus on customized learning paths, adapting to each student's pace and preferences.",
@@ -713,6 +763,7 @@ final headlinesFixturesData = <Headline>[
   // --- Local News Outlets (kSourceId11 - kSourceId20) ---
   Headline(
     id: kHeadlineId51,
+    isBreaking: false,
     title: 'City Council Approves New Downtown Development Plan',
     excerpt:
         'The San Francisco City Council has given the green light to a major redevelopment project aimed at revitalizing the downtown core.',
@@ -728,6 +779,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId52,
+    isBreaking: false,
     title: 'Tech Startups Flourish in the Bay Area',
     excerpt:
         'A new report shows a significant increase in venture capital funding for tech startups in San Francisco.',
@@ -743,6 +795,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId53,
+    isBreaking: false,
     title: 'Golden Gate Bridge Retrofit Project Begins',
     excerpt:
         'A multi-year seismic retrofit project for the Golden Gate Bridge has officially commenced.',
@@ -758,6 +811,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId54,
+    isBreaking: false,
     title: 'Local Chef Wins Prestigious Culinary Award',
     excerpt:
         'A San Francisco-based chef has been awarded the coveted "Golden Spoon" for culinary innovation.',
@@ -773,6 +827,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId55,
+    isBreaking: false,
     title: 'Warriors Secure Victory in Season Opener',
     excerpt:
         'The Golden State Warriors started their season with a decisive win at the Chase Center.',
@@ -788,6 +843,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId56,
+    isBreaking: false,
     title: 'Manchester United Announces New Stadium Expansion Plans',
     excerpt:
         'The club has revealed ambitious plans to increase the capacity of Old Trafford.',
@@ -803,6 +859,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId57,
+    isBreaking: false,
     title: 'New Tram Line Opens in Greater Manchester',
     excerpt:
         'The new Metrolink line is set to improve public transport links across the region.',
@@ -818,6 +875,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId58,
+    isBreaking: false,
     title: 'Manchester Tech Hub Attracts Global Talent',
     excerpt:
         'A report highlights Manchester as a growing hub for technology and innovation in Europe.',
@@ -833,6 +891,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId59,
+    isBreaking: false,
     title: 'Coronation Street Filming Causes Local Buzz',
     excerpt:
         'Fans gather as the popular soap opera films on location in central Manchester.',
@@ -848,6 +907,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId60,
+    isBreaking: false,
     title: 'Council Debates Clean Air Zone Implementation',
     excerpt:
         'Greater Manchester leaders are in talks over the future of the controversial Clean Air Zone.',
@@ -863,6 +923,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId61,
+    isBreaking: false,
     title: 'Sydney Opera House Announces New Season Lineup',
     excerpt:
         'A star-studded lineup of performances has been announced for the upcoming season at the iconic venue.',
@@ -878,6 +939,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId62,
+    isBreaking: false,
     title: 'Housing Prices in Sydney Continue to Climb',
     excerpt:
         'The latest real estate data shows a persistent upward trend in property values across the Sydney metropolitan area.',
@@ -893,6 +955,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId63,
+    isBreaking: false,
     title: 'NSW Government Unveils New Infrastructure Projects',
     excerpt:
         'The New South Wales government has committed billions to new transport and public works projects.',
@@ -908,6 +971,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId64,
+    isBreaking: false,
     title: 'Swans Triumph in AFL Derby Match',
     excerpt:
         'The Sydney Swans secured a memorable victory over their local rivals in a heated AFL match.',
@@ -923,6 +987,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId65,
+    isBreaking: false,
     title: 'Bondi Beach Erosion Concerns Prompt Action',
     excerpt:
         'Local authorities are exploring new measures to combat coastal erosion at the world-famous Bondi Beach.',
@@ -938,6 +1003,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId66,
+    isBreaking: false,
     title: 'Paris Metro Expansion: New Stations Opened',
     excerpt:
         'The Grand Paris Express project reaches a new milestone with the opening of several new metro stations.',
@@ -952,6 +1018,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId67,
+    isBreaking: false,
     title: 'Louvre Museum Unveils New Egyptian Antiquities Wing',
     excerpt:
         'A new wing dedicated to ancient Egyptian artifacts has been opened to the public at the Louvre.',
@@ -966,6 +1033,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId68,
+    isBreaking: false,
     title: 'Paris Saint-Germain Secures Ligue 1 Title',
     excerpt:
         'PSG has been crowned champions of France after a dominant season.',
@@ -980,6 +1048,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId69,
+    isBreaking: false,
     title: 'Mayor of Paris Announces New Green Initiatives',
     excerpt:
         'The mayor has outlined a plan to increase green spaces and reduce pollution in the city.',
@@ -994,6 +1063,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId70,
+    isBreaking: false,
     title: 'Paris Fashion Week Highlights New Trends',
     excerpt:
         "The world's top designers showcased their latest collections during the celebrated Paris Fashion Week.",
@@ -1008,6 +1078,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId71,
+    isBreaking: false,
     title: 'Toronto Raptors Make Key Trade Ahead of Deadline',
     excerpt:
         'The Raptors have made a significant move to bolster their roster for the playoff push.',
@@ -1023,6 +1094,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId72,
+    isBreaking: false,
     title: 'TTC Announces Service Changes for Summer',
     excerpt:
         'The Toronto Transit Commission has released its updated schedule and service adjustments for the summer season.',
@@ -1038,6 +1110,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId73,
+    isBreaking: false,
     title: 'Toronto International Film Festival (TIFF) Lineup Revealed',
     excerpt:
         "Organizers of TIFF have announced a highly anticipated lineup of films for this year's festival.",
@@ -1053,6 +1126,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId74,
+    isBreaking: false,
     title: 'City of Toronto Grapples with Housing Affordability',
     excerpt:
         'City council is debating new policies to address the ongoing housing affordability crisis in Toronto.',
@@ -1068,6 +1142,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId75,
+    isBreaking: false,
     title: 'New Waterfront Development Project Approved',
     excerpt:
         "A major new development on Toronto's waterfront has received final approval from the city.",
@@ -1083,6 +1158,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId76,
+    isBreaking: false,
     title: 'Berlin Philharmonic Announces New Conductor',
     excerpt:
         'The world-renowned orchestra has named a new chief conductor, marking a new era.',
@@ -1098,6 +1174,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId77,
+    isBreaking: false,
     title: 'Remnants of Berlin Wall Unearthed During Construction',
     excerpt:
         'A previously unknown section of the Berlin Wall has been discovered at a construction site in the city center.',
@@ -1113,6 +1190,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId78,
+    isBreaking: false,
     title: 'Hertha BSC Faces Relegation Battle',
     excerpt:
         'The Berlin-based football club is in a tough fight to avoid relegation from the Bundesliga.',
@@ -1128,6 +1206,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId79,
+    isBreaking: false,
     title: 'Berlin Senate Approves Rent Control Measures',
     excerpt:
         'New measures aimed at controlling rent prices in the German capital have been approved by the Berlin Senate.',
@@ -1143,6 +1222,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId80,
+    isBreaking: false,
     title: 'Brandenburg Airport Reports Record Passenger Numbers',
     excerpt:
         "Berlin's new airport has reported its busiest month on record, signaling a recovery in air travel.",
@@ -1158,6 +1238,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId81,
+    isBreaking: false,
     title: 'Tokyo Government Tackles Aging Population Issues',
     excerpt:
         'The Tokyo Metropolitan Government has announced new policies to support its rapidly aging population.',
@@ -1173,6 +1254,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId82,
+    isBreaking: false,
     title: 'New Shinkansen Line to Connect Tokyo and Tsuruga',
     excerpt:
         'The Hokuriku Shinkansen line has been extended, reducing travel time between Tokyo and the Hokuriku region.',
@@ -1188,6 +1270,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId83,
+    isBreaking: false,
     title: 'Yomiuri Giants Clinch Central League Pennant',
     excerpt:
         'The Tokyo-based Yomiuri Giants have won the Central League pennant in Japanese professional baseball.',
@@ -1203,6 +1286,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId84,
+    isBreaking: false,
     title: 'Studio Ghibli Announces New Film Project',
     excerpt:
         'The celebrated animation studio has announced its first new feature film in several years, exciting fans worldwide.',
@@ -1218,6 +1302,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId85,
+    isBreaking: false,
     title: "Tokyo's Tsukiji Outer Market Thrives After Relocation",
     excerpt:
         'Years after the inner market moved, the Tsukiji Outer Market continues to be a vibrant destination for food lovers.',
@@ -1233,6 +1318,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId86,
+    isBreaking: false,
     title: 'Mumbai Metro Expands with New Aqua Line',
     excerpt:
         'The new Aqua Line of the Mumbai Metro is now operational, aiming to ease traffic congestion in the city.',
@@ -1248,6 +1334,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId87,
+    isBreaking: false,
     title: 'Bollywood Film Shoots Bring Stars to Mumbai Streets',
     excerpt:
         'Major Bollywood productions are currently filming across Mumbai, drawing crowds of onlookers.',
@@ -1263,6 +1350,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId88,
+    isBreaking: false,
     title: 'Mumbai Indians Gear Up for IPL Season',
     excerpt:
         'The local cricket franchise, Mumbai Indians, has begun its training camp ahead of the new IPL season.',
@@ -1278,6 +1366,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId89,
+    isBreaking: false,
     title: 'BMC Tackles Monsoon Preparedness in Mumbai',
     excerpt:
         'The Brihanmumbai Municipal Corporation (BMC) has outlined its plan for monsoon preparedness to prevent flooding.',
@@ -1293,6 +1382,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId90,
+    isBreaking: false,
     title: "Mumbai's Financial District Sees New Investments",
     excerpt:
         'The Bandra Kurla Complex (BKC) continues to attract major national and international business investments.',
@@ -1308,6 +1398,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId91,
+    isBreaking: false,
     title: 'Rio Carnival Preparations in Full Swing',
     excerpt:
         'Samba schools across Rio de Janeiro are finalizing their preparations for the world-famous Carnival parade.',
@@ -1323,6 +1414,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId92,
+    isBreaking: false,
     title: 'Flamengo Wins Key Match at Maracanã Stadium',
     excerpt:
         "Rio's beloved football club, Flamengo, celebrated a crucial victory in front of a packed Maracanã stadium.",
@@ -1338,6 +1430,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId93,
+    isBreaking: false,
     title: 'Security Boosted in Rio Ahead of Major Summit',
     excerpt:
         'Security measures are being increased across Rio de Janeiro as the city prepares to host an international summit.',
@@ -1353,6 +1446,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId94,
+    isBreaking: false,
     title: 'Sugarloaf Mountain Cable Car Undergoes Modernization',
     excerpt:
         'The iconic cable car system for Sugarloaf Mountain is being updated with new technology and cabins.',
@@ -1368,6 +1462,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId95,
+    isBreaking: false,
     title: "Bossa Nova Festival Celebrates Rio's Musical Heritage",
     excerpt:
         'A music festival in Ipanema is celebrating the rich history of Bossa Nova, born in the neighborhoods of Rio.',
@@ -1383,6 +1478,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId96,
+    isBreaking: false,
     title: 'Sagrada Família Nears Completion After 140 Years',
     excerpt:
         "Barcelona's iconic basilica, designed by Gaudí, is entering its final phase of construction.",
@@ -1398,6 +1494,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId97,
+    isBreaking: false,
     title: 'FC Barcelona Presents New Kit at Camp Nou',
     excerpt:
         'The football club has unveiled its new home kit for the upcoming La Liga season.',
@@ -1413,6 +1510,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId98,
+    isBreaking: false,
     title: 'Catalan Government Discusses Tourism Strategy',
     excerpt:
         'Leaders in Catalonia are debating a new long-term strategy to manage tourism in Barcelona and the wider region.',
@@ -1428,6 +1526,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId99,
+    isBreaking: false,
     title: "Barcelona's Tech Scene Booms with New Hub",
     excerpt:
         'The 22@ innovation district in Barcelona continues to expand, attracting tech companies from around the globe.',
@@ -1443,6 +1542,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId100,
+    isBreaking: false,
     title: 'La Boqueria Market: A Taste of Barcelona',
     excerpt:
         'A feature on the historic La Boqueria market, exploring its culinary delights and cultural significance.',
@@ -1464,6 +1564,7 @@ final headlinesFixturesData = <Headline>[
   // Example for USA Today:
   Headline(
     id: kHeadlineId101,
+    isBreaking: false,
     title: 'National Parks See Record Visitor Numbers',
     excerpt:
         'A new report from the National Park Service shows a surge in visitors to parks across the USA.',
@@ -1481,6 +1582,7 @@ final headlinesFixturesData = <Headline>[
   // Example for The Globe and Mail:
   Headline(
     id: kHeadlineId106,
+    isBreaking: false,
     title: 'Canadian Government Announces New Federal Budget',
     excerpt:
         'The federal budget includes new spending on healthcare and climate initiatives across Canada.',
@@ -1500,6 +1602,7 @@ final headlinesFixturesData = <Headline>[
   // Example for CNN International:
   Headline(
     id: kHeadlineId151,
+    isBreaking: false,
     title: 'Global Supply Chain Issues Persist',
     excerpt:
         'Experts warn that global supply chain disruptions are likely to continue affecting international trade.',
@@ -1518,6 +1621,7 @@ final headlinesFixturesData = <Headline>[
   // Example for ESPN:
   Headline(
     id: kHeadlineId201,
+    isBreaking: false,
     title: 'World Cup Finals: An Unforgettable Match',
     excerpt:
         'The World Cup final delivered a thrilling conclusion to the tournament with a dramatic penalty shootout.',
@@ -1536,6 +1640,7 @@ final headlinesFixturesData = <Headline>[
   // Example for Stratechery:
   Headline(
     id: kHeadlineId251,
+    isBreaking: false,
     title: 'The Future of Content and Aggregation',
     excerpt:
         'A deep dive into how AI is changing the landscape of content creation and aggregation platforms.',
@@ -1554,6 +1659,7 @@ final headlinesFixturesData = <Headline>[
   // Example for WhiteHouse.gov:
   Headline(
     id: kHeadlineId301,
+    isBreaking: false,
     title: 'President Signs Executive Order on Cybersecurity',
     excerpt:
         "A new executive order has been signed to strengthen the nation's cybersecurity infrastructure.",
@@ -1572,6 +1678,7 @@ final headlinesFixturesData = <Headline>[
   // Example for Google News:
   Headline(
     id: kHeadlineId351,
+    isBreaking: false,
     title: 'This Week in Tech: A Google News Roundup',
     excerpt:
         'Google News aggregates the top technology stories of the week, from AI breakthroughs to new gadget releases.',
@@ -1590,6 +1697,7 @@ final headlinesFixturesData = <Headline>[
   // Example for PR Newswire:
   Headline(
     id: kHeadlineId401,
+    isBreaking: false,
     title: 'Global Tech Corp Announces Record Quarterly Earnings',
     excerpt:
         'Global Tech Corp today announced financial results for its fiscal third quarter, reporting record revenue and profit.',
@@ -1605,6 +1713,7 @@ final headlinesFixturesData = <Headline>[
   // Example for The Lancet:
   Headline(
     id: kHeadlineId411,
+    isBreaking: false,
     title: 'Phase 3 Trial Results for New Diabetes Drug Published',
     excerpt:
         'A new study in The Lancet details the successful phase 3 clinical trial results for a novel type 2 diabetes treatment.',

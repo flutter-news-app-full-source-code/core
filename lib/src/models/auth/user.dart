@@ -1,10 +1,6 @@
-import 'package:core/src/enums/app_user_role.dart';
-import 'package:core/src/enums/dashboard_user_role.dart';
 import 'package:core/src/enums/enums.dart';
-import 'package:core/src/enums/feed_decorator_type.dart';
-import 'package:core/src/enums/notifications.dart';
-import 'package:core/src/models/push_notifications/push_notification_subscription.dart';
 import 'package:core/src/models/auth/user_feed_decorator_status.dart';
+import 'package:core/src/models/push_notifications/push_notification_subscription.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -72,7 +68,7 @@ class User extends Equatable {
     fromJson: _pushNotificationSubscriptionsFromJson,
     toJson: _pushNotificationSubscriptionsToJson,
   )
-  final Map<SubscriptionDeliveryType, PushNotificationSubscription>
+  final Map<PushNotificationSubscriptionDeliveryType, PushNotificationSubscription>
       pushNotificationSubscriptions;
 
   /// Converts this User instance to JSON data.
@@ -105,7 +101,7 @@ class User extends Equatable {
     DashboardUserRole? dashboardRole,
     DateTime? createdAt,
     Map<FeedDecoratorType, UserFeedDecoratorStatus>? feedDecoratorStatus,
-    Map<SubscriptionDeliveryType, PushNotificationSubscription>?
+    Map<PushNotificationSubscriptionDeliveryType, PushNotificationSubscription>?
         pushNotificationSubscriptions,
   }) {
     return User(
@@ -193,7 +189,7 @@ Map<PushNotificationSubscriptionDeliveryType, PushNotificationSubscription>
 
 /// Serializes the push notification subscriptions map to JSON.
 Map<String, dynamic> _pushNotificationSubscriptionsToJson(
-  Map<SubscriptionDeliveryType, PushNotificationSubscription> subscriptions,
+  Map<PushNotificationSubscriptionDeliveryType, PushNotificationSubscription> subscriptions,
 ) {
   return subscriptions.map((key, value) => MapEntry(key.name, value.toJson()));
 }
