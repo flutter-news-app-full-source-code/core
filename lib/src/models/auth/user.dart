@@ -1,5 +1,6 @@
 import 'package:core/src/enums/app_user_role.dart';
 import 'package:core/src/enums/dashboard_user_role.dart';
+import 'package:core/src/enums/enums.dart';
 import 'package:core/src/enums/feed_decorator_type.dart';
 import 'package:core/src/enums/notifications.dart';
 import 'package:core/src/models/push_notifications/push_notification_subscription.dart';
@@ -164,12 +165,12 @@ Map<String, dynamic> _feedDecoratorStatusToJson(
 
 /// Deserializes the push notification subscriptions map from JSON and ensures
 /// it's complete.
-Map<SubscriptionDeliveryType, PushNotificationSubscription>
+Map<PushNotificationSubscriptionDeliveryType, PushNotificationSubscription>
     _pushNotificationSubscriptionsFromJson(
   Map<String, dynamic> json,
 ) {
   final existingSubscriptions = json.map((key, value) {
-    final deliveryType = SubscriptionDeliveryType.values.byName(key);
+    final deliveryType = PushNotificationSubscriptionDeliveryType.values.byName(key);
     return MapEntry(
       deliveryType,
       PushNotificationSubscription.fromJson(value as Map<String, dynamic>),
@@ -177,7 +178,7 @@ Map<SubscriptionDeliveryType, PushNotificationSubscription>
   });
 
   return Map.fromEntries(
-    SubscriptionDeliveryType.values.map(
+    PushNotificationSubscriptionDeliveryType.values.map(
       (type) => MapEntry(
         type,
         existingSubscriptions[type] ??

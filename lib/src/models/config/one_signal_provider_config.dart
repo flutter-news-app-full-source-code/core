@@ -1,9 +1,9 @@
 import 'package:core/src/enums/enums.dart';
-import 'package:core/src/models/remote_config/push_notification_provider_config.dart';
+import 'package:core/src/models/config/config.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part '../../../../one_signal_provider_config.g.dart';
+part 'one_signal_provider_config.g.dart';
 
 /// {@template one_signal_provider_config}
 /// A concrete implementation of [PushNotificationProviderConfig] for OneSignal.

@@ -1,6 +1,5 @@
 import 'package:core/src/enums/enums.dart';
-import 'package:core/src/models/remote_config/notification_delivery_config.dart';
-import 'package:core/src/models/remote_config/push_notification_provider_config.dart';
+import 'package:core/src/models/config/config.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -48,7 +47,7 @@ class PushNotificationConfig extends Equatable {
 
   /// A map to globally enable or disable each specific notification type
   /// and define its role-based limits using the `visibleTo` pattern.
-  final Map<SubscriptionDeliveryType, NotificationDeliveryConfig>
+  final Map<PushNotificationSubscriptionDeliveryType, PushNotificationDeliveryConfig>
   deliveryConfigs;
 
   /// Converts this [PushNotificationConfig] instance to JSON data.
@@ -69,7 +68,7 @@ class PushNotificationConfig extends Equatable {
     PushNotificationProvider? primaryProvider,
     Map<PushNotificationProvider, PushNotificationProviderConfig>?
     providerConfigs,
-    Map<SubscriptionDeliveryType, NotificationDeliveryConfig>? deliveryConfigs,
+    Map<PushNotificationSubscriptionDeliveryType, PushNotificationDeliveryConfig>? deliveryConfigs,
   }) {
     return PushNotificationConfig(
       enabled: enabled ?? this.enabled,

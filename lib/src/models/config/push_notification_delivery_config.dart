@@ -39,7 +39,7 @@ class PushNotificationDeliveryConfig extends Equatable {
 
   /// Creates a copy of this instance with the given fields replaced.
   PushNotificationDeliveryConfig copyWith({
-    Map<AppUserRole, NotificationDeliveryRoleConfig>? visibleTo,
+    Map<AppUserRole, PushNotificationDeliveryRoleConfig>? visibleTo,
   }) {
     return PushNotificationDeliveryConfig(visibleTo: visibleTo ?? this.visibleTo);
   }
