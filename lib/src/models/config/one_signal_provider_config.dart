@@ -16,7 +16,7 @@ part 'one_signal_provider_config.g.dart';
 class OneSignalProviderConfig extends PushNotificationProviderConfig {
   /// {@macro one_signal_provider_config}
   const OneSignalProviderConfig({required this.appId, required this.restApiKey})
-    : super(providerName: PushNotificationProvider.oneSignal);
+    : super(provider: PushNotificationProvider.oneSignal);
 
   /// Creates a [OneSignalProviderConfig] from JSON data.
   factory OneSignalProviderConfig.fromJson(Map<String, dynamic> json) =>
@@ -32,7 +32,7 @@ class OneSignalProviderConfig extends PushNotificationProviderConfig {
   Map<String, dynamic> toJson() => _$OneSignalProviderConfigToJson(this);
 
   @override
-  List<Object> get props => [providerName, appId, restApiKey];
+  List<Object> get props => [provider, appId, restApiKey];
 
   /// Creates a copy of this instance with the given fields replaced.
   OneSignalProviderConfig copyWith({String? appId, String? restApiKey}) {

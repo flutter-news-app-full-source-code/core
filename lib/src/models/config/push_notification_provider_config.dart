@@ -15,44 +15,56 @@ import 'package:json_annotation/json_annotation.dart';
 @JsonSerializable(createToJson: false, checked: true)
 abstract class PushNotificationProviderConfig extends Equatable {
   /// {@macro push_notification_provider_config}
-  const PushNotificationProviderConfig({required this.providerName});
+  const PushNotificationProviderConfig({required this.provider});
 
-  /// Creates a [PushNotificationProviderConfig] instance from a JSON map.
+  /// Factory method to create a [PushNotificationProviderConfig] instance from a JSON map.
   ///
-  /// This factory uses the `providerName` field in the JSON map to dispatch
-  /// to the correct concrete `fromJson` constructor.
+  /// This factory uses the `provider` field in the JSON map to dispatch to the
+  /// correct concrete `fromJson` constructor.
   ///
-  /// Throws [FormatException] if the `providerName` field is missing or unknown.
+  /// Throws [FormatException] if the `provider` field is missing or unknown.
   factory PushNotificationProviderConfig.fromJson(Map<String, dynamic> json) {
-    final providerName = $enumDecodeNullable(
-      PushNotificationProvider.values,
-      json['providerName'],
-    );
-
-    if (providerName == null) {
+    final provider = json['provider'] as String?;
+    if (provider == null) {
       throw const FormatException(
-        'Missing or unknown "providerName" in PushNotificationProviderConfig JSON.',
+        'Missing "providerName" field in FeedItem JSON.',
       );
     }
 
-    switch (providerName) {
-      case PushNotificationProvider.firebase:
+    switch (provider) {
+      case 'firebase':
         return FirebaseProviderConfig.fromJson(json);
-      case PushNotificationProvider.oneSignal:
+      case 'oneSignal':
         return OneSignalProviderConfig.fromJson(json);
+      default:
+        throw FormatException('Unknown push notification provider: $provider');
     }
   }
 
   /// The name of the provider, used as a discriminator for deserialization.
-  @JsonKey(includeToJson: true)
-  final PushNotificationProvider providerName;
+  final String provider;
 
-  /// Converts this instance to JSON data.
+  /// Static factory method to serialize a [PushNotificationProviderConfig] instance to a JSON map.
   ///
-  /// Concrete implementations are responsible for providing the full JSON
-  /// representation, including the `providerName` field.
-  Map<String, dynamic> toJson();
+  /// This factory uses the `provider` field of the provided [providerConfig] to dispatch
+  /// to the correct concrete `toJson` method.
+  ///
+  /// Throws [FormatException] if the `provider` field is missing or unknown.
+  Map<String, dynamic> toJson(PushNotificationProviderConfig providerConfig) {
+    switch (providerConfig.provider) {
+      case 'firebase':
+        final provider = providerConfig as FirebaseProviderConfig;
+        return provider.toJson();
+      case 'oneSignal':
+        final provider = providerConfig as OneSignalProviderConfig;
+        return provider.toJson();
+      default:
+        throw FormatException(
+          'Unknown PushNotificationProviderConfig type: ${providerConfig.provider}',
+        );
+    }
+  }
 
   @override
-  List<Object> get props => [providerName];
+  List<Object> get props => [provider];
 }

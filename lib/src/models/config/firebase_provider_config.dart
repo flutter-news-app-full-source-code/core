@@ -19,7 +19,7 @@ class FirebaseProviderConfig extends PushNotificationProviderConfig {
     required this.projectId,
     required this.clientEmail,
     required this.privateKey,
-  }) : super(providerName: PushNotificationProvider.firebase);
+  }) : super(provider: PushNotificationProvider.firebase);
 
   /// Creates a [FirebaseProviderConfig] from JSON data.
   factory FirebaseProviderConfig.fromJson(Map<String, dynamic> json) =>
@@ -38,7 +38,7 @@ class FirebaseProviderConfig extends PushNotificationProviderConfig {
   Map<String, dynamic> toJson() => _$FirebaseProviderConfigToJson(this);
 
   @override
-  List<Object> get props => [providerName, projectId, clientEmail, privateKey];
+  List<Object> get props => [provider, projectId, clientEmail, privateKey];
 
   /// Creates a copy of this instance with the given fields replaced.
   FirebaseProviderConfig copyWith({
