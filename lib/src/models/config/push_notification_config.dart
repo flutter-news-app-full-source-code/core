@@ -1,4 +1,6 @@
-import 'package:core/src/enums/push_notification_provider.dart';
+import 'package:core/src/enums/enums.dart';
+import 'package:core/src/models/remote_config/notification_delivery_config.dart';
+import 'package:core/src/models/remote_config/push_notification_provider_config.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -9,8 +11,8 @@ part 'push_notification_config.g.dart';
 /// Defines the global configuration for the push notification system.
 ///
 /// This model is part of the overall `RemoteConfig` and allows for remotely
-/// enabling or disabling the entire notification feature and setting the
-/// primary service provider.
+/// managing all aspects of push notifications, including provider credentials,
+/// feature availability, and user-specific limits.
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
@@ -19,6 +21,8 @@ class PushNotificationConfig extends Equatable {
   const PushNotificationConfig({
     required this.enabled,
     required this.primaryProvider,
+    required this.providerConfigs,
+    required this.deliveryConfigs,
   });
 
   /// Creates a [PushNotificationConfig] from JSON data.
@@ -28,30 +32,50 @@ class PushNotificationConfig extends Equatable {
   /// A global switch to enable or disable the entire push notification system.
   ///
   /// If `false`, no notification-related logic should be executed by clients
-  /// or the backend.
   final bool enabled;
 
   /// The primary push notification service provider to be used by the system.
   ///
   /// This allows for dynamically switching between providers like Firebase
-  /// and OneSignal without requiring a client update.
   final PushNotificationProvider primaryProvider;
+
+  /// A map holding the credentials for each potential push provider.
+  ///
+  /// The key is the provider type, and the value is the corresponding
+  /// polymorphic configuration object (e.g., [FirebaseProviderConfig]).
+  final Map<PushNotificationProvider, PushNotificationProviderConfig>
+  providerConfigs;
+
+  /// A map to globally enable or disable each specific notification type
+  /// and define its role-based limits using the `visibleTo` pattern.
+  final Map<SubscriptionDeliveryType, NotificationDeliveryConfig>
+  deliveryConfigs;
 
   /// Converts this [PushNotificationConfig] instance to JSON data.
   Map<String, dynamic> toJson() => _$PushNotificationConfigToJson(this);
 
   @override
-  List<Object> get props => [enabled, primaryProvider];
+  List<Object> get props => [
+    enabled,
+    primaryProvider,
+    providerConfigs,
+    deliveryConfigs,
+  ];
 
   /// Creates a copy of this [PushNotificationConfig] but with the given fields
   /// replaced with the new values.
   PushNotificationConfig copyWith({
     bool? enabled,
     PushNotificationProvider? primaryProvider,
+    Map<PushNotificationProvider, PushNotificationProviderConfig>?
+    providerConfigs,
+    Map<SubscriptionDeliveryType, NotificationDeliveryConfig>? deliveryConfigs,
   }) {
     return PushNotificationConfig(
       enabled: enabled ?? this.enabled,
       primaryProvider: primaryProvider ?? this.primaryProvider,
+      providerConfigs: providerConfigs ?? this.providerConfigs,
+      deliveryConfigs: deliveryConfigs ?? this.deliveryConfigs,
     );
   }
 }
