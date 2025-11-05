@@ -17,9 +17,6 @@ class User extends Equatable {
   /// [email], and [createdAt]. The [feedDecoratorStatus] tracks user
   /// interactions with in-feed actions and is guaranteed to be complete for
   /// all [FeedDecoratorType] values.
-  ///
-  /// The [pushNotificationSubscriptions] map holds the user's current
-  /// notification subscription status.
   const User({
     required this.id,
     required this.appRole,
@@ -27,7 +24,6 @@ class User extends Equatable {
     required this.email,
     required this.createdAt,
     required this.feedDecoratorStatus,
-    required this.pushNotificationSubscriptions,
   });
 
   /// Creates a User from JSON data.
@@ -63,14 +59,6 @@ class User extends Equatable {
   )
   final Map<FeedDecoratorType, UserFeedDecoratorStatus> feedDecoratorStatus;
 
-  /// A map defining the user's subscription status for each notification type.
-  @JsonKey(
-    fromJson: _pushNotificationSubscriptionsFromJson,
-    toJson: _pushNotificationSubscriptionsToJson,
-  )
-  final Map<PushNotificationSubscriptionDeliveryType, PushNotificationSubscription>
-      pushNotificationSubscriptions;
-
   /// Converts this User instance to JSON data.
   Map<String, dynamic> toJson() => _$UserToJson(this);
 
@@ -82,7 +70,6 @@ class User extends Equatable {
     dashboardRole,
     createdAt,
     feedDecoratorStatus,
-    pushNotificationSubscriptions,
   ];
 
   @override
@@ -102,7 +89,7 @@ class User extends Equatable {
     DateTime? createdAt,
     Map<FeedDecoratorType, UserFeedDecoratorStatus>? feedDecoratorStatus,
     Map<PushNotificationSubscriptionDeliveryType, PushNotificationSubscription>?
-        pushNotificationSubscriptions,
+    pushNotificationSubscriptions,
   }) {
     return User(
       id: id ?? this.id,
@@ -111,8 +98,6 @@ class User extends Equatable {
       dashboardRole: dashboardRole ?? this.dashboardRole,
       createdAt: createdAt ?? this.createdAt,
       feedDecoratorStatus: feedDecoratorStatus ?? this.feedDecoratorStatus,
-      pushNotificationSubscriptions:
-          pushNotificationSubscriptions ?? this.pushNotificationSubscriptions,
     );
   }
 }
@@ -157,39 +142,4 @@ Map<String, dynamic> _feedDecoratorStatusToJson(
   return feedDecoratorStatus.map(
     (key, value) => MapEntry(key.name, value.toJson()),
   );
-}
-
-/// Deserializes the push notification subscriptions map from JSON and ensures
-/// it's complete.
-Map<PushNotificationSubscriptionDeliveryType, PushNotificationSubscription>
-    _pushNotificationSubscriptionsFromJson(
-  Map<String, dynamic> json,
-) {
-  final existingSubscriptions = json.map((key, value) {
-    final deliveryType = PushNotificationSubscriptionDeliveryType.values.byName(key);
-    return MapEntry(
-      deliveryType,
-      PushNotificationSubscription.fromJson(value as Map<String, dynamic>),
-    );
-  });
-
-  return Map.fromEntries(
-    PushNotificationSubscriptionDeliveryType.values.map(
-      (type) => MapEntry(
-        type,
-        existingSubscriptions[type] ??
-            PushNotificationSubscription(
-              isEnabled: false,
-              subscribesTo: type,
-            ),
-      ),
-    ),
-  );
-}
-
-/// Serializes the push notification subscriptions map to JSON.
-Map<String, dynamic> _pushNotificationSubscriptionsToJson(
-  Map<PushNotificationSubscriptionDeliveryType, PushNotificationSubscription> subscriptions,
-) {
-  return subscriptions.map((key, value) => MapEntry(key.name, value.toJson()));
 }
