@@ -19,7 +19,7 @@ class FirebaseProviderConfig extends PushNotificationProviderConfig {
     required this.projectId,
     required this.clientEmail,
     required this.privateKey,
-  }) : super(provider: PushNotificationProvider.firebase);
+  }) : super(provider: 'firebase');
 
   /// Creates a [FirebaseProviderConfig] from JSON data.
   factory FirebaseProviderConfig.fromJson(Map<String, dynamic> json) =>
@@ -34,8 +34,13 @@ class FirebaseProviderConfig extends PushNotificationProviderConfig {
   /// The private key from the Firebase service account credentials.
   final String privateKey;
 
-  @override
-  Map<String, dynamic> toJson() => _$FirebaseProviderConfigToJson(this);
+  
+  /// Converts this [FirebaseProviderConfig] instance to a JSON map.
+  Map<String, dynamic> toJson() {
+    final json = _$FirebaseProviderConfigToJson(this);
+    json['provider'] = provider;
+    return json;
+  }
 
   @override
   List<Object> get props => [provider, projectId, clientEmail, privateKey];

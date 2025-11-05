@@ -16,7 +16,7 @@ part 'one_signal_provider_config.g.dart';
 class OneSignalProviderConfig extends PushNotificationProviderConfig {
   /// {@macro one_signal_provider_config}
   const OneSignalProviderConfig({required this.appId, required this.restApiKey})
-    : super(provider: PushNotificationProvider.oneSignal);
+    : super(provider: 'oneSignal');
 
   /// Creates a [OneSignalProviderConfig] from JSON data.
   factory OneSignalProviderConfig.fromJson(Map<String, dynamic> json) =>
@@ -28,8 +28,12 @@ class OneSignalProviderConfig extends PushNotificationProviderConfig {
   /// The OneSignal REST API Key for server-side operations.
   final String restApiKey;
 
-  @override
-  Map<String, dynamic> toJson() => _$OneSignalProviderConfigToJson(this);
+  /// Converts this [FirebaseProviderConfig] instance to a JSON map.
+  Map<String, dynamic> toJson() {
+    final json = _$OneSignalProviderConfigToJson(this);
+    json['provider'] = provider;
+    return json;
+  }
 
   @override
   List<Object> get props => [provider, appId, restApiKey];
