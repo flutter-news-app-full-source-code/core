@@ -4,9 +4,6 @@ import 'package:test/test.dart';
 
 void main() {
   group('PushNotificationSubscription', () {
-    // Since a specific fixture file for PushNotificationSubscription was not
-    // provided, sample data is created here for testing purposes.
-    const id = 'subscription-id-1';
     const userId = 'user-id-1';
     const name = 'Tech News';
     const topics = ['topic-1', 'topic-2'];
