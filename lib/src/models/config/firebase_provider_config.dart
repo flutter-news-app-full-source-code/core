@@ -35,7 +35,6 @@ class FirebaseProviderConfig extends PushNotificationProviderConfig {
 
   /// Converts this [FirebaseProviderConfig] instance to a JSON map,
   /// including the provider discriminator.
-  @override
   Map<String, dynamic> toJson() {
     final json = _$FirebaseProviderConfigToJson(this);
     json['provider'] = provider;

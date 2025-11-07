@@ -29,7 +29,6 @@ class OneSignalProviderConfig extends PushNotificationProviderConfig {
 
   /// Converts this [OneSignalProviderConfig] instance to a JSON map,
   /// including the provider discriminator.
-  @override
   Map<String, dynamic> toJson() {
     final json = _$OneSignalProviderConfigToJson(this);
     json['provider'] = provider;
