@@ -1,8 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/enums/push_notification_provider.dart';
-import 'package:core/src/models/config/firebase_provider_config.dart';
-import 'package:core/src/models/config/one_signal_provider_config.dart';
-import 'package:core/src/models/config/push_notification_config.dart';
 
 /// A list of initial remote config data to be loaded into the in-memory
 /// remote config repository.
@@ -129,36 +125,53 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
         ),
       },
       deliveryConfigs: {
-        SubscriptionDeliveryType.dailyDigest : NotificationDeliveryConfig(
-          enabled: true,
-          visibleTo: {
-            AppUserRole.guestUser: NotificationSubscriptionLimit(
-              isAllowed: true,
-              maxSubscriptions: 1,
+        PushNotificationSubscriptionDeliveryType.breakingOnly:
+            PushNotificationDeliveryConfig(
+              enabled: true,
+              visibleTo: {
+                AppUserRole.guestUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 1,
+                ),
+                AppUserRole.standardUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 3,
+                ),
+                AppUserRole.premiumUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 10,
+                ),
+              },
             ),
-            AppUserRole.standardUser: NotificationSubscriptionLimit(
-              isAllowed: true,
-              maxSubscriptions: 3,
+
+        PushNotificationSubscriptionDeliveryType.dailyDigest:
+            PushNotificationDeliveryConfig(
+              enabled: true,
+              visibleTo: {
+                AppUserRole.guestUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 0,
+                ),
+                AppUserRole.standardUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 2,
+                ),
+                AppUserRole.premiumUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 10,
+                ),
+              },
             ),
-            AppUserRole.premiumUser: NotificationSubscriptionLimit(
-              isAllowed: true,
-              maxSubscriptions: 10,
+
+        PushNotificationSubscriptionDeliveryType.weeklyRoundup:
+            PushNotificationDeliveryConfig(
+              enabled: true,
+              visibleTo: {
+                AppUserRole.guestUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 0,
+                ),
+                AppUserRole.standardUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 2,
+                ),
+                AppUserRole.premiumUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 10,
+                ),
+              },
             ),
-          },
-        ),
-        SubscriptionDeliveryType.breakingOnly: NotificationDeliveryConfig(
-          enabled: true,
-          visibleTo: {
-            AppUserRole.guestUser:
-                NotificationSubscriptionLimit(isAllowed: false),
-            AppUserRole.standardUser: NotificationSubscriptionLimit(
-              isAllowed: true,
-              maxSubscriptions: 5,
-            ),
-            AppUserRole.premiumUser:
-                NotificationSubscriptionLimit(isAllowed: true),
-          },
-        ),
       },
     ),
   ),

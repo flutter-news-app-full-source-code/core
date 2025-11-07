@@ -18,11 +18,16 @@ part 'push_notification_delivery_config.g.dart';
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class PushNotificationDeliveryConfig extends Equatable {
   /// {@macro push_notification_delivery_config}
-  const PushNotificationDeliveryConfig({required this.visibleTo});
+  const PushNotificationDeliveryConfig({
+    required this.enabled,
+    required this.visibleTo,
+  });
 
   /// Creates a [PushNotificationDeliveryConfig] from JSON data.
   factory PushNotificationDeliveryConfig.fromJson(Map<String, dynamic> json) =>
       _$PushNotificationDeliveryConfigFromJson(json);
+
+  final bool enabled;
 
   /// A map that defines the visibility and limits for this delivery type
   /// based on user roles.
@@ -35,12 +40,16 @@ class PushNotificationDeliveryConfig extends Equatable {
   Map<String, dynamic> toJson() => _$PushNotificationDeliveryConfigToJson(this);
 
   @override
-  List<Object> get props => [visibleTo];
+  List<Object> get props => [enabled, visibleTo];
 
   /// Creates a copy of this instance with the given fields replaced.
   PushNotificationDeliveryConfig copyWith({
+    bool? enabled,
     Map<AppUserRole, PushNotificationDeliveryRoleConfig>? visibleTo,
   }) {
-    return PushNotificationDeliveryConfig(visibleTo: visibleTo ?? this.visibleTo);
+    return PushNotificationDeliveryConfig(
+      enabled: enabled ?? this.enabled,
+      visibleTo: visibleTo ?? this.visibleTo,
+    );
   }
 }

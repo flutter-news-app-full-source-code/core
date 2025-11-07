@@ -19,18 +19,19 @@ class PushNotificationDeliveryRoleConfig extends Equatable {
   const PushNotificationDeliveryRoleConfig({required this.subscriptionLimit});
 
   /// Creates a [PushNotificationDeliveryRoleConfig] from JSON data.
-  factory PushNotificationDeliveryRoleConfig.fromJson(Map<String, dynamic> json) =>
-      _$PushNotificationDeliveryRoleConfigFromJson(json);
+  factory PushNotificationDeliveryRoleConfig.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PushNotificationDeliveryRoleConfigFromJson(json);
 
-  /// The maximum number of subscriptions of this specific delivery type that
-  /// a user with this role is allowed to create.
+  /// The subscription limit for a user with this role.
   final int subscriptionLimit;
 
   /// Converts this instance to JSON data.
-  Map<String, dynamic> toJson() => _$PushNotificationDeliveryRoleConfigToJson(this);
+  Map<String, dynamic> toJson() =>
+      _$PushNotificationDeliveryRoleConfigToJson(this);
 
   @override
-  List<Object> get props => [subscriptionLimit];
+  List<Object?> get props => [subscriptionLimit];
 
   /// Creates a copy of this instance with the given fields replaced.
   PushNotificationDeliveryRoleConfig copyWith({int? subscriptionLimit}) {

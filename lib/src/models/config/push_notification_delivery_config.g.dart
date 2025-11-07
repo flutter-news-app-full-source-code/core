@@ -10,6 +10,7 @@ PushNotificationDeliveryConfig _$PushNotificationDeliveryConfigFromJson(
   Map<String, dynamic> json,
 ) => $checkedCreate('PushNotificationDeliveryConfig', json, ($checkedConvert) {
   final val = PushNotificationDeliveryConfig(
+    enabled: $checkedConvert('enabled', (v) => v as bool),
     visibleTo: $checkedConvert(
       'visibleTo',
       (v) => (v as Map<String, dynamic>).map(
@@ -28,6 +29,7 @@ PushNotificationDeliveryConfig _$PushNotificationDeliveryConfigFromJson(
 Map<String, dynamic> _$PushNotificationDeliveryConfigToJson(
   PushNotificationDeliveryConfig instance,
 ) => <String, dynamic>{
+  'enabled': instance.enabled,
   'visibleTo': instance.visibleTo.map(
     (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e.toJson()),
   ),
