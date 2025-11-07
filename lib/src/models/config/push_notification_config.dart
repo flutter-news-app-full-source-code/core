@@ -39,13 +39,6 @@ class PushNotificationConfig extends Equatable {
   final PushNotificationProvider primaryProvider;
 
   /// A map holding the credentials for each potential push provider.
-  ///
-  /// The key is the provider type, and the value is the corresponding
-  /// polymorphic configuration object (e.g., [FirebaseProviderConfig]).
-  @JsonKey(
-    toJson: PushNotificationProviderConfig.toJson,
-    fromJson: PushNotificationProviderConfig.fromJson,
-  )
   final Map<PushNotificationProvider, PushNotificationProviderConfig>
   providerConfigs;
 
