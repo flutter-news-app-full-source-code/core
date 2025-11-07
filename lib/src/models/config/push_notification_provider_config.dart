@@ -23,7 +23,9 @@ abstract class PushNotificationProviderConfig extends Equatable {
   factory PushNotificationProviderConfig.fromJson(Map<String, dynamic> json) {
     final provider = json['provider'] as String?;
     if (provider == null) {
-      throw const FormatException('Missing "provider" field in PushNotificationProviderConfig JSON.');
+      throw const FormatException(
+        'Missing "provider" field in PushNotificationProviderConfig JSON.',
+      );
     }
 
     switch (provider) {
