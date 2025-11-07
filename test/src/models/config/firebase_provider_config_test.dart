@@ -1,30 +1,30 @@
+import 'package:core/src/enums/push_notification_provider.dart';
+import 'package:core/src/fixtures/remote_configs.dart';
 import 'package:core/src/models/config/firebase_provider_config.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('FirebaseProviderConfig', () {
-    // Since a specific fixture file was not provided, sample data is
-    // created here for testing purposes.
-    const config = FirebaseProviderConfig(
-      projectId: 'test-project-id',
-      clientEmail: 'test-client-email@example.com',
-      privateKey: 'test-private-key',
-    );
+    // Retrieve the FirebaseProviderConfig from the remoteConfigsFixturesData.
+    // This ensures consistency with predefined application configurations.
+    final config =
+        remoteConfigsFixturesData
+                .first
+                .pushNotificationConfig
+                .providerConfigs[PushNotificationProvider.firebase]!
+            as FirebaseProviderConfig;
 
-    final json = {
-      'projectId': 'test-project-id',
-      'clientEmail': 'test-client-email@example.com',
-      'privateKey': 'test-private-key',
-      'provider': 'firebase', // Manually added by toJson
-    };
+    // Generate the expected JSON from the fixture config for comparison.
+    final json = config.toJson();
 
     test('supports value equality', () {
       // Arrange: Create another instance with the same values.
-      const anotherConfig = FirebaseProviderConfig(
-        projectId: 'test-project-id',
-        clientEmail: 'test-client-email@example.com',
-        privateKey: 'test-private-key',
-      );
+      final anotherConfig =
+          remoteConfigsFixturesData
+                  .first
+                  .pushNotificationConfig
+                  .providerConfigs[PushNotificationProvider.firebase]!
+              as FirebaseProviderConfig;
 
       // Assert: The two instances should be equal.
       expect(config, equals(anotherConfig));
@@ -35,10 +35,10 @@ void main() {
       expect(
         config.props,
         equals([
-          'firebase',
-          'test-project-id',
-          'test-client-email@example.com',
-          'test-private-key',
+          config.provider,
+          config.projectId,
+          config.clientEmail,
+          config.privateKey,
         ]),
       );
     });
@@ -61,10 +61,12 @@ void main() {
 
     test('copyWith creates a copy with updated values', () {
       // Arrange: Define new values.
-      const newProjectId = 'new-project-id';
+      const newProjectId = 'updated-project-id';
 
       // Act: Create a copy with the new value.
-      final copiedConfig = config.copyWith(projectId: newProjectId);
+      final copiedConfig = config.copyWith(
+        projectId: newProjectId,
+      ); // Using a new value for projectId
 
       // Assert: The new instance should have the updated value.
       expect(copiedConfig.projectId, equals(newProjectId));
