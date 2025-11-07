@@ -88,8 +88,6 @@ class User extends Equatable {
     DashboardUserRole? dashboardRole,
     DateTime? createdAt,
     Map<FeedDecoratorType, UserFeedDecoratorStatus>? feedDecoratorStatus,
-    Map<PushNotificationSubscriptionDeliveryType, PushNotificationSubscription>?
-    pushNotificationSubscriptions,
   }) {
     return User(
       id: id ?? this.id,
