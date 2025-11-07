@@ -1,21 +1,25 @@
 import 'package:core/src/enums/push_notification_subscription_delivery_type.dart';
+import 'package:core/src/fixtures/countries.dart';
+import 'package:core/src/fixtures/sources.dart';
+import 'package:core/src/fixtures/topics.dart';
 import 'package:core/src/models/push_notifications/push_notification_subscription.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('PushNotificationSubscription', () {
+    // Use IDs from fixtures to ensure data integrity and consistency.
     const id = 'push-notification-subscription-id-1';
     const userId = 'user-id-1';
     const name = 'Tech News';
-    const topics = ['topic-1', 'topic-2'];
-    const sources = ['source-1'];
-    const countries = ['country-1'];
+    final topics = [topicsFixturesData[0].id, topicsFixturesData[1].id];
+    final sources = [sourcesFixturesData[0].id];
+    final countries = [countriesFixturesData[0].id];
     const deliveryTypes = {
       PushNotificationSubscriptionDeliveryType.breakingOnly,
       PushNotificationSubscriptionDeliveryType.dailyDigest,
     };
 
-    const subscription = PushNotificationSubscription(
+    final subscription = PushNotificationSubscription(
       id: id,
       userId: userId,
       name: name,
@@ -37,7 +41,7 @@ void main() {
 
     test('supports value equality', () {
       // Arrange: Create another instance with the same values.
-      const anotherSubscription = PushNotificationSubscription(
+      final anotherSubscription = PushNotificationSubscription(
         id: id,
         userId: userId,
         name: name,
