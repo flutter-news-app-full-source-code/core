@@ -1,18 +1,26 @@
+import 'package:core/src/enums/app_user_role.dart';
+import 'package:core/src/enums/push_notification_subscription_delivery_type.dart';
+import 'package:core/src/fixtures/remote_configs.dart';
 import 'package:core/src/models/config/push_notification_delivery_role_config.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('PushNotificationDeliveryRoleConfig', () {
-    // Since a specific fixture file was not provided, sample data is
-    // created here for testing purposes.
-    const roleConfig = PushNotificationDeliveryRoleConfig(subscriptionLimit: 5);
+    // Retrieve a sample PushNotificationDeliveryRoleConfig from the fixtures.
+    // This ensures consistency with predefined application configurations.
+    final roleConfig = remoteConfigsFixturesData
+        .first
+        .pushNotificationConfig
+        .deliveryConfigs[PushNotificationSubscriptionDeliveryType.breakingOnly]!
+        .visibleTo[AppUserRole.standardUser]!;
 
-    final json = {'subscriptionLimit': 5};
+    // Generate the expected JSON from the fixture config for comparison.
+    final json = roleConfig.toJson();
 
     test('supports value equality', () {
       // Arrange: Create another instance with the same values.
-      const anotherRoleConfig = PushNotificationDeliveryRoleConfig(
-        subscriptionLimit: 5,
+      final anotherRoleConfig = PushNotificationDeliveryRoleConfig(
+        subscriptionLimit: roleConfig.subscriptionLimit,
       );
 
       // Assert: The two instances should be equal.
@@ -21,7 +29,7 @@ void main() {
 
     test('props are correct', () {
       // Assert: The props list should contain the subscriptionLimit.
-      expect(roleConfig.props, equals([5]));
+      expect(roleConfig.props, equals([roleConfig.subscriptionLimit]));
     });
 
     test('can be created from JSON', () {
