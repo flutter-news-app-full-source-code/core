@@ -61,12 +61,6 @@ abstract class PushNotificationProviderConfig extends Equatable {
     }
   }
 
-  /// Converts this [PushNotificationProviderConfig] instance to a JSON map.
-  ///
-  /// Concrete implementations must override this method to provide their
-  /// specific serialization logic.
-  Map<String, dynamic> toJson();
-
   /// The name of the provider, used as a discriminator for deserialization.
   final String provider;
 
