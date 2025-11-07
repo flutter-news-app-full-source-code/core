@@ -1,6 +1,5 @@
 import 'package:core/src/enums/enums.dart';
 import 'package:core/src/models/auth/user_feed_decorator_status.dart';
-import 'package:core/src/models/push_notifications/push_notification_subscription.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
