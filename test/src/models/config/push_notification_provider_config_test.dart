@@ -1,3 +1,5 @@
+import 'package:core/src/enums/push_notification_provider.dart';
+import 'package:core/src/fixtures/remote_configs.dart';
 import 'package:core/src/models/config/firebase_provider_config.dart';
 import 'package:core/src/models/config/one_signal_provider_config.dart';
 import 'package:core/src/models/config/push_notification_provider_config.dart';
@@ -5,31 +7,20 @@ import 'package:test/test.dart';
 
 void main() {
   group('PushNotificationProviderConfig', () {
-    // Arrange: Create sample concrete instances.
-    const firebaseConfig = FirebaseProviderConfig(
-      projectId: 'test-project',
-      clientEmail: 'test@example.com',
-      privateKey: 'test-key',
-    );
+    // Arrange: Retrieve sample concrete instances from the fixtures.
+    final firebaseConfig = remoteConfigsFixturesData
+        .first
+        .pushNotificationConfig
+        .providerConfigs[PushNotificationProvider.firebase]!;
 
-    const oneSignalConfig = OneSignalProviderConfig(
-      appId: 'test-app-id',
-      restApiKey: 'test-api-key',
-    );
+    final oneSignalConfig = remoteConfigsFixturesData
+        .first
+        .pushNotificationConfig
+        .providerConfigs[PushNotificationProvider.oneSignal]!;
 
     // Arrange: Create corresponding JSON maps with the 'provider' discriminator.
-    final firebaseJson = {
-      'provider': 'firebase',
-      'projectId': 'test-project',
-      'clientEmail': 'test@example.com',
-      'privateKey': 'test-key',
-    };
-
-    final oneSignalJson = {
-      'provider': 'oneSignal',
-      'appId': 'test-app-id',
-      'restApiKey': 'test-api-key',
-    };
+    final firebaseJson = (firebaseConfig as FirebaseProviderConfig).toJson();
+    final oneSignalJson = (oneSignalConfig as OneSignalProviderConfig).toJson();
 
     group('fromJson factory (polymorphic)', () {
       test('correctly deserializes to FirebaseProviderConfig', () {
