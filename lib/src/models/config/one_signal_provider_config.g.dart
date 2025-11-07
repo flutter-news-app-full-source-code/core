@@ -19,12 +19,6 @@ OneSignalProviderConfig _$OneSignalProviderConfigFromJson(
 Map<String, dynamic> _$OneSignalProviderConfigToJson(
   OneSignalProviderConfig instance,
 ) => <String, dynamic>{
-  'providerName': _$PushNotificationProviderEnumMap[instance.provider]!,
   'appId': instance.appId,
   'restApiKey': instance.restApiKey,
-};
-
-const _$PushNotificationProviderEnumMap = {
-  PushNotificationProvider.firebase: 'firebase',
-  PushNotificationProvider.oneSignal: 'oneSignal',
 };

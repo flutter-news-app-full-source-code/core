@@ -20,13 +20,7 @@ FirebaseProviderConfig _$FirebaseProviderConfigFromJson(
 Map<String, dynamic> _$FirebaseProviderConfigToJson(
   FirebaseProviderConfig instance,
 ) => <String, dynamic>{
-  'providerName': _$PushNotificationProviderEnumMap[instance.provider]!,
   'projectId': instance.projectId,
   'clientEmail': instance.clientEmail,
   'privateKey': instance.privateKey,
-};
-
-const _$PushNotificationProviderEnumMap = {
-  PushNotificationProvider.firebase: 'firebase',
-  PushNotificationProvider.oneSignal: 'oneSignal',
 };
