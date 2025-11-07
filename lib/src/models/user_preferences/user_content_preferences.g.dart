@@ -43,12 +43,13 @@ UserContentPreferences _$UserContentPreferencesFromJson(
     ),
     notificationSubscriptions: $checkedConvert(
       'notificationSubscriptions',
-      (v) => (v as Map<String, dynamic>).map(
-        (k, e) => MapEntry(
-          $enumDecode(_$PushNotificationSubscriptionDeliveryTypeEnumMap, k),
-          PushNotificationSubscription.fromJson(e as Map<String, dynamic>),
-        ),
-      ),
+      (v) => (v as List<dynamic>)
+          .map(
+            (e) => PushNotificationSubscription.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
     ),
   );
   return val;
@@ -65,16 +66,7 @@ Map<String, dynamic> _$UserContentPreferencesToJson(
   'followedTopics': instance.followedTopics.map((e) => e.toJson()).toList(),
   'savedHeadlines': instance.savedHeadlines.map((e) => e.toJson()).toList(),
   'savedFilters': instance.savedFilters.map((e) => e.toJson()).toList(),
-  'notificationSubscriptions': instance.notificationSubscriptions.map(
-    (k, e) => MapEntry(
-      _$PushNotificationSubscriptionDeliveryTypeEnumMap[k]!,
-      e.toJson(),
-    ),
-  ),
-};
-
-const _$PushNotificationSubscriptionDeliveryTypeEnumMap = {
-  PushNotificationSubscriptionDeliveryType.breakingOnly: 'breakingOnly',
-  PushNotificationSubscriptionDeliveryType.dailyDigest: 'dailyDigest',
-  PushNotificationSubscriptionDeliveryType.weeklyRoundup: 'weeklyRoundup',
+  'notificationSubscriptions': instance.notificationSubscriptions
+      .map((e) => e.toJson())
+      .toList(),
 };
