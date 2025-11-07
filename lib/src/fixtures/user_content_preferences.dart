@@ -23,7 +23,7 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
       topicsFixturesData[7], // Travel
     ],
     savedHeadlines: [headlinesFixturesData[0], headlinesFixturesData[10]],
-    notificationSubscriptions: const {},
+    notificationSubscriptions: const [],
     savedFilters: [
       SavedFilter(
         id: kSavedFilterId1,
@@ -77,7 +77,7 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
       topicsFixturesData[6], // Business
     ],
     savedHeadlines: [headlinesFixturesData[2], headlinesFixturesData[3]],
-    notificationSubscriptions: const {},
+    notificationSubscriptions: const [],
     savedFilters: [
       SavedFilter(
         id: 'pub_saved_1',
@@ -100,7 +100,7 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
       topicsFixturesData[4], // Health
     ],
     savedHeadlines: [headlinesFixturesData[4], headlinesFixturesData[5]],
-    notificationSubscriptions: const {},
+    notificationSubscriptions: const [],
     savedFilters: const [],
   ),
   // Add preferences for users 3-10
@@ -130,7 +130,7 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
         headlinesFixturesData[index * 2],
         headlinesFixturesData[index * 2 + 1],
       ],
-      notificationSubscriptions: const {},
+      notificationSubscriptions: const [],
       savedFilters: [
         SavedFilter(
           id: 'user_${index + 3}_saved_1',
