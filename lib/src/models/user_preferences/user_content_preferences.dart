@@ -1,4 +1,3 @@
-import 'package:core/src/enums/enums.dart';
 import 'package:core/src/models/entities/country.dart';
 import 'package:core/src/models/entities/headline.dart';
 import 'package:core/src/models/entities/source.dart';
@@ -61,9 +60,8 @@ class UserContentPreferences extends Equatable {
   /// List of filter combinations the user has saved.
   final List<SavedFilter> savedFilters;
 
-  /// A map defining the user's subscription status for each notification type.
-  final Map<PushNotificationSubscriptionDeliveryType, PushNotificationSubscription>
-      notificationSubscriptions;
+  /// A list of the user's saved notification subscriptions.
+  final List<PushNotificationSubscription> notificationSubscriptions;
 
   /// Converts this [UserContentPreferences] instance to a JSON map.
   Map<String, dynamic> toJson() => _$UserContentPreferencesToJson(this);
@@ -91,8 +89,7 @@ class UserContentPreferences extends Equatable {
     List<Topic>? followedTopics,
     List<Headline>? savedHeadlines,
     List<SavedFilter>? savedFilters,
-    Map<PushNotificationSubscriptionDeliveryType, PushNotificationSubscription>?
-        notificationSubscriptions,
+    List<PushNotificationSubscription>? notificationSubscriptions,
   }) {
     return UserContentPreferences(
       id: id ?? this.id,
