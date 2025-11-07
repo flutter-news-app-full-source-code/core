@@ -20,7 +20,10 @@ void main() {
         expect(preferences.followedSources, isNotEmpty);
         expect(preferences.followedTopics, isNotEmpty);
         expect(preferences.savedHeadlines, isNotEmpty);
-        expect(preferences.notificationSubscriptions, isA<List<PushNotificationSubscription>>());
+        expect(
+          preferences.notificationSubscriptions,
+          isA<List<PushNotificationSubscription>>(),
+        );
         expect(preferences.savedFilters, isNotEmpty);
       });
     });

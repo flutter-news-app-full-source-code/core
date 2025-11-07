@@ -28,7 +28,8 @@ class PushNotificationDevice extends Equatable {
   });
 
   /// Creates a [PushNotificationDevice] from JSON data.
-  factory PushNotificationDevice.fromJson(Map<String, dynamic> json) => _$PushNotificationDeviceFromJson(json);
+  factory PushNotificationDevice.fromJson(Map<String, dynamic> json) =>
+      _$PushNotificationDeviceFromJson(json);
 
   /// The unique identifier for this device registration.
   final String id;

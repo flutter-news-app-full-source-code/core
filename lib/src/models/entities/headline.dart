@@ -92,20 +92,20 @@ class Headline extends FeedItem {
 
   @override
   List<Object?> get props => [
-        id,
-        title,
-        excerpt,
-        url,
-        imageUrl,
-        createdAt,
-        updatedAt,
-        status,
-        source,
-        eventCountry,
-        topic,
-        isBreaking,
-        type,
-      ];
+    id,
+    title,
+    excerpt,
+    url,
+    imageUrl,
+    createdAt,
+    updatedAt,
+    status,
+    source,
+    eventCountry,
+    topic,
+    isBreaking,
+    type,
+  ];
 
   @override
   bool get stringify => true;
