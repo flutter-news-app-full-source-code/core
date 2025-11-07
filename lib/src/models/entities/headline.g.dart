@@ -38,6 +38,7 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) =>
           'status',
           (v) => $enumDecode(_$ContentStatusEnumMap, v),
         ),
+        isBreaking: $checkedConvert('isBreaking', (v) => v as bool),
       );
       return val;
     });
@@ -53,6 +54,7 @@ Map<String, dynamic> _$HeadlineToJson(Headline instance) => <String, dynamic>{
   'createdAt': dateTimeToJson(instance.createdAt),
   'updatedAt': dateTimeToJson(instance.updatedAt),
   'status': _$ContentStatusEnumMap[instance.status]!,
+  'isBreaking': instance.isBreaking,
   'topic': instance.topic.toJson(),
 };
 

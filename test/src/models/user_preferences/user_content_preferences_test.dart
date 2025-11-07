@@ -20,6 +20,10 @@ void main() {
         expect(preferences.followedSources, isNotEmpty);
         expect(preferences.followedTopics, isNotEmpty);
         expect(preferences.savedHeadlines, isNotEmpty);
+        expect(
+          preferences.notificationSubscriptions,
+          isA<List<PushNotificationSubscription>>(),
+        );
         expect(preferences.savedFilters, isNotEmpty);
       });
     });
@@ -60,6 +64,13 @@ void main() {
         );
       });
 
+      test('returns a new instance with updated notificationSubscriptions', () {
+        final updatedPreferences = userContentPreferencesFixture.copyWith(
+          notificationSubscriptions: [],
+        );
+        expect(updatedPreferences.notificationSubscriptions, isEmpty);
+      });
+
       test(
         'returns a new instance with the same fields if no updates provided',
         () {
@@ -83,6 +94,18 @@ void main() {
         );
         expect(preferences1, isNot(equals(preferences2)));
       });
+    });
+
+    test('props list should contain all relevant fields', () {
+      expect(userContentPreferencesFixture.props, [
+        userContentPreferencesFixture.id,
+        userContentPreferencesFixture.followedCountries,
+        userContentPreferencesFixture.followedSources,
+        userContentPreferencesFixture.followedTopics,
+        userContentPreferencesFixture.savedHeadlines,
+        userContentPreferencesFixture.savedFilters,
+        userContentPreferencesFixture.notificationSubscriptions,
+      ]);
     });
   });
 }

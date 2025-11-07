@@ -1,8 +1,4 @@
-import 'package:core/src/enums/feed_decorator_type.dart';
-import 'package:core/src/models/config/ad_config.dart';
-import 'package:core/src/models/config/app_status.dart';
-import 'package:core/src/models/config/feed_decorator_config.dart';
-import 'package:core/src/models/config/user_preference_config.dart';
+import 'package:core/core.dart';
 import 'package:core/src/utils/json_helpers.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -19,12 +15,14 @@ part 'remote_config.g.dart';
 /// identified by a fixed ID (e.g., 'app_config').
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class RemoteConfig extends Equatable {
+  /// Creates a new [RemoteConfig] instance.
   const RemoteConfig({
     required this.id,
-    required this.userPreferenceConfig,
+    required this.appStatus,
     required this.adConfig,
     required this.feedDecoratorConfig,
-    required this.appStatus,
+    required this.userPreferenceConfig,
+    required this.pushNotificationConfig,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -45,8 +43,12 @@ class RemoteConfig extends Equatable {
   /// Defines configuration settings for all feed decorators.
   final Map<FeedDecoratorType, FeedDecoratorConfig> feedDecoratorConfig;
 
-  /// Defines configuration settings related to the overall application status (maintenance, updates).
+  /// Defines configuration settings related to the overall application status
+  /// (maintenance, updates).
   final AppStatus appStatus;
+
+  /// Defines the global configuration for the push notification system.
+  final PushNotificationConfig pushNotificationConfig;
 
   /// The creation timestamp of the remote config.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
@@ -66,6 +68,7 @@ class RemoteConfig extends Equatable {
     AdConfig? adConfig,
     Map<FeedDecoratorType, FeedDecoratorConfig>? feedDecoratorConfig,
     AppStatus? appStatus,
+    PushNotificationConfig? pushNotificationConfig,
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
@@ -75,6 +78,8 @@ class RemoteConfig extends Equatable {
       adConfig: adConfig ?? this.adConfig,
       feedDecoratorConfig: feedDecoratorConfig ?? this.feedDecoratorConfig,
       appStatus: appStatus ?? this.appStatus,
+      pushNotificationConfig:
+          pushNotificationConfig ?? this.pushNotificationConfig,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );
@@ -87,6 +92,7 @@ class RemoteConfig extends Equatable {
     adConfig,
     feedDecoratorConfig,
     appStatus,
+    pushNotificationConfig,
     createdAt,
     updatedAt,
   ];

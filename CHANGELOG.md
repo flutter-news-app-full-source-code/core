@@ -1,5 +1,6 @@
 # Upcoming
 
+- **feat**: Add models/fixtures/tests for push notification system.
 - **BREAKING** feat!: Deprecate and remove `LocalAd` model and related fixtures.
 - **feat**: Add 10 new user fixtures, including publishers and standard users.
 - **chore**: Expand user-related fixtures with detailed settings and preferences.

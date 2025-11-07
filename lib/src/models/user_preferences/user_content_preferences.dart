@@ -2,6 +2,7 @@ import 'package:core/src/models/entities/country.dart';
 import 'package:core/src/models/entities/headline.dart';
 import 'package:core/src/models/entities/source.dart';
 import 'package:core/src/models/entities/topic.dart';
+import 'package:core/src/models/push_notifications/push_notification_subscription.dart';
 import 'package:core/src/models/user_presets/saved_filter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -34,6 +35,7 @@ class UserContentPreferences extends Equatable {
     required this.followedTopics,
     required this.savedHeadlines,
     required this.savedFilters,
+    required this.notificationSubscriptions,
   });
 
   /// Factory method to create a [UserContentPreferences] instance from a JSON map.
@@ -58,6 +60,9 @@ class UserContentPreferences extends Equatable {
   /// List of filter combinations the user has saved.
   final List<SavedFilter> savedFilters;
 
+  /// A list of the user's saved notification subscriptions.
+  final List<PushNotificationSubscription> notificationSubscriptions;
+
   /// Converts this [UserContentPreferences] instance to a JSON map.
   Map<String, dynamic> toJson() => _$UserContentPreferencesToJson(this);
 
@@ -69,6 +74,7 @@ class UserContentPreferences extends Equatable {
     followedTopics,
     savedHeadlines,
     savedFilters,
+    notificationSubscriptions,
   ];
 
   @override
@@ -83,6 +89,7 @@ class UserContentPreferences extends Equatable {
     List<Topic>? followedTopics,
     List<Headline>? savedHeadlines,
     List<SavedFilter>? savedFilters,
+    List<PushNotificationSubscription>? notificationSubscriptions,
   }) {
     return UserContentPreferences(
       id: id ?? this.id,
@@ -91,6 +98,8 @@ class UserContentPreferences extends Equatable {
       followedTopics: followedTopics ?? this.followedTopics,
       savedHeadlines: savedHeadlines ?? this.savedHeadlines,
       savedFilters: savedFilters ?? this.savedFilters,
+      notificationSubscriptions:
+          notificationSubscriptions ?? this.notificationSubscriptions,
     );
   }
 }

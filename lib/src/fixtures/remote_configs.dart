@@ -110,5 +110,69 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
         },
       ),
     },
+    pushNotificationConfig: const PushNotificationConfig(
+      enabled: true,
+      primaryProvider: PushNotificationProvider.firebase,
+      providerConfigs: {
+        PushNotificationProvider.firebase: FirebaseProviderConfig(
+          projectId: 'your-firebase-project-id',
+          clientEmail: 'your-firebase-client-email',
+          privateKey: 'your-firebase-private-key',
+        ),
+        PushNotificationProvider.oneSignal: OneSignalProviderConfig(
+          appId: 'your-onesignal-app-id',
+          restApiKey: 'your-onesignal-rest-api-key',
+        ),
+      },
+      deliveryConfigs: {
+        PushNotificationSubscriptionDeliveryType.breakingOnly:
+            PushNotificationDeliveryConfig(
+              enabled: true,
+              visibleTo: {
+                AppUserRole.guestUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 1,
+                ),
+                AppUserRole.standardUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 3,
+                ),
+                AppUserRole.premiumUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 10,
+                ),
+              },
+            ),
+
+        PushNotificationSubscriptionDeliveryType.dailyDigest:
+            PushNotificationDeliveryConfig(
+              enabled: true,
+              visibleTo: {
+                AppUserRole.guestUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 0,
+                ),
+                AppUserRole.standardUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 2,
+                ),
+                AppUserRole.premiumUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 10,
+                ),
+              },
+            ),
+
+        PushNotificationSubscriptionDeliveryType.weeklyRoundup:
+            PushNotificationDeliveryConfig(
+              enabled: true,
+              visibleTo: {
+                AppUserRole.guestUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 0,
+                ),
+                AppUserRole.standardUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 2,
+                ),
+                AppUserRole.premiumUser: PushNotificationDeliveryRoleConfig(
+                  subscriptionLimit: 10,
+                ),
+              },
+            ),
+      },
+    ),
   ),
 ];

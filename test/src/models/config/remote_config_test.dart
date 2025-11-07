@@ -4,77 +4,101 @@ import 'package:test/test.dart';
 void main() {
   group('RemoteConfig', () {
     final remoteConfigFixture = remoteConfigsFixturesData.first;
+    final json = remoteConfigFixture.toJson();
 
-    group('constructor', () {
-      test('returns correct instance', () {
-        expect(remoteConfigFixture, isA<RemoteConfig>());
-        expect(remoteConfigFixture.id, isA<String>());
-        expect(
+    test('supports value equality', () {
+      // Arrange: Create another instance with the same values from the fixture.
+      final anotherConfig = remoteConfigsFixturesData.first.copyWith();
+
+      // Assert: The two instances should be equal.
+      expect(remoteConfigFixture, equals(anotherConfig));
+    });
+
+    test('props are correct', () {
+      // Assert: The props list should contain all the fields for Equatable.
+      expect(
+        remoteConfigFixture.props,
+        equals([
+          remoteConfigFixture.id,
           remoteConfigFixture.userPreferenceConfig,
-          isA<UserPreferenceConfig>(),
-        );
-        expect(remoteConfigFixture.adConfig, isA<AdConfig>());
-        expect(
+          remoteConfigFixture.adConfig,
           remoteConfigFixture.feedDecoratorConfig,
-          isA<Map<FeedDecoratorType, FeedDecoratorConfig>>(),
-        );
-        expect(remoteConfigFixture.appStatus, isA<AppStatus>());
-      });
+          remoteConfigFixture.appStatus,
+          remoteConfigFixture.pushNotificationConfig,
+          remoteConfigFixture.createdAt,
+          remoteConfigFixture.updatedAt,
+        ]),
+      );
     });
 
-    group('fromJson/toJson', () {
-      test('round trip', () {
-        final json = remoteConfigFixture.toJson();
-        final result = RemoteConfig.fromJson(json);
-        expect(result, remoteConfigFixture);
-      });
+    test('can be created from JSON', () {
+      // Act: Create an instance from the JSON map.
+      final fromJson = RemoteConfig.fromJson(json);
+
+      // Assert: The created instance should be equal to the original.
+      expect(fromJson, equals(remoteConfigFixture));
     });
 
-    group('copyWith', () {
-      test('returns a new instance with updated values', () {
-        final updatedConfig = remoteConfigFixture.copyWith(
-          id: 'new_app_config',
-          appStatus: remoteConfigFixture.appStatus.copyWith(
-            isUnderMaintenance: true,
-          ),
-          adConfig: remoteConfigFixture.adConfig.copyWith(
-            primaryAdPlatform: AdPlatformType.admob,
-            feedAdConfiguration: remoteConfigFixture
-                .adConfig
-                .feedAdConfiguration
-                .copyWith(enabled: false),
-          ),
-        );
+    test('can be converted to JSON', () {
+      // Act: Convert the instance to a JSON map.
+      final toJson = remoteConfigFixture.toJson();
 
-        expect(updatedConfig.id, 'new_app_config');
-        expect(
-          updatedConfig.userPreferenceConfig,
-          remoteConfigFixture.userPreferenceConfig,
-        );
-        expect(updatedConfig.appStatus.isUnderMaintenance, true);
-        expect(updatedConfig.adConfig.primaryAdPlatform, AdPlatformType.admob);
-        expect(updatedConfig.adConfig.feedAdConfiguration.enabled, isFalse);
-        expect(updatedConfig, isNot(equals(remoteConfigFixture)));
-      });
-
-      test('returns the same instance if no changes are made', () {
-        final updatedConfig = remoteConfigFixture.copyWith();
-        expect(updatedConfig, equals(remoteConfigFixture));
-      });
+      // Assert: The resulting map should match the original JSON map.
+      expect(toJson, equals(json));
     });
 
-    group('Equatable', () {
-      test('instances with the same properties are equal', () {
-        final config1 = remoteConfigFixture.copyWith();
-        final config2 = remoteConfigFixture.copyWith();
-        expect(config1, config2);
-      });
+    test('copyWith creates a copy with updated values', () {
+      // Arrange: Define new values for various properties.
+      const newId = 'new_app_config';
+      final newAppStatus = remoteConfigFixture.appStatus.copyWith(
+        isUnderMaintenance: true,
+      );
+      final newPushConfig = remoteConfigFixture.pushNotificationConfig.copyWith(
+        primaryProvider: PushNotificationProvider.oneSignal,
+      );
 
-      test('instances with different properties are not equal', () {
-        final config1 = remoteConfigFixture.copyWith();
-        final config2 = remoteConfigFixture.copyWith(id: 'different_id');
-        expect(config1, isNot(equals(config2)));
-      });
+      // Act: Create a copy with the updated values.
+      final copiedConfig = remoteConfigFixture.copyWith(
+        id: newId,
+        appStatus: newAppStatus,
+        pushNotificationConfig: newPushConfig,
+      );
+
+      // Assert: The new instance should have the updated values.
+      expect(copiedConfig.id, equals(newId));
+      expect(copiedConfig.appStatus, equals(newAppStatus));
+      expect(copiedConfig.pushNotificationConfig, equals(newPushConfig));
+
+      // Assert: Unchanged properties remain the same.
+      expect(
+        copiedConfig.userPreferenceConfig,
+        equals(remoteConfigFixture.userPreferenceConfig),
+      );
+      expect(copiedConfig.adConfig, equals(remoteConfigFixture.adConfig));
+
+      // Assert: The original instance remains unchanged.
+      expect(remoteConfigFixture.id, isNot(equals(newId)));
+      expect(remoteConfigFixture.appStatus, isNot(equals(newAppStatus)));
+    });
+
+    test(
+      'copyWith creates an identical copy when no arguments are provided',
+      () {
+        // Act: Create a copy without providing any arguments.
+        final copiedConfig = remoteConfigFixture.copyWith();
+
+        // Assert: The copied instance should be equal to the original.
+        expect(copiedConfig, equals(remoteConfigFixture));
+      },
+    );
+
+    test('instances with different properties are not equal', () {
+      // Arrange: Create two instances with a differing property.
+      final config1 = remoteConfigFixture.copyWith();
+      final config2 = remoteConfigFixture.copyWith(id: 'different_id');
+
+      // Assert: The instances should not be equal.
+      expect(config1, isNot(equals(config2)));
     });
   });
 }

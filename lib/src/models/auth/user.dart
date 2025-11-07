@@ -1,6 +1,4 @@
-import 'package:core/src/enums/app_user_role.dart';
-import 'package:core/src/enums/dashboard_user_role.dart';
-import 'package:core/src/enums/feed_decorator_type.dart';
+import 'package:core/src/enums/enums.dart';
 import 'package:core/src/models/auth/user_feed_decorator_status.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
