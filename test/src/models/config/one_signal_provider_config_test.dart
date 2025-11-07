@@ -1,27 +1,30 @@
+import 'package:core/src/enums/push_notification_provider.dart';
+import 'package:core/src/fixtures/remote_configs.dart';
 import 'package:core/src/models/config/one_signal_provider_config.dart';
 import 'package:test/test.dart';
 
 void main() {
   group('OneSignalProviderConfig', () {
-    // Since a specific fixture file was not provided, sample data is
-    // created here for testing purposes.
-    const config = OneSignalProviderConfig(
-      appId: 'test-app-id',
-      restApiKey: 'test-rest-api-key',
-    );
+    // Retrieve the OneSignalProviderConfig from the remoteConfigsFixturesData.
+    // This ensures consistency with predefined application configurations.
+    final config =
+        remoteConfigsFixturesData
+                .first
+                .pushNotificationConfig
+                .providerConfigs[PushNotificationProvider.oneSignal]!
+            as OneSignalProviderConfig;
 
-    final json = {
-      'appId': 'test-app-id',
-      'restApiKey': 'test-rest-api-key',
-      'provider': 'oneSignal', // Manually added by toJson
-    };
+    // Generate the expected JSON from the fixture config for comparison.
+    final json = config.toJson();
 
     test('supports value equality', () {
       // Arrange: Create another instance with the same values.
-      const anotherConfig = OneSignalProviderConfig(
-        appId: 'test-app-id',
-        restApiKey: 'test-rest-api-key',
-      );
+      final anotherConfig =
+          remoteConfigsFixturesData
+                  .first
+                  .pushNotificationConfig
+                  .providerConfigs[PushNotificationProvider.oneSignal]!
+              as OneSignalProviderConfig;
 
       // Assert: The two instances should be equal.
       expect(config, equals(anotherConfig));
@@ -31,7 +34,7 @@ void main() {
       // Assert: The props list should contain all the fields including provider.
       expect(
         config.props,
-        equals(['oneSignal', 'test-app-id', 'test-rest-api-key']),
+        equals([config.provider, config.appId, config.restApiKey]),
       );
     });
 
@@ -53,10 +56,12 @@ void main() {
 
     test('copyWith creates a copy with updated values', () {
       // Arrange: Define new values.
-      const newAppId = 'new-app-id';
+      const newAppId = 'updated-app-id';
 
       // Act: Create a copy with the new value.
-      final copiedConfig = config.copyWith(appId: newAppId);
+      final copiedConfig = config.copyWith(
+        appId: newAppId,
+      ); // Using a new value for appId
 
       // Assert: The new instance should have the updated value.
       expect(copiedConfig.appId, equals(newAppId));
@@ -66,15 +71,12 @@ void main() {
       expect(config.appId, isNot(equals(newAppId)));
     });
 
-    test(
-      'copyWith creates an identical copy when no arguments are provided',
-      () {
-        // Act: Create a copy without providing any arguments.
-        final copiedConfig = config.copyWith();
+    test('copyWith creates an identical copy when no arguments are provided', () {
+      // Act: Create a copy without providing any arguments, expecting an identical instance.
+      final copiedConfig = config.copyWith();
 
-        // Assert: The copied instance should be equal to the original.
-        expect(copiedConfig, equals(config));
-      },
-    );
+      // Assert: The copied instance should be equal to the original.
+      expect(copiedConfig, equals(config));
+    });
   });
 }
