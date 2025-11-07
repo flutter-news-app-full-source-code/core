@@ -1,8 +1,6 @@
-import 'package:core/src/enums/push_notification_provider.dart';
 import 'package:core/src/models/config/firebase_provider_config.dart';
 import 'package:core/src/models/config/one_signal_provider_config.dart';
 import 'package:equatable/equatable.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 /// {@template push_notification_provider_config}
 /// An abstract base class for push notification provider configurations.
@@ -12,7 +10,6 @@ import 'package:json_annotation/json_annotation.dart';
 /// [FirebaseProviderConfig], [OneSignalProviderConfig]) based on a
 /// `providerName` discriminator field in the JSON data.
 /// {@endtemplate}
-@JsonSerializable(createToJson: false, checked: true)
 abstract class PushNotificationProviderConfig extends Equatable {
   /// {@macro push_notification_provider_config}
   const PushNotificationProviderConfig({required this.provider});
@@ -26,9 +23,7 @@ abstract class PushNotificationProviderConfig extends Equatable {
   factory PushNotificationProviderConfig.fromJson(Map<String, dynamic> json) {
     final provider = json['provider'] as String?;
     if (provider == null) {
-      throw const FormatException(
-        'Missing "providerName" field in FeedItem JSON.',
-      );
+      throw const FormatException('Missing "provider" field in FeedItem JSON.');
     }
 
     switch (provider) {
@@ -41,16 +36,17 @@ abstract class PushNotificationProviderConfig extends Equatable {
     }
   }
 
-  /// The name of the provider, used as a discriminator for deserialization.
-  final String provider;
-
-  /// Static factory method to serialize a [PushNotificationProviderConfig] instance to a JSON map.
+  /// Static method to serialize a [PushNotificationProviderConfig] instance
+  /// to a JSON map.
   ///
-  /// This factory uses the `provider` field of the provided [providerConfig] to dispatch
-  /// to the correct concrete `toJson` method.
+  /// This method acts as a dispatcher, using the `provider` field of the
+  /// provided [providerConfig] to delegate to the correct concrete `toJson`
+  /// instance method.
   ///
   /// Throws [FormatException] if the `provider` field is missing or unknown.
-  Map<String, dynamic> toJson(PushNotificationProviderConfig providerConfig) {
+  static Map<String, dynamic> toJson(
+    PushNotificationProviderConfig providerConfig,
+  ) {
     switch (providerConfig.provider) {
       case 'firebase':
         final provider = providerConfig as FirebaseProviderConfig;
@@ -64,6 +60,15 @@ abstract class PushNotificationProviderConfig extends Equatable {
         );
     }
   }
+
+  /// Converts this [PushNotificationProviderConfig] instance to a JSON map.
+  ///
+  /// Concrete implementations must override this method to provide their
+  /// specific serialization logic.
+  Map<String, dynamic> toJson();
+
+  /// The name of the provider, used as a discriminator for deserialization.
+  final String provider;
 
   @override
   List<Object> get props => [provider];
