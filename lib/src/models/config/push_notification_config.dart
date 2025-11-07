@@ -39,16 +39,56 @@ class PushNotificationConfig extends Equatable {
   final PushNotificationProvider primaryProvider;
 
   /// A map holding the credentials for each potential push provider.
+  ///
+  /// This uses custom fromJson/toJson helpers to handle the polymorphic nature
+  /// of [PushNotificationProviderConfig] within a map structure, which is not
+  /// natively supported by `json_serializable`.
+  @JsonKey(fromJson: _providerConfigsFromJson, toJson: _providerConfigsToJson)
   final Map<PushNotificationProvider, PushNotificationProviderConfig>
   providerConfigs;
 
   /// A map to globally enable or disable each specific notification type
   /// and define its role-based limits using the `visibleTo` pattern.
-  final Map<PushNotificationSubscriptionDeliveryType, PushNotificationDeliveryConfig>
+  final Map<
+    PushNotificationSubscriptionDeliveryType,
+    PushNotificationDeliveryConfig
+  >
   deliveryConfigs;
 
   /// Converts this [PushNotificationConfig] instance to JSON data.
   Map<String, dynamic> toJson() => _$PushNotificationConfigToJson(this);
+
+  /// A custom deserializer for the `providerConfigs` map.
+  ///
+  /// This function manually iterates through the incoming JSON map, converting
+  /// string keys into [PushNotificationProvider] enum values and delegating
+  /// the value deserialization to the polymorphic
+  /// [PushNotificationProviderConfig.fromJson] factory.
+  static Map<PushNotificationProvider, PushNotificationProviderConfig>
+  _providerConfigsFromJson(Map<String, dynamic> json) {
+    return json.map((key, value) {
+      final provider = PushNotificationProvider.values.byName(key);
+      return MapEntry(
+        provider,
+        PushNotificationProviderConfig.fromJson(value as Map<String, dynamic>),
+      );
+    });
+  }
+
+  /// A custom serializer for the `providerConfigs` map.
+  ///
+  /// This function manually iterates through the map, converting the
+  /// [PushNotificationProvider] enum keys into strings and delegating the
+  /// value serialization to the polymorphic
+  /// [PushNotificationProviderConfig.toJson] static method.
+  static Map<String, dynamic> _providerConfigsToJson(
+    Map<PushNotificationProvider, PushNotificationProviderConfig> configs,
+  ) {
+    return configs.map(
+      (key, value) =>
+          MapEntry(key.name, PushNotificationProviderConfig.toJson(value)),
+    );
+  }
 
   @override
   List<Object> get props => [
@@ -65,7 +105,11 @@ class PushNotificationConfig extends Equatable {
     PushNotificationProvider? primaryProvider,
     Map<PushNotificationProvider, PushNotificationProviderConfig>?
     providerConfigs,
-    Map<PushNotificationSubscriptionDeliveryType, PushNotificationDeliveryConfig>? deliveryConfigs,
+    Map<
+      PushNotificationSubscriptionDeliveryType,
+      PushNotificationDeliveryConfig
+    >?
+    deliveryConfigs,
   }) {
     return PushNotificationConfig(
       enabled: enabled ?? this.enabled,
