@@ -1,4 +1,3 @@
-import 'package:core/src/enums/enums.dart';
 import 'package:core/src/models/config/config.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -34,8 +33,9 @@ class FirebaseProviderConfig extends PushNotificationProviderConfig {
   /// The private key from the Firebase service account credentials.
   final String privateKey;
 
-  
-  /// Converts this [FirebaseProviderConfig] instance to a JSON map.
+  /// Converts this [FirebaseProviderConfig] instance to a JSON map,
+  /// including the provider discriminator.
+  @override
   Map<String, dynamic> toJson() {
     final json = _$FirebaseProviderConfigToJson(this);
     json['provider'] = provider;
