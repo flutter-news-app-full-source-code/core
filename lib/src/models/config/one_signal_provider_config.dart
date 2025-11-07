@@ -1,4 +1,3 @@
-import 'package:core/src/enums/enums.dart';
 import 'package:core/src/models/config/config.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -28,7 +27,9 @@ class OneSignalProviderConfig extends PushNotificationProviderConfig {
   /// The OneSignal REST API Key for server-side operations.
   final String restApiKey;
 
-  /// Converts this [FirebaseProviderConfig] instance to a JSON map.
+  /// Converts this [OneSignalProviderConfig] instance to a JSON map,
+  /// including the provider discriminator.
+  @override
   Map<String, dynamic> toJson() {
     final json = _$OneSignalProviderConfigToJson(this);
     json['provider'] = provider;
