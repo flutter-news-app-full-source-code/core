@@ -113,17 +113,6 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
     pushNotificationConfig: const PushNotificationConfig(
       enabled: true,
       primaryProvider: PushNotificationProvider.firebase,
-      providerConfigs: {
-        PushNotificationProvider.firebase: FirebaseProviderConfig(
-          projectId: 'your-firebase-project-id',
-          clientEmail: 'your-firebase-client-email',
-          privateKey: 'your-firebase-private-key',
-        ),
-        PushNotificationProvider.oneSignal: OneSignalProviderConfig(
-          appId: 'your-onesignal-app-id',
-          restApiKey: 'your-onesignal-rest-api-key',
-        ),
-      },
       deliveryConfigs: {
         PushNotificationSubscriptionDeliveryType.breakingOnly:
             PushNotificationDeliveryConfig(
