@@ -12,7 +12,7 @@ part 'push_notification_config.g.dart';
 /// This model is part of the overall `RemoteConfig` and allows for remotely
 /// managing all aspects of push notifications, including feature availability
 /// and user-specific limits.
-/// {@endtemplate}push_notification_provider_config
+/// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class PushNotificationConfig extends Equatable {
