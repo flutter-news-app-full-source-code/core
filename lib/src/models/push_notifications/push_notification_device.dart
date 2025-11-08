@@ -20,9 +20,8 @@ class PushNotificationDevice extends Equatable {
   const PushNotificationDevice({
     required this.id,
     required this.userId,
-    required this.token,
-    required this.provider,
     required this.platform,
+    required this.providerTokens,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -37,14 +36,12 @@ class PushNotificationDevice extends Equatable {
   /// The ID of the user who owns this device.
   final String userId;
 
-  /// The unique token issued by the push notification provider for this device.
-  final String token;
-
-  /// The push notification provider (e.g., Firebase, OneSignal).
-  final PushNotificationProvider provider;
-
   /// The mobile operating system of the device.
   final DevicePlatform platform;
+
+  /// A map of push notification provider tokens for this device.
+  @JsonKey(fromJson: _providerTokensFromJson, toJson: _providerTokensToJson)
+  final Map<PushNotificationProvider, String> providerTokens;
 
   /// The timestamp when this device was first registered.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
@@ -57,13 +54,31 @@ class PushNotificationDevice extends Equatable {
   /// Converts this [PushNotificationDevice] instance to JSON data.
   Map<String, dynamic> toJson() => _$PushNotificationDeviceToJson(this);
 
+  /// Custom deserializer for the `providerTokens` map.
+  static Map<PushNotificationProvider, String> _providerTokensFromJson(
+    Map<String, dynamic> json,
+  ) {
+    return json.map(
+      (key, value) => MapEntry(
+        PushNotificationProvider.values.byName(key),
+        value as String,
+      ),
+    );
+  }
+
+  /// Custom serializer for the `providerTokens` map.
+  static Map<String, dynamic> _providerTokensToJson(
+    Map<PushNotificationProvider, String> tokens,
+  ) {
+    return tokens.map((key, value) => MapEntry(key.name, value));
+  }
+
   @override
   List<Object> get props => [
     id,
     userId,
-    token,
-    provider,
     platform,
+    providerTokens,
     createdAt,
     updatedAt,
   ];
@@ -73,18 +88,16 @@ class PushNotificationDevice extends Equatable {
   PushNotificationDevice copyWith({
     String? id,
     String? userId,
-    String? token,
-    PushNotificationProvider? provider,
     DevicePlatform? platform,
+    Map<PushNotificationProvider, String>? providerTokens,
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
     return PushNotificationDevice(
       id: id ?? this.id,
       userId: userId ?? this.userId,
-      token: token ?? this.token,
-      provider: provider ?? this.provider,
       platform: platform ?? this.platform,
+      providerTokens: providerTokens ?? this.providerTokens,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );
