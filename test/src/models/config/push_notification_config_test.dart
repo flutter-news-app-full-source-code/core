@@ -29,7 +29,6 @@ void main() {
         equals([
           pushNotificationConfig.enabled,
           pushNotificationConfig.primaryProvider,
-          pushNotificationConfig.providerConfigs,
           pushNotificationConfig.deliveryConfigs,
         ]),
       );
@@ -65,10 +64,6 @@ void main() {
       // Assert: The new instance should have the updated values.
       expect(copiedConfig.enabled, equals(newEnabled));
       expect(copiedConfig.primaryProvider, equals(newPrimaryProvider));
-      expect(
-        copiedConfig.providerConfigs,
-        equals(pushNotificationConfig.providerConfigs),
-      );
       expect(
         copiedConfig.deliveryConfigs,
         equals(pushNotificationConfig.deliveryConfigs),
