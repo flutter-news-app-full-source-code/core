@@ -7,18 +7,19 @@ void main() {
   group('PushNotificationDevice', () {
     const id = 'device-id-1';
     const userId = 'user-id-1';
-    const token = 'device-token-string';
-    const provider = PushNotificationProvider.firebase;
     const platform = DevicePlatform.android;
+    const providerTokens = {
+      PushNotificationProvider.firebase: 'firebase-token-string',
+      PushNotificationProvider.oneSignal: 'onesignal-token-string',
+    };
     final createdAt = DateTime.parse('2023-01-01T10:00:00.000Z');
     final updatedAt = DateTime.parse('2023-01-01T11:00:00.000Z');
 
     final device = PushNotificationDevice(
       id: id,
       userId: userId,
-      token: token,
-      provider: provider,
       platform: platform,
+      providerTokens: providerTokens,
       createdAt: createdAt,
       updatedAt: updatedAt,
     );
@@ -26,9 +27,11 @@ void main() {
     final json = {
       'id': id,
       'userId': userId,
-      'token': token,
-      'provider': 'firebase',
       'platform': 'android',
+      'providerTokens': {
+        'firebase': 'firebase-token-string',
+        'oneSignal': 'onesignal-token-string',
+      },
       'createdAt': '2023-01-01T10:00:00.000Z',
       'updatedAt': '2023-01-01T11:00:00.000Z',
     };
@@ -38,9 +41,8 @@ void main() {
       final anotherDevice = PushNotificationDevice(
         id: id,
         userId: userId,
-        token: token,
-        provider: provider,
         platform: platform,
+        providerTokens: providerTokens,
         createdAt: createdAt,
         updatedAt: updatedAt,
       );
@@ -53,7 +55,7 @@ void main() {
       // Assert: The props list should contain all the fields.
       expect(
         device.props,
-        equals([id, userId, token, provider, platform, createdAt, updatedAt]),
+        equals([id, userId, platform, providerTokens, createdAt, updatedAt]),
       );
     });
 
@@ -75,21 +77,23 @@ void main() {
 
     test('copyWith creates a copy with updated values', () {
       // Arrange: Define the updated values.
-      const newToken = 'new-device-token';
+      const newProviderTokens = {
+        PushNotificationProvider.firebase: 'new-firebase-token',
+      };
       final newUpdatedAt = DateTime.parse('2023-02-01T12:00:00.000Z');
 
       // Act: Create a copy with the updated values.
       final copiedDevice = device.copyWith(
-        token: newToken,
+        providerTokens: newProviderTokens,
         updatedAt: newUpdatedAt,
       );
 
       // Assert: The new instance should have the updated values.
-      expect(copiedDevice.token, equals(newToken));
+      expect(copiedDevice.providerTokens, equals(newProviderTokens));
       expect(copiedDevice.updatedAt, equals(newUpdatedAt));
 
       // Assert: The original instance should remain unchanged.
-      expect(device.token, equals(token));
+      expect(device.providerTokens, equals(providerTokens));
       expect(device.updatedAt, equals(updatedAt));
     });
 

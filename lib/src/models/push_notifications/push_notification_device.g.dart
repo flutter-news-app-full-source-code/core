@@ -12,14 +12,15 @@ PushNotificationDevice _$PushNotificationDeviceFromJson(
   final val = PushNotificationDevice(
     id: $checkedConvert('id', (v) => v as String),
     userId: $checkedConvert('userId', (v) => v as String),
-    token: $checkedConvert('token', (v) => v as String),
-    provider: $checkedConvert(
-      'provider',
-      (v) => $enumDecode(_$PushNotificationProviderEnumMap, v),
-    ),
     platform: $checkedConvert(
       'platform',
       (v) => $enumDecode(_$DevicePlatformEnumMap, v),
+    ),
+    providerTokens: $checkedConvert(
+      'providerTokens',
+      (v) => PushNotificationDevice._providerTokensFromJson(
+        v as Map<String, dynamic>,
+      ),
     ),
     createdAt: $checkedConvert(
       'createdAt',
@@ -38,16 +39,12 @@ Map<String, dynamic> _$PushNotificationDeviceToJson(
 ) => <String, dynamic>{
   'id': instance.id,
   'userId': instance.userId,
-  'token': instance.token,
-  'provider': _$PushNotificationProviderEnumMap[instance.provider]!,
   'platform': _$DevicePlatformEnumMap[instance.platform]!,
+  'providerTokens': PushNotificationDevice._providerTokensToJson(
+    instance.providerTokens,
+  ),
   'createdAt': dateTimeToJson(instance.createdAt),
   'updatedAt': dateTimeToJson(instance.updatedAt),
-};
-
-const _$PushNotificationProviderEnumMap = {
-  PushNotificationProvider.firebase: 'firebase',
-  PushNotificationProvider.oneSignal: 'oneSignal',
 };
 
 const _$DevicePlatformEnumMap = {
