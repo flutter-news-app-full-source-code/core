@@ -25,6 +25,7 @@ void main() {
           remoteConfigFixture.feedDecoratorConfig,
           remoteConfigFixture.appStatus,
           remoteConfigFixture.pushNotificationConfig,
+          remoteConfigFixture.interestConfig,
           remoteConfigFixture.createdAt,
           remoteConfigFixture.updatedAt,
         ]),
