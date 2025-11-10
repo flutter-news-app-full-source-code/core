@@ -1,4 +1,6 @@
 import 'package:core/core.dart';
+import 'package:core/src/models/config/interest_config.dart';
+import 'package:core/src/models/config/interest_limits.dart';
 
 /// A list of initial remote config data to be loaded into the in-memory
 /// remote config repository.
@@ -22,9 +24,23 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       authenticatedSavedHeadlinesLimit: 30,
       premiumFollowedItemsLimit: 30,
       premiumSavedHeadlinesLimit: 100,
-      guestSavedFiltersLimit: 3,
-      authenticatedSavedFiltersLimit: 10,
-      premiumSavedFiltersLimit: 25,
+    ),
+    interestConfig: const InterestConfig(
+      enabled: true,
+      limits: {
+        AppUserRole.guestUser: InterestLimits(
+          totalInterests: 3,
+          notificationsPerInterest: 1,
+        ),
+        AppUserRole.standardUser: InterestLimits(
+          totalInterests: 10,
+          notificationsPerInterest: 2,
+        ),
+        AppUserRole.premiumUser: InterestLimits(
+          totalInterests: 25,
+          notificationsPerInterest: 5,
+        ),
+      },
     ),
     adConfig: const AdConfig(
       enabled: true,
@@ -115,52 +131,11 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       primaryProvider: PushNotificationProvider.firebase,
       deliveryConfigs: {
         PushNotificationSubscriptionDeliveryType.breakingOnly:
-            PushNotificationDeliveryConfig(
-              enabled: true,
-              visibleTo: {
-                AppUserRole.guestUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 1,
-                ),
-                AppUserRole.standardUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 3,
-                ),
-                AppUserRole.premiumUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 10,
-                ),
-              },
-            ),
-
+            PushNotificationDeliveryConfig(enabled: true),
         PushNotificationSubscriptionDeliveryType.dailyDigest:
-            PushNotificationDeliveryConfig(
-              enabled: true,
-              visibleTo: {
-                AppUserRole.guestUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 0,
-                ),
-                AppUserRole.standardUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 2,
-                ),
-                AppUserRole.premiumUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 10,
-                ),
-              },
-            ),
-
+            PushNotificationDeliveryConfig(enabled: true),
         PushNotificationSubscriptionDeliveryType.weeklyRoundup:
-            PushNotificationDeliveryConfig(
-              enabled: true,
-              visibleTo: {
-                AppUserRole.guestUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 0,
-                ),
-                AppUserRole.standardUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 2,
-                ),
-                AppUserRole.premiumUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 10,
-                ),
-              },
-            ),
+            PushNotificationDeliveryConfig(enabled: true),
       },
     ),
   ),
