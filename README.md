@@ -47,6 +47,7 @@ Provides a centralized and standardized set of exceptions, enabling consistent a
 
 <details>
 <summary><strong>👤 User Identity & Personalization</strong></summary>
+
 ---
 
 ### 🔐 Core User & Role Models
@@ -67,6 +68,7 @@ Provides data structures for persisting all user-specific configurations, from a
 
 <details>
 <summary><strong>🔔 Notification & Alerting System</strong></summary>
+
 ---
 
 ### 🎯 Interest-Based Subscriptions
@@ -87,6 +89,7 @@ Includes a stateful `InAppNotification` model with read/unread status tracking, 
 
 <details>
 <summary><strong>⚙️ Remote Configuration System</strong></summary>
+
 ---
 
 ### ☁️ Centralized App Control
