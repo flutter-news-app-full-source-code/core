@@ -2,6 +2,7 @@ export 'countries.dart';
 export 'dashboard_summary.dart';
 export 'fixture_ids.dart';
 export 'headlines.dart';
+export 'in_app_notifications.dart';
 export 'interests.dart';
 export 'languages.dart';
 export 'remote_configs.dart';

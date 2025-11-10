@@ -1043,3 +1043,11 @@ const String kInterestId3 = 'interest_3';
 const String kInterestId4 = 'interest_4';
 const String kInterestId5 = 'interest_5';
 const String kInterestId6 = 'interest_6';
+
+/// In-App Notification Fixture IDs.
+const String kInAppNotificationId1 = 'in_app_notification_1';
+const String kInAppNotificationId2 = 'in_app_notification_2';
+const String kInAppNotificationId3 = 'in_app_notification_3';
+const String kInAppNotificationId4 = 'in_app_notification_4';
+const String kInAppNotificationId5 = 'in_app_notification_5';
+const String kInAppNotificationId6 = 'in_app_notification_6';
