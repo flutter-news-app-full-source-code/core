@@ -1,5 +1,6 @@
 import 'package:core/src/models/push_notifications/push_notification_payload.dart';
 import 'package:core/src/utils/json_helpers.dart';
+import 'package:core/src/utils/nullable_date_time_converter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -46,7 +47,7 @@ class InAppNotification extends Equatable {
   /// The timestamp when the user marked this notification as read.
   ///
   /// A `null` value indicates the notification is unread.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @NullableDateTimeConverter()
   final DateTime? readAt;
 
   /// A convenience getter to determine if the notification has been read.
