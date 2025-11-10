@@ -1,9 +1,5 @@
-import 'package:core/src/fixtures/fixture_ids.dart';
-import 'package:core/src/fixtures/headlines.dart';
-import 'package:core/src/fixtures/interests.dart';
-import 'package:core/src/fixtures/sources.dart';
-import 'package:core/src/fixtures/topics.dart';
 import 'package:core/core.dart';
+import 'package:core/src/fixtures/interests.dart';
 
 /// User Content Preferences Demo Data
 final List<UserContentPreferences> userContentPreferencesFixturesData = [

@@ -1,6 +1,7 @@
 import 'package:core/src/models/entities/country.dart';
 import 'package:core/src/models/entities/source.dart';
 import 'package:core/src/models/entities/topic.dart';
+import 'package:core/src/models/interests/interest.dart' show Interest;
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
