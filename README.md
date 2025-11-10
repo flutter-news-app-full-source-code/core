@@ -5,7 +5,7 @@
 </div>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/coverage-98%25-green?style=for-the-badge" alt="coverage">
+  <img src="https://img.shields.io/badge/coverage-99%25-green?style=for-the-badge" alt="coverage">
   <a href="https://flutter-news-app-full-source-code.github.io/docs/"><img src="https://img.shields.io/badge/LIVE_DOCS-VIEW-slategray?style=for-the-badge" alt="Live Docs: View"></a>
   <a href="https://github.com/flutter-news-app-full-source-code"><img src="https://img.shields.io/badge/MAIN_PROJECT-BROWSE-purple?style=for-the-badge" alt="Main Project: Browse"></a>
 </p>
@@ -23,49 +23,25 @@ This package provides the critical building blocks for a professional news appli
 
 ### 📰 Core Content Entities
 
-Provides comprehensive models for all core news content, ensuring consistent representation across the entire toolkit.
+Defines a complete and consistent schema for all news-related content, including headlines, topics, and sources.
 
 > **Your Advantage:** A unified and robust data schema that simplifies content management and ensures data integrity across all applications.
 
 ---
 
-### 🔄 Polymorphic Feed Items
+### 🛡️ Standardized API Communication
 
-Enables diverse content types (headlines, ads, suggested content) to coexist seamlessly within a single feed.
+Includes generic wrappers for API responses, pagination, and querying, ensuring predictable and consistent data exchange between the client and server.
 
-> **Your Advantage:** Flexible feed construction that supports rich, mixed-content experiences without complex type handling.
-
----
-
-### 📊 Querying & API Communication
-
-Offers models for building flexible, server-side queries with sorting and pagination capabilities.
-
-> **Your Advantage:** Efficient data retrieval and reduced backend load through optimized query parameters.
+> **Your Advantage:** Accelerate API and client development with a uniform communication structure that simplifies data handling and error management.
 
 ---
 
-### ✅ Standardized API Responses
+### Predictable Error Handling
 
-Ensures consistent response wrappers for all API communication, guaranteeing predictable data structures.
+Provides a centralized and standardized set of exceptions, enabling consistent and predictable error handling across all layers of the application.
 
-> **Your Advantage:** Simplified API client development and robust error handling due to a uniform response format.
-
----
-
-### 🚨 Predictable Error Handling
-
-Includes a comprehensive set of custom exceptions for predictable and standardized error handling across all layers of the application.
-
-> **Your Advantage:** Clear, actionable error messages that streamline debugging and improve application stability.
-
----
-
-### 📈 Dashboard Analytics Summary
-
-Provides a model for aggregated statistics, useful for administrative dashboards.
-
-> **Your Advantage:** Quick and easy access to key performance indicators for administrative oversight.
+> **Your Advantage:** Streamline debugging and build a more stable application with a clear, actionable error-handling strategy.
 
 </details>
 
@@ -74,109 +50,61 @@ Provides a model for aggregated statistics, useful for administrative dashboards
 
 ---
 
-### 🔐 Secure User Management
+### 🔐 Core User & Role Models
 
-Offers robust models for user profiles, roles, and permissions, enabling secure and personalized experiences.
+Offers foundational models for user profiles and tiered roles, enabling secure, personalized, and permission-based application access.
 
-> **Your Advantage:** A secure and flexible user authentication and authorization system that supports tiered access and custom permissions.
-
----
-
-### ⚙️ User-Specific Settings
-
-Provides detailed models for storing user-specific content preferences (e.g., followed topics, saved headlines) and application settings (e.g., theme, language).
-
-> **Your Advantage:** Highly personalized user experiences through persistent storage of individual content interests and application configurations.
+> **Your Advantage:** Build a secure and flexible user management system that supports distinct access levels for guests, standard users, and premium members.
 
 ---
 
-### 💾 Reusable Content Filters
+### ⚙️ Persistent User Preferences
 
-Enables users to store and quickly re-apply complex content filters.
+Provides data structures for persisting all user-specific configurations, from application settings like theme and language to content preferences like saved articles and followed topics.
 
-> **Your Advantage:** Enhanced user engagement and efficiency by enabling quick access to frequently used content filters.
+> **Your Advantage:** Deliver a deeply personalized user experience by remembering individual choices and content interests across sessions.
 
 </details>
 
 <details>
-<summary><strong>🔔 Dynamic Push Notifications</strong></summary>
+<summary><strong>🔔 Notification & Alerting System</strong></summary>
 
 ---
 
-### 📩 User-Defined Subscriptions
+### 🎯 Interest-Based Subscriptions
 
-Allows users to create and manage their notification subscriptions, offering granular control over alert preferences.
+Enables users to create and save "Interests"—powerful, persistent filters based on topics, sources, and countries—and subscribe to highly relevant push notifications.
 
-> **Your Advantage:** Empower users with precise control over the notifications they receive, reducing noise and increasing relevance.
-
----
-
-### 📱 Device Registration & Management
-
-Manages user device registrations for push notifications, linking user accounts to specific device tokens.
-
-> **Your Advantage:** Reliable and targeted delivery of notifications to the correct user devices across different platforms.
+> **Your Advantage:** Drive deep user engagement by allowing users to define exactly what content they care about, transforming the app into a personalized intelligence tool.
 
 ---
 
-### ✉️ Standardized Notification Payloads
+### ✉️ In-App Notification Center
 
-Defines a generic structure for push notification messages, ensuring consistent content delivery across various providers.
+Includes a stateful `InAppNotification` model with read/unread status tracking, providing the foundation for a persistent, inbox-style notification center.
 
-> **Your Advantage:** Simplified development of notification sending logic with a clear, consistent payload structure for all alerts.
-
----
-
-### 🌐 Global Push System Configuration
-
-Provides centralized management for the entire push notification system, including provider credentials and feature availability.
-
-> **Your Advantage:** Centralized control over your push notification infrastructure, allowing for dynamic adjustments and provider switching without code changes.
+> **Your Advantage:** Increase content rediscovery and user retention by giving users a dedicated space to review and interact with past notifications.
 
 </details>
 
 <details>
-<summary><strong>⚙️ Remote Configuration & Monetization</strong></summary>
+<summary><strong>⚙️ Remote Configuration System</strong></summary>
 
 ---
 
 ### ☁️ Centralized App Control
 
-Offers a central container for all dynamic application settings, fetched from a remote source, enabling real-time adjustments to app behavior.
+Provides a comprehensive set of models for remotely configuring all dynamic aspects of the application, from feature flags to monetization strategies.
 
 > **Your Advantage:** Agility in managing application features and behavior without requiring app store updates.
 
 ---
 
-### 💰 Flexible Ad Monetization
+### 👑 Role-Based Feature Entitlements
 
-Provides master configuration for all advertising, featuring **highly flexible, role-based control** over ad visibility and frequency for various ad types.
+Define granular, role-based limits for features like saved interests, feed filters, and notification subscriptions.
 
-> **Your Advantage:** Granular control over monetization strategies, allowing optimization of ad revenue and user experience per user segment.
-
----
-
-### 🎯 Tiered User Feature Limits
-
-Defines user preference limits (e.g., max followed items, saved headlines) tiered by user role.
-
-> **Your Advantage:** Effective feature differentiation across user tiers (guest, standard, premium) and robust backend enforcement of limits.
-
----
-
-### 🚧 Application Status Management
-
-Manages application-wide status, including maintenance mode and force update directives.
-
-> **Your Advantage:** Proactive communication with users during maintenance and seamless enforcement of critical updates.
-
----
-
-### 🎨 Dynamic In-Feed Elements
-
-Configures dynamic in-feed elements like calls-to-action and content collections, with role-based visibility.
-
-> **Your Advantage:** Enhanced user engagement and promotional capabilities through dynamically injected content within the news feed.
+> **Your Advantage:** A flexible and scalable way to create value tiers, encouraging users to upgrade for more powerful personalization capabilities.
 
 </details>
 

@@ -35,20 +35,10 @@ UserContentPreferences _$UserContentPreferencesFromJson(
           .map((e) => Headline.fromJson(e as Map<String, dynamic>))
           .toList(),
     ),
-    savedFilters: $checkedConvert(
-      'savedFilters',
+    interests: $checkedConvert(
+      'interests',
       (v) => (v as List<dynamic>)
-          .map((e) => SavedFilter.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    ),
-    notificationSubscriptions: $checkedConvert(
-      'notificationSubscriptions',
-      (v) => (v as List<dynamic>)
-          .map(
-            (e) => PushNotificationSubscription.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
+          .map((e) => Interest.fromJson(e as Map<String, dynamic>))
           .toList(),
     ),
   );
@@ -65,8 +55,5 @@ Map<String, dynamic> _$UserContentPreferencesToJson(
   'followedSources': instance.followedSources.map((e) => e.toJson()).toList(),
   'followedTopics': instance.followedTopics.map((e) => e.toJson()).toList(),
   'savedHeadlines': instance.savedHeadlines.map((e) => e.toJson()).toList(),
-  'savedFilters': instance.savedFilters.map((e) => e.toJson()).toList(),
-  'notificationSubscriptions': instance.notificationSubscriptions
-      .map((e) => e.toJson())
-      .toList(),
+  'interests': instance.interests.map((e) => e.toJson()).toList(),
 };

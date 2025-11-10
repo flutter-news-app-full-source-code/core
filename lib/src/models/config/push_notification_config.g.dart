@@ -20,7 +20,7 @@ PushNotificationConfig _$PushNotificationConfigFromJson(
       (v) => (v as Map<String, dynamic>).map(
         (k, e) => MapEntry(
           $enumDecode(_$PushNotificationSubscriptionDeliveryTypeEnumMap, k),
-          PushNotificationDeliveryConfig.fromJson(e as Map<String, dynamic>),
+          e as bool,
         ),
       ),
     ),
@@ -35,10 +35,8 @@ Map<String, dynamic> _$PushNotificationConfigToJson(
   'primaryProvider':
       _$PushNotificationProviderEnumMap[instance.primaryProvider]!,
   'deliveryConfigs': instance.deliveryConfigs.map(
-    (k, e) => MapEntry(
-      _$PushNotificationSubscriptionDeliveryTypeEnumMap[k]!,
-      e.toJson(),
-    ),
+    (k, e) =>
+        MapEntry(_$PushNotificationSubscriptionDeliveryTypeEnumMap[k]!, e),
   ),
 };
 

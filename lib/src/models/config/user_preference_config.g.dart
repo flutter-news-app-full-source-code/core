@@ -34,18 +34,6 @@ UserPreferenceConfig _$UserPreferenceConfigFromJson(
       'premiumSavedHeadlinesLimit',
       (v) => (v as num).toInt(),
     ),
-    guestSavedFiltersLimit: $checkedConvert(
-      'guestSavedFiltersLimit',
-      (v) => (v as num).toInt(),
-    ),
-    authenticatedSavedFiltersLimit: $checkedConvert(
-      'authenticatedSavedFiltersLimit',
-      (v) => (v as num).toInt(),
-    ),
-    premiumSavedFiltersLimit: $checkedConvert(
-      'premiumSavedFiltersLimit',
-      (v) => (v as num).toInt(),
-    ),
   );
   return val;
 });
@@ -59,7 +47,4 @@ Map<String, dynamic> _$UserPreferenceConfigToJson(
   'authenticatedSavedHeadlinesLimit': instance.authenticatedSavedHeadlinesLimit,
   'premiumFollowedItemsLimit': instance.premiumFollowedItemsLimit,
   'premiumSavedHeadlinesLimit': instance.premiumSavedHeadlinesLimit,
-  'guestSavedFiltersLimit': instance.guestSavedFiltersLimit,
-  'authenticatedSavedFiltersLimit': instance.authenticatedSavedFiltersLimit,
-  'premiumSavedFiltersLimit': instance.premiumSavedFiltersLimit,
 };

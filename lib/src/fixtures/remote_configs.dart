@@ -22,9 +22,37 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       authenticatedSavedHeadlinesLimit: 30,
       premiumFollowedItemsLimit: 30,
       premiumSavedHeadlinesLimit: 100,
-      guestSavedFiltersLimit: 3,
-      authenticatedSavedFiltersLimit: 10,
-      premiumSavedFiltersLimit: 25,
+    ),
+    interestConfig: const InterestConfig(
+      limits: {
+        AppUserRole.guestUser: InterestLimits(
+          total: 3,
+          feedFilters: 3,
+          notifications: {
+            PushNotificationSubscriptionDeliveryType.breakingOnly: 1,
+            PushNotificationSubscriptionDeliveryType.dailyDigest: 0,
+            PushNotificationSubscriptionDeliveryType.weeklyRoundup: 0,
+          },
+        ),
+        AppUserRole.standardUser: InterestLimits(
+          total: 10,
+          feedFilters: 5,
+          notifications: {
+            PushNotificationSubscriptionDeliveryType.breakingOnly: 3,
+            PushNotificationSubscriptionDeliveryType.dailyDigest: 2,
+            PushNotificationSubscriptionDeliveryType.weeklyRoundup: 2,
+          },
+        ),
+        AppUserRole.premiumUser: InterestLimits(
+          total: 25,
+          feedFilters: 10,
+          notifications: {
+            PushNotificationSubscriptionDeliveryType.breakingOnly: 10,
+            PushNotificationSubscriptionDeliveryType.dailyDigest: 10,
+            PushNotificationSubscriptionDeliveryType.weeklyRoundup: 10,
+          },
+        ),
+      },
     ),
     adConfig: const AdConfig(
       enabled: true,
@@ -114,53 +142,9 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       enabled: true,
       primaryProvider: PushNotificationProvider.firebase,
       deliveryConfigs: {
-        PushNotificationSubscriptionDeliveryType.breakingOnly:
-            PushNotificationDeliveryConfig(
-              enabled: true,
-              visibleTo: {
-                AppUserRole.guestUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 1,
-                ),
-                AppUserRole.standardUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 3,
-                ),
-                AppUserRole.premiumUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 10,
-                ),
-              },
-            ),
-
-        PushNotificationSubscriptionDeliveryType.dailyDigest:
-            PushNotificationDeliveryConfig(
-              enabled: true,
-              visibleTo: {
-                AppUserRole.guestUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 0,
-                ),
-                AppUserRole.standardUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 2,
-                ),
-                AppUserRole.premiumUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 10,
-                ),
-              },
-            ),
-
-        PushNotificationSubscriptionDeliveryType.weeklyRoundup:
-            PushNotificationDeliveryConfig(
-              enabled: true,
-              visibleTo: {
-                AppUserRole.guestUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 0,
-                ),
-                AppUserRole.standardUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 2,
-                ),
-                AppUserRole.premiumUser: PushNotificationDeliveryRoleConfig(
-                  subscriptionLimit: 10,
-                ),
-              },
-            ),
+        PushNotificationSubscriptionDeliveryType.breakingOnly: true,
+        PushNotificationSubscriptionDeliveryType.dailyDigest: true,
+        PushNotificationSubscriptionDeliveryType.weeklyRoundup: true,
       },
     ),
   ),

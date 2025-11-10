@@ -16,15 +16,11 @@ void main() {
       test('returns correct instance with populated lists from fixture', () {
         // The base fixture should now have populated lists
         final preferences = userContentPreferencesFixturesData.first;
-        expect(preferences.followedCountries, isEmpty); // This list is empty
+        expect(preferences.followedCountries, isEmpty);
         expect(preferences.followedSources, isNotEmpty);
         expect(preferences.followedTopics, isNotEmpty);
         expect(preferences.savedHeadlines, isNotEmpty);
-        expect(
-          preferences.notificationSubscriptions,
-          isA<List<PushNotificationSubscription>>(),
-        );
-        expect(preferences.savedFilters, isNotEmpty);
+        expect(preferences.interests, isNotEmpty);
       });
     });
 
@@ -59,19 +55,13 @@ void main() {
           userContentPreferencesFixture.followedSources,
         );
         expect(
-          updatedPreferences.savedFilters,
-          userContentPreferencesFixture.savedFilters,
+          updatedPreferences.interests,
+          userContentPreferencesFixture.interests,
         );
-      });
-
-      test('returns a new instance with updated notificationSubscriptions', () {
-        final updatedPreferences = userContentPreferencesFixture.copyWith(
-          notificationSubscriptions: [],
-        );
-        expect(updatedPreferences.notificationSubscriptions, isEmpty);
       });
 
       test(
+        // ignore: lines_longer_than_80_chars
         'returns a new instance with the same fields if no updates provided',
         () {
           final copiedPreferences = userContentPreferencesFixture.copyWith();
@@ -103,8 +93,7 @@ void main() {
         userContentPreferencesFixture.followedSources,
         userContentPreferencesFixture.followedTopics,
         userContentPreferencesFixture.savedHeadlines,
-        userContentPreferencesFixture.savedFilters,
-        userContentPreferencesFixture.notificationSubscriptions,
+        userContentPreferencesFixture.interests,
       ]);
     });
   });

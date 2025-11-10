@@ -1,39 +1,33 @@
 import 'package:core/src/models/entities/country.dart';
 import 'package:core/src/models/entities/source.dart';
 import 'package:core/src/models/entities/topic.dart';
+import 'package:core/src/models/interests/interest.dart' show Interest;
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part 'saved_filter.g.dart';
+part 'interest_criteria.g.dart';
 
-/// {@template saved_filter}
-/// Represents a user-defined filter combination for filtering headlines.
+/// {@template interest_criteria}
+/// A value object that encapsulates the filtering criteria for an [Interest].
 ///
-/// This model stores a named set of criteria, including topics, sources, and
-/// countries, allowing users to quickly re-apply complex filters.
+/// This model groups the content-based filters (topics, sources, and
+/// countries) into a single, reusable object. It uses full entity models
+/// to represent the selected criteria.
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
-class SavedFilter extends Equatable {
-  /// {@macro saved_filter}
-  const SavedFilter({
-    required this.id,
-    required this.name,
+class InterestCriteria extends Equatable {
+  /// {@macro interest_criteria}
+  const InterestCriteria({
     required this.topics,
     required this.sources,
     required this.countries,
   });
 
-  /// Factory method to create a [SavedFilter] instance from a JSON map.
-  factory SavedFilter.fromJson(Map<String, dynamic> json) =>
-      _$SavedFilterFromJson(json);
-
-  /// The unique identifier for the saved filter.
-  final String id;
-
-  /// The user-provided name for this saved filter.
-  final String name;
+  /// Creates an [InterestCriteria] from JSON data.
+  factory InterestCriteria.fromJson(Map<String, dynamic> json) =>
+      _$InterestCriteriaFromJson(json);
 
   /// The list of topics to include in the filter.
   /// An empty list means no topic filter is applied.
@@ -47,27 +41,20 @@ class SavedFilter extends Equatable {
   /// An empty list means no country filter is applied.
   final List<Country> countries;
 
-  /// Converts this [SavedFilter] instance to a JSON map.
-  Map<String, dynamic> toJson() => _$SavedFilterToJson(this);
+  /// Converts this [InterestCriteria] instance to JSON data.
+  Map<String, dynamic> toJson() => _$InterestCriteriaToJson(this);
 
   @override
-  List<Object?> get props => [id, name, topics, sources, countries];
+  List<Object> get props => [topics, sources, countries];
 
-  @override
-  bool get stringify => true;
-
-  /// Creates a copy of this [SavedFilter] but with the given fields
+  /// Creates a copy of this [InterestCriteria] but with the given fields
   /// replaced with the new values.
-  SavedFilter copyWith({
-    String? id,
-    String? name,
+  InterestCriteria copyWith({
     List<Topic>? topics,
     List<Source>? sources,
     List<Country>? countries,
   }) {
-    return SavedFilter(
-      id: id ?? this.id,
-      name: name ?? this.name,
+    return InterestCriteria(
       topics: topics ?? this.topics,
       sources: sources ?? this.sources,
       countries: countries ?? this.countries,

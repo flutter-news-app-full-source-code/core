@@ -1,6 +1,4 @@
-import 'package:core/src/enums/push_notification_provider.dart';
-import 'package:core/src/fixtures/remote_configs.dart';
-import 'package:core/src/models/config/push_notification_config.dart';
+import 'package:core/core.dart';
 import 'package:test/test.dart';
 
 void main() {
