@@ -18,8 +18,8 @@ final headlinesFixturesData = <Headline>[
     source: sourcesFixturesData[0], // TechCrunch
     eventCountry: countriesFixturesData[0], // United States
     topic: topicsFixturesData[0], // Technology
-    createdAt: DateTime.now().subtract(Duration.zero),
-    updatedAt: DateTime.now().subtract(Duration.zero),
+    createdAt: DateTime.now().subtract(const Duration(minutes: 15)),
+    updatedAt: DateTime.now().subtract(const Duration(minutes: 15)),
     status: ContentStatus.active,
   ),
   Headline(
@@ -33,8 +33,8 @@ final headlinesFixturesData = <Headline>[
     source: sourcesFixturesData[1], // BBC News
     eventCountry: countriesFixturesData[1], // United Kingdom
     topic: topicsFixturesData[1], // Sports
-    createdAt: DateTime.now().subtract(Duration.zero),
-    updatedAt: DateTime.now().subtract(Duration.zero),
+    createdAt: DateTime.now().subtract(const Duration(minutes: 15)),
+    updatedAt: DateTime.now().subtract(const Duration(minutes: 15)),
     status: ContentStatus.active,
   ),
   Headline(
@@ -48,8 +48,8 @@ final headlinesFixturesData = <Headline>[
     source: sourcesFixturesData[2], // The New York Times
     eventCountry: countriesFixturesData[2], // Canada
     topic: topicsFixturesData[2], // Politics
-    createdAt: DateTime.now().subtract(Duration.zero),
-    updatedAt: DateTime.now().subtract(Duration.zero),
+    createdAt: DateTime.now().subtract(const Duration(minutes: 15)),
+    updatedAt: DateTime.now().subtract(const Duration(minutes: 15)),
     status: ContentStatus.active,
   ),
   Headline(
@@ -63,8 +63,8 @@ final headlinesFixturesData = <Headline>[
     source: sourcesFixturesData[3], // The Guardian
     eventCountry: countriesFixturesData[3], // Australia
     topic: topicsFixturesData[3], // Science
-    createdAt: DateTime.now().subtract(Duration.zero),
-    updatedAt: DateTime.now().subtract(Duration.zero),
+    createdAt: DateTime.now().subtract(const Duration(minutes: 15)),
+    updatedAt: DateTime.now().subtract(const Duration(minutes: 15)),
     status: ContentStatus.active,
   ),
   Headline(
@@ -78,8 +78,8 @@ final headlinesFixturesData = <Headline>[
     source: sourcesFixturesData[4], // CNN
     eventCountry: countriesFixturesData[4], // Germany
     topic: topicsFixturesData[4], // Health
-    createdAt: DateTime.now().subtract(Duration.zero),
-    updatedAt: DateTime.now().subtract(Duration.zero),
+    createdAt: DateTime.now().subtract(const Duration(minutes: 15)),
+    updatedAt: DateTime.now().subtract(const Duration(minutes: 15)),
     status: ContentStatus.active,
   ),
   Headline(
