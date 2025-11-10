@@ -120,7 +120,7 @@ void main() {
         final response2 = SuccessApiResponse<String>(
           data: mockData,
           metadata: ResponseMetadata(
-            timestamp: DateTime.utc(2024, 1, 1, 13), // Different time
+            timestamp: DateTime.utc(2024, 1, 1, 13),
             requestId: 'req-456',
           ),
         );

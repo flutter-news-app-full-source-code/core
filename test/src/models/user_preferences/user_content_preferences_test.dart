@@ -16,7 +16,7 @@ void main() {
       test('returns correct instance with populated lists from fixture', () {
         // The base fixture should now have populated lists
         final preferences = userContentPreferencesFixturesData.first;
-        expect(preferences.followedCountries, isEmpty); // This list is empty
+        expect(preferences.followedCountries, isEmpty);
         expect(preferences.followedSources, isNotEmpty);
         expect(preferences.followedTopics, isNotEmpty);
         expect(preferences.savedHeadlines, isNotEmpty);

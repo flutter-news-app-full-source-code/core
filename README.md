@@ -37,7 +37,7 @@ Includes generic wrappers for API responses, pagination, and querying, ensuring 
 
 ---
 
-###  Predictable Error Handling
+### Predictable Error Handling
 
 Provides a centralized and standardized set of exceptions, enabling consistent and predictable error handling across all layers of the application.
 

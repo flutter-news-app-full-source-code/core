@@ -25,7 +25,7 @@ final List<InAppNotification> inAppNotificationsFixturesData = [
       data: const {'contentType': 'headline', 'id': kHeadlineId11},
     ),
     createdAt: DateTime.now().subtract(const Duration(minutes: 15)),
-    readAt: null, // Unread
+    readAt: null,
   ),
   // 2. Read Notification on a followed topic (Science)
   InAppNotification(
@@ -38,7 +38,7 @@ final List<InAppNotification> inAppNotificationsFixturesData = [
       data: const {'contentType': 'headline', 'id': kHeadlineId24},
     ),
     createdAt: DateTime.now().subtract(const Duration(days: 1)),
-    readAt: DateTime.now().subtract(const Duration(hours: 12)), // Read
+    readAt: DateTime.now().subtract(const Duration(hours: 12)),
   ),
   // 3. Unread Notification on another followed topic (Business/Tech)
   InAppNotification(
@@ -51,7 +51,7 @@ final List<InAppNotification> inAppNotificationsFixturesData = [
       data: const {'contentType': 'headline', 'id': kHeadlineId37},
     ),
     createdAt: DateTime.now().subtract(const Duration(hours: 2)),
-    readAt: null, // Unread
+    readAt: null,
   ),
 
   // --- Notifications for User: kUser1Id ---
@@ -66,7 +66,7 @@ final List<InAppNotification> inAppNotificationsFixturesData = [
       data: const {'contentType': 'headline', 'id': kHeadlineId1},
     ),
     createdAt: DateTime.now().subtract(const Duration(minutes: 5)),
-    readAt: null, // Unread
+    readAt: null,
   ),
   // 5. Read Notification on a followed topic (Sports)
   InAppNotification(
@@ -79,7 +79,7 @@ final List<InAppNotification> inAppNotificationsFixturesData = [
       data: const {'contentType': 'headline', 'id': kHeadlineId2},
     ),
     createdAt: DateTime.now().subtract(const Duration(days: 2)),
-    readAt: DateTime.now().subtract(const Duration(days: 1)), // Read
+    readAt: DateTime.now().subtract(const Duration(days: 1)),
   ),
   // 6. Unread Notification on another followed topic (Business)
   InAppNotification(
@@ -92,6 +92,6 @@ final List<InAppNotification> inAppNotificationsFixturesData = [
       data: const {'contentType': 'headline', 'id': kHeadlineId7},
     ),
     createdAt: DateTime.now().subtract(const Duration(hours: 4)),
-    readAt: null, // Unread
+    readAt: null,
   ),
 ];

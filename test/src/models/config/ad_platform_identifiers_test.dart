@@ -50,14 +50,8 @@ void main() {
 
     test('copyWith returns a new instance even if no changes', () {
       final updatedIdentifiers = admobIdentifiersFixture.copyWith();
-      expect(
-        updatedIdentifiers,
-        equals(admobIdentifiersFixture),
-      ); // Checks if values are the same
-      expect(
-        updatedIdentifiers,
-        isNot(same(admobIdentifiersFixture)),
-      ); // Checks if it's a new object in memory
+      expect(updatedIdentifiers, equals(admobIdentifiersFixture));
+      expect(updatedIdentifiers, isNot(same(admobIdentifiersFixture)));
     });
 
     group('fromJson/toJson', () {

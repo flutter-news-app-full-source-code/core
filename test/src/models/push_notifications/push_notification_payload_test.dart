@@ -70,8 +70,8 @@ void main() {
       // Assert: The new instance should have the updated values.
       expect(copiedPayload.title, equals(newTitle));
       expect(copiedPayload.body, equals(newBody));
-      expect(copiedPayload.imageUrl, equals(imageUrl)); // Unchanged
-      expect(copiedPayload.data, equals(data)); // Unchanged
+      expect(copiedPayload.imageUrl, equals(imageUrl));
+      expect(copiedPayload.data, equals(data));
 
       // Assert: The original instance should remain unchanged.
       expect(payload.title, equals(title));
