@@ -29,16 +29,31 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       enabled: true,
       limits: {
         AppUserRole.guestUser: InterestLimits(
-          totalInterests: 3,
-          notificationsPerInterest: 1,
+          total: 3,
+          feedFilters: 3,
+          notifications: {
+            PushNotificationSubscriptionDeliveryType.breakingOnly: 1,
+            PushNotificationSubscriptionDeliveryType.dailyDigest: 0,
+            PushNotificationSubscriptionDeliveryType.weeklyRoundup: 0,
+          },
         ),
         AppUserRole.standardUser: InterestLimits(
-          totalInterests: 10,
-          notificationsPerInterest: 2,
+          total: 10,
+          feedFilters: 5,
+          notifications: {
+            PushNotificationSubscriptionDeliveryType.breakingOnly: 3,
+            PushNotificationSubscriptionDeliveryType.dailyDigest: 2,
+            PushNotificationSubscriptionDeliveryType.weeklyRoundup: 2,
+          },
         ),
         AppUserRole.premiumUser: InterestLimits(
-          totalInterests: 25,
-          notificationsPerInterest: 5,
+          total: 25,
+          feedFilters: 10,
+          notifications: {
+            PushNotificationSubscriptionDeliveryType.breakingOnly: 10,
+            PushNotificationSubscriptionDeliveryType.dailyDigest: 10,
+            PushNotificationSubscriptionDeliveryType.weeklyRoundup: 10,
+          },
         ),
       },
     ),
