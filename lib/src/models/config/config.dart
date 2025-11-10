@@ -11,6 +11,5 @@ export 'interest_limits.dart';
 export 'interstitial_ad_configuration.dart';
 export 'interstitial_ad_frequency_config.dart';
 export 'push_notification_config.dart';
-export 'push_notification_delivery_role_config.dart';
 export 'remote_config.dart';
 export 'user_preference_config.dart';
