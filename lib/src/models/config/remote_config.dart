@@ -1,5 +1,6 @@
 import 'package:core/core.dart';
-import 'package:core/src/utils/json_helpers.dart';
+import 'package:core/src/models/config/interest_config.dart';
+import 'package:core/src/utils/json_helpers.dart'; // Ensure this import exists
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -23,6 +24,7 @@ class RemoteConfig extends Equatable {
     required this.feedDecoratorConfig,
     required this.userPreferenceConfig,
     required this.pushNotificationConfig,
+    required this.interestConfig,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -50,6 +52,9 @@ class RemoteConfig extends Equatable {
   /// Defines the global configuration for the push notification system.
   final PushNotificationConfig pushNotificationConfig;
 
+  /// Defines the global configuration for the Interests feature.
+  final InterestConfig interestConfig;
+
   /// The creation timestamp of the remote config.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
   final DateTime createdAt;
@@ -69,6 +74,7 @@ class RemoteConfig extends Equatable {
     Map<FeedDecoratorType, FeedDecoratorConfig>? feedDecoratorConfig,
     AppStatus? appStatus,
     PushNotificationConfig? pushNotificationConfig,
+    InterestConfig? interestConfig,
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
@@ -80,6 +86,7 @@ class RemoteConfig extends Equatable {
       appStatus: appStatus ?? this.appStatus,
       pushNotificationConfig:
           pushNotificationConfig ?? this.pushNotificationConfig,
+      interestConfig: interestConfig ?? this.interestConfig,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );
@@ -93,6 +100,7 @@ class RemoteConfig extends Equatable {
     feedDecoratorConfig,
     appStatus,
     pushNotificationConfig,
+    interestConfig,
     createdAt,
     updatedAt,
   ];
