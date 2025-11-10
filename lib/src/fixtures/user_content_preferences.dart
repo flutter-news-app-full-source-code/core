@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/fixtures/interests.dart';
 
 /// User Content Preferences Demo Data
 final List<UserContentPreferences> userContentPreferencesFixturesData = [

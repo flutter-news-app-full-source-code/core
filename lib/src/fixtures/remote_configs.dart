@@ -1,6 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/models/config/interest_config.dart';
-import 'package:core/src/models/config/interest_limits.dart';
 
 /// A list of initial remote config data to be loaded into the in-memory
 /// remote config repository.

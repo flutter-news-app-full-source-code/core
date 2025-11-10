@@ -1,6 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/models/interests/interest.dart';
-import 'package:core/src/models/interests/interest_criteria.dart';
 
 /// A list of initial interest data to be loaded into the in-memory
 /// data repository.

@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/models/config/interest_config.dart';
 import 'package:core/src/utils/json_helpers.dart'; // Ensure this import exists
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
