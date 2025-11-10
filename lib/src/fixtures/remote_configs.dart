@@ -145,12 +145,9 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       enabled: true,
       primaryProvider: PushNotificationProvider.firebase,
       deliveryConfigs: {
-        PushNotificationSubscriptionDeliveryType.breakingOnly:
-            PushNotificationDeliveryConfig(enabled: true),
-        PushNotificationSubscriptionDeliveryType.dailyDigest:
-            PushNotificationDeliveryConfig(enabled: true),
-        PushNotificationSubscriptionDeliveryType.weeklyRoundup:
-            PushNotificationDeliveryConfig(enabled: true),
+        PushNotificationSubscriptionDeliveryType.breakingOnly: true,
+        PushNotificationSubscriptionDeliveryType.dailyDigest: true,
+        PushNotificationSubscriptionDeliveryType.weeklyRoundup: true,
       },
     ),
   ),

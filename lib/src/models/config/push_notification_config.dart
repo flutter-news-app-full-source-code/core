@@ -1,5 +1,4 @@
 import 'package:core/src/enums/enums.dart';
-import 'package:core/src/models/config/config.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -38,12 +37,8 @@ class PushNotificationConfig extends Equatable {
   final PushNotificationProvider primaryProvider;
 
   /// A map to globally enable or disable each specific notification type
-  /// and define its role-based limits using the `visibleTo` pattern.
-  final Map<
-    PushNotificationSubscriptionDeliveryType,
-    PushNotificationDeliveryConfig
-  >
-  deliveryConfigs;
+  /// for all users.
+  final Map<PushNotificationSubscriptionDeliveryType, bool> deliveryConfigs;
 
   /// Converts this [PushNotificationConfig] instance to JSON data.
   Map<String, dynamic> toJson() => _$PushNotificationConfigToJson(this);
@@ -56,11 +51,7 @@ class PushNotificationConfig extends Equatable {
   PushNotificationConfig copyWith({
     bool? enabled,
     PushNotificationProvider? primaryProvider,
-    Map<
-      PushNotificationSubscriptionDeliveryType,
-      PushNotificationDeliveryConfig
-    >?
-    deliveryConfigs,
+    Map<PushNotificationSubscriptionDeliveryType, bool>? deliveryConfigs,
   }) {
     return PushNotificationConfig(
       enabled: enabled ?? this.enabled,
