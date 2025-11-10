@@ -17,15 +17,11 @@ part 'interest_config.g.dart';
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class InterestConfig extends Equatable {
   /// {@macro interest_config}
-  const InterestConfig({required this.enabled, required this.limits});
+  const InterestConfig({required this.limits});
 
   /// Creates an [InterestConfig] from JSON data.
   factory InterestConfig.fromJson(Map<String, dynamic> json) =>
       _$InterestConfigFromJson(json);
-
-  /// A global switch to enable or disable the entire "Interests" feature.
-  /// If `false`, all UI and logic related to interests should be hidden.
-  final bool enabled;
 
   /// A map defining the specific limits for each user role.
   ///
@@ -37,17 +33,11 @@ class InterestConfig extends Equatable {
   Map<String, dynamic> toJson() => _$InterestConfigToJson(this);
 
   @override
-  List<Object> get props => [enabled, limits];
+  List<Object> get props => [limits];
 
   /// Creates a copy of this [InterestConfig] but with the given fields
   /// replaced with the new values.
-  InterestConfig copyWith({
-    bool? enabled,
-    Map<AppUserRole, InterestLimits>? limits,
-  }) {
-    return InterestConfig(
-      enabled: enabled ?? this.enabled,
-      limits: limits ?? this.limits,
-    );
+  InterestConfig copyWith({Map<AppUserRole, InterestLimits>? limits}) {
+    return InterestConfig(limits: limits ?? this.limits);
   }
 }

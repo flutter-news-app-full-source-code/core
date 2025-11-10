@@ -9,7 +9,6 @@ part of 'interest_config.dart';
 InterestConfig _$InterestConfigFromJson(Map<String, dynamic> json) =>
     $checkedCreate('InterestConfig', json, ($checkedConvert) {
       final val = InterestConfig(
-        enabled: $checkedConvert('enabled', (v) => v as bool),
         limits: $checkedConvert(
           'limits',
           (v) => (v as Map<String, dynamic>).map(
@@ -25,7 +24,6 @@ InterestConfig _$InterestConfigFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$InterestConfigToJson(InterestConfig instance) =>
     <String, dynamic>{
-      'enabled': instance.enabled,
       'limits': instance.limits.map(
         (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e.toJson()),
       ),

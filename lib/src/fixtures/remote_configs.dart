@@ -24,7 +24,6 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       premiumSavedHeadlinesLimit: 100,
     ),
     interestConfig: const InterestConfig(
-      enabled: true,
       limits: {
         AppUserRole.guestUser: InterestLimits(
           total: 3,
