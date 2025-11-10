@@ -3,6 +3,8 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
+part 'interest_limits.g.dart';
+
 /// {@template interest_limits}
 /// Defines the specific limits for a user role regarding the "Interests"
 /// feature.
