@@ -24,7 +24,7 @@ void main() {
           interestFixture.userId,
           interestFixture.name,
           interestFixture.criteria,
-          interestFixture.isFeedFilter,
+          interestFixture.isPinnedFeedFilter,
           interestFixture.deliveryTypes,
         ]),
       );

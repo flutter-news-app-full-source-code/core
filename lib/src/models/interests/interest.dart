@@ -8,11 +8,11 @@ part 'interest.g.dart';
 
 /// {@template interest}
 /// Represents a user's saved set of content criteria, unifying the concepts
-/// of a "Saved Filter" for on-demand feed filtering and a "Notification
+/// of a saved "Feed Filter" for on-demand feed filtering and a "Notification
 /// Subscription" for push alerts.
 ///
 /// An Interest is a single entity that can be used for multiple purposes,
-/// determined by the `isFeedFilter` flag and the `deliveryTypes` set.
+/// determined by the `isPinnedFeedFilter` flag and the `deliveryTypes` set.
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
@@ -23,7 +23,7 @@ class Interest extends Equatable {
     required this.userId,
     required this.name,
     required this.criteria,
-    required this.isFeedFilter,
+    required this.isPinnedFeedFilter,
     required this.deliveryTypes,
   });
 
@@ -45,8 +45,8 @@ class Interest extends Equatable {
   final InterestCriteria criteria;
 
   /// A flag indicating whether this interest should be available as a
-  /// one-click filter in the user's feed.
-  final bool isFeedFilter;
+  /// one-click pinned filter in the user's feed.
+  final bool isPinnedFeedFilter;
 
   /// The set of notification delivery types the user has opted into for this
   /// interest (e.g., `breakingOnly`, `dailyDigest`).
@@ -64,7 +64,7 @@ class Interest extends Equatable {
     userId,
     name,
     criteria,
-    isFeedFilter,
+    isPinnedFeedFilter,
     deliveryTypes,
   ];
 
@@ -75,7 +75,7 @@ class Interest extends Equatable {
     String? userId,
     String? name,
     InterestCriteria? criteria,
-    bool? isFeedFilter,
+    bool? isPinnedFeedFilter,
     Set<PushNotificationSubscriptionDeliveryType>? deliveryTypes,
   }) {
     return Interest(
@@ -83,7 +83,7 @@ class Interest extends Equatable {
       userId: userId ?? this.userId,
       name: name ?? this.name,
       criteria: criteria ?? this.criteria,
-      isFeedFilter: isFeedFilter ?? this.isFeedFilter,
+      isPinnedFeedFilter: isPinnedFeedFilter ?? this.isPinnedFeedFilter,
       deliveryTypes: deliveryTypes ?? this.deliveryTypes,
     );
   }
