@@ -27,7 +27,7 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       limits: {
         AppUserRole.guestUser: InterestLimits(
           total: 3,
-          feedFilters: 3,
+          pinnedFeedFilters: 3,
           notifications: {
             PushNotificationSubscriptionDeliveryType.breakingOnly: 1,
             PushNotificationSubscriptionDeliveryType.dailyDigest: 0,
@@ -36,7 +36,7 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
         ),
         AppUserRole.standardUser: InterestLimits(
           total: 10,
-          feedFilters: 5,
+          pinnedFeedFilters: 5,
           notifications: {
             PushNotificationSubscriptionDeliveryType.breakingOnly: 3,
             PushNotificationSubscriptionDeliveryType.dailyDigest: 2,
@@ -45,7 +45,7 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
         ),
         AppUserRole.premiumUser: InterestLimits(
           total: 25,
-          feedFilters: 10,
+          pinnedFeedFilters: 10,
           notifications: {
             PushNotificationSubscriptionDeliveryType.breakingOnly: 10,
             PushNotificationSubscriptionDeliveryType.dailyDigest: 10,

@@ -12,7 +12,7 @@ final List<Interest> interestsFixturesData = [
       sources: [sourcesFixturesData[0]], // TechCrunch
       countries: const [],
     ),
-    isFeedFilter: true,
+    isPinnedFeedFilter: true,
     deliveryTypes: const {
       PushNotificationSubscriptionDeliveryType.breakingOnly,
     },
@@ -26,7 +26,7 @@ final List<Interest> interestsFixturesData = [
       sources: const [],
       countries: const [],
     ),
-    isFeedFilter: true,
+    isPinnedFeedFilter: true,
     deliveryTypes: const {},
   ),
   Interest(
@@ -38,7 +38,7 @@ final List<Interest> interestsFixturesData = [
       sources: [sourcesFixturesData[40]], // ESPN
       countries: const [],
     ),
-    isFeedFilter: true,
+    isPinnedFeedFilter: true,
     deliveryTypes: const {PushNotificationSubscriptionDeliveryType.dailyDigest},
   ),
   Interest(
@@ -50,7 +50,7 @@ final List<Interest> interestsFixturesData = [
       sources: const [],
       countries: const [],
     ),
-    isFeedFilter: true,
+    isPinnedFeedFilter: true,
     deliveryTypes: const {},
   ),
   Interest(
@@ -65,7 +65,7 @@ final List<Interest> interestsFixturesData = [
       ],
       countries: const [],
     ),
-    isFeedFilter: true,
+    isPinnedFeedFilter: true,
     deliveryTypes: const {},
   ),
   Interest(
@@ -77,7 +77,7 @@ final List<Interest> interestsFixturesData = [
       sources: [sourcesFixturesData[0]], // TechCrunch
       countries: const [],
     ),
-    isFeedFilter: true,
+    isPinnedFeedFilter: true,
     deliveryTypes: const {},
   ),
 ];

@@ -10,7 +10,7 @@ part 'interest_limits.g.dart';
 /// feature.
 ///
 /// This includes the total number of interests a user can create, how many
-/// can be used as feed filters, and the subscription limits for each
+/// can be used as a pinned feed filters, and the subscription limits for each
 /// notification type.
 /// {@endtemplate}
 @immutable
@@ -19,7 +19,7 @@ class InterestLimits extends Equatable {
   /// {@macro interest_limits}
   const InterestLimits({
     required this.total,
-    required this.feedFilters,
+    required this.pinnedFeedFilters,
     required this.notifications,
   });
 
@@ -30,9 +30,9 @@ class InterestLimits extends Equatable {
   /// The total number of interests a user with this role can create.
   final int total;
 
-  /// The maximum number of interests that can be marked as a "feed filter"
+  /// The maximum number of interests that can be marked as a "pinned feed filter"
   /// by a user with this role.
-  final int feedFilters;
+  final int pinnedFeedFilters;
 
   /// A map defining the subscription limits for each notification type.
   ///
@@ -45,18 +45,18 @@ class InterestLimits extends Equatable {
   Map<String, dynamic> toJson() => _$InterestLimitsToJson(this);
 
   @override
-  List<Object> get props => [total, feedFilters, notifications];
+  List<Object> get props => [total, pinnedFeedFilters, notifications];
 
   /// Creates a copy of this [InterestLimits] but with the given fields
   /// replaced with the new values.
   InterestLimits copyWith({
     int? total,
-    int? feedFilters,
+    int? pinnedFeedFilters,
     Map<PushNotificationSubscriptionDeliveryType, int>? notifications,
   }) {
     return InterestLimits(
       total: total ?? this.total,
-      feedFilters: feedFilters ?? this.feedFilters,
+      pinnedFeedFilters: pinnedFeedFilters ?? this.pinnedFeedFilters,
       notifications: notifications ?? this.notifications,
     );
   }
