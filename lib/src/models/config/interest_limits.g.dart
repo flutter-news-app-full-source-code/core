@@ -10,7 +10,10 @@ InterestLimits _$InterestLimitsFromJson(Map<String, dynamic> json) =>
     $checkedCreate('InterestLimits', json, ($checkedConvert) {
       final val = InterestLimits(
         total: $checkedConvert('total', (v) => (v as num).toInt()),
-        feedFilters: $checkedConvert('feedFilters', (v) => (v as num).toInt()),
+        pinnedFeedFilters: $checkedConvert(
+          'pinnedFeedFilters',
+          (v) => (v as num).toInt(),
+        ),
         notifications: $checkedConvert(
           'notifications',
           (v) => (v as Map<String, dynamic>).map(
@@ -27,7 +30,7 @@ InterestLimits _$InterestLimitsFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$InterestLimitsToJson(InterestLimits instance) =>
     <String, dynamic>{
       'total': instance.total,
-      'feedFilters': instance.feedFilters,
+      'pinnedFeedFilters': instance.pinnedFeedFilters,
       'notifications': instance.notifications.map(
         (k, e) =>
             MapEntry(_$PushNotificationSubscriptionDeliveryTypeEnumMap[k]!, e),

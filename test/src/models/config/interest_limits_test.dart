@@ -14,7 +14,7 @@ void main() {
       // Arrange: Create another instance with the same values.
       final anotherLimits = InterestLimits(
         total: interestLimitsFixture.total,
-        feedFilters: interestLimitsFixture.feedFilters,
+        pinnedFeedFilters: interestLimitsFixture.pinnedFeedFilters,
         notifications: interestLimitsFixture.notifications,
       );
 
@@ -28,7 +28,7 @@ void main() {
         interestLimitsFixture.props,
         equals([
           interestLimitsFixture.total,
-          interestLimitsFixture.feedFilters,
+          interestLimitsFixture.pinnedFeedFilters,
           interestLimitsFixture.notifications,
         ]),
       );
@@ -58,12 +58,12 @@ void main() {
       // Act: Create a copy with the new values.
       final copiedLimits = interestLimitsFixture.copyWith(
         total: newTotal,
-        feedFilters: newFeedFilters,
+        pinnedFeedFilters: newFeedFilters,
       );
 
       // Assert: The new instance should have the updated values.
       expect(copiedLimits.total, equals(newTotal));
-      expect(copiedLimits.feedFilters, equals(newFeedFilters));
+      expect(copiedLimits.pinnedFeedFilters, equals(newFeedFilters));
 
       // Assert: Unchanged properties remain the same.
       expect(
