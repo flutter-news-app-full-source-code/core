@@ -31,9 +31,9 @@ void main() {
           fullModel.id,
           fullModel.userId,
           fullModel.name,
+          fullModel.criteria,
           fullModel.isPinned,
           fullModel.deliveryTypes,
-          fullModel.criteria,
         ]),
       );
     });

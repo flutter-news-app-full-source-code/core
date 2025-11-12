@@ -54,7 +54,7 @@ void main() {
       final copied = fullModel.copyWith(languages: [language2], countries: []);
 
       expect(copied.languages, equals([language2]));
-      expect(copied.countries, equals(fullModel.countries));
+      expect(copied.countries, isEmpty);
       expect(copied.sourceTypes, equals(fullModel.sourceTypes));
     });
 

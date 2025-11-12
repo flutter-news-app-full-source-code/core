@@ -29,7 +29,7 @@ void main() {
             notificationSubscriptions: {
               PushNotificationSubscriptionDeliveryType.breakingOnly: 3,
               PushNotificationSubscriptionDeliveryType.dailyDigest: 2,
-              PushNotificationSubscriptionDeliveryType.weeklyRoundup: 1,
+              PushNotificationSubscriptionDeliveryType.weeklyRoundup: 2,
             },
           ),
         ),
@@ -45,7 +45,7 @@ void main() {
           {
             PushNotificationSubscriptionDeliveryType.breakingOnly: 3,
             PushNotificationSubscriptionDeliveryType.dailyDigest: 2,
-            PushNotificationSubscriptionDeliveryType.weeklyRoundup: 1,
+            PushNotificationSubscriptionDeliveryType.weeklyRoundup: 2,
           },
         ]),
       );
