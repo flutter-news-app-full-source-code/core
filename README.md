@@ -71,11 +71,11 @@ Provides data structures for persisting all user-specific configurations, from a
 
 ---
 
-### 🎯 Interest-Based Subscriptions
+### 🎯 Advanced Filter-Based Subscriptions
 
-Enables users to create and save "Interests"—powerful, persistent filters based on topics, sources, and countries—and subscribe to highly relevant push notifications.
+Enables users to create and save powerful, persistent filters based on topics, sources, and countries—and subscribe to highly relevant push notifications.
 
-> **Your Advantage:** Drive deep user engagement by allowing users to define exactly what content they care about, transforming the app into a personalized intelligence tool.
+> **Your Advantage:** Drive deep user engagement by allowing users to define precisely what content they care about, transforming the app into a personalized intelligence tool.
 
 ---
 
@@ -102,7 +102,7 @@ Provides a comprehensive set of models for remotely configuring all dynamic aspe
 
 ### 👑 Role-Based Feature Entitlements
 
-Define granular, role-based limits for features like saved interests, feed filters, and notification subscriptions.
+Define granular, role-based limits for features like saved feed filters, and notification subscriptions.
 
 > **Your Advantage:** A flexible and scalable way to create value tiers, encouraging users to upgrade for more powerful personalization capabilities.
 
