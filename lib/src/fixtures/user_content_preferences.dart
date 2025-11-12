@@ -20,6 +20,12 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
     savedHeadlines: [headlinesFixturesData[0], headlinesFixturesData[10]],
     savedHeadlineFilters: [savedHeadlineFiltersFixturesData[0]],
     savedSourceFilters: [savedSourceFiltersFixturesData[0]],
+    savedHeadlineFilters: savedHeadlineFiltersFixturesData
+        .map((e) => e.copyWith(userId: kAdminUserId))
+        .toList(),
+    savedSourceFilters: savedSourceFiltersFixturesData
+        .map((e) => e.copyWith(userId: kAdminUserId))
+        .toList(),
   ),
   UserContentPreferences(
     id: kUser1Id, // Publisher (Premium)
@@ -35,6 +41,12 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
     savedHeadlines: [headlinesFixturesData[2], headlinesFixturesData[3]],
     savedHeadlineFilters: [savedHeadlineFiltersFixturesData[1]],
     savedSourceFilters: [savedSourceFiltersFixturesData[1]],
+    savedHeadlineFilters: savedHeadlineFiltersFixturesData
+        .map((e) => e.copyWith(userId: kUser1Id))
+        .toList(),
+    savedSourceFilters: savedSourceFiltersFixturesData
+        .map((e) => e.copyWith(userId: kUser1Id))
+        .toList(),
   ),
   UserContentPreferences(
     id: kUser2Id, // Publisher (Standard)
@@ -50,6 +62,12 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
     savedHeadlines: [headlinesFixturesData[4], headlinesFixturesData[5]],
     savedHeadlineFilters: const [],
     savedSourceFilters: const [],
+    savedHeadlineFilters: savedHeadlineFiltersFixturesData
+        .map((e) => e.copyWith(userId: kUser2Id))
+        .toList(),
+    savedSourceFilters: savedSourceFiltersFixturesData
+        .map((e) => e.copyWith(userId: kUser2Id))
+        .toList(),
   ),
   // Add preferences for users 3-10
   ...List.generate(8, (index) {
@@ -80,6 +98,12 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
       ],
       savedHeadlineFilters: const [],
       savedSourceFilters: const [],
+      savedHeadlineFilters: savedHeadlineFiltersFixturesData
+          .map((e) => e.copyWith(userId: userId))
+          .toList(),
+      savedSourceFilters: savedSourceFiltersFixturesData
+          .map((e) => e.copyWith(userId: userId))
+          .toList(),
     );
   }),
 ];
