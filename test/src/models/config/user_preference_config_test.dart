@@ -10,9 +10,13 @@ void main() {
     group('constructor', () {
       test('returns correct instance', () {
         expect(userPreferenceConfigFixture, isA<UserPreferenceConfig>());
-        expect(userPreferenceConfigFixture.guestFollowedItemsLimit, isA<int>());
         expect(
-          userPreferenceConfigFixture.premiumSavedHeadlinesLimit,
+          userPreferenceConfigFixture.followedItemsLimit[AppUserRole.guestUser],
+          isA<int>(),
+        );
+        expect(
+          userPreferenceConfigFixture.savedHeadlinesLimit[AppUserRole
+              .premiumUser],
           isA<int>(),
         );
       });
@@ -28,17 +32,28 @@ void main() {
 
     group('copyWith', () {
       test('returns a new instance with updated values', () {
+        final newFollowedItemsLimit = Map.of(
+          userPreferenceConfigFixture.followedItemsLimit,
+        );
+        newFollowedItemsLimit[AppUserRole.guestUser] = 6;
+
+        final newSavedHeadlinesLimit = Map.of(
+          userPreferenceConfigFixture.savedHeadlinesLimit,
+        );
+        newSavedHeadlinesLimit[AppUserRole.premiumUser] = 101;
+
         final updatedConfig = userPreferenceConfigFixture.copyWith(
-          guestFollowedItemsLimit: 6,
-          premiumSavedHeadlinesLimit: 101,
+          followedItemsLimit: newFollowedItemsLimit,
+          savedHeadlinesLimit: newSavedHeadlinesLimit,
         );
 
-        expect(updatedConfig.guestFollowedItemsLimit, 6);
+        expect(updatedConfig.followedItemsLimit[AppUserRole.guestUser], 6);
         expect(
-          updatedConfig.guestSavedHeadlinesLimit,
-          userPreferenceConfigFixture.guestSavedHeadlinesLimit,
+          updatedConfig.savedHeadlinesLimit[AppUserRole.guestUser],
+          userPreferenceConfigFixture.savedHeadlinesLimit[AppUserRole
+              .guestUser],
         );
-        expect(updatedConfig.premiumSavedHeadlinesLimit, 101);
+        expect(updatedConfig.savedHeadlinesLimit[AppUserRole.premiumUser], 101);
         expect(updatedConfig, isNot(equals(userPreferenceConfigFixture)));
       });
 
@@ -57,8 +72,12 @@ void main() {
 
       test('instances with different properties are not equal', () {
         final config1 = userPreferenceConfigFixture.copyWith();
+        final newFollowedItemsLimit = Map.of(
+          userPreferenceConfigFixture.followedItemsLimit,
+        );
+        newFollowedItemsLimit[AppUserRole.guestUser] = 99;
         final config2 = userPreferenceConfigFixture.copyWith(
-          guestFollowedItemsLimit: 99,
+          followedItemsLimit: newFollowedItemsLimit,
         );
         expect(config1, isNot(equals(config2)));
       });
