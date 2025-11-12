@@ -20,7 +20,8 @@ void main() {
         expect(preferences.followedSources, isNotEmpty);
         expect(preferences.followedTopics, isNotEmpty);
         expect(preferences.savedHeadlines, isNotEmpty);
-        expect(preferences.interests, isNotEmpty);
+        expect(preferences.savedHeadlineFilters, isNotEmpty);
+        expect(preferences.savedSourceFilters, isNotEmpty);
       });
     });
 
@@ -55,8 +56,12 @@ void main() {
           userContentPreferencesFixture.followedSources,
         );
         expect(
-          updatedPreferences.interests,
-          userContentPreferencesFixture.interests,
+          updatedPreferences.savedHeadlineFilters,
+          userContentPreferencesFixture.savedHeadlineFilters,
+        );
+        expect(
+          updatedPreferences.savedSourceFilters,
+          userContentPreferencesFixture.savedSourceFilters,
         );
       });
 
@@ -93,7 +98,8 @@ void main() {
         userContentPreferencesFixture.followedSources,
         userContentPreferencesFixture.followedTopics,
         userContentPreferencesFixture.savedHeadlines,
-        userContentPreferencesFixture.interests,
+        userContentPreferencesFixture.savedHeadlineFilters,
+        userContentPreferencesFixture.savedSourceFilters,
       ]);
     });
   });
