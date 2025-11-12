@@ -1,12 +1,8 @@
 # Upcoming
 
-- **feat**: Implement comprehensive push notification system, including interest-based subscriptions and in-app notification models, with updated fixtures.
-- **feat**: Introduce `InterestConfig` and `InterestLimits` models for role-based personalization and feature entitlements.
-- **BREAKING** feat!: Deprecate and remove `LocalAd` model and related fixtures.
-- **feat**: Add 10 new user fixtures, including publishers and standard users.
-- **chore**: Expand user-related fixtures with detailed settings and preferences.
-- **test**: Add unit tests for `InterestConfig`, `InterestLimits`, and `NullableDateTimeConverter`.
-- **docs**: Update `README.md` to reflect new features and architectural patterns.
+- **feat**: Introduce data models to support a filter-based push notification system. This includes `SavedHeadlineFilter`, `SavedSourceFilter`, and related configuration models, providing the architectural foundation for clients to implement notification subscriptions.
+- **BREAKING** refactor!: Rework `UserPreferenceConfig` to support the new notification system with a more scalable, role-based map structure for all user limits.
+- **test**: Add comprehensive unit tests for all new and refactored models.
 
 # 1.3.1 - 2025-10-24
 
