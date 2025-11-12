@@ -16,42 +16,53 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
           'https://play.google.com/store/apps/details?id=com.example.app',
     ),
     userPreferenceConfig: const UserPreferenceConfig(
-      guestFollowedItemsLimit: 5,
-      guestSavedHeadlinesLimit: 10,
-      authenticatedFollowedItemsLimit: 15,
-      authenticatedSavedHeadlinesLimit: 30,
-      premiumFollowedItemsLimit: 30,
-      premiumSavedHeadlinesLimit: 100,
-    ),
-    interestConfig: const InterestConfig(
-      limits: {
-        AppUserRole.guestUser: InterestLimits(
+      // Role-based limits for followed items (topics, sources, countries).
+      followedItemsLimit: {
+        AppUserRole.guestUser: 5,
+        AppUserRole.standardUser: 15,
+        AppUserRole.premiumUser: 30,
+      },
+      // Role-based limits for the number of saved headlines.
+      savedHeadlinesLimit: {
+        AppUserRole.guestUser: 10,
+        AppUserRole.standardUser: 30,
+        AppUserRole.premiumUser: 100,
+      },
+      // Role-based limits for saved headline filters.
+      savedHeadlineFiltersLimit: {
+        AppUserRole.guestUser: SavedFilterLimits(
           total: 3,
-          pinnedFeedFilters: 3,
-          notifications: {
+          pinned: 3,
+          notificationSubscriptions: {
             PushNotificationSubscriptionDeliveryType.breakingOnly: 1,
             PushNotificationSubscriptionDeliveryType.dailyDigest: 0,
             PushNotificationSubscriptionDeliveryType.weeklyRoundup: 0,
           },
         ),
-        AppUserRole.standardUser: InterestLimits(
+        AppUserRole.standardUser: SavedFilterLimits(
           total: 10,
-          pinnedFeedFilters: 5,
-          notifications: {
+          pinned: 5,
+          notificationSubscriptions: {
             PushNotificationSubscriptionDeliveryType.breakingOnly: 3,
             PushNotificationSubscriptionDeliveryType.dailyDigest: 2,
             PushNotificationSubscriptionDeliveryType.weeklyRoundup: 2,
           },
         ),
-        AppUserRole.premiumUser: InterestLimits(
+        AppUserRole.premiumUser: SavedFilterLimits(
           total: 25,
-          pinnedFeedFilters: 10,
-          notifications: {
+          pinned: 10,
+          notificationSubscriptions: {
             PushNotificationSubscriptionDeliveryType.breakingOnly: 10,
             PushNotificationSubscriptionDeliveryType.dailyDigest: 10,
             PushNotificationSubscriptionDeliveryType.weeklyRoundup: 10,
           },
         ),
+      },
+      // Role-based limits for saved source filters.
+      savedSourceFiltersLimit: {
+        AppUserRole.guestUser: SavedFilterLimits(total: 3, pinned: 3),
+        AppUserRole.standardUser: SavedFilterLimits(total: 10, pinned: 5),
+        AppUserRole.premiumUser: SavedFilterLimits(total: 25, pinned: 10),
       },
     ),
     adConfig: const AdConfig(

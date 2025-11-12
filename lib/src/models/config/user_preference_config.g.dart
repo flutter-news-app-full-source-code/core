@@ -10,29 +10,37 @@ UserPreferenceConfig _$UserPreferenceConfigFromJson(
   Map<String, dynamic> json,
 ) => $checkedCreate('UserPreferenceConfig', json, ($checkedConvert) {
   final val = UserPreferenceConfig(
-    guestFollowedItemsLimit: $checkedConvert(
-      'guestFollowedItemsLimit',
-      (v) => (v as num).toInt(),
+    followedItemsLimit: $checkedConvert(
+      'followedItemsLimit',
+      (v) => (v as Map<String, dynamic>).map(
+        (k, e) =>
+            MapEntry($enumDecode(_$AppUserRoleEnumMap, k), (e as num).toInt()),
+      ),
     ),
-    guestSavedHeadlinesLimit: $checkedConvert(
-      'guestSavedHeadlinesLimit',
-      (v) => (v as num).toInt(),
+    savedHeadlinesLimit: $checkedConvert(
+      'savedHeadlinesLimit',
+      (v) => (v as Map<String, dynamic>).map(
+        (k, e) =>
+            MapEntry($enumDecode(_$AppUserRoleEnumMap, k), (e as num).toInt()),
+      ),
     ),
-    authenticatedFollowedItemsLimit: $checkedConvert(
-      'authenticatedFollowedItemsLimit',
-      (v) => (v as num).toInt(),
+    savedHeadlineFiltersLimit: $checkedConvert(
+      'savedHeadlineFiltersLimit',
+      (v) => (v as Map<String, dynamic>).map(
+        (k, e) => MapEntry(
+          $enumDecode(_$AppUserRoleEnumMap, k),
+          SavedFilterLimits.fromJson(e as Map<String, dynamic>),
+        ),
+      ),
     ),
-    authenticatedSavedHeadlinesLimit: $checkedConvert(
-      'authenticatedSavedHeadlinesLimit',
-      (v) => (v as num).toInt(),
-    ),
-    premiumFollowedItemsLimit: $checkedConvert(
-      'premiumFollowedItemsLimit',
-      (v) => (v as num).toInt(),
-    ),
-    premiumSavedHeadlinesLimit: $checkedConvert(
-      'premiumSavedHeadlinesLimit',
-      (v) => (v as num).toInt(),
+    savedSourceFiltersLimit: $checkedConvert(
+      'savedSourceFiltersLimit',
+      (v) => (v as Map<String, dynamic>).map(
+        (k, e) => MapEntry(
+          $enumDecode(_$AppUserRoleEnumMap, k),
+          SavedFilterLimits.fromJson(e as Map<String, dynamic>),
+        ),
+      ),
     ),
   );
   return val;
@@ -41,10 +49,22 @@ UserPreferenceConfig _$UserPreferenceConfigFromJson(
 Map<String, dynamic> _$UserPreferenceConfigToJson(
   UserPreferenceConfig instance,
 ) => <String, dynamic>{
-  'guestFollowedItemsLimit': instance.guestFollowedItemsLimit,
-  'guestSavedHeadlinesLimit': instance.guestSavedHeadlinesLimit,
-  'authenticatedFollowedItemsLimit': instance.authenticatedFollowedItemsLimit,
-  'authenticatedSavedHeadlinesLimit': instance.authenticatedSavedHeadlinesLimit,
-  'premiumFollowedItemsLimit': instance.premiumFollowedItemsLimit,
-  'premiumSavedHeadlinesLimit': instance.premiumSavedHeadlinesLimit,
+  'followedItemsLimit': instance.followedItemsLimit.map(
+    (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e),
+  ),
+  'savedHeadlinesLimit': instance.savedHeadlinesLimit.map(
+    (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e),
+  ),
+  'savedHeadlineFiltersLimit': instance.savedHeadlineFiltersLimit.map(
+    (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e.toJson()),
+  ),
+  'savedSourceFiltersLimit': instance.savedSourceFiltersLimit.map(
+    (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e.toJson()),
+  ),
+};
+
+const _$AppUserRoleEnumMap = {
+  AppUserRole.premiumUser: 'premiumUser',
+  AppUserRole.standardUser: 'standardUser',
+  AppUserRole.guestUser: 'guestUser',
 };

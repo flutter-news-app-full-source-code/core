@@ -1,22 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'interest_limits.dart';
+part of 'saved_filter_limits.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-InterestLimits _$InterestLimitsFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('InterestLimits', json, ($checkedConvert) {
-      final val = InterestLimits(
+SavedFilterLimits _$SavedFilterLimitsFromJson(Map<String, dynamic> json) =>
+    $checkedCreate('SavedFilterLimits', json, ($checkedConvert) {
+      final val = SavedFilterLimits(
         total: $checkedConvert('total', (v) => (v as num).toInt()),
-        pinnedFeedFilters: $checkedConvert(
-          'pinnedFeedFilters',
-          (v) => (v as num).toInt(),
-        ),
-        notifications: $checkedConvert(
-          'notifications',
-          (v) => (v as Map<String, dynamic>).map(
+        pinned: $checkedConvert('pinned', (v) => (v as num).toInt()),
+        notificationSubscriptions: $checkedConvert(
+          'notificationSubscriptions',
+          (v) => (v as Map<String, dynamic>?)?.map(
             (k, e) => MapEntry(
               $enumDecode(_$PushNotificationSubscriptionDeliveryTypeEnumMap, k),
               (e as num).toInt(),
@@ -27,11 +24,11 @@ InterestLimits _$InterestLimitsFromJson(Map<String, dynamic> json) =>
       return val;
     });
 
-Map<String, dynamic> _$InterestLimitsToJson(InterestLimits instance) =>
+Map<String, dynamic> _$SavedFilterLimitsToJson(SavedFilterLimits instance) =>
     <String, dynamic>{
       'total': instance.total,
-      'pinnedFeedFilters': instance.pinnedFeedFilters,
-      'notifications': instance.notifications.map(
+      'pinned': instance.pinned,
+      'notificationSubscriptions': instance.notificationSubscriptions?.map(
         (k, e) =>
             MapEntry(_$PushNotificationSubscriptionDeliveryTypeEnumMap[k]!, e),
       ),

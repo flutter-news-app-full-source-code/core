@@ -1,62 +1,62 @@
 import 'package:core/src/enums/enums.dart';
-import 'package:core/src/models/interests/interest_criteria.dart';
+import 'package:core/src/models/user_preferences/headline_filter_criteria.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part 'interest.g.dart';
+part 'saved_headline_filter.g.dart';
 
-/// {@template interest}
+/// {@template saved_headline_filter}
 /// Represents a user's saved set of content criteria, unifying the concepts
 /// of a saved "Feed Filter" for on-demand feed filtering and a "Notification
 /// Subscription" for push alerts.
 ///
-/// An Interest is a single entity that can be used for multiple purposes,
-/// determined by the `isPinnedFeedFilter` flag and the `deliveryTypes` set.
+/// A Saved Headline Filter is a single entity that can be used for multiple
+/// purposes, determined by the `isPinned` flag and the `deliveryTypes` set.
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
-class Interest extends Equatable {
-  /// {@macro interest}
-  const Interest({
+class SavedHeadlineFilter extends Equatable {
+  /// {@macro saved_headline_filter}
+  const SavedHeadlineFilter({
     required this.id,
     required this.userId,
     required this.name,
     required this.criteria,
-    required this.isPinnedFeedFilter,
+    required this.isPinned,
     required this.deliveryTypes,
   });
 
-  /// Creates an [Interest] from JSON data.
-  factory Interest.fromJson(Map<String, dynamic> json) =>
-      _$InterestFromJson(json);
+  /// Creates a [SavedHeadlineFilter] from JSON data.
+  factory SavedHeadlineFilter.fromJson(Map<String, dynamic> json) =>
+      _$SavedHeadlineFilterFromJson(json);
 
-  /// The unique identifier for the interest.
+  /// The unique identifier for the saved filter.
   final String id;
 
-  /// The ID of the user who owns this interest.
+  /// The ID of the user who owns this filter.
   final String userId;
 
-  /// The user-provided name for this interest (e.g., "US Tech News").
+  /// The user-provided name for this filter (e.g., "US Tech News").
   final String name;
 
-  /// The filtering criteria for this interest, containing lists of full
+  /// The filtering criteria for this filter, containing lists of full
   /// Topic, Source, and Country objects.
-  final InterestCriteria criteria;
+  final HeadlineFilterCriteria criteria;
 
-  /// A flag indicating whether this interest should be available as a
+  /// A flag indicating whether this filter should be available as a
   /// one-click pinned filter in the user's feed.
-  final bool isPinnedFeedFilter;
+  final bool isPinned;
 
   /// The set of notification delivery types the user has opted into for this
-  /// interest (e.g., `breakingOnly`, `dailyDigest`).
+  /// filter (e.g., `breakingOnly`, `dailyDigest`).
   ///
   /// An empty set means the user will not receive any push notifications for
-  /// news matching this interest.
+  /// news matching this filter.
   final Set<PushNotificationSubscriptionDeliveryType> deliveryTypes;
 
-  /// Converts this [Interest] instance to JSON data.
-  Map<String, dynamic> toJson() => _$InterestToJson(this);
+  /// Converts this [SavedHeadlineFilter] instance to JSON data.
+  Map<String, dynamic> toJson() => _$SavedHeadlineFilterToJson(this);
 
   @override
   List<Object> get props => [
@@ -64,26 +64,26 @@ class Interest extends Equatable {
     userId,
     name,
     criteria,
-    isPinnedFeedFilter,
+    isPinned,
     deliveryTypes,
   ];
 
-  /// Creates a copy of this [Interest] but with the given fields replaced
+  /// Creates a copy of this [SavedHeadlineFilter] but with the given fields
   /// with the new values.
-  Interest copyWith({
+  SavedHeadlineFilter copyWith({
     String? id,
     String? userId,
     String? name,
-    InterestCriteria? criteria,
-    bool? isPinnedFeedFilter,
+    HeadlineFilterCriteria? criteria,
+    bool? isPinned,
     Set<PushNotificationSubscriptionDeliveryType>? deliveryTypes,
   }) {
-    return Interest(
+    return SavedHeadlineFilter(
       id: id ?? this.id,
       userId: userId ?? this.userId,
       name: name ?? this.name,
       criteria: criteria ?? this.criteria,
-      isPinnedFeedFilter: isPinnedFeedFilter ?? this.isPinnedFeedFilter,
+      isPinned: isPinned ?? this.isPinned,
       deliveryTypes: deliveryTypes ?? this.deliveryTypes,
     );
   }

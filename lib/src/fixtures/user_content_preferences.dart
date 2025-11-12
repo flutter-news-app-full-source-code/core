@@ -18,13 +18,12 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
       topicsFixturesData[7], // Travel
     ],
     savedHeadlines: [headlinesFixturesData[0], headlinesFixturesData[10]],
-    interests: [
-      interestsFixturesData[0],
-      interestsFixturesData[1],
-      interestsFixturesData[2],
-      interestsFixturesData[3],
-      interestsFixturesData[4],
-    ],
+    savedHeadlineFilters: savedHeadlineFiltersFixturesData
+        .map((e) => e.copyWith(userId: kAdminUserId))
+        .toList(),
+    savedSourceFilters: savedSourceFiltersFixturesData
+        .map((e) => e.copyWith(userId: kAdminUserId))
+        .toList(),
   ),
   UserContentPreferences(
     id: kUser1Id, // Publisher (Premium)
@@ -38,7 +37,12 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
       topicsFixturesData[6], // Business
     ],
     savedHeadlines: [headlinesFixturesData[2], headlinesFixturesData[3]],
-    interests: [interestsFixturesData[5]],
+    savedHeadlineFilters: savedHeadlineFiltersFixturesData
+        .map((e) => e.copyWith(userId: kUser1Id))
+        .toList(),
+    savedSourceFilters: savedSourceFiltersFixturesData
+        .map((e) => e.copyWith(userId: kUser1Id))
+        .toList(),
   ),
   UserContentPreferences(
     id: kUser2Id, // Publisher (Standard)
@@ -52,7 +56,12 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
       topicsFixturesData[4], // Health
     ],
     savedHeadlines: [headlinesFixturesData[4], headlinesFixturesData[5]],
-    interests: const [],
+    savedHeadlineFilters: savedHeadlineFiltersFixturesData
+        .map((e) => e.copyWith(userId: kUser2Id))
+        .toList(),
+    savedSourceFilters: savedSourceFiltersFixturesData
+        .map((e) => e.copyWith(userId: kUser2Id))
+        .toList(),
   ),
   // Add preferences for users 3-10
   ...List.generate(8, (index) {
@@ -81,7 +90,12 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
         headlinesFixturesData[index * 2],
         headlinesFixturesData[index * 2 + 1],
       ],
-      interests: const [],
+      savedHeadlineFilters: savedHeadlineFiltersFixturesData
+          .map((e) => e.copyWith(userId: userId))
+          .toList(),
+      savedSourceFilters: savedSourceFiltersFixturesData
+          .map((e) => e.copyWith(userId: userId))
+          .toList(),
     );
   }),
 ];

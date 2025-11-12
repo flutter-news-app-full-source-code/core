@@ -1,0 +1,86 @@
+import 'package:core/core.dart';
+import 'package:test/test.dart';
+
+void main() {
+  group('SavedFilterLimits', () {
+    final fullModel = remoteConfigsFixturesData[0]
+        .userPreferenceConfig
+        .savedHeadlineFiltersLimit[AppUserRole.standardUser]!;
+
+    final minimalModel = remoteConfigsFixturesData[0]
+        .userPreferenceConfig
+        .savedSourceFiltersLimit[AppUserRole.standardUser]!;
+
+    final fullJson = fullModel.toJson();
+    final minimalJson = minimalModel.toJson();
+
+    test('should be instantiable', () {
+      expect(fullModel, isA<SavedFilterLimits>());
+      expect(minimalModel, isA<SavedFilterLimits>());
+    });
+
+    test('should be equal to another instance with the same values', () {
+      expect(
+        fullModel,
+        equals(
+          const SavedFilterLimits(
+            total: 10,
+            pinned: 5,
+            notificationSubscriptions: {
+              PushNotificationSubscriptionDeliveryType.breakingOnly: 3,
+              PushNotificationSubscriptionDeliveryType.dailyDigest: 2,
+              PushNotificationSubscriptionDeliveryType.weeklyRoundup: 2,
+            },
+          ),
+        ),
+      );
+    });
+
+    test('should have the correct props', () {
+      expect(
+        fullModel.props,
+        equals([
+          fullModel.total,
+          fullModel.pinned,
+          {
+            PushNotificationSubscriptionDeliveryType.breakingOnly: 3,
+            PushNotificationSubscriptionDeliveryType.dailyDigest: 2,
+            PushNotificationSubscriptionDeliveryType.weeklyRoundup: 2,
+          },
+        ]),
+      );
+    });
+
+    test('should correctly deserialize from json', () {
+      expect(SavedFilterLimits.fromJson(fullJson), equals(fullModel));
+      expect(SavedFilterLimits.fromJson(minimalJson), equals(minimalModel));
+    });
+
+    test('should correctly serialize to json', () {
+      expect(fullModel.toJson(), equals(fullJson));
+      expect(minimalModel.toJson(), equals(minimalJson));
+    });
+
+    test('copyWith should work correctly', () {
+      final copied = fullModel.copyWith(total: 20, pinned: 10);
+      expect(copied.total, 20);
+      expect(copied.pinned, 10); // This was 10 in the original test
+      expect(
+        copied.notificationSubscriptions,
+        fullModel.notificationSubscriptions,
+      );
+    });
+
+    test('should handle empty notificationSubscriptions map', () {
+      const model = SavedFilterLimits(
+        total: 5,
+        pinned: 2,
+        notificationSubscriptions: {},
+      );
+      final json = model.toJson();
+      final deserialized = SavedFilterLimits.fromJson(json);
+      expect(deserialized, model);
+      expect(deserialized.notificationSubscriptions, isEmpty);
+    });
+  });
+}

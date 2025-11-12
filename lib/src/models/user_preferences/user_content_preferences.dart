@@ -1,8 +1,4 @@
-import 'package:core/src/models/entities/country.dart';
-import 'package:core/src/models/entities/headline.dart';
-import 'package:core/src/models/entities/source.dart';
-import 'package:core/src/models/entities/topic.dart';
-import 'package:core/src/models/interests/interest.dart';
+import 'package:core/core.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -33,7 +29,8 @@ class UserContentPreferences extends Equatable {
     required this.followedSources,
     required this.followedTopics,
     required this.savedHeadlines,
-    required this.interests,
+    required this.savedHeadlineFilters,
+    required this.savedSourceFilters,
   });
 
   /// Factory method to create a [UserContentPreferences] instance from a JSON map.
@@ -55,9 +52,11 @@ class UserContentPreferences extends Equatable {
   /// List of headlines the user has saved.
   final List<Headline> savedHeadlines;
 
-  /// A list of the user's saved interests, which combine saved filters and
-  /// notification subscriptions.
-  final List<Interest> interests;
+  /// A list of the user's saved headline filters.
+  final List<SavedHeadlineFilter> savedHeadlineFilters;
+
+  /// A list of the user's saved source filters.
+  final List<SavedSourceFilter> savedSourceFilters;
 
   /// Converts this [UserContentPreferences] instance to a JSON map.
   Map<String, dynamic> toJson() => _$UserContentPreferencesToJson(this);
@@ -69,7 +68,8 @@ class UserContentPreferences extends Equatable {
     followedSources,
     followedTopics,
     savedHeadlines,
-    interests,
+    savedHeadlineFilters,
+    savedSourceFilters,
   ];
 
   @override
@@ -83,7 +83,8 @@ class UserContentPreferences extends Equatable {
     List<Source>? followedSources,
     List<Topic>? followedTopics,
     List<Headline>? savedHeadlines,
-    List<Interest>? interests,
+    List<SavedHeadlineFilter>? savedHeadlineFilters,
+    List<SavedSourceFilter>? savedSourceFilters,
   }) {
     return UserContentPreferences(
       id: id ?? this.id,
@@ -91,7 +92,8 @@ class UserContentPreferences extends Equatable {
       followedSources: followedSources ?? this.followedSources,
       followedTopics: followedTopics ?? this.followedTopics,
       savedHeadlines: savedHeadlines ?? this.savedHeadlines,
-      interests: interests ?? this.interests,
+      savedHeadlineFilters: savedHeadlineFilters ?? this.savedHeadlineFilters,
+      savedSourceFilters: savedSourceFilters ?? this.savedSourceFilters,
     );
   }
 }

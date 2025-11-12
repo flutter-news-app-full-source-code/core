@@ -1036,13 +1036,13 @@ const kLocalAd4Id = '4563c000a4a4e6e1a8e7f0f4';
 const kLocalAd5Id = '5563c000a4a4e6e1a8e7f0f5';
 const kLocalAd6Id = '6563c000a4a4e6e1a8e7f0f6';
 
-/// Interests Fixture IDs.
-const String kInterestId1 = 'interest_1';
-const String kInterestId2 = 'interest_2';
-const String kInterestId3 = 'interest_3';
-const String kInterestId4 = 'interest_4';
-const String kInterestId5 = 'interest_5';
-const String kInterestId6 = 'interest_6';
+/// Saved Headline Filter Fixture IDs.
+const String kSavedHeadlineFilterId1 = 'saved_headline_filter_1';
+const String kSavedHeadlineFilterId2 = 'saved_headline_filter_2';
+
+/// Saved Source Filter Fixture IDs.
+const String kSavedSourceFilterId1 = 'saved_source_filter_1';
+const String kSavedSourceFilterId2 = 'saved_source_filter_2';
 
 /// In-App Notification Fixture IDs.
 const String kInAppNotificationId1 = 'in_app_notification_1';

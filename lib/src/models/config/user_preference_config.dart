@@ -1,5 +1,6 @@
+import 'package:core/src/enums/app_user_role.dart';
 import 'package:core/src/models/config/remote_config.dart';
-import 'package:core/src/models/user_preferences/user_content_preferences.dart';
+import 'package:core/src/models/config/saved_filter_limits.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -7,63 +8,44 @@ import 'package:meta/meta.dart';
 part 'user_preference_config.g.dart';
 
 /// {@template user_preference_config}
-/// Defines the maximum number of items a user can follow or save,
-/// tiered by user role (Guest, Authenticated, Premium).
+/// Defines configuration for all user preferences, including role-based
+/// limits for followed items, saved headlines, and saved filters.
 ///
-/// This model is part of the overall [RemoteConfig] and is used by the
-/// backend to enforce limits during save/update operations for
-/// [UserContentPreferences]. Clients can also fetch this configuration
-/// to provide UI feedback (e.g., showing current usage vs. limit,
-/// disabling buttons).
-///
-/// The limits are defined as follows:
-/// - Followed Items (Countries, Sources, Categories): The limit applies
-///   individually to each list (e.g., a Guest user can follow up to 5
-///   Countries, up to 5 Sources, and up to 5 Categories).
-/// - Saved Headlines: The limit applies to the total number of headlines
-///   a user can save.
-///
-/// These limits are configurable to balance performance (allowing fetching
-/// full objects within these limits) and feature differentiation across tiers.
-/// Backend enforcement is crucial to prevent exceeding these limits.
+/// This model is part of the overall [RemoteConfig]. It uses a map-based
+/// structure where the key is the [AppUserRole] and the value is the specific
+/// limit for that role, ensuring a scalable and maintainable configuration.
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class UserPreferenceConfig extends Equatable {
   /// {@macro user_preference_config}
   const UserPreferenceConfig({
-    required this.guestFollowedItemsLimit,
-    required this.guestSavedHeadlinesLimit,
-    required this.authenticatedFollowedItemsLimit,
-    required this.authenticatedSavedHeadlinesLimit,
-    required this.premiumFollowedItemsLimit,
-    required this.premiumSavedHeadlinesLimit,
+    required this.followedItemsLimit,
+    required this.savedHeadlinesLimit,
+    required this.savedHeadlineFiltersLimit,
+    required this.savedSourceFiltersLimit,
   });
 
   /// Factory method to create a [UserPreferenceConfig] instance from a JSON map.
   factory UserPreferenceConfig.fromJson(Map<String, dynamic> json) =>
       _$UserPreferenceConfigFromJson(json);
 
-  /// Maximum number of countries, sources, or categories a Guest user can follow.
-  /// This limit applies individually to each list.
-  final int guestFollowedItemsLimit;
+  /// Role-based limits for the number of followed items (topics, sources,
+  /// countries). The limit applies to each category individually.
+  final Map<AppUserRole, int> followedItemsLimit;
 
-  /// Maximum number of headlines a Guest user can save.
-  final int guestSavedHeadlinesLimit;
+  /// Role-based limits for the number of saved headlines.
+  final Map<AppUserRole, int> savedHeadlinesLimit;
 
-  /// Maximum number of countries, sources, or categories an Authenticated user can follow.
-  /// This limit applies individually to each list.
-  final int authenticatedFollowedItemsLimit;
+  /// Role-based limits for saved headline filters, using the
+  /// [SavedFilterLimits] model to define total, pinned, and notification
+  /// subscription counts. This map defines the limits per user role.
+  final Map<AppUserRole, SavedFilterLimits> savedHeadlineFiltersLimit;
 
-  /// Maximum number of headlines an Authenticated user can save.
-  final int authenticatedSavedHeadlinesLimit;
-
-  /// Maximum number of countries, sources, or categories a Premium user can follow.
-  /// This limit applies individually to each list.
-  final int premiumFollowedItemsLimit;
-
-  /// Maximum number of headlines a Premium user can save.
-  final int premiumSavedHeadlinesLimit;
+  /// Role-based limits for saved source filters, using the
+  /// [SavedFilterLimits] model to define total and pinned counts. This map
+  /// defines the limits per user role.
+  final Map<AppUserRole, SavedFilterLimits> savedSourceFiltersLimit;
 
   /// Converts this [UserPreferenceConfig] instance to a JSON map.
   Map<String, dynamic> toJson() => _$UserPreferenceConfigToJson(this);
@@ -71,39 +53,27 @@ class UserPreferenceConfig extends Equatable {
   /// Creates a copy of this [UserPreferenceConfig] but with the given fields
   /// replaced with the new values.
   UserPreferenceConfig copyWith({
-    int? guestFollowedItemsLimit,
-    int? guestSavedHeadlinesLimit,
-    int? authenticatedFollowedItemsLimit,
-    int? authenticatedSavedHeadlinesLimit,
-    int? premiumFollowedItemsLimit,
-    int? premiumSavedHeadlinesLimit,
+    Map<AppUserRole, int>? followedItemsLimit,
+    Map<AppUserRole, int>? savedHeadlinesLimit,
+    Map<AppUserRole, SavedFilterLimits>? savedHeadlineFiltersLimit,
+    Map<AppUserRole, SavedFilterLimits>? savedSourceFiltersLimit,
   }) {
     return UserPreferenceConfig(
-      guestFollowedItemsLimit:
-          guestFollowedItemsLimit ?? this.guestFollowedItemsLimit,
-      guestSavedHeadlinesLimit:
-          guestSavedHeadlinesLimit ?? this.guestSavedHeadlinesLimit,
-      authenticatedFollowedItemsLimit:
-          authenticatedFollowedItemsLimit ??
-          this.authenticatedFollowedItemsLimit,
-      authenticatedSavedHeadlinesLimit:
-          authenticatedSavedHeadlinesLimit ??
-          this.authenticatedSavedHeadlinesLimit,
-      premiumFollowedItemsLimit:
-          premiumFollowedItemsLimit ?? this.premiumFollowedItemsLimit,
-      premiumSavedHeadlinesLimit:
-          premiumSavedHeadlinesLimit ?? this.premiumSavedHeadlinesLimit,
+      followedItemsLimit: followedItemsLimit ?? this.followedItemsLimit,
+      savedHeadlinesLimit: savedHeadlinesLimit ?? this.savedHeadlinesLimit,
+      savedHeadlineFiltersLimit:
+          savedHeadlineFiltersLimit ?? this.savedHeadlineFiltersLimit,
+      savedSourceFiltersLimit:
+          savedSourceFiltersLimit ?? this.savedSourceFiltersLimit,
     );
   }
 
   @override
   List<Object> get props => [
-    guestFollowedItemsLimit,
-    guestSavedHeadlinesLimit,
-    authenticatedFollowedItemsLimit,
-    authenticatedSavedHeadlinesLimit,
-    premiumFollowedItemsLimit,
-    premiumSavedHeadlinesLimit,
+    followedItemsLimit,
+    savedHeadlinesLimit,
+    savedHeadlineFiltersLimit,
+    savedSourceFiltersLimit,
   ];
 
   @override
