@@ -3,21 +3,8 @@ import 'package:test/test.dart';
 
 void main() {
   group('HeadlineFilterCriteria', () {
-    final topic1 = topicsFixturesData[0];
-    final source1 = sourcesFixturesData[0];
-    final country1 = countriesFixturesData[0];
-
-    final fullJson = {
-      'topics': [topic1.toJson()],
-      'sources': [source1.toJson()],
-      'countries': [country1.toJson()],
-    };
-
-    final fullModel = HeadlineFilterCriteria(
-      topics: [topic1],
-      sources: [source1],
-      countries: [country1],
-    );
+    final fullModel = savedHeadlineFiltersFixturesData[0].criteria;
+    final fullJson = fullModel.toJson();
 
     const emptyModel = HeadlineFilterCriteria(
       topics: [],
@@ -25,7 +12,7 @@ void main() {
       countries: [],
     );
 
-    final emptyJson = {'topics': [], 'sources': [], 'countries': []};
+    final emptyJson = emptyModel.toJson();
 
     test('should be instantiable', () {
       expect(fullModel, isA<HeadlineFilterCriteria>());
@@ -34,9 +21,9 @@ void main() {
 
     test('should be equal to another instance with the same values', () {
       final otherModel = HeadlineFilterCriteria(
-        topics: [topic1],
-        sources: [source1],
-        countries: [country1],
+        topics: fullModel.topics,
+        sources: fullModel.sources,
+        countries: fullModel.countries,
       );
       expect(fullModel, equals(otherModel));
     });
@@ -44,11 +31,7 @@ void main() {
     test('should have the correct props', () {
       expect(
         fullModel.props,
-        equals([
-          [topic1],
-          [source1],
-          [country1],
-        ]),
+        equals([fullModel.topics, fullModel.sources, fullModel.countries]),
       );
     });
 
