@@ -35,10 +35,6 @@ RemoteConfig _$RemoteConfigFromJson(Map<String, dynamic> json) =>
           'pushNotificationConfig',
           (v) => PushNotificationConfig.fromJson(v as Map<String, dynamic>),
         ),
-        interestConfig: $checkedConvert(
-          'interestConfig',
-          (v) => InterestConfig.fromJson(v as Map<String, dynamic>),
-        ),
         createdAt: $checkedConvert(
           'createdAt',
           (v) => dateTimeFromJson(v as String?),
@@ -61,7 +57,6 @@ Map<String, dynamic> _$RemoteConfigToJson(RemoteConfig instance) =>
       ),
       'appStatus': instance.appStatus.toJson(),
       'pushNotificationConfig': instance.pushNotificationConfig.toJson(),
-      'interestConfig': instance.interestConfig.toJson(),
       'createdAt': dateTimeToJson(instance.createdAt),
       'updatedAt': dateTimeToJson(instance.updatedAt),
     };
