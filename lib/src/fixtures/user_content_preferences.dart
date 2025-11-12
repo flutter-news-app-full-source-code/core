@@ -18,8 +18,6 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
       topicsFixturesData[7], // Travel
     ],
     savedHeadlines: [headlinesFixturesData[0], headlinesFixturesData[10]],
-    savedHeadlineFilters: [savedHeadlineFiltersFixturesData[0]],
-    savedSourceFilters: [savedSourceFiltersFixturesData[0]],
     savedHeadlineFilters: savedHeadlineFiltersFixturesData
         .map((e) => e.copyWith(userId: kAdminUserId))
         .toList(),
@@ -39,8 +37,6 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
       topicsFixturesData[6], // Business
     ],
     savedHeadlines: [headlinesFixturesData[2], headlinesFixturesData[3]],
-    savedHeadlineFilters: [savedHeadlineFiltersFixturesData[1]],
-    savedSourceFilters: [savedSourceFiltersFixturesData[1]],
     savedHeadlineFilters: savedHeadlineFiltersFixturesData
         .map((e) => e.copyWith(userId: kUser1Id))
         .toList(),
@@ -60,8 +56,6 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
       topicsFixturesData[4], // Health
     ],
     savedHeadlines: [headlinesFixturesData[4], headlinesFixturesData[5]],
-    savedHeadlineFilters: const [],
-    savedSourceFilters: const [],
     savedHeadlineFilters: savedHeadlineFiltersFixturesData
         .map((e) => e.copyWith(userId: kUser2Id))
         .toList(),
@@ -96,8 +90,6 @@ final List<UserContentPreferences> userContentPreferencesFixturesData = [
         headlinesFixturesData[index * 2],
         headlinesFixturesData[index * 2 + 1],
       ],
-      savedHeadlineFilters: const [],
-      savedSourceFilters: const [],
       savedHeadlineFilters: savedHeadlineFiltersFixturesData
           .map((e) => e.copyWith(userId: userId))
           .toList(),
