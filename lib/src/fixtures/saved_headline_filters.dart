@@ -23,7 +23,6 @@ final savedHeadlineFiltersFixturesData = <SavedHeadlineFilter>[
     isPinned: false,
     deliveryTypes: const {
       PushNotificationSubscriptionDeliveryType.breakingOnly,
-      PushNotificationSubscriptionDeliveryType.dailyDigest,
     },
     criteria: HeadlineFilterCriteria(
       topics: [topicsFixturesData[6]], // Business
