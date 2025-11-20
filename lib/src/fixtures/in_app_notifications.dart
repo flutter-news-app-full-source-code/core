@@ -22,7 +22,13 @@ final List<InAppNotification> inAppNotificationsFixturesData = [
       title: _headlineById(kHeadlineId11).title,
       body: _headlineById(kHeadlineId11).excerpt,
       imageUrl: _headlineById(kHeadlineId11).imageUrl,
-      data: const {'contentType': 'headline', 'id': kHeadlineId11},
+      data: {
+        'notificationId': kInAppNotificationId1,
+        'notificationType':
+            PushNotificationSubscriptionDeliveryType.breakingOnly.name,
+        'contentType': 'headline',
+        'headlineId': kHeadlineId11,
+      },
     ),
     createdAt: DateTime.now().subtract(const Duration(minutes: 15)),
     readAt: null,
@@ -35,7 +41,13 @@ final List<InAppNotification> inAppNotificationsFixturesData = [
       title: _headlineById(kHeadlineId24).title,
       body: _headlineById(kHeadlineId24).excerpt,
       imageUrl: _headlineById(kHeadlineId24).imageUrl,
-      data: const {'contentType': 'headline', 'id': kHeadlineId24},
+      data: {
+        'notificationId': kInAppNotificationId2,
+        'notificationType':
+            PushNotificationSubscriptionDeliveryType.breakingOnly.name,
+        'contentType': 'headline',
+        'headlineId': kHeadlineId24,
+      },
     ),
     createdAt: DateTime.now().subtract(const Duration(days: 1)),
     readAt: DateTime.now().subtract(const Duration(hours: 12)),
@@ -48,7 +60,13 @@ final List<InAppNotification> inAppNotificationsFixturesData = [
       title: _headlineById(kHeadlineId37).title,
       body: _headlineById(kHeadlineId37).excerpt,
       imageUrl: _headlineById(kHeadlineId37).imageUrl,
-      data: const {'contentType': 'headline', 'id': kHeadlineId37},
+      data: {
+        'notificationId': kInAppNotificationId3,
+        'notificationType':
+            PushNotificationSubscriptionDeliveryType.breakingOnly.name,
+        'contentType': 'headline',
+        'headlineId': kHeadlineId37,
+      },
     ),
     createdAt: DateTime.now().subtract(const Duration(hours: 2)),
     readAt: null,
@@ -63,7 +81,13 @@ final List<InAppNotification> inAppNotificationsFixturesData = [
       title: _headlineById(kHeadlineId1).title,
       body: _headlineById(kHeadlineId1).excerpt,
       imageUrl: _headlineById(kHeadlineId1).imageUrl,
-      data: const {'contentType': 'headline', 'id': kHeadlineId1},
+      data: {
+        'notificationId': kInAppNotificationId4,
+        'notificationType':
+            PushNotificationSubscriptionDeliveryType.breakingOnly.name,
+        'contentType': 'headline',
+        'headlineId': kHeadlineId1,
+      },
     ),
     createdAt: DateTime.now().subtract(const Duration(minutes: 5)),
     readAt: null,
@@ -76,7 +100,13 @@ final List<InAppNotification> inAppNotificationsFixturesData = [
       title: _headlineById(kHeadlineId2).title,
       body: _headlineById(kHeadlineId2).excerpt,
       imageUrl: _headlineById(kHeadlineId2).imageUrl,
-      data: const {'contentType': 'headline', 'id': kHeadlineId2},
+      data: {
+        'notificationId': kInAppNotificationId5,
+        'notificationType':
+            PushNotificationSubscriptionDeliveryType.breakingOnly.name,
+        'contentType': 'headline',
+        'headlineId': kHeadlineId2,
+      },
     ),
     createdAt: DateTime.now().subtract(const Duration(days: 2)),
     readAt: DateTime.now().subtract(const Duration(days: 1)),
@@ -89,7 +119,13 @@ final List<InAppNotification> inAppNotificationsFixturesData = [
       title: _headlineById(kHeadlineId7).title,
       body: _headlineById(kHeadlineId7).excerpt,
       imageUrl: _headlineById(kHeadlineId7).imageUrl,
-      data: const {'contentType': 'headline', 'id': kHeadlineId7},
+      data: {
+        'notificationId': kInAppNotificationId6,
+        'notificationType':
+            PushNotificationSubscriptionDeliveryType.breakingOnly.name,
+        'contentType': 'headline',
+        'headlineId': kHeadlineId7,
+      },
     ),
     createdAt: DateTime.now().subtract(const Duration(hours: 4)),
     readAt: null,
