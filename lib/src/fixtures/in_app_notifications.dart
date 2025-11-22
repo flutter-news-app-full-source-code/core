@@ -1,133 +1,46 @@
 import 'package:core/core.dart';
 
-// Helper to find a headline by its ID from the fixtures.
-// This avoids repetitive code and ensures we're using the headline data.
-Headline _headlineById(String id) {
-  return headlinesFixturesData.firstWhere((headline) => headline.id == id);
-}
-
 /// A list of initial in-app notification data to be loaded into the in-memory
 /// data repository.
 ///
 /// This data provides realistic, client-facing notifications for users,
 /// suitable for a news app demo environment.
-final List<InAppNotification> inAppNotificationsFixturesData = [
-  // --- Notifications for User: kAdminUserId ---
+final List<InAppNotification> inAppNotificationsFixturesData =
+    _generateAdminNotifications();
 
-  // 1. Unread Breaking News Notification
-  InAppNotification(
-    id: kInAppNotificationId1,
-    userId: kAdminUserId,
-    payload: PushNotificationPayload(
-      title: _headlineById(kHeadlineId11).title,
-      body: _headlineById(kHeadlineId11).excerpt,
-      imageUrl: _headlineById(kHeadlineId11).imageUrl,
-      data: {
-        'notificationId': kInAppNotificationId1,
-        'notificationType':
-            PushNotificationSubscriptionDeliveryType.breakingOnly.name,
-        'contentType': 'headline',
-        'headlineId': kHeadlineId11,
-      },
-    ),
-    createdAt: DateTime.now().subtract(const Duration(minutes: 15)),
-    readAt: null,
-  ),
-  // 2. Read Notification on a followed topic (Science)
-  InAppNotification(
-    id: kInAppNotificationId2,
-    userId: kAdminUserId,
-    payload: PushNotificationPayload(
-      title: _headlineById(kHeadlineId24).title,
-      body: _headlineById(kHeadlineId24).excerpt,
-      imageUrl: _headlineById(kHeadlineId24).imageUrl,
-      data: {
-        'notificationId': kInAppNotificationId2,
-        'notificationType':
-            PushNotificationSubscriptionDeliveryType.breakingOnly.name,
-        'contentType': 'headline',
-        'headlineId': kHeadlineId24,
-      },
-    ),
-    createdAt: DateTime.now().subtract(const Duration(days: 1)),
-    readAt: DateTime.now().subtract(const Duration(hours: 12)),
-  ),
-  // 3. Unread Notification on another followed topic (Business/Tech)
-  InAppNotification(
-    id: kInAppNotificationId3,
-    userId: kAdminUserId,
-    payload: PushNotificationPayload(
-      title: _headlineById(kHeadlineId37).title,
-      body: _headlineById(kHeadlineId37).excerpt,
-      imageUrl: _headlineById(kHeadlineId37).imageUrl,
-      data: {
-        'notificationId': kInAppNotificationId3,
-        'notificationType':
-            PushNotificationSubscriptionDeliveryType.breakingOnly.name,
-        'contentType': 'headline',
-        'headlineId': kHeadlineId37,
-      },
-    ),
-    createdAt: DateTime.now().subtract(const Duration(hours: 2)),
-    readAt: null,
-  ),
+/// Generates a list of 21 breaking news notifications for the admin user.
+///
+/// This approach makes it easy to scale up the number of notifications and
+/// vary their properties (e.g., read status, creation time) programmatically.
+List<InAppNotification> _generateAdminNotifications() {
+  final notificationIds = List.generate(
+    21,
+    (index) => 'in_app_notification_${index + 1}',
+  );
+  final headlineIds = headlinesFixturesData.map((e) => e.id).toList();
 
-  // --- Notifications for User: kUser1Id ---
-  // 4. Unread Breaking News Notification
-  InAppNotification(
-    id: kInAppNotificationId4,
-    userId: kUser1Id,
-    payload: PushNotificationPayload(
-      title: _headlineById(kHeadlineId1).title,
-      body: _headlineById(kHeadlineId1).excerpt,
-      imageUrl: _headlineById(kHeadlineId1).imageUrl,
-      data: {
-        'notificationId': kInAppNotificationId4,
-        'notificationType':
-            PushNotificationSubscriptionDeliveryType.breakingOnly.name,
-        'contentType': 'headline',
-        'headlineId': kHeadlineId1,
-      },
-    ),
-    createdAt: DateTime.now().subtract(const Duration(minutes: 5)),
-    readAt: null,
-  ),
-  // 5. Read Notification on a followed topic (Sports)
-  InAppNotification(
-    id: kInAppNotificationId5,
-    userId: kUser1Id,
-    payload: PushNotificationPayload(
-      title: _headlineById(kHeadlineId2).title,
-      body: _headlineById(kHeadlineId2).excerpt,
-      imageUrl: _headlineById(kHeadlineId2).imageUrl,
-      data: {
-        'notificationId': kInAppNotificationId5,
-        'notificationType':
-            PushNotificationSubscriptionDeliveryType.breakingOnly.name,
-        'contentType': 'headline',
-        'headlineId': kHeadlineId2,
-      },
-    ),
-    createdAt: DateTime.now().subtract(const Duration(days: 2)),
-    readAt: DateTime.now().subtract(const Duration(days: 1)),
-  ),
-  // 6. Unread Notification on another followed topic (Business)
-  InAppNotification(
-    id: kInAppNotificationId6,
-    userId: kUser1Id,
-    payload: PushNotificationPayload(
-      title: _headlineById(kHeadlineId7).title,
-      body: _headlineById(kHeadlineId7).excerpt,
-      imageUrl: _headlineById(kHeadlineId7).imageUrl,
-      data: {
-        'notificationId': kInAppNotificationId6,
-        'notificationType':
-            PushNotificationSubscriptionDeliveryType.breakingOnly.name,
-        'contentType': 'headline',
-        'headlineId': kHeadlineId7,
-      },
-    ),
-    createdAt: DateTime.now().subtract(const Duration(hours: 4)),
-    readAt: null,
-  ),
-];
+  return List.generate(21, (index) {
+    final headline = headlinesFixturesData[index % headlineIds.length];
+    final notificationId = notificationIds[index];
+    final isRead = index < 2;
+
+    return InAppNotification(
+      id: notificationId,
+      userId: kAdminUserId,
+      payload: PushNotificationPayload(
+        title: headline.title,
+        body: headline.excerpt,
+        imageUrl: headline.imageUrl,
+        data: {
+          'notificationId': notificationId,
+          'notificationType':
+              PushNotificationSubscriptionDeliveryType.breakingOnly.name,
+          'contentType': 'headline',
+          'headlineId': headline.id,
+        },
+      ),
+      createdAt: DateTime.now().subtract(Duration(days: index * 2)),
+      readAt: isRead ? DateTime.now().subtract(Duration(hours: index)) : null,
+    );
+  });
+}
