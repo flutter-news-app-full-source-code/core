@@ -22,7 +22,7 @@ List<InAppNotification> _generateAdminNotifications() {
   return List.generate(21, (index) {
     final headline = headlinesFixturesData[index % headlineIds.length];
     final notificationId = notificationIds[index];
-    final isRead = index < 2;
+    final isRead = index > 3;
 
     return InAppNotification(
       id: notificationId,

@@ -54,7 +54,7 @@ final headlinesFixturesData = <Headline>[
   ),
   Headline(
     id: kHeadlineId4,
-    isBreaking: false,
+    isBreaking: true,
     title: 'New Planet Discovered in Distant Galaxy',
     excerpt:
         'Astronomers confirm the existence of a new exoplanet, sparking excitement in the scientific community.',
