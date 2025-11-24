@@ -5,7 +5,7 @@ import 'package:meta/meta.dart';
 part 'ad_platform_identifiers.g.dart';
 
 /// {@template ad_platform_identifiers}
-/// Holds all ad identifiers for a specific platform (AdMob, Demo etc ).
+/// Holds all ad identifiers for a specific platform (AdMob, etc ).
 /// This object is generic and will be stored in a map in "AdConfig".
 /// {@endtemplate}
 @immutable
@@ -13,11 +13,9 @@ part 'ad_platform_identifiers.g.dart';
 class AdPlatformIdentifiers extends Equatable {
   /// {@macro ad_platform_identifiers}
   const AdPlatformIdentifiers({
-    this.feedNativeAdId,
-    this.feedBannerAdId,
-    this.feedToArticleInterstitialAdId,
-    this.inArticleNativeAdId,
-    this.inArticleBannerAdId,
+    this.nativeAdId,
+    this.bannerAdId,
+    this.interstitialAdId,
   });
 
   /// Creates an [AdPlatformIdentifiers] from JSON data.
@@ -27,46 +25,29 @@ class AdPlatformIdentifiers extends Equatable {
   /// Converts this [AdPlatformIdentifiers] instance to JSON data.
   Map<String, dynamic> toJson() => _$AdPlatformIdentifiersToJson(this);
 
-  /// ID for native ads in feeds.
-  final String? feedNativeAdId;
+  /// ID for native ads.
+  final String? nativeAdId;
 
-  /// ID for banner ads in feeds.
-  final String? feedBannerAdId;
+  /// ID for banner ads.
+  final String? bannerAdId;
 
-  /// ID for interstitial ads during feed-to-article transitions.
-  final String? feedToArticleInterstitialAdId;
-
-  /// ID for native in-article ads.
-  final String? inArticleNativeAdId;
-
-  /// ID for banner in-article ads.
-  final String? inArticleBannerAdId;
+  /// ID for interstitial ads.
+  final String? interstitialAdId;
 
   @override
-  List<Object?> get props => [
-    feedNativeAdId,
-    feedBannerAdId,
-    feedToArticleInterstitialAdId,
-    inArticleNativeAdId,
-    inArticleBannerAdId,
-  ];
+  List<Object?> get props => [nativeAdId, bannerAdId, interstitialAdId];
 
   /// Creates a copy of this [AdPlatformIdentifiers] but with the given fields
   /// replaced with the new values.
   AdPlatformIdentifiers copyWith({
-    String? feedNativeAdId,
-    String? feedBannerAdId,
-    String? feedToArticleInterstitialAdId,
-    String? inArticleNativeAdId,
-    String? inArticleBannerAdId,
+    String? nativeAdId,
+    String? bannerAdId,
+    String? interstitialAdId,
   }) {
     return AdPlatformIdentifiers(
-      feedNativeAdId: feedNativeAdId ?? this.feedNativeAdId,
-      feedBannerAdId: feedBannerAdId ?? this.feedBannerAdId,
-      feedToArticleInterstitialAdId:
-          feedToArticleInterstitialAdId ?? this.feedToArticleInterstitialAdId,
-      inArticleNativeAdId: inArticleNativeAdId ?? this.inArticleNativeAdId,
-      inArticleBannerAdId: inArticleBannerAdId ?? this.inArticleBannerAdId,
+      nativeAdId: nativeAdId ?? this.nativeAdId,
+      bannerAdId: bannerAdId ?? this.bannerAdId,
+      interstitialAdId: interstitialAdId ?? this.interstitialAdId,
     );
   }
 }
