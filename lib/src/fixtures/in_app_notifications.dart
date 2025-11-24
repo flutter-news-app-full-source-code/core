@@ -29,7 +29,6 @@ List<InAppNotification> _generateAdminNotifications() {
       userId: kAdminUserId,
       payload: PushNotificationPayload(
         title: headline.title,
-        body: headline.excerpt,
         imageUrl: headline.imageUrl,
         data: {
           'notificationId': notificationId,

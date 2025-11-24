@@ -8,7 +8,7 @@ part 'push_notification_payload.g.dart';
 /// Represents the generic structure of a push notification message.
 ///
 /// This model defines the content of a notification, such as its title and
-/// body, and includes a flexible `data` map for custom payloads, typically
+/// image, and includes a flexible `data` map for custom payloads, typically
 /// used for deep-linking or passing additional information to the client app.
 /// {@endtemplate}
 @immutable
@@ -17,7 +17,6 @@ class PushNotificationPayload extends Equatable {
   /// {@macro push_notification_payload}
   const PushNotificationPayload({
     required this.title,
-    required this.body,
     required this.data,
     this.imageUrl,
   });
@@ -28,9 +27,6 @@ class PushNotificationPayload extends Equatable {
 
   /// The title of the notification.
   final String title;
-
-  /// The main body text of the notification.
-  final String body;
 
   /// An optional URL for an image to be displayed in the notification.
   final String? imageUrl;
@@ -46,19 +42,17 @@ class PushNotificationPayload extends Equatable {
   Map<String, dynamic> toJson() => _$PushNotificationPayloadToJson(this);
 
   @override
-  List<Object?> get props => [title, body, imageUrl, data];
+  List<Object?> get props => [title, imageUrl, data];
 
   /// Creates a copy of this [PushNotificationPayload] but with the given fields
   /// replaced with the new values.
   PushNotificationPayload copyWith({
     String? title,
-    String? body,
     String? imageUrl,
     Map<String, dynamic>? data,
   }) {
     return PushNotificationPayload(
       title: title ?? this.title,
-      body: body ?? this.body,
       imageUrl: imageUrl ?? this.imageUrl,
       data: data ?? this.data,
     );
