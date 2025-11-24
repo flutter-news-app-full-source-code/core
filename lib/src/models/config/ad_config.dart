@@ -61,7 +61,7 @@ class AdConfig extends Equatable {
     AdPlatformType? primaryAdPlatform,
     Map<AdPlatformType, AdPlatformIdentifiers>? platformAdIdentifiers,
     FeedAdConfiguration? feedAdConfiguration,
-    NavigationAdConfiguration? interstitialAdConfiguration,
+    NavigationAdConfiguration? navigationAdConfiguration,
   }) {
     return AdConfig(
       enabled: enabled ?? this.enabled,
@@ -70,7 +70,7 @@ class AdConfig extends Equatable {
           platformAdIdentifiers ?? this.platformAdIdentifiers,
       feedAdConfiguration: feedAdConfiguration ?? this.feedAdConfiguration,
       navigationAdConfiguration:
-          interstitialAdConfiguration ?? this.navigationAdConfiguration,
+          navigationAdConfiguration ?? this.navigationAdConfiguration,
     );
   }
 }
