@@ -21,9 +21,9 @@ final List<UserAppSettings> userAppSettingsFixturesData = [
       status: ContentStatus.active,
     ),
     feedSettings: const FeedDisplayPreferences(
-      feedItemsDensity: FeedItemDensity.standard,
-      feedItemsImageStyle: FeedItemImageStyle.smallThumbnail,
-      feedItemsClickBehavior: FeedItemClickBehavior.defaultBehavior,
+      feedItemDensity: FeedItemDensity.standard,
+      feedItemImageStyle: FeedItemImageStyle.smallThumbnail,
+      feedItemClickBehavior: FeedItemClickBehavior.defaultBehavior,
     ),
   ),
   UserAppSettings(
@@ -45,9 +45,9 @@ final List<UserAppSettings> userAppSettingsFixturesData = [
       status: ContentStatus.active,
     ),
     feedSettings: const FeedDisplayPreferences(
-      feedItemsDensity: FeedItemDensity.standard,
-      feedItemsImageStyle: FeedItemImageStyle.smallThumbnail,
-      feedItemsClickBehavior: FeedItemClickBehavior.defaultBehavior,
+      feedItemDensity: FeedItemDensity.standard,
+      feedItemImageStyle: FeedItemImageStyle.smallThumbnail,
+      feedItemClickBehavior: FeedItemClickBehavior.defaultBehavior,
     ),
   ),
   UserAppSettings(
@@ -69,9 +69,9 @@ final List<UserAppSettings> userAppSettingsFixturesData = [
       status: ContentStatus.active,
     ),
     feedSettings: const FeedDisplayPreferences(
-      feedItemsDensity: FeedItemDensity.compact,
-      feedItemsImageStyle: FeedItemImageStyle.largeThumbnail,
-      feedItemsClickBehavior: FeedItemClickBehavior.defaultBehavior,
+      feedItemDensity: FeedItemDensity.compact,
+      feedItemImageStyle: FeedItemImageStyle.largeThumbnail,
+      feedItemClickBehavior: FeedItemClickBehavior.defaultBehavior,
     ),
   ),
   // Add settings for users 3-10, copying the admin's settings for simplicity
@@ -105,9 +105,9 @@ final List<UserAppSettings> userAppSettingsFixturesData = [
         status: ContentStatus.active,
       ),
       feedSettings: const FeedDisplayPreferences(
-        feedItemsDensity: FeedItemDensity.standard,
-        feedItemsImageStyle: FeedItemImageStyle.smallThumbnail,
-        feedItemsClickBehavior: FeedItemClickBehavior.defaultBehavior,
+        feedItemDensity: FeedItemDensity.standard,
+        feedItemImageStyle: FeedItemImageStyle.smallThumbnail,
+        feedItemClickBehavior: FeedItemClickBehavior.defaultBehavior,
       ),
     ),
   ),
