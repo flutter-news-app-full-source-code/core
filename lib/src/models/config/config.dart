@@ -1,13 +1,12 @@
 export 'ad_config.dart';
 export 'ad_platform_identifiers.dart';
 export 'app_status.dart';
-export 'article_ad_configuration.dart';
 export 'feed_ad_configuration.dart';
 export 'feed_ad_frequency_config.dart';
 export 'feed_decorator_config.dart';
 export 'feed_decorator_role_config.dart';
-export 'interstitial_ad_configuration.dart';
-export 'interstitial_ad_frequency_config.dart';
+export 'navigation_ad_configuration.dart';
+export 'navigation_ad_frequency_config.dart';
 export 'push_notification_config.dart';
 export 'remote_config.dart';
 export 'saved_filter_limits.dart';
