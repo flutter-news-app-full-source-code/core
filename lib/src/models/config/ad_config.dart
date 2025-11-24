@@ -1,8 +1,7 @@
 import 'package:core/src/enums/ad_platform_type.dart';
 import 'package:core/src/models/config/ad_platform_identifiers.dart';
-import 'package:core/src/models/config/article_ad_configuration.dart';
 import 'package:core/src/models/config/feed_ad_configuration.dart';
-import 'package:core/src/models/config/interstitial_ad_configuration.dart';
+import 'package:core/src/models/config/navigation_ad_configuration.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -21,8 +20,7 @@ class AdConfig extends Equatable {
     required this.primaryAdPlatform,
     required this.platformAdIdentifiers,
     required this.feedAdConfiguration,
-    required this.articleAdConfiguration,
-    required this.interstitialAdConfiguration,
+    required this.navigationAdConfiguration,
   });
 
   /// Creates an [AdConfig] from JSON data.
@@ -35,20 +33,17 @@ class AdConfig extends Equatable {
   /// Global switch to enable or disable all ads in the application.
   final bool enabled;
 
-  /// Global choice: AdMob or Demo.
+  /// Global choice: AdMob, etc.
   final AdPlatformType primaryAdPlatform;
 
   /// Map to store identifiers for all platforms.
   final Map<AdPlatformType, AdPlatformIdentifiers> platformAdIdentifiers;
 
-  /// Configuration for main feed, search feed, similar headlines feed.
+  /// Configuration for main feed, search feed, etc.
   final FeedAdConfiguration feedAdConfiguration;
 
-  /// Configuration for article page ads (excluding interstitial).
-  final ArticleAdConfiguration articleAdConfiguration;
-
-  /// Configuration for all interstitial ads.
-  final InterstitialAdConfiguration interstitialAdConfiguration;
+  /// Configuration for all navigation ads.
+  final NavigationAdConfiguration navigationAdConfiguration;
 
   @override
   List<Object> get props => [
@@ -56,8 +51,7 @@ class AdConfig extends Equatable {
     primaryAdPlatform,
     platformAdIdentifiers,
     feedAdConfiguration,
-    articleAdConfiguration,
-    interstitialAdConfiguration,
+    navigationAdConfiguration,
   ];
 
   /// Creates a copy of this [AdConfig] but with the given fields replaced
@@ -67,8 +61,7 @@ class AdConfig extends Equatable {
     AdPlatformType? primaryAdPlatform,
     Map<AdPlatformType, AdPlatformIdentifiers>? platformAdIdentifiers,
     FeedAdConfiguration? feedAdConfiguration,
-    ArticleAdConfiguration? articleAdConfiguration,
-    InterstitialAdConfiguration? interstitialAdConfiguration,
+    NavigationAdConfiguration? interstitialAdConfiguration,
   }) {
     return AdConfig(
       enabled: enabled ?? this.enabled,
@@ -76,10 +69,8 @@ class AdConfig extends Equatable {
       platformAdIdentifiers:
           platformAdIdentifiers ?? this.platformAdIdentifiers,
       feedAdConfiguration: feedAdConfiguration ?? this.feedAdConfiguration,
-      articleAdConfiguration:
-          articleAdConfiguration ?? this.articleAdConfiguration,
-      interstitialAdConfiguration:
-          interstitialAdConfiguration ?? this.interstitialAdConfiguration,
+      navigationAdConfiguration:
+          interstitialAdConfiguration ?? this.navigationAdConfiguration,
     );
   }
 }
