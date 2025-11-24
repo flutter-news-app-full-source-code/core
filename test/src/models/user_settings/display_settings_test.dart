@@ -5,7 +5,7 @@ void main() {
   group('DisplaySettings', () {
     // Derive the test subject from the main app settings fixture.
     final displaySettingsFixture =
-        userAppSettingsFixturesData.first.displaySettings;
+        appSettingsFixturesData.first.displaySettings;
 
     test('supports value equality', () {
       final settings1 = displaySettingsFixture.copyWith();

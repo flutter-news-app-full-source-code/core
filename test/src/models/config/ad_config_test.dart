@@ -18,8 +18,8 @@ void main() {
         isA<ArticleAdConfiguration>(),
       );
       expect(
-        adConfigFixture.interstitialAdConfiguration,
-        isA<InterstitialAdConfiguration>(),
+        adConfigFixture.navigationAdConfiguration,
+        isA<NavigationAdConfiguration>(),
       );
     });
 
@@ -35,13 +35,13 @@ void main() {
         feedAdConfiguration: adConfigFixture.feedAdConfiguration.copyWith(
           enabled: false,
         ),
-        interstitialAdConfiguration: adConfigFixture.interstitialAdConfiguration
+        navigationAdConfiguration: adConfigFixture.navigationAdConfiguration
             .copyWith(enabled: false),
       );
 
       expect(updatedConfig.primaryAdPlatform, AdPlatformType.admob);
       expect(updatedConfig.feedAdConfiguration.enabled, isFalse);
-      expect(updatedConfig.interstitialAdConfiguration.enabled, isFalse);
+      expect(updatedConfig.navigationAdConfiguration.enabled, isFalse);
       expect(updatedConfig, isNot(equals(adConfigFixture)));
     });
 

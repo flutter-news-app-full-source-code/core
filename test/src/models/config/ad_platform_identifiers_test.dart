@@ -16,19 +16,19 @@ void main() {
     test('can be instantiated (AdMob)', () {
       expect(admobIdentifiersFixture, isA<AdPlatformIdentifiers>());
       expect(
-        admobIdentifiersFixture.feedNativeAdId,
+        admobIdentifiersFixture.nativeAdId,
         'ca-app-pub-3940256099942544/2247696110',
       );
       expect(
-        admobIdentifiersFixture.feedToArticleInterstitialAdId,
+        admobIdentifiersFixture.interstitialAdId,
         'ca-app-pub-3940256099942544/1033173712',
       );
     });
 
     test('can be instantiated (Demo)', () {
       expect(demoIdentifiersFixture, isA<AdPlatformIdentifiers>());
-      expect(demoIdentifiersFixture.feedNativeAdId, '_');
-      expect(demoIdentifiersFixture.feedToArticleInterstitialAdId, '_');
+      expect(demoIdentifiersFixture.nativeAdId, '_');
+      expect(demoIdentifiersFixture.interstitialAdId, '_');
     });
 
     test('supports value equality', () {
@@ -39,11 +39,11 @@ void main() {
 
     test('copyWith returns a new instance with updated values', () {
       final updatedIdentifiers = admobIdentifiersFixture.copyWith(
-        feedNativeAdId: 'new_native_id',
+        nativeAdId: 'new_native_id',
         inArticleBannerAdId: 'new_banner_id',
       );
 
-      expect(updatedIdentifiers.feedNativeAdId, 'new_native_id');
+      expect(updatedIdentifiers.nativeAdId, 'new_native_id');
       expect(updatedIdentifiers.inArticleBannerAdId, 'new_banner_id');
       expect(updatedIdentifiers, isNot(equals(admobIdentifiersFixture)));
     });
