@@ -70,19 +70,14 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
       primaryAdPlatform: AdPlatformType.demo,
       platformAdIdentifiers: {
         AdPlatformType.admob: AdPlatformIdentifiers(
-          feedNativeAdId: 'ca-app-pub-3940256099942544/2247696110',
-          feedBannerAdId: 'ca-app-pub-3940256099942544/6300978111',
-          feedToArticleInterstitialAdId:
-              'ca-app-pub-3940256099942544/1033173712',
-          inArticleNativeAdId: 'ca-app-pub-3940256099942544/3986624511',
-          inArticleBannerAdId: 'ca-app-pub-3940256099942544/6300978111',
+          nativeAdId: 'ca-app-pub-3940256099942544/2247696110',
+          bannerAdId: 'ca-app-pub-3940256099942544/6300978111',
+          interstitialAdId: 'ca-app-pub-3940256099942544/1033173712',
         ),
         AdPlatformType.demo: AdPlatformIdentifiers(
-          feedNativeAdId: '_',
-          feedBannerAdId: '_',
-          feedToArticleInterstitialAdId: '_',
-          inArticleNativeAdId: '_',
-          inArticleBannerAdId: '_',
+          nativeAdId: '_',
+          bannerAdId: '_',
+          interstitialAdId: '_',
         ),
       },
       feedAdConfiguration: FeedAdConfiguration(
@@ -99,28 +94,16 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
           ),
         },
       ),
-      articleAdConfiguration: ArticleAdConfiguration(
-        enabled: true,
-        bannerAdShape: BannerAdShape.rectangle,
-        visibleTo: {
-          AppUserRole.guestUser: {
-            InArticleAdSlotType.aboveArticleContinueReadingButton: true,
-            InArticleAdSlotType.belowArticleContinueReadingButton: true,
-          },
-          AppUserRole.standardUser: {
-            InArticleAdSlotType.aboveArticleContinueReadingButton: true,
-            InArticleAdSlotType.belowArticleContinueReadingButton: true,
-          },
-        },
-      ),
-      interstitialAdConfiguration: InterstitialAdConfiguration(
+      navigationAdConfiguration: NavigationAdConfiguration(
         enabled: true,
         visibleTo: {
-          AppUserRole.guestUser: InterstitialAdFrequencyConfig(
-            transitionsBeforeShowingInterstitialAds: 5,
+          AppUserRole.guestUser: NavigationAdFrequencyConfig(
+            internalNavigationsBeforeShowingInterstitialAd: 5,
+            externalNavigationsBeforeShowingInterstitialAd: 5,
           ),
-          AppUserRole.standardUser: InterstitialAdFrequencyConfig(
-            transitionsBeforeShowingInterstitialAds: 10,
+          AppUserRole.standardUser: NavigationAdFrequencyConfig(
+            internalNavigationsBeforeShowingInterstitialAd: 8,
+            externalNavigationsBeforeShowingInterstitialAd: 8,
           ),
         },
       ),
@@ -158,5 +141,6 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
         PushNotificationSubscriptionDeliveryType.weeklyRoundup: true,
       },
     ),
+    defaultHeadlineClickBehavior: FeedItemClickBehavior.internalNavigation,
   ),
 ];
