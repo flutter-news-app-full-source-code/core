@@ -10,20 +10,9 @@ AdPlatformIdentifiers _$AdPlatformIdentifiersFromJson(
   Map<String, dynamic> json,
 ) => $checkedCreate('AdPlatformIdentifiers', json, ($checkedConvert) {
   final val = AdPlatformIdentifiers(
-    feedNativeAdId: $checkedConvert('feedNativeAdId', (v) => v as String?),
-    feedBannerAdId: $checkedConvert('feedBannerAdId', (v) => v as String?),
-    feedToArticleInterstitialAdId: $checkedConvert(
-      'feedToArticleInterstitialAdId',
-      (v) => v as String?,
-    ),
-    inArticleNativeAdId: $checkedConvert(
-      'inArticleNativeAdId',
-      (v) => v as String?,
-    ),
-    inArticleBannerAdId: $checkedConvert(
-      'inArticleBannerAdId',
-      (v) => v as String?,
-    ),
+    nativeAdId: $checkedConvert('nativeAdId', (v) => v as String?),
+    bannerAdId: $checkedConvert('bannerAdId', (v) => v as String?),
+    interstitialAdId: $checkedConvert('interstitialAdId', (v) => v as String?),
   );
   return val;
 });
@@ -31,9 +20,7 @@ AdPlatformIdentifiers _$AdPlatformIdentifiersFromJson(
 Map<String, dynamic> _$AdPlatformIdentifiersToJson(
   AdPlatformIdentifiers instance,
 ) => <String, dynamic>{
-  'feedNativeAdId': instance.feedNativeAdId,
-  'feedBannerAdId': instance.feedBannerAdId,
-  'feedToArticleInterstitialAdId': instance.feedToArticleInterstitialAdId,
-  'inArticleNativeAdId': instance.inArticleNativeAdId,
-  'inArticleBannerAdId': instance.inArticleBannerAdId,
+  'nativeAdId': instance.nativeAdId,
+  'bannerAdId': instance.bannerAdId,
+  'interstitialAdId': instance.interstitialAdId,
 };

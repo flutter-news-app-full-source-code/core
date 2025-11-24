@@ -35,6 +35,10 @@ RemoteConfig _$RemoteConfigFromJson(Map<String, dynamic> json) =>
           'pushNotificationConfig',
           (v) => PushNotificationConfig.fromJson(v as Map<String, dynamic>),
         ),
+        feedItemClickBehavior: $checkedConvert(
+          'feedItemClickBehavior',
+          (v) => $enumDecode(_$FeedItemClickBehaviorEnumMap, v),
+        ),
         createdAt: $checkedConvert(
           'createdAt',
           (v) => dateTimeFromJson(v as String?),
@@ -57,6 +61,8 @@ Map<String, dynamic> _$RemoteConfigToJson(RemoteConfig instance) =>
       ),
       'appStatus': instance.appStatus.toJson(),
       'pushNotificationConfig': instance.pushNotificationConfig.toJson(),
+      'feedItemClickBehavior':
+          _$FeedItemClickBehaviorEnumMap[instance.feedItemClickBehavior]!,
       'createdAt': dateTimeToJson(instance.createdAt),
       'updatedAt': dateTimeToJson(instance.updatedAt),
     };
@@ -68,4 +74,10 @@ const _$FeedDecoratorTypeEnumMap = {
   FeedDecoratorType.enableNotifications: 'enableNotifications',
   FeedDecoratorType.suggestedTopics: 'suggestedTopics',
   FeedDecoratorType.suggestedSources: 'suggestedSources',
+};
+
+const _$FeedItemClickBehaviorEnumMap = {
+  FeedItemClickBehavior.defaultBehavior: 'default',
+  FeedItemClickBehavior.internalNavigation: 'internalNavigation',
+  FeedItemClickBehavior.externalNavigation: 'externalNavigation',
 };
