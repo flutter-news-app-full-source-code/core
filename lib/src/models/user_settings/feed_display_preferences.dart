@@ -13,27 +13,23 @@ part 'feed_display_preferences.g.dart';
 class FeedDisplayPreferences extends Equatable {
   /// {@macro feed_display_preferences}
   const FeedDisplayPreferences({
-    required this.headlineDensity,
-    required this.headlineImageStyle,
-    required this.showSourceInHeadlineFeed,
-    required this.showPublishDateInHeadlineFeed,
+    required this.feedItemDensity,
+    required this.feedItemImageStyle,
+    required this.feedItemClickBehavior,
   });
 
   /// Creates a [FeedDisplayPreferences] instance from a JSON map.
   factory FeedDisplayPreferences.fromJson(Map<String, dynamic> json) =>
       _$FeedDisplayPreferencesFromJson(json);
 
-  /// How densely headline information should be presented.
-  final HeadlineDensity headlineDensity;
+  /// How densely feed information should be presented.
+  final FeedItemDensity feedItemDensity;
 
-  /// How images should be displayed in the headline feed.
-  final HeadlineImageStyle headlineImageStyle;
+  /// How images should be displayed in the feed.
+  final FeedItemImageStyle feedItemImageStyle;
 
-  /// Whether to show the source name directly in the headline feed item.
-  final bool showSourceInHeadlineFeed;
-
-  /// Whether to show the publish date in the headline feed item.
-  final bool showPublishDateInHeadlineFeed;
+  /// How feed items links should be opened.
+  final FeedItemClickBehavior feedItemClickBehavior;
 
   /// Converts this [FeedDisplayPreferences] instance to a JSON map.
   Map<String, dynamic> toJson() => _$FeedDisplayPreferencesToJson(this);
@@ -41,26 +37,22 @@ class FeedDisplayPreferences extends Equatable {
   /// Creates a copy of this [FeedDisplayPreferences] but with the given fields
   /// replaced with the new values.
   FeedDisplayPreferences copyWith({
-    HeadlineDensity? headlineDensity,
-    HeadlineImageStyle? headlineImageStyle,
-    bool? showSourceInHeadlineFeed,
-    bool? showPublishDateInHeadlineFeed,
+    FeedItemDensity? feedItemDensity,
+    FeedItemImageStyle? feedItemImageStyle,
+    FeedItemClickBehavior? feedItemClickBehavior,
   }) {
     return FeedDisplayPreferences(
-      headlineDensity: headlineDensity ?? this.headlineDensity,
-      headlineImageStyle: headlineImageStyle ?? this.headlineImageStyle,
-      showSourceInHeadlineFeed:
-          showSourceInHeadlineFeed ?? this.showSourceInHeadlineFeed,
-      showPublishDateInHeadlineFeed:
-          showPublishDateInHeadlineFeed ?? this.showPublishDateInHeadlineFeed,
+      feedItemDensity: feedItemDensity ?? this.feedItemDensity,
+      feedItemImageStyle: feedItemImageStyle ?? this.feedItemImageStyle,
+      feedItemClickBehavior:
+          feedItemClickBehavior ?? this.feedItemClickBehavior,
     );
   }
 
   @override
   List<Object?> get props => [
-    headlineDensity,
-    headlineImageStyle,
-    showSourceInHeadlineFeed,
-    showPublishDateInHeadlineFeed,
+    feedItemDensity,
+    feedItemImageStyle,
+    feedItemClickBehavior,
   ];
 }
