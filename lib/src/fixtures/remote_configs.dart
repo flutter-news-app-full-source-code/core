@@ -132,6 +132,7 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
         },
       ),
     },
+    feedItemClickBehavior: FeedItemClickBehavior.internalNavigation,
     pushNotificationConfig: const PushNotificationConfig(
       enabled: true,
       primaryProvider: PushNotificationProvider.firebase,
@@ -141,6 +142,5 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
         PushNotificationSubscriptionDeliveryType.weeklyRoundup: true,
       },
     ),
-    feedItemClickBehavior: FeedItemClickBehavior.internalNavigation,
   ),
 ];
