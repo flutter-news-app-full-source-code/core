@@ -20,11 +20,10 @@ final List<UserAppSettings> userAppSettingsFixturesData = [
       updatedAt: DateTime.now(),
       status: ContentStatus.active,
     ),
-    feedPreferences: const FeedDisplayPreferences(
-      headlineDensity: HeadlineDensity.standard,
-      headlineImageStyle: HeadlineImageStyle.smallThumbnail,
-      showSourceInHeadlineFeed: true,
-      showPublishDateInHeadlineFeed: true,
+    feedSettings: const FeedDisplayPreferences(
+      feedItemsDensity: FeedItemDensity.standard,
+      feedItemsImageStyle: FeedItemImageStyle.smallThumbnail,
+      feedItemsClickBehavior: FeedItemClickBehavior.defaultBehavior,
     ),
   ),
   UserAppSettings(
@@ -45,11 +44,10 @@ final List<UserAppSettings> userAppSettingsFixturesData = [
       updatedAt: DateTime.now(),
       status: ContentStatus.active,
     ),
-    feedPreferences: const FeedDisplayPreferences(
-      headlineDensity: HeadlineDensity.standard,
-      headlineImageStyle: HeadlineImageStyle.smallThumbnail,
-      showSourceInHeadlineFeed: true,
-      showPublishDateInHeadlineFeed: true,
+    feedSettings: const FeedDisplayPreferences(
+      feedItemsDensity: FeedItemDensity.standard,
+      feedItemsImageStyle: FeedItemImageStyle.smallThumbnail,
+      feedItemsClickBehavior: FeedItemClickBehavior.defaultBehavior,
     ),
   ),
   UserAppSettings(
@@ -70,11 +68,10 @@ final List<UserAppSettings> userAppSettingsFixturesData = [
       updatedAt: DateTime.now(),
       status: ContentStatus.active,
     ),
-    feedPreferences: const FeedDisplayPreferences(
-      headlineDensity: HeadlineDensity.compact,
-      headlineImageStyle: HeadlineImageStyle.largeThumbnail,
-      showSourceInHeadlineFeed: true,
-      showPublishDateInHeadlineFeed: true,
+    feedSettings: const FeedDisplayPreferences(
+      feedItemsDensity: FeedItemDensity.compact,
+      feedItemsImageStyle: FeedItemImageStyle.largeThumbnail,
+      feedItemsClickBehavior: FeedItemClickBehavior.defaultBehavior,
     ),
   ),
   // Add settings for users 3-10, copying the admin's settings for simplicity
@@ -107,11 +104,10 @@ final List<UserAppSettings> userAppSettingsFixturesData = [
         updatedAt: DateTime.now(),
         status: ContentStatus.active,
       ),
-      feedPreferences: const FeedDisplayPreferences(
-        headlineDensity: HeadlineDensity.standard,
-        headlineImageStyle: HeadlineImageStyle.smallThumbnail,
-        showSourceInHeadlineFeed: true,
-        showPublishDateInHeadlineFeed: true,
+      feedSettings: const FeedDisplayPreferences(
+        feedItemsDensity: FeedItemDensity.standard,
+        feedItemsImageStyle: FeedItemImageStyle.smallThumbnail,
+        feedItemsClickBehavior: FeedItemClickBehavior.defaultBehavior,
       ),
     ),
   ),
