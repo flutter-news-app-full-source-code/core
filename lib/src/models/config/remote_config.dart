@@ -23,6 +23,7 @@ class RemoteConfig extends Equatable {
     required this.feedDecoratorConfig,
     required this.userPreferenceConfig,
     required this.pushNotificationConfig,
+    required this.feedItemClickBehavior,
     required this.createdAt,
     required this.updatedAt,
   });
@@ -50,6 +51,9 @@ class RemoteConfig extends Equatable {
   /// Defines the global configuration for the push notification system.
   final PushNotificationConfig pushNotificationConfig;
 
+  /// The default behavior when clicking feed items.
+  final FeedItemClickBehavior feedItemClickBehavior;
+
   /// The creation timestamp of the remote config.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
   final DateTime createdAt;
@@ -69,6 +73,7 @@ class RemoteConfig extends Equatable {
     Map<FeedDecoratorType, FeedDecoratorConfig>? feedDecoratorConfig,
     AppStatus? appStatus,
     PushNotificationConfig? pushNotificationConfig,
+    FeedItemClickBehavior? feedItemClickBehavior,
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
@@ -80,6 +85,8 @@ class RemoteConfig extends Equatable {
       appStatus: appStatus ?? this.appStatus,
       pushNotificationConfig:
           pushNotificationConfig ?? this.pushNotificationConfig,
+      feedItemClickBehavior:
+          feedItemClickBehavior ?? this.feedItemClickBehavior,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );
@@ -93,6 +100,7 @@ class RemoteConfig extends Equatable {
     feedDecoratorConfig,
     appStatus,
     pushNotificationConfig,
+    feedItemClickBehavior,
     createdAt,
     updatedAt,
   ];

@@ -141,6 +141,6 @@ final List<RemoteConfig> remoteConfigsFixturesData = [
         PushNotificationSubscriptionDeliveryType.weeklyRoundup: true,
       },
     ),
-    defaultHeadlineClickBehavior: FeedItemClickBehavior.internalNavigation,
+    feedItemClickBehavior: FeedItemClickBehavior.internalNavigation,
   ),
 ];
