@@ -4,7 +4,6 @@ import 'package:test/test.dart';
 void main() {
   group('PushNotificationPayload', () {
     const title = 'Breaking News';
-    const body = 'This is a test breaking news notification.';
     const imageUrl = 'https://example.com/image.jpg';
     const data = <String, dynamic>{
       'contentType': 'headline',
@@ -13,14 +12,12 @@ void main() {
 
     const payload = PushNotificationPayload(
       title: title,
-      body: body,
       imageUrl: imageUrl,
       data: data,
     );
 
     final json = <String, dynamic>{
       'title': title,
-      'body': body,
       'imageUrl': imageUrl,
       'data': data,
     };
@@ -29,7 +26,6 @@ void main() {
       // Arrange: Create another instance with the same values.
       const anotherPayload = PushNotificationPayload(
         title: title,
-        body: body,
         imageUrl: imageUrl,
         data: data,
       );
@@ -40,7 +36,7 @@ void main() {
 
     test('props are correct', () {
       // Assert: The props list should contain all the fields.
-      expect(payload.props, equals([title, body, imageUrl, data]));
+      expect(payload.props, equals([title, imageUrl, data]));
     });
 
     test('can be created from JSON', () {
@@ -62,20 +58,17 @@ void main() {
     test('copyWith creates a copy with updated values', () {
       // Arrange: Define the updated values.
       const newTitle = 'Updated News';
-      const newBody = 'Updated body content.';
 
       // Act: Create a copy with the updated values.
-      final copiedPayload = payload.copyWith(title: newTitle, body: newBody);
+      final copiedPayload = payload.copyWith(title: newTitle);
 
       // Assert: The new instance should have the updated values.
       expect(copiedPayload.title, equals(newTitle));
-      expect(copiedPayload.body, equals(newBody));
       expect(copiedPayload.imageUrl, equals(imageUrl));
       expect(copiedPayload.data, equals(data));
 
       // Assert: The original instance should remain unchanged.
       expect(payload.title, equals(title));
-      expect(payload.body, equals(body));
     });
 
     test(

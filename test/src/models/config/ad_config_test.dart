@@ -14,10 +14,6 @@ void main() {
       );
       expect(adConfigFixture.feedAdConfiguration, isA<FeedAdConfiguration>());
       expect(
-        adConfigFixture.articleAdConfiguration,
-        isA<ArticleAdConfiguration>(),
-      );
-      expect(
         adConfigFixture.navigationAdConfiguration,
         isA<NavigationAdConfiguration>(),
       );

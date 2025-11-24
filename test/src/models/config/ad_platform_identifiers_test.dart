@@ -40,11 +40,11 @@ void main() {
     test('copyWith returns a new instance with updated values', () {
       final updatedIdentifiers = admobIdentifiersFixture.copyWith(
         nativeAdId: 'new_native_id',
-        inArticleBannerAdId: 'new_banner_id',
+        interstitialAdId: 'new_banner_id',
       );
 
       expect(updatedIdentifiers.nativeAdId, 'new_native_id');
-      expect(updatedIdentifiers.inArticleBannerAdId, 'new_banner_id');
+      expect(updatedIdentifiers.interstitialAdId, 'new_interstitial_id');
       expect(updatedIdentifiers, isNot(equals(admobIdentifiersFixture)));
     });
 

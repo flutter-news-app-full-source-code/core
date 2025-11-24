@@ -32,7 +32,6 @@ void main() {
 
         expect(copiedHeadline.id, headlineFixture.id);
         expect(copiedHeadline.title, updatedTitle);
-        expect(copiedHeadline.excerpt, headlineFixture.excerpt);
         expect(copiedHeadline.url, updatedUrl);
         expect(copiedHeadline.imageUrl, headlineFixture.imageUrl);
         expect(copiedHeadline.source, headlineFixture.source);
@@ -67,7 +66,6 @@ void main() {
         expect(headlineFixture.props, [
           headlineFixture.id,
           headlineFixture.title,
-          headlineFixture.excerpt,
           headlineFixture.url,
           headlineFixture.imageUrl,
           headlineFixture.createdAt,
