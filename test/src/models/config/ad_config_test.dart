@@ -3,11 +3,11 @@ import 'package:test/test.dart';
 
 void main() {
   group('AdConfig', () {
-    final adConfigFixture = remoteConfigsFixturesData.first.adConfig;
+    final adConfigFixture = remoteConfigsFixturesData.first.features.ads;
 
     test('can be instantiated', () {
       expect(adConfigFixture, isA<AdConfig>());
-      expect(adConfigFixture.primaryAdPlatform, AdPlatformType.demo);
+      expect(adConfigFixture.primaryAdPlatform, AdPlatformType.admob);
       expect(
         adConfigFixture.platformAdIdentifiers,
         isA<Map<AdPlatformType, AdPlatformIdentifiers>>(),
