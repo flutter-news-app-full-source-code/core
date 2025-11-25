@@ -1,4 +1,7 @@
 import 'package:core/core.dart';
+import 'package:core/src/models/config/app_config.dart';
+import 'package:core/src/models/config/features_config.dart';
+import 'package:core/src/models/config/user_config.dart';
 import 'package:core/src/utils/json_helpers.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -7,10 +10,8 @@ part 'remote_config.g.dart';
 
 /// Represents the overall application configuration.
 ///
-/// This model serves as a central container for various configuration
-/// settings that can be fetched from a remote source. It includes settings
-/// for user preference limits, ad display, and feed decorators.
-///
+/// This model serves as a central container for various configuration settings
+/// that can be fetched from a remote source.
 /// There should typically be only one instance of this configuration,
 /// identified by a fixed ID (e.g., 'app_config').
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
@@ -18,14 +19,11 @@ class RemoteConfig extends Equatable {
   /// Creates a new [RemoteConfig] instance.
   const RemoteConfig({
     required this.id,
-    required this.appStatus,
-    required this.adConfig,
-    required this.feedDecoratorConfig,
-    required this.userPreferenceConfig,
-    required this.pushNotificationConfig,
-    required this.feedItemClickBehavior,
     required this.createdAt,
     required this.updatedAt,
+    required this.app,
+    required this.features,
+    required this.user,
   });
 
   /// Factory method to create an [RemoteConfig] instance from a JSON map.
@@ -35,24 +33,14 @@ class RemoteConfig extends Equatable {
   /// The unique identifier for this configuration.
   final String id;
 
-  /// Defines configuration settings related to user preference limits.
-  final UserPreferenceConfig userPreferenceConfig;
+  /// Configuration for application-level settings (maintenance, updates, etc.).
+  final AppConfig app;
 
-  /// Defines configuration settings related to ad display.
-  final AdConfig adConfig;
+  /// Configuration for all user-facing features (ads, feed, notifications).
+  final FeaturesConfig features;
 
-  /// Defines configuration settings for all feed decorators.
-  final Map<FeedDecoratorType, FeedDecoratorConfig> feedDecoratorConfig;
-
-  /// Defines configuration settings related to the overall application status
-  /// (maintenance, updates).
-  final AppStatus appStatus;
-
-  /// Defines the global configuration for the push notification system.
-  final PushNotificationConfig pushNotificationConfig;
-
-  /// The default behavior when clicking feed items.
-  final FeedItemClickBehavior feedItemClickBehavior;
+  /// Configuration for user-specific settings (role-based limits, etc.).
+  final UserConfig user;
 
   /// The creation timestamp of the remote config.
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
@@ -68,42 +56,24 @@ class RemoteConfig extends Equatable {
   /// Creates a new [RemoteConfig] instance with specified changes.
   RemoteConfig copyWith({
     String? id,
-    UserPreferenceConfig? userPreferenceConfig,
-    AdConfig? adConfig,
-    Map<FeedDecoratorType, FeedDecoratorConfig>? feedDecoratorConfig,
-    AppStatus? appStatus,
-    PushNotificationConfig? pushNotificationConfig,
-    FeedItemClickBehavior? feedItemClickBehavior,
     DateTime? createdAt,
     DateTime? updatedAt,
+    AppConfig? app,
+    FeaturesConfig? features,
+    UserConfig? user,
   }) {
     return RemoteConfig(
       id: id ?? this.id,
-      userPreferenceConfig: userPreferenceConfig ?? this.userPreferenceConfig,
-      adConfig: adConfig ?? this.adConfig,
-      feedDecoratorConfig: feedDecoratorConfig ?? this.feedDecoratorConfig,
-      appStatus: appStatus ?? this.appStatus,
-      pushNotificationConfig:
-          pushNotificationConfig ?? this.pushNotificationConfig,
-      feedItemClickBehavior:
-          feedItemClickBehavior ?? this.feedItemClickBehavior,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
+      app: app ?? this.app,
+      features: features ?? this.features,
+      user: user ?? this.user,
     );
   }
 
   @override
-  List<Object> get props => [
-    id,
-    userPreferenceConfig,
-    adConfig,
-    feedDecoratorConfig,
-    appStatus,
-    pushNotificationConfig,
-    feedItemClickBehavior,
-    createdAt,
-    updatedAt,
-  ];
+  List<Object> get props => [id, createdAt, updatedAt, app, features, user];
 
   @override
   bool get stringify => true;
