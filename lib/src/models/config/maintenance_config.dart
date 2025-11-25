@@ -25,4 +25,12 @@ class MaintenanceConfig extends Equatable {
 
   @override
   List<Object> get props => [isUnderMaintenance];
+
+  /// Creates a copy of this [MaintenanceConfig] but with the given fields
+  /// replaced with the new values.
+  MaintenanceConfig copyWith({bool? isUnderMaintenance}) {
+    return MaintenanceConfig(
+      isUnderMaintenance: isUnderMaintenance ?? this.isUnderMaintenance,
+    );
+  }
 }

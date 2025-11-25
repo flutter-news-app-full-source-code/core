@@ -38,4 +38,18 @@ class FeaturesConfig extends Equatable {
 
   @override
   List<Object> get props => [ads, pushNotifications, feed];
+
+  /// Creates a copy of this [FeaturesConfig] but with the given fields
+  /// replaced with the new values.
+  FeaturesConfig copyWith({
+    AdConfig? ads,
+    PushNotificationConfig? pushNotifications,
+    FeedConfig? feed,
+  }) {
+    return FeaturesConfig(
+      ads: ads ?? this.ads,
+      pushNotifications: pushNotifications ?? this.pushNotifications,
+      feed: feed ?? this.feed,
+    );
+  }
 }

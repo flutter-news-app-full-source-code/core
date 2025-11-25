@@ -38,4 +38,18 @@ class AppConfig extends Equatable {
 
   @override
   List<Object> get props => [maintenance, update, general];
+
+  /// Creates a copy of this [AppConfig] but with the given fields
+  /// replaced with the new values.
+  AppConfig copyWith({
+    MaintenanceConfig? maintenance,
+    UpdateConfig? update,
+    GeneralAppConfig? general,
+  }) {
+    return AppConfig(
+      maintenance: maintenance ?? this.maintenance,
+      update: update ?? this.update,
+      general: general ?? this.general,
+    );
+  }
 }

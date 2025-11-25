@@ -31,4 +31,16 @@ class FeedConfig extends Equatable {
 
   @override
   List<Object> get props => [itemClickBehavior, decorators];
+
+  /// Creates a copy of this [FeedConfig] but with the given fields
+  /// replaced with the new values.
+  FeedConfig copyWith({
+    FeedItemClickBehavior? itemClickBehavior,
+    Map<FeedDecoratorType, FeedDecoratorConfig>? decorators,
+  }) {
+    return FeedConfig(
+      itemClickBehavior: itemClickBehavior ?? this.itemClickBehavior,
+      decorators: decorators ?? this.decorators,
+    );
+  }
 }
