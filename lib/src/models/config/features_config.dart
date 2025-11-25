@@ -1,0 +1,41 @@
+import 'package:core/src/models/config/ad_config.dart';
+import 'package:core/src/models/config/feed_config.dart';
+import 'package:core/src/models/config/push_notification_config.dart';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
+
+part 'features_config.g.dart';
+
+/// {@template features_config}
+/// A container for all user-facing feature configurations.
+/// {@endtemplate}
+@immutable
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
+class FeaturesConfig extends Equatable {
+  /// {@macro features_config}
+  const FeaturesConfig({
+    required this.ads,
+    required this.pushNotifications,
+    required this.feed,
+  });
+
+  /// Creates a [FeaturesConfig] from JSON data.
+  factory FeaturesConfig.fromJson(Map<String, dynamic> json) =>
+      _$FeaturesConfigFromJson(json);
+
+  /// Configuration for all ad-related features.
+  final AdConfig ads;
+
+  /// Configuration for the push notification system.
+  final PushNotificationConfig pushNotifications;
+
+  /// Configuration for all feed-related features.
+  final FeedConfig feed;
+
+  /// Converts this [FeaturesConfig] instance to JSON data.
+  Map<String, dynamic> toJson() => _$FeaturesConfigToJson(this);
+
+  @override
+  List<Object> get props => [ads, pushNotifications, feed];
+}
