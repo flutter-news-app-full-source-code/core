@@ -31,16 +31,16 @@ class GeneralAppConfig extends Equatable {
 
   @override
   List<Object> get props => [termsOfServiceUrl, privacyPolicyUrl];
-}
 
-/// Creates a copy of this [GeneralAppConfig] but with the given fields
-/// replaced with the new values.
-GeneralAppConfig copyWith({
-  String? termsOfServiceUrl,
-  String? privacyPolicyUrl,
-}) {
-  return GeneralAppConfig(
-    termsOfServiceUrl: termsOfServiceUrl ?? this.termsOfServiceUrl,
-    privacyPolicyUrl: privacyPolicyUrl ?? this.privacyPolicyUrl,
-  );
+  /// Creates a copy of this [GeneralAppConfig] but with the given fields
+  /// replaced with the new values.
+  GeneralAppConfig copyWith({
+    String? termsOfServiceUrl,
+    String? privacyPolicyUrl,
+  }) {
+    return GeneralAppConfig(
+      termsOfServiceUrl: termsOfServiceUrl ?? this.termsOfServiceUrl,
+      privacyPolicyUrl: privacyPolicyUrl ?? this.privacyPolicyUrl,
+    );
+  }
 }
