@@ -5,9 +5,9 @@ void main() {
   group('FeedDecoratorConfig', () {
     final remoteConfig = remoteConfigsFixturesData.first;
     final rateAppDecorator =
-        remoteConfig.feedDecoratorConfig[FeedDecoratorType.rateApp]!;
+        remoteConfig.features.feed.decorators[FeedDecoratorType.rateApp]!;
     final suggestedTopicsDecorator =
-        remoteConfig.feedDecoratorConfig[FeedDecoratorType.suggestedTopics]!;
+        remoteConfig.features.feed.decorators[FeedDecoratorType.suggestedTopics]!;
 
     test('can be instantiated', () {
       expect(rateAppDecorator, isA<FeedDecoratorConfig>());
