@@ -70,17 +70,12 @@ final remoteConfigsFixturesData = <RemoteConfig>[
     features: const FeaturesConfig(
       ads: AdConfig(
         enabled: true,
-        primaryAdPlatform: AdPlatformType.demo,
+        primaryAdPlatform: AdPlatformType.admob,
         platformAdIdentifiers: {
           AdPlatformType.admob: AdPlatformIdentifiers(
             nativeAdId: 'ca-app-pub-3940256099942544/2247696110',
             bannerAdId: 'ca-app-pub-3940256099942544/6300978111',
             interstitialAdId: 'ca-app-pub-3940256099942544/1033173712',
-          ),
-          AdPlatformType.demo: AdPlatformIdentifiers(
-            nativeAdId: '_',
-            bannerAdId: '_',
-            interstitialAdId: '_',
           ),
         },
         feedAdConfiguration: FeedAdConfiguration(
