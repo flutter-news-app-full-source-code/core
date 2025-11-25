@@ -30,13 +30,10 @@ List<InAppNotification> _generateAdminNotifications() {
       payload: PushNotificationPayload(
         title: headline.title,
         imageUrl: headline.imageUrl,
-        data: {
-          'notificationId': notificationId,
-          'notificationType':
-              PushNotificationSubscriptionDeliveryType.breakingOnly.name,
-          'contentType': 'headline',
-          'headlineId': headline.id,
-        },
+        notificationId: notificationId,
+        notificationType: PushNotificationSubscriptionDeliveryType.breakingOnly,
+        contentType: ContentType.headline,
+        contentId: headline.id,
       ),
       createdAt: DateTime.now().subtract(Duration(days: index * 2)),
       readAt: isRead ? DateTime.now().subtract(Duration(hours: index)) : null,
