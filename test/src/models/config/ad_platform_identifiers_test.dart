@@ -5,13 +5,9 @@ void main() {
   group('AdPlatformIdentifiers', () {
     final admobIdentifiersFixture = remoteConfigsFixturesData
         .first
-        .adConfig
+        .features
+        .ads
         .platformAdIdentifiers[AdPlatformType.admob]!;
-
-    final demoIdentifiersFixture = remoteConfigsFixturesData
-        .first
-        .adConfig
-        .platformAdIdentifiers[AdPlatformType.demo]!;
 
     test('can be instantiated (AdMob)', () {
       expect(admobIdentifiersFixture, isA<AdPlatformIdentifiers>());
@@ -25,12 +21,6 @@ void main() {
       );
     });
 
-    test('can be instantiated (Demo)', () {
-      expect(demoIdentifiersFixture, isA<AdPlatformIdentifiers>());
-      expect(demoIdentifiersFixture.nativeAdId, '_');
-      expect(demoIdentifiersFixture.interstitialAdId, '_');
-    });
-
     test('supports value equality', () {
       final identifiers1 = admobIdentifiersFixture.copyWith();
       final identifiers2 = admobIdentifiersFixture.copyWith();
@@ -40,7 +30,7 @@ void main() {
     test('copyWith returns a new instance with updated values', () {
       final updatedIdentifiers = admobIdentifiersFixture.copyWith(
         nativeAdId: 'new_native_id',
-        interstitialAdId: 'new_banner_id',
+        interstitialAdId: 'new_interstitial_id',
       );
 
       expect(updatedIdentifiers.nativeAdId, 'new_native_id');
@@ -59,12 +49,6 @@ void main() {
         final json = admobIdentifiersFixture.toJson();
         final result = AdPlatformIdentifiers.fromJson(json);
         expect(result, equals(admobIdentifiersFixture));
-      });
-
-      test('round trip (Demo)', () {
-        final json = demoIdentifiersFixture.toJson();
-        final result = AdPlatformIdentifiers.fromJson(json);
-        expect(result, equals(demoIdentifiersFixture));
       });
     });
   });
