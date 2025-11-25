@@ -2,20 +2,20 @@ import 'package:core/core.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('UserPreferenceConfig', () {
+  group('UserLimitsConfig', () {
     // Derive the test subject from the main remote config fixture.
-    final userPreferenceConfigFixture =
-        remoteConfigsFixturesData.first.userPreferenceConfig;
+    final UserLimitsConfigFixture =
+        remoteConfigsFixturesData.first.UserLimitsConfig;
 
     group('constructor', () {
       test('returns correct instance', () {
-        expect(userPreferenceConfigFixture, isA<UserPreferenceConfig>());
+        expect(UserLimitsConfigFixture, isA<UserLimitsConfig>());
         expect(
-          userPreferenceConfigFixture.followedItemsLimit[AppUserRole.guestUser],
+          UserLimitsConfigFixture.followedItemsLimit[AppUserRole.guestUser],
           isA<int>(),
         );
         expect(
-          userPreferenceConfigFixture.savedHeadlinesLimit[AppUserRole
+          UserLimitsConfigFixture.savedHeadlinesLimit[AppUserRole
               .premiumUser],
           isA<int>(),
         );
@@ -24,25 +24,25 @@ void main() {
 
     group('fromJson/toJson', () {
       test('round trip', () {
-        final json = userPreferenceConfigFixture.toJson();
-        final result = UserPreferenceConfig.fromJson(json);
-        expect(result, userPreferenceConfigFixture);
+        final json = UserLimitsConfigFixture.toJson();
+        final result = UserLimitsConfig.fromJson(json);
+        expect(result, UserLimitsConfigFixture);
       });
     });
 
     group('copyWith', () {
       test('returns a new instance with updated values', () {
         final newFollowedItemsLimit = Map.of(
-          userPreferenceConfigFixture.followedItemsLimit,
+          UserLimitsConfigFixture.followedItemsLimit,
         );
         newFollowedItemsLimit[AppUserRole.guestUser] = 6;
 
         final newSavedHeadlinesLimit = Map.of(
-          userPreferenceConfigFixture.savedHeadlinesLimit,
+          UserLimitsConfigFixture.savedHeadlinesLimit,
         );
         newSavedHeadlinesLimit[AppUserRole.premiumUser] = 101;
 
-        final updatedConfig = userPreferenceConfigFixture.copyWith(
+        final updatedConfig = UserLimitsConfigFixture.copyWith(
           followedItemsLimit: newFollowedItemsLimit,
           savedHeadlinesLimit: newSavedHeadlinesLimit,
         );
@@ -50,33 +50,33 @@ void main() {
         expect(updatedConfig.followedItemsLimit[AppUserRole.guestUser], 6);
         expect(
           updatedConfig.savedHeadlinesLimit[AppUserRole.guestUser],
-          userPreferenceConfigFixture.savedHeadlinesLimit[AppUserRole
+          UserLimitsConfigFixture.savedHeadlinesLimit[AppUserRole
               .guestUser],
         );
         expect(updatedConfig.savedHeadlinesLimit[AppUserRole.premiumUser], 101);
-        expect(updatedConfig, isNot(equals(userPreferenceConfigFixture)));
+        expect(updatedConfig, isNot(equals(UserLimitsConfigFixture)));
       });
 
       test('returns the same instance if no changes are made', () {
-        final updatedConfig = userPreferenceConfigFixture.copyWith();
-        expect(updatedConfig, equals(userPreferenceConfigFixture));
+        final updatedConfig = UserLimitsConfigFixture.copyWith();
+        expect(updatedConfig, equals(UserLimitsConfigFixture));
       });
     });
 
     group('Equatable', () {
       test('instances with the same properties are equal', () {
-        final config1 = userPreferenceConfigFixture.copyWith();
-        final config2 = userPreferenceConfigFixture.copyWith();
+        final config1 = UserLimitsConfigFixture.copyWith();
+        final config2 = UserLimitsConfigFixture.copyWith();
         expect(config1, config2);
       });
 
       test('instances with different properties are not equal', () {
-        final config1 = userPreferenceConfigFixture.copyWith();
+        final config1 = UserLimitsConfigFixture.copyWith();
         final newFollowedItemsLimit = Map.of(
-          userPreferenceConfigFixture.followedItemsLimit,
+          UserLimitsConfigFixture.followedItemsLimit,
         );
         newFollowedItemsLimit[AppUserRole.guestUser] = 99;
-        final config2 = userPreferenceConfigFixture.copyWith(
+        final config2 = UserLimitsConfigFixture.copyWith(
           followedItemsLimit: newFollowedItemsLimit,
         );
         expect(config1, isNot(equals(config2)));
