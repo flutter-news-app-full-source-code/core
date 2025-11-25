@@ -44,4 +44,20 @@ class UpdateConfig extends Equatable {
     iosUpdateUrl,
     androidUpdateUrl,
   ];
+
+  /// Creates a copy of this [UpdateConfig] but with the given fields
+  /// replaced with the new values.
+  UpdateConfig copyWith({
+    String? latestAppVersion,
+    bool? isLatestVersionOnly,
+    String? iosUpdateUrl,
+    String? androidUpdateUrl,
+  }) {
+    return UpdateConfig(
+      latestAppVersion: latestAppVersion ?? this.latestAppVersion,
+      isLatestVersionOnly: isLatestVersionOnly ?? this.isLatestVersionOnly,
+      iosUpdateUrl: iosUpdateUrl ?? this.iosUpdateUrl,
+      androidUpdateUrl: androidUpdateUrl ?? this.androidUpdateUrl,
+    );
+  }
 }
