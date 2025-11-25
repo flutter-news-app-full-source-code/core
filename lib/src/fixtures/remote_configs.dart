@@ -114,6 +114,24 @@ final remoteConfigsFixturesData = <RemoteConfig>[
       feed: FeedConfig(
         itemClickBehavior: FeedItemClickBehavior.internalNavigation,
         decorators: {
+          FeedDecoratorType.linkAccount: FeedDecoratorConfig(
+            category: FeedDecoratorCategory.callToAction,
+            enabled: true,
+            visibleTo: {
+              AppUserRole.guestUser: FeedDecoratorRoleConfig(
+                daysBetweenViews: 3,
+              ),
+            },
+          ),
+          FeedDecoratorType.upgrade: FeedDecoratorConfig(
+            category: FeedDecoratorCategory.callToAction,
+            enabled: true,
+            visibleTo: {
+              AppUserRole.standardUser: FeedDecoratorRoleConfig(
+                daysBetweenViews: 7,
+              ),
+            },
+          ),
           FeedDecoratorType.rateApp: FeedDecoratorConfig(
             category: FeedDecoratorCategory.callToAction,
             enabled: true,
@@ -125,11 +143,39 @@ final remoteConfigsFixturesData = <RemoteConfig>[
                 daysBetweenViews: 30,
               ),
               AppUserRole.premiumUser: FeedDecoratorRoleConfig(
-                daysBetweenViews: 0,
+                daysBetweenViews: 90,
+              ),
+            },
+          ),
+          FeedDecoratorType.enableNotifications: FeedDecoratorConfig(
+            category: FeedDecoratorCategory.callToAction,
+            enabled: true,
+            visibleTo: {
+              AppUserRole.guestUser: FeedDecoratorRoleConfig(
+                daysBetweenViews: 5,
+              ),
+              AppUserRole.standardUser: FeedDecoratorRoleConfig(
+                daysBetweenViews: 10,
+              ),
+              AppUserRole.premiumUser: FeedDecoratorRoleConfig(
+                daysBetweenViews: 20,
               ),
             },
           ),
           FeedDecoratorType.suggestedTopics: FeedDecoratorConfig(
+            category: FeedDecoratorCategory.contentCollection,
+            enabled: true,
+            itemsToDisplay: 5,
+            visibleTo: {
+              AppUserRole.guestUser: FeedDecoratorRoleConfig(
+                daysBetweenViews: 7,
+              ),
+              AppUserRole.standardUser: FeedDecoratorRoleConfig(
+                daysBetweenViews: 14,
+              ),
+            },
+          ),
+          FeedDecoratorType.suggestedSources: FeedDecoratorConfig(
             category: FeedDecoratorCategory.contentCollection,
             enabled: true,
             itemsToDisplay: 5,
