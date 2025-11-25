@@ -55,4 +55,20 @@ class UserLimitsConfig extends Equatable {
     savedHeadlineFilters,
     savedSourceFilters,
   ];
+
+  /// Creates a copy of this [UserLimitsConfig] but with the given fields
+  /// replaced with the new values.
+  UserLimitsConfig copyWith({
+    Map<AppUserRole, int>? followedItems,
+    Map<AppUserRole, int>? savedHeadlines,
+    Map<AppUserRole, SavedFilterLimits>? savedHeadlineFilters,
+    Map<AppUserRole, SavedFilterLimits>? savedSourceFilters,
+  }) {
+    return UserLimitsConfig(
+      followedItems: followedItems ?? this.followedItems,
+      savedHeadlines: savedHeadlines ?? this.savedHeadlines,
+      savedHeadlineFilters: savedHeadlineFilters ?? this.savedHeadlineFilters,
+      savedSourceFilters: savedSourceFilters ?? this.savedSourceFilters,
+    );
+  }
 }
