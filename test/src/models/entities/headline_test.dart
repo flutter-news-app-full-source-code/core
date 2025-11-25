@@ -62,7 +62,7 @@ void main() {
       });
 
       test('props list should contain all relevant fields', () {
-        expect(headlineFixture.props.length, 13);
+        expect(headlineFixture.props.length, 12);
         expect(headlineFixture.props, [
           headlineFixture.id,
           headlineFixture.title,
