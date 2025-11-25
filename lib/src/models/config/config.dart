@@ -1,7 +1,6 @@
 export 'ad_config.dart';
 export 'ad_platform_identifiers.dart';
 export 'app_config.dart';
-export 'app_status.dart';
 export 'features_config.dart';
 export 'feed_ad_configuration.dart';
 export 'feed_ad_frequency_config.dart';
