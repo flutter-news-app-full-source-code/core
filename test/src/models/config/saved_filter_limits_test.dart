@@ -4,12 +4,14 @@ import 'package:test/test.dart';
 void main() {
   group('SavedFilterLimits', () {
     final fullModel = remoteConfigsFixturesData[0]
-        .userPreferenceConfig
-        .savedHeadlineFiltersLimit[AppUserRole.standardUser]!;
+        .user
+        .limits
+        .savedHeadlineFilters[AppUserRole.standardUser]!;
 
     final minimalModel = remoteConfigsFixturesData[0]
-        .userPreferenceConfig
-        .savedSourceFiltersLimit[AppUserRole.standardUser]!;
+        .user
+        .limits
+        .savedSourceFilters[AppUserRole.standardUser]!;
 
     final fullJson = fullModel.toJson();
     final minimalJson = minimalModel.toJson();
