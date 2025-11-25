@@ -1,0 +1,74 @@
+import 'package:core/src/enums/app_user_role.dart';
+import 'package:core/src/models/config/saved_filter_limits.dart';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
+
+part 'user_limits_config.g.dart';
+
+/// {@template user_limits_config}
+/// Defines role-based quantitative limits for user actions and preferences.
+///
+/// This model uses a map-based structure where the key is the [AppUserRole]
+/// and the value is the specific limit for that role, ensuring a scalable
+/// and maintainable configuration for user-related constraints.
+/// {@endtemplate}
+@immutable
+@JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
+class UserLimitsConfig extends Equatable {
+  /// {@macro user_limits_config}
+  const UserLimitsConfig({
+    required this.followedItems,
+    required this.savedHeadlines,
+    required this.savedHeadlineFilters,
+    required this.savedSourceFilters,
+  });
+
+  /// Creates a [UserLimitsConfig] from JSON data.
+  factory UserLimitsConfig.fromJson(Map<String, dynamic> json) =>
+      _$UserLimitsConfigFromJson(json);
+
+  /// Role-based limits for the number of followed items (topics, sources,
+  /// countries). The limit applies to each category individually.
+  final Map<AppUserRole, int> followedItems;
+
+  /// Role-based limits for the number of saved headlines.
+  final Map<AppUserRole, int> savedHeadlines;
+
+  /// Role-based limits for saved headline filters, using the
+  /// [SavedFilterLimits] model to define total, pinned, and notification
+  /// subscription counts. This map defines the limits per user role.
+  final Map<AppUserRole, SavedFilterLimits> savedHeadlineFilters;
+
+  /// Role-based limits for saved source filters, using the
+  /// [SavedFilterLimits] model to define total and pinned counts. This map
+  /// defines the limits per user role.
+  final Map<AppUserRole, SavedFilterLimits> savedSourceFilters;
+
+  /// Converts this [UserLimitsConfig] instance to JSON data.
+  Map<String, dynamic> toJson() => _$UserLimitsConfigToJson(this);
+
+  @override
+  List<Object> get props => [
+    followedItems,
+    savedHeadlines,
+    savedHeadlineFilters,
+    savedSourceFilters,
+  ];
+
+  /// Creates a copy of this [UserLimitsConfig] but with the given fields
+  /// replaced with the new values.
+  UserLimitsConfig copyWith({
+    Map<AppUserRole, int>? followedItems,
+    Map<AppUserRole, int>? savedHeadlines,
+    Map<AppUserRole, SavedFilterLimits>? savedHeadlineFilters,
+    Map<AppUserRole, SavedFilterLimits>? savedSourceFilters,
+  }) {
+    return UserLimitsConfig(
+      followedItems: followedItems ?? this.followedItems,
+      savedHeadlines: savedHeadlines ?? this.savedHeadlines,
+      savedHeadlineFilters: savedHeadlineFilters ?? this.savedHeadlineFilters,
+      savedSourceFilters: savedSourceFilters ?? this.savedSourceFilters,
+    );
+  }
+}

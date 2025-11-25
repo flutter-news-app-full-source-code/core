@@ -21,7 +21,6 @@ class Headline extends FeedItem {
   const Headline({
     required this.id,
     required this.title,
-    required this.excerpt,
     required this.url,
     required this.imageUrl,
     required this.source,
@@ -42,9 +41,6 @@ class Headline extends FeedItem {
 
   /// Title of the headline.
   final String title;
-
-  /// Excerpt or snippet of the headline content.
-  final String excerpt;
 
   /// URL to the full article or content.
   final String url;
@@ -94,7 +90,6 @@ class Headline extends FeedItem {
   List<Object?> get props => [
     id,
     title,
-    excerpt,
     url,
     imageUrl,
     createdAt,
@@ -115,7 +110,6 @@ class Headline extends FeedItem {
   Headline copyWith({
     String? id,
     String? title,
-    String? excerpt,
     String? url,
     String? imageUrl,
     DateTime? createdAt,
@@ -129,7 +123,6 @@ class Headline extends FeedItem {
     return Headline(
       id: id ?? this.id,
       title: title ?? this.title,
-      excerpt: excerpt ?? this.excerpt,
       url: url ?? this.url,
       imageUrl: imageUrl ?? this.imageUrl,
       createdAt: createdAt ?? this.createdAt,

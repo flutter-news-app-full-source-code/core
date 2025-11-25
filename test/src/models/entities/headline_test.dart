@@ -32,7 +32,6 @@ void main() {
 
         expect(copiedHeadline.id, headlineFixture.id);
         expect(copiedHeadline.title, updatedTitle);
-        expect(copiedHeadline.excerpt, headlineFixture.excerpt);
         expect(copiedHeadline.url, updatedUrl);
         expect(copiedHeadline.imageUrl, headlineFixture.imageUrl);
         expect(copiedHeadline.source, headlineFixture.source);
@@ -63,11 +62,10 @@ void main() {
       });
 
       test('props list should contain all relevant fields', () {
-        expect(headlineFixture.props.length, 13);
+        expect(headlineFixture.props.length, 12);
         expect(headlineFixture.props, [
           headlineFixture.id,
           headlineFixture.title,
-          headlineFixture.excerpt,
           headlineFixture.url,
           headlineFixture.imageUrl,
           headlineFixture.createdAt,

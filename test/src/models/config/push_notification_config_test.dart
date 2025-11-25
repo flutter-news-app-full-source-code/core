@@ -6,7 +6,7 @@ void main() {
     // Retrieve the PushNotificationConfig from the remoteConfigsFixturesData.
     // This ensures consistency with predefined application configurations.
     final pushNotificationConfig =
-        remoteConfigsFixturesData.first.pushNotificationConfig;
+        remoteConfigsFixturesData.first.features.pushNotifications;
 
     // Corresponding JSON representation
     final json = pushNotificationConfig.toJson();
@@ -14,7 +14,7 @@ void main() {
     test('supports value equality', () {
       // Arrange: Create another instance with the same values.
       final anotherConfig =
-          remoteConfigsFixturesData.first.pushNotificationConfig;
+          remoteConfigsFixturesData.first.features.pushNotifications;
 
       // Assert: The two instances should be equal.
       expect(pushNotificationConfig, equals(anotherConfig));

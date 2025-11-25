@@ -20,13 +20,11 @@ void main() {
         remoteConfigFixture.props,
         equals([
           remoteConfigFixture.id,
-          remoteConfigFixture.userPreferenceConfig,
-          remoteConfigFixture.adConfig,
-          remoteConfigFixture.feedDecoratorConfig,
-          remoteConfigFixture.appStatus,
-          remoteConfigFixture.pushNotificationConfig,
           remoteConfigFixture.createdAt,
           remoteConfigFixture.updatedAt,
+          remoteConfigFixture.app,
+          remoteConfigFixture.features,
+          remoteConfigFixture.user,
         ]),
       );
     });
@@ -50,35 +48,32 @@ void main() {
     test('copyWith creates a copy with updated values', () {
       // Arrange: Define new values for various properties.
       const newId = 'new_app_config';
-      final newAppStatus = remoteConfigFixture.appStatus.copyWith(
-        isUnderMaintenance: true,
+      final newApp = remoteConfigFixture.app.copyWith(
+        maintenance: const MaintenanceConfig(isUnderMaintenance: true),
       );
-      final newPushConfig = remoteConfigFixture.pushNotificationConfig.copyWith(
-        primaryProvider: PushNotificationProvider.oneSignal,
+      final newFeatures = remoteConfigFixture.features.copyWith(
+        pushNotifications: remoteConfigFixture.features.pushNotifications
+            .copyWith(primaryProvider: PushNotificationProvider.oneSignal),
       );
 
       // Act: Create a copy with the updated values.
       final copiedConfig = remoteConfigFixture.copyWith(
         id: newId,
-        appStatus: newAppStatus,
-        pushNotificationConfig: newPushConfig,
+        app: newApp,
+        features: newFeatures,
       );
 
       // Assert: The new instance should have the updated values.
       expect(copiedConfig.id, equals(newId));
-      expect(copiedConfig.appStatus, equals(newAppStatus));
-      expect(copiedConfig.pushNotificationConfig, equals(newPushConfig));
+      expect(copiedConfig.app, equals(newApp));
+      expect(copiedConfig.features, equals(newFeatures));
 
       // Assert: Unchanged properties remain the same.
-      expect(
-        copiedConfig.userPreferenceConfig,
-        equals(remoteConfigFixture.userPreferenceConfig),
-      );
-      expect(copiedConfig.adConfig, equals(remoteConfigFixture.adConfig));
+      expect(copiedConfig.user, equals(remoteConfigFixture.user));
 
       // Assert: The original instance remains unchanged.
       expect(remoteConfigFixture.id, isNot(equals(newId)));
-      expect(remoteConfigFixture.appStatus, isNot(equals(newAppStatus)));
+      expect(remoteConfigFixture.app, isNot(equals(newApp)));
     });
 
     test(

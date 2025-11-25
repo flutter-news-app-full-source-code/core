@@ -6,7 +6,8 @@ void main() {
     // Access the FeedAdFrequencyConfig from the fixture's visibleTo map
     final feedAdFrequencyConfigFixture = remoteConfigsFixturesData
         .first
-        .adConfig
+        .features
+        .ads
         .feedAdConfiguration
         .visibleTo[AppUserRole.guestUser]!;
 

@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 void main() {
   group('FeedAdConfiguration', () {
     final feedAdConfigurationFixture =
-        remoteConfigsFixturesData.first.adConfig.feedAdConfiguration;
+        remoteConfigsFixturesData.first.features.ads.feedAdConfiguration;
 
     test('can be instantiated', () {
       expect(feedAdConfigurationFixture, isA<FeedAdConfiguration>());

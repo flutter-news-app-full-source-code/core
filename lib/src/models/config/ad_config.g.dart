@@ -27,14 +27,9 @@ AdConfig _$AdConfigFromJson(Map<String, dynamic> json) =>
           'feedAdConfiguration',
           (v) => FeedAdConfiguration.fromJson(v as Map<String, dynamic>),
         ),
-        articleAdConfiguration: $checkedConvert(
-          'articleAdConfiguration',
-          (v) => ArticleAdConfiguration.fromJson(v as Map<String, dynamic>),
-        ),
-        interstitialAdConfiguration: $checkedConvert(
-          'interstitialAdConfiguration',
-          (v) =>
-              InterstitialAdConfiguration.fromJson(v as Map<String, dynamic>),
+        navigationAdConfiguration: $checkedConvert(
+          'navigationAdConfiguration',
+          (v) => NavigationAdConfiguration.fromJson(v as Map<String, dynamic>),
         ),
       );
       return val;
@@ -47,8 +42,7 @@ Map<String, dynamic> _$AdConfigToJson(AdConfig instance) => <String, dynamic>{
     (k, e) => MapEntry(_$AdPlatformTypeEnumMap[k]!, e.toJson()),
   ),
   'feedAdConfiguration': instance.feedAdConfiguration.toJson(),
-  'articleAdConfiguration': instance.articleAdConfiguration.toJson(),
-  'interstitialAdConfiguration': instance.interstitialAdConfiguration.toJson(),
+  'navigationAdConfiguration': instance.navigationAdConfiguration.toJson(),
 };
 
 const _$AdPlatformTypeEnumMap = {

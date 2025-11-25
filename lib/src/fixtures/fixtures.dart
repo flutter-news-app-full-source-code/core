@@ -1,3 +1,4 @@
+export 'app_settings.dart';
 export 'countries.dart';
 export 'dashboard_summary.dart';
 export 'fixture_ids.dart';
@@ -9,6 +10,5 @@ export 'saved_headline_filters.dart';
 export 'saved_source_filters.dart';
 export 'sources.dart';
 export 'topics.dart';
-export 'user_app_settings.dart';
 export 'user_content_preferences.dart';
 export 'users.dart';
