@@ -11,15 +11,24 @@ part 'general_app_config.g.dart';
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class GeneralAppConfig extends Equatable {
   /// {@macro general_app_config}
-  const GeneralAppConfig();
+  const GeneralAppConfig({
+    required this.termsOfServiceUrl,
+    required this.privacyPolicyUrl,
+  });
 
   /// Creates a [GeneralAppConfig] from JSON data.
   factory GeneralAppConfig.fromJson(Map<String, dynamic> json) =>
       _$GeneralAppConfigFromJson(json);
 
+  /// The URL for the application's Terms of Service page.
+  final String termsOfServiceUrl;
+
+  /// The URL for the application's Privacy Policy page.
+  final String privacyPolicyUrl;
+
   /// Converts this [GeneralAppConfig] instance to JSON data.
   Map<String, dynamic> toJson() => _$GeneralAppConfigToJson(this);
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [termsOfServiceUrl, privacyPolicyUrl];
 }

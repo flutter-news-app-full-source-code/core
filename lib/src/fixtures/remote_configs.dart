@@ -1,7 +1,5 @@
 import 'package:core/core.dart';
 
-const kRemoteConfigId = 'app_config';
-
 final remoteConfigsFixturesData = <RemoteConfig>[
   RemoteConfig(
     id: kRemoteConfigId,
@@ -16,7 +14,10 @@ final remoteConfigsFixturesData = <RemoteConfig>[
         androidUpdateUrl:
             'https://play.google.com/store/apps/details?id=com.example.app',
       ),
-      general: GeneralAppConfig(),
+      general: GeneralAppConfig(
+        termsOfServiceUrl: 'https://example.com/terms',
+        privacyPolicyUrl: 'https://example.com/privacy',
+      ),
     ),
     user: const UserConfig(
       limits: UserLimitsConfig(
@@ -117,13 +118,15 @@ final remoteConfigsFixturesData = <RemoteConfig>[
             category: FeedDecoratorCategory.callToAction,
             enabled: true,
             visibleTo: {
-              AppUserRole.guestUser:
-                  FeedDecoratorRoleConfig(daysBetweenViews: 14),
+              AppUserRole.guestUser: FeedDecoratorRoleConfig(
+                daysBetweenViews: 14,
+              ),
               AppUserRole.standardUser: FeedDecoratorRoleConfig(
                 daysBetweenViews: 30,
               ),
-              AppUserRole.premiumUser:
-                  FeedDecoratorRoleConfig(daysBetweenViews: 0),
+              AppUserRole.premiumUser: FeedDecoratorRoleConfig(
+                daysBetweenViews: 0,
+              ),
             },
           ),
           FeedDecoratorType.suggestedTopics: FeedDecoratorConfig(
@@ -131,8 +134,9 @@ final remoteConfigsFixturesData = <RemoteConfig>[
             enabled: true,
             itemsToDisplay: 5,
             visibleTo: {
-              AppUserRole.guestUser:
-                  FeedDecoratorRoleConfig(daysBetweenViews: 7),
+              AppUserRole.guestUser: FeedDecoratorRoleConfig(
+                daysBetweenViews: 7,
+              ),
               AppUserRole.standardUser: FeedDecoratorRoleConfig(
                 daysBetweenViews: 14,
               ),
