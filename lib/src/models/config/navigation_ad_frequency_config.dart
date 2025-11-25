@@ -26,7 +26,7 @@ class NavigationAdFrequencyConfig extends Equatable {
   /// within the app before an interstitial ad is shown.
   final int internalNavigationsBeforeShowingInterstitialAd;
 
-  /// The number of external navigations a user needs to make 
+  /// The number of external navigations a user needs to make
   /// within the app before an interstitial ad is shown.
   final int externalNavigationsBeforeShowingInterstitialAd;
 

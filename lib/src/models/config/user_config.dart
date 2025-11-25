@@ -29,11 +29,7 @@ class UserConfig extends Equatable {
 
   /// Creates a copy of this [UserConfig] but with the given fields
   /// replaced with the new values.
-  UserConfig copyWith({
-    UserLimitsConfig? limits,
-  }) {
-    return UserConfig(
-      limits: limits ?? this.limits,
-    );
+  UserConfig copyWith({UserLimitsConfig? limits}) {
+    return UserConfig(limits: limits ?? this.limits);
   }
 }
