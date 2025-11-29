@@ -1,7 +1,7 @@
 import 'package:core/src/enums/enums.dart';
-import 'package:core/src/models/feed/feed_item.dart';
 import 'package:core/src/models/entities/country.dart';
 import 'package:core/src/models/entities/language.dart';
+import 'package:core/src/models/feed/feed_item.dart';
 import 'package:core/src/utils/utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
