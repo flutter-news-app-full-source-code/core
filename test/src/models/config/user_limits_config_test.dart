@@ -23,6 +23,8 @@ void main() {
           userLimitsConfigFixture.savedHeadlines,
           userLimitsConfigFixture.savedHeadlineFilters,
           userLimitsConfigFixture.savedSourceFilters,
+          userLimitsConfigFixture.commentsPerDay,
+          userLimitsConfigFixture.reportsPerDay,
         ]),
       );
     });
