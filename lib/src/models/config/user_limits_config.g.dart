@@ -42,6 +42,20 @@ UserLimitsConfig _$UserLimitsConfigFromJson(
         ),
       ),
     ),
+    commentsPerDay: $checkedConvert(
+      'commentsPerDay',
+      (v) => (v as Map<String, dynamic>).map(
+        (k, e) =>
+            MapEntry($enumDecode(_$AppUserRoleEnumMap, k), (e as num).toInt()),
+      ),
+    ),
+    reportsPerDay: $checkedConvert(
+      'reportsPerDay',
+      (v) => (v as Map<String, dynamic>).map(
+        (k, e) =>
+            MapEntry($enumDecode(_$AppUserRoleEnumMap, k), (e as num).toInt()),
+      ),
+    ),
   );
   return val;
 });
@@ -59,6 +73,12 @@ Map<String, dynamic> _$UserLimitsConfigToJson(UserLimitsConfig instance) =>
       ),
       'savedSourceFilters': instance.savedSourceFilters.map(
         (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e.toJson()),
+      ),
+      'commentsPerDay': instance.commentsPerDay.map(
+        (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e),
+      ),
+      'reportsPerDay': instance.reportsPerDay.map(
+        (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e),
       ),
     };
 
