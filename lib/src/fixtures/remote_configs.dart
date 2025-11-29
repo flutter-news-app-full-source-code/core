@@ -65,6 +65,16 @@ final remoteConfigsFixturesData = <RemoteConfig>[
           AppUserRole.standardUser: SavedFilterLimits(total: 10, pinned: 5),
           AppUserRole.premiumUser: SavedFilterLimits(total: 25, pinned: 10),
         },
+        commentsPerDay: {
+          AppUserRole.guestUser: 0,
+          AppUserRole.standardUser: 10,
+          AppUserRole.premiumUser: 50,
+        },
+        reportsPerDay: {
+          AppUserRole.guestUser: 1,
+          AppUserRole.standardUser: 5,
+          AppUserRole.premiumUser: 20,
+        },
       ),
     ),
     features: const FeaturesConfig(
@@ -198,6 +208,24 @@ final remoteConfigsFixturesData = <RemoteConfig>[
           PushNotificationSubscriptionDeliveryType.dailyDigest: true,
           PushNotificationSubscriptionDeliveryType.weeklyRoundup: true,
         },
+      ),
+      community: CommunityConfig(
+        engagement: EngagementConfig(
+          enabled: true,
+          engagementMode: EngagementMode.reactionsAndComments,
+          aiModerationEnabled: false,
+        ),
+        reporting: ReportingConfig(
+          headlineReportingEnabled: true,
+          sourceReportingEnabled: true,
+          commentReportingEnabled: true,
+        ),
+        appReview: AppReviewConfig(
+          // User must perform 5 positive actions (e.g., save headline)
+          // to become eligible for the review prompt.
+          positiveInteractionThreshold: 5,
+          initialPromptCooldownDays: 14,
+        ),
       ),
     ),
   ),

@@ -48,6 +48,9 @@ class UserLimitsConfig extends Equatable {
   final Map<AppUserRole, SavedFilterLimits> savedSourceFilters;
 
   /// Role-based limits for the number of comments a user can post per day.
+  ///
+  /// This limit applies specifically to the creation of new comments and does
+  /// not include other interactions like reactions.
   final Map<AppUserRole, int> commentsPerDay;
 
   /// Role-based limits for the number of reports a user can submit per day.
