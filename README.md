@@ -67,6 +67,27 @@ Provides data structures for persisting all user-specific configurations, from a
 </details>
 
 <details>
+<summary><strong>💬 Community & Engagement System</strong></summary>
+
+---
+
+### 💬 Reactions, Comments & Reporting
+
+Provides a complete suite of models for building a rich community interaction layer. This includes individualized reactions, a robust commenting system with a built-in moderation workflow, and a flexible reporting system for headlines, sources, and comments.
+
+> **Your Advantage:** Foster a vibrant and safe user community, maintain high content quality through effective moderation, and gather direct user feedback on your content.
+
+---
+
+### ⭐ Smart App Review Funnel
+
+Implements the data structures for a strategic, two-layer review funnel. This system intelligently prompts engaged users for public reviews while channeling critical feedback from dissatisfied users into private channels.
+
+> **Your Advantage:** Maximize positive app store ratings and improve your app's reputation by proactively managing user feedback and preventing negative public reviews.
+
+</details>
+
+<details>
 <summary><strong>🔔 Notification & Alerting System</strong></summary>
 
 ---
