@@ -65,6 +65,11 @@ final remoteConfigsFixturesData = <RemoteConfig>[
           AppUserRole.standardUser: SavedFilterLimits(total: 10, pinned: 5),
           AppUserRole.premiumUser: SavedFilterLimits(total: 25, pinned: 10),
         },
+        reactionsPerDay: {
+          AppUserRole.guestUser: 20,
+          AppUserRole.standardUser: 100,
+          AppUserRole.premiumUser: 500,
+        },
         commentsPerDay: {
           AppUserRole.guestUser: 0,
           AppUserRole.standardUser: 10,

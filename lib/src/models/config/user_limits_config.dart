@@ -22,6 +22,7 @@ class UserLimitsConfig extends Equatable {
     required this.savedHeadlines,
     required this.savedHeadlineFilters,
     required this.savedSourceFilters,
+    required this.reactionsPerDay,
     required this.commentsPerDay,
     required this.reportsPerDay,
   });
@@ -47,6 +48,9 @@ class UserLimitsConfig extends Equatable {
   /// defines the limits per user role.
   final Map<AppUserRole, SavedFilterLimits> savedSourceFilters;
 
+  /// Role-based limits for the number of reactions a user can perform per day.
+  final Map<AppUserRole, int> reactionsPerDay;
+
   /// Role-based limits for the number of comments a user can post per day.
   ///
   /// This limit applies specifically to the creation of new comments and does
@@ -65,6 +69,7 @@ class UserLimitsConfig extends Equatable {
     savedHeadlines,
     savedHeadlineFilters,
     savedSourceFilters,
+    reactionsPerDay,
     commentsPerDay,
     reportsPerDay,
   ];
@@ -78,6 +83,7 @@ class UserLimitsConfig extends Equatable {
     Map<AppUserRole, SavedFilterLimits>? savedSourceFilters,
     Map<AppUserRole, int>? commentsPerDay,
     Map<AppUserRole, int>? reportsPerDay,
+    Map<AppUserRole, int>? reactionsPerDay,
   }) {
     return UserLimitsConfig(
       followedItems: followedItems ?? this.followedItems,
@@ -86,6 +92,7 @@ class UserLimitsConfig extends Equatable {
       savedSourceFilters: savedSourceFilters ?? this.savedSourceFilters,
       commentsPerDay: commentsPerDay ?? this.commentsPerDay,
       reportsPerDay: reportsPerDay ?? this.reportsPerDay,
+      reactionsPerDay: reactionsPerDay ?? this.reactionsPerDay,
     );
   }
 }
