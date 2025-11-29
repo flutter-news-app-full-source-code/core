@@ -1,9 +1,8 @@
 export 'auth/auth.dart';
 export 'config/config.dart';
-export 'core/core.dart';
 export 'dashboard/dashboard.dart';
 export 'entities/entities.dart';
-export 'feed_decorators/feed_decorators.dart';
+export 'feed/feed.dart';
 export 'notifications/notifications.dart';
 export 'push_notifications/push_notifications.dart';
 export 'query/query.dart';

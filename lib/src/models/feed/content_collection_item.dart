@@ -1,5 +1,5 @@
 import 'package:core/src/enums/feed_decorator_type.dart';
-import 'package:core/src/models/core/feed_item.dart';
+import 'package:core/src/models/feed/feed_item.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
