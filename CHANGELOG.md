@@ -1,5 +1,6 @@
 # Upcoming
 
+- **feat**: Added a comprehensive **Community & Engagement System**. This major feature introduces the foundational data models for user reactions, comments, a multi-entity reporting system, and a smart app review funnel. The entire system is remotely configurable via a new unified `CommunityConfig` model and extends `UserLimitsConfig` to support role-based limits for comments and reports.
 - **feat**: Introduce data models to support a filter-based push notification system. This includes `SavedHeadlineFilter`, `SavedSourceFilter`, and related configuration models, providing the architectural foundation for clients to implement notification subscriptions.
 - **BREAKING** refactor!: Rework `UserPreferenceConfig` to support the new notification system with a more scalable, role-based map structure for all user limits.
 - **test**: Add comprehensive unit tests for all new and refactored models.
