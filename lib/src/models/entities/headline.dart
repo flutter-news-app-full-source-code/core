@@ -1,8 +1,8 @@
 import 'package:core/src/enums/enums.dart';
-import 'package:core/src/models/feed/feed_item.dart';
 import 'package:core/src/models/entities/country.dart';
 import 'package:core/src/models/entities/source.dart';
 import 'package:core/src/models/entities/topic.dart';
+import 'package:core/src/models/feed/feed_item.dart';
 import 'package:core/src/utils/json_helpers.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
