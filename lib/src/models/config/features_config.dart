@@ -1,9 +1,7 @@
 import 'package:core/src/models/config/ad_config.dart';
-import 'package:core/src/models/config/engagement_config.dart';
+import 'package:core/src/models/config/community_config.dart';
 import 'package:core/src/models/config/feed_config.dart';
 import 'package:core/src/models/config/push_notification_config.dart';
-import 'package:core/src/models/config/reporting_config.dart';
-import 'package:core/src/models/config/review_funnel_config.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -21,9 +19,7 @@ class FeaturesConfig extends Equatable {
     required this.ads,
     required this.pushNotifications,
     required this.feed,
-    required this.engagement,
-    required this.reporting,
-    required this.reviewFunnel,
+    required this.community,
   });
 
   /// Creates a [FeaturesConfig] from JSON data.
@@ -39,27 +35,14 @@ class FeaturesConfig extends Equatable {
   /// Configuration for all feed-related features.
   final FeedConfig feed;
 
-  /// Configuration for user engagement features (reactions, comments).
-  final EngagementConfig engagement;
-
-  /// Configuration for user content reporting features.
-  final ReportingConfig reporting;
-
-  /// Configuration for the smart app review funnel.
-  final ReviewFunnelConfig reviewFunnel;
+  /// Configuration for community and user-generated content features.
+  final CommunityConfig community;
 
   /// Converts this [FeaturesConfig] instance to JSON data.
   Map<String, dynamic> toJson() => _$FeaturesConfigToJson(this);
 
   @override
-  List<Object> get props => [
-    ads,
-    pushNotifications,
-    feed,
-    engagement,
-    reporting,
-    reviewFunnel,
-  ];
+  List<Object> get props => [ads, pushNotifications, feed, community];
 
   /// Creates a copy of this [FeaturesConfig] but with the given fields
   /// replaced with the new values.
@@ -67,17 +50,13 @@ class FeaturesConfig extends Equatable {
     AdConfig? ads,
     PushNotificationConfig? pushNotifications,
     FeedConfig? feed,
-    EngagementConfig? engagement,
-    ReportingConfig? reporting,
-    ReviewFunnelConfig? reviewFunnel,
+    CommunityConfig? community,
   }) {
     return FeaturesConfig(
       ads: ads ?? this.ads,
       pushNotifications: pushNotifications ?? this.pushNotifications,
       feed: feed ?? this.feed,
-      engagement: engagement ?? this.engagement,
-      reporting: reporting ?? this.reporting,
-      reviewFunnel: reviewFunnel ?? this.reviewFunnel,
+      community: community ?? this.community,
     );
   }
 }
