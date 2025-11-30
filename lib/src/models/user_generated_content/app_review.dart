@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/utils/json_helpers.dart';
 import 'package:core/src/utils/nullable_date_time_converter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -35,9 +34,9 @@ part 'app_review.g.dart';
 ///
 /// - **Layer 2 (Native OS Prompt)**: Only if a user provides a positive signal in
 ///   Layer 1 does the application "spend" its review opportunity by calling the
-///   native API. This event is logged by setting the [storeReviewRequestedAt]
-///   timestamp. After this, the corresponding `UserFeedDecoratorStatus` is marked
-///   as completed to **permanently prevent the internal prompt from appearing
+///   native API. This event is logged by setting [wasStoreReviewRequested] to
+///   `true`. After this, the corresponding `UserFeedDecoratorStatus` is marked as
+///   completed to **permanently prevent the internal prompt from appearing
 ///   again for this user.**
 /// {@endtemplate}
 @immutable
@@ -50,8 +49,8 @@ class AppReview extends Equatable {
     required this.initialFeedback,
     required this.createdAt,
     required this.updatedAt,
-    this.storeReviewRequestedAt,
     this.negativeFeedbackHistory = const [],
+    this.wasStoreReviewRequested = false,
   });
 
   /// Creates an [AppReview] from JSON data.
@@ -76,12 +75,15 @@ class AppReview extends Equatable {
   @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
   final DateTime updatedAt;
 
-  /// The timestamp when a native OS store review was requested.
+  /// A flag indicating whether a native OS store review has been requested for
+  /// this user.
   ///
-  /// A `null` value indicates that a store review has not yet been requested.
-  /// This is typically set after a user provides a `positive` [initialFeedback].
-  @NullableDateTimeConverter()
-  final DateTime? storeReviewRequestedAt;
+  /// This is set to `true` after a user provides a `positive` [initialFeedback]
+  /// and the application calls the native review API. It acts as a permanent
+  /// marker, ensuring the corresponding `UserFeedDecoratorStatus` can be marked
+  /// as completed to prevent ever showing the internal prompt again.
+  @JsonKey(defaultValue: false)
+  final bool wasStoreReviewRequested;
 
   /// A historical log of all negative feedback instances from the user.
   ///
@@ -100,7 +102,7 @@ class AppReview extends Equatable {
     initialFeedback,
     createdAt,
     updatedAt,
-    storeReviewRequestedAt,
+    wasStoreReviewRequested,
     negativeFeedbackHistory,
   ];
 
@@ -108,7 +110,7 @@ class AppReview extends Equatable {
   AppReview copyWith({
     InitialAppReviewFeedback? initialFeedback,
     DateTime? updatedAt,
-    DateTime? storeReviewRequestedAt,
+    bool? wasStoreReviewRequested,
     List<NegativeFeedback>? negativeFeedbackHistory,
   }) {
     return AppReview(
@@ -117,8 +119,8 @@ class AppReview extends Equatable {
       initialFeedback: initialFeedback ?? this.initialFeedback,
       createdAt: createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
-      storeReviewRequestedAt:
-          storeReviewRequestedAt ?? this.storeReviewRequestedAt,
+      wasStoreReviewRequested:
+          wasStoreReviewRequested ?? this.wasStoreReviewRequested,
       negativeFeedbackHistory:
           negativeFeedbackHistory ?? this.negativeFeedbackHistory,
     );
