@@ -215,11 +215,13 @@ final remoteConfigsFixturesData = <RemoteConfig>[
         },
       ),
       community: CommunityConfig(
+        enabled: true,
         engagement: EngagementConfig(
           enabled: true,
           engagementMode: EngagementMode.reactionsAndComments,
         ),
         reporting: ReportingConfig(
+          enabled: true,
           headlineReportingEnabled: true,
           sourceReportingEnabled: true,
           commentReportingEnabled: true,
@@ -229,7 +231,7 @@ final remoteConfigsFixturesData = <RemoteConfig>[
           // User must perform 5 positive actions (e.g., save headline)
           // to become eligible for the review prompt.
           positiveInteractionThreshold: 5,
-          initialPromptCooldownDays: 14,
+          initialPromptCooldownDays: 3,
           isNegativeFeedbackFollowUpEnabled: true,
         ),
       ),
