@@ -6,7 +6,7 @@ void main() {
     // Use the first item from the fixtures as the test subject.
     // This ensures tests are based on the canonical fixture data.
     final userContentPreferencesFixture =
-        userContentPreferencesFixturesData.first;
+        getUserContentPreferencesFixturesData().first;
 
     group('constructor', () {
       test('returns correct instance', () {
@@ -15,7 +15,7 @@ void main() {
 
       test('returns correct instance with populated lists from fixture', () {
         // The base fixture should now have populated lists
-        final preferences = userContentPreferencesFixturesData.first;
+        final preferences = getUserContentPreferencesFixturesData().first;
         expect(preferences.followedCountries, isEmpty);
         expect(preferences.followedSources, isNotEmpty);
         expect(preferences.followedTopics, isNotEmpty);
@@ -33,7 +33,7 @@ void main() {
       });
 
       test('round trip with empty lists', () {
-        final emptyPreferences = userContentPreferencesFixturesData.first;
+        final emptyPreferences = getUserContentPreferencesFixturesData().first;
         final json = emptyPreferences.toJson();
         final result = UserContentPreferences.fromJson(json);
         expect(result, equals(emptyPreferences));

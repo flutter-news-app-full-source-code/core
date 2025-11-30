@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('HeadlineFilterCriteria', () {
-    final fullModel = savedHeadlineFiltersFixturesData[0].criteria;
+    final fullModel = getSavedHeadlineFiltersFixturesData()[0].criteria;
     final fullJson = fullModel.toJson();
 
     const emptyModel = HeadlineFilterCriteria(
@@ -46,7 +46,7 @@ void main() {
     });
 
     test('copyWith should work correctly', () {
-      final topic2 = topicsFixturesData[1];
+      final topic2 = getTopicsFixturesData()[1];
       final copied = fullModel.copyWith(topics: [topic2]);
 
       expect(copied.topics, equals([topic2]));

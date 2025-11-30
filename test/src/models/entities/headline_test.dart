@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 void main() {
   group('Headline Model', () {
     // Use the first headline from the fixtures as the base for testing.
-    final headlineFixture = headlinesFixturesData.first;
+    final headlineFixture = getHeadlinesFixturesData().first;
     final headlineJson = headlineFixture.toJson();
 
     group('fromJson', () {
