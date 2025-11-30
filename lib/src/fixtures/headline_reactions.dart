@@ -1,10 +1,10 @@
 import 'package:core/core.dart';
 
-/// A list of predefined headline reactions for fixture data.
+/// A list of predefined reactions for fixture data.
 /// This creates 10 reactions for each of the first 10 users, with each
 /// reaction targeting a unique headline.
-final List<HeadlineReaction> headlineReactionsFixturesData = () {
-  final reactions = <HeadlineReaction>[];
+final List<Reaction> reactionsFixturesData = () {
+  final reactions = <Reaction>[];
   final users = usersFixturesData.take(10).toList();
   final headlines = headlinesFixturesData.take(100).toList();
   final reactionIds = [
@@ -119,10 +119,11 @@ final List<HeadlineReaction> headlineReactionsFixturesData = () {
       final reactionIndex = i * 10 + j;
 
       reactions.add(
-        HeadlineReaction(
+        Reaction(
           id: reactionIds[reactionIndex],
-          headlineId: headline.id,
           userId: user.id,
+          entityId: headline.id,
+          entityType: EngageableType.headline,
           reactionType: reactionTypes[reactionIndex % reactionTypes.length],
           createdAt: DateTime.now().subtract(Duration(days: i, hours: j)),
         ),
