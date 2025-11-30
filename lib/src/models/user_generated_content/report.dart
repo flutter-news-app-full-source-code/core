@@ -10,6 +10,17 @@ import 'package:meta/meta.dart';
 
 part 'report.g.dart';
 
+
+/// A wrapper class to distinguish between a field that is not provided and a
+/// field that is explicitly set to null.
+@immutable
+class ValueWrapper<T> {
+  const ValueWrapper(this.value);
+  /// The value being wrapped.
+  final T value;
+}
+
+
 /// {@template report}
 /// A flexible data model for handling user reports across different entity
 /// types.
@@ -87,7 +98,7 @@ class Report extends Equatable {
     String? entityId,
     String? reason,
     ReportStatus? status,
-    String? additionalComments,
+    ValueWrapper<String?>? additionalComments,
     DateTime? createdAt,
   }) {
     return Report(
@@ -97,7 +108,9 @@ class Report extends Equatable {
       entityId: entityId ?? this.entityId,
       reason: reason ?? this.reason,
       status: status ?? this.status,
-      additionalComments: additionalComments ?? this.additionalComments,
+      additionalComments: additionalComments != null
+          ? additionalComments.value
+          : this.additionalComments,
       createdAt: createdAt ?? this.createdAt,
     );
   }
