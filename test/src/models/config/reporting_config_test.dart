@@ -9,6 +9,7 @@ void main() {
 
     test('can be instantiated', () {
       expect(reportingConfigFixture, isA<ReportingConfig>());
+      expect(reportingConfigFixture.enabled, isTrue);
     });
 
     test('supports value equality', () {
@@ -29,9 +30,11 @@ void main() {
 
     test('copyWith creates a copy with updated values', () {
       final updatedConfig = reportingConfigFixture.copyWith(
+        enabled: false,
         headlineReportingEnabled: false,
       );
 
+      expect(updatedConfig.enabled, isFalse);
       expect(updatedConfig.headlineReportingEnabled, isFalse);
       expect(updatedConfig, isNot(equals(reportingConfigFixture)));
     });
