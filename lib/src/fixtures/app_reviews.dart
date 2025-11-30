@@ -42,7 +42,7 @@ List<AppReview> getAppReviewsFixturesData({
           initialFeedback: InitialAppReviewFeedback.positive,
           createdAt: createdAt,
           updatedAt: createdAt.add(const Duration(minutes: 1)),
-          storeReviewRequestedAt: createdAt.add(const Duration(minutes: 1)),
+          wasStoreReviewRequested: true,
         ),
       );
     }
@@ -94,7 +94,7 @@ List<AppReview> getAppReviewsFixturesData({
       updatedAt: secondReviewTime,
       // The reason from the first negative review might be cleared or kept,
       // depending on business logic. Here we assume it's cleared on positive.
-      storeReviewRequestedAt: secondReviewTime,
+      wasStoreReviewRequested: true,
       // The history might be kept for analytics, even after a positive review.
       negativeFeedbackHistory: [
         NegativeFeedback(providedAt: firstReviewTime, reason: reasons[1]),
