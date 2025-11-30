@@ -8,7 +8,7 @@ part 'negative_feedback.g.dart';
 /// {@template negative_feedback}
 /// Represents a single instance of negative feedback provided by a user.
 ///
-/// This is stored as a list within the [AppReview] model to track the history
+/// This is stored as a list within the "AppReview" model to track the history
 /// of a user's sentiment over time.
 /// {@endtemplate}
 @immutable
