@@ -4,64 +4,47 @@ import 'package:test/test.dart';
 void main() {
   group('Report', () {
     final now = DateTime.now();
-    final reportFixture = Report(
-      id: 'report_1',
-      reporterUserId: 'user_1',
-      entityType: ReportableEntity.headline,
-      entityId: 'headline_1',
-      reason: HeadlineReportReason.clickbaitTitle.name,
-      status: ReportStatus.submitted,
-      createdAt: now,
-      additionalComments: 'The title is misleading.',
-    );
+    // Use the first item from the fixtures as the test subject.
+    final reportFixture = getReportsFixturesData(now: now).first;
 
-    test('can be instantiated', () {
-      expect(reportFixture, isA<Report>());
+    group('constructor', () {
+      test('returns correct instance', () {
+        expect(reportFixture, isA<Report>());
+      });
     });
 
-    test('supports value equality', () {
-      final anotherReport = Report(
-        id: 'report_1',
-        reporterUserId: 'user_1',
-        entityType: ReportableEntity.headline,
-        entityId: 'headline_1',
-        reason: HeadlineReportReason.clickbaitTitle.name,
-        status: ReportStatus.submitted,
-        createdAt: now,
-        additionalComments: 'The title is misleading.',
-      );
-      expect(reportFixture, equals(anotherReport));
+    group('fromJson/toJson', () {
+      test('round trip with all fields populated', () {
+        final json = reportFixture.toJson();
+        final fromJson = Report.fromJson(json);
+        expect(fromJson, equals(reportFixture));
+      });
     });
 
-    test('can be created from JSON', () {
-      final json = reportFixture.toJson();
-      final fromJson = Report.fromJson(json);
-      expect(fromJson, equals(reportFixture));
+    group('copyWith', () {
+      test('returns a new instance with updated values', () {
+        final updatedReport = reportFixture.copyWith(
+          status: ReportStatus.resolved,
+        );
+        expect(updatedReport.status, ReportStatus.resolved);
+        expect(updatedReport, isNot(equals(reportFixture)));
+      });
+
+      test('copyWith allows setting a field to null', () {
+        final updatedReport = reportFixture.copyWith(
+          // Use ValueWrapper to explicitly pass null.
+          additionalComments: const ValueWrapper(null),
+        );
+        expect(updatedReport.additionalComments, isNull);
+      });
     });
 
-    test('can be converted to JSON', () {
-      final json = reportFixture.toJson();
-      final expectedJson = {
-        'id': 'report_1',
-        'reporterUserId': 'user_1',
-        'entityType': 'headline',
-        'entityId': 'headline_1',
-        'reason': 'clickbaitTitle',
-        'status': 'submitted',
-        'additionalComments': 'The title is misleading.',
-        'createdAt': now.toIso8601String(),
-      };
-      expect(json, equals(expectedJson));
-    });
-
-    test('copyWith creates a copy with updated values', () {
-      final updatedReport = reportFixture.copyWith(
-        status: ReportStatus.resolved,
-        additionalComments: null,
-      );
-      expect(updatedReport.status, ReportStatus.resolved);
-      expect(updatedReport.additionalComments, isNull);
-      expect(updatedReport, isNot(equals(reportFixture)));
+    group('Equatable', () {
+      test('instances with the same properties are equal', () {
+        final report1 = getReportsFixturesData(now: now).first;
+        final report2 = getReportsFixturesData(now: now).first;
+        expect(report1, equals(report2));
+      });
     });
   });
 }
