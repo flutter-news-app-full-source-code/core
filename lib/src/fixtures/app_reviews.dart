@@ -56,7 +56,10 @@ List<AppReview> getAppReviewsFixturesData({
           createdAt: createdAt,
           updatedAt: createdAt,
           negativeFeedbackHistory: [
-            NegativeFeedback(providedAt: createdAt, reason: reasons[0]),
+            NegativeFeedback(
+              providedAt: createdAt,
+              reason: reasons[i % reasons.length],
+            ),
           ],
         ),
       );
