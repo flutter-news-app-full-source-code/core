@@ -9,6 +9,7 @@ part of 'reporting_config.dart';
 ReportingConfig _$ReportingConfigFromJson(Map<String, dynamic> json) =>
     $checkedCreate('ReportingConfig', json, ($checkedConvert) {
       final val = ReportingConfig(
+        enabled: $checkedConvert('enabled', (v) => v as bool),
         headlineReportingEnabled: $checkedConvert(
           'headlineReportingEnabled',
           (v) => v as bool,
@@ -27,6 +28,7 @@ ReportingConfig _$ReportingConfigFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$ReportingConfigToJson(ReportingConfig instance) =>
     <String, dynamic>{
+      'enabled': instance.enabled,
       'headlineReportingEnabled': instance.headlineReportingEnabled,
       'sourceReportingEnabled': instance.sourceReportingEnabled,
       'commentReportingEnabled': instance.commentReportingEnabled,
