@@ -7,27 +7,41 @@ part 'app_review_config.g.dart';
 /// {@template app_review_config}
 /// Defines the remote configuration for the two-layer App Review Funnel.
 ///
-/// This system strategically prompts engaged users for feedback to maximize
-/// positive public reviews while capturing constructive criticism privately.
+/// This system strategically prompts engaged users for feedback to maximize positive
+/// public reviews while capturing constructive criticism privately. It uses a
+/// combination of this configuration, the `UserFeedDecoratorStatus` model, and
+/// the `AppReview` model to manage the user's journey.
 ///
-/// ### How It Works
+/// ### Architectural Workflow
 ///
-/// 1.  **Trigger**: A user becomes eligible to see the prompt after reaching
-///     the [positiveInteractionThreshold] of positive actions (e.g., saves).
+/// 1.  **Eligibility**: A user becomes eligible to see the internal prompt after
+///     reaching the [positiveInteractionThreshold] of positive actions (e.g.,
+///     saving headlines).
 ///
-/// 2.  **Prompt**: The `FeedDecoratorType.rateApp` decorator asks the user
-///     "Are you enjoying the app?". The display logic is managed by the user's
-///     `UserFeedDecoratorStatus` for `rateApp`, which respects the
-///     [initialPromptCooldownDays].
+/// 2.  **Display Logic**: The `FeedDecoratorType.rateApp` decorator's visibility
+///     is controlled by the user's `UserFeedDecoratorStatus` for `rateApp`. The
+///     decorator is only shown if `isCompleted` is `false` and the cooldown
+///     period (defined here as [initialPromptCooldownDays]) has passed since
+///     `lastShownAt`.
 ///
-/// 3.  **Action**:
-///     - **On "Yes"**: The client sets `isCompleted` to `true` on the user's
-///       `UserFeedDecoratorStatus` for `rateApp` and immediately triggers the
-///       native OS in-app review dialog if applicable ie the app is hosted in
-///       google play or apple store. The prompt will not be shown again.
-///     - **On "No"**: The client only updates the `lastShownAt` timestamp on
-///       the status object. The prompt will not be shown again until the
-///       cooldown period has passed. No public review is requested.
+/// 3.  **User Interaction & State Change**:
+///     - **On "Yes" (Positive Feedback)**:
+///       - An `AppReview` record is created/updated with `initialAnswer: positive`
+///         and `storeReviewRequestedAt` is set.
+///       - The native OS in-app review dialog is immediately triggered. This is a
+///         "fire-and-forget" action; the OS controls if the dialog appears and
+///         provides no feedback to the app.
+///       - The `UserFeedDecoratorStatus` for `rateApp` has its `isCompleted` flag
+///         set to `true`, **permanently preventing the internal prompt from
+///         appearing again for this user.**
+///
+///     - **On "No" (Negative Feedback)**:
+///       - An `AppReview` record is created/updated with `initialAnswer: negative`.
+///         The app may optionally collect a `negativeFeedbackReason`.
+///       - The `UserFeedDecoratorStatus` for `rateApp` only has its `lastShownAt`
+///         timestamp updated. `isCompleted` remains `false`.
+///       - The prompt will not be shown again until the cooldown period has
+///         passed, at which point the user may be asked again.
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
