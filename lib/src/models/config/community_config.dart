@@ -18,6 +18,7 @@ part 'community_config.g.dart';
 class CommunityConfig extends Equatable {
   /// {@macro community_config}
   const CommunityConfig({
+    required this.enabled,
     required this.engagement,
     required this.reporting,
     required this.appReview,
@@ -26,6 +27,9 @@ class CommunityConfig extends Equatable {
   /// Creates a [CommunityConfig] from JSON data.
   factory CommunityConfig.fromJson(Map<String, dynamic> json) =>
       _$CommunityConfigFromJson(json);
+
+  /// A master switch to enable or disable all community features.
+  final bool enabled;
 
   /// Configuration for user engagement features (reactions, comments).
   final EngagementConfig engagement;
@@ -40,16 +44,18 @@ class CommunityConfig extends Equatable {
   Map<String, dynamic> toJson() => _$CommunityConfigToJson(this);
 
   @override
-  List<Object> get props => [engagement, reporting, appReview];
+  List<Object> get props => [enabled, engagement, reporting, appReview];
 
   /// Creates a copy of this [CommunityConfig] but with the given fields
   /// replaced with the new values.
   CommunityConfig copyWith({
+    bool? enabled,
     EngagementConfig? engagement,
     ReportingConfig? reporting,
     AppReviewConfig? appReview,
   }) {
     return CommunityConfig(
+      enabled: enabled ?? this.enabled,
       engagement: engagement ?? this.engagement,
       reporting: reporting ?? this.reporting,
       appReview: appReview ?? this.appReview,
