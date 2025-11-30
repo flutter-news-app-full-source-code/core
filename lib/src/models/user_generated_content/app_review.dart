@@ -7,7 +7,6 @@ import 'package:meta/meta.dart';
 
 part 'app_review.g.dart';
 
-
 /// {@template app_review}
 /// Represents a user's journey through the in-app review funnel.
 ///
@@ -47,7 +46,7 @@ class AppReview extends Equatable {
   final String userId;
 
   /// The user's answer to the initial, private feedback prompt.
-  final InitialAppReviewAnswer initialFeedback;
+  final InitialAppReviewFeedback initialFeedback;
 
   /// The timestamp when this review record was created (i.e., when the user
   /// answered the initial prompt).
@@ -88,7 +87,7 @@ class AppReview extends Equatable {
 
   /// Creates a copy of this [AppReview] with updated values.
   AppReview copyWith({
-    InitialAppReviewAnswer? initialAnswer,
+    InitialAppReviewFeedback? initialFeedback,
     DateTime? updatedAt,
     DateTime? storeReviewRequestedAt,
     List<NegativeFeedback>? negativeFeedbackHistory,
@@ -96,7 +95,7 @@ class AppReview extends Equatable {
     return AppReview(
       id: id,
       userId: userId,
-      initialFeedback: initialAnswer ?? initialFeedback,
+      initialFeedback: initialFeedback ?? this.initialFeedback,
       createdAt: createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
       storeReviewRequestedAt:
