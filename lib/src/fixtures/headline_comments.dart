@@ -8,7 +8,7 @@ import 'package:core/core.dart';
 List<Comment> getHeadlineCommentsFixturesData({String languageCode = 'en'}) {  
   final comments = <Comment>[];
   final users = usersFixturesData.take(10).toList();
-  final headlines = headlinesFixturesData.take(100).toList();
+  final headlines = getHeadlinesFixturesData().take(100).toList();
   
   // Ensure only approved languages are used, default to 'en'.
   final resolvedLanguageCode = ['en', 'ar'].contains(languageCode) ? languageCode : 'en';
@@ -182,6 +182,3 @@ List<Comment> getHeadlineCommentsFixturesData({String languageCode = 'en'}) {
 
   return comments;
 }
-
-/// A list of predefined comments for fixture data, defaulting to English.
-final List<Comment> headlineCommentsFixturesData = getHeadlineCommentsFixturesData();

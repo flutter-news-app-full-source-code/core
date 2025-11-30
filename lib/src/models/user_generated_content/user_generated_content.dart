@@ -1,3 +1,4 @@
 export 'comment.dart';
-export 'headline_reaction.dart';
+export 'engagement.dart';
+export 'reaction.dart';
 export 'report.dart';
