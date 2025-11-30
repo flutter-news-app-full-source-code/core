@@ -17,10 +17,10 @@ List<InAppNotification> _generateAdminNotifications() {
     21,
     (index) => 'in_app_notification_${index + 1}',
   );
-  final headlineIds = headlinesFixturesData.map((e) => e.id).toList();
+  final headlineIds = getHeadlinesFixturesData().map((e) => e.id).toList();
 
   return List.generate(21, (index) {
-    final headline = headlinesFixturesData[index % headlineIds.length];
+    final headline = getHeadlinesFixturesData()[index % headlineIds.length];
     final notificationId = notificationIds[index];
     final isRead = index > 3;
 
