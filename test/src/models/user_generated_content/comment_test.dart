@@ -3,8 +3,12 @@ import 'package:test/test.dart';
 
 void main() {
   group('Comment', () {
+    final now = DateTime.now();
     // Use the first item from the fixtures as the test subject.
-    final commentFixture = getHeadlineCommentsFixturesData().first;
+    final commentFixture = getHeadlineCommentsFixturesData(
+      now: now,
+      languageCode: 'en',
+    ).first;
 
     group('constructor', () {
       test('returns correct instance', () {
@@ -57,14 +61,20 @@ void main() {
 
     group('Equatable', () {
       test('instances with the same properties are equal', () {
-        final comment1 = getHeadlineCommentsFixturesData().first;
-        final comment2 = getHeadlineCommentsFixturesData().first;
+        final comment1 = getHeadlineCommentsFixturesData(
+          now: now,
+          languageCode: 'en',
+        ).first;
+        final comment2 = getHeadlineCommentsFixturesData(
+          now: now,
+          languageCode: 'en',
+        ).first;
         expect(comment1, equals(comment2));
       });
 
       test('instances with different properties are not equal', () {
-        final comment1 = getHeadlineCommentsFixturesData().first;
-        final comment2 = getHeadlineCommentsFixturesData()[1];
+        final comment1 = getHeadlineCommentsFixturesData(now: now).first;
+        final comment2 = getHeadlineCommentsFixturesData(now: now)[1];
         expect(comment1, isNot(equals(comment2)));
       });
     });
