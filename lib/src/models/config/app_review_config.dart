@@ -27,7 +27,7 @@ part 'app_review_config.g.dart';
 /// 3.  **User Interaction & State Change**:
 ///     - **On "Yes" (Positive Feedback)**:
 ///       - An `AppReview` record is created/updated with `initialAnswer: positive`
-///         and `storeReviewRequestedAt` is set.
+///         and `wasStoreReviewRequested` is set to `true`.
 ///       - The native OS in-app review dialog is immediately triggered. This is a
 ///         "fire-and-forget" action; the OS controls if the dialog appears and
 ///         provides no feedback to the app.
