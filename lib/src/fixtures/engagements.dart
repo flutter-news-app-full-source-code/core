@@ -5,10 +5,16 @@ import 'package:core/core.dart';
 /// This function can be configured to generate data in either English or
 /// Arabic. It pairs reactions with comments to create realistic engagement
 /// scenarios.
-List<Engagement> getEngagementsFixturesData({String languageCode = 'en'}) {
+List<Engagement> getEngagementsFixturesData({
+  String languageCode = 'en',
+  DateTime? now,
+}) {
   final engagements = <Engagement>[];
   final reactions = reactionsFixturesData;
-  final comments = getHeadlineCommentsFixturesData(languageCode: languageCode);
+  final comments = getHeadlineCommentsFixturesData(
+    languageCode: languageCode,
+    now: now,
+  );
 
   for (var i = 0; i < reactions.length; i++) {
     final reaction = reactions[i];

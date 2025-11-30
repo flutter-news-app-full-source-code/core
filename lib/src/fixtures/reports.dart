@@ -1,12 +1,19 @@
 import 'package:core/core.dart';
 
-/// A list of predefined reports for fixture data.
+/// Generates a list of predefined reports for fixture data.
+///
 /// This creates 1 report for each of the first 10 users, targeting a mix of
 /// headlines, sources, and comments.
-final List<Report> reportsFixturesData = () {
+///
+/// The optional [now] parameter allows for creating deterministic timestamps,
+/// which is essential for testing.
+List<Report> getReportsFixturesData({DateTime? now}) {
   final reports = <Report>[];
+  final referenceTime = now ?? DateTime.now();
   final users = usersFixturesData.take(10).toList();
-  final headlines = getHeadlinesFixturesData().take(10).toList();
+  final headlines = getHeadlinesFixturesData(
+    now: referenceTime,
+  ).take(10).toList();
   final reportIds = [
     kReportId1,
     kReportId2,
@@ -45,7 +52,7 @@ final List<Report> reportsFixturesData = () {
           reason: headlineReasons[i % headlineReasons.length].name,
           additionalComments: 'This headline seems misleading.',
           status: status,
-          createdAt: DateTime.now().subtract(Duration(days: i)),
+          createdAt: referenceTime.subtract(Duration(days: i)),
         ),
       );
     } else if (i < 8) {
@@ -59,7 +66,7 @@ final List<Report> reportsFixturesData = () {
           reason: sourceReasons[i % sourceReasons.length].name,
           additionalComments: 'This source has too many ads.',
           status: status,
-          createdAt: DateTime.now().subtract(Duration(days: i)),
+          createdAt: referenceTime.subtract(Duration(days: i)),
         ),
       );
     } else {
@@ -69,15 +76,15 @@ final List<Report> reportsFixturesData = () {
           id: reportIds[i],
           reporterUserId: user.id,
           entityType: ReportableEntity.comment,
-          entityId: getHeadlineCommentsFixturesData()[i].id,
+          entityId: getHeadlineCommentsFixturesData(now: referenceTime)[i].id,
           reason: commentReasons[i % commentReasons.length].name,
           additionalComments: 'This comment is spam.',
           status: status,
-          createdAt: DateTime.now().subtract(Duration(days: i)),
+          createdAt: referenceTime.subtract(Duration(days: i)),
         ),
       );
     }
   }
 
   return reports;
-}();
+}

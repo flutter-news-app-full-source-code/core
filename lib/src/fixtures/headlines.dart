@@ -9,15 +9,22 @@ import 'package:core/src/models/entities/headline.dart';
 ///
 /// This function can be configured to generate headlines in either English or
 /// Arabic.
-List<Headline> getHeadlinesFixturesData({String languageCode = 'en'}) {
+List<Headline> getHeadlinesFixturesData({
+  String languageCode = 'en',
+  DateTime? now,
+}) {
   // Ensure only approved languages are used, default to 'en'.
-  final resolvedLanguageCode =
-      ['en', 'ar'].contains(languageCode) ? languageCode : 'en';
+  final resolvedLanguageCode = ['en', 'ar'].contains(languageCode)
+      ? languageCode
+      : 'en';
+  final referenceTime = now ?? DateTime.now();
 
-  final sources =
-      source_fixtures.getSourcesFixturesData(languageCode: resolvedLanguageCode);
-  final topics =
-      topic_fixtures.getTopicsFixturesData(languageCode: resolvedLanguageCode);
+  final sources = source_fixtures.getSourcesFixturesData(
+    languageCode: resolvedLanguageCode,
+  );
+  final topics = topic_fixtures.getTopicsFixturesData(
+    languageCode: resolvedLanguageCode,
+  );
 
   final headlines = <Headline>[];
   for (var i = 0; i < _headlineIds.length; i++) {
@@ -38,8 +45,8 @@ List<Headline> getHeadlinesFixturesData({String languageCode = 'en'}) {
         source: source,
         eventCountry: country,
         topic: topic,
-        createdAt: DateTime.now().subtract(Duration(minutes: i * 15)),
-        updatedAt: DateTime.now().subtract(Duration(minutes: i * 15)),
+        createdAt: referenceTime.subtract(Duration(minutes: i * 15)),
+        updatedAt: referenceTime.subtract(Duration(minutes: i * 15)),
         status: ContentStatus.active,
       ),
     );

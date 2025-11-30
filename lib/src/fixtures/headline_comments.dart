@@ -5,17 +5,22 @@ import 'package:core/core.dart';
 /// This function can be configured to generate comments in either English or
 /// Arabic. It creates 10 comments for each of the first 10 users, with each
 /// comment targeting a unique headline.
-List<Comment> getHeadlineCommentsFixturesData({String languageCode = 'en'}) {  
+List<Comment> getHeadlineCommentsFixturesData({
+  String languageCode = 'en',
+  DateTime? now,
+}) {
   final comments = <Comment>[];
   final users = usersFixturesData.take(10).toList();
   final headlines = getHeadlinesFixturesData().take(100).toList();
-  
+  final referenceTime = now ?? DateTime.now();
+
   // Ensure only approved languages are used, default to 'en'.
-  final resolvedLanguageCode = ['en', 'ar'].contains(languageCode) ? languageCode : 'en';
+  final resolvedLanguageCode = ['en', 'ar'].contains(languageCode)
+      ? languageCode
+      : 'en';
   final language = languagesFixturesData.firstWhere(
     (lang) => lang.code == resolvedLanguageCode,
-    orElse: () =>
-        languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
+    orElse: () => languagesFixturesData.firstWhere((lang) => lang.code == 'en'),
   );
   final commentIds = [
     kCommentId1,
@@ -173,8 +178,8 @@ List<Comment> getHeadlineCommentsFixturesData({String languageCode = 'en'}) {
           language: language,
           content: commentContents[j],
           status: status,
-          createdAt: DateTime.now().subtract(Duration(days: i, hours: j * 2)),
-          updatedAt: DateTime.now().subtract(Duration(days: i, hours: j * 2)),
+          createdAt: referenceTime.subtract(Duration(days: i, hours: j * 2)),
+          updatedAt: referenceTime.subtract(Duration(days: i, hours: j * 2)),
         ),
       );
     }
