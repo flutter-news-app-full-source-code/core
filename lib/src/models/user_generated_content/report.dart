@@ -10,16 +10,15 @@ import 'package:meta/meta.dart';
 
 part 'report.g.dart';
 
-
 /// A wrapper class to distinguish between a field that is not provided and a
 /// field that is explicitly set to null.
 @immutable
 class ValueWrapper<T> {
   const ValueWrapper(this.value);
+
   /// The value being wrapped.
   final T value;
 }
-
 
 /// {@template report}
 /// A flexible data model for handling user reports across different entity

@@ -33,10 +33,7 @@ void main() {
       );
 
       expect(updatedConfig.headlineReportingEnabled, isFalse);
-      expect(
-        updatedConfig,
-        isNot(equals(reportingConfigFixture)),
-      );
+      expect(updatedConfig, isNot(equals(reportingConfigFixture)));
     });
   });
 }

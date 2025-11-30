@@ -23,7 +23,7 @@ part 'app_review_config.g.dart';
 /// 3.  **Action**:
 ///     - **On "Yes"**: The client sets `isCompleted` to `true` on the user's
 ///       `UserFeedDecoratorStatus` for `rateApp` and immediately triggers the
-///       native OS in-app review dialog if applicable ie the app is hosted in 
+///       native OS in-app review dialog if applicable ie the app is hosted in
 ///       google play or apple store. The prompt will not be shown again.
 ///     - **On "No"**: The client only updates the `lastShownAt` timestamp on
 ///       the status object. The prompt will not be shown again until the
