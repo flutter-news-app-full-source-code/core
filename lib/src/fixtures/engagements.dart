@@ -10,25 +10,39 @@ List<Engagement> getEngagementsFixturesData({
   DateTime? now,
 }) {
   final engagements = <Engagement>[];
+  final users = usersFixturesData.take(10).toList();
+  final headlines = getHeadlinesFixturesData(
+    languageCode: languageCode,
+  ).take(100).toList();
   final reactions = reactionsFixturesData;
   final comments = getHeadlineCommentsFixturesData(
     languageCode: languageCode,
     now: now,
   );
+  final referenceTime = now ?? DateTime.now();
 
-  for (var i = 0; i < reactions.length; i++) {
-    final reaction = reactions[i];
-    // Pair every other reaction with a comment for variety
-    final comment = i.isEven ? comments[i] : null;
+  for (var i = 0; i < 10; i++) {
+    for (var j = 0; j < 10; j++) {
+      final index = i * 10 + j;
+      final user = users[i];
+      final headline = headlines[index];
+      final reaction = reactions[index];
+      // Pair every other reaction with a comment for variety
+      final comment = index.isEven ? comments[index] : null;
 
-    engagements.add(
-      Engagement(
-        entityId: reaction.entityId,
-        entityType: reaction.entityType,
-        reaction: reaction,
-        comment: comment,
-      ),
-    );
+      engagements.add(
+        Engagement(
+          id: _engagementIds[index],
+          userId: user.id,
+          entityId: headline.id,
+          entityType: EngageableType.headline,
+          reaction: reaction,
+          comment: comment,
+          createdAt: referenceTime.subtract(Duration(days: i, hours: j)),
+          updatedAt: referenceTime.subtract(Duration(days: i, hours: j)),
+        ),
+      );
+    }
   }
 
   return engagements;

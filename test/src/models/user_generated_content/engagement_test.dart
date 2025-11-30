@@ -56,14 +56,26 @@ void main() {
 
         expect(updatedEngagement.reaction, newReaction);
         // Verify other fields remain unchanged
+        expect(updatedEngagement.id, engagementFixture.id);
+        expect(updatedEngagement.userId, engagementFixture.userId);
         expect(updatedEngagement.entityId, engagementFixture.entityId);
         expect(updatedEngagement.comment, engagementFixture.comment);
+        expect(updatedEngagement.createdAt, engagementFixture.createdAt);
+        // The updatedAt timestamp should be different
+        expect(
+          updatedEngagement.updatedAt,
+          isNot(equals(engagementFixture.updatedAt)),
+        );
       });
 
-      test('returns an identical instance if no updates provided', () {
-        final copiedEngagement = engagementFixture.copyWith();
-        expect(copiedEngagement, engagementFixture);
-      });
+      test(
+        'returns a new instance with a new timestamp if no updates provided',
+        () {
+          final copiedEngagement = engagementFixture.copyWith();
+          expect(copiedEngagement, isNot(equals(engagementFixture)));
+          expect(copiedEngagement.id, engagementFixture.id);
+        },
+      );
     });
 
     group('Equatable', () {
@@ -88,10 +100,14 @@ void main() {
 
     test('props list should contain all relevant fields', () {
       expect(engagementFixture.props, [
+        engagementFixture.id,
+        engagementFixture.userId,
         engagementFixture.entityId,
         engagementFixture.entityType,
         engagementFixture.reaction,
         engagementFixture.comment,
+        engagementFixture.createdAt,
+        engagementFixture.updatedAt,
       ]);
     });
   });

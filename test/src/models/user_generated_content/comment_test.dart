@@ -34,29 +34,11 @@ void main() {
           status: newStatus,
         );
 
-        expect(updatedComment.id, commentFixture.id);
         expect(updatedComment.content, newContent);
         expect(updatedComment.status, newStatus);
         // Verify other fields remain unchanged
-        expect(updatedComment.userId, commentFixture.userId);
-        expect(updatedComment.entityId, commentFixture.entityId);
-        // The updatedAt timestamp should be different
-        expect(
-          updatedComment.updatedAt,
-          isNot(equals(commentFixture.updatedAt)),
-        );
+        expect(updatedComment.language, commentFixture.language);
       });
-
-      test(
-        'returns a new instance with a new timestamp if no updates provided',
-        () {
-          final copiedComment = commentFixture.copyWith();
-          // Should be a new instance with a new `updatedAt` time
-          expect(copiedComment, isNot(equals(commentFixture)));
-          expect(copiedComment.id, commentFixture.id);
-          expect(copiedComment.content, commentFixture.content);
-        },
-      );
     });
 
     group('Equatable', () {
@@ -83,15 +65,9 @@ void main() {
       expect(
         commentFixture.props,
         equals([
-          commentFixture.id,
-          commentFixture.userId,
-          commentFixture.entityId,
-          commentFixture.entityType,
           commentFixture.language,
           commentFixture.content,
           commentFixture.status,
-          commentFixture.createdAt,
-          commentFixture.updatedAt,
         ]),
       );
     });

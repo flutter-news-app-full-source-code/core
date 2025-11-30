@@ -28,17 +28,7 @@ void main() {
           reactionType: newReactionType,
         );
 
-        expect(updatedReaction.id, reactionFixture.id);
         expect(updatedReaction.reactionType, newReactionType);
-        // Verify other fields remain unchanged
-        expect(updatedReaction.userId, reactionFixture.userId);
-        expect(updatedReaction.entityId, reactionFixture.entityId);
-        expect(updatedReaction.createdAt, reactionFixture.createdAt);
-      });
-
-      test('returns an identical instance if no updates provided', () {
-        final copiedReaction = reactionFixture.copyWith();
-        expect(copiedReaction, reactionFixture);
       });
     });
 
@@ -57,17 +47,7 @@ void main() {
     });
 
     test('props list should contain all relevant fields', () {
-      expect(
-        reactionFixture.props,
-        equals([
-          reactionFixture.id,
-          reactionFixture.userId,
-          reactionFixture.entityId,
-          reactionFixture.entityType,
-          reactionFixture.reactionType,
-          reactionFixture.createdAt,
-        ]),
-      );
+      expect(reactionFixture.props, equals([reactionFixture.reactionType]));
     });
   });
 }
