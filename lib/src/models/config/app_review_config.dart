@@ -26,12 +26,12 @@ part 'app_review_config.g.dart';
 ///
 /// 3.  **User Interaction & State Change**:
 ///     - **On "Yes" (Positive Feedback)**:
-///       - An `AppReview` record is created/updated with `initialFeedback: positive`
-///         and `wasStoreReviewRequested` is set to `true`.
-///       - The native OS in-app review dialog is immediately triggered. This is a
-///         "fire-and-forget" action; the OS controls if the dialog appears and
-///         provides no feedback to the app.
-///       - The `UserFeedDecoratorStatus` for `rateApp` has its `isCompleted` flag
+///       - An `AppReview` record is created/updated with `initialFeedback: positive`.
+///       - If [isPositiveFeedbackFollowUpEnabled] is `true`, the native OS
+///         in-app review dialog is triggered. `wasStoreReviewRequested` is set
+///         to `true` to record that the attempt was made.
+///       - Regardless of whether the dialog was requested, the
+///         `UserFeedDecoratorStatus` for `rateApp` has its `isCompleted` flag
 ///         set to `true`, **permanently preventing the internal prompt from
 ///         appearing again for this user.**
 ///
@@ -53,6 +53,7 @@ class AppReviewConfig extends Equatable {
     required this.positiveInteractionThreshold,
     required this.initialPromptCooldownDays,
     required this.isNegativeFeedbackFollowUpEnabled,
+    required this.isPositiveFeedbackFollowUpEnabled,
   });
 
   /// Creates a [AppReviewConfig] from JSON data.
@@ -74,6 +75,12 @@ class AppReviewConfig extends Equatable {
   /// text reason after a user provides negative feedback.
   final bool isNegativeFeedbackFollowUpEnabled;
 
+  /// A switch to enable or disable invoking the native OS in-app review dialog
+  /// after a user provides positive feedback.
+  ///
+  /// This allows for testing the positive flow without consuming review quotas.
+  final bool isPositiveFeedbackFollowUpEnabled;
+
   /// Converts this [AppReviewConfig] instance to JSON data.
   Map<String, dynamic> toJson() => _$AppReviewConfigToJson(this);
 
@@ -83,6 +90,7 @@ class AppReviewConfig extends Equatable {
     positiveInteractionThreshold,
     initialPromptCooldownDays,
     isNegativeFeedbackFollowUpEnabled,
+    isPositiveFeedbackFollowUpEnabled,
   ];
 
   /// Creates a copy of this [AppReviewConfig] but with the given fields
@@ -92,6 +100,7 @@ class AppReviewConfig extends Equatable {
     int? positiveInteractionThreshold,
     int? initialPromptCooldownDays,
     bool? isNegativeFeedbackFollowUpEnabled,
+    bool? isPositiveFeedbackFollowUpEnabled,
   }) {
     return AppReviewConfig(
       enabled: enabled ?? this.enabled,
@@ -102,6 +111,9 @@ class AppReviewConfig extends Equatable {
       isNegativeFeedbackFollowUpEnabled:
           isNegativeFeedbackFollowUpEnabled ??
           this.isNegativeFeedbackFollowUpEnabled,
+      isPositiveFeedbackFollowUpEnabled:
+          isPositiveFeedbackFollowUpEnabled ??
+          this.isPositiveFeedbackFollowUpEnabled,
     );
   }
 }

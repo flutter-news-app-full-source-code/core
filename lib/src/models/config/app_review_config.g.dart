@@ -22,6 +22,10 @@ AppReviewConfig _$AppReviewConfigFromJson(Map<String, dynamic> json) =>
           'isNegativeFeedbackFollowUpEnabled',
           (v) => v as bool,
         ),
+        isPositiveFeedbackFollowUpEnabled: $checkedConvert(
+          'isPositiveFeedbackFollowUpEnabled',
+          (v) => v as bool,
+        ),
       );
       return val;
     });
@@ -33,4 +37,6 @@ Map<String, dynamic> _$AppReviewConfigToJson(AppReviewConfig instance) =>
       'initialPromptCooldownDays': instance.initialPromptCooldownDays,
       'isNegativeFeedbackFollowUpEnabled':
           instance.isNegativeFeedbackFollowUpEnabled,
+      'isPositiveFeedbackFollowUpEnabled':
+          instance.isPositiveFeedbackFollowUpEnabled,
     };

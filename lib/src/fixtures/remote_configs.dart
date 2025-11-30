@@ -232,6 +232,7 @@ final remoteConfigsFixturesData = <RemoteConfig>[
           // to become eligible for the review prompt.
           positiveInteractionThreshold: 5,
           initialPromptCooldownDays: 3,
+          isPositiveFeedbackFollowUpEnabled: true,
           isNegativeFeedbackFollowUpEnabled: true,
         ),
       ),

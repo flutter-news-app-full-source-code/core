@@ -11,6 +11,7 @@ void main() {
       expect(appReviewConfigFixture, isA<AppReviewConfig>());
       expect(appReviewConfigFixture.enabled, isTrue);
       expect(appReviewConfigFixture.isNegativeFeedbackFollowUpEnabled, isTrue);
+      expect(appReviewConfigFixture.isPositiveFeedbackFollowUpEnabled, isTrue);
     });
 
     test('supports value equality', () {
@@ -34,11 +35,13 @@ void main() {
         enabled: false,
         positiveInteractionThreshold: 10,
         isNegativeFeedbackFollowUpEnabled: false,
+        isPositiveFeedbackFollowUpEnabled: false,
       );
 
       expect(updatedConfig.enabled, isFalse);
       expect(updatedConfig.positiveInteractionThreshold, 10);
       expect(updatedConfig.isNegativeFeedbackFollowUpEnabled, isFalse);
+      expect(updatedConfig.isPositiveFeedbackFollowUpEnabled, isFalse);
       expect(updatedConfig, isNot(equals(appReviewConfigFixture)));
     });
   });
