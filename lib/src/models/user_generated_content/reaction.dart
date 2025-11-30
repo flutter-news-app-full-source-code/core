@@ -1,4 +1,10 @@
+import 'package:core/core.dart' show Engagement;
 import 'package:core/src/enums/reaction_type.dart';
+import 'package:core/src/models/models.dart' show Engagement;
+import 'package:core/src/models/user_generated_content/engagement.dart'
+    show Engagement;
+import 'package:core/src/models/user_generated_content/user_generated_content.dart'
+    show Engagement;
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
