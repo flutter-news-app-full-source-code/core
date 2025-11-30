@@ -3,8 +3,12 @@ import 'package:test/test.dart';
 
 void main() {
   group('Engagement', () {
+    final now = DateTime.now();
     // Use the first item from the fixtures as the test subject.
-    final engagementFixture = getEngagementsFixturesData().first;
+    final engagementFixture = getEngagementsFixturesData(
+      now: now,
+      languageCode: 'en',
+    ).first;
 
     group('constructor', () {
       test('returns correct instance', () {
@@ -18,7 +22,9 @@ void main() {
 
       test('returns correct instance with null comment', () {
         // The second fixture item should have a null comment
-        final engagementWithoutComment = getEngagementsFixturesData()[1];
+        final engagementWithoutComment = getEngagementsFixturesData(
+          now: now,
+        )[1];
         expect(engagementWithoutComment.comment, isNull);
       });
     });
@@ -31,7 +37,9 @@ void main() {
       });
 
       test('round trip with null comment', () {
-        final engagementWithoutComment = getEngagementsFixturesData()[1];
+        final engagementWithoutComment = getEngagementsFixturesData(
+          now: now,
+        )[1];
         final json = engagementWithoutComment.toJson();
         final result = Engagement.fromJson(json);
         expect(result, equals(engagementWithoutComment));
@@ -60,14 +68,20 @@ void main() {
 
     group('Equatable', () {
       test('instances with the same properties are equal', () {
-        final engagement1 = getEngagementsFixturesData().first.copyWith();
-        final engagement2 = getEngagementsFixturesData().first.copyWith();
+        final engagement1 = getEngagementsFixturesData(
+          now: now,
+          languageCode: 'en',
+        ).first;
+        final engagement2 = getEngagementsFixturesData(
+          now: now,
+          languageCode: 'en',
+        ).first;
         expect(engagement1, equals(engagement2));
       });
 
       test('instances with different properties are not equal', () {
-        final engagement1 = getEngagementsFixturesData()[0];
-        final engagement2 = getEngagementsFixturesData()[1];
+        final engagement1 = getEngagementsFixturesData(now: now)[0];
+        final engagement2 = getEngagementsFixturesData(now: now)[1];
         expect(engagement1, isNot(equals(engagement2)));
       });
     });
