@@ -9,7 +9,7 @@ void main() {
         containsAll([
           ReportableEntity.headline,
           ReportableEntity.source,
-          ReportableEntity.comment,
+          ReportableEntity.engagement,
         ]),
       );
     });
@@ -17,7 +17,7 @@ void main() {
     test('has correct string values', () {
       expect(ReportableEntity.headline.name, 'headline');
       expect(ReportableEntity.source.name, 'source');
-      expect(ReportableEntity.comment.name, 'comment');
+      expect(ReportableEntity.engagement.name, 'engagement');
     });
 
     test('can be created from string values', () {
@@ -27,8 +27,8 @@ void main() {
       );
       expect(ReportableEntity.values.byName('source'), ReportableEntity.source);
       expect(
-        ReportableEntity.values.byName('comment'),
-        ReportableEntity.comment,
+        ReportableEntity.values.byName('engagement'),
+        ReportableEntity.engagement,
       );
     });
   });

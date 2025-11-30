@@ -14,6 +14,9 @@ List<Report> getReportsFixturesData({DateTime? now}) {
   final headlines = getHeadlinesFixturesData(
     now: referenceTime,
   ).take(10).toList();
+  final engagementsWithComments = getEngagementsFixturesData(
+    now: referenceTime,
+  ).where((e) => e.comment != null).toList();
   final reportIds = [
     kReportId1,
     kReportId2,
@@ -75,8 +78,8 @@ List<Report> getReportsFixturesData({DateTime? now}) {
         Report(
           id: reportIds[i],
           reporterUserId: user.id,
-          entityType: ReportableEntity.comment,
-          entityId: getHeadlineCommentsFixturesData(now: referenceTime)[i].id,
+          entityType: ReportableEntity.engagement,
+          entityId: engagementsWithComments[i].id,
           reason: commentReasons[i % commentReasons.length].name,
           additionalComments: 'This comment is spam.',
           status: status,
