@@ -1,5 +1,6 @@
 import 'package:core/src/enums/comment_status.dart';
 import 'package:core/src/enums/engageable_type.dart';
+import 'package:core/src/models/entities/language.dart';
 import 'package:core/src/utils/json_helpers.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -7,18 +8,19 @@ import 'package:meta/meta.dart';
 
 part 'comment.g.dart';
 
-/// {@template comment}
+/// {@template user_comment}
 /// Represents a user-submitted comment on a specific piece of content.
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class Comment extends Equatable {
-  /// {@macro comment}
+  /// {@macro user_comment}
   const Comment({
     required this.id,
     required this.userId,
     required this.entityId,
     required this.entityType,
+    required this.language,
     required this.content,
     required this.createdAt,
     required this.updatedAt,
@@ -40,6 +42,9 @@ class Comment extends Equatable {
 
   /// The type of entity being commented on.
   final EngageableType entityType;
+
+  /// The language of the comment.
+  final Language language;
 
   /// The text content of the comment.
   final String content;
@@ -64,6 +69,7 @@ class Comment extends Equatable {
     userId,
     entityId,
     entityType,
+    language,
     content,
     status,
     createdAt,
@@ -71,12 +77,17 @@ class Comment extends Equatable {
   ];
 
   /// Creates a copy of this [Comment] with updated values.
-  Comment copyWith({String? content, CommentStatus? status}) {
+  Comment copyWith({
+    String? content,
+    Language? language,
+    CommentStatus? status,
+  }) {
     return Comment(
       id: id,
       userId: userId,
       entityId: entityId,
       entityType: entityType,
+      language: language ?? this.language,
       content: content ?? this.content,
       status: status ?? this.status,
       createdAt: createdAt,
