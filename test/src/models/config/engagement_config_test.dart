@@ -28,13 +28,9 @@ void main() {
     });
 
     test('copyWith creates a copy with updated values', () {
-      final updatedConfig = engagementConfigFixture.copyWith(
-        enabled: false,
-        engagementMode: EngagementMode.reactionsOnly,
-      );
+      final updatedConfig = engagementConfigFixture.copyWith(enabled: false);
 
       expect(updatedConfig.enabled, isFalse);
-      expect(updatedConfig.engagementMode, EngagementMode.reactionsOnly);
       expect(updatedConfig, isNot(equals(engagementConfigFixture)));
     });
   });

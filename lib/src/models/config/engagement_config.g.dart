@@ -14,10 +14,6 @@ EngagementConfig _$EngagementConfigFromJson(Map<String, dynamic> json) =>
           'engagementMode',
           (v) => $enumDecode(_$EngagementModeEnumMap, v),
         ),
-        aiModerationEnabled: $checkedConvert(
-          'aiModerationEnabled',
-          (v) => v as bool,
-        ),
       );
       return val;
     });
@@ -26,7 +22,6 @@ Map<String, dynamic> _$EngagementConfigToJson(EngagementConfig instance) =>
     <String, dynamic>{
       'enabled': instance.enabled,
       'engagementMode': _$EngagementModeEnumMap[instance.engagementMode]!,
-      'aiModerationEnabled': instance.aiModerationEnabled,
     };
 
 const _$EngagementModeEnumMap = {
