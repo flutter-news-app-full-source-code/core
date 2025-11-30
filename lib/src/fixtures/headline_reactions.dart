@@ -6,7 +6,9 @@ import 'package:core/core.dart';
 final List<Reaction> reactionsFixturesData = () {
   final reactions = <Reaction>[];
   final users = usersFixturesData.take(10).toList();
-  final headlines = headlinesFixturesData.take(100).toList();
+  final headlines = getHeadlinesFixturesData(
+    languageCode: 'en',
+  ).take(100).toList();
   final reactionIds = [
     kReactionId1,
     kReactionId2,
