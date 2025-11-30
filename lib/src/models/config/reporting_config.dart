@@ -15,6 +15,7 @@ part 'reporting_config.g.dart';
 class ReportingConfig extends Equatable {
   /// {@macro reporting_config}
   const ReportingConfig({
+    required this.enabled,
     required this.headlineReportingEnabled,
     required this.sourceReportingEnabled,
     required this.commentReportingEnabled,
@@ -23,6 +24,9 @@ class ReportingConfig extends Equatable {
   /// Creates a [ReportingConfig] from JSON data.
   factory ReportingConfig.fromJson(Map<String, dynamic> json) =>
       _$ReportingConfigFromJson(json);
+
+  /// A master switch to enable or disable the entire reporting system.
+  final bool enabled;
 
   /// A switch to enable or disable reporting for headlines.
   final bool headlineReportingEnabled;
@@ -38,6 +42,7 @@ class ReportingConfig extends Equatable {
 
   @override
   List<Object> get props => [
+    enabled,
     headlineReportingEnabled,
     sourceReportingEnabled,
     commentReportingEnabled,
@@ -46,11 +51,13 @@ class ReportingConfig extends Equatable {
   /// Creates a copy of this [ReportingConfig] but with the given fields
   /// replaced with the new values.
   ReportingConfig copyWith({
+    bool? enabled,
     bool? headlineReportingEnabled,
     bool? sourceReportingEnabled,
     bool? commentReportingEnabled,
   }) {
     return ReportingConfig(
+      enabled: enabled ?? this.enabled,
       headlineReportingEnabled:
           headlineReportingEnabled ?? this.headlineReportingEnabled,
       sourceReportingEnabled:
