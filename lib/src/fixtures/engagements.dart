@@ -34,9 +34,6 @@ List<Engagement> getEngagementsFixturesData({
   return engagements;
 }
 
-/// A list of predefined engagements for fixture data, defaulting to English.
-final List<Engagement> engagementsFixturesData = getEngagementsFixturesData();
-
 const _engagementIds = [
   kEngagementId1,
   kEngagementId2,
