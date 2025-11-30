@@ -20,7 +20,7 @@ export 'feed_item_click_behavior.dart';
 export 'feed_item_density.dart';
 export 'feed_item_image_style.dart';
 export 'headline_report_reason.dart';
-export 'initial_app_review_answer.dart';
+export 'initial_app_review_feedback.dart';
 export 'push_notification_provider.dart';
 export 'push_notification_subscription_delivery_type.dart';
 export 'reaction_type.dart';

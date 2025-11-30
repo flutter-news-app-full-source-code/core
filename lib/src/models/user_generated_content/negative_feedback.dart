@@ -1,7 +1,3 @@
-import 'package:core/core.dart' show AppReview;
-import 'package:core/src/models/models.dart' show AppReview;
-import 'package:core/src/models/user_generated_content/app_review.dart' show AppReview;
-import 'package:core/src/models/user_generated_content/user_generated_content.dart' show AppReview;
 import 'package:core/src/utils/utils.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -26,7 +22,7 @@ class NegativeFeedback extends Equatable {
       _$NegativeFeedbackFromJson(json);
 
   /// The timestamp when this specific piece of feedback was provided.
-  @JsonKey(fromJson:dateTimeFromJson, toJson: dateTimeToJson)
+  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
   final DateTime providedAt;
 
   /// The optional text reason provided by the user for their dissatisfaction.

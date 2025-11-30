@@ -39,7 +39,7 @@ List<AppReview> getAppReviewsFixturesData({
         AppReview(
           id: 'ar-pos-$i',
           userId: user.id,
-          initialFeedback: InitialAppReviewAnswer.positive,
+          initialFeedback: InitialAppReviewFeedback.positive,
           createdAt: createdAt,
           updatedAt: createdAt.add(const Duration(minutes: 1)),
           storeReviewRequestedAt: createdAt.add(const Duration(minutes: 1)),
@@ -52,7 +52,7 @@ List<AppReview> getAppReviewsFixturesData({
         AppReview(
           id: 'ar-neg-reason-$i',
           userId: user.id,
-          initialFeedback: InitialAppReviewAnswer.negative,
+          initialFeedback: InitialAppReviewFeedback.negative,
           createdAt: createdAt,
           updatedAt: createdAt,
           negativeFeedbackHistory: [
@@ -67,7 +67,7 @@ List<AppReview> getAppReviewsFixturesData({
         AppReview(
           id: 'ar-neg-$i',
           userId: user.id,
-          initialFeedback: InitialAppReviewAnswer.negative,
+          initialFeedback: InitialAppReviewFeedback.negative,
           createdAt: createdAt,
           updatedAt: createdAt,
         ),
@@ -87,7 +87,7 @@ List<AppReview> getAppReviewsFixturesData({
     AppReview(
       id: 'ar-multistage-final',
       userId: multiStageUser.id,
-      initialFeedback: InitialAppReviewAnswer.positive,
+      initialFeedback: InitialAppReviewFeedback.positive,
       // createdAt would be from the first interaction
       createdAt: firstReviewTime,
       // updatedAt is from the most recent interaction
@@ -110,7 +110,7 @@ List<AppReview> getAppReviewsFixturesData({
     AppReview(
       id: 'ar-multi-neg',
       userId: persistentNegativeUser.id,
-      initialFeedback: InitialAppReviewAnswer.negative,
+      initialFeedback: InitialAppReviewFeedback.negative,
       createdAt: firstNegativeTime,
       updatedAt: secondNegativeTime,
       negativeFeedbackHistory: [
