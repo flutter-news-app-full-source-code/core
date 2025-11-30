@@ -9,6 +9,8 @@ void main() {
 
     test('can be instantiated', () {
       expect(appReviewConfigFixture, isA<AppReviewConfig>());
+      expect(appReviewConfigFixture.enabled, isTrue);
+      expect(appReviewConfigFixture.isNegativeFeedbackFollowUpEnabled, isTrue);
     });
 
     test('supports value equality', () {
@@ -29,10 +31,14 @@ void main() {
 
     test('copyWith creates a copy with updated values', () {
       final updatedConfig = appReviewConfigFixture.copyWith(
+        enabled: false,
         positiveInteractionThreshold: 10,
+        isNegativeFeedbackFollowUpEnabled: false,
       );
 
+      expect(updatedConfig.enabled, isFalse);
       expect(updatedConfig.positiveInteractionThreshold, 10);
+      expect(updatedConfig.isNegativeFeedbackFollowUpEnabled, isFalse);
       expect(updatedConfig, isNot(equals(appReviewConfigFixture)));
     });
   });

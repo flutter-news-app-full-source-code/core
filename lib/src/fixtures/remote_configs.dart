@@ -225,10 +225,12 @@ final remoteConfigsFixturesData = <RemoteConfig>[
           commentReportingEnabled: true,
         ),
         appReview: AppReviewConfig(
+          enabled: true,
           // User must perform 5 positive actions (e.g., save headline)
           // to become eligible for the review prompt.
           positiveInteractionThreshold: 5,
           initialPromptCooldownDays: 14,
+          isNegativeFeedbackFollowUpEnabled: true,
         ),
       ),
     ),

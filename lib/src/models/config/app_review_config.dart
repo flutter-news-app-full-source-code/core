@@ -26,7 +26,7 @@ part 'app_review_config.g.dart';
 ///
 /// 3.  **User Interaction & State Change**:
 ///     - **On "Yes" (Positive Feedback)**:
-///       - An `AppReview` record is created/updated with `initialAnswer: positive`
+///       - An `AppReview` record is created/updated with `initialFeedback: positive`
 ///         and `wasStoreReviewRequested` is set to `true`.
 ///       - The native OS in-app review dialog is immediately triggered. This is a
 ///         "fire-and-forget" action; the OS controls if the dialog appears and
@@ -36,8 +36,9 @@ part 'app_review_config.g.dart';
 ///         appearing again for this user.**
 ///
 ///     - **On "No" (Negative Feedback)**:
-///       - An `AppReview` record is created/updated with `initialAnswer: negative`.
-///         The app may optionally collect a `negativeFeedbackReason`.
+///       - An `AppReview` record is created/updated with `initialFeedback: negative`.
+///         The app may optionally collect a reason, which is stored in the
+///         `negativeFeedbackHistory`.
 ///       - The `UserFeedDecoratorStatus` for `rateApp` only has its `lastShownAt`
 ///         timestamp updated. `isCompleted` remains `false`.
 ///       - The prompt will not be shown again until the cooldown period has
@@ -48,42 +49,59 @@ part 'app_review_config.g.dart';
 class AppReviewConfig extends Equatable {
   /// {@macro app_review_config}
   const AppReviewConfig({
+    required this.enabled,
     required this.positiveInteractionThreshold,
     required this.initialPromptCooldownDays,
+    required this.isNegativeFeedbackFollowUpEnabled,
   });
 
   /// Creates a [AppReviewConfig] from JSON data.
   factory AppReviewConfig.fromJson(Map<String, dynamic> json) =>
       _$AppReviewConfigFromJson(json);
 
+  /// A master switch to enable or disable the entire app review funnel.
+  final bool enabled;
+
   /// The number of positive interactions (e.g., saving a headline) required
   /// to trigger the initial review prompt.
   final int positiveInteractionThreshold;
 
   /// The number of days to wait before showing the initial prompt again if the
-  /// user dismisses it.
+  /// user provides negative feedback.
   final int initialPromptCooldownDays;
+
+  /// A switch to enable or disable the follow-up prompt that asks for a
+  /// text reason after a user provides negative feedback.
+  final bool isNegativeFeedbackFollowUpEnabled;
 
   /// Converts this [AppReviewConfig] instance to JSON data.
   Map<String, dynamic> toJson() => _$AppReviewConfigToJson(this);
 
   @override
   List<Object> get props => [
+    enabled,
     positiveInteractionThreshold,
     initialPromptCooldownDays,
+    isNegativeFeedbackFollowUpEnabled,
   ];
 
   /// Creates a copy of this [AppReviewConfig] but with the given fields
   /// replaced with the new values.
   AppReviewConfig copyWith({
+    bool? enabled,
     int? positiveInteractionThreshold,
     int? initialPromptCooldownDays,
+    bool? isNegativeFeedbackFollowUpEnabled,
   }) {
     return AppReviewConfig(
+      enabled: enabled ?? this.enabled,
       positiveInteractionThreshold:
           positiveInteractionThreshold ?? this.positiveInteractionThreshold,
       initialPromptCooldownDays:
           initialPromptCooldownDays ?? this.initialPromptCooldownDays,
+      isNegativeFeedbackFollowUpEnabled:
+          isNegativeFeedbackFollowUpEnabled ??
+          this.isNegativeFeedbackFollowUpEnabled,
     );
   }
 }
