@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('SavedHeadlineFilter', () {
-    final fullModel = savedHeadlineFiltersFixturesData[0];
+    final fullModel = getSavedHeadlineFiltersFixturesData()[0];
     final fullJson = fullModel.toJson();
 
     test('should be instantiable', () {
@@ -58,7 +58,7 @@ void main() {
     });
 
     test('copyWith with no arguments should return an identical instance', () {
-      final copied = savedHeadlineFiltersFixturesData[0].copyWith();
+      final copied = getSavedHeadlineFiltersFixturesData()[0].copyWith();
       expect(copied, equals(fullModel));
     });
 

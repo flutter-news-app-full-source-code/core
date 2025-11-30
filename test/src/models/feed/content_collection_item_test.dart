@@ -3,8 +3,8 @@ import 'package:test/test.dart';
 
 void main() {
   group('ContentCollectionItem', () {
-    final mockTopics = topicsFixturesData.take(3).toList();
-    final mockSources = sourcesFixturesData.take(3).toList();
+    final mockTopics = getTopicsFixturesData().take(3).toList();
+    final mockSources = getSourcesFixturesData().take(3).toList();
 
     final mockTopicCollection = ContentCollectionItem<Topic>(
       id: 'cc-topic-1',

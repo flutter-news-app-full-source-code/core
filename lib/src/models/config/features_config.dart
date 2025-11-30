@@ -1,4 +1,5 @@
 import 'package:core/src/models/config/ad_config.dart';
+import 'package:core/src/models/config/community_config.dart';
 import 'package:core/src/models/config/feed_config.dart';
 import 'package:core/src/models/config/push_notification_config.dart';
 import 'package:equatable/equatable.dart';
@@ -18,6 +19,7 @@ class FeaturesConfig extends Equatable {
     required this.ads,
     required this.pushNotifications,
     required this.feed,
+    required this.community,
   });
 
   /// Creates a [FeaturesConfig] from JSON data.
@@ -33,11 +35,14 @@ class FeaturesConfig extends Equatable {
   /// Configuration for all feed-related features.
   final FeedConfig feed;
 
+  /// Configuration for community and user-generated content features.
+  final CommunityConfig community;
+
   /// Converts this [FeaturesConfig] instance to JSON data.
   Map<String, dynamic> toJson() => _$FeaturesConfigToJson(this);
 
   @override
-  List<Object> get props => [ads, pushNotifications, feed];
+  List<Object> get props => [ads, pushNotifications, feed, community];
 
   /// Creates a copy of this [FeaturesConfig] but with the given fields
   /// replaced with the new values.
@@ -45,11 +50,13 @@ class FeaturesConfig extends Equatable {
     AdConfig? ads,
     PushNotificationConfig? pushNotifications,
     FeedConfig? feed,
+    CommunityConfig? community,
   }) {
     return FeaturesConfig(
       ads: ads ?? this.ads,
       pushNotifications: pushNotifications ?? this.pushNotifications,
       feed: feed ?? this.feed,
+      community: community ?? this.community,
     );
   }
 }

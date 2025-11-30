@@ -22,6 +22,7 @@ void main() {
           featuresConfigFixture.ads,
           featuresConfigFixture.pushNotifications,
           featuresConfigFixture.feed,
+          featuresConfigFixture.community,
         ]),
       );
     });

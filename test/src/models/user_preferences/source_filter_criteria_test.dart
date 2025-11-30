@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('SourceFilterCriteria', () {
-    final fullModel = savedSourceFiltersFixturesData[0].criteria;
+    final fullModel = getSavedSourceFiltersFixturesData()[0].criteria;
     final fullJson = fullModel.toJson();
 
     const emptyModel = SourceFilterCriteria(

@@ -3,9 +3,9 @@ import 'package:test/test.dart';
 
 void main() {
   group('FeedItem', () {
-    final mockHeadline = headlinesFixturesData.first;
-    final mockTopic = topicsFixturesData.first;
-    final mockSource = sourcesFixturesData.first;
+    final mockHeadline = getHeadlinesFixturesData().first;
+    final mockTopic = getTopicsFixturesData().first;
+    final mockSource = getSourcesFixturesData().first;
     final mockCountry = countriesFixturesData.first;
 
     const mockCallToAction = CallToActionItem(
@@ -20,14 +20,14 @@ void main() {
     final mockContentCollectionTopic = ContentCollectionItem<Topic>(
       id: 'cc-topic-1',
       decoratorType: FeedDecoratorType.suggestedTopics,
-      items: topicsFixturesData.take(3).toList(),
+      items: getTopicsFixturesData().take(3).toList(),
       title: 'Suggested Topics',
     );
 
     final mockContentCollectionSource = ContentCollectionItem<Source>(
       id: 'cc-source-1',
       decoratorType: FeedDecoratorType.suggestedSources,
-      items: sourcesFixturesData.take(3).toList(),
+      items: getSourcesFixturesData().take(3).toList(),
       title: 'Suggested Sources',
     );
 

@@ -22,6 +22,9 @@ class UserLimitsConfig extends Equatable {
     required this.savedHeadlines,
     required this.savedHeadlineFilters,
     required this.savedSourceFilters,
+    required this.reactionsPerDay,
+    required this.commentsPerDay,
+    required this.reportsPerDay,
   });
 
   /// Creates a [UserLimitsConfig] from JSON data.
@@ -45,6 +48,18 @@ class UserLimitsConfig extends Equatable {
   /// defines the limits per user role.
   final Map<AppUserRole, SavedFilterLimits> savedSourceFilters;
 
+  /// Role-based limits for the number of reactions a user can perform per day.
+  final Map<AppUserRole, int> reactionsPerDay;
+
+  /// Role-based limits for the number of comments a user can post per day.
+  ///
+  /// This limit applies specifically to the creation of new comments and does
+  /// not include other interactions like reactions.
+  final Map<AppUserRole, int> commentsPerDay;
+
+  /// Role-based limits for the number of reports a user can submit per day.
+  final Map<AppUserRole, int> reportsPerDay;
+
   /// Converts this [UserLimitsConfig] instance to JSON data.
   Map<String, dynamic> toJson() => _$UserLimitsConfigToJson(this);
 
@@ -54,6 +69,9 @@ class UserLimitsConfig extends Equatable {
     savedHeadlines,
     savedHeadlineFilters,
     savedSourceFilters,
+    reactionsPerDay,
+    commentsPerDay,
+    reportsPerDay,
   ];
 
   /// Creates a copy of this [UserLimitsConfig] but with the given fields
@@ -63,12 +81,18 @@ class UserLimitsConfig extends Equatable {
     Map<AppUserRole, int>? savedHeadlines,
     Map<AppUserRole, SavedFilterLimits>? savedHeadlineFilters,
     Map<AppUserRole, SavedFilterLimits>? savedSourceFilters,
+    Map<AppUserRole, int>? commentsPerDay,
+    Map<AppUserRole, int>? reportsPerDay,
+    Map<AppUserRole, int>? reactionsPerDay,
   }) {
     return UserLimitsConfig(
       followedItems: followedItems ?? this.followedItems,
       savedHeadlines: savedHeadlines ?? this.savedHeadlines,
       savedHeadlineFilters: savedHeadlineFilters ?? this.savedHeadlineFilters,
       savedSourceFilters: savedSourceFilters ?? this.savedSourceFilters,
+      commentsPerDay: commentsPerDay ?? this.commentsPerDay,
+      reportsPerDay: reportsPerDay ?? this.reportsPerDay,
+      reactionsPerDay: reactionsPerDay ?? this.reactionsPerDay,
     );
   }
 }

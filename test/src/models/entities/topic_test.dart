@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('Topic', () {
-    final topicFixture = topicsFixturesData.first;
+    final topicFixture = getTopicsFixturesData().first;
     final topicJson = topicFixture.toJson();
 
     test('supports value equality', () {

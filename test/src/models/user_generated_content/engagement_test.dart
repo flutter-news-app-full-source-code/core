@@ -1,0 +1,114 @@
+import 'package:core/core.dart';
+import 'package:test/test.dart';
+
+void main() {
+  group('Engagement', () {
+    final now = DateTime.now();
+    // Use the first item from the fixtures as the test subject.
+    final engagementFixture = getEngagementsFixturesData(
+      now: now,
+      languageCode: 'en',
+    ).first;
+
+    group('constructor', () {
+      test('returns correct instance', () {
+        expect(engagementFixture, isA<Engagement>());
+      });
+
+      test('returns correct instance with populated comment', () {
+        // The first fixture item should have a comment
+        expect(engagementFixture.comment, isNotNull);
+      });
+
+      test('returns correct instance with null comment', () {
+        // The second fixture item should have a null comment
+        final engagementWithoutComment = getEngagementsFixturesData(
+          now: now,
+        )[1];
+        expect(engagementWithoutComment.comment, isNull);
+      });
+    });
+
+    group('fromJson/toJson', () {
+      test('round trip with all fields populated', () {
+        final json = engagementFixture.toJson();
+        final result = Engagement.fromJson(json);
+        expect(result, equals(engagementFixture));
+      });
+
+      test('round trip with null comment', () {
+        final engagementWithoutComment = getEngagementsFixturesData(
+          now: now,
+        )[1];
+        final json = engagementWithoutComment.toJson();
+        final result = Engagement.fromJson(json);
+        expect(result, equals(engagementWithoutComment));
+      });
+    });
+
+    group('copyWith', () {
+      test('returns a new instance with updated fields', () {
+        final newReaction = reactionsFixturesData[2];
+
+        final updatedEngagement = engagementFixture.copyWith(
+          reaction: newReaction,
+        );
+
+        expect(updatedEngagement.reaction, newReaction);
+        // Verify other fields remain unchanged
+        expect(updatedEngagement.id, engagementFixture.id);
+        expect(updatedEngagement.userId, engagementFixture.userId);
+        expect(updatedEngagement.entityId, engagementFixture.entityId);
+        expect(updatedEngagement.comment, engagementFixture.comment);
+        expect(updatedEngagement.createdAt, engagementFixture.createdAt);
+        // The updatedAt timestamp should be different
+        expect(
+          updatedEngagement.updatedAt,
+          isNot(equals(engagementFixture.updatedAt)),
+        );
+      });
+
+      test(
+        'returns a new instance with a new timestamp if no updates provided',
+        () {
+          final copiedEngagement = engagementFixture.copyWith();
+          expect(copiedEngagement, isNot(equals(engagementFixture)));
+          expect(copiedEngagement.id, engagementFixture.id);
+        },
+      );
+    });
+
+    group('Equatable', () {
+      test('instances with the same properties are equal', () {
+        final engagement1 = getEngagementsFixturesData(
+          now: now,
+          languageCode: 'en',
+        ).first;
+        final engagement2 = getEngagementsFixturesData(
+          now: now,
+          languageCode: 'en',
+        ).first;
+        expect(engagement1, equals(engagement2));
+      });
+
+      test('instances with different properties are not equal', () {
+        final engagement1 = getEngagementsFixturesData(now: now)[0];
+        final engagement2 = getEngagementsFixturesData(now: now)[1];
+        expect(engagement1, isNot(equals(engagement2)));
+      });
+    });
+
+    test('props list should contain all relevant fields', () {
+      expect(engagementFixture.props, [
+        engagementFixture.id,
+        engagementFixture.userId,
+        engagementFixture.entityId,
+        engagementFixture.entityType,
+        engagementFixture.reaction,
+        engagementFixture.comment,
+        engagementFixture.createdAt,
+        engagementFixture.updatedAt,
+      ]);
+    });
+  });
+}

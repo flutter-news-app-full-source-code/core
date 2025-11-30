@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('SavedSourceFilter', () {
-    final fullModel = savedSourceFiltersFixturesData[0];
+    final fullModel = getSavedSourceFiltersFixturesData()[0];
     final fullJson = fullModel.toJson();
 
     test('should be instantiable', () {
@@ -53,7 +53,7 @@ void main() {
     });
 
     test('copyWith with no arguments should return an identical instance', () {
-      final copied = savedSourceFiltersFixturesData[0].copyWith();
+      final copied = getSavedSourceFiltersFixturesData()[0].copyWith();
       expect(copied, equals(fullModel));
     });
 

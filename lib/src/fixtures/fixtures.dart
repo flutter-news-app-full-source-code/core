@@ -1,11 +1,15 @@
 export 'app_settings.dart';
 export 'countries.dart';
 export 'dashboard_summary.dart';
+export 'engagements.dart';
 export 'fixture_ids.dart';
+export 'headline_comments.dart';
+export 'headline_reactions.dart';
 export 'headlines.dart';
 export 'in_app_notifications.dart';
 export 'languages.dart';
 export 'remote_configs.dart';
+export 'reports.dart';
 export 'saved_headline_filters.dart';
 export 'saved_source_filters.dart';
 export 'sources.dart';

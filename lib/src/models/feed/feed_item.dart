@@ -1,5 +1,5 @@
 import 'package:core/src/models/entities/entities.dart';
-import 'package:core/src/models/feed_decorators/feed_decorators.dart';
+import 'package:core/src/models/feed/feed_decorators.dart';
 import 'package:equatable/equatable.dart';
 
 /// {@template feed_item}

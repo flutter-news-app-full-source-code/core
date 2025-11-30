@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('Source Model', () {
-    final sourceFixture = sourcesFixturesData.first;
+    final sourceFixture = getSourcesFixturesData().first;
     final sourceJson = sourceFixture.toJson();
 
     group('Constructor', () {
