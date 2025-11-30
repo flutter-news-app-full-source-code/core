@@ -218,7 +218,6 @@ final remoteConfigsFixturesData = <RemoteConfig>[
         engagement: EngagementConfig(
           enabled: true,
           engagementMode: EngagementMode.reactionsAndComments,
-          aiModerationEnabled: false,
         ),
         reporting: ReportingConfig(
           headlineReportingEnabled: true,

@@ -8,17 +8,22 @@ List<UserContentPreferences> getUserContentPreferencesFixturesData({
   String languageCode = 'en',
 }) {
   // Ensure only approved languages are used, default to 'en'.
-  final resolvedLanguageCode =
-      ['en', 'ar'].contains(languageCode) ? languageCode : 'en';
+  final resolvedLanguageCode = ['en', 'ar'].contains(languageCode)
+      ? languageCode
+      : 'en';
 
   // Get language-specific fixtures
   final sources = getSourcesFixturesData(languageCode: resolvedLanguageCode);
   final topics = getTopicsFixturesData(languageCode: resolvedLanguageCode);
-  final headlines = getHeadlinesFixturesData(languageCode: resolvedLanguageCode);
-  final savedHeadlineFilters =
-      getSavedHeadlineFiltersFixturesData(languageCode: resolvedLanguageCode);
-  final savedSourceFilters =
-      getSavedSourceFiltersFixturesData(languageCode: resolvedLanguageCode);
+  final headlines = getHeadlinesFixturesData(
+    languageCode: resolvedLanguageCode,
+  );
+  final savedHeadlineFilters = getSavedHeadlineFiltersFixturesData(
+    languageCode: resolvedLanguageCode,
+  );
+  final savedSourceFilters = getSavedSourceFiltersFixturesData(
+    languageCode: resolvedLanguageCode,
+  );
 
   return [
     UserContentPreferences(
@@ -85,30 +90,28 @@ List<UserContentPreferences> getUserContentPreferencesFixturesData({
     // Add preferences for users 3-10
     ...List.generate(8, (index) {
       final userId = [
-        kUser3Id, kUser4Id, kUser5Id, kUser6Id,
-        kUser7Id, kUser8Id, kUser9Id, kUser10Id,
+        kUser3Id,
+        kUser4Id,
+        kUser5Id,
+        kUser6Id,
+        kUser7Id,
+        kUser8Id,
+        kUser9Id,
+        kUser10Id,
       ][index];
       return UserContentPreferences(
         id: userId,
         followedCountries: const [],
-        followedSources: [
-          sources[index % 10],
-          sources[(index + 1) % 10],
-        ],
-        followedTopics: [
-          topics[index % 5],
-          topics[(index + 1) % 5],
-        ],
-        savedHeadlines: [
-          headlines[index * 2],
-          headlines[index * 2 + 1],
-        ],
-        savedHeadlineFilters:
-            savedHeadlineFilters.map((e) => e.copyWith(userId: userId)).toList(),
-        savedSourceFilters:
-            savedSourceFilters.map((e) => e.copyWith(userId: userId)).toList(),
+        followedSources: [sources[index % 10], sources[(index + 1) % 10]],
+        followedTopics: [topics[index % 5], topics[(index + 1) % 5]],
+        savedHeadlines: [headlines[index * 2], headlines[index * 2 + 1]],
+        savedHeadlineFilters: savedHeadlineFilters
+            .map((e) => e.copyWith(userId: userId))
+            .toList(),
+        savedSourceFilters: savedSourceFilters
+            .map((e) => e.copyWith(userId: userId))
+            .toList(),
       );
     }),
   ];
 }
-      

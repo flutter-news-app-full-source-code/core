@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/fixtures/headline_reactions.dart';
 
 /// Generates a list of predefined engagements for fixture data.
 ///

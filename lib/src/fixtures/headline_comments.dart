@@ -120,7 +120,7 @@ List<Comment> getHeadlineCommentsFixturesData({String languageCode = 'en'}) {
     kCommentId100,
   ];
 
-  final Map<String, List<String>> commentContentsByLang = {
+  final commentContentsByLang = <String, List<String>>{
     'en': [
       'This is a really insightful article. It completely changed my perspective.',
       "I'm not sure I agree with the author's conclusion, but it's a well-argued piece.",
