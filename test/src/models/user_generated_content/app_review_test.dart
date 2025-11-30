@@ -26,13 +26,13 @@ void main() {
     group('constructor', () {
       test('returns correct instance for positive review', () {
         expect(positiveReview, isA<AppReview>());
-        expect(positiveReview.storeReviewRequestedAt, isNotNull);
+        expect(positiveReview.wasStoreReviewRequested, isTrue);
         // A positive review can still have a history if the user previously gave negative feedback.
       });
 
       test('returns correct instance for negative review with reason', () {
         expect(negativeReviewWithReason, isA<AppReview>());
-        expect(negativeReviewWithReason.storeReviewRequestedAt, isNull);
+        expect(negativeReviewWithReason.wasStoreReviewRequested, isFalse);
         expect(negativeReviewWithReason.negativeFeedbackHistory, isNotEmpty);
       });
     });
@@ -116,7 +116,7 @@ void main() {
         positiveReview.initialFeedback,
         positiveReview.createdAt,
         positiveReview.updatedAt,
-        positiveReview.storeReviewRequestedAt,
+        positiveReview.wasStoreReviewRequested,
         positiveReview.negativeFeedbackHistory,
       ]);
     });
