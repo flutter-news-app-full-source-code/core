@@ -1,6 +1,6 @@
 import 'package:core/src/enums/comment_report_reason.dart';
 import 'package:core/src/enums/headline_report_reason.dart';
-import 'package:core/src/enums/report_status.dart';
+import 'package:core/src/enums/moderation_status.dart';
 import 'package:core/src/enums/reportable_entity.dart';
 import 'package:core/src/enums/source_report_reason.dart';
 import 'package:core/src/utils/json_helpers.dart';
@@ -64,7 +64,7 @@ class Report extends Equatable {
   final String reason;
 
   /// The current moderation status of the report.
-  final ReportStatus status;
+  final ModerationStatus status;
 
   /// Optional additional comments from the user providing more context.
   final String? additionalComments;
@@ -96,7 +96,7 @@ class Report extends Equatable {
     ReportableEntity? entityType,
     String? entityId,
     String? reason,
-    ReportStatus? status,
+    ModerationStatus? status,
     ValueWrapper<String?>? additionalComments,
     DateTime? createdAt,
   }) {
