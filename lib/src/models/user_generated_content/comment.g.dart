@@ -17,8 +17,8 @@ Comment _$CommentFromJson(Map<String, dynamic> json) =>
         status: $checkedConvert(
           'status',
           (v) =>
-              $enumDecodeNullable(_$CommentStatusEnumMap, v) ??
-              CommentStatus.pendingReview,
+              $enumDecodeNullable(_$ModerationStatusEnumMap, v) ??
+              ModerationStatus.pendingReview,
         ),
       );
       return val;
@@ -27,13 +27,10 @@ Comment _$CommentFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$CommentToJson(Comment instance) => <String, dynamic>{
   'language': instance.language.toJson(),
   'content': instance.content,
-  'status': _$CommentStatusEnumMap[instance.status]!,
+  'status': _$ModerationStatusEnumMap[instance.status]!,
 };
 
-const _$CommentStatusEnumMap = {
-  CommentStatus.pendingReview: 'pendingReview',
-  CommentStatus.approved: 'approved',
-  CommentStatus.rejected: 'rejected',
-  CommentStatus.flaggedByAI: 'flaggedByAI',
-  CommentStatus.hiddenByUser: 'hiddenByUser',
+const _$ModerationStatusEnumMap = {
+  ModerationStatus.pendingReview: 'pendingReview',
+  ModerationStatus.resolved: 'resolved',
 };
