@@ -15,7 +15,7 @@ class Comment extends Equatable {
   const Comment({
     required this.language,
     required this.content,
-    this.status = CommentStatus.pendingReview,
+    this.status = ModerationStatus.pendingReview,
   });
 
   /// Creates a [Comment] from JSON data.
@@ -29,7 +29,7 @@ class Comment extends Equatable {
   final String content;
 
   /// The current moderation status of the comment.
-  final CommentStatus status;
+  final ModerationStatus status;
 
   /// Converts this [Comment] instance to JSON data.
   Map<String, dynamic> toJson() => _$CommentToJson(this);
@@ -41,7 +41,7 @@ class Comment extends Equatable {
   Comment copyWith({
     String? content,
     Language? language,
-    CommentStatus? status,
+    ModerationStatus? status,
   }) {
     return Comment(
       language: language ?? this.language,

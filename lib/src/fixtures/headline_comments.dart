@@ -54,12 +54,10 @@ List<Comment> getHeadlineCommentsFixturesData({
     for (var j = 0; j < 10; j++) {
       final commentIndex = i * 10 + j;
 
-      // Vary the status for realism
-      var status = CommentStatus.approved;
+      // Vary the status for realism. Default to resolved.
+      var status = ModerationStatus.resolved;
       if (commentIndex % 15 == 0) {
-        status = CommentStatus.pendingReview;
-      } else if (commentIndex % 25 == 0) {
-        status = CommentStatus.rejected;
+        status = ModerationStatus.pendingReview;
       }
 
       comments.add(

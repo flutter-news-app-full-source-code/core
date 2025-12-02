@@ -24,9 +24,9 @@ void main() {
     group('copyWith', () {
       test('returns a new instance with updated values', () {
         final updatedReport = reportFixture.copyWith(
-          status: ReportStatus.resolved,
+          status: ModerationStatus.resolved,
         );
-        expect(updatedReport.status, ReportStatus.resolved);
+        expect(updatedReport.status, ModerationStatus.resolved);
         expect(updatedReport, isNot(equals(reportFixture)));
       });
 

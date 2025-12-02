@@ -35,12 +35,10 @@ List<Report> getReportsFixturesData({DateTime? now}) {
 
   for (var i = 0; i < users.length; i++) {
     final user = users[i];
-    final headline = headlines[i];
-    var status = ReportStatus.submitted;
-    if (i % 3 == 0) {
-      status = ReportStatus.inReview;
-    } else if (i % 5 == 0) {
-      status = ReportStatus.resolved;
+    var status = ModerationStatus.pendingReview;
+    // Every 4th report is resolved
+    if (i > 0 && i % 4 == 0) {
+      status = ModerationStatus.resolved;
     }
 
     // Create a mix of report types
@@ -51,7 +49,7 @@ List<Report> getReportsFixturesData({DateTime? now}) {
           id: reportIds[i],
           reporterUserId: user.id,
           entityType: ReportableEntity.headline,
-          entityId: headline.id,
+          entityId: headlines[i].id,
           reason: headlineReasons[i % headlineReasons.length].name,
           additionalComments: 'This headline seems misleading.',
           status: status,

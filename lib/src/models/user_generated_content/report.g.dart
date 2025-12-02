@@ -19,7 +19,7 @@ Report _$ReportFromJson(Map<String, dynamic> json) =>
         reason: $checkedConvert('reason', (v) => v as String),
         status: $checkedConvert(
           'status',
-          (v) => $enumDecode(_$ReportStatusEnumMap, v),
+          (v) => $enumDecode(_$ModerationStatusEnumMap, v),
         ),
         createdAt: $checkedConvert(
           'createdAt',
@@ -39,7 +39,7 @@ Map<String, dynamic> _$ReportToJson(Report instance) => <String, dynamic>{
   'entityType': _$ReportableEntityEnumMap[instance.entityType]!,
   'entityId': instance.entityId,
   'reason': instance.reason,
-  'status': _$ReportStatusEnumMap[instance.status]!,
+  'status': _$ModerationStatusEnumMap[instance.status]!,
   'additionalComments': instance.additionalComments,
   'createdAt': dateTimeToJson(instance.createdAt),
 };
@@ -50,8 +50,7 @@ const _$ReportableEntityEnumMap = {
   ReportableEntity.engagement: 'engagement',
 };
 
-const _$ReportStatusEnumMap = {
-  ReportStatus.submitted: 'submitted',
-  ReportStatus.inReview: 'inReview',
-  ReportStatus.resolved: 'resolved',
+const _$ModerationStatusEnumMap = {
+  ModerationStatus.pendingReview: 'pendingReview',
+  ModerationStatus.resolved: 'resolved',
 };
