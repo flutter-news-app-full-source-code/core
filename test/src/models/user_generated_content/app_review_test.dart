@@ -8,19 +8,18 @@ void main() {
 
     // A positive review where a store review was requested.
     final positiveReview = appReviewFixtures.firstWhere(
-      (r) => r.initialFeedback == InitialAppReviewFeedback.positive,
+      (r) => r.feedback == AppReviewFeedback.positive,
     );
 
     // A negative review with a reason.
     final negativeReviewWithReason = appReviewFixtures.firstWhere(
-      (r) => r.negativeFeedbackHistory.any((h) => h.reason != null),
+      (r) => r.feedbackDetails != null,
     );
 
     // A negative review without a reason.
     final negativeReviewWithoutReason = appReviewFixtures.firstWhere(
       (r) =>
-          r.initialFeedback == InitialAppReviewFeedback.negative &&
-          r.negativeFeedbackHistory.every((h) => h.reason == null),
+          r.feedback == AppReviewFeedback.negative && r.feedbackDetails == null,
     );
 
     group('constructor', () {
@@ -33,7 +32,7 @@ void main() {
       test('returns correct instance for negative review with reason', () {
         expect(negativeReviewWithReason, isA<AppReview>());
         expect(negativeReviewWithReason.wasStoreReviewRequested, isFalse);
-        expect(negativeReviewWithReason.negativeFeedbackHistory, isNotEmpty);
+        expect(negativeReviewWithReason.feedbackDetails, isNotNull);
       });
     });
 
@@ -60,21 +59,15 @@ void main() {
     group('copyWith', () {
       test('returns a new instance with updated fields', () {
         final newTimestamp = now.add(const Duration(days: 1));
-        final newHistory = [
-          ...negativeReviewWithReason.negativeFeedbackHistory,
-          NegativeFeedback(
-            providedAt: newTimestamp,
-            reason: 'This is a new reason.',
-          ),
-        ];
+        const newDetails = 'This is a new reason.';
 
         final updatedReview = negativeReviewWithReason.copyWith(
           updatedAt: newTimestamp,
-          negativeFeedbackHistory: newHistory,
+          feedbackDetails: newDetails,
         );
 
         expect(updatedReview.updatedAt, newTimestamp);
-        expect(updatedReview.negativeFeedbackHistory, newHistory);
+        expect(updatedReview.feedbackDetails, newDetails);
         // Verify other fields remain unchanged
         expect(updatedReview.id, negativeReviewWithReason.id);
         expect(updatedReview.userId, negativeReviewWithReason.userId);
@@ -83,13 +76,10 @@ void main() {
 
       test('correctly uses initialFeedback in copyWith', () {
         final updatedReview = positiveReview.copyWith(
-          initialFeedback: InitialAppReviewFeedback.negative,
+          feedback: AppReviewFeedback.negative,
         );
 
-        expect(
-          updatedReview.initialFeedback,
-          InitialAppReviewFeedback.negative,
-        );
+        expect(updatedReview.feedback, AppReviewFeedback.negative);
         // Ensure other properties are copied correctly
         expect(updatedReview.id, positiveReview.id);
       });
@@ -113,11 +103,11 @@ void main() {
       expect(positiveReview.props, [
         positiveReview.id,
         positiveReview.userId,
-        positiveReview.initialFeedback,
+        positiveReview.feedback,
         positiveReview.createdAt,
         positiveReview.updatedAt,
         positiveReview.wasStoreReviewRequested,
-        positiveReview.negativeFeedbackHistory,
+        positiveReview.feedbackDetails,
       ]);
     });
   });

@@ -39,7 +39,7 @@ List<AppReview> getAppReviewsFixturesData({
         AppReview(
           id: 'ar-pos-$i',
           userId: user.id,
-          initialFeedback: InitialAppReviewFeedback.positive,
+          feedback: AppReviewFeedback.positive,
           createdAt: createdAt,
           updatedAt: createdAt.add(const Duration(minutes: 1)),
           wasStoreReviewRequested: true,
@@ -52,15 +52,10 @@ List<AppReview> getAppReviewsFixturesData({
         AppReview(
           id: 'ar-neg-reason-$i',
           userId: user.id,
-          initialFeedback: InitialAppReviewFeedback.negative,
+          feedback: AppReviewFeedback.negative,
           createdAt: createdAt,
           updatedAt: createdAt,
-          negativeFeedbackHistory: [
-            NegativeFeedback(
-              providedAt: createdAt,
-              reason: reasons[i % reasons.length],
-            ),
-          ],
+          feedbackDetails: reasons[i % reasons.length],
         ),
       );
     }
@@ -70,7 +65,7 @@ List<AppReview> getAppReviewsFixturesData({
         AppReview(
           id: 'ar-neg-$i',
           userId: user.id,
-          initialFeedback: InitialAppReviewFeedback.negative,
+          feedback: AppReviewFeedback.negative,
           createdAt: createdAt,
           updatedAt: createdAt,
         ),
@@ -90,7 +85,7 @@ List<AppReview> getAppReviewsFixturesData({
     AppReview(
       id: 'ar-multistage-final',
       userId: multiStageUser.id,
-      initialFeedback: InitialAppReviewFeedback.positive,
+      feedback: AppReviewFeedback.positive,
       // createdAt would be from the first interaction
       createdAt: firstReviewTime,
       // updatedAt is from the most recent interaction
@@ -99,9 +94,7 @@ List<AppReview> getAppReviewsFixturesData({
       // depending on business logic. Here we assume it's cleared on positive.
       wasStoreReviewRequested: true,
       // The history might be kept for analytics, even after a positive review.
-      negativeFeedbackHistory: [
-        NegativeFeedback(providedAt: firstReviewTime, reason: reasons[1]),
-      ],
+      feedbackDetails: reasons[1],
     ),
   );
 
@@ -113,13 +106,10 @@ List<AppReview> getAppReviewsFixturesData({
     AppReview(
       id: 'ar-multi-neg',
       userId: persistentNegativeUser.id,
-      initialFeedback: InitialAppReviewFeedback.negative,
+      feedback: AppReviewFeedback.negative,
       createdAt: firstNegativeTime,
       updatedAt: secondNegativeTime,
-      negativeFeedbackHistory: [
-        NegativeFeedback(providedAt: firstNegativeTime, reason: reasons[2]),
-        NegativeFeedback(providedAt: secondNegativeTime, reason: reasons[3]),
-      ],
+      feedbackDetails: reasons[3],
     ),
   );
 

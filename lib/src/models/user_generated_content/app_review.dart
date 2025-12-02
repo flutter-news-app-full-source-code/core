@@ -29,7 +29,7 @@ part 'app_review.g.dart';
 ///
 /// - **Layer 1 (Internal Prompt)**: A private, low-friction UI element within the
 ///   app gauges user sentiment (e.g., "Are you enjoying the app?"). This acts as
-///   a crucial filter. The user's response is captured in the [initialFeedback]
+///   a crucial filter. The user's response is captured in the [feedback]
 ///   field.
 ///
 /// - **Layer 2 (Native OS Prompt)**: Only if a user provides a positive signal in
@@ -46,11 +46,11 @@ class AppReview extends Equatable {
   const AppReview({
     required this.id,
     required this.userId,
-    required this.initialFeedback,
+    required this.feedback,
     required this.createdAt,
     required this.updatedAt,
-    this.negativeFeedbackHistory = const [],
     this.wasStoreReviewRequested = false,
+    this.feedbackDetails,
   });
 
   /// Creates an [AppReview] from JSON data.
@@ -63,8 +63,8 @@ class AppReview extends Equatable {
   /// The ID of the user providing the feedback.
   final String userId;
 
-  /// The user's answer to the initial, private feedback prompt.
-  final InitialAppReviewFeedback initialFeedback;
+  /// The user's answer to the private feedback prompt.
+  final AppReviewFeedback feedback;
 
   /// The timestamp when this review record was created (i.e., when the user
   /// answered the initial prompt).
@@ -78,19 +78,17 @@ class AppReview extends Equatable {
   /// A flag indicating whether a native OS store review has been requested for
   /// this user.
   ///
-  /// This is set to `true` after a user provides a `positive` [initialFeedback]
+  /// This is set to `true` after a user provides a `positive` [feedback]
   /// and the application calls the native review API. It acts as a permanent
   /// marker, ensuring the corresponding `UserFeedDecoratorStatus` can be marked
   /// as completed to prevent ever showing the internal prompt again.
   @JsonKey(defaultValue: false)
   final bool wasStoreReviewRequested;
 
-  /// A historical log of all negative feedback instances from the user.
+  /// Optional text details provided by the user, typically when giving
+  /// negative feedback.
   ///
-  /// Each time a user responds negatively to the initial prompt, a new
-  /// [NegativeFeedback] entry is added to this list. This preserves valuable
-  /// historical data on user sentiment.
-  final List<NegativeFeedback> negativeFeedbackHistory;
+  final String? feedbackDetails;
 
   /// Converts this [AppReview] instance to JSON data.
   Map<String, dynamic> toJson() => _$AppReviewToJson(this);
@@ -99,30 +97,29 @@ class AppReview extends Equatable {
   List<Object?> get props => [
     id,
     userId,
-    initialFeedback,
+    feedback,
     createdAt,
     updatedAt,
     wasStoreReviewRequested,
-    negativeFeedbackHistory,
+    feedbackDetails,
   ];
 
   /// Creates a copy of this [AppReview] with updated values.
   AppReview copyWith({
-    InitialAppReviewFeedback? initialFeedback,
+    AppReviewFeedback? feedback,
     DateTime? updatedAt,
     bool? wasStoreReviewRequested,
-    List<NegativeFeedback>? negativeFeedbackHistory,
+    String? feedbackDetails,
   }) {
     return AppReview(
       id: id,
       userId: userId,
-      initialFeedback: initialFeedback ?? this.initialFeedback,
+      feedback: feedback ?? this.feedback,
       createdAt: createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
       wasStoreReviewRequested:
           wasStoreReviewRequested ?? this.wasStoreReviewRequested,
-      negativeFeedbackHistory:
-          negativeFeedbackHistory ?? this.negativeFeedbackHistory,
+      feedbackDetails: feedbackDetails ?? this.feedbackDetails,
     );
   }
 }
