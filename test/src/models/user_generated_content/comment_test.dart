@@ -27,7 +27,7 @@ void main() {
     group('copyWith', () {
       test('returns a new instance with updated fields', () {
         const newContent = 'This is updated content.';
-        const newStatus = CommentStatus.rejected;
+        const newStatus = ModerationStatus.resolved;
 
         final updatedComment = commentFixture.copyWith(
           content: newContent,
