@@ -1,7 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/enums/engageable_type.dart';
-import 'package:core/src/models/user_generated_content/comment.dart';
-import 'package:core/src/models/user_generated_content/reaction.dart';
 import 'package:core/src/utils/json_helpers.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
