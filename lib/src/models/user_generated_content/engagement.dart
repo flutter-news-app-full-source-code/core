@@ -1,3 +1,4 @@
+import 'package:core/core.dart';
 import 'package:core/src/enums/engageable_type.dart';
 import 'package:core/src/models/user_generated_content/comment.dart';
 import 'package:core/src/models/user_generated_content/reaction.dart';
@@ -74,15 +75,23 @@ class Engagement extends Equatable {
   ];
 
   /// Creates a copy of this [Engagement] with updated values.
-  Engagement copyWith({Reaction? reaction, Comment? comment}) {
+  Engagement copyWith({
+    String? id,
+    String? userId,
+    String? entityId,
+    EngageableType? entityType,
+    Reaction? reaction,
+    ValueWrapper<Comment?>? comment,
+    DateTime? createdAt,
+  }) {
     return Engagement(
-      id: id,
-      userId: userId,
-      entityId: entityId,
-      entityType: entityType,
+      id: id ?? this.id,
+      userId: userId ?? this.userId,
+      entityId: entityId ?? this.entityId,
+      entityType: entityType ?? this.entityType,
       reaction: reaction ?? this.reaction,
-      comment: comment ?? this.comment,
-      createdAt: createdAt,
+      comment: comment != null ? comment.value : this.comment,
+      createdAt: createdAt ?? this.createdAt,
       updatedAt: DateTime.now(),
     );
   }

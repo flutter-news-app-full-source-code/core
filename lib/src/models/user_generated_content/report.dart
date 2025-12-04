@@ -105,12 +105,12 @@ class Report extends Equatable {
       reporterUserId: reporterUserId ?? this.reporterUserId,
       entityType: entityType ?? this.entityType,
       entityId: entityId ?? this.entityId,
-      reason: reason ?? this.reason,
       status: status ?? this.status,
       additionalComments: additionalComments != null
           ? additionalComments.value
           : this.additionalComments,
       createdAt: createdAt ?? this.createdAt,
+      reason: reason ?? this.reason,
     );
   }
 }

@@ -106,20 +106,25 @@ class AppReview extends Equatable {
 
   /// Creates a copy of this [AppReview] with updated values.
   AppReview copyWith({
+    String? id,
+    String? userId,
     AppReviewFeedback? feedback,
+    DateTime? createdAt,
     DateTime? updatedAt,
     bool? wasStoreReviewRequested,
-    String? feedbackDetails,
+    ValueWrapper<String?>? feedbackDetails,
   }) {
     return AppReview(
-      id: id,
-      userId: userId,
+      id: id ?? this.id,
+      userId: userId ?? this.userId,
       feedback: feedback ?? this.feedback,
-      createdAt: createdAt,
+      createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
       wasStoreReviewRequested:
           wasStoreReviewRequested ?? this.wasStoreReviewRequested,
-      feedbackDetails: feedbackDetails ?? this.feedbackDetails,
+      feedbackDetails: feedbackDetails != null
+          ? feedbackDetails.value
+          : this.feedbackDetails,
     );
   }
 }

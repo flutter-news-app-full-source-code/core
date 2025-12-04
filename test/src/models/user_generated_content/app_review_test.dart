@@ -63,7 +63,7 @@ void main() {
 
         final updatedReview = negativeReviewWithReason.copyWith(
           updatedAt: newTimestamp,
-          feedbackDetails: newDetails,
+          feedbackDetails: const ValueWrapper(newDetails),
         );
 
         expect(updatedReview.updatedAt, newTimestamp);
@@ -72,6 +72,15 @@ void main() {
         expect(updatedReview.id, negativeReviewWithReason.id);
         expect(updatedReview.userId, negativeReviewWithReason.userId);
         expect(updatedReview.createdAt, negativeReviewWithReason.createdAt);
+      });
+
+      test('allows setting feedbackDetails to null', () {
+        final updatedReview = negativeReviewWithReason.copyWith(
+          feedbackDetails: const ValueWrapper(null),
+        );
+
+        expect(updatedReview.feedbackDetails, isNull);
+        expect(updatedReview.id, negativeReviewWithReason.id);
       });
 
       test('correctly uses initialFeedback in copyWith', () {

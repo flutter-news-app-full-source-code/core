@@ -68,6 +68,32 @@ void main() {
         );
       });
 
+      test('returns a new instance with an updated comment', () {
+        final newComment = Comment(
+          language: languagesFixturesData.first,
+          content: 'This is a new comment.',
+          status: ModerationStatus.resolved,
+        );
+
+        final updatedEngagement = engagementFixture.copyWith(
+          comment: ValueWrapper(newComment),
+        );
+
+        expect(updatedEngagement.comment, newComment);
+        expect(updatedEngagement.id, engagementFixture.id);
+      });
+
+      test('returns a new instance with a null comment', () {
+        // Start with a fixture that has a comment.
+        final updatedEngagement = engagementFixture.copyWith(
+          comment: const ValueWrapper(null),
+        );
+
+        expect(updatedEngagement.comment, isNull);
+        // Verify other fields remain unchanged
+        expect(updatedEngagement.id, engagementFixture.id);
+      });
+
       test(
         'returns a new instance with a new timestamp if no updates provided',
         () {
