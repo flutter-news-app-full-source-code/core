@@ -8,8 +8,9 @@ part 'engagement.g.dart';
 
 /// {@template engagement}
 /// Represents a user's engagement with a specific piece of content.
-/// An engagement consists of a mandatory reaction and an optional comment,
-/// and is stored as a single document in the database.
+///
+/// An engagement must contain at least a [reaction] or a [comment], or both.
+/// This is enforced by an assertion in the constructor.
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
@@ -20,11 +21,14 @@ class Engagement extends Equatable {
     required this.userId,
     required this.entityId,
     required this.entityType,
-    required this.reaction,
     required this.createdAt,
     required this.updatedAt,
+    this.reaction,
     this.comment,
-  });
+  }) : assert(
+         reaction != null || comment != null,
+         'An engagement must have at least a reaction or a comment.',
+       );
 
   /// Creates an [Engagement] from JSON data.
   factory Engagement.fromJson(Map<String, dynamic> json) =>
@@ -42,10 +46,10 @@ class Engagement extends Equatable {
   /// The type of entity being engaged with.
   final EngageableType entityType;
 
-  /// The user's reaction. This is a mandatory part of the engagement.
-  final Reaction reaction;
+  /// The user's reaction. Can be null if a comment is provided.
+  final Reaction? reaction;
 
-  /// The user's optional comment, provided along with the reaction.
+  /// The user's comment. Can be null if a reaction is provided.
   final Comment? comment;
 
   /// The timestamp when the engagement was created.
@@ -77,7 +81,7 @@ class Engagement extends Equatable {
     String? userId,
     String? entityId,
     EngageableType? entityType,
-    Reaction? reaction,
+    ValueWrapper<Reaction?>? reaction,
     ValueWrapper<Comment?>? comment,
     DateTime? createdAt,
   }) {
@@ -86,7 +90,7 @@ class Engagement extends Equatable {
       userId: userId ?? this.userId,
       entityId: entityId ?? this.entityId,
       entityType: entityType ?? this.entityType,
-      reaction: reaction ?? this.reaction,
+      reaction: reaction != null ? reaction.value : this.reaction,
       comment: comment != null ? comment.value : this.comment,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: DateTime.now(),

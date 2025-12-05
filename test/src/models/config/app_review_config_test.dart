@@ -12,6 +12,7 @@ void main() {
       expect(appReviewConfigFixture.enabled, isTrue);
       expect(appReviewConfigFixture.isNegativeFeedbackFollowUpEnabled, isTrue);
       expect(appReviewConfigFixture.isPositiveFeedbackFollowUpEnabled, isTrue);
+      expect(appReviewConfigFixture.eligiblePositiveInteractions, isNotEmpty);
     });
 
     test('supports value equality', () {
@@ -33,13 +34,18 @@ void main() {
     test('copyWith creates a copy with updated values', () {
       final updatedConfig = appReviewConfigFixture.copyWith(
         enabled: false,
-        positiveInteractionThreshold: 10,
+        interactionCycleThreshold: 10,
+        eligiblePositiveInteractions: const [PositiveInteractionType.saveItem],
         isNegativeFeedbackFollowUpEnabled: false,
         isPositiveFeedbackFollowUpEnabled: false,
       );
 
       expect(updatedConfig.enabled, isFalse);
-      expect(updatedConfig.positiveInteractionThreshold, 10);
+      expect(updatedConfig.interactionCycleThreshold, 10);
+      expect(
+        updatedConfig.eligiblePositiveInteractions,
+        equals([PositiveInteractionType.saveItem]),
+      );
       expect(updatedConfig.isNegativeFeedbackFollowUpEnabled, isFalse);
       expect(updatedConfig.isPositiveFeedbackFollowUpEnabled, isFalse);
       expect(updatedConfig, isNot(equals(appReviewConfigFixture)));

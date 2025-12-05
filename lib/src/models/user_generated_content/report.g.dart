@@ -47,7 +47,7 @@ Map<String, dynamic> _$ReportToJson(Report instance) => <String, dynamic>{
 const _$ReportableEntityEnumMap = {
   ReportableEntity.headline: 'headline',
   ReportableEntity.source: 'source',
-  ReportableEntity.engagement: 'engagement',
+  ReportableEntity.comment: 'comment',
 };
 
 const _$ModerationStatusEnumMap = {

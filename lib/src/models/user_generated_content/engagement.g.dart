@@ -16,10 +16,6 @@ Engagement _$EngagementFromJson(Map<String, dynamic> json) =>
           'entityType',
           (v) => $enumDecode(_$EngageableTypeEnumMap, v),
         ),
-        reaction: $checkedConvert(
-          'reaction',
-          (v) => Reaction.fromJson(v as Map<String, dynamic>),
-        ),
         createdAt: $checkedConvert(
           'createdAt',
           (v) => dateTimeFromJson(v as String?),
@@ -27,6 +23,11 @@ Engagement _$EngagementFromJson(Map<String, dynamic> json) =>
         updatedAt: $checkedConvert(
           'updatedAt',
           (v) => dateTimeFromJson(v as String?),
+        ),
+        reaction: $checkedConvert(
+          'reaction',
+          (v) =>
+              v == null ? null : Reaction.fromJson(v as Map<String, dynamic>),
         ),
         comment: $checkedConvert(
           'comment',
@@ -42,7 +43,7 @@ Map<String, dynamic> _$EngagementToJson(Engagement instance) =>
       'userId': instance.userId,
       'entityId': instance.entityId,
       'entityType': _$EngageableTypeEnumMap[instance.entityType]!,
-      'reaction': instance.reaction.toJson(),
+      'reaction': instance.reaction?.toJson(),
       'comment': instance.comment?.toJson(),
       'createdAt': dateTimeToJson(instance.createdAt),
       'updatedAt': dateTimeToJson(instance.updatedAt),

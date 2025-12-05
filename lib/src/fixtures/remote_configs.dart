@@ -228,9 +228,13 @@ final remoteConfigsFixturesData = <RemoteConfig>[
         ),
         appReview: AppReviewConfig(
           enabled: true,
-          // User must perform 5 positive actions (e.g., save headline)
-          // to become eligible for the review prompt.
-          positiveInteractionThreshold: 5,
+          interactionCycleThreshold: 5,
+          eligiblePositiveInteractions: [
+            PositiveInteractionType.saveItem,
+            PositiveInteractionType.followItem,
+            PositiveInteractionType.shareContent,
+            PositiveInteractionType.saveFilter,
+          ],
           initialPromptCooldownDays: 3,
           isPositiveFeedbackFollowUpEnabled: true,
           isNegativeFeedbackFollowUpEnabled: true,
