@@ -21,6 +21,7 @@ export 'feed_item_density.dart';
 export 'feed_item_image_style.dart';
 export 'headline_report_reason.dart';
 export 'moderation_status.dart';
+export 'positive_interaction_type.dart';
 export 'push_notification_provider.dart';
 export 'push_notification_subscription_delivery_type.dart';
 export 'reaction_type.dart';
