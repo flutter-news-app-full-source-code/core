@@ -16,7 +16,7 @@ enum ReportableEntity {
   @JsonValue('source')
   source,
 
-  /// The report is for a user engagement (mainly for engagements with comments).
-  @JsonValue('engagement')
-  engagement,
+  /// The report is for a user engagement comment.
+  @JsonValue('comment')
+  comment,
 }
