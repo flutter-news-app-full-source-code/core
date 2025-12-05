@@ -76,7 +76,7 @@ List<Report> getReportsFixturesData({DateTime? now}) {
         Report(
           id: reportIds[i],
           reporterUserId: user.id,
-          entityType: ReportableEntity.engagement,
+          entityType: ReportableEntity.comment,
           entityId: engagementsWithComments[i].id,
           reason: commentReasons[i % commentReasons.length].name,
           additionalComments: 'This comment is spam.',
