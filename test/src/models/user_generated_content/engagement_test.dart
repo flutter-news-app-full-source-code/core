@@ -1,6 +1,5 @@
 import 'package:core/core.dart';
 import 'package:test/test.dart';
-import 'package:core/src/models/user_generated_content/report.dart';
 
 void main() {
   group('Engagement', () {
