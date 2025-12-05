@@ -1,3 +1,4 @@
+import 'package:core/src/enums/positive_interaction_type.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -15,8 +16,9 @@ part 'app_review_config.g.dart';
 /// ### Architectural Workflow
 ///
 /// 1.  **Eligibility**: A user becomes eligible to see the internal prompt after
-///     reaching the [positiveInteractionThreshold] of positive actions (e.g.,
-///     saving headlines).
+///     performing a total number of positive actions, as defined in
+///     [eligiblePositiveInteractions]. The required number of actions is set by
+///     `interactionCycleThreshold`.
 ///
 /// 2.  **Display Logic**: The `FeedDecoratorType.rateApp` decorator's visibility
 ///     is controlled by the user's `UserFeedDecoratorStatus` for `rateApp`. The
@@ -50,8 +52,9 @@ class AppReviewConfig extends Equatable {
   /// {@macro app_review_config}
   const AppReviewConfig({
     required this.enabled,
-    required this.positiveInteractionThreshold,
+    required this.interactionCycleThreshold,
     required this.initialPromptCooldownDays,
+    required this.eligiblePositiveInteractions,
     required this.isNegativeFeedbackFollowUpEnabled,
     required this.isPositiveFeedbackFollowUpEnabled,
   });
@@ -63,13 +66,17 @@ class AppReviewConfig extends Equatable {
   /// A master switch to enable or disable the entire app review funnel.
   final bool enabled;
 
-  /// The number of positive interactions (e.g., saving a headline) required
-  /// to trigger the initial review prompt.
-  final int positiveInteractionThreshold;
+  /// The number of positive interactions required to trigger the review prompt.
+  /// the user's action counter resets after each prompt cycle.
+  final int interactionCycleThreshold;
 
   /// The number of days to wait before showing the initial prompt again if the
   /// user provides negative feedback.
   final int initialPromptCooldownDays;
+
+  /// A list of user actions that are considered "positive" and count towards
+  /// the `interactionCycleThreshold`.
+  final List<PositiveInteractionType> eligiblePositiveInteractions;
 
   /// A switch to enable or disable the follow-up prompt that asks for a
   /// text reason after a user provides negative feedback.
@@ -87,8 +94,9 @@ class AppReviewConfig extends Equatable {
   @override
   List<Object> get props => [
     enabled,
-    positiveInteractionThreshold,
+    interactionCycleThreshold,
     initialPromptCooldownDays,
+    eligiblePositiveInteractions,
     isNegativeFeedbackFollowUpEnabled,
     isPositiveFeedbackFollowUpEnabled,
   ];
@@ -97,17 +105,20 @@ class AppReviewConfig extends Equatable {
   /// replaced with the new values.
   AppReviewConfig copyWith({
     bool? enabled,
-    int? positiveInteractionThreshold,
+    int? interactionCycleThreshold,
     int? initialPromptCooldownDays,
+    List<PositiveInteractionType>? eligiblePositiveInteractions,
     bool? isNegativeFeedbackFollowUpEnabled,
     bool? isPositiveFeedbackFollowUpEnabled,
   }) {
     return AppReviewConfig(
       enabled: enabled ?? this.enabled,
-      positiveInteractionThreshold:
-          positiveInteractionThreshold ?? this.positiveInteractionThreshold,
+      interactionCycleThreshold:
+          interactionCycleThreshold ?? this.interactionCycleThreshold,
       initialPromptCooldownDays:
           initialPromptCooldownDays ?? this.initialPromptCooldownDays,
+      eligiblePositiveInteractions:
+          eligiblePositiveInteractions ?? this.eligiblePositiveInteractions,
       isNegativeFeedbackFollowUpEnabled:
           isNegativeFeedbackFollowUpEnabled ??
           this.isNegativeFeedbackFollowUpEnabled,
