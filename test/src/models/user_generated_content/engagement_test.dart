@@ -1,5 +1,6 @@
 import 'package:core/core.dart';
 import 'package:test/test.dart';
+import 'package:core/src/models/user_generated_content/report.dart';
 
 void main() {
   group('Engagement', () {
@@ -15,17 +16,28 @@ void main() {
         expect(engagementFixture, isA<Engagement>());
       });
 
-      test('returns correct instance with populated comment', () {
-        // The first fixture item should have a comment
+      test('returns correct instance with comment and reaction', () {
+        // The first fixture item should have a comment and a reaction
         expect(engagementFixture.comment, isNotNull);
+        expect(engagementFixture.reaction, isNotNull);
       });
 
-      test('returns correct instance with null comment', () {
-        // The second fixture item should have a null comment
+      test('returns correct instance with reaction only', () {
+        // The second fixture item should have a reaction but no comment
         final engagementWithoutComment = getEngagementsFixturesData(
           now: now,
         )[1];
         expect(engagementWithoutComment.comment, isNull);
+        expect(engagementWithoutComment.reaction, isNotNull);
+      });
+
+      test('returns correct instance with comment only', () {
+        // The third fixture item should have a comment but no reaction
+        final engagementWithoutReaction = getEngagementsFixturesData(
+          now: now,
+        )[2];
+        expect(engagementWithoutReaction.comment, isNotNull);
+        expect(engagementWithoutReaction.reaction, isNull);
       });
     });
 
@@ -36,13 +48,22 @@ void main() {
         expect(result, equals(engagementFixture));
       });
 
-      test('round trip with null comment', () {
+      test('round trip with null comment (reaction only)', () {
         final engagementWithoutComment = getEngagementsFixturesData(
           now: now,
         )[1];
         final json = engagementWithoutComment.toJson();
         final result = Engagement.fromJson(json);
         expect(result, equals(engagementWithoutComment));
+      });
+
+      test('round trip with null reaction (comment only)', () {
+        final engagementWithCommentOnly = getEngagementsFixturesData(
+          now: now,
+        )[2];
+        final json = engagementWithCommentOnly.toJson();
+        final result = Engagement.fromJson(json);
+        expect(result, equals(engagementWithCommentOnly));
       });
     });
 
@@ -51,7 +72,7 @@ void main() {
         final newReaction = reactionsFixturesData[2];
 
         final updatedEngagement = engagementFixture.copyWith(
-          reaction: newReaction,
+          reaction: ValueWrapper(newReaction),
         );
 
         expect(updatedEngagement.reaction, newReaction);
@@ -66,6 +87,17 @@ void main() {
           updatedEngagement.updatedAt,
           isNot(equals(engagementFixture.updatedAt)),
         );
+      });
+
+      test('returns a new instance with a null reaction', () {
+        // Start with a fixture that has a reaction.
+        final updatedEngagement = engagementFixture.copyWith(
+          reaction: const ValueWrapper(null),
+        );
+
+        expect(updatedEngagement.reaction, isNull);
+        // Verify other fields remain unchanged
+        expect(updatedEngagement.id, engagementFixture.id);
       });
 
       test('returns a new instance with an updated comment', () {
