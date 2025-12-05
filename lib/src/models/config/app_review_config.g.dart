@@ -10,13 +10,19 @@ AppReviewConfig _$AppReviewConfigFromJson(Map<String, dynamic> json) =>
     $checkedCreate('AppReviewConfig', json, ($checkedConvert) {
       final val = AppReviewConfig(
         enabled: $checkedConvert('enabled', (v) => v as bool),
-        positiveInteractionThreshold: $checkedConvert(
-          'positiveInteractionThreshold',
+        interactionCycleThreshold: $checkedConvert(
+          'interactionCycleThreshold',
           (v) => (v as num).toInt(),
         ),
         initialPromptCooldownDays: $checkedConvert(
           'initialPromptCooldownDays',
           (v) => (v as num).toInt(),
+        ),
+        eligiblePositiveInteractions: $checkedConvert(
+          'eligiblePositiveInteractions',
+          (v) => (v as List<dynamic>)
+              .map((e) => $enumDecode(_$PositiveInteractionTypeEnumMap, e))
+              .toList(),
         ),
         isNegativeFeedbackFollowUpEnabled: $checkedConvert(
           'isNegativeFeedbackFollowUpEnabled',
@@ -33,10 +39,20 @@ AppReviewConfig _$AppReviewConfigFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$AppReviewConfigToJson(AppReviewConfig instance) =>
     <String, dynamic>{
       'enabled': instance.enabled,
-      'positiveInteractionThreshold': instance.positiveInteractionThreshold,
+      'interactionCycleThreshold': instance.interactionCycleThreshold,
       'initialPromptCooldownDays': instance.initialPromptCooldownDays,
+      'eligiblePositiveInteractions': instance.eligiblePositiveInteractions
+          .map((e) => _$PositiveInteractionTypeEnumMap[e]!)
+          .toList(),
       'isNegativeFeedbackFollowUpEnabled':
           instance.isNegativeFeedbackFollowUpEnabled,
       'isPositiveFeedbackFollowUpEnabled':
           instance.isPositiveFeedbackFollowUpEnabled,
     };
+
+const _$PositiveInteractionTypeEnumMap = {
+  PositiveInteractionType.saveItem: 'saveItem',
+  PositiveInteractionType.followItem: 'followItem',
+  PositiveInteractionType.shareContent: 'shareContent',
+  PositiveInteractionType.saveFilter: 'saveFilter',
+};
