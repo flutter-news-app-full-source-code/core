@@ -27,8 +27,23 @@ List<Engagement> getEngagementsFixturesData({
       final user = users[i];
       final headline = headlines[index];
       final reaction = reactions[index];
-      // Pair every other reaction with a comment for variety
-      final comment = index.isEven ? comments[index] : null;
+      final comment = comments[index];
+
+      Reaction? engagementReaction;
+      Comment? engagementComment;
+
+      // Create varied engagement types for realistic test data.
+      if (index % 3 == 0) {
+        // Engagement with both reaction and comment
+        engagementReaction = reaction;
+        engagementComment = comment;
+      } else if (index % 3 == 1) {
+        // Engagement with only a reaction
+        engagementReaction = reaction;
+      } else {
+        // Engagement with only a comment
+        engagementComment = comment;
+      }
 
       engagements.add(
         Engagement(
@@ -36,8 +51,8 @@ List<Engagement> getEngagementsFixturesData({
           userId: user.id,
           entityId: headline.id,
           entityType: EngageableType.headline,
-          reaction: reaction,
-          comment: comment,
+          reaction: engagementReaction,
+          comment: engagementComment,
           createdAt: referenceTime.subtract(Duration(days: i, hours: j)),
           updatedAt: referenceTime.subtract(Duration(days: i, hours: j)),
         ),
