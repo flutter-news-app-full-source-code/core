@@ -7,7 +7,7 @@ final List<Reaction> reactionsFixturesData = () {
   const reactionTypes = ReactionType.values;
 
   // Create 100 reactions, cycling through the available reaction types.
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < 10; i++) {
     reactions.add(
       Reaction(reactionType: reactionTypes[i % reactionTypes.length]),
     );
