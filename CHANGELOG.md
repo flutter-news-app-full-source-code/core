@@ -1,4 +1,4 @@
-# Upcoming
+# 1.4.0 - 2025-12-13
 
 - **feat**: Added a comprehensive **Community & Engagement System**. This major feature introduces the foundational data models, fixtures and tests for user reactions, comments, a multi-entity reporting system, and a smart app review funnel. The entire system is remotely configurable via a new unified `CommunityConfig` model and extends `UserLimitsConfig` to support role-based limits for comments and reports.
 - **BREAKING** refactor!: Overhauled data models and configuration to align with the new identity pivot toward news aggregator. This major refactor introduces a more scalable remote configuration structure, standardizes enums and models for broader use (e.g., `FeedItem` settings), and simplifies ad, notification, and headline data structures for improved clarity and maintainability.
