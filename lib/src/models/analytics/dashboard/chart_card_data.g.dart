@@ -44,26 +44,40 @@ Map<String, dynamic> _$ChartCardDataToJson(ChartCardData instance) =>
     };
 
 const _$ChartCardIdEnumMap = {
-  ChartCardId.users_registrations_over_time: 'users_registrations_over_time',
-  ChartCardId.users_active_users_over_time: 'users_active_users_over_time',
-  ChartCardId.users_role_distribution: 'users_role_distribution',
-  ChartCardId.content_headlines_views_over_time:
+  ChartCardId.usersRegistrationsOverTime: 'users_registrations_over_time',
+  ChartCardId.usersActiveUsersOverTime: 'users_active_users_over_time',
+  ChartCardId.usersRoleDistribution: 'users_role_distribution',
+  ChartCardId.contentHeadlinesViewsOverTime:
       'content_headlines_views_over_time',
-  ChartCardId.content_headlines_likes_over_time:
+  ChartCardId.contentHeadlinesLikesOverTime:
       'content_headlines_likes_over_time',
-  ChartCardId.content_headlines_views_by_topic:
-      'content_headlines_views_by_topic',
-  ChartCardId.content_sources_headlines_published_over_time:
+  ChartCardId.contentHeadlinesViewsByTopic: 'content_headlines_views_by_topic',
+  ChartCardId.contentSourcesHeadlinesPublishedOverTime:
       'content_sources_headlines_published_over_time',
-  ChartCardId.content_sources_followers_over_time:
+  ChartCardId.contentSourcesFollowersOverTime:
       'content_sources_followers_over_time',
-  ChartCardId.content_topics_followers_over_time:
+  ChartCardId.contentSourcesEngagementByType:
+      'content_sources_engagement_by_type',
+  ChartCardId.contentTopicsFollowersOverTime:
       'content_topics_followers_over_time',
-  ChartCardId.engagements_reactions_over_time:
-      'engagements_reactions_over_time',
-  ChartCardId.engagements_comments_over_time: 'engagements_comments_over_time',
-  ChartCardId.engagements_reports_submitted_over_time:
+  ChartCardId.contentTopicsHeadlinesPublishedOverTime:
+      'content_topics_headlines_published_over_time',
+  ChartCardId.contentTopicsEngagementByTopic:
+      'content_topics_engagement_by_topic',
+  ChartCardId.engagementsReactionsOverTime: 'engagements_reactions_over_time',
+  ChartCardId.engagementsCommentsOverTime: 'engagements_comments_over_time',
+  ChartCardId.engagementsReactionsByType: 'engagements_reactions_by_type',
+  ChartCardId.engagementsReportsSubmittedOverTime:
       'engagements_reports_submitted_over_time',
+  ChartCardId.engagementsReportsResolutionTimeOverTime:
+      'engagements_reports_resolution_time_over_time',
+  ChartCardId.engagementsReportsByReason: 'engagements_reports_by_reason',
+  ChartCardId.engagementsAppReviewsFeedbackOverTime:
+      'engagements_app_reviews_feedback_over_time',
+  ChartCardId.engagementsAppReviewsPositiveVsNegative:
+      'engagements_app_reviews_positive_vs_negative',
+  ChartCardId.engagementsAppReviewsStoreRequestsOverTime:
+      'engagements_app_reviews_store_requests_over_time',
 };
 
 const _$ChartTypeEnumMap = {ChartType.line: 'line', ChartType.bar: 'bar'};

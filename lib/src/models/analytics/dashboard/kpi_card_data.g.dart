@@ -46,23 +46,32 @@ Map<String, dynamic> _$KpiCardDataToJson(KpiCardData instance) =>
     };
 
 const _$KpiCardIdEnumMap = {
-  KpiCardId.users_total_registered: 'users_total_registered',
-  KpiCardId.users_new_registrations: 'users_new_registrations',
-  KpiCardId.users_active_users: 'users_active_users',
-  KpiCardId.content_headlines_total_published:
-      'content_headlines_total_published',
-  KpiCardId.content_headlines_total_views: 'content_headlines_total_views',
-  KpiCardId.content_headlines_total_likes: 'content_headlines_total_likes',
-  KpiCardId.content_sources_total_sources: 'content_sources_total_sources',
-  KpiCardId.content_sources_new_sources: 'content_sources_new_sources',
-  KpiCardId.content_sources_total_followers: 'content_sources_total_followers',
-  KpiCardId.content_topics_total_topics: 'content_topics_total_topics',
-  KpiCardId.content_topics_new_topics: 'content_topics_new_topics',
-  KpiCardId.content_topics_total_followers: 'content_topics_total_followers',
-  KpiCardId.engagements_total_reactions: 'engagements_total_reactions',
-  KpiCardId.engagements_total_comments: 'engagements_total_comments',
-  KpiCardId.engagements_reports_pending: 'engagements_reports_pending',
-  KpiCardId.engagements_reports_resolved: 'engagements_reports_resolved',
+  KpiCardId.usersTotalRegistered: 'users_total_registered',
+  KpiCardId.usersNewRegistrations: 'users_new_registrations',
+  KpiCardId.usersActiveUsers: 'users_active_users',
+  KpiCardId.contentHeadlinesTotalPublished: 'content_headlines_total_published',
+  KpiCardId.contentHeadlinesTotalViews: 'content_headlines_total_views',
+  KpiCardId.contentHeadlinesTotalLikes: 'content_headlines_total_likes',
+  KpiCardId.contentSourcesTotalSources: 'content_sources_total_sources',
+  KpiCardId.contentSourcesNewSources: 'content_sources_new_sources',
+  KpiCardId.contentSourcesTotalFollowers: 'content_sources_total_followers',
+  KpiCardId.contentTopicsTotalTopics: 'content_topics_total_topics',
+  KpiCardId.contentTopicsNewTopics: 'content_topics_new_topics',
+  KpiCardId.contentTopicsTotalFollowers: 'content_topics_total_followers',
+  KpiCardId.engagementsTotalReactions: 'engagements_total_reactions',
+  KpiCardId.engagementsTotalComments: 'engagements_total_comments',
+  KpiCardId.engagementsAverageEngagementRate:
+      'engagements_average_engagement_rate',
+  KpiCardId.engagementsReportsPending: 'engagements_reports_pending',
+  KpiCardId.engagementsReportsResolved: 'engagements_reports_resolved',
+  KpiCardId.engagementsReportsAverageResolutionTime:
+      'engagements_reports_average_resolution_time',
+  KpiCardId.engagementsAppReviewsTotalFeedback:
+      'engagements_app_reviews_total_feedback',
+  KpiCardId.engagementsAppReviewsPositiveFeedback:
+      'engagements_app_reviews_positive_feedback',
+  KpiCardId.engagementsAppReviewsStoreRequests:
+      'engagements_app_reviews_store_requests',
 };
 
 const _$KpiTimeFrameEnumMap = {
