@@ -1,4 +1,4 @@
-import 'package:core/src/models/analytics/ranked_list_item.dart';
+import 'package:core/src/models/analytics/dashboard/ranked_list_item.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';

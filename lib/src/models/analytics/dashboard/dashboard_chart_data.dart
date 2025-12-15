@@ -1,4 +1,4 @@
-import 'package:core/src/models/analytics/data_point.dart';
+import 'package:core/src/models/analytics/dashboard/data_point.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
