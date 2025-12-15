@@ -1,12 +1,21 @@
 import 'dart:math';
 
-import 'package:core/core.dart';
+import 'package:core/src/enums/enums.dart';
+import 'package:core/src/fixtures/fixtures.dart';
+import 'package:core/src/models/analytics/dashboard/ranked_list_card_data.dart';
 import 'package:core/src/models/analytics/dashboard/ranked_list_item.dart';
 
-/// Generates a list of predefined ranked list card data for fixture data.
+/// Generates a list of predefined ranked list card data fixtures.
 ///
-/// This function can be configured to generate data in either English or
-/// Arabic.
+/// ### Data Realism
+/// The data in this fixture is designed to be **highly realistic and consistent**
+/// with other fixtures. It achieves this by:
+/// 1. Fetching the actual lists of headlines, sources, and topics from their
+///    respective fixture files (`headlines.dart`, `sources.dart`, etc.).
+/// 2. Using helper functions (`_getRankedHeadlines`, etc.) to shuffle these
+///    real entities and assign them plausible metric values.
+/// This ensures that the "Most Viewed Headlines" card displays real headline
+/// titles that exist elsewhere in the demo data.
 List<RankedListCardData> getRankedListCardsFixturesData({
   String languageCode = 'en',
 }) {
@@ -66,6 +75,14 @@ List<RankedListCardData> getRankedListCardsFixturesData({
   ];
 }
 
+/// Creates a sorted list of [RankedListItem]s from a given list of [Headline]s.
+///
+/// This helper function simulates a "Top N" list by:
+/// 1. Shuffling the input `items` to ensure a different ranking on each call.
+/// 2. Taking the first `count` items from the shuffled list.
+/// 3. Mapping each `Headline` to a `RankedListItem`, assigning it a random
+///    `metricValue` to simulate view counts, likes, etc.
+/// 4. Sorting the final list in descending order by `metricValue`.
 List<RankedListItem> _getRankedHeadlines(
   List<Headline> items,
   int count,
@@ -86,6 +103,14 @@ List<RankedListItem> _getRankedHeadlines(
     ..sort((a, b) => b.metricValue.compareTo(a.metricValue));
 }
 
+/// Creates a sorted list of [RankedListItem]s from a given list of [Source]s.
+///
+/// This helper function simulates a "Top N" list by:
+/// 1. Shuffling the input `items` to ensure a different ranking on each call.
+/// 2. Taking the first `count` items from the shuffled list.
+/// 3. Mapping each `Source` to a `RankedListItem`, assigning it a random
+///    `metricValue` to simulate follower counts, etc.
+/// 4. Sorting the final list in descending order by `metricValue`.
 List<RankedListItem> _getRankedSources(List<Source> items, int count, int max) {
   final random = Random();
   items.shuffle(random);
@@ -102,6 +127,14 @@ List<RankedListItem> _getRankedSources(List<Source> items, int count, int max) {
     ..sort((a, b) => b.metricValue.compareTo(a.metricValue));
 }
 
+/// Creates a sorted list of [RankedListItem]s from a given list of [Topic]s.
+///
+/// This helper function simulates a "Top N" list by:
+/// 1. Shuffling the input `items` to ensure a different ranking on each call.
+/// 2. Taking the first `count` items from the shuffled list.
+/// 3. Mapping each `Topic` to a `RankedListItem`, assigning it a random
+///    `metricValue` to simulate follower counts, etc.
+/// 4. Sorting the final list in descending order by `metricValue`.
 List<RankedListItem> _getRankedTopics(List<Topic> items, int count, int max) {
   final random = Random();
   items.shuffle(random);
@@ -118,6 +151,7 @@ List<RankedListItem> _getRankedTopics(List<Topic> items, int count, int max) {
     ..sort((a, b) => b.metricValue.compareTo(a.metricValue));
 }
 
+/// A map containing the display labels for each ranked list card in all supported languages.
 final Map<String, Map<RankedListCardId, String>> _rankedListLabels = {
   'en': {
     RankedListCardId.overviewHeadlinesMostViewed: 'Most Viewed Headlines',
