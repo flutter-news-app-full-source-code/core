@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part '../../../../../kpi_card_data.g.dart';
+part 'kpi_card_data.g.dart';
 
 /// {@template kpi_time_frame_data}
 /// A value object holding the calculated metric and trend for a single time

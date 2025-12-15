@@ -6,7 +6,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part '../../../../../chart_card_data.g.dart';
+part 'chart_card_data.g.dart';
 
 /// {@template chart_card_data}
 /// A comprehensive data model for a single chart card on the dashboard.
