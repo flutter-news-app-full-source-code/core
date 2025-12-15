@@ -34,13 +34,24 @@ enum AnalyticsEvent {
   /// Triggered when a user unsaves a piece of content.
   contentUnsaved,
 
+  /// Triggered when a user clicks a headline and is redirected. This event can
+  /// be used as a proxy for tracking reading time by measuring the duration
+  /// until the user returns to the app.
+  contentReadingTime,
+
   // --- User-Generated Content (UGC) ---
 
-  /// Triggered when a user creates an engagement (reaction or comment).
-  engagementCreated,
+  /// Triggered when a user adds or changes a reaction to a piece of content.
+  reactionCreated,
 
-  /// Triggered when a user deletes their engagement.
-  engagementDeleted,
+  /// Triggered when a user removes a reaction from a piece of content.
+  reactionDeleted,
+
+  /// Triggered when a user posts a comment.
+  commentCreated,
+
+  /// Triggered when a user deletes their own comment.
+  commentDeleted,
 
   /// Triggered when a user submits a report for a piece of content.
   reportSubmitted,
@@ -50,11 +61,11 @@ enum AnalyticsEvent {
   /// Triggered when a user creates a new filter.
   filterCreated,
 
+  /// Triggered when a user updates a filter's metadata (e.g., name, pin status).
+  filterUpdated,
+
   /// Triggered when a user applies an existing filter.
   filterUsed,
-
-  /// Triggered when a user subscribes to or unsubscribes from notifications.
-  notificationSubscriptionChanged,
 
   /// Triggered when a user performs a search.
   searchPerformed,
@@ -64,6 +75,16 @@ enum AnalyticsEvent {
 
   /// Triggered when the app requests the native store review dialog.
   appReviewStoreRequested,
+
+  // --- Limits & Monetization CTAs ---
+
+  /// Triggered when a user hits a feature limit defined in remote config.
+  /// This event captures that the "limit exceeded" bottom sheet was shown.
+  limitExceeded,
+
+  /// Triggered when a user clicks the call-to-action button on a
+  /// "limit exceeded" bottom sheet (e.g., 'Upgrade', 'Link Account').
+  limitExceededCtaClicked,
 
   // --- Monetization & Paywall ---
 
@@ -106,4 +127,7 @@ enum AnalyticsEvent {
 
   /// Triggered when the user changes the feed density setting.
   feedDensityChanged,
+
+  /// Triggered when the user changes their preferred browser behavior.
+  browserChoiceChanged,
 }
