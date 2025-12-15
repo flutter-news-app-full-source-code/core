@@ -19,8 +19,8 @@ class AnalyticsConfig extends Equatable {
   const AnalyticsConfig({
     required this.enabled,
     required this.activeProvider,
-    this.disabledEvents = const {},
-    this.eventSamplingRates = const {},
+    required this.disabledEvents,
+    required this.eventSamplingRates,
   });
 
   /// Creates an [AnalyticsConfig] from JSON data.
