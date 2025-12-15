@@ -36,7 +36,7 @@ class AnalyticsConfig extends Equatable {
   /// A set of specific events that should NOT be logged.
   ///
   /// This acts as a server-side kill switch for noisy or problematic events,
-  /// without requiring an app update. If an event is absent from this set, it 
+  /// without requiring an app update. If an event is absent from this set, it
   /// is considered enabled by default.
   @JsonKey(
     defaultValue: {},
