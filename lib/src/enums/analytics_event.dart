@@ -1,3 +1,5 @@
+import 'package:core/core.dart';
+
 /// {@template analytics_event}
 /// A comprehensive, standardized vocabulary for all trackable user actions and
 /// system events across the application.
@@ -9,125 +11,160 @@ enum AnalyticsEvent {
   // --- Authentication & User Progression ---
 
   /// Triggered when a new user is successfully registered.
+  /// Associated payload: [UserRegisteredPayload].
   userRegistered,
 
   /// Triggered when a user successfully logs in.
+  /// Associated payload: [UserLoginPayload].
   userLogin,
 
   /// Triggered when an anonymous user links their account to a permanent one.
+  /// Associated payload: [AccountLinkedPayload].
   accountLinked,
 
   /// Triggered when a user's role changes (e.g., standard to premium).
+  /// Associated payload: [UserRoleChangedPayload].
   userRoleChanged,
 
   // --- Content Consumption ---
 
   /// Triggered when a user views a piece of content (e.g., a headline).
+  /// Associated payload: [ContentViewedPayload].
   contentViewed,
 
   /// Triggered when a user shares a piece of content.
+  /// Associated payload: [ContentSharedPayload].
   contentShared,
 
   /// Triggered when a user saves a piece of content.
+  /// Associated payload: [ContentSavedPayload].
   contentSaved,
 
   /// Triggered when a user unsaves a piece of content.
+  /// Associated payload: [ContentUnsavedPayload].
   contentUnsaved,
 
   /// Triggered when a user clicks a headline and is redirected. This event can
   /// be used as a proxy for tracking reading time by measuring the duration
   /// until the user returns to the app.
+  /// Associated payload: [ContentReadingTimePayload].
   contentReadingTime,
 
   // --- User-Generated Content (UGC) ---
 
   /// Triggered when a user adds or changes a reaction to a piece of content.
+  /// Associated payload: [ReactionCreatedPayload].
   reactionCreated,
 
   /// Triggered when a user removes a reaction from a piece of content.
+  /// Associated payload: [ReactionDeletedPayload].
   reactionDeleted,
 
   /// Triggered when a user posts a comment.
+  /// Associated payload: [CommentCreatedPayload].
   commentCreated,
 
   /// Triggered when a user deletes their own comment.
+  /// Associated payload: [CommentDeletedPayload].
   commentDeleted,
 
   /// Triggered when a user submits a report for a piece of content.
+  /// Associated payload: [ReportSubmittedPayload].
   reportSubmitted,
 
   // --- Feature Usage ---
 
   /// Triggered when a user creates a new filter.
+  /// Associated payload: [FilterCreatedPayload].
   filterCreated,
 
   /// Triggered when a user updates a filter's metadata (e.g., name, pin status).
+  /// Associated payload: [FilterUpdatedPayload].
   filterUpdated,
 
   /// Triggered when a user applies an existing filter.
+  /// Associated payload: [FilterUsedPayload].
   filterUsed,
 
   /// Triggered when a user performs a search.
+  /// Associated payload: [SearchPerformedPayload].
   searchPerformed,
 
   /// Triggered when a user responds to the in-app review prompt.
+  /// Associated payload: [AppReviewPromptRespondedPayload].
   appReviewPromptResponded,
 
   /// Triggered when the app requests the native store review dialog.
+  /// No payload.
   appReviewStoreRequested,
 
   // --- Limits & Monetization CTAs ---
 
   /// Triggered when a user hits a feature limit defined in remote config.
   /// This event captures that the "limit exceeded" bottom sheet was shown.
+  /// Associated payload: [LimitExceededPayload].
   limitExceeded,
 
   /// Triggered when a user clicks the call-to-action button on a
   /// "limit exceeded" bottom sheet (e.g., 'Upgrade', 'Link Account').
+  /// Associated payload: [LimitExceededCtaClickedPayload].
   limitExceededCtaClicked,
 
   // --- Monetization & Paywall ---
 
   /// Triggered when a paywall is presented to the user.
+  /// Associated payload: [PaywallPresentedPayload].
   paywallPresented,
 
   /// Triggered when a user starts a new subscription.
+  /// Associated payload: [SubscriptionStartedPayload].
   subscriptionStarted,
 
   /// Triggered when a user's subscription is successfully renewed.
+  /// Associated payload: [SubscriptionRenewedPayload].
   subscriptionRenewed,
 
   /// Triggered when a user cancels their subscription.
+  /// Associated payload: [SubscriptionCancelledPayload].
   subscriptionCancelled,
 
   /// Triggered when a subscription ends (e.g., due to billing failure).
+  /// Associated payload: [SubscriptionEndedPayload].
   subscriptionEnded,
 
   // --- Ads ---
 
   /// Triggered when an ad is shown to the user.
+  /// Associated payload: [AdImpressionPayload].
   adImpression,
 
   /// Triggered when a user clicks on an ad.
+  /// Associated payload: [AdClickedPayload].
   adClicked,
 
   /// Triggered when an ad fails to load.
+  /// Associated payload: [AdLoadFailedPayload].
   adLoadFailed,
 
   /// Triggered when a user earns a reward from a rewarded ad.
+  /// Associated payload: [AdRewardEarnedPayload].
   adRewardEarned,
 
   // --- Settings & Preferences ---
 
   /// Triggered when the user changes the app theme.
+  /// Associated payload: [ThemeChangedPayload].
   themeChanged,
 
   /// Triggered when the user changes the app language.
+  /// Associated payload: [LanguageChangedPayload].
   languageChanged,
 
   /// Triggered when the user changes the feed density setting.
+  /// Associated payload: [FeedDensityChangedPayload].
   feedDensityChanged,
 
   /// Triggered when the user changes their preferred browser behavior.
+  /// Associated payload: [BrowserChoiceChangedPayload].
   browserChoiceChanged,
 }
