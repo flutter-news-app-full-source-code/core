@@ -25,6 +25,10 @@ FeaturesConfig _$FeaturesConfigFromJson(Map<String, dynamic> json) =>
           'community',
           (v) => CommunityConfig.fromJson(v as Map<String, dynamic>),
         ),
+        analytics: $checkedConvert(
+          'analytics',
+          (v) => AnalyticsConfig.fromJson(v as Map<String, dynamic>),
+        ),
       );
       return val;
     });
@@ -35,4 +39,5 @@ Map<String, dynamic> _$FeaturesConfigToJson(FeaturesConfig instance) =>
       'pushNotifications': instance.pushNotifications.toJson(),
       'feed': instance.feed.toJson(),
       'community': instance.community.toJson(),
+      'analytics': instance.analytics.toJson(),
     };
