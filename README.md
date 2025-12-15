@@ -130,6 +130,26 @@ Define granular, role-based limits for features like saved feed filters, and not
 </details>
 
 <details>
+<summary><strong>📊 Advanced Analytics Framework</strong></summary>
+---
+
+### 📈 Type-Safe Event & Payload Models
+
+Provides a complete, enum-driven vocabulary for all analytics events, each with a corresponding strongly-typed payload model.
+
+> **Your Advantage:** Eliminate runtime errors from string-based event names and ensure perfect data consistency between your app and analytics backend from day one.
+
+---
+
+### 🔑 Standardized Parameter Keys
+
+A centralized, constant-based registry for all analytics parameter keys, with documentation linking each key to its corresponding payload.
+
+> **Your Advantage:** Prevent typos and "magic strings" in your analytics implementation, making your data schema robust, searchable, and easy to maintain.
+
+</details>
+
+<details>
 <summary><strong>🧪 Development & Testing Accelerators</strong></summary>
 
 ---
