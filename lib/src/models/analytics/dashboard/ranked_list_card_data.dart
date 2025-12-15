@@ -5,7 +5,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part '../../../../ranked_list_card_data.g.dart';
+part '../../../../../ranked_list_card_data.g.dart';
 
 /// {@template ranked_list_card_data}
 /// A comprehensive data model for a single "Top N" ranked list card, intended
