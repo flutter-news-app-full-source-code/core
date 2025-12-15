@@ -1,8 +1,6 @@
 import 'dart:math';
 
-import 'package:core/src/enums/enums.dart';
-import 'package:core/src/fixtures/fixtures.dart';
-import 'package:core/src/models/analytics/dashboard/ranked_list_card_data.dart';
+import 'package:core/core.dart';
 import 'package:core/src/models/analytics/dashboard/ranked_list_item.dart';
 
 /// Generates a list of predefined ranked list card data fixtures.

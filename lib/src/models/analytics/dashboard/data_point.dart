@@ -19,7 +19,7 @@ part 'data_point.g.dart';
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class DataPoint extends Equatable {
   /// {@macro data_point}
-  const DataPoint({this.timestamp, this.label, required this.value})
+  const DataPoint({required this.value, this.timestamp, this.label})
     : assert(
         timestamp != null || label != null,
         'Either timestamp or label must be provided.',

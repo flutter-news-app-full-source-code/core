@@ -25,7 +25,7 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
     KpiCardData(
       id: KpiCardId.usersTotalRegistered,
       label: labels[KpiCardId.usersTotalRegistered]!,
-      timeFrames: {
+      timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 11, trend: '+2'),
         KpiTimeFrame.week: KpiTimeFrameData(value: 11, trend: '+5'),
         KpiTimeFrame.month: KpiTimeFrameData(value: 11, trend: '+8'),
@@ -35,7 +35,7 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
     KpiCardData(
       id: KpiCardId.usersNewRegistrations,
       label: labels[KpiCardId.usersNewRegistrations]!,
-      timeFrames: {
+      timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 2, trend: '+1'),
         KpiTimeFrame.week: KpiTimeFrameData(value: 5, trend: '-1'),
         KpiTimeFrame.month: KpiTimeFrameData(value: 8, trend: '+3'),
@@ -45,7 +45,7 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
     KpiCardData(
       id: KpiCardId.usersActiveUsers,
       label: labels[KpiCardId.usersActiveUsers]!,
-      timeFrames: {
+      timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 8, trend: '+15%'),
         KpiTimeFrame.week: KpiTimeFrameData(value: 10, trend: '+5%'),
         KpiTimeFrame.month: KpiTimeFrameData(value: 11, trend: '+2%'),
@@ -57,7 +57,7 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
     KpiCardData(
       id: KpiCardId.contentHeadlinesTotalPublished,
       label: labels[KpiCardId.contentHeadlinesTotalPublished]!,
-      timeFrames: {
+      timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 100, trend: '+10'),
         KpiTimeFrame.week: KpiTimeFrameData(value: 100, trend: '+30'),
         KpiTimeFrame.month: KpiTimeFrameData(value: 100, trend: '+70'),
@@ -67,14 +67,14 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
     KpiCardData(
       id: KpiCardId.contentHeadlinesTotalViews,
       label: labels[KpiCardId.contentHeadlinesTotalViews]!,
-      timeFrames: {
+      timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 1250, trend: '+5.2%'),
         KpiTimeFrame.week: KpiTimeFrameData(value: 8750, trend: '+3.1%'),
-        KpiTimeFrame.month: const KpiTimeFrameData(
+        KpiTimeFrame.month: KpiTimeFrameData(
           value: 35000,
           trend: '+1.8%',
         ),
-        KpiTimeFrame.year: const KpiTimeFrameData(
+        KpiTimeFrame.year: KpiTimeFrameData(
           value: 420000,
           trend: '+1.2%',
         ),
@@ -83,7 +83,7 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
     KpiCardData(
       id: KpiCardId.contentHeadlinesTotalLikes,
       label: labels[KpiCardId.contentHeadlinesTotalLikes]!,
-      timeFrames: {
+      timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 230, trend: '+8%'),
         KpiTimeFrame.week: KpiTimeFrameData(value: 1610, trend: '+4.5%'),
         KpiTimeFrame.month: KpiTimeFrameData(value: 6440, trend: '+2.2%'),
@@ -95,7 +95,7 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
     KpiCardData(
       id: KpiCardId.contentSourcesTotalSources,
       label: labels[KpiCardId.contentSourcesTotalSources]!,
-      timeFrames: {
+      timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 90, trend: '+1'),
         KpiTimeFrame.week: KpiTimeFrameData(value: 90, trend: '+5'),
         KpiTimeFrame.month: KpiTimeFrameData(value: 90, trend: '+12'),
@@ -105,7 +105,7 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
     KpiCardData(
       id: KpiCardId.contentSourcesNewSources,
       label: labels[KpiCardId.contentSourcesNewSources]!,
-      timeFrames: {
+      timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 1, trend: '0'),
         KpiTimeFrame.week: KpiTimeFrameData(value: 5, trend: '+2'),
         KpiTimeFrame.month: KpiTimeFrameData(value: 12, trend: '-3'),
@@ -115,7 +115,7 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
     KpiCardData(
       id: KpiCardId.contentSourcesTotalFollowers,
       label: labels[KpiCardId.contentSourcesTotalFollowers]!,
-      timeFrames: {
+      timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 1850, trend: '+25'),
         KpiTimeFrame.week: KpiTimeFrameData(value: 1850, trend: '+150'),
         KpiTimeFrame.month: KpiTimeFrameData(value: 1850, trend: '+500'),
@@ -127,7 +127,7 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
     KpiCardData(
       id: KpiCardId.contentTopicsTotalTopics,
       label: labels[KpiCardId.contentTopicsTotalTopics]!,
-      timeFrames: {
+      timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 10, trend: '0'),
         KpiTimeFrame.week: KpiTimeFrameData(value: 10, trend: '+1'),
         KpiTimeFrame.month: KpiTimeFrameData(value: 10, trend: '+3'),
@@ -137,7 +137,7 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
     KpiCardData(
       id: KpiCardId.contentTopicsNewTopics,
       label: labels[KpiCardId.contentTopicsNewTopics]!,
-      timeFrames: {
+      timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 0, trend: '0'),
         KpiTimeFrame.week: KpiTimeFrameData(value: 1, trend: '+1'),
         KpiTimeFrame.month: KpiTimeFrameData(value: 3, trend: '0'),
@@ -147,7 +147,7 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
     KpiCardData(
       id: KpiCardId.contentTopicsTotalFollowers,
       label: labels[KpiCardId.contentTopicsTotalFollowers]!,
-      timeFrames: {
+      timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 3200, trend: '+50'),
         KpiTimeFrame.week: KpiTimeFrameData(value: 3200, trend: '+300'),
         KpiTimeFrame.month: KpiTimeFrameData(value: 3200, trend: '+1000'),
@@ -159,7 +159,7 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
     KpiCardData(
       id: KpiCardId.engagementsTotalReactions,
       label: labels[KpiCardId.engagementsTotalReactions]!,
-      timeFrames: {
+      timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 66, trend: '+10%'),
         KpiTimeFrame.week: KpiTimeFrameData(value: 462, trend: '+8%'),
         KpiTimeFrame.month: KpiTimeFrameData(value: 1980, trend: '+5%'),
@@ -169,7 +169,7 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
     KpiCardData(
       id: KpiCardId.engagementsTotalComments,
       label: labels[KpiCardId.engagementsTotalComments]!,
-      timeFrames: {
+      timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 66, trend: '-5%'),
         KpiTimeFrame.week: KpiTimeFrameData(value: 462, trend: '-2%'),
         KpiTimeFrame.month: KpiTimeFrameData(value: 1980, trend: '+1%'),
@@ -179,7 +179,7 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
     KpiCardData(
       id: KpiCardId.engagementsReportsPending,
       label: labels[KpiCardId.engagementsReportsPending]!,
-      timeFrames: {
+      timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 2, trend: '+1'),
         KpiTimeFrame.week: KpiTimeFrameData(value: 2, trend: '-3'),
         KpiTimeFrame.month: KpiTimeFrameData(value: 2, trend: '-10'),
