@@ -14,7 +14,7 @@ class LimitExceededPayload extends AnalyticsEventPayload {
 
   @override
   Map<String, dynamic> toMap() {
-    return {AnalyticsParameterKeys.limitType: limitType};
+    return {AnalyticsParameterKeys.limitType: limitType.name};
   }
 
   @override
