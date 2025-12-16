@@ -130,22 +130,22 @@ Define granular, role-based limits for features like saved feed filters, and not
 </details>
 
 <details>
-<summary><strong>📊 Advanced Analytics Framework</strong></summary>
+<summary><strong>📊 Insightful Analytics & Tracking</strong></summary>
 ---
 
-### 📈 Type-Safe Event & Payload Models
+### 📈 Robust Event Tracking
 
-Provides a complete, enum-driven vocabulary for all analytics events, each with a corresponding strongly-typed payload model.
+Track user behavior with confidence using a type-safe, enum-driven event system. Each event is paired with a strongly-typed payload model, eliminating runtime errors from "magic strings" and ensuring data integrity between your app and analytics backend.
 
-> **Your Advantage:** Eliminate runtime errors from string-based event names and ensure perfect data consistency between your app and analytics backend from day one.
+> **Your Advantage:** Build a reliable analytics pipeline from day one, making your data schema robust, searchable, and easy to maintain.
 
 ---
 
-### 🔑 Standardized Parameter Keys
+###  Ready-to-Use Dashboard Models
 
-A centralized, constant-based registry for all analytics parameter keys, with documentation linking each key to its corresponding payload.
+Power your admin dashboard with a suite of flexible, pre-built data models designed for rich data visualization. This includes models for **KPI Cards**, **Ranked "Top N" Lists**, and time-series or categorical **Charts**.
 
-> **Your Advantage:** Prevent typos and "magic strings" in your analytics implementation, making your data schema robust, searchable, and easy to maintain.
+> **Your Advantage:** Drastically reduce the effort to build a feature-rich analytics dashboard by using data structures designed for clear and interactive reporting.
 
 </details>
 
