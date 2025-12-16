@@ -23,7 +23,7 @@ Report _$ReportFromJson(Map<String, dynamic> json) =>
         ),
         createdAt: $checkedConvert(
           'createdAt',
-          (v) => DateTime.parse(v as String),
+          (v) => const DateTimeConverter().fromJson(v as String),
         ),
         additionalComments: $checkedConvert(
           'additionalComments',
@@ -41,7 +41,7 @@ Map<String, dynamic> _$ReportToJson(Report instance) => <String, dynamic>{
   'reason': instance.reason,
   'status': _$ModerationStatusEnumMap[instance.status]!,
   'additionalComments': instance.additionalComments,
-  'createdAt': instance.createdAt.toIso8601String(),
+  'createdAt': const DateTimeConverter().toJson(instance.createdAt),
 };
 
 const _$ReportableEntityEnumMap = {

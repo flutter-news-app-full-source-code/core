@@ -17,7 +17,7 @@ InAppNotification _$InAppNotificationFromJson(Map<String, dynamic> json) =>
         ),
         createdAt: $checkedConvert(
           'createdAt',
-          (v) => DateTime.parse(v as String),
+          (v) => const DateTimeConverter().fromJson(v as String),
         ),
         readAt: $checkedConvert(
           'readAt',
@@ -32,6 +32,6 @@ Map<String, dynamic> _$InAppNotificationToJson(InAppNotification instance) =>
       'id': instance.id,
       'userId': instance.userId,
       'payload': instance.payload.toJson(),
-      'createdAt': instance.createdAt.toIso8601String(),
+      'createdAt': const DateTimeConverter().toJson(instance.createdAt),
       'readAt': const NullableDateTimeConverter().toJson(instance.readAt),
     };
