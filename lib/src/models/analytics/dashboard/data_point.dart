@@ -1,4 +1,4 @@
-import 'package:core/src/utils/json_helpers.dart';
+import 'package:core/src/utils/nullable_date_time_converter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -36,7 +36,7 @@ class DataPoint extends Equatable {
 
   /// The timestamp for a time-series data point. Can be null for categorical
   /// data.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: nullableDateTimeToJson)
+  @NullableDateTimeConverter()
   final DateTime? timestamp;
 
   /// The label for a categorical data point. Can be null for time-series data.
