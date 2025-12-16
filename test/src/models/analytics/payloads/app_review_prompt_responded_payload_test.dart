@@ -5,13 +5,13 @@ void main() {
   group('AppReviewPromptRespondedPayload', () {
     const payloadWithDetails = AppReviewPromptRespondedPayload(
       feedback: AppReviewFeedback.negative,
-      isFirstPrompt: 1,
+      isFirstPrompt: true,
       feedbackDetails: 'It crashed.',
     );
 
     const payloadWithoutDetails = AppReviewPromptRespondedPayload(
       feedback: AppReviewFeedback.positive,
-      isFirstPrompt: 0,
+      isFirstPrompt: false,
     );
 
     group('toMap', () {
@@ -19,7 +19,7 @@ void main() {
         final map = payloadWithDetails.toMap();
         expect(map, {
           AnalyticsParameterKeys.feedback: AppReviewFeedback.negative.name,
-          AnalyticsParameterKeys.isFirstPrompt: 1,
+          AnalyticsParameterKeys.isFirstPrompt: true,
           AnalyticsParameterKeys.feedbackDetails: 'It crashed.',
         });
       });
@@ -28,7 +28,7 @@ void main() {
         final map = payloadWithoutDetails.toMap();
         expect(map, {
           AnalyticsParameterKeys.feedback: AppReviewFeedback.positive.name,
-          AnalyticsParameterKeys.isFirstPrompt: 0,
+          AnalyticsParameterKeys.isFirstPrompt: false,
         });
       });
     });
@@ -38,7 +38,7 @@ void main() {
         const instance1 = payloadWithDetails;
         const instance2 = AppReviewPromptRespondedPayload(
           feedback: AppReviewFeedback.negative,
-          isFirstPrompt: 1,
+          isFirstPrompt: true,
           feedbackDetails: 'It crashed.',
         );
         expect(instance1, equals(instance2));
