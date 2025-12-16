@@ -1,3 +1,4 @@
+import 'package:core/src/enums/limited_action.dart';
 import 'package:core/src/models/analytics/analytics_event_payload.dart';
 import 'package:core/src/models/analytics/analytics_parameter_keys.dart';
 
@@ -9,7 +10,7 @@ class LimitExceededPayload extends AnalyticsEventPayload {
   const LimitExceededPayload({required this.limitType});
 
   /// The type of limit that was hit (e.g., 'savedHeadlines').
-  final String limitType;
+  final LimitedAction limitType;
 
   @override
   Map<String, dynamic> toMap() {
