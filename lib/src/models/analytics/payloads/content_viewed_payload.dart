@@ -1,3 +1,5 @@
+
+import 'package:core/src/enums/content_type.dart';
 import 'package:core/src/models/analytics/analytics_event_payload.dart';
 import 'package:core/src/models/analytics/analytics_parameter_keys.dart';
 
@@ -15,13 +17,13 @@ class ContentViewedPayload extends AnalyticsEventPayload {
   final String contentId;
 
   /// The type of content being viewed (e.g., 'headline').
-  final String contentType;
+  final ContentType contentType;
 
   @override
   Map<String, dynamic> toMap() {
     return {
       AnalyticsParameterKeys.contentId: contentId,
-      AnalyticsParameterKeys.contentType: contentType,
+      AnalyticsParameterKeys.contentType: contentType.name,
     };
   }
 
