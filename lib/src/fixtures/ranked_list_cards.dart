@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:core/core.dart';
-import 'package:core/src/models/analytics/dashboard/ranked_list_item.dart';
 
 /// Generates a list of predefined ranked list card data fixtures.
 ///
