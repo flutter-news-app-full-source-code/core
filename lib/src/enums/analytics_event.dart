@@ -94,6 +94,10 @@ enum AnalyticsEvent {
   /// Associated payload: [SourceFilterUpdatedPayload].
   sourceFilterUpdated,
 
+  /// Triggered when a user applies an existing source filter.
+  /// Associated payload: [SourceFilterUsedPayload].
+  sourceFilterUsed,
+
   /// Triggered when a user performs a search.
   /// Associated payload: [SearchPerformedPayload].
   searchPerformed,
