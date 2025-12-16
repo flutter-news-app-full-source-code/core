@@ -45,7 +45,7 @@ void main() {
           AnalyticsParameterKeys.filterId: 'filter-456',
           AnalyticsParameterKeys.isPinned: false,
           AnalyticsParameterKeys.criteriaSummary: criteriaSummary.toJson(),
-          AnalyticsParameterKeys.deliveryTypes: [],
+          AnalyticsParameterKeys.deliveryTypes: <String>[],
           'wasPinningLimited': true,
           'limitedDeliveryTypes': ['dailyDigest'],
         });
