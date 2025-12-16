@@ -20,7 +20,7 @@ class HeadlineFilterUsedPayload extends AnalyticsEventPayload {
   Map<String, dynamic> toMap() {
     return {
       AnalyticsParameterKeys.filterId: filterId,
-      AnalyticsParameterKeys.criteriaSummary: criteriaSummary,
+      AnalyticsParameterKeys.criteriaSummary: criteriaSummary.toJson(),
     };
   }
 
