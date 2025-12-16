@@ -27,6 +27,7 @@ export 'feed_item_image_style.dart';
 export 'headline_report_reason.dart';
 export 'kpi_card_id.dart';
 export 'kpi_time_frame.dart';
+export 'limited_action.dart';
 export 'moderation_status.dart';
 export 'positive_interaction_type.dart';
 export 'push_notification_provider.dart';
