@@ -1,3 +1,4 @@
+import 'package:core/src/enums/limited_action.dart';
 import 'package:core/src/models/analytics/analytics_event_payload.dart';
 import 'package:core/src/models/analytics/analytics_parameter_keys.dart';
 
@@ -28,13 +29,13 @@ class AccountLinkedPayload extends AnalyticsEventPayload {
 
   /// If the trigger was a limit being exceeded, this specifies which limit.
   /// (e.g., 'savedHeadlines').
-  final String? limitType;
+  final LimitedAction? limitType;
 
   @override
   Map<String, dynamic> toMap() {
     return {
       AnalyticsParameterKeys.trigger: trigger.name,
-      if (limitType != null) AnalyticsParameterKeys.limitType: limitType,
+      if (limitType != null) AnalyticsParameterKeys.limitType: limitType!.name,
     };
   }
 
