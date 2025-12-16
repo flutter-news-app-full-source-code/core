@@ -74,17 +74,25 @@ enum AnalyticsEvent {
 
   // --- Feature Usage ---
 
-  /// Triggered when a user creates a new filter.
-  /// Associated payload: [FilterCreatedPayload].
-  filterCreated,
+  /// Triggered when a user creates a new headline filter.
+  /// Associated payload: [HeadlineFilterCreatedPayload].
+  headlineFilterCreated,
 
-  /// Triggered when a user updates a filter's metadata (e.g., name, pin status).
-  /// Associated payload: [FilterUpdatedPayload].
-  filterUpdated,
+  /// Triggered when a user updates a headline filter.
+  /// Associated payload: [HeadlineFilterUpdatedPayload].
+  headlineFilterUpdated,
 
-  /// Triggered when a user applies an existing filter.
-  /// Associated payload: [FilterUsedPayload].
-  filterUsed,
+  /// Triggered when a user applies an existing headline filter.
+  /// Associated payload: [HeadlineFilterUsedPayload].
+  headlineFilterUsed,
+
+  /// Triggered when a user creates a new source filter.
+  /// Associated payload: [SourceFilterCreatedPayload].
+  sourceFilterCreated,
+
+  /// Triggered when a user updates a source filter.
+  /// Associated payload: [SourceFilterUpdatedPayload].
+  sourceFilterUpdated,
 
   /// Triggered when a user performs a search.
   /// Associated payload: [SearchPerformedPayload].
