@@ -60,4 +60,20 @@ class FilterCriteriaSummary extends Equatable {
     sourceCount,
     countryCount,
   ];
+
+  /// Creates a copy of this instance with the given fields replaced with new
+  /// values.
+  FilterCriteriaSummary copyWith({
+    List<String>? criteriaTypes,
+    int? topicCount,
+    int? sourceCount,
+    int? countryCount,
+  }) {
+    return FilterCriteriaSummary(
+      criteriaTypes: criteriaTypes ?? this.criteriaTypes,
+      topicCount: topicCount ?? this.topicCount,
+      sourceCount: sourceCount ?? this.sourceCount,
+      countryCount: countryCount ?? this.countryCount,
+    );
+  }
 }
