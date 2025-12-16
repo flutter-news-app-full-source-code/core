@@ -17,7 +17,7 @@ class AppReviewPromptRespondedPayload extends AnalyticsEventPayload {
   final AppReviewFeedback feedback;
 
   /// is this the first or a subsequent prompt.
-  final int isFirstPrompt;
+  final bool isFirstPrompt;
 
   /// If the user provided negative feedback and then submitted details,
   /// this field contains their written feedback.
