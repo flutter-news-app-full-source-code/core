@@ -1,0 +1,98 @@
+import 'package:core/core.dart';
+import 'package:core/src/fixtures/kpi_cards.dart';
+import 'package:test/test.dart';
+
+void main() {
+  group('KpiTimeFrameData Model', () {
+    const kpiTimeFrameDataFixture = KpiTimeFrameData(value: 100, trend: '+10%');
+    final kpiTimeFrameDataJson = kpiTimeFrameDataFixture.toJson();
+
+    group('fromJson', () {
+      test('should correctly deserialize from JSON', () {
+        final fromJson = KpiTimeFrameData.fromJson(kpiTimeFrameDataJson);
+        expect(fromJson, equals(kpiTimeFrameDataFixture));
+      });
+    });
+
+    group('toJson', () {
+      test('should correctly serialize to JSON', () {
+        final toJson = kpiTimeFrameDataFixture.toJson();
+        expect(toJson, equals(kpiTimeFrameDataJson));
+      });
+    });
+
+    group('Equatable', () {
+      test('should equate two identical instances', () {
+        const instance1 = KpiTimeFrameData(value: 100, trend: '+10%');
+        const instance2 = KpiTimeFrameData(value: 100, trend: '+10%');
+        expect(instance1, equals(instance2));
+      });
+
+      test('should not equate instances with different properties', () {
+        const instance1 = KpiTimeFrameData(value: 100, trend: '+10%');
+        const instance2 = KpiTimeFrameData(value: 99, trend: '+10%');
+        const instance3 = KpiTimeFrameData(value: 100, trend: '-5%');
+        expect(instance1, isNot(equals(instance2)));
+        expect(instance1, isNot(equals(instance3)));
+      });
+
+      test('props list should contain all relevant fields', () {
+        expect(kpiTimeFrameDataFixture.props, [
+          kpiTimeFrameDataFixture.value,
+          kpiTimeFrameDataFixture.trend,
+        ]);
+      });
+    });
+  });
+
+  group('KpiCardData Model', () {
+    final kpiCardDataFixture = getKpiCardsFixturesData().first;
+    final kpiCardDataJson = kpiCardDataFixture.toJson();
+
+    group('fromJson', () {
+      test('should correctly deserialize from JSON', () {
+        final fromJson = KpiCardData.fromJson(kpiCardDataJson);
+        expect(fromJson, equals(kpiCardDataFixture));
+      });
+    });
+
+    group('toJson', () {
+      test('should correctly serialize to JSON', () {
+        final toJson = kpiCardDataFixture.toJson();
+        expect(toJson, equals(kpiCardDataJson));
+      });
+    });
+
+    group('Equatable', () {
+      test('should equate two identical instances', () {
+        final instance1 = kpiCardDataFixture;
+        final instance2 = KpiCardData.fromJson(kpiCardDataFixture.toJson());
+        expect(instance1, equals(instance2));
+      });
+
+      test('should not equate instances with different properties', () {
+        final instance1 = kpiCardDataFixture;
+        final instance2 = KpiCardData(
+          id: KpiCardId.usersActiveUsers, // Different ID
+          label: kpiCardDataFixture.label,
+          timeFrames: kpiCardDataFixture.timeFrames,
+        );
+        final instance3 = KpiCardData(
+          id: kpiCardDataFixture.id,
+          label: 'Different Label',
+          timeFrames: kpiCardDataFixture.timeFrames,
+        );
+        expect(instance1, isNot(equals(instance2)));
+        expect(instance1, isNot(equals(instance3)));
+      });
+
+      test('props list should contain all relevant fields', () {
+        expect(kpiCardDataFixture.props, [
+          kpiCardDataFixture.id,
+          kpiCardDataFixture.label,
+          kpiCardDataFixture.timeFrames,
+        ]);
+      });
+    });
+  });
+}
