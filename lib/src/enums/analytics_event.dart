@@ -1,4 +1,4 @@
-import 'package:core/core.dart';
+import 'package:core/src/models/analytics/payloads/payloads.dart';
 
 /// {@template analytics_event}
 /// A comprehensive, standardized vocabulary for all trackable user actions and
