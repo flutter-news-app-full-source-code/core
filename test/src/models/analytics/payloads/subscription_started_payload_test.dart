@@ -13,9 +13,9 @@ void main() {
       test('should correctly serialize to a map', () {
         final map = payload.toMap();
         expect(map, {
-          'productId': 'premium_monthly',
-          'price': 9.99,
-          'currency': 'USD',
+          AnalyticsParameterKeys.productId: 'premium_monthly',
+          AnalyticsParameterKeys.price: 9.99,
+          AnalyticsParameterKeys.currency: 'USD',
         });
       });
     });
