@@ -19,6 +19,7 @@ void main() {
       expect(
         featuresConfigFixture.props,
         equals([
+          featuresConfigFixture.analytics,
           featuresConfigFixture.ads,
           featuresConfigFixture.pushNotifications,
           featuresConfigFixture.feed,

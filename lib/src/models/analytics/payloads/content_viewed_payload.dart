@@ -1,4 +1,3 @@
-
 import 'package:core/src/enums/content_type.dart';
 import 'package:core/src/models/analytics/analytics_event_payload.dart';
 import 'package:core/src/models/analytics/analytics_parameter_keys.dart';

@@ -17,16 +17,19 @@ part 'features_config.g.dart';
 class FeaturesConfig extends Equatable {
   /// {@macro features_config}
   const FeaturesConfig({
+    required this.analytics,
     required this.ads,
     required this.pushNotifications,
     required this.feed,
     required this.community,
-    required this.analytics,
   });
 
   /// Creates a [FeaturesConfig] from JSON data.
   factory FeaturesConfig.fromJson(Map<String, dynamic> json) =>
       _$FeaturesConfigFromJson(json);
+
+  /// Configuration for the analytics system.
+  final AnalyticsConfig analytics;
 
   /// Configuration for all ad-related features.
   final AdConfig ads;
@@ -40,36 +43,33 @@ class FeaturesConfig extends Equatable {
   /// Configuration for community and user-generated content features.
   final CommunityConfig community;
 
-  /// Configuration for the analytics system.
-  final AnalyticsConfig analytics;
-
   /// Converts this [FeaturesConfig] instance to JSON data.
   Map<String, dynamic> toJson() => _$FeaturesConfigToJson(this);
 
   @override
   List<Object> get props => [
+    analytics,
     ads,
     pushNotifications,
     feed,
     community,
-    analytics,
   ];
 
   /// Creates a copy of this [FeaturesConfig] but with the given fields
   /// replaced with the new values.
   FeaturesConfig copyWith({
+    AnalyticsConfig? analytics,
     AdConfig? ads,
     PushNotificationConfig? pushNotifications,
     FeedConfig? feed,
     CommunityConfig? community,
-    AnalyticsConfig? analytics,
   }) {
     return FeaturesConfig(
+      analytics: analytics ?? this.analytics,
       ads: ads ?? this.ads,
       pushNotifications: pushNotifications ?? this.pushNotifications,
       feed: feed ?? this.feed,
       community: community ?? this.community,
-      analytics: analytics ?? this.analytics,
     );
   }
 }

@@ -70,14 +70,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 1250, trend: '+5.2%'),
         KpiTimeFrame.week: KpiTimeFrameData(value: 8750, trend: '+3.1%'),
-        KpiTimeFrame.month: KpiTimeFrameData(
-          value: 35000,
-          trend: '+1.8%',
-        ),
-        KpiTimeFrame.year: KpiTimeFrameData(
-          value: 420000,
-          trend: '+1.2%',
-        ),
+        KpiTimeFrame.month: KpiTimeFrameData(value: 35000, trend: '+1.8%'),
+        KpiTimeFrame.year: KpiTimeFrameData(value: 420000, trend: '+1.2%'),
       },
     ),
     KpiCardData(
