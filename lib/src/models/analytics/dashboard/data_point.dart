@@ -5,7 +5,8 @@ import 'package:meta/meta.dart';
 
 part 'data_point.g.dart';
 
-/// {@template data_point} /// Represents a single data point for a chart.
+/// {@template data_point}
+/// Represents a single data point for a chart.
 ///
 /// This model is flexible and can represent two types of data points:
 /// - **Time-Series**: A point with a `timestamp` and a `value`.
@@ -35,7 +36,7 @@ class DataPoint extends Equatable {
 
   /// The timestamp for a time-series data point. Can be null for categorical
   /// data.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @JsonKey(fromJson: dateTimeFromJson, toJson: nullableDateTimeToJson)
   final DateTime? timestamp;
 
   /// The label for a categorical data point. Can be null for time-series data.

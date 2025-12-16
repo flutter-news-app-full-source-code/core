@@ -12,3 +12,9 @@ DateTime dateTimeFromJson(String? dateString) {
 String dateTimeToJson(DateTime dateTime) {
   return dateTime.toIso8601String();
 }
+
+/// Serializes a nullable [DateTime] object into an ISO 8601 string.
+///
+/// If the date is `null`, this function returns `null`.
+String? nullableDateTimeToJson(DateTime? date) =>
+    date == null ? null : dateTimeToJson(date);
