@@ -9,7 +9,7 @@ void main() {
       test('should correctly serialize to a map', () {
         final map = payload.toMap();
         expect(map, {
-          AnalyticsParameterKeys.limitType: LimitedAction.saveFilter,
+          AnalyticsParameterKeys.limitType: LimitedAction.saveFilter.name,
         });
       });
     });
