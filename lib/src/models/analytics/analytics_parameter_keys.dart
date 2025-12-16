@@ -124,6 +124,16 @@ abstract final class AnalyticsParameterKeys {
   /// [SubscriptionCancelledPayload], [SubscriptionEndedPayload].
   static const String productId = 'productId';
 
+  /// The price of a subscription product.
+  ///
+  /// Used in: [SubscriptionStartedPayload].
+  static const String price = 'price';
+
+  /// The ISO 4217 currency code of a price.
+  ///
+  /// Used in: [SubscriptionStartedPayload].
+  static const String currency = 'currency';
+
   /// The unique identifier of a filter.
   ///
   /// Used in: [HeadlineFilterCreatedPayload], [HeadlineFilterUpdatedPayload],
