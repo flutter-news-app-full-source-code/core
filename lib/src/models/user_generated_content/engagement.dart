@@ -1,5 +1,5 @@
 import 'package:core/core.dart';
-import 'package:core/src/utils/json_helpers.dart';
+import 'package:core/src/utils/date_time_converter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -53,11 +53,11 @@ class Engagement extends Equatable {
   final Comment? comment;
 
   /// The timestamp when the engagement was created.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @DateTimeConverter()
   final DateTime createdAt;
 
   /// The timestamp when the engagement was last updated.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @DateTimeConverter()
   final DateTime updatedAt;
 
   /// Converts this [Engagement] instance to JSON data.

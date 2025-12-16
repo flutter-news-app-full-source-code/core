@@ -1,36 +1,4 @@
-import 'package:core/src/models/analytics/payloads/account_linked_payload.dart';
-import 'package:core/src/models/analytics/payloads/ad_clicked_payload.dart';
-import 'package:core/src/models/analytics/payloads/ad_impression_payload.dart';
-import 'package:core/src/models/analytics/payloads/ad_load_failed_payload.dart';
-import 'package:core/src/models/analytics/payloads/ad_reward_earned_payload.dart';
-import 'package:core/src/models/analytics/payloads/app_review_prompt_responded_payload.dart';
-import 'package:core/src/models/analytics/payloads/browser_choice_changed_payload.dart';
-import 'package:core/src/models/analytics/payloads/comment_created_payload.dart';
-import 'package:core/src/models/analytics/payloads/comment_deleted_payload.dart';
-import 'package:core/src/models/analytics/payloads/content_reading_time_payload.dart';
-import 'package:core/src/models/analytics/payloads/content_saved_payload.dart';
-import 'package:core/src/models/analytics/payloads/content_shared_payload.dart';
-import 'package:core/src/models/analytics/payloads/content_unsaved_payload.dart';
-import 'package:core/src/models/analytics/payloads/content_viewed_payload.dart';
-import 'package:core/src/models/analytics/payloads/feed_density_changed_payload.dart';
-import 'package:core/src/models/analytics/payloads/filter_created_payload.dart';
-import 'package:core/src/models/analytics/payloads/filter_updated_payload.dart';
-import 'package:core/src/models/analytics/payloads/filter_used_payload.dart';
-import 'package:core/src/models/analytics/payloads/language_changed_payload.dart';
-import 'package:core/src/models/analytics/payloads/limit_exceeded_cta_clicked_payload.dart';
-import 'package:core/src/models/analytics/payloads/limit_exceeded_payload.dart';
-import 'package:core/src/models/analytics/payloads/paywall_presented_payload.dart';
-import 'package:core/src/models/analytics/payloads/reaction_created_payload.dart';
-import 'package:core/src/models/analytics/payloads/reaction_deleted_payload.dart';
-import 'package:core/src/models/analytics/payloads/search_performed_payload.dart';
-import 'package:core/src/models/analytics/payloads/subscription_cancelled_payload.dart';
-import 'package:core/src/models/analytics/payloads/subscription_ended_payload.dart';
-import 'package:core/src/models/analytics/payloads/subscription_renewed_payload.dart';
-import 'package:core/src/models/analytics/payloads/subscription_started_payload.dart';
-import 'package:core/src/models/analytics/payloads/theme_changed_payload.dart';
-import 'package:core/src/models/analytics/payloads/user_login_payload.dart';
-import 'package:core/src/models/analytics/payloads/user_registered_payload.dart';
-import 'package:core/src/models/analytics/payloads/user_role_changed_payload.dart';
+import 'package:core/core.dart';
 
 /// {@template analytics_parameter_keys}
 /// Defines a centralized, type-safe collection of parameter keys used in
@@ -158,7 +126,9 @@ abstract final class AnalyticsParameterKeys {
 
   /// The unique identifier of a filter.
   ///
-  /// Used in: [FilterCreatedPayload], [FilterUpdatedPayload], [FilterUsedPayload].
+  /// Used in: [HeadlineFilterCreatedPayload], [HeadlineFilterUpdatedPayload],
+  /// [HeadlineFilterUsedPayload], [SourceFilterCreatedPayload],
+  /// [SourceFilterUpdatedPayload], [SourceFilterUsedPayload].
   static const String filterId = 'filterId';
 
   /// The error code from a failed operation.
@@ -198,16 +168,19 @@ abstract final class AnalyticsParameterKeys {
 
   /// A boolean indicating if a filter is pinned.
   ///
-  /// Used in: [FilterCreatedPayload], [FilterUpdatedPayload].
+  /// Used in: [HeadlineFilterCreatedPayload], [HeadlineFilterUpdatedPayload],
+  /// [SourceFilterCreatedPayload], [SourceFilterUpdatedPayload].
   static const String isPinned = 'isPinned';
 
   /// A list of notification delivery types for a filter.
   ///
-  /// Used in: [FilterCreatedPayload].
+  /// Used in: [HeadlineFilterCreatedPayload].
   static const String deliveryTypes = 'deliveryTypes';
 
   /// A summary of a filter's criteria.
   ///
-  /// Used in: [FilterCreatedPayload], [FilterUpdatedPayload].
+  /// Used in: [HeadlineFilterCreatedPayload], [HeadlineFilterUpdatedPayload],
+  /// [HeadlineFilterUsedPayload], [SourceFilterCreatedPayload],
+  /// [SourceFilterUpdatedPayload], [SourceFilterUsedPayload].
   static const String criteriaSummary = 'criteriaSummary';
 }

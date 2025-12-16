@@ -6,36 +6,30 @@ part of 'engagement.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Engagement _$EngagementFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('Engagement', json, ($checkedConvert) {
-      final val = Engagement(
-        id: $checkedConvert('id', (v) => v as String),
-        userId: $checkedConvert('userId', (v) => v as String),
-        entityId: $checkedConvert('entityId', (v) => v as String),
-        entityType: $checkedConvert(
-          'entityType',
-          (v) => $enumDecode(_$EngageableTypeEnumMap, v),
-        ),
-        createdAt: $checkedConvert(
-          'createdAt',
-          (v) => dateTimeFromJson(v as String?),
-        ),
-        updatedAt: $checkedConvert(
-          'updatedAt',
-          (v) => dateTimeFromJson(v as String?),
-        ),
-        reaction: $checkedConvert(
-          'reaction',
-          (v) =>
-              v == null ? null : Reaction.fromJson(v as Map<String, dynamic>),
-        ),
-        comment: $checkedConvert(
-          'comment',
-          (v) => v == null ? null : Comment.fromJson(v as Map<String, dynamic>),
-        ),
-      );
-      return val;
-    });
+Engagement _$EngagementFromJson(
+  Map<String, dynamic> json,
+) => $checkedCreate('Engagement', json, ($checkedConvert) {
+  final val = Engagement(
+    id: $checkedConvert('id', (v) => v as String),
+    userId: $checkedConvert('userId', (v) => v as String),
+    entityId: $checkedConvert('entityId', (v) => v as String),
+    entityType: $checkedConvert(
+      'entityType',
+      (v) => $enumDecode(_$EngageableTypeEnumMap, v),
+    ),
+    createdAt: $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+    updatedAt: $checkedConvert('updatedAt', (v) => DateTime.parse(v as String)),
+    reaction: $checkedConvert(
+      'reaction',
+      (v) => v == null ? null : Reaction.fromJson(v as Map<String, dynamic>),
+    ),
+    comment: $checkedConvert(
+      'comment',
+      (v) => v == null ? null : Comment.fromJson(v as Map<String, dynamic>),
+    ),
+  );
+  return val;
+});
 
 Map<String, dynamic> _$EngagementToJson(Engagement instance) =>
     <String, dynamic>{
@@ -45,8 +39,8 @@ Map<String, dynamic> _$EngagementToJson(Engagement instance) =>
       'entityType': _$EngageableTypeEnumMap[instance.entityType]!,
       'reaction': instance.reaction?.toJson(),
       'comment': instance.comment?.toJson(),
-      'createdAt': dateTimeToJson(instance.createdAt),
-      'updatedAt': dateTimeToJson(instance.updatedAt),
+      'createdAt': instance.createdAt.toIso8601String(),
+      'updatedAt': instance.updatedAt.toIso8601String(),
     };
 
 const _$EngageableTypeEnumMap = {EngageableType.headline: 'headline'};

@@ -22,14 +22,8 @@ PushNotificationDevice _$PushNotificationDeviceFromJson(
         v as Map<String, dynamic>,
       ),
     ),
-    createdAt: $checkedConvert(
-      'createdAt',
-      (v) => dateTimeFromJson(v as String?),
-    ),
-    updatedAt: $checkedConvert(
-      'updatedAt',
-      (v) => dateTimeFromJson(v as String?),
-    ),
+    createdAt: $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+    updatedAt: $checkedConvert('updatedAt', (v) => DateTime.parse(v as String)),
   );
   return val;
 });
@@ -43,8 +37,8 @@ Map<String, dynamic> _$PushNotificationDeviceToJson(
   'providerTokens': PushNotificationDevice._providerTokensToJson(
     instance.providerTokens,
   ),
-  'createdAt': dateTimeToJson(instance.createdAt),
-  'updatedAt': dateTimeToJson(instance.updatedAt),
+  'createdAt': instance.createdAt.toIso8601String(),
+  'updatedAt': instance.updatedAt.toIso8601String(),
 };
 
 const _$DevicePlatformEnumMap = {

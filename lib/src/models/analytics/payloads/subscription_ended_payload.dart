@@ -14,6 +14,7 @@ class SubscriptionEndedPayload extends AnalyticsEventPayload {
   /// The unique identifier of the subscription product that ended.
   final String productId;
 
+  // TODO(fulleni): replace with enum once billing feature is impl.
   /// The reason the subscription ended (e.g., 'billingError', 'userCancelled').
   final String reason;
 

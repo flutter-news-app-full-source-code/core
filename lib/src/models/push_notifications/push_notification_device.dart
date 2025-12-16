@@ -1,6 +1,6 @@
 import 'package:core/src/enums/device_platform.dart';
 import 'package:core/src/enums/push_notification_provider.dart';
-import 'package:core/src/utils/json_helpers.dart';
+import 'package:core/src/utils/date_time_converter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -44,11 +44,11 @@ class PushNotificationDevice extends Equatable {
   final Map<PushNotificationProvider, String> providerTokens;
 
   /// The timestamp when this device was first registered.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @DateTimeConverter()
   final DateTime createdAt;
 
   /// The timestamp when this device registration was last updated.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @DateTimeConverter()
   final DateTime updatedAt;
 
   /// Converts this [PushNotificationDevice] instance to JSON data.

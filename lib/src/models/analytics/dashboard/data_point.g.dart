@@ -12,7 +12,7 @@ DataPoint _$DataPointFromJson(Map<String, dynamic> json) =>
         value: $checkedConvert('value', (v) => v as num),
         timestamp: $checkedConvert(
           'timestamp',
-          (v) => dateTimeFromJson(v as String?),
+          (v) => const NullableDateTimeConverter().fromJson(v as String?),
         ),
         label: $checkedConvert('label', (v) => v as String?),
       );
@@ -20,7 +20,7 @@ DataPoint _$DataPointFromJson(Map<String, dynamic> json) =>
     });
 
 Map<String, dynamic> _$DataPointToJson(DataPoint instance) => <String, dynamic>{
-  'timestamp': nullableDateTimeToJson(instance.timestamp),
+  'timestamp': const NullableDateTimeConverter().toJson(instance.timestamp),
   'label': instance.label,
   'value': instance.value,
 };

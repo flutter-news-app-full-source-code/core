@@ -6,36 +6,31 @@ part of 'country.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Country _$CountryFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('Country', json, ($checkedConvert) {
-      final val = Country(
-        isoCode: $checkedConvert('isoCode', (v) => v as String),
-        name: $checkedConvert('name', (v) => v as String),
-        flagUrl: $checkedConvert('flagUrl', (v) => v as String),
-        id: $checkedConvert('id', (v) => v as String),
-        createdAt: $checkedConvert(
-          'createdAt',
-          (v) => dateTimeFromJson(v as String?),
-        ),
-        updatedAt: $checkedConvert(
-          'updatedAt',
-          (v) => dateTimeFromJson(v as String?),
-        ),
-        status: $checkedConvert(
-          'status',
-          (v) => $enumDecode(_$ContentStatusEnumMap, v),
-        ),
-      );
-      return val;
-    });
+Country _$CountryFromJson(
+  Map<String, dynamic> json,
+) => $checkedCreate('Country', json, ($checkedConvert) {
+  final val = Country(
+    isoCode: $checkedConvert('isoCode', (v) => v as String),
+    name: $checkedConvert('name', (v) => v as String),
+    flagUrl: $checkedConvert('flagUrl', (v) => v as String),
+    id: $checkedConvert('id', (v) => v as String),
+    createdAt: $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+    updatedAt: $checkedConvert('updatedAt', (v) => DateTime.parse(v as String)),
+    status: $checkedConvert(
+      'status',
+      (v) => $enumDecode(_$ContentStatusEnumMap, v),
+    ),
+  );
+  return val;
+});
 
 Map<String, dynamic> _$CountryToJson(Country instance) => <String, dynamic>{
   'id': instance.id,
   'isoCode': instance.isoCode,
   'name': instance.name,
   'flagUrl': instance.flagUrl,
-  'createdAt': dateTimeToJson(instance.createdAt),
-  'updatedAt': dateTimeToJson(instance.updatedAt),
+  'createdAt': instance.createdAt.toIso8601String(),
+  'updatedAt': instance.updatedAt.toIso8601String(),
   'status': _$ContentStatusEnumMap[instance.status]!,
 };
 

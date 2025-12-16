@@ -40,11 +40,11 @@ class Topic extends FeedItem {
   final String iconUrl;
 
   /// The creation timestamp of the topic.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @DateTimeConverter()
   final DateTime createdAt;
 
   /// The last update timestamp of the topic.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @DateTimeConverter()
   final DateTime updatedAt;
 
   /// The current status of the topic.

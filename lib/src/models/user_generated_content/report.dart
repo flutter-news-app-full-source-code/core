@@ -3,7 +3,7 @@ import 'package:core/src/enums/headline_report_reason.dart';
 import 'package:core/src/enums/moderation_status.dart';
 import 'package:core/src/enums/reportable_entity.dart';
 import 'package:core/src/enums/source_report_reason.dart';
-import 'package:core/src/utils/json_helpers.dart';
+import 'package:core/src/utils/date_time_converter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -70,7 +70,7 @@ class Report extends Equatable {
   final String? additionalComments;
 
   /// The timestamp when the report was created.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @DateTimeConverter()
   final DateTime createdAt;
 
   /// Converts this [Report] instance to JSON data.
