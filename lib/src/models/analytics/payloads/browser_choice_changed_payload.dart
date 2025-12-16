@@ -14,7 +14,7 @@ class BrowserChoiceChangedPayload extends AnalyticsEventPayload {
 
   @override
   Map<String, dynamic> toMap() {
-    return {AnalyticsParameterKeys.browserType: browserType};
+    return {AnalyticsParameterKeys.browserType: browserType.name};
   }
 
   @override
