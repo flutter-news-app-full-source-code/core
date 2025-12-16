@@ -15,11 +15,11 @@ Language _$LanguageFromJson(Map<String, dynamic> json) =>
         nativeName: $checkedConvert('nativeName', (v) => v as String),
         createdAt: $checkedConvert(
           'createdAt',
-          (v) => dateTimeFromJson(v as String?),
+          (v) => const DateTimeConverter().fromJson(v as String),
         ),
         updatedAt: $checkedConvert(
           'updatedAt',
-          (v) => dateTimeFromJson(v as String?),
+          (v) => const DateTimeConverter().fromJson(v as String),
         ),
         status: $checkedConvert(
           'status',
@@ -34,8 +34,8 @@ Map<String, dynamic> _$LanguageToJson(Language instance) => <String, dynamic>{
   'code': instance.code,
   'name': instance.name,
   'nativeName': instance.nativeName,
-  'createdAt': dateTimeToJson(instance.createdAt),
-  'updatedAt': dateTimeToJson(instance.updatedAt),
+  'createdAt': const DateTimeConverter().toJson(instance.createdAt),
+  'updatedAt': const DateTimeConverter().toJson(instance.updatedAt),
   'status': _$ContentStatusEnumMap[instance.status]!,
 };
 

@@ -12,11 +12,11 @@ RemoteConfig _$RemoteConfigFromJson(Map<String, dynamic> json) =>
         id: $checkedConvert('id', (v) => v as String),
         createdAt: $checkedConvert(
           'createdAt',
-          (v) => dateTimeFromJson(v as String?),
+          (v) => const DateTimeConverter().fromJson(v as String),
         ),
         updatedAt: $checkedConvert(
           'updatedAt',
-          (v) => dateTimeFromJson(v as String?),
+          (v) => const DateTimeConverter().fromJson(v as String),
         ),
         app: $checkedConvert(
           'app',
@@ -40,6 +40,6 @@ Map<String, dynamic> _$RemoteConfigToJson(RemoteConfig instance) =>
       'app': instance.app.toJson(),
       'features': instance.features.toJson(),
       'user': instance.user.toJson(),
-      'createdAt': dateTimeToJson(instance.createdAt),
-      'updatedAt': dateTimeToJson(instance.updatedAt),
+      'createdAt': const DateTimeConverter().toJson(instance.createdAt),
+      'updatedAt': const DateTimeConverter().toJson(instance.updatedAt),
     };

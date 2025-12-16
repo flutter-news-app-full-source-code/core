@@ -40,11 +40,11 @@ class Language extends Equatable {
   final String nativeName;
 
   /// The creation timestamp of the language.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @DateTimeConverter()
   final DateTime createdAt;
 
   /// The last update timestamp of the language.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @DateTimeConverter()
   final DateTime updatedAt;
 
   /// The current status of the language.

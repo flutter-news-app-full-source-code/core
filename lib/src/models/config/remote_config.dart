@@ -1,5 +1,5 @@
 import 'package:core/core.dart';
-import 'package:core/src/utils/json_helpers.dart';
+import 'package:core/src/utils/date_time_converter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -40,11 +40,11 @@ class RemoteConfig extends Equatable {
   final UserConfig user;
 
   /// The creation timestamp of the remote config.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @DateTimeConverter()
   final DateTime createdAt;
 
   /// The last update timestamp of the remote config.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @DateTimeConverter()
   final DateTime updatedAt;
 
   /// Converts this [RemoteConfig] instance to a JSON map.

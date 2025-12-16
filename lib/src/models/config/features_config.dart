@@ -1,4 +1,5 @@
 import 'package:core/src/models/config/ad_config.dart';
+import 'package:core/src/models/config/analytics_config.dart';
 import 'package:core/src/models/config/community_config.dart';
 import 'package:core/src/models/config/feed_config.dart';
 import 'package:core/src/models/config/push_notification_config.dart';
@@ -16,6 +17,7 @@ part 'features_config.g.dart';
 class FeaturesConfig extends Equatable {
   /// {@macro features_config}
   const FeaturesConfig({
+    required this.analytics,
     required this.ads,
     required this.pushNotifications,
     required this.feed,
@@ -25,6 +27,9 @@ class FeaturesConfig extends Equatable {
   /// Creates a [FeaturesConfig] from JSON data.
   factory FeaturesConfig.fromJson(Map<String, dynamic> json) =>
       _$FeaturesConfigFromJson(json);
+
+  /// Configuration for the analytics system.
+  final AnalyticsConfig analytics;
 
   /// Configuration for all ad-related features.
   final AdConfig ads;
@@ -42,17 +47,25 @@ class FeaturesConfig extends Equatable {
   Map<String, dynamic> toJson() => _$FeaturesConfigToJson(this);
 
   @override
-  List<Object> get props => [ads, pushNotifications, feed, community];
+  List<Object> get props => [
+    analytics,
+    ads,
+    pushNotifications,
+    feed,
+    community,
+  ];
 
   /// Creates a copy of this [FeaturesConfig] but with the given fields
   /// replaced with the new values.
   FeaturesConfig copyWith({
+    AnalyticsConfig? analytics,
     AdConfig? ads,
     PushNotificationConfig? pushNotifications,
     FeedConfig? feed,
     CommunityConfig? community,
   }) {
     return FeaturesConfig(
+      analytics: analytics ?? this.analytics,
       ads: ads ?? this.ads,
       pushNotifications: pushNotifications ?? this.pushNotifications,
       feed: feed ?? this.feed,

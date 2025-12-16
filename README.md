@@ -5,7 +5,7 @@
 </div>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/coverage-99%25-green?style=for-the-badge" alt="coverage">
+  <img src="https://img.shields.io/badge/coverage-95%25-green?style=for-the-badge" alt="coverage">
   <a href="https://flutter-news-app-full-source-code.github.io/docs/"><img src="https://img.shields.io/badge/LIVE_DOCS-VIEW-slategray?style=for-the-badge" alt="Live Docs: View"></a>
   <a href="https://github.com/flutter-news-app-full-source-code"><img src="https://img.shields.io/badge/MAIN_PROJECT-BROWSE-purple?style=for-the-badge" alt="Main Project: Browse"></a>
 </p>
@@ -126,6 +126,26 @@ Provides a comprehensive set of models for remotely configuring all dynamic aspe
 Define granular, role-based limits for features like saved feed filters, and notification subscriptions.
 
 > **Your Advantage:** A flexible and scalable way to create value tiers, encouraging users to upgrade for more powerful personalization capabilities.
+
+</details>
+
+<details>
+<summary><strong>📊 Advanced Analytics Framework</strong></summary>
+---
+
+### 📈 Type-Safe Event & Payload Models
+
+Provides a complete, enum-driven vocabulary for all analytics events, each with a corresponding strongly-typed payload model.
+
+> **Your Advantage:** Eliminate runtime errors from string-based event names and ensure perfect data consistency between your app and analytics backend from day one.
+
+---
+
+### 🔑 Standardized Parameter Keys
+
+A centralized, constant-based registry for all analytics parameter keys, with documentation linking each key to its corresponding payload.
+
+> **Your Advantage:** Prevent typos and "magic strings" in your analytics implementation, making your data schema robust, searchable, and easy to maintain.
 
 </details>
 

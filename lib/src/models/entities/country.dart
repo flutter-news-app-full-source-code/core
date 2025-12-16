@@ -43,11 +43,11 @@ class Country extends FeedItem {
   final String flagUrl;
 
   /// The creation timestamp of the country.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @DateTimeConverter()
   final DateTime createdAt;
 
   /// The last update timestamp of the country.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @DateTimeConverter()
   final DateTime updatedAt;
 
   /// The current status of the country.

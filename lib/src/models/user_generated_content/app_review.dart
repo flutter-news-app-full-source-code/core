@@ -68,11 +68,11 @@ class AppReview extends Equatable {
 
   /// The timestamp when this review record was created (i.e., when the user
   /// answered the initial prompt).
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @DateTimeConverter()
   final DateTime createdAt;
 
   /// The timestamp when this review record was last updated.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @DateTimeConverter()
   final DateTime updatedAt;
 
   /// A flag indicating whether a native OS store review has been requested for

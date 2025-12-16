@@ -83,6 +83,15 @@ final remoteConfigsFixturesData = <RemoteConfig>[
       ),
     ),
     features: const FeaturesConfig(
+      analytics: AnalyticsConfig(
+        enabled: true,
+        activeProvider: AnalyticsProvider.firebase,
+
+        /// If an event is absent from this set, it is considered enabled by default
+        disabledEvents: {AnalyticsEvent.contentReadingTime},
+        // If an event is absent from this map, it is logged at a 1.0 rate (100%).
+        eventSamplingRates: {AnalyticsEvent.contentViewed: 0.5},
+      ),
       ads: AdConfig(
         enabled: true,
         primaryAdPlatform: AdPlatformType.admob,

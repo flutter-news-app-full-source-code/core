@@ -1,6 +1,6 @@
+export 'analytics/analytics.dart';
 export 'auth/auth.dart';
 export 'config/config.dart';
-export 'dashboard/dashboard.dart';
 export 'entities/entities.dart';
 export 'feed/feed.dart';
 export 'notifications/notifications.dart';

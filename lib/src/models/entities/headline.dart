@@ -3,7 +3,7 @@ import 'package:core/src/models/entities/country.dart';
 import 'package:core/src/models/entities/source.dart';
 import 'package:core/src/models/entities/topic.dart';
 import 'package:core/src/models/feed/feed_item.dart';
-import 'package:core/src/utils/json_helpers.dart';
+import 'package:core/src/utils/date_time_converter.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -56,12 +56,12 @@ class Headline extends FeedItem {
 
   /// The internal timestamp recording when this headline was first ingested
   /// and saved into our system.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @DateTimeConverter()
   final DateTime createdAt;
 
   /// The internal timestamp of the last update to this headline record in our
   /// system.
-  @JsonKey(fromJson: dateTimeFromJson, toJson: dateTimeToJson)
+  @DateTimeConverter()
   final DateTime updatedAt;
 
   /// The current status of the headline.

@@ -28,11 +28,11 @@ Source _$SourceFromJson(Map<String, dynamic> json) =>
         ),
         createdAt: $checkedConvert(
           'createdAt',
-          (v) => dateTimeFromJson(v as String?),
+          (v) => const DateTimeConverter().fromJson(v as String),
         ),
         updatedAt: $checkedConvert(
           'updatedAt',
-          (v) => dateTimeFromJson(v as String?),
+          (v) => const DateTimeConverter().fromJson(v as String),
         ),
         status: $checkedConvert(
           'status',
@@ -51,8 +51,8 @@ Map<String, dynamic> _$SourceToJson(Source instance) => <String, dynamic>{
   'sourceType': _$SourceTypeEnumMap[instance.sourceType]!,
   'language': instance.language.toJson(),
   'headquarters': instance.headquarters.toJson(),
-  'createdAt': dateTimeToJson(instance.createdAt),
-  'updatedAt': dateTimeToJson(instance.updatedAt),
+  'createdAt': const DateTimeConverter().toJson(instance.createdAt),
+  'updatedAt': const DateTimeConverter().toJson(instance.updatedAt),
   'status': _$ContentStatusEnumMap[instance.status]!,
 };
 

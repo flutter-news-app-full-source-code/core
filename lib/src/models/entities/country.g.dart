@@ -15,11 +15,11 @@ Country _$CountryFromJson(Map<String, dynamic> json) =>
         id: $checkedConvert('id', (v) => v as String),
         createdAt: $checkedConvert(
           'createdAt',
-          (v) => dateTimeFromJson(v as String?),
+          (v) => const DateTimeConverter().fromJson(v as String),
         ),
         updatedAt: $checkedConvert(
           'updatedAt',
-          (v) => dateTimeFromJson(v as String?),
+          (v) => const DateTimeConverter().fromJson(v as String),
         ),
         status: $checkedConvert(
           'status',
@@ -34,8 +34,8 @@ Map<String, dynamic> _$CountryToJson(Country instance) => <String, dynamic>{
   'isoCode': instance.isoCode,
   'name': instance.name,
   'flagUrl': instance.flagUrl,
-  'createdAt': dateTimeToJson(instance.createdAt),
-  'updatedAt': dateTimeToJson(instance.updatedAt),
+  'createdAt': const DateTimeConverter().toJson(instance.createdAt),
+  'updatedAt': const DateTimeConverter().toJson(instance.updatedAt),
   'status': _$ContentStatusEnumMap[instance.status]!,
 };
 

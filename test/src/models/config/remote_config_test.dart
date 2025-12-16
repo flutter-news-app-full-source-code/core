@@ -52,8 +52,10 @@ void main() {
         maintenance: const MaintenanceConfig(isUnderMaintenance: true),
       );
       final newFeatures = remoteConfigFixture.features.copyWith(
-        pushNotifications: remoteConfigFixture.features.pushNotifications
-            .copyWith(primaryProvider: PushNotificationProvider.oneSignal),
+        analytics: remoteConfigFixture.features.analytics.copyWith(
+          enabled: false,
+          activeProvider: AnalyticsProvider.demo,
+        ),
       );
 
       // Act: Create a copy with the updated values.

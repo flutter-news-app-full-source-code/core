@@ -16,11 +16,11 @@ Topic _$TopicFromJson(Map<String, dynamic> json) =>
         iconUrl: $checkedConvert('iconUrl', (v) => v as String),
         createdAt: $checkedConvert(
           'createdAt',
-          (v) => dateTimeFromJson(v as String?),
+          (v) => const DateTimeConverter().fromJson(v as String),
         ),
         updatedAt: $checkedConvert(
           'updatedAt',
-          (v) => dateTimeFromJson(v as String?),
+          (v) => const DateTimeConverter().fromJson(v as String),
         ),
         status: $checkedConvert(
           'status',
@@ -35,8 +35,8 @@ Map<String, dynamic> _$TopicToJson(Topic instance) => <String, dynamic>{
   'name': instance.name,
   'description': instance.description,
   'iconUrl': instance.iconUrl,
-  'createdAt': dateTimeToJson(instance.createdAt),
-  'updatedAt': dateTimeToJson(instance.updatedAt),
+  'createdAt': const DateTimeConverter().toJson(instance.createdAt),
+  'updatedAt': const DateTimeConverter().toJson(instance.updatedAt),
   'status': _$ContentStatusEnumMap[instance.status]!,
 };
 

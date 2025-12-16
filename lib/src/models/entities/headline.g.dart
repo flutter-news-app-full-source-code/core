@@ -27,11 +27,11 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) =>
         ),
         createdAt: $checkedConvert(
           'createdAt',
-          (v) => dateTimeFromJson(v as String?),
+          (v) => const DateTimeConverter().fromJson(v as String),
         ),
         updatedAt: $checkedConvert(
           'updatedAt',
-          (v) => dateTimeFromJson(v as String?),
+          (v) => const DateTimeConverter().fromJson(v as String),
         ),
         status: $checkedConvert(
           'status',
@@ -49,8 +49,8 @@ Map<String, dynamic> _$HeadlineToJson(Headline instance) => <String, dynamic>{
   'imageUrl': instance.imageUrl,
   'source': instance.source.toJson(),
   'eventCountry': instance.eventCountry.toJson(),
-  'createdAt': dateTimeToJson(instance.createdAt),
-  'updatedAt': dateTimeToJson(instance.updatedAt),
+  'createdAt': const DateTimeConverter().toJson(instance.createdAt),
+  'updatedAt': const DateTimeConverter().toJson(instance.updatedAt),
   'status': _$ContentStatusEnumMap[instance.status]!,
   'isBreaking': instance.isBreaking,
   'topic': instance.topic.toJson(),

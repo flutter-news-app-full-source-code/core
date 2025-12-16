@@ -19,11 +19,11 @@ AppReview _$AppReviewFromJson(Map<String, dynamic> json) => $checkedCreate(
       ),
       createdAt: $checkedConvert(
         'createdAt',
-        (v) => dateTimeFromJson(v as String?),
+        (v) => const DateTimeConverter().fromJson(v as String),
       ),
       updatedAt: $checkedConvert(
         'updatedAt',
-        (v) => dateTimeFromJson(v as String?),
+        (v) => const DateTimeConverter().fromJson(v as String),
       ),
       wasStoreReviewRequested: $checkedConvert(
         'wasStoreReviewRequested',
@@ -39,8 +39,8 @@ Map<String, dynamic> _$AppReviewToJson(AppReview instance) => <String, dynamic>{
   'id': instance.id,
   'userId': instance.userId,
   'feedback': _$AppReviewFeedbackEnumMap[instance.feedback]!,
-  'createdAt': dateTimeToJson(instance.createdAt),
-  'updatedAt': dateTimeToJson(instance.updatedAt),
+  'createdAt': const DateTimeConverter().toJson(instance.createdAt),
+  'updatedAt': const DateTimeConverter().toJson(instance.updatedAt),
   'wasStoreReviewRequested': instance.wasStoreReviewRequested,
   'feedbackDetails': instance.feedbackDetails,
 };

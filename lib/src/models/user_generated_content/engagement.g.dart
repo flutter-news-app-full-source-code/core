@@ -18,11 +18,11 @@ Engagement _$EngagementFromJson(Map<String, dynamic> json) =>
         ),
         createdAt: $checkedConvert(
           'createdAt',
-          (v) => dateTimeFromJson(v as String?),
+          (v) => const DateTimeConverter().fromJson(v as String),
         ),
         updatedAt: $checkedConvert(
           'updatedAt',
-          (v) => dateTimeFromJson(v as String?),
+          (v) => const DateTimeConverter().fromJson(v as String),
         ),
         reaction: $checkedConvert(
           'reaction',
@@ -45,8 +45,8 @@ Map<String, dynamic> _$EngagementToJson(Engagement instance) =>
       'entityType': _$EngageableTypeEnumMap[instance.entityType]!,
       'reaction': instance.reaction?.toJson(),
       'comment': instance.comment?.toJson(),
-      'createdAt': dateTimeToJson(instance.createdAt),
-      'updatedAt': dateTimeToJson(instance.updatedAt),
+      'createdAt': const DateTimeConverter().toJson(instance.createdAt),
+      'updatedAt': const DateTimeConverter().toJson(instance.updatedAt),
     };
 
 const _$EngageableTypeEnumMap = {EngageableType.headline: 'headline'};

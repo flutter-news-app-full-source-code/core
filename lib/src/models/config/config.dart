@@ -1,5 +1,6 @@
 export 'ad_config.dart';
 export 'ad_platform_identifiers.dart';
+export 'analytics_config.dart';
 export 'app_config.dart';
 export 'app_review_config.dart';
 export 'community_config.dart';

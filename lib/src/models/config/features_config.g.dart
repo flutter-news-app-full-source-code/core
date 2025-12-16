@@ -9,6 +9,10 @@ part of 'features_config.dart';
 FeaturesConfig _$FeaturesConfigFromJson(Map<String, dynamic> json) =>
     $checkedCreate('FeaturesConfig', json, ($checkedConvert) {
       final val = FeaturesConfig(
+        analytics: $checkedConvert(
+          'analytics',
+          (v) => AnalyticsConfig.fromJson(v as Map<String, dynamic>),
+        ),
         ads: $checkedConvert(
           'ads',
           (v) => AdConfig.fromJson(v as Map<String, dynamic>),
@@ -31,6 +35,7 @@ FeaturesConfig _$FeaturesConfigFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$FeaturesConfigToJson(FeaturesConfig instance) =>
     <String, dynamic>{
+      'analytics': instance.analytics.toJson(),
       'ads': instance.ads.toJson(),
       'pushNotifications': instance.pushNotifications.toJson(),
       'feed': instance.feed.toJson(),
