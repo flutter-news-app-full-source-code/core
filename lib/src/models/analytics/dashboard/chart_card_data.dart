@@ -49,6 +49,22 @@ class ChartCardData extends Equatable {
   /// Converts this [ChartCardData] instance to JSON data.
   Map<String, dynamic> toJson() => _$ChartCardDataToJson(this);
 
+  /// Creates a copy of this [ChartCardData] with the given fields
+  /// replaced with the new values.
+  ChartCardData copyWith({
+    ChartCardId? id,
+    String? label,
+    ChartType? type,
+    Map<ChartTimeFrame, List<DataPoint>>? timeFrames,
+  }) {
+    return ChartCardData(
+      id: id ?? this.id,
+      label: label ?? this.label,
+      type: type ?? this.type,
+      timeFrames: timeFrames ?? this.timeFrames,
+    );
+  }
+
   @override
   List<Object> get props => [id, label, type, timeFrames];
 }
