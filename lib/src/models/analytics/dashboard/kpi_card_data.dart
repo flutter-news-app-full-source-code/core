@@ -30,6 +30,15 @@ class KpiTimeFrameData extends Equatable {
   /// Converts this [KpiTimeFrameData] instance to JSON data.
   Map<String, dynamic> toJson() => _$KpiTimeFrameDataToJson(this);
 
+  /// Creates a copy of this [KpiTimeFrameData] with the given fields
+  /// replaced with the new values.
+  KpiTimeFrameData copyWith({num? value, String? trend}) {
+    return KpiTimeFrameData(
+      value: value ?? this.value,
+      trend: trend ?? this.trend,
+    );
+  }
+
   @override
   List<Object> get props => [value, trend];
 }
@@ -69,6 +78,20 @@ class KpiCardData extends Equatable {
 
   /// Converts this [KpiCardData] instance to JSON data.
   Map<String, dynamic> toJson() => _$KpiCardDataToJson(this);
+
+  /// Creates a copy of this [KpiCardData] with the given fields
+  /// replaced with the new values.
+  KpiCardData copyWith({
+    KpiCardId? id,
+    String? label,
+    Map<KpiTimeFrame, KpiTimeFrameData>? timeFrames,
+  }) {
+    return KpiCardData(
+      id: id ?? this.id,
+      label: label ?? this.label,
+      timeFrames: timeFrames ?? this.timeFrames,
+    );
+  }
 
   @override
   List<Object> get props => [id, label, timeFrames];

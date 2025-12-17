@@ -21,6 +21,23 @@ void main() {
       });
     });
 
+    group('copyWith', () {
+      test('should return a new instance with updated values', () {
+        final updatedData = kpiTimeFrameDataFixture.copyWith(
+          value: 150,
+          trend: '-5%',
+        );
+
+        expect(updatedData.value, 150);
+        expect(updatedData.trend, '-5%');
+      });
+
+      test('should return an identical instance if no values are provided', () {
+        final copiedData = kpiTimeFrameDataFixture.copyWith();
+        expect(copiedData, equals(kpiTimeFrameDataFixture));
+      });
+    });
+
     group('Equatable', () {
       test('should equate two identical instances', () {
         const instance1 = KpiTimeFrameData(value: 100, trend: '+10%');
@@ -60,6 +77,24 @@ void main() {
       test('should correctly serialize to JSON', () {
         final toJson = kpiCardDataFixture.toJson();
         expect(toJson, equals(kpiCardDataJson));
+      });
+    });
+
+    group('copyWith', () {
+      test('should return a new instance with updated values', () {
+        final updatedCard = kpiCardDataFixture.copyWith(
+          label: 'A New Label',
+          id: KpiCardId.usersActiveUsers,
+        );
+
+        expect(updatedCard.label, 'A New Label');
+        expect(updatedCard.id, KpiCardId.usersActiveUsers);
+        expect(updatedCard.timeFrames, equals(kpiCardDataFixture.timeFrames));
+      });
+
+      test('should return an identical instance if no values are provided', () {
+        final copiedCard = kpiCardDataFixture.copyWith();
+        expect(copiedCard, equals(kpiCardDataFixture));
       });
     });
 

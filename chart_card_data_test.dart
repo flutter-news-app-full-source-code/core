@@ -21,6 +21,25 @@ void main() {
       });
     });
 
+    group('copyWith', () {
+      test('should return a new instance with updated values', () {
+        final updatedCard = chartCardDataFixture.copyWith(
+          label: 'A New Label',
+          type: ChartType.bar,
+        );
+
+        expect(updatedCard.label, 'A New Label');
+        expect(updatedCard.type, ChartType.bar);
+        expect(updatedCard.id, equals(chartCardDataFixture.id));
+        expect(updatedCard.timeFrames, equals(chartCardDataFixture.timeFrames));
+      });
+
+      test('should return an identical instance if no values are provided', () {
+        final copiedCard = chartCardDataFixture.copyWith();
+        expect(copiedCard, equals(chartCardDataFixture));
+      });
+    });
+
     group('Equatable', () {
       test('should equate two identical instances', () {
         final instance1 = chartCardDataFixture;

@@ -35,6 +35,20 @@ class RankedListItem extends Equatable {
   /// Converts this [RankedListItem] instance to JSON data.
   Map<String, dynamic> toJson() => _$RankedListItemToJson(this);
 
+  /// Creates a copy of this [RankedListItem] with the given fields
+  /// replaced with the new values.
+  RankedListItem copyWith({
+    String? entityId,
+    String? displayTitle,
+    num? metricValue,
+  }) {
+    return RankedListItem(
+      entityId: entityId ?? this.entityId,
+      displayTitle: displayTitle ?? this.displayTitle,
+      metricValue: metricValue ?? this.metricValue,
+    );
+  }
+
   @override
   List<Object> get props => [entityId, displayTitle, metricValue];
 }

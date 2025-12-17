@@ -22,6 +22,24 @@ void main() {
       });
     });
 
+    group('copyWith', () {
+      test('should return a new instance with updated values', () {
+        final updatedItem = rankedListItemFixture.copyWith(
+          displayTitle: 'A New Title',
+          metricValue: 999,
+        );
+
+        expect(updatedItem.displayTitle, 'A New Title');
+        expect(updatedItem.metricValue, 999);
+        expect(updatedItem.entityId, rankedListItemFixture.entityId);
+      });
+
+      test('should return an identical instance if no values are provided', () {
+        final copiedItem = rankedListItemFixture.copyWith();
+        expect(copiedItem, equals(rankedListItemFixture));
+      });
+    });
+
     group('Equatable', () {
       test('should equate two identical instances', () {
         final instance1 = rankedListItemFixture;
