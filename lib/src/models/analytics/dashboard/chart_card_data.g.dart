@@ -54,12 +54,12 @@ const _$ChartCardIdEnumMap = {
   ChartCardId.contentHeadlinesViewsByTopic: 'content_headlines_views_by_topic',
   ChartCardId.contentSourcesHeadlinesPublishedOverTime:
       'content_sources_headlines_published_over_time',
-  ChartCardId.contentSourcesFollowersOverTime:
-      'content_sources_followers_over_time',
+  ChartCardId.contentSourcesStatusDistribution:
+      'content_sources_status_distribution',
   ChartCardId.contentSourcesEngagementByType:
       'content_sources_engagement_by_type',
-  ChartCardId.contentTopicsFollowersOverTime:
-      'content_topics_followers_over_time',
+  ChartCardId.contentHeadlinesBreakingNewsDistribution:
+      'content_headlines_breaking_news_distribution',
   ChartCardId.contentTopicsHeadlinesPublishedOverTime:
       'content_topics_headlines_published_over_time',
   ChartCardId.contentTopicsEngagementByTopic:

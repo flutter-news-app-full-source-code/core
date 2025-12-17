@@ -40,18 +40,22 @@ enum ChartCardId {
   @JsonValue('content_sources_headlines_published_over_time')
   contentSourcesHeadlinesPublishedOverTime,
 
-  /// Chart for source follower gains over time.
-  @JsonValue('content_sources_followers_over_time')
-  contentSourcesFollowersOverTime,
+  /// A bar chart showing the count of news sources categorized by their
+  /// ContentStatus (e.g., 'active', 'draft', 'archived'). This provides
+  /// insight into the lifecycle and availability of your content sources.
+  @JsonValue('content_sources_status_distribution')
+  contentSourcesStatusDistribution,
 
   /// Chart for engagement by source type.
   @JsonValue('content_sources_engagement_by_type')
   contentSourcesEngagementByType,
 
   // Topics Tab
-  /// Chart for topic follower gains over time.
-  @JsonValue('content_topics_followers_over_time')
-  contentTopicsFollowersOverTime,
+  /// A bar chart showing the count of headlines categorized by whether they are
+  /// marked as 'breaking news' (isBreaking: true) or not. This offers a view
+  /// into the volume of urgent vs. regular content.
+  @JsonValue('content_headlines_breaking_news_distribution')
+  contentHeadlinesBreakingNewsDistribution,
 
   /// Chart for headlines published per topic over time.
   @JsonValue('content_topics_headlines_published_over_time')
