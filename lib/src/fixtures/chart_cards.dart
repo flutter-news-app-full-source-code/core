@@ -39,6 +39,35 @@ List<ChartCardData> getChartCardsFixturesData({
         ChartTimeFrame.year: _generateTimeSeries(referenceTime, 365, 1),
       },
     ),
+    ChartCardData(
+      id: ChartCardId.usersActiveUsersOverTime,
+      label: labels[ChartCardId.usersActiveUsersOverTime]!,
+      type: ChartType.line,
+      timeFrames: {
+        ChartTimeFrame.week: _generateTimeSeries(referenceTime, 7, 8),
+        ChartTimeFrame.month: _generateTimeSeries(referenceTime, 30, 10),
+        ChartTimeFrame.year: _generateTimeSeries(referenceTime, 365, 11),
+      },
+    ),
+    ChartCardData(
+      id: ChartCardId.usersRoleDistribution,
+      label: labels[ChartCardId.usersRoleDistribution]!,
+      type: ChartType.bar,
+      timeFrames: {
+        ChartTimeFrame.week: _generateCategoricalSeries([
+          'Standard',
+          'Premium',
+        ], 10),
+        ChartTimeFrame.month: _generateCategoricalSeries([
+          'Standard',
+          'Premium',
+        ], 11),
+        ChartTimeFrame.year: _generateCategoricalSeries([
+          'Standard',
+          'Premium',
+        ], 11),
+      },
+    ),
 
     // --- Content Management: Headlines ---
     ChartCardData(
@@ -49,6 +78,16 @@ List<ChartCardData> getChartCardsFixturesData({
         ChartTimeFrame.week: _generateTimeSeries(referenceTime, 7, 1500),
         ChartTimeFrame.month: _generateTimeSeries(referenceTime, 30, 1200),
         ChartTimeFrame.year: _generateTimeSeries(referenceTime, 365, 1000),
+      },
+    ),
+    ChartCardData(
+      id: ChartCardId.contentHeadlinesLikesOverTime,
+      label: labels[ChartCardId.contentHeadlinesLikesOverTime]!,
+      type: ChartType.line,
+      timeFrames: {
+        ChartTimeFrame.week: _generateTimeSeries(referenceTime, 7, 200),
+        ChartTimeFrame.month: _generateTimeSeries(referenceTime, 30, 150),
+        ChartTimeFrame.year: _generateTimeSeries(referenceTime, 365, 100),
       },
     ),
     ChartCardData(
@@ -78,6 +117,26 @@ List<ChartCardData> getChartCardsFixturesData({
     ),
 
     // --- Content Management: Sources ---
+    ChartCardData(
+      id: ChartCardId.contentSourcesHeadlinesPublishedOverTime,
+      label: labels[ChartCardId.contentSourcesHeadlinesPublishedOverTime]!,
+      type: ChartType.line,
+      timeFrames: {
+        ChartTimeFrame.week: _generateTimeSeries(referenceTime, 7, 15),
+        ChartTimeFrame.month: _generateTimeSeries(referenceTime, 30, 12),
+        ChartTimeFrame.year: _generateTimeSeries(referenceTime, 365, 10),
+      },
+    ),
+    ChartCardData(
+      id: ChartCardId.contentSourcesEngagementByType,
+      label: labels[ChartCardId.contentSourcesEngagementByType]!,
+      type: ChartType.bar,
+      timeFrames: {
+        ChartTimeFrame.week: _generateCategoricalSeries(['RSS', 'API'], 500),
+        ChartTimeFrame.month: _generateCategoricalSeries(['RSS', 'API'], 2000),
+        ChartTimeFrame.year: _generateCategoricalSeries(['RSS', 'API'], 24000),
+      },
+    ),
     ChartCardData(
       id: ChartCardId.contentSourcesStatusDistribution,
       label: labels[ChartCardId.contentSourcesStatusDistribution]!,
@@ -116,6 +175,163 @@ List<ChartCardData> getChartCardsFixturesData({
           'Breaking',
           'Regular',
         ], 4800),
+      },
+    ),
+    ChartCardData(
+      id: ChartCardId.contentTopicsHeadlinesPublishedOverTime,
+      label: labels[ChartCardId.contentTopicsHeadlinesPublishedOverTime]!,
+      type: ChartType.line,
+      timeFrames: {
+        ChartTimeFrame.week: _generateTimeSeries(referenceTime, 7, 10),
+        ChartTimeFrame.month: _generateTimeSeries(referenceTime, 30, 8),
+        ChartTimeFrame.year: _generateTimeSeries(referenceTime, 365, 5),
+      },
+    ),
+    ChartCardData(
+      id: ChartCardId.contentTopicsEngagementByTopic,
+      label: labels[ChartCardId.contentTopicsEngagementByTopic]!,
+      type: ChartType.bar,
+      timeFrames: {
+        ChartTimeFrame.week: _generateCategoricalSeries(
+          getTopicsFixturesData(
+            languageCode: resolvedLanguageCode,
+          ).map((e) => e.name).toList(),
+          600,
+        ),
+        ChartTimeFrame.month: _generateCategoricalSeries(
+          getTopicsFixturesData(
+            languageCode: resolvedLanguageCode,
+          ).map((e) => e.name).toList(),
+          2400,
+        ),
+        ChartTimeFrame.year: _generateCategoricalSeries(
+          getTopicsFixturesData(
+            languageCode: resolvedLanguageCode,
+          ).map((e) => e.name).toList(),
+          28800,
+        ),
+      },
+    ),
+
+    // --- Engagements Management ---
+    ChartCardData(
+      id: ChartCardId.engagementsReactionsOverTime,
+      label: labels[ChartCardId.engagementsReactionsOverTime]!,
+      type: ChartType.line,
+      timeFrames: {
+        ChartTimeFrame.week: _generateTimeSeries(referenceTime, 7, 10),
+        ChartTimeFrame.month: _generateTimeSeries(referenceTime, 30, 8),
+        ChartTimeFrame.year: _generateTimeSeries(referenceTime, 365, 5),
+      },
+    ),
+    ChartCardData(
+      id: ChartCardId.engagementsCommentsOverTime,
+      label: labels[ChartCardId.engagementsCommentsOverTime]!,
+      type: ChartType.line,
+      timeFrames: {
+        ChartTimeFrame.week: _generateTimeSeries(referenceTime, 7, 5),
+        ChartTimeFrame.month: _generateTimeSeries(referenceTime, 30, 4),
+        ChartTimeFrame.year: _generateTimeSeries(referenceTime, 365, 2),
+      },
+    ),
+    ChartCardData(
+      id: ChartCardId.engagementsReactionsByType,
+      label: labels[ChartCardId.engagementsReactionsByType]!,
+      type: ChartType.bar,
+      timeFrames: {
+        ChartTimeFrame.week: _generateCategoricalSeries([
+          'like',
+          'love',
+          'laugh',
+        ], 20),
+        ChartTimeFrame.month: _generateCategoricalSeries([
+          'like',
+          'love',
+          'laugh',
+        ], 80),
+        ChartTimeFrame.year: _generateCategoricalSeries([
+          'like',
+          'love',
+          'laugh',
+        ], 960),
+      },
+    ),
+    ChartCardData(
+      id: ChartCardId.engagementsReportsSubmittedOverTime,
+      label: labels[ChartCardId.engagementsReportsSubmittedOverTime]!,
+      type: ChartType.line,
+      timeFrames: {
+        ChartTimeFrame.week: _generateTimeSeries(referenceTime, 7, 2),
+        ChartTimeFrame.month: _generateTimeSeries(referenceTime, 30, 1),
+        ChartTimeFrame.year: _generateTimeSeries(referenceTime, 365, 0),
+      },
+    ),
+    ChartCardData(
+      id: ChartCardId.engagementsReportsResolutionTimeOverTime,
+      label: labels[ChartCardId.engagementsReportsResolutionTimeOverTime]!,
+      type: ChartType.line,
+      timeFrames: {
+        ChartTimeFrame.week: _generateTimeSeries(referenceTime, 7, 24), // Hours
+        ChartTimeFrame.month: _generateTimeSeries(referenceTime, 30, 48),
+        ChartTimeFrame.year: _generateTimeSeries(referenceTime, 365, 72),
+      },
+    ),
+    ChartCardData(
+      id: ChartCardId.engagementsReportsByReason,
+      label: labels[ChartCardId.engagementsReportsByReason]!,
+      type: ChartType.bar,
+      timeFrames: {
+        ChartTimeFrame.week: _generateCategoricalSeries([
+          'Spam',
+          'Hate Speech',
+        ], 5),
+        ChartTimeFrame.month: _generateCategoricalSeries([
+          'Spam',
+          'Hate Speech',
+        ], 20),
+        ChartTimeFrame.year: _generateCategoricalSeries([
+          'Spam',
+          'Hate Speech',
+        ], 240),
+      },
+    ),
+    ChartCardData(
+      id: ChartCardId.engagementsAppReviewsFeedbackOverTime,
+      label: labels[ChartCardId.engagementsAppReviewsFeedbackOverTime]!,
+      type: ChartType.line,
+      timeFrames: {
+        ChartTimeFrame.week: _generateTimeSeries(referenceTime, 7, 3),
+        ChartTimeFrame.month: _generateTimeSeries(referenceTime, 30, 2),
+        ChartTimeFrame.year: _generateTimeSeries(referenceTime, 365, 1),
+      },
+    ),
+    ChartCardData(
+      id: ChartCardId.engagementsAppReviewsPositiveVsNegative,
+      label: labels[ChartCardId.engagementsAppReviewsPositiveVsNegative]!,
+      type: ChartType.bar,
+      timeFrames: {
+        ChartTimeFrame.week: _generateCategoricalSeries([
+          'Positive',
+          'Negative',
+        ], 5),
+        ChartTimeFrame.month: _generateCategoricalSeries([
+          'Positive',
+          'Negative',
+        ], 20),
+        ChartTimeFrame.year: _generateCategoricalSeries([
+          'Positive',
+          'Negative',
+        ], 240),
+      },
+    ),
+    ChartCardData(
+      id: ChartCardId.engagementsAppReviewsStoreRequestsOverTime,
+      label: labels[ChartCardId.engagementsAppReviewsStoreRequestsOverTime]!,
+      type: ChartType.line,
+      timeFrames: {
+        ChartTimeFrame.week: _generateTimeSeries(referenceTime, 7, 1),
+        ChartTimeFrame.month: _generateTimeSeries(referenceTime, 30, 1),
+        ChartTimeFrame.year: _generateTimeSeries(referenceTime, 365, 0),
       },
     ),
   ];
@@ -161,21 +377,77 @@ List<DataPoint> _generateCategoricalSeries(List<String> categories, int max) {
 /// A map containing the display labels for each chart card in all supported languages.
 final Map<String, Map<ChartCardId, String>> _chartLabels = {
   'en': {
+    // Users
     ChartCardId.usersRegistrationsOverTime: 'Registrations Over Time',
+    ChartCardId.usersActiveUsersOverTime: 'Active Users Over Time',
+    ChartCardId.usersRoleDistribution: 'User Role Distribution',
+    // Headlines
     ChartCardId.contentHeadlinesViewsOverTime: 'Views Over Time',
+    ChartCardId.contentHeadlinesLikesOverTime: 'Likes Over Time',
     ChartCardId.contentHeadlinesViewsByTopic: 'Views by Topic',
+    // Sources
+    ChartCardId.contentSourcesHeadlinesPublishedOverTime:
+        'Headlines Published Over Time',
     ChartCardId.contentSourcesStatusDistribution: 'Source Status Distribution',
+    ChartCardId.contentSourcesEngagementByType: 'Engagement by Source Type',
+    // Topics
     ChartCardId.contentHeadlinesBreakingNewsDistribution:
         'Breaking News Distribution',
-    // Add other English labels here
+    ChartCardId.contentTopicsHeadlinesPublishedOverTime:
+        'Headlines Published Over Time',
+    ChartCardId.contentTopicsEngagementByTopic: 'Engagement by Topic',
+    // Engagements
+    ChartCardId.engagementsReactionsOverTime: 'Reactions Over Time',
+    ChartCardId.engagementsCommentsOverTime: 'Comments Over Time',
+    ChartCardId.engagementsReactionsByType: 'Reactions by Type',
+    // Reports
+    ChartCardId.engagementsReportsSubmittedOverTime:
+        'Reports Submitted Over Time',
+    ChartCardId.engagementsReportsResolutionTimeOverTime:
+        'Avg. Resolution Time Over Time',
+    ChartCardId.engagementsReportsByReason: 'Reports by Reason',
+    // App Reviews
+    ChartCardId.engagementsAppReviewsFeedbackOverTime: 'Feedback Over Time',
+    ChartCardId.engagementsAppReviewsPositiveVsNegative:
+        'Positive vs. Negative Feedback',
+    ChartCardId.engagementsAppReviewsStoreRequestsOverTime:
+        'Store Requests Over Time',
   },
   'ar': {
+    // Users
     ChartCardId.usersRegistrationsOverTime: 'التسجيلات عبر الزمن',
+    ChartCardId.usersActiveUsersOverTime: 'المستخدمون النشطون عبر الزمن',
+    ChartCardId.usersRoleDistribution: 'توزيع أدوار المستخدمين',
+    // Headlines
     ChartCardId.contentHeadlinesViewsOverTime: 'المشاهدات عبر الزمن',
+    ChartCardId.contentHeadlinesLikesOverTime: 'الإعجابات عبر الزمن',
     ChartCardId.contentHeadlinesViewsByTopic: 'المشاهدات حسب الموضوع',
+    // Sources
+    ChartCardId.contentSourcesHeadlinesPublishedOverTime:
+        'العناوين المنشورة عبر الزمن',
     ChartCardId.contentSourcesStatusDistribution: 'توزيع حالة المصادر',
+    ChartCardId.contentSourcesEngagementByType: 'التفاعل حسب نوع المصدر',
+    // Topics
     ChartCardId.contentHeadlinesBreakingNewsDistribution:
         'توزيع الأخبار العاجلة',
-    // Add other Arabic labels here
+    ChartCardId.contentTopicsHeadlinesPublishedOverTime:
+        'العناوين المنشورة عبر الزمن',
+    ChartCardId.contentTopicsEngagementByTopic: 'التفاعل حسب الموضوع',
+    // Engagements
+    ChartCardId.engagementsReactionsOverTime: 'التفاعلات عبر الزمن',
+    ChartCardId.engagementsCommentsOverTime: 'التعليقات عبر الزمن',
+    ChartCardId.engagementsReactionsByType: 'التفاعلات حسب النوع',
+    // Reports
+    ChartCardId.engagementsReportsSubmittedOverTime:
+        'التقارير المقدمة عبر الزمن',
+    ChartCardId.engagementsReportsResolutionTimeOverTime:
+        'متوسط وقت حل التقارير عبر الزمن',
+    ChartCardId.engagementsReportsByReason: 'التقارير حسب السبب',
+    // App Reviews
+    ChartCardId.engagementsAppReviewsFeedbackOverTime: 'التقييمات عبر الزمن',
+    ChartCardId.engagementsAppReviewsPositiveVsNegative:
+        'التقييمات الإيجابية مقابل السلبية',
+    ChartCardId.engagementsAppReviewsStoreRequestsOverTime:
+        'طلبات تقييم المتجر عبر الزمن',
   },
 };
