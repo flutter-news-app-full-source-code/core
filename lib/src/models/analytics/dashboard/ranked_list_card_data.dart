@@ -45,6 +45,20 @@ class RankedListCardData extends Equatable {
   /// Converts this [RankedListCardData] instance to JSON data.
   Map<String, dynamic> toJson() => _$RankedListCardDataToJson(this);
 
+  /// Creates a copy of this [RankedListCardData] with the given fields
+  /// replaced with the new values.
+  RankedListCardData copyWith({
+    RankedListCardId? id,
+    String? label,
+    Map<RankedListTimeFrame, List<RankedListItem>>? timeFrames,
+  }) {
+    return RankedListCardData(
+      id: id ?? this.id,
+      label: label ?? this.label,
+      timeFrames: timeFrames ?? this.timeFrames,
+    );
+  }
+
   @override
   List<Object> get props => [id, label, timeFrames];
 }
