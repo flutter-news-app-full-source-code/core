@@ -51,10 +51,18 @@ class DataPoint extends Equatable {
   /// Creates a copy of this [DataPoint] with the given fields
   /// replaced with the new values.
   DataPoint copyWith({DateTime? timestamp, String? label, num? value}) {
+    assert(
+      timestamp == null || label == null,
+      'Cannot provide both timestamp and label to copyWith.',
+    );
     return DataPoint(
-      timestamp: timestamp ?? this.timestamp,
-      label: label ?? this.label,
       value: value ?? this.value,
+      // If a new timestamp is provided, use it. Otherwise, if a new label is
+      // provided, clear the old timestamp. Otherwise, keep the old timestamp.
+      timestamp: timestamp ?? (label == null ? this.timestamp : null),
+      // If a new label is provided, use it. Otherwise, if a new timestamp is
+      // provided, clear the old label. Otherwise, keep the old label.
+      label: label ?? (timestamp == null ? this.label : null),
     );
   }
 
