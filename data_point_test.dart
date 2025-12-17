@@ -66,6 +66,32 @@ void main() {
       });
     });
 
+    group('copyWith', () {
+      test('should return a new instance with updated values for time-series',
+          () {
+        final newTime = now.add(const Duration(days: 1));
+        final updatedPoint = timeSeriesDataPoint.copyWith(
+          timestamp: newTime,
+          value: 999,
+        );
+
+        expect(updatedPoint.timestamp, newTime);
+        expect(updatedPoint.value, 999);
+        expect(updatedPoint.label, isNull);
+      });
+
+      test(
+          'should return a new instance with updated values for categorical',
+          () {
+        final updatedPoint =
+            categoricalDataPoint.copyWith(label: 'Category B', value: 300);
+
+        expect(updatedPoint.label, 'Category B');
+        expect(updatedPoint.value, 300);
+        expect(updatedPoint.timestamp, isNull);
+      });
+    });
+
     group('Equatable', () {
       test('should equate two identical time-series instances', () {
         final instance1 = DataPoint(timestamp: now, value: 150);
