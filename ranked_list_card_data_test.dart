@@ -21,6 +21,27 @@ void main() {
       });
     });
 
+    group('copyWith', () {
+      test('should return a new instance with updated values', () {
+        final updatedCard = rankedListCardDataFixture.copyWith(
+          label: 'A New Label',
+          id: RankedListCardId.overviewHeadlinesMostLiked,
+        );
+
+        expect(updatedCard.label, 'A New Label');
+        expect(updatedCard.id, RankedListCardId.overviewHeadlinesMostLiked);
+        expect(
+          updatedCard.timeFrames,
+          equals(rankedListCardDataFixture.timeFrames),
+        );
+      });
+
+      test('should return an identical instance if no values are provided', () {
+        final copiedCard = rankedListCardDataFixture.copyWith();
+        expect(copiedCard, equals(rankedListCardDataFixture));
+      });
+    });
+
     group('Equatable', () {
       test('should equate two identical instances', () {
         final instance1 = rankedListCardDataFixture;
