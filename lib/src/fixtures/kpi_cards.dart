@@ -180,6 +180,66 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
         KpiTimeFrame.year: KpiTimeFrameData(value: 2, trend: '-50'),
       },
     ),
+    KpiCardData(
+      id: KpiCardId.engagementsAverageEngagementRate,
+      label: labels[KpiCardId.engagementsAverageEngagementRate]!,
+      timeFrames: const {
+        KpiTimeFrame.day: KpiTimeFrameData(value: 5, trend: '+0.5%'),
+        KpiTimeFrame.week: KpiTimeFrameData(value: 5, trend: '-0.2%'),
+        KpiTimeFrame.month: KpiTimeFrameData(value: 5, trend: '+0.1%'),
+        KpiTimeFrame.year: KpiTimeFrameData(value: 5, trend: '0%'),
+      },
+    ),
+    KpiCardData(
+      id: KpiCardId.engagementsReportsResolved,
+      label: labels[KpiCardId.engagementsReportsResolved]!,
+      timeFrames: const {
+        KpiTimeFrame.day: KpiTimeFrameData(value: 1, trend: '+1'),
+        KpiTimeFrame.week: KpiTimeFrameData(value: 8, trend: '+3'),
+        KpiTimeFrame.month: KpiTimeFrameData(value: 30, trend: '+5'),
+        KpiTimeFrame.year: KpiTimeFrameData(value: 350, trend: '+350'),
+      },
+    ),
+    KpiCardData(
+      id: KpiCardId.engagementsReportsAverageResolutionTime,
+      label: labels[KpiCardId.engagementsReportsAverageResolutionTime]!,
+      timeFrames: const {
+        KpiTimeFrame.day: KpiTimeFrameData(value: 12, trend: '-2h'),
+        KpiTimeFrame.week: KpiTimeFrameData(value: 18, trend: '+1h'),
+        KpiTimeFrame.month: KpiTimeFrameData(value: 24, trend: '+4h'),
+        KpiTimeFrame.year: KpiTimeFrameData(value: 36, trend: '+8h'),
+      },
+    ),
+    KpiCardData(
+      id: KpiCardId.engagementsAppReviewsTotalFeedback,
+      label: labels[KpiCardId.engagementsAppReviewsTotalFeedback]!,
+      timeFrames: const {
+        KpiTimeFrame.day: KpiTimeFrameData(value: 5, trend: '+1'),
+        KpiTimeFrame.week: KpiTimeFrameData(value: 25, trend: '+5'),
+        KpiTimeFrame.month: KpiTimeFrameData(value: 100, trend: '+20'),
+        KpiTimeFrame.year: KpiTimeFrameData(value: 1200, trend: '+1200'),
+      },
+    ),
+    KpiCardData(
+      id: KpiCardId.engagementsAppReviewsPositiveFeedback,
+      label: labels[KpiCardId.engagementsAppReviewsPositiveFeedback]!,
+      timeFrames: const {
+        KpiTimeFrame.day: KpiTimeFrameData(value: 4, trend: '+1'),
+        KpiTimeFrame.week: KpiTimeFrameData(value: 20, trend: '+3'),
+        KpiTimeFrame.month: KpiTimeFrameData(value: 80, trend: '+15'),
+        KpiTimeFrame.year: KpiTimeFrameData(value: 960, trend: '+960'),
+      },
+    ),
+    KpiCardData(
+      id: KpiCardId.engagementsAppReviewsStoreRequests,
+      label: labels[KpiCardId.engagementsAppReviewsStoreRequests]!,
+      timeFrames: const {
+        KpiTimeFrame.day: KpiTimeFrameData(value: 1, trend: '0'),
+        KpiTimeFrame.week: KpiTimeFrameData(value: 5, trend: '+1'),
+        KpiTimeFrame.month: KpiTimeFrameData(value: 20, trend: '+4'),
+        KpiTimeFrame.year: KpiTimeFrameData(value: 240, trend: '+240'),
+      },
+    ),
   ];
 }
 
