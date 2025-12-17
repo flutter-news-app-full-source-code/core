@@ -83,6 +83,35 @@ void main() {
       );
 
       test(
+        'should switch from time-series to categorical without asserting',
+        () {
+          // This should not throw an error.
+          final categoricalPoint = timeSeriesDataPoint.copyWith(
+            label: 'New Category',
+          );
+
+          expect(categoricalPoint.label, 'New Category');
+          expect(categoricalPoint.timestamp, isNull);
+          expect(categoricalPoint.value, timeSeriesDataPoint.value);
+        },
+      );
+
+      test(
+        'should switch from categorical to time-series without asserting',
+        () {
+          final newTime = now.add(const Duration(hours: 5));
+          // This should not throw an error.
+          final newTimeSeriesPoint = categoricalDataPoint.copyWith(
+            timestamp: newTime,
+          );
+
+          expect(newTimeSeriesPoint.timestamp, newTime);
+          expect(newTimeSeriesPoint.label, isNull);
+          expect(newTimeSeriesPoint.value, categoricalDataPoint.value);
+        },
+      );
+
+      test(
         'should return a new instance with updated values for categorical',
         () {
           final updatedPoint = categoricalDataPoint.copyWith(
