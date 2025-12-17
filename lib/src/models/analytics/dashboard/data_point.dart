@@ -48,6 +48,16 @@ class DataPoint extends Equatable {
   /// Converts this [DataPoint] instance to JSON data.
   Map<String, dynamic> toJson() => _$DataPointToJson(this);
 
+  /// Creates a copy of this [DataPoint] with the given fields
+  /// replaced with the new values.
+  DataPoint copyWith({DateTime? timestamp, String? label, num? value}) {
+    return DataPoint(
+      timestamp: timestamp ?? this.timestamp,
+      label: label ?? this.label,
+      value: value ?? this.value,
+    );
+  }
+
   @override
   List<Object?> get props => [timestamp, label, value];
 }
