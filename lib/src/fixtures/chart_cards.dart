@@ -76,6 +76,48 @@ List<ChartCardData> getChartCardsFixturesData({
         ),
       },
     ),
+
+    // --- Content Management: Sources ---
+    ChartCardData(
+      id: ChartCardId.contentSourcesStatusDistribution,
+      label: labels[ChartCardId.contentSourcesStatusDistribution]!,
+      type: ChartType.bar,
+      timeFrames: {
+        ChartTimeFrame.week: _generateCategoricalSeries(
+          ContentStatus.values.map((e) => e.name).toList(),
+          50,
+        ),
+        ChartTimeFrame.month: _generateCategoricalSeries(
+          ContentStatus.values.map((e) => e.name).toList(),
+          200,
+        ),
+        ChartTimeFrame.year: _generateCategoricalSeries(
+          ContentStatus.values.map((e) => e.name).toList(),
+          2400,
+        ),
+      },
+    ),
+
+    // --- Content Management: Topics ---
+    ChartCardData(
+      id: ChartCardId.contentHeadlinesBreakingNewsDistribution,
+      label: labels[ChartCardId.contentHeadlinesBreakingNewsDistribution]!,
+      type: ChartType.bar,
+      timeFrames: {
+        ChartTimeFrame.week: _generateCategoricalSeries([
+          'Breaking',
+          'Regular',
+        ], 100),
+        ChartTimeFrame.month: _generateCategoricalSeries([
+          'Breaking',
+          'Regular',
+        ], 400),
+        ChartTimeFrame.year: _generateCategoricalSeries([
+          'Breaking',
+          'Regular',
+        ], 4800),
+      },
+    ),
   ];
 }
 
@@ -122,12 +164,18 @@ final Map<String, Map<ChartCardId, String>> _chartLabels = {
     ChartCardId.usersRegistrationsOverTime: 'Registrations Over Time',
     ChartCardId.contentHeadlinesViewsOverTime: 'Views Over Time',
     ChartCardId.contentHeadlinesViewsByTopic: 'Views by Topic',
+    ChartCardId.contentSourcesStatusDistribution: 'Source Status Distribution',
+    ChartCardId.contentHeadlinesBreakingNewsDistribution:
+        'Breaking News Distribution',
     // Add other English labels here
   },
   'ar': {
     ChartCardId.usersRegistrationsOverTime: 'التسجيلات عبر الزمن',
     ChartCardId.contentHeadlinesViewsOverTime: 'المشاهدات عبر الزمن',
     ChartCardId.contentHeadlinesViewsByTopic: 'المشاهدات حسب الموضوع',
+    ChartCardId.contentSourcesStatusDistribution: 'توزيع حالة المصادر',
+    ChartCardId.contentHeadlinesBreakingNewsDistribution:
+        'توزيع الأخبار العاجلة',
     // Add other Arabic labels here
   },
 };
