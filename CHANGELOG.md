@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on Keep a Changelog,
 and this project adheres to Semantic Versioning.
 
-## [Unreleased]
+## [1.5.0] - 2025-12-21
 
 ### Added
 - **feat(analytics)**: Established a robust and extensible analytics event tracking system. It standardizes event definitions and their associated data through type-safe enums and payload models, ensuring consistency and reducing errors. The changes also introduce a new, modular approach to dashboard data representation, moving away from a single summary model to dedicated models for charts, KPIs, and ranked lists, all configurable via remote settings.
