@@ -1,9 +1,6 @@
 import 'dart:math';
 
-import 'package:core/src/enums/enums.dart';
-import 'package:core/src/fixtures/fixtures.dart';
-import 'package:core/src/models/analytics/dashboard/chart_card_data.dart';
-import 'package:core/src/models/analytics/dashboard/data_point.dart';
+import 'package:core/core.dart';
 
 /// Generates a list of predefined chart card data fixtures.
 ///
@@ -348,13 +345,13 @@ List<ChartCardData> getChartCardsFixturesData({
 /// - [maxValue]: The upper bound for the random value generation.
 List<DataPoint> _generateTimeSeries(DateTime now, int days, int maxValue) {
   final random = Random();
-  return List.generate(
-    days,
-    (i) => DataPoint(
+  return List.generate(days, (i) {
+    final value = maxValue > 0 ? random.nextInt(maxValue) + maxValue * 0.2 : 0;
+    return DataPoint(
       timestamp: now.subtract(Duration(days: days - 1 - i)),
-      value: random.nextInt(maxValue) + maxValue * 0.2,
-    ),
-  );
+      value: value,
+    );
+  });
 }
 
 /// Generates a list of [DataPoint]s for a categorical chart (e.g., a bar chart).
