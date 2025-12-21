@@ -1,5 +1,6 @@
 export 'app_reviews.dart';
 export 'app_settings.dart';
+export 'chart_cards.dart';
 export 'countries.dart';
 export 'engagements.dart';
 export 'fixture_ids.dart';
@@ -7,7 +8,9 @@ export 'headline_comments.dart';
 export 'headline_reactions.dart';
 export 'headlines.dart';
 export 'in_app_notifications.dart';
+export 'kpi_cards.dart';
 export 'languages.dart';
+export 'ranked_list_cards.dart';
 export 'remote_configs.dart';
 export 'reports.dart';
 export 'saved_headline_filters.dart';
