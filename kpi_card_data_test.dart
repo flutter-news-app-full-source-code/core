@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/fixtures/kpi_cards.dart';
 import 'package:test/test.dart';
 
 void main() {
