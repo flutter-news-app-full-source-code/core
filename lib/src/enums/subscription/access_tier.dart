@@ -1,5 +1,5 @@
 /// Defines the entitlement level a user has.
-enum SubscriptionTier {
+enum AccessTier {
   /// A user who has not created an account.
   guest,
 

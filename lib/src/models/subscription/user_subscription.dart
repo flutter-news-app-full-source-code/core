@@ -38,7 +38,7 @@ class UserSubscription extends Equatable {
   final String userId;
 
   /// The entitlement tier granted by this subscription (e.g., 'premium').
-  final SubscriptionTier tier;
+  final AccessTier tier;
 
   /// The current lifecycle status of the subscription (e.g., 'active').
   final SubscriptionStatus status;
@@ -75,7 +75,7 @@ class UserSubscription extends Equatable {
   UserSubscription copyWith({
     String? id,
     String? userId,
-    SubscriptionTier? tier,
+    AccessTier? tier,
     SubscriptionStatus? status,
     StoreProvider? provider,
     DateTime? validUntil,

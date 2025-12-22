@@ -1,4 +1,4 @@
-import 'package:core/src/enums/subscription/subscription_tier.dart';
+import 'package:core/src/enums/subscription/access_tier.dart';
 import 'package:core/src/enums/user_role.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -52,7 +52,7 @@ class User extends Equatable {
   /// The user's subscription tier (e.g., standard, premium).
   ///
   /// This governs access to paid features and usage limits.
-  final SubscriptionTier tier;
+  final AccessTier tier;
 
   /// Indicates if this is an anonymous account.
   final bool isAnonymous;
@@ -67,7 +67,7 @@ class User extends Equatable {
     String? name,
     String? photoUrl,
     UserRole? role,
-    SubscriptionTier? tier,
+    AccessTier? tier,
     bool? isAnonymous,
   }) {
     return User(
@@ -83,12 +83,12 @@ class User extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        email,
-        name,
-        photoUrl,
-        role,
-        tier,
-        isAnonymous,
-      ];
+    id,
+    email,
+    name,
+    photoUrl,
+    role,
+    tier,
+    isAnonymous,
+  ];
 }

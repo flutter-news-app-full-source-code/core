@@ -14,10 +14,10 @@ class SubscriptionTierChangedPayload extends AnalyticsEventPayload {
   });
 
   /// The user's subscription tier before the change.
-  final SubscriptionTier fromTier;
+  final AccessTier fromTier;
 
   /// The user's new subscription tier after the change.
-  final SubscriptionTier toTier;
+  final AccessTier toTier;
 
   @override
   Map<String, dynamic> toMap() {

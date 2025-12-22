@@ -1,5 +1,5 @@
 import 'package:core/src/enums/subscription/subscription_interval.dart';
-import 'package:core/src/enums/subscription/subscription_tier.dart';
+import 'package:core/src/enums/subscription/access_tier.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -34,7 +34,7 @@ class SubscriptionPlan extends Equatable {
   final String id;
 
   /// The entitlement tier this plan grants (e.g., 'premium').
-  final SubscriptionTier tier;
+  final AccessTier tier;
 
   /// The billing interval for this plan (e.g., 'month', 'year').
   final SubscriptionInterval interval;
@@ -70,7 +70,7 @@ class SubscriptionPlan extends Equatable {
   /// replaced with the new values.
   SubscriptionPlan copyWith({
     String? id,
-    SubscriptionTier? tier,
+    AccessTier? tier,
     SubscriptionInterval? interval,
     bool? isRecommended,
     String? appleProductId,
