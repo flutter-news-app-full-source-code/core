@@ -5,7 +5,7 @@
 </div>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/coverage-99%25-lime?style=for-the-badge" alt="coverage">
+  <img src="https://img.shields.io/badge/coverage-98%25-lime?style=for-the-badge" alt="coverage">
   <a href="https://flutter-news-app-full-source-code.github.io/docs/"><img src="https://img.shields.io/badge/LIVE_DOCS-VIEW-slategray?style=for-the-badge" alt="Live Docs: View"></a>
   <a href="https://github.com/flutter-news-app-full-source-code"><img src="https://img.shields.io/badge/MAIN_PROJECT-BROWSE-purple?style=for-the-badge" alt="Main Project: Browse"></a>
 </p>
@@ -88,6 +88,27 @@ Implements the data structures for a strategic, two-layer review funnel. This sy
 </details>
 
 <details>
+<summary><strong>💎 Subscription & Monetization</strong></summary>
+
+---
+
+### 💳 First-Party Subscription System
+
+Implements a robust, server-authoritative subscription model. It supports monthly and annual plans, grace periods, and auto-renewal tracking, all managed via a centralized `SubscriptionConfig`.
+
+> **Your Advantage:** Monetize your content effectively with a secure, flexible subscription system that integrates seamlessly with native app store payments.
+
+---
+
+### 🔓 Tiered Access Control
+
+Decouples user identity from entitlement using the `AccessTier` system (`guest`, `standard`, `premium`). This allows for granular, configuration-driven feature gating across the entire application.
+
+> **Your Advantage:** Easily experiment with different monetization strategies by adjusting feature access and limits for each tier without code changes.
+
+</details>
+
+<details>
 <summary><strong>🔔 Notification & Alerting System</strong></summary>
 
 ---
@@ -121,9 +142,9 @@ Provides a comprehensive set of models for remotely configuring all dynamic aspe
 
 ---
 
-### 👑 Role-Based Feature Entitlements
+### 👑 Tier-Based Feature Entitlements
 
-Define granular, role-based limits for features like saved feed filters, and notification subscriptions.
+Define granular, tier-based limits for features like saved feed filters, notification subscriptions, and daily interaction quotas.
 
 > **Your Advantage:** A flexible and scalable way to create value tiers, encouraging users to upgrade for more powerful personalization capabilities.
 
