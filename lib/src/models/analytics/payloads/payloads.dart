@@ -33,6 +33,7 @@ export 'subscription_cancelled_payload.dart';
 export 'subscription_ended_payload.dart';
 export 'subscription_renewed_payload.dart';
 export 'subscription_started_payload.dart';
+export 'subscription_tier_changed_payload.dart';
 export 'theme_changed_payload.dart';
 export 'user_login_payload.dart';
 export 'user_registered_payload.dart';
