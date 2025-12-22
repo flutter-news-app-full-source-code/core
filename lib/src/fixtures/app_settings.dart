@@ -27,7 +27,7 @@ final List<AppSettings> appSettingsFixturesData = [
     ),
   ),
   AppSettings(
-    id: kUser1Id,
+    id: kPublisherPremiumId,
     displaySettings: const DisplaySettings(
       baseTheme: AppBaseTheme.system,
       accentTheme: AppAccentTheme.defaultBlue,
@@ -51,7 +51,7 @@ final List<AppSettings> appSettingsFixturesData = [
     ),
   ),
   AppSettings(
-    id: kUser2Id,
+    id: kPublisherStandardId,
     displaySettings: const DisplaySettings(
       baseTheme: AppBaseTheme.dark,
       accentTheme: AppAccentTheme.newsRed,
