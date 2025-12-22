@@ -1,4 +1,6 @@
-import 'package:core/core.dart';
+import 'package:core/src/enums/ad_type.dart';
+import 'package:core/src/enums/subscription_enums.dart';
+import 'package:core/src/models/config/feed_ad_frequency_config.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -38,7 +40,7 @@ class FeedAdConfiguration extends Equatable {
   /// Explicitly defines which user roles can see this feed ad configuration
   /// and their specific frequency settings. If a role is not in this map,
   /// they will not see feed ads.
-  final Map<AppUserRole, FeedAdFrequencyConfig> visibleTo;
+  final Map<SubscriptionTier, FeedAdFrequencyConfig> visibleTo;
 
   @override
   List<Object?> get props => [enabled, adType, visibleTo];
@@ -48,7 +50,7 @@ class FeedAdConfiguration extends Equatable {
   FeedAdConfiguration copyWith({
     bool? enabled,
     AdType? adType,
-    Map<AppUserRole, FeedAdFrequencyConfig>? visibleTo,
+    Map<SubscriptionTier, FeedAdFrequencyConfig>? visibleTo,
   }) {
     return FeedAdConfiguration(
       enabled: enabled ?? this.enabled,
