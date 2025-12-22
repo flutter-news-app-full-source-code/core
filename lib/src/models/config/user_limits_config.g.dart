@@ -14,21 +14,21 @@ UserLimitsConfig _$UserLimitsConfigFromJson(
       'followedItems',
       (v) => (v as Map<String, dynamic>).map(
         (k, e) =>
-            MapEntry($enumDecode(_$AppUserRoleEnumMap, k), (e as num).toInt()),
+            MapEntry($enumDecode(_$AccessTierEnumMap, k), (e as num).toInt()),
       ),
     ),
     savedHeadlines: $checkedConvert(
       'savedHeadlines',
       (v) => (v as Map<String, dynamic>).map(
         (k, e) =>
-            MapEntry($enumDecode(_$AppUserRoleEnumMap, k), (e as num).toInt()),
+            MapEntry($enumDecode(_$AccessTierEnumMap, k), (e as num).toInt()),
       ),
     ),
     savedHeadlineFilters: $checkedConvert(
       'savedHeadlineFilters',
       (v) => (v as Map<String, dynamic>).map(
         (k, e) => MapEntry(
-          $enumDecode(_$AppUserRoleEnumMap, k),
+          $enumDecode(_$AccessTierEnumMap, k),
           SavedFilterLimits.fromJson(e as Map<String, dynamic>),
         ),
       ),
@@ -37,7 +37,7 @@ UserLimitsConfig _$UserLimitsConfigFromJson(
       'savedSourceFilters',
       (v) => (v as Map<String, dynamic>).map(
         (k, e) => MapEntry(
-          $enumDecode(_$AppUserRoleEnumMap, k),
+          $enumDecode(_$AccessTierEnumMap, k),
           SavedFilterLimits.fromJson(e as Map<String, dynamic>),
         ),
       ),
@@ -46,21 +46,21 @@ UserLimitsConfig _$UserLimitsConfigFromJson(
       'reactionsPerDay',
       (v) => (v as Map<String, dynamic>).map(
         (k, e) =>
-            MapEntry($enumDecode(_$AppUserRoleEnumMap, k), (e as num).toInt()),
+            MapEntry($enumDecode(_$AccessTierEnumMap, k), (e as num).toInt()),
       ),
     ),
     commentsPerDay: $checkedConvert(
       'commentsPerDay',
       (v) => (v as Map<String, dynamic>).map(
         (k, e) =>
-            MapEntry($enumDecode(_$AppUserRoleEnumMap, k), (e as num).toInt()),
+            MapEntry($enumDecode(_$AccessTierEnumMap, k), (e as num).toInt()),
       ),
     ),
     reportsPerDay: $checkedConvert(
       'reportsPerDay',
       (v) => (v as Map<String, dynamic>).map(
         (k, e) =>
-            MapEntry($enumDecode(_$AppUserRoleEnumMap, k), (e as num).toInt()),
+            MapEntry($enumDecode(_$AccessTierEnumMap, k), (e as num).toInt()),
       ),
     ),
   );
@@ -70,30 +70,30 @@ UserLimitsConfig _$UserLimitsConfigFromJson(
 Map<String, dynamic> _$UserLimitsConfigToJson(UserLimitsConfig instance) =>
     <String, dynamic>{
       'followedItems': instance.followedItems.map(
-        (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e),
+        (k, e) => MapEntry(_$AccessTierEnumMap[k]!, e),
       ),
       'savedHeadlines': instance.savedHeadlines.map(
-        (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e),
+        (k, e) => MapEntry(_$AccessTierEnumMap[k]!, e),
       ),
       'savedHeadlineFilters': instance.savedHeadlineFilters.map(
-        (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e.toJson()),
+        (k, e) => MapEntry(_$AccessTierEnumMap[k]!, e.toJson()),
       ),
       'savedSourceFilters': instance.savedSourceFilters.map(
-        (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e.toJson()),
+        (k, e) => MapEntry(_$AccessTierEnumMap[k]!, e.toJson()),
       ),
       'reactionsPerDay': instance.reactionsPerDay.map(
-        (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e),
+        (k, e) => MapEntry(_$AccessTierEnumMap[k]!, e),
       ),
       'commentsPerDay': instance.commentsPerDay.map(
-        (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e),
+        (k, e) => MapEntry(_$AccessTierEnumMap[k]!, e),
       ),
       'reportsPerDay': instance.reportsPerDay.map(
-        (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e),
+        (k, e) => MapEntry(_$AccessTierEnumMap[k]!, e),
       ),
     };
 
-const _$AppUserRoleEnumMap = {
-  AppUserRole.premiumUser: 'premiumUser',
-  AppUserRole.standardUser: 'standardUser',
-  AppUserRole.guestUser: 'guestUser',
+const _$AccessTierEnumMap = {
+  AccessTier.guest: 'guest',
+  AccessTier.standard: 'standard',
+  AccessTier.premium: 'premium',
 };

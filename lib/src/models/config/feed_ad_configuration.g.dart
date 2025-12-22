@@ -18,7 +18,7 @@ FeedAdConfiguration _$FeedAdConfigurationFromJson(Map<String, dynamic> json) =>
           'visibleTo',
           (v) => (v as Map<String, dynamic>).map(
             (k, e) => MapEntry(
-              $enumDecode(_$AppUserRoleEnumMap, k),
+              $enumDecode(_$AccessTierEnumMap, k),
               FeedAdFrequencyConfig.fromJson(e as Map<String, dynamic>),
             ),
           ),
@@ -33,7 +33,7 @@ Map<String, dynamic> _$FeedAdConfigurationToJson(
   'enabled': instance.enabled,
   'adType': _$AdTypeEnumMap[instance.adType]!,
   'visibleTo': instance.visibleTo.map(
-    (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e.toJson()),
+    (k, e) => MapEntry(_$AccessTierEnumMap[k]!, e.toJson()),
   ),
 };
 
@@ -44,8 +44,8 @@ const _$AdTypeEnumMap = {
   AdType.interstitial: 'interstitial',
 };
 
-const _$AppUserRoleEnumMap = {
-  AppUserRole.premiumUser: 'premiumUser',
-  AppUserRole.standardUser: 'standardUser',
-  AppUserRole.guestUser: 'guestUser',
+const _$AccessTierEnumMap = {
+  AccessTier.guest: 'guest',
+  AccessTier.standard: 'standard',
+  AccessTier.premium: 'premium',
 };
