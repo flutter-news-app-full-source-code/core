@@ -1,4 +1,4 @@
-import 'package:core/src/enums/app_user_role.dart';
+import 'package:core/src/enums/subscription_enums.dart';
 import 'package:core/src/models/config/saved_filter_limits.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -9,8 +9,9 @@ part 'user_limits_config.g.dart';
 /// {@template user_limits_config}
 /// Defines role-based quantitative limits for user actions and preferences.
 ///
-/// This model uses a map-based structure where the key is the [AppUserRole]
-/// and the value is the specific limit for that role, ensuring a scalable
+/// This model uses a map-based structure where the key is the
+/// [SubscriptionTier] and the value is the specific limit for that tier,
+/// ensuring a scalable
 /// and maintainable configuration for user-related constraints.
 /// {@endtemplate}
 @immutable
@@ -33,32 +34,32 @@ class UserLimitsConfig extends Equatable {
 
   /// Role-based limits for the number of followed items (topics, sources,
   /// countries). The limit applies to each category individually.
-  final Map<AppUserRole, int> followedItems;
+  final Map<SubscriptionTier, int> followedItems;
 
   /// Role-based limits for the number of saved headlines.
-  final Map<AppUserRole, int> savedHeadlines;
+  final Map<SubscriptionTier, int> savedHeadlines;
 
   /// Role-based limits for saved headline filters, using the
   /// [SavedFilterLimits] model to define total, pinned, and notification
   /// subscription counts. This map defines the limits per user role.
-  final Map<AppUserRole, SavedFilterLimits> savedHeadlineFilters;
+  final Map<SubscriptionTier, SavedFilterLimits> savedHeadlineFilters;
 
   /// Role-based limits for saved source filters, using the
   /// [SavedFilterLimits] model to define total and pinned counts. This map
   /// defines the limits per user role.
-  final Map<AppUserRole, SavedFilterLimits> savedSourceFilters;
+  final Map<SubscriptionTier, SavedFilterLimits> savedSourceFilters;
 
   /// Role-based limits for the number of reactions a user can perform per day.
-  final Map<AppUserRole, int> reactionsPerDay;
+  final Map<SubscriptionTier, int> reactionsPerDay;
 
   /// Role-based limits for the number of comments a user can post per day.
   ///
   /// This limit applies specifically to the creation of new comments and does
   /// not include other interactions like reactions.
-  final Map<AppUserRole, int> commentsPerDay;
+  final Map<SubscriptionTier, int> commentsPerDay;
 
   /// Role-based limits for the number of reports a user can submit per day.
-  final Map<AppUserRole, int> reportsPerDay;
+  final Map<SubscriptionTier, int> reportsPerDay;
 
   /// Converts this [UserLimitsConfig] instance to JSON data.
   Map<String, dynamic> toJson() => _$UserLimitsConfigToJson(this);
@@ -77,13 +78,13 @@ class UserLimitsConfig extends Equatable {
   /// Creates a copy of this [UserLimitsConfig] but with the given fields
   /// replaced with the new values.
   UserLimitsConfig copyWith({
-    Map<AppUserRole, int>? followedItems,
-    Map<AppUserRole, int>? savedHeadlines,
-    Map<AppUserRole, SavedFilterLimits>? savedHeadlineFilters,
-    Map<AppUserRole, SavedFilterLimits>? savedSourceFilters,
-    Map<AppUserRole, int>? commentsPerDay,
-    Map<AppUserRole, int>? reportsPerDay,
-    Map<AppUserRole, int>? reactionsPerDay,
+    Map<SubscriptionTier, int>? followedItems,
+    Map<SubscriptionTier, int>? savedHeadlines,
+    Map<SubscriptionTier, SavedFilterLimits>? savedHeadlineFilters,
+    Map<SubscriptionTier, SavedFilterLimits>? savedSourceFilters,
+    Map<SubscriptionTier, int>? commentsPerDay,
+    Map<SubscriptionTier, int>? reportsPerDay,
+    Map<SubscriptionTier, int>? reactionsPerDay,
   }) {
     return UserLimitsConfig(
       followedItems: followedItems ?? this.followedItems,
