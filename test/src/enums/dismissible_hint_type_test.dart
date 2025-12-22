@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 void main() {
   group('DismissibleHintType', () {
     test('should contain all expected values', () {
-      final values = DismissibleHintType.values;
+      const values = DismissibleHintType.values;
       expect(values, contains(DismissibleHintType.feedFilterTooltip));
       expect(values, contains(DismissibleHintType.saveArticleTooltip));
       expect(values.length, 2);
