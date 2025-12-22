@@ -37,9 +37,9 @@ class FeedAdConfiguration extends Equatable {
   /// Defines the type of ad (Native or Banner) for the entire feed placement.
   final AdType adType;
 
-  /// Explicitly defines which user roles can see this feed ad configuration
-  /// and their specific frequency settings. If a role is not in this map,
-  /// they will not see feed ads.
+  /// Explicitly defines which access tiers can see this feed ad configuration
+  /// and their specific frequency settings. If a tier is not in this map,
+  /// users in that tier will not see feed ads.
   final Map<AccessTier, FeedAdFrequencyConfig> visibleTo;
 
   @override
