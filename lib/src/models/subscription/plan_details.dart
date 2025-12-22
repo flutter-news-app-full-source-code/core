@@ -1,7 +1,4 @@
-import 'package:core/core.dart' show SubscriptionConfig;
-import 'package:core/src/models/config/config.dart' show SubscriptionConfig;
-import 'package:core/src/models/config/subscription_config.dart' show SubscriptionConfig;
-import 'package:core/src/models/models.dart' show SubscriptionConfig;
+import 'package:core/core.dart' show SubscriptionConfig, ValueWrapper;
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -52,27 +49,33 @@ class PlanDetails extends Equatable {
 
   @override
   List<Object?> get props => [
-        enabled,
-        isRecommended,
-        appleProductId,
-        googleProductId,
-        stripePriceId,
-      ];
+    enabled,
+    isRecommended,
+    appleProductId,
+    googleProductId,
+    stripePriceId,
+  ];
 
   /// Creates a copy of this [PlanDetails] with updated values.
   PlanDetails copyWith({
     bool? enabled,
     bool? isRecommended,
-    String? appleProductId,
-    String? googleProductId,
-    String? stripePriceId,
+    ValueWrapper<String?>? appleProductId,
+    ValueWrapper<String?>? googleProductId,
+    ValueWrapper<String?>? stripePriceId,
   }) {
     return PlanDetails(
       enabled: enabled ?? this.enabled,
       isRecommended: isRecommended ?? this.isRecommended,
-      appleProductId: appleProductId ?? this.appleProductId,
-      googleProductId: googleProductId ?? this.googleProductId,
-      stripePriceId: stripePriceId ?? this.stripePriceId,
+      appleProductId: appleProductId != null
+          ? appleProductId.value
+          : this.appleProductId,
+      googleProductId: googleProductId != null
+          ? googleProductId.value
+          : this.googleProductId,
+      stripePriceId: stripePriceId != null
+          ? stripePriceId.value
+          : this.stripePriceId,
     );
   }
 }
