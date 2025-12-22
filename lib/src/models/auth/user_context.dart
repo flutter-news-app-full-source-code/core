@@ -92,12 +92,21 @@ class UserContext extends Equatable {
 
 Map<FeedDecoratorType, UserFeedDecoratorStatus> _feedDecoratorStatusFromJson(
   Map<String, dynamic> json,
-) => json.map(
-  (k, v) => MapEntry(
-    FeedDecoratorType.values.byName(k),
-    UserFeedDecoratorStatus.fromJson(v as Map<String, dynamic>),
-  ),
-);
+) {
+  final existingStatuses = json.map(
+    (k, v) => MapEntry(
+      FeedDecoratorType.values.byName(k),
+      UserFeedDecoratorStatus.fromJson(v as Map<String, dynamic>),
+    ),
+  );
+
+  return {
+    for (final type in FeedDecoratorType.values)
+      type:
+          existingStatuses[type] ??
+          const UserFeedDecoratorStatus(isCompleted: false),
+  };
+}
 
 Map<String, dynamic> _feedDecoratorStatusToJson(
   Map<FeedDecoratorType, UserFeedDecoratorStatus> status,
