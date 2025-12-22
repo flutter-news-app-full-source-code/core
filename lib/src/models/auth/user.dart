@@ -9,9 +9,16 @@ part 'user.g.dart';
 /// {@template user}
 /// Represents an authenticated user of the application.
 ///
-/// This model decouples identity ([role]) from entitlement ([tier]).
-/// - [role]: Determines administrative permissions (e.g., admin, publisher).
-/// - [tier]: Determines feature access and limits (e.g., standard, premium).
+/// ### Architecture Note: Identity vs. Entitlement
+/// This model strictly separates three distinct concepts:
+///
+/// 1. **Identity (`isAnonymous`)**:
+///    - `true`: Temporary guest account.
+///    - `false`: Permanent registered account (email/social).
+/// 2. **Permissions (`role`)**:
+///    - Determines *administrative* capabilities (e.g., Admin, Publisher).
+/// 3. **Entitlement (`tier`)**:
+///    - Determines *feature access* and usage limits (e.g., Guest, Standard, Premium).
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
@@ -44,14 +51,14 @@ class User extends Equatable {
   /// The URL to the user's profile photo.
   final String? photoUrl;
 
-  /// The user's identity role (e.g., admin, user).
+  /// The user's administrative role.
   ///
-  /// This governs administrative permissions, not feature entitlements.
+  /// Use this for access control (e.g., "Can this user access the dashboard?").
   final UserRole role;
 
-  /// The user's subscription tier (e.g., standard, premium).
+  /// The user's service entitlement level.
   ///
-  /// This governs access to paid features and usage limits.
+  /// Use this for feature gating (e.g., "Can this user see ads?").
   final AccessTier tier;
 
   /// Indicates if this is an anonymous account.
