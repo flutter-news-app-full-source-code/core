@@ -1,4 +1,4 @@
-import 'package:core/src/enums/subscription_enums.dart';
+import 'package:core/src/enums/subscription/subscription_tier.dart';
 import 'package:core/src/enums/user_role.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
