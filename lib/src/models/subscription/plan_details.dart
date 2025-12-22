@@ -22,7 +22,13 @@ class PlanDetails extends Equatable {
     this.appleProductId,
     this.googleProductId,
     this.stripePriceId,
-  });
+  }) : assert(
+         !enabled ||
+             ((appleProductId != null && appleProductId != '') ||
+                 (googleProductId != null && googleProductId != '') ||
+                 (stripePriceId != null && stripePriceId != '')),
+         'An enabled plan must have at least one valid product ID.',
+       );
 
   /// Creates a [PlanDetails] from JSON data.
   factory PlanDetails.fromJson(Map<String, dynamic> json) =>

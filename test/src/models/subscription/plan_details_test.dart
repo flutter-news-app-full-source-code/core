@@ -65,13 +65,14 @@ void main() {
       test('returns a new object with null values updated', () {
         expect(
           planDetails.copyWith(
+            enabled: false,
             appleProductId: const ValueWrapper(null),
             googleProductId: const ValueWrapper(null),
             stripePriceId: const ValueWrapper(null),
           ),
           equals(
             const PlanDetails(
-              enabled: true,
+              enabled: false,
               isRecommended: true,
               appleProductId: null,
               googleProductId: null,
@@ -105,6 +106,58 @@ void main() {
           'googleProductId': 'premium_monthly',
           'stripePriceId': 'price_12345',
         });
+      });
+    });
+
+    group('assertions', () {
+      test(
+        'throws AssertionError when enabled is true but no IDs are provided',
+        () {
+          expect(
+            () => PlanDetails(
+              enabled: true,
+              isRecommended: false,
+              appleProductId: null,
+              googleProductId: null,
+              stripePriceId: null,
+            ),
+            throwsA(isA<AssertionError>()),
+          );
+        },
+      );
+
+      test(
+        'throws AssertionError when enabled is true and IDs are empty strings',
+        () {
+          expect(
+            () => PlanDetails(
+              enabled: true,
+              isRecommended: false,
+              appleProductId: '',
+              googleProductId: '',
+              stripePriceId: '',
+            ),
+            throwsA(isA<AssertionError>()),
+          );
+        },
+      );
+
+      test('does not throw when enabled is true and one ID is valid', () {
+        expect(
+          () => const PlanDetails(
+            enabled: true,
+            isRecommended: false,
+            appleProductId: 'id',
+          ),
+          returnsNormally,
+        );
+      });
+
+      test('does not throw when enabled is false', () {
+        expect(
+          () => const PlanDetails(enabled: false, isRecommended: false),
+          returnsNormally,
+        );
       });
     });
   });
