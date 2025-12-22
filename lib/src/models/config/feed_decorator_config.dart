@@ -1,5 +1,5 @@
-import 'package:core/src/enums/subscription_enums.dart';
 import 'package:core/src/enums/feed_decorator_category.dart';
+import 'package:core/src/enums/subscription/subscription_tier.dart';
 import 'package:core/src/models/config/feed_decorator_role_config.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
