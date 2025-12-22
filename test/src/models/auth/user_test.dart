@@ -19,6 +19,7 @@ void main() {
         adminUserFixture.photoUrl,
         adminUserFixture.role,
         adminUserFixture.tier,
+        adminUserFixture.createdAt,
         adminUserFixture.isAnonymous,
       ]);
     });
@@ -71,6 +72,7 @@ void main() {
           'email': 'test@example.com',
           'role': 'user',
           'tier': 'guest',
+          'createdAt': '2025-01-01T00:00:00.000Z',
           'isAnonymous': true,
         };
 
