@@ -40,8 +40,8 @@ class FeedDecoratorConfig extends Equatable {
   /// A global switch to enable or disable this decorator for all users.
   final bool enabled;
 
-  /// Explicitly defines which user roles can see this decorator and their
-  /// specific settings. If a role is not in this map, they will not see it.
+  /// Explicitly defines which access tiers can see this decorator and their
+  /// specific settings. If a tier is not in this map, users in that tier will not see it.
   final Map<AccessTier, FeedDecoratorRoleConfig> visibleTo;
 
   /// For 'contentCollection' decorators only: the number of items to show.
