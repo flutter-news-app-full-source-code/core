@@ -15,7 +15,7 @@ NavigationAdConfiguration _$NavigationAdConfigurationFromJson(
       'visibleTo',
       (v) => (v as Map<String, dynamic>).map(
         (k, e) => MapEntry(
-          $enumDecode(_$AppUserRoleEnumMap, k),
+          $enumDecode(_$AccessTierEnumMap, k),
           NavigationAdFrequencyConfig.fromJson(e as Map<String, dynamic>),
         ),
       ),
@@ -34,14 +34,14 @@ Map<String, dynamic> _$NavigationAdConfigurationToJson(
   'enabled': instance.enabled,
   'adType': _$AdTypeEnumMap[instance.adType]!,
   'visibleTo': instance.visibleTo.map(
-    (k, e) => MapEntry(_$AppUserRoleEnumMap[k]!, e.toJson()),
+    (k, e) => MapEntry(_$AccessTierEnumMap[k]!, e.toJson()),
   ),
 };
 
-const _$AppUserRoleEnumMap = {
-  AppUserRole.premiumUser: 'premiumUser',
-  AppUserRole.standardUser: 'standardUser',
-  AppUserRole.guestUser: 'guestUser',
+const _$AccessTierEnumMap = {
+  AccessTier.guest: 'guest',
+  AccessTier.standard: 'standard',
+  AccessTier.premium: 'premium',
 };
 
 const _$AdTypeEnumMap = {

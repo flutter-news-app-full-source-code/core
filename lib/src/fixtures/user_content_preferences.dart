@@ -50,7 +50,7 @@ List<UserContentPreferences> getUserContentPreferencesFixturesData({
           .toList(),
     ),
     UserContentPreferences(
-      id: kUser1Id, // Publisher (Premium)
+      id: kPublisherPremiumId, // Publisher (Premium)
       followedCountries: const [],
       followedSources: [
         sources[0], // TechCrunch
@@ -62,14 +62,14 @@ List<UserContentPreferences> getUserContentPreferencesFixturesData({
       ],
       savedHeadlines: [headlines[2], headlines[3]],
       savedHeadlineFilters: savedHeadlineFilters
-          .map((e) => e.copyWith(userId: kUser1Id))
+          .map((e) => e.copyWith(userId: kPublisherPremiumId))
           .toList(),
       savedSourceFilters: savedSourceFilters
-          .map((e) => e.copyWith(userId: kUser1Id))
+          .map((e) => e.copyWith(userId: kPublisherPremiumId))
           .toList(),
     ),
     UserContentPreferences(
-      id: kUser2Id, // Publisher (Standard)
+      id: kPublisherStandardId, // Publisher (Standard)
       followedCountries: const [],
       followedSources: [
         sources[3], // The Guardian
@@ -81,10 +81,10 @@ List<UserContentPreferences> getUserContentPreferencesFixturesData({
       ],
       savedHeadlines: [headlines[4], headlines[5]],
       savedHeadlineFilters: savedHeadlineFilters
-          .map((e) => e.copyWith(userId: kUser2Id))
+          .map((e) => e.copyWith(userId: kPublisherStandardId))
           .toList(),
       savedSourceFilters: savedSourceFilters
-          .map((e) => e.copyWith(userId: kUser2Id))
+          .map((e) => e.copyWith(userId: kPublisherStandardId))
           .toList(),
     ),
     // Add preferences for users 3-10

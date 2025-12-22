@@ -27,7 +27,7 @@ List<SavedSourceFilter> getSavedSourceFiltersFixturesData({
     ),
     SavedSourceFilter(
       id: kSavedSourceFilterId2,
-      userId: kUser1Id,
+      userId: kAdminUserId,
       name: namesByLang[resolvedLanguageCode]![1],
       isPinned: false,
       criteria: SourceFilterCriteria(

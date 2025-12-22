@@ -5,162 +5,38 @@
 </div>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/coverage-99%25-lime?style=for-the-badge" alt="coverage">
+  <img src="https://img.shields.io/badge/coverage-98%25-lime?style=for-the-badge" alt="coverage">
   <a href="https://flutter-news-app-full-source-code.github.io/docs/"><img src="https://img.shields.io/badge/LIVE_DOCS-VIEW-slategray?style=for-the-badge" alt="Live Docs: View"></a>
   <a href="https://github.com/flutter-news-app-full-source-code"><img src="https://img.shields.io/badge/MAIN_PROJECT-BROWSE-purple?style=for-the-badge" alt="Main Project: Browse"></a>
 </p>
 
 This `core` package serves as the foundational shared library for the **Flutter News App Full Source Code Toolkit**. It defines the common language and data structures—including models for news content, user data, and remote configurations—that ensure consistency and accelerate development across the Flutter mobile app, web dashboard, and Dart Frog backend API.
 
-## ⭐ Feature Showcase: The Foundation for a Robust News Platform
-
-This package provides the critical building blocks for a professional news application ecosystem.
-
-<details>
-<summary><strong>🏗️ Foundational Data Architecture</strong></summary>
-
----
-
-### 📰 Core Content Entities
-
-Defines a complete and consistent schema for all news-related content, including headlines, topics, and sources.
-
-> **Your Advantage:** A unified and robust data schema that simplifies content management and ensures data integrity across all applications.
-
----
-
-### 🛡️ Standardized API Communication
-
-Includes generic wrappers for API responses, pagination, and querying, ensuring predictable and consistent data exchange between the client and server.
-
-> **Your Advantage:** Accelerate API and client development with a uniform communication structure that simplifies data handling and error management.
-
----
-
-### Predictable Error Handling
-
-Provides a centralized and standardized set of exceptions, enabling consistent and predictable error handling across all layers of the application.
-
-> **Your Advantage:** Streamline debugging and build a more stable application with a clear, actionable error-handling strategy.
-
-</details>
-
-<details>
-<summary><strong>👤 User Identity & Personalization</strong></summary>
-
----
-
-### 🔐 Core User & Role Models
-
-Offers foundational models for user profiles and tiered roles, enabling secure, personalized, and permission-based application access.
-
-> **Your Advantage:** Build a secure and flexible user management system that supports distinct access levels for guests, standard users, and premium members.
-
----
-
-### ⚙️ Persistent User Preferences
-
-Provides data structures for persisting all user-specific configurations, from application settings like theme and language to content preferences like saved articles and followed topics.
-
-> **Your Advantage:** Deliver a deeply personalized user experience by remembering individual choices and content interests across sessions.
-
-</details>
-
-<details>
-<summary><strong>💬 Community & Engagement System</strong></summary>
-
----
-
-### 💬 Reactions, Comments & Reporting
-
-Provides a complete suite of models for building a rich community interaction layer. This includes individualized reactions, a robust commenting system with a built-in moderation workflow, and a flexible reporting system for headlines, sources, and comments.
-
-> **Your Advantage:** Foster a vibrant and safe user community, maintain high content quality through effective moderation, and gather direct user feedback on your content.
-
----
-
-### ⭐ Smart App Review Funnel
-
-Implements the data structures for a strategic, two-layer review funnel. This system intelligently prompts engaged users for public reviews while channeling critical feedback from dissatisfied users into private channels.
-
-> **Your Advantage:** Maximize positive app store ratings and improve your app's reputation by proactively managing user feedback and preventing negative public reviews.
-
-</details>
-
-<details>
-<summary><strong>🔔 Notification & Alerting System</strong></summary>
-
----
-
-### 🎯 Advanced Filter-Based Subscriptions
-
-Enables users to create and save powerful, persistent filters based on topics, sources, and countries—and subscribe to highly relevant push notifications.
-
-> **Your Advantage:** Drive deep user engagement by allowing users to define precisely what content they care about, transforming the app into a personalized intelligence tool.
-
----
-
-### ✉️ In-App Notification Center
-
-Includes a stateful `InAppNotification` model with read/unread status tracking, providing the foundation for a persistent, inbox-style notification center.
-
-> **Your Advantage:** Increase content rediscovery and user retention by giving users a dedicated space to review and interact with past notifications.
-
-</details>
-
-<details>
-<summary><strong>⚙️ Remote Configuration System</strong></summary>
-
----
-
-### ☁️ Centralized App Control
-
-Provides a comprehensive set of models for remotely configuring all dynamic aspects of the application, from feature flags to monetization strategies.
-
-> **Your Advantage:** Agility in managing application features and behavior without requiring app store updates.
-
----
-
-### 👑 Role-Based Feature Entitlements
-
-Define granular, role-based limits for features like saved feed filters, and notification subscriptions.
-
-> **Your Advantage:** A flexible and scalable way to create value tiers, encouraging users to upgrade for more powerful personalization capabilities.
-
-</details>
-
-<details>
-<summary><strong>📊 Insightful Analytics & Tracking</strong></summary>
----
-
-### 📈 Robust Event Tracking
-
-Track user behavior with confidence using a type-safe, enum-driven event system. Each event is paired with a strongly-typed payload model, eliminating runtime errors from "magic strings" and ensuring data integrity between your app and analytics backend.
-
-> **Your Advantage:** Build a reliable analytics pipeline from day one, making your data schema robust, searchable, and easy to maintain.
-
----
-
-###  Ready-to-Use Dashboard Models
-
-Power your admin dashboard with a suite of flexible, pre-built data models designed for rich data visualization. This includes models for **KPI Cards**, **Ranked "Top N" Lists**, and time-series or categorical **Charts**.
-
-> **Your Advantage:** Drastically reduce the effort to build a feature-rich analytics dashboard by using data structures designed for clear and interactive reporting.
-
-</details>
-
-<details>
-<summary><strong>🧪 Development & Testing Accelerators</strong></summary>
-
----
-
-### ⚡ Ready-to-Use Sample Data
-
-Includes a set of pre-defined, in-memory fixture data for core models, facilitating rapid development and testing.
-
-> **Your Advantage:** Rapid prototyping, reliable testing, and instant setup of development environments, significantly accelerating your workflow.
-
-</details>
+## 📦 Core Components
+
+This package provides a centralized and version-controlled set of shared code
+artifacts, categorized as follows:
+
+*   **Data Models:** A comprehensive suite of immutable, serializable Dart
+    classes that represent all data entities within the ecosystem. This
+    includes everything from core content (`Headline`, `Source`) to user data
+    (`User`) and remote configurations (`RemoteConfig`). These models act as
+    the strict data contract between the clients and the backend.
+
+*   **Enumerations:** A collection of strongly-typed enums that define
+    controlled vocabularies for application states, types, and categories
+    (e.g., `ContentStatus`, `UserRole`, `AccessTier`). This eliminates the use
+    of "magic strings" and ensures compile-time safety.
+
+*   **Utilities & Exceptions:** Common helper functions (e.g.,
+    `DateTimeConverter`) and a standardized hierarchy of `HttpException`
+    classes. This ensures consistent error handling and data serialization
+    across all packages.
+
+*   **Test Fixtures:** A rich set of predefined sample data for all core
+    models. This accelerates unit and integration testing by providing a
+    consistent and realistic dataset for developers working on any part of the
+    system.
 
 ## 🔑 Licensing
 

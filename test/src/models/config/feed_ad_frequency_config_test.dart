@@ -9,7 +9,7 @@ void main() {
         .features
         .ads
         .feedAdConfiguration
-        .visibleTo[AppUserRole.guestUser]!;
+        .visibleTo[AccessTier.guest]!;
 
     test('can be instantiated', () {
       expect(feedAdFrequencyConfigFixture, isA<FeedAdFrequencyConfig>());

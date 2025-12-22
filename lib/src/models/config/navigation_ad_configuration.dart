@@ -1,5 +1,5 @@
 import 'package:core/src/enums/ad_type.dart';
-import 'package:core/src/enums/app_user_role.dart';
+import 'package:core/src/enums/subscription/access_tier.dart';
 import 'package:core/src/models/config/navigation_ad_frequency_config.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -36,10 +36,10 @@ class NavigationAdConfiguration extends Equatable {
   /// The type of the ad, fixed to [AdType.interstitial].
   final AdType adType;
 
-  /// Explicitly defines which user roles can see this navigation ad
-  /// configuration and their specific frequency settings. If a role is not
-  /// in this map, they will not see navigation ads.
-  final Map<AppUserRole, NavigationAdFrequencyConfig> visibleTo;
+  /// Explicitly defines which access tiers can see this navigation ad
+  /// configuration and their specific frequency settings. If a tier is not
+  /// in this map, users in that tier will not see navigation ads.
+  final Map<AccessTier, NavigationAdFrequencyConfig> visibleTo;
 
   @override
   List<Object?> get props => [enabled, adType, visibleTo];
@@ -49,7 +49,7 @@ class NavigationAdConfiguration extends Equatable {
   NavigationAdConfiguration copyWith({
     bool? enabled,
     AdType? adType,
-    Map<AppUserRole, NavigationAdFrequencyConfig>? visibleTo,
+    Map<AccessTier, NavigationAdFrequencyConfig>? visibleTo,
   }) {
     return NavigationAdConfiguration(
       enabled: enabled ?? this.enabled,

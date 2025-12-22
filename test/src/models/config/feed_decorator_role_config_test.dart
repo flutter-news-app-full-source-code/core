@@ -6,7 +6,7 @@ void main() {
     final remoteConfig = remoteConfigsFixturesData.first;
     final rateAppDecorator =
         remoteConfig.features.feed.decorators[FeedDecoratorType.rateApp]!;
-    final guestRoleConfig = rateAppDecorator.visibleTo[AppUserRole.guestUser]!;
+    final guestRoleConfig = rateAppDecorator.visibleTo[AccessTier.guest]!;
 
     test('can be instantiated', () {
       expect(guestRoleConfig, isA<FeedDecoratorRoleConfig>());

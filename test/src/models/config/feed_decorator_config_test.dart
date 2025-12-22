@@ -17,12 +17,10 @@ void main() {
     });
 
     test('supports value equality', () {
-      final guestRoleConfig =
-          rateAppDecorator.visibleTo[AppUserRole.guestUser]!;
+      final guestRoleConfig = rateAppDecorator.visibleTo[AccessTier.guest]!;
       final standardRoleConfig =
-          rateAppDecorator.visibleTo[AppUserRole.standardUser]!;
-      final premiumRoleConfig =
-          rateAppDecorator.visibleTo[AppUserRole.premiumUser]!;
+          rateAppDecorator.visibleTo[AccessTier.standard]!;
+      final premiumRoleConfig = rateAppDecorator.visibleTo[AccessTier.premium]!;
 
       expect(
         rateAppDecorator,
@@ -31,9 +29,9 @@ void main() {
             category: FeedDecoratorCategory.callToAction,
             enabled: true,
             visibleTo: {
-              AppUserRole.guestUser: guestRoleConfig,
-              AppUserRole.standardUser: standardRoleConfig,
-              AppUserRole.premiumUser: premiumRoleConfig,
+              AccessTier.guest: guestRoleConfig,
+              AccessTier.standard: standardRoleConfig,
+              AccessTier.premium: premiumRoleConfig,
             },
           ),
         ),
@@ -62,9 +60,9 @@ void main() {
       });
 
       test('returns a new object with updated visibleTo map', () {
-        final newVisibleTo = Map<AppUserRole, FeedDecoratorRoleConfig>.from(
+        final newVisibleTo = Map<AccessTier, FeedDecoratorRoleConfig>.from(
           rateAppDecorator.visibleTo,
-        )..remove(AppUserRole.guestUser);
+        )..remove(AccessTier.guest);
         final updatedConfig = rateAppDecorator.copyWith(
           visibleTo: newVisibleTo,
         );
@@ -82,21 +80,19 @@ void main() {
     });
 
     test('props are correct', () {
-      final guestRoleConfig =
-          rateAppDecorator.visibleTo[AppUserRole.guestUser]!;
+      final guestRoleConfig = rateAppDecorator.visibleTo[AccessTier.guest]!;
       final standardRoleConfig =
-          rateAppDecorator.visibleTo[AppUserRole.standardUser]!;
-      final premiumRoleConfig =
-          rateAppDecorator.visibleTo[AppUserRole.premiumUser]!;
+          rateAppDecorator.visibleTo[AccessTier.standard]!;
+      final premiumRoleConfig = rateAppDecorator.visibleTo[AccessTier.premium]!;
       expect(
         rateAppDecorator.props,
         equals([
           FeedDecoratorCategory.callToAction,
           true,
           {
-            AppUserRole.guestUser: guestRoleConfig,
-            AppUserRole.standardUser: standardRoleConfig,
-            AppUserRole.premiumUser: premiumRoleConfig,
+            AccessTier.guest: guestRoleConfig,
+            AccessTier.standard: standardRoleConfig,
+            AccessTier.premium: premiumRoleConfig,
           },
           null,
         ]),
@@ -110,9 +106,9 @@ void main() {
             'category': 'callToAction',
             'enabled': true,
             'visibleTo': {
-              'guestUser': {'daysBetweenViews': 14},
-              'standardUser': {'daysBetweenViews': 30},
-              'premiumUser': {'daysBetweenViews': 60},
+              'guest': {'daysBetweenViews': 14},
+              'standard': {'daysBetweenViews': 30},
+              'premium': {'daysBetweenViews': 60},
             },
           }),
           isA<FeedDecoratorConfig>(),
@@ -126,8 +122,8 @@ void main() {
             'enabled': true,
             'itemsToDisplay': 5,
             'visibleTo': {
-              'guestUser': {'daysBetweenViews': 7},
-              'standardUser': {'daysBetweenViews': 14},
+              'guest': {'daysBetweenViews': 7},
+              'standard': {'daysBetweenViews': 14},
             },
           }),
           isA<FeedDecoratorConfig>(),
@@ -137,21 +133,20 @@ void main() {
 
     group('toJson', () {
       test('works correctly for callToAction', () {
-        final guestRoleConfig =
-            rateAppDecorator.visibleTo[AppUserRole.guestUser]!;
+        final guestRoleConfig = rateAppDecorator.visibleTo[AccessTier.guest]!;
         final standardRoleConfig =
-            rateAppDecorator.visibleTo[AppUserRole.standardUser]!;
+            rateAppDecorator.visibleTo[AccessTier.standard]!;
         final premiumRoleConfig =
-            rateAppDecorator.visibleTo[AppUserRole.premiumUser]!;
+            rateAppDecorator.visibleTo[AccessTier.premium]!;
         expect(
           rateAppDecorator.toJson(),
           equals({
             'category': 'callToAction',
             'enabled': true,
             'visibleTo': {
-              'guestUser': guestRoleConfig.toJson(),
-              'standardUser': standardRoleConfig.toJson(),
-              'premiumUser': premiumRoleConfig.toJson(),
+              'guest': guestRoleConfig.toJson(),
+              'standard': standardRoleConfig.toJson(),
+              'premium': premiumRoleConfig.toJson(),
             },
             'itemsToDisplay': null,
           }),
@@ -160,9 +155,9 @@ void main() {
 
       test('works correctly for contentCollection', () {
         final guestRoleConfig =
-            suggestedTopicsDecorator.visibleTo[AppUserRole.guestUser]!;
+            suggestedTopicsDecorator.visibleTo[AccessTier.guest]!;
         final standardRoleConfig =
-            suggestedTopicsDecorator.visibleTo[AppUserRole.standardUser]!;
+            suggestedTopicsDecorator.visibleTo[AccessTier.standard]!;
         expect(
           suggestedTopicsDecorator.toJson(),
           equals({
@@ -170,8 +165,8 @@ void main() {
             'enabled': true,
             'itemsToDisplay': 5,
             'visibleTo': {
-              'guestUser': guestRoleConfig.toJson(),
-              'standardUser': standardRoleConfig.toJson(),
+              'guest': guestRoleConfig.toJson(),
+              'standard': standardRoleConfig.toJson(),
             },
           }),
         );

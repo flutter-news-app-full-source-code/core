@@ -31,7 +31,7 @@ List<SavedHeadlineFilter> getSavedHeadlineFiltersFixturesData({
     ),
     SavedHeadlineFilter(
       id: kSavedHeadlineFilterId2,
-      userId: kUser1Id,
+      userId: kAdminUserId,
       name: namesByLang[resolvedLanguageCode]![1],
       isPinned: false,
       deliveryTypes: const {

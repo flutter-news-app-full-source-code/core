@@ -31,7 +31,7 @@ void main() {
 
     test('copyWith creates a copy with updated values', () {
       final newLimits = userConfigFixture.limits.copyWith(
-        savedHeadlines: {AppUserRole.guestUser: 999},
+        savedHeadlines: {AccessTier.guest: 999},
       );
       final updatedConfig = userConfigFixture.copyWith(limits: newLimits);
 

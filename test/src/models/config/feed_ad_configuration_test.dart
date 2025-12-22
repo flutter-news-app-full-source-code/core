@@ -12,7 +12,7 @@ void main() {
       expect(feedAdConfigurationFixture.adType, AdType.native);
       expect(
         feedAdConfigurationFixture.visibleTo,
-        isA<Map<AppUserRole, FeedAdFrequencyConfig>>(),
+        isA<Map<AccessTier, FeedAdFrequencyConfig>>(),
       );
     });
 
@@ -27,7 +27,7 @@ void main() {
         enabled: false,
         adType: AdType.banner,
         visibleTo: {
-          AppUserRole.guestUser: const FeedAdFrequencyConfig(
+          AccessTier.guest: const FeedAdFrequencyConfig(
             adFrequency: 7,
             adPlacementInterval: 2,
           ),

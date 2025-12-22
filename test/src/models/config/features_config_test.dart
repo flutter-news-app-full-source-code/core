@@ -24,6 +24,7 @@ void main() {
           featuresConfigFixture.pushNotifications,
           featuresConfigFixture.feed,
           featuresConfigFixture.community,
+          featuresConfigFixture.subscription,
         ]),
       );
     });

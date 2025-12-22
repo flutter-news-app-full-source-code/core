@@ -93,6 +93,16 @@ abstract final class AnalyticsParameterKeys {
   /// Used in [UserRoleChangedPayload].
   static const String toRole = 'toRole';
 
+  /// The user's previous access tier before a change.
+  ///
+  /// Used in [AccessTierChangedPayload].
+  static const String fromTier = 'fromTier';
+
+  /// The user's new access tier after a change.
+  ///
+  /// Used in [AccessTierChangedPayload].
+  static const String toTier = 'toTier';
+
   /// The user's response to a prompt (e.g., 'positive', 'negative').
   ///
   /// Used in [AppReviewPromptRespondedPayload].

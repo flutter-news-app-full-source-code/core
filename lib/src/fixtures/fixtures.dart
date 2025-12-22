@@ -18,4 +18,5 @@ export 'saved_source_filters.dart';
 export 'sources.dart';
 export 'topics.dart';
 export 'user_content_preferences.dart';
+export 'user_subscriptions.dart';
 export 'users.dart';

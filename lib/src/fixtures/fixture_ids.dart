@@ -15,18 +15,34 @@ const kRemoteConfigId = '6643b1b7a4a4e6e1a8e7b1c2';
 /// ID for the singleton DashboardSummary fixture.
 const kDashboardSummaryId = '6643b1b7a4a4e6e1a8e7b1c3';
 
+// --- Subscription Fixture IDs ---
+const kAdminSubscriptionId = 'sub_admin_active_annual_01';
+const kPublisherPremiumSubscriptionId = 'sub_pub_prem_active_month_01';
+const kPremiumUserSubscriptionId = 'sub_prem_user_active_month_01';
+const kGracePeriodUserSubscriptionId = 'sub_grace_user_grace_month_01';
+const kExpiredUserSubscriptionId = 'sub_exp_user_expired_month_01';
+
 // --- User Fixture IDs ---
-const kAdminUserId = '6643b1b7a4a4e6e1a8e7b1c1'; // Administrator
-const kUser1Id = 'a1a1b1b7a4a4e6e1a8e7b1c1'; // Publisher (Premium)
-const kUser2Id = 'a1a1b1b7a4a4e6e1a8e7b1c2'; // Publisher (Standard)
-const kUser3Id = 'a1a1b1b7a4a4e6e1a8e7b1c3'; // Standard User
-const kUser4Id = 'a1a1b1b7a4a4e6e1a8e7b1c4'; // Standard User
-const kUser5Id = 'a1a1b1b7a4a4e6e1a8e7b1c5'; // Standard User
-const kUser6Id = 'a1a1b1b7a4a4e6e1a8e7b1c6'; // Standard User
-const kUser7Id = 'a1a1b1b7a4a4e6e1a8e7b1c7'; // Standard User
-const kUser8Id = 'a1a1b1b7a4a4e6e1a8e7b1c8'; // Standard User
-const kUser9Id = 'a1a1b1b7a4a4e6e1a8e7b1c9'; // Standard User
-const kUser10Id = 'a1a1b1b7a4a4e6e1a8e7b1ca'; // Standard User
+const kAdminUserId = 'usr_admin_0000000000000001';
+const kPublisherPremiumId = 'usr_pub_prem_00000000000001';
+const kPublisherStandardId = 'usr_pub_std_00000000000002';
+
+// Demo Scenario Users
+const kGuestUserId = 'usr_guest_anon_000000000001';
+const kStandardUserId = 'usr_std_user_0000000000001';
+const kPremiumUserId = 'usr_prem_user_000000000001';
+const kGracePeriodUserId = 'usr_grace_user_00000000001';
+const kExpiredSubUserId = 'usr_exp_user_000000000001';
+
+// Generic users for lists
+const kUser3Id = 'usr_generic_00000000000003';
+const kUser4Id = 'usr_generic_00000000000004';
+const kUser5Id = 'usr_generic_00000000000005';
+const kUser6Id = 'usr_generic_00000000000006';
+const kUser7Id = 'usr_generic_00000000000007';
+const kUser8Id = 'usr_generic_00000000000008';
+const kUser9Id = 'usr_generic_00000000000009';
+const kUser10Id = 'usr_generic_00000000000010';
 
 // --- Country Fixture IDs ---
 const kAfghanistanId = '6643b21ca4a4e6e1a8e7b1c4';
