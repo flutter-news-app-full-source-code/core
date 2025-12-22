@@ -42,10 +42,10 @@ void main() {
 
     test('copyWith creates a copy with updated values', () {
       final updatedConfig = userLimitsConfigFixture.copyWith(
-        followedItems: {AppUserRole.guestUser: 100},
+        followedItems: {AccessTier.guest: 100},
       );
 
-      expect(updatedConfig.followedItems[AppUserRole.guestUser], 100);
+      expect(updatedConfig.followedItems[AccessTier.guest], 100);
       expect(
         updatedConfig.savedHeadlines,
         equals(userLimitsConfigFixture.savedHeadlines),
