@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
 
-/// Defines the identity and administrative permissions of a user.
+/// Defines the administrative permissions and functional role of a user.
 ///
-/// This is distinct from `SubscriptionTier`, which governs feature
+/// This is distinct from `AccessTier`, which governs feature
 /// entitlements.
 @JsonEnum()
 enum UserRole {
