@@ -1,4 +1,4 @@
-import 'package:core/src/enums/subscription_enums.dart';
+import 'package:core/src/enums/subscription/store_provider.dart';
 import 'package:core/src/models/subscription/subscription_plan.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
