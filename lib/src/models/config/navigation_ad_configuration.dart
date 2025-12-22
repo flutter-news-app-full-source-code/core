@@ -36,9 +36,9 @@ class NavigationAdConfiguration extends Equatable {
   /// The type of the ad, fixed to [AdType.interstitial].
   final AdType adType;
 
-  /// Explicitly defines which user roles can see this navigation ad
-  /// configuration and their specific frequency settings. If a role is not
-  /// in this map, they will not see navigation ads.
+  /// Explicitly defines which access tiers can see this navigation ad
+  /// configuration and their specific frequency settings. If a tier is not
+  /// in this map, users in that tier will not see navigation ads.
   final Map<AccessTier, NavigationAdFrequencyConfig> visibleTo;
 
   @override
