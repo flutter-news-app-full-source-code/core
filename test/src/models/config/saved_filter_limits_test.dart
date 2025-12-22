@@ -6,13 +6,11 @@ void main() {
     final fullModel = remoteConfigsFixturesData[0]
         .user
         .limits
-        .savedHeadlineFilters[AppUserRole.standardUser]!;
         .savedHeadlineFilters[AccessTier.standard]!;
 
     final minimalModel = remoteConfigsFixturesData[0]
         .user
         .limits
-        .savedSourceFilters[AppUserRole.standardUser]!;
         .savedSourceFilters[AccessTier.standard]!;
 
     final fullJson = fullModel.toJson();
