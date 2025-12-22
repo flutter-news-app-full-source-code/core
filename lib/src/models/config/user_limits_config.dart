@@ -1,4 +1,5 @@
-import 'package:core/src/enums/subscription_enums.dart';
+import 'package:core/src/enums/subscription/subscription.dart' show SubscriptionTier;
+import 'package:core/src/enums/subscription/subscription_tier.dart' show SubscriptionTier;
 import 'package:core/src/models/config/saved_filter_limits.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
