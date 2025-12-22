@@ -1,11 +1,14 @@
-/// Defines the entitlement level a user has.
+/// Defines the service level or entitlement tier of a user.
+///
+/// This enum is the single source of truth for feature gating and usage limits.
+/// It is decoupled from the user's authentication status (`isAnonymous`).
 enum AccessTier {
-  /// A user who has not created an account.
+  /// The lowest service level. Typically for anonymous users.
   guest,
 
-  /// A user with a free, registered account.
+  /// The standard service level. Typically for registered, non-paying users.
   standard,
 
-  /// A user with a paid subscription.
+  /// The highest service level. Typically for paid subscribers.
   premium,
 }
