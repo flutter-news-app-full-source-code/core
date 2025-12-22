@@ -1,96 +1,80 @@
-import 'package:core/core.dart';
+import 'package:core/src/enums/subscription/access_tier.dart';
+import 'package:core/src/enums/user_role.dart';
+import 'package:core/src/fixtures/fixture_ids.dart';
+import 'package:core/src/models/auth/user.dart';
 
 /// A list of initial user data to be loaded into the in-memory user repository.
 ///
 /// This list includes a pre-configured administrator user, which is essential
-/// for accessing the dashboard in a development environment.
+/// for accessing the dashboard in a development environment, as well as users
+/// representing every possible subscription and identity state for demo purposes.
 final List<User> usersFixturesData = [
-  User(
+  // --- Main Roles ---
+  const User(
     id: kAdminUserId,
     email: 'admin@example.com',
-    appRole: AppUserRole.premiumUser,
-    dashboardRole: DashboardUserRole.admin,
-    createdAt: DateTime.now(),
-    feedDecoratorStatus: const {},
+    name: 'Admin User',
+    role: UserRole.admin,
+    tier: AccessTier.premium,
+    photoUrl: 'https://i.pravatar.cc/150?u=admin',
   ),
-  User(
-    id: kUser1Id,
+  const User(
+    id: kPublisherPremiumId,
     email: 'publisher@example.com',
-    appRole: AppUserRole.premiumUser,
-    dashboardRole: DashboardUserRole.publisher,
-    createdAt: DateTime.now(),
-    feedDecoratorStatus: const {},
+    name: 'Premium Publisher',
+    role: UserRole.publisher,
+    tier: AccessTier.premium,
+    photoUrl: 'https://i.pravatar.cc/150?u=pub-premium',
   ),
-  User(
-    id: kUser2Id,
+  const User(
+    id: kPublisherStandardId,
     email: 'publisher.two@example.com',
-    appRole: AppUserRole.standardUser,
-    dashboardRole: DashboardUserRole.publisher,
-    createdAt: DateTime.now(),
-    feedDecoratorStatus: const {},
+    name: 'Standard Publisher',
+    role: UserRole.publisher,
+    tier: AccessTier.standard,
+    photoUrl: 'https://i.pravatar.cc/150?u=pub-standard',
   ),
-  User(
-    id: kUser3Id,
-    email: 'user3@example.com',
-    appRole: AppUserRole.standardUser,
-    dashboardRole: DashboardUserRole.none,
-    createdAt: DateTime.now(),
-    feedDecoratorStatus: const {},
+
+  // --- Demo Scenario Users ---
+  const User(
+    id: kGuestUserId,
+    email: 'guest-user@anonymous.app',
+    name: 'Guest User',
+    role: UserRole.user,
+    tier: AccessTier.guest,
+    isAnonymous: true,
+    photoUrl: 'https://i.pravatar.cc/150?u=guest',
   ),
-  User(
-    id: kUser4Id,
-    email: 'user4@example.com',
-    appRole: AppUserRole.standardUser,
-    dashboardRole: DashboardUserRole.none,
-    createdAt: DateTime.now(),
-    feedDecoratorStatus: const {},
+  const User(
+    id: kStandardUserId,
+    email: 'standard.user@example.com',
+    name: 'Standard User',
+    role: UserRole.user,
+    tier: AccessTier.standard,
+    photoUrl: 'https://i.pravatar.cc/150?u=standard',
   ),
-  User(
-    id: kUser5Id,
-    email: 'user5@example.com',
-    appRole: AppUserRole.standardUser,
-    dashboardRole: DashboardUserRole.none,
-    createdAt: DateTime.now(),
-    feedDecoratorStatus: const {},
+  const User(
+    id: kPremiumUserId,
+    email: 'premium.user@example.com',
+    name: 'Premium User',
+    role: UserRole.user,
+    tier: AccessTier.premium,
+    photoUrl: 'https://i.pravatar.cc/150?u=premium',
   ),
-  User(
-    id: kUser6Id,
-    email: 'user6@example.com',
-    appRole: AppUserRole.standardUser,
-    dashboardRole: DashboardUserRole.none,
-    createdAt: DateTime.now(),
-    feedDecoratorStatus: const {},
+  const User(
+    id: kGracePeriodUserId,
+    email: 'grace.period.user@example.com',
+    name: 'Grace Period User',
+    role: UserRole.user,
+    tier: AccessTier.premium, // Still has premium access
+    photoUrl: 'https://i.pravatar.cc/150?u=grace',
   ),
-  User(
-    id: kUser7Id,
-    email: 'user7@example.com',
-    appRole: AppUserRole.standardUser,
-    dashboardRole: DashboardUserRole.none,
-    createdAt: DateTime.now(),
-    feedDecoratorStatus: const {},
-  ),
-  User(
-    id: kUser8Id,
-    email: 'user8@example.com',
-    appRole: AppUserRole.standardUser,
-    dashboardRole: DashboardUserRole.none,
-    createdAt: DateTime.now(),
-    feedDecoratorStatus: const {},
-  ),
-  User(
-    id: kUser9Id,
-    email: 'user9@example.com',
-    appRole: AppUserRole.standardUser,
-    dashboardRole: DashboardUserRole.none,
-    createdAt: DateTime.now(),
-    feedDecoratorStatus: const {},
-  ),
-  User(
-    id: kUser10Id,
-    email: 'user10@example.com',
-    appRole: AppUserRole.standardUser,
-    dashboardRole: DashboardUserRole.none,
-    createdAt: DateTime.now(),
-    feedDecoratorStatus: const {},
+  const User(
+    id: kExpiredSubUserId,
+    email: 'expired.sub.user@example.com',
+    name: 'Expired Sub User',
+    role: UserRole.user,
+    tier: AccessTier.standard, // Reverted to standard
+    photoUrl: 'https://i.pravatar.cc/150?u=expired',
   ),
 ];

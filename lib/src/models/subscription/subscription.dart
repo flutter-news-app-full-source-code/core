@@ -1,3 +1,3 @@
+export 'plan_details.dart';
 export 'purchase_transaction.dart';
-export 'subscription_plan.dart';
 export 'user_subscription.dart';
