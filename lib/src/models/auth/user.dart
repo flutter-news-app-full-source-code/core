@@ -1,5 +1,6 @@
 import 'package:core/src/enums/subscription/access_tier.dart';
 import 'package:core/src/enums/user_role.dart';
+import 'package:core/src/utils/date_time_converter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -29,6 +30,7 @@ class User extends Equatable {
     required this.email,
     required this.role,
     required this.tier,
+    required this.createdAt,
     this.name,
     this.photoUrl,
     this.isAnonymous = false,
@@ -61,6 +63,10 @@ class User extends Equatable {
   /// Use this for feature gating (e.g., "Can this user see ads?").
   final AccessTier tier;
 
+  /// The timestamp when the user account was created.
+  @DateTimeConverter()
+  final DateTime createdAt;
+
   /// Indicates if this is an anonymous account.
   final bool isAnonymous;
 
@@ -75,6 +81,7 @@ class User extends Equatable {
     String? photoUrl,
     UserRole? role,
     AccessTier? tier,
+    DateTime? createdAt,
     bool? isAnonymous,
   }) {
     return User(
@@ -84,6 +91,7 @@ class User extends Equatable {
       photoUrl: photoUrl ?? this.photoUrl,
       role: role ?? this.role,
       tier: tier ?? this.tier,
+      createdAt: createdAt ?? this.createdAt,
       isAnonymous: isAnonymous ?? this.isAnonymous,
     );
   }
@@ -96,6 +104,7 @@ class User extends Equatable {
     photoUrl,
     role,
     tier,
+    createdAt,
     isAnonymous,
   ];
 }
