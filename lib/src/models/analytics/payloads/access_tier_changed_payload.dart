@@ -1,22 +1,22 @@
 import 'package:core/core.dart';
 
-/// {@template subscription_tier_changed_payload}
-/// Payload for the `subscriptionTierChanged` analytics event.
+/// {@template access_tier_changed_payload}
+/// Payload for the `accessTierChanged` analytics event.
 ///
 /// This event is fired when a user's entitlement level changes, for example,
-/// by upgrading to premium or when a subscription expires.
+/// by upgrading to premium or when a access expires.
 /// {@endtemplate}
-class SubscriptionTierChangedPayload extends AnalyticsEventPayload {
-  /// {@macro subscription_tier_changed_payload}
-  const SubscriptionTierChangedPayload({
+class AccessTierChangedPayload extends AnalyticsEventPayload {
+  /// {@macro access_tier_changed_payload}
+  const AccessTierChangedPayload({
     required this.fromTier,
     required this.toTier,
   });
 
-  /// The user's subscription tier before the change.
+  /// The user's access tier before the change.
   final AccessTier fromTier;
 
-  /// The user's new subscription tier after the change.
+  /// The user's new access tier after the change.
   final AccessTier toTier;
 
   @override
