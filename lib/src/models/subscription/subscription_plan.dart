@@ -1,4 +1,5 @@
-import 'package:core/src/enums/subscription_enums.dart';
+import 'package:core/src/enums/subscription/subscription_interval.dart';
+import 'package:core/src/enums/subscription/subscription_tier.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
