@@ -1,5 +1,6 @@
 import 'package:core/core.dart';
 import 'package:core/src/enums/dismissible_hint_type.dart';
+import 'package:core/src/enums/feed_decorator_type.dart';
 import 'package:core/src/fixtures/user_contexts.dart';
 import 'package:test/test.dart';
 
@@ -88,6 +89,39 @@ void main() {
             DismissibleHintType.feedFilterTooltip,
             DismissibleHintType.saveArticleTooltip,
           ]),
+        );
+      });
+
+      test('hydrates missing feedDecoratorStatus entries with defaults', () {
+        final partialJson = {
+          'userId': 'test-user',
+          'feedDecoratorStatus': {
+            // Only provide one status, others should be hydrated
+            'rateApp': {'isCompleted': true, 'lastShownAt': null},
+          },
+          'hasCompletedOnboarding': true,
+        };
+
+        final userContext = UserContext.fromJson(partialJson);
+
+        // 1. Check that the explicitly provided value is preserved
+        expect(
+          userContext.feedDecoratorStatus[FeedDecoratorType.rateApp]
+              ?.isCompleted,
+          isTrue,
+        );
+
+        // 2. Check that a missing key (e.g., linkAccount) was hydrated
+        expect(
+          userContext.feedDecoratorStatus[FeedDecoratorType.linkAccount]
+              ?.isCompleted,
+          isFalse,
+        );
+
+        // 3. Ensure the map is complete (contains all enum values)
+        expect(
+          userContext.feedDecoratorStatus.keys,
+          containsAll(FeedDecoratorType.values),
         );
       });
     });
