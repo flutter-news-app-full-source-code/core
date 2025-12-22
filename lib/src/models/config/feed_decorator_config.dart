@@ -1,4 +1,4 @@
-import 'package:core/src/enums/app_user_role.dart';
+import 'package:core/src/enums/subscription_enums.dart';
 import 'package:core/src/enums/feed_decorator_category.dart';
 import 'package:core/src/models/config/feed_decorator_role_config.dart';
 import 'package:equatable/equatable.dart';
@@ -42,7 +42,7 @@ class FeedDecoratorConfig extends Equatable {
 
   /// Explicitly defines which user roles can see this decorator and their
   /// specific settings. If a role is not in this map, they will not see it.
-  final Map<AppUserRole, FeedDecoratorRoleConfig> visibleTo;
+  final Map<SubscriptionTier, FeedDecoratorRoleConfig> visibleTo;
 
   /// For 'contentCollection' decorators only: the number of items to show.
   /// This must be null for 'callToAction' decorators.
@@ -59,7 +59,7 @@ class FeedDecoratorConfig extends Equatable {
   FeedDecoratorConfig copyWith({
     FeedDecoratorCategory? category,
     bool? enabled,
-    Map<AppUserRole, FeedDecoratorRoleConfig>? visibleTo,
+    Map<SubscriptionTier, FeedDecoratorRoleConfig>? visibleTo,
     int? itemsToDisplay,
   }) {
     return FeedDecoratorConfig(
