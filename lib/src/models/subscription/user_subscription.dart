@@ -1,4 +1,4 @@
-import 'package:core/src/enums/subscription_enums.dart';
+import 'package:core/src/enums/subscription/subscription.dart';
 import 'package:core/src/utils/date_time_converter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
