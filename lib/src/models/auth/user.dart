@@ -1,142 +1,94 @@
-import 'package:core/src/enums/enums.dart';
-import 'package:core/src/models/auth/user_feed_decorator_status.dart';
+import 'package:core/src/enums/subscription_enums.dart';
+import 'package:core/src/enums/user_role.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
 part 'user.g.dart';
 
-/// Represents a user within the system.
+/// {@template user}
+/// Represents an authenticated user of the application.
+///
+/// This model decouples identity ([role]) from entitlement ([tier]).
+/// - [role]: Determines administrative permissions (e.g., admin, publisher).
+/// - [tier]: Determines feature access and limits (e.g., standard, premium).
+/// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
 class User extends Equatable {
-  /// Creates a new [User] instance.
-  ///
-  /// Requires a unique [id], an [appRole], a [dashboardRole],
-  /// [email], and [createdAt]. The [feedDecoratorStatus] tracks user
-  /// interactions with in-feed actions and is guaranteed to be complete for
-  /// all [FeedDecoratorType] values.
+  /// {@macro user}
   const User({
     required this.id,
-    required this.appRole,
-    required this.dashboardRole,
     required this.email,
-    required this.createdAt,
-    required this.feedDecoratorStatus,
+    required this.role,
+    required this.tier,
+    this.name,
+    this.photoUrl,
+    this.isAnonymous = false,
   });
 
-  /// Creates a User from JSON data.
-  ///
-  /// The `feedDecoratorStatus` map is automatically hydrated with default
-  /// values for any missing [FeedDecoratorType] keys to ensure completeness.
+  /// Creates a [User] from JSON data.
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
-  /// The unique identifier for the user (e.g., a UUID).
+  /// The unique identifier for the user.
   final String id;
 
-  /// The user's email address. This is required.
+  /// The user's email address.
+  ///
+  /// For anonymous users, this may be a placeholder or generated ID.
   final String email;
 
-  /// The application-specific role of the user.
-  final AppUserRole appRole;
+  /// The user's display name.
+  final String? name;
 
-  /// The dashboard-specific role of the user.
-  final DashboardUserRole dashboardRole;
+  /// The URL to the user's profile photo.
+  final String? photoUrl;
 
-  /// The date and time the user account was created.
-  @JsonKey(fromJson: _dateTimeFromJson, toJson: _dateTimeToJson)
-  final DateTime createdAt;
-
-  /// A map tracking the status of various in-feed decorators for the user.
+  /// The user's identity role (e.g., admin, user).
   ///
-  /// The key is a [FeedDecoratorType], and the value is the
-  /// [UserFeedDecoratorStatus] for that decorator. This map is guaranteed to
-  /// contain an entry for every value in the [FeedDecoratorType] enum.
-  @JsonKey(
-    fromJson: _feedDecoratorStatusFromJson,
-    toJson: _feedDecoratorStatusToJson,
-  )
-  final Map<FeedDecoratorType, UserFeedDecoratorStatus> feedDecoratorStatus;
+  /// This governs administrative permissions, not feature entitlements.
+  final UserRole role;
 
-  /// Converts this User instance to JSON data.
+  /// The user's subscription tier (e.g., standard, premium).
+  ///
+  /// This governs access to paid features and usage limits.
+  final SubscriptionTier tier;
+
+  /// Indicates if this is an anonymous account.
+  final bool isAnonymous;
+
+  /// Converts this [User] instance to JSON data.
   Map<String, dynamic> toJson() => _$UserToJson(this);
 
-  @override
-  List<Object?> get props => [
-    id,
-    email,
-    appRole,
-    dashboardRole,
-    createdAt,
-    feedDecoratorStatus,
-  ];
-
-  @override
-  String toString() {
-    return 'User(id: $id, email: $email, appRole: $appRole, '
-        'dashboardRole: $dashboardRole, createdAt: $createdAt, '
-        'feedDecoratorStatus: $feedDecoratorStatus)';
-  }
-
-  /// Creates a copy of this [User] but with the given fields replaced with
-  /// the new values.
+  /// Creates a copy of this [User] with updated values.
   User copyWith({
     String? id,
     String? email,
-    AppUserRole? appRole,
-    DashboardUserRole? dashboardRole,
-    DateTime? createdAt,
-    Map<FeedDecoratorType, UserFeedDecoratorStatus>? feedDecoratorStatus,
+    String? name,
+    String? photoUrl,
+    UserRole? role,
+    SubscriptionTier? tier,
+    bool? isAnonymous,
   }) {
     return User(
       id: id ?? this.id,
       email: email ?? this.email,
-      appRole: appRole ?? this.appRole,
-      dashboardRole: dashboardRole ?? this.dashboardRole,
-      createdAt: createdAt ?? this.createdAt,
-      feedDecoratorStatus: feedDecoratorStatus ?? this.feedDecoratorStatus,
+      name: name ?? this.name,
+      photoUrl: photoUrl ?? this.photoUrl,
+      role: role ?? this.role,
+      tier: tier ?? this.tier,
+      isAnonymous: isAnonymous ?? this.isAnonymous,
     );
   }
-}
 
-// Helper function for parsing DateTime
-DateTime _dateTimeFromJson(String dateString) {
-  return DateTime.parse(dateString);
-}
-
-// Helper function for serializing DateTime to ISO 8601 string
-String _dateTimeToJson(DateTime dateTime) {
-  return dateTime.toIso8601String();
-}
-
-/// Deserializes the feed decorator status map from JSON and ensures it's complete.
-Map<FeedDecoratorType, UserFeedDecoratorStatus> _feedDecoratorStatusFromJson(
-  Map<String, dynamic> json,
-) {
-  final existingStatuses = json.map((key, value) {
-    final decoratorType = FeedDecoratorType.values.byName(key);
-    return MapEntry(
-      decoratorType,
-      UserFeedDecoratorStatus.fromJson(value as Map<String, dynamic>),
-    );
-  });
-
-  return Map.fromEntries(
-    FeedDecoratorType.values.map(
-      (type) => MapEntry(
-        type,
-        existingStatuses[type] ??
-            const UserFeedDecoratorStatus(isCompleted: false),
-      ),
-    ),
-  );
-}
-
-/// Serializes the feed decorator status map to JSON.
-Map<String, dynamic> _feedDecoratorStatusToJson(
-  Map<FeedDecoratorType, UserFeedDecoratorStatus> feedDecoratorStatus,
-) {
-  return feedDecoratorStatus.map(
-    (key, value) => MapEntry(key.name, value.toJson()),
-  );
+  @override
+  List<Object?> get props => [
+        id,
+        email,
+        name,
+        photoUrl,
+        role,
+        tier,
+        isAnonymous,
+      ];
 }
