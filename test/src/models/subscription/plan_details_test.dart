@@ -46,9 +46,9 @@ void main() {
           planDetails.copyWith(
             enabled: false,
             isRecommended: false,
-            appleProductId: 'new_apple_id',
-            googleProductId: 'new_google_id',
-            stripePriceId: 'new_stripe_id',
+            appleProductId: const ValueWrapper('new_apple_id'),
+            googleProductId: const ValueWrapper('new_google_id'),
+            stripePriceId: const ValueWrapper('new_stripe_id'),
           ),
           equals(
             const PlanDetails(
@@ -65,9 +65,9 @@ void main() {
       test('returns a new object with null values updated', () {
         expect(
           planDetails.copyWith(
-            appleProductId: null,
-            googleProductId: null,
-            stripePriceId: null,
+            appleProductId: const ValueWrapper(null),
+            googleProductId: const ValueWrapper(null),
+            stripePriceId: const ValueWrapper(null),
           ),
           equals(
             const PlanDetails(
