@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on Keep a Changelog,
 and this project adheres to Semantic Versioning.
 
+## [Unreleased]
+
+### Added
+- **feat(subscription)**: Introduced a complete **Subscription & Monetization System**. This includes the `UserSubscription` and `PurchaseTransaction` models, `SubscriptionConfig` for remote management of plans (monthly/annual), and a suite of analytics payloads for tracking the subscription lifecycle (`SubscriptionStarted`, `SubscriptionRenewed`, etc.).
+- **feat(subscription)**: Added `AccessTier` enum to strictly define user entitlement levels (`guest`, `standard`, `premium`), decoupling it from the user's identity or role.
+- **feat(analytics)**: Added new analytics payloads for subscription events and access tier changes (`AccessTierChangedPayload`).
+
+### Changed
+- **BREAKING refactor(auth)**: Refactored the `User` model to use `AccessTier` for entitlements and `UserRole` for administrative permissions. This replaces the overloaded `AppUserRole` enum.
+- **BREAKING refactor(config)**: Updated `UserLimitsConfig`, `AdConfig`, and `FeedDecoratorConfig` to use `AccessTier` as the key for role-based configuration maps, replacing `AppUserRole`.
+- **refactor(subscription)**: Replaced the dynamic `SubscriptionPlan` list in `SubscriptionConfig` with explicit `monthlyPlan` and `annualPlan` configurations for better type safety and client handling.
+
 ## [1.5.0] - 2025-12-21
 
 ### Added
