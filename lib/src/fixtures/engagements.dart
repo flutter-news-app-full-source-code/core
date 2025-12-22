@@ -1,4 +1,5 @@
 import 'package:core/core.dart';
+import 'dart:math';
 
 /// Generates a list of predefined engagements for fixture data.
 ///
@@ -10,10 +11,8 @@ List<Engagement> getEngagementsFixturesData({
   DateTime? now,
 }) {
   final engagements = <Engagement>[];
-  final users = usersFixturesData.take(10).toList();
-  final headlines = getHeadlinesFixturesData(
-    languageCode: languageCode,
-  ).take(100).toList();
+  final users = usersFixturesData;
+  final headlines = getHeadlinesFixturesData(languageCode: languageCode);
   final reactions = reactionsFixturesData;
   final comments = getHeadlineCommentsFixturesData(
     languageCode: languageCode,
@@ -21,13 +20,20 @@ List<Engagement> getEngagementsFixturesData({
   );
   final referenceTime = now ?? DateTime.now();
 
-  for (var i = 0; i < 10; i++) {
-    for (var j = 0; j < 10; j++) {
-      final index = i * 10 + j;
+  // We want to generate up to 100 engagements, or as many as we have IDs for.
+  final maxEngagements = min(_engagementIds.length, 100);
+  // We distribute these among the available users.
+  final engagementsPerUser = (maxEngagements / users.length).ceil();
+
+  for (var i = 0; i < users.length; i++) {
+    for (var j = 0; j < engagementsPerUser; j++) {
+      final index = i * engagementsPerUser + j;
+      if (index >= maxEngagements) break;
+
       final user = users[i];
-      final headline = headlines[index];
-      final reaction = reactions[index];
-      final comment = comments[index];
+      final headline = headlines[index % headlines.length];
+      final reaction = reactions[index % reactions.length];
+      final comment = comments[index % comments.length];
 
       Reaction? engagementReaction;
       Comment? engagementComment;
