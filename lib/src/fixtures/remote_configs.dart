@@ -22,17 +22,17 @@ final remoteConfigsFixturesData = <RemoteConfig>[
     user: const UserConfig(
       limits: UserLimitsConfig(
         followedItems: {
-          AppUserRole.guestUser: 5,
-          AppUserRole.standardUser: 15,
-          AppUserRole.premiumUser: 30,
+          AccessTier.guest: 5,
+          AccessTier.standard: 15,
+          AccessTier.premium: 30,
         },
         savedHeadlines: {
-          AppUserRole.guestUser: 10,
-          AppUserRole.standardUser: 30,
-          AppUserRole.premiumUser: 100,
+          AccessTier.guest: 10,
+          AccessTier.standard: 30,
+          AccessTier.premium: 100,
         },
         savedHeadlineFilters: {
-          AppUserRole.guestUser: SavedFilterLimits(
+          AccessTier.guest: SavedFilterLimits(
             total: 3,
             pinned: 3,
             notificationSubscriptions: {
@@ -41,7 +41,7 @@ final remoteConfigsFixturesData = <RemoteConfig>[
               PushNotificationSubscriptionDeliveryType.weeklyRoundup: 0,
             },
           ),
-          AppUserRole.standardUser: SavedFilterLimits(
+          AccessTier.standard: SavedFilterLimits(
             total: 10,
             pinned: 5,
             notificationSubscriptions: {
@@ -50,7 +50,7 @@ final remoteConfigsFixturesData = <RemoteConfig>[
               PushNotificationSubscriptionDeliveryType.weeklyRoundup: 2,
             },
           ),
-          AppUserRole.premiumUser: SavedFilterLimits(
+          AccessTier.premium: SavedFilterLimits(
             total: 25,
             pinned: 10,
             notificationSubscriptions: {
@@ -61,28 +61,50 @@ final remoteConfigsFixturesData = <RemoteConfig>[
           ),
         },
         savedSourceFilters: {
-          AppUserRole.guestUser: SavedFilterLimits(total: 3, pinned: 3),
-          AppUserRole.standardUser: SavedFilterLimits(total: 10, pinned: 5),
-          AppUserRole.premiumUser: SavedFilterLimits(total: 25, pinned: 10),
+          AccessTier.guest: SavedFilterLimits(total: 3, pinned: 3),
+          AccessTier.standard: SavedFilterLimits(total: 10, pinned: 5),
+          AccessTier.premium: SavedFilterLimits(total: 25, pinned: 10),
         },
         reactionsPerDay: {
-          AppUserRole.guestUser: 20,
-          AppUserRole.standardUser: 100,
-          AppUserRole.premiumUser: 500,
+          AccessTier.guest: 20,
+          AccessTier.standard: 100,
+          AccessTier.premium: 500,
         },
         commentsPerDay: {
-          AppUserRole.guestUser: 0,
-          AppUserRole.standardUser: 10,
-          AppUserRole.premiumUser: 50,
+          AccessTier.guest: 0,
+          AccessTier.standard: 10,
+          AccessTier.premium: 50,
         },
         reportsPerDay: {
-          AppUserRole.guestUser: 1,
-          AppUserRole.standardUser: 5,
-          AppUserRole.premiumUser: 20,
+          AccessTier.guest: 1,
+          AccessTier.standard: 5,
+          AccessTier.premium: 20,
         },
       ),
     ),
     features: const FeaturesConfig(
+      subscription: SubscriptionConfig(
+        enabled: true,
+        enabledProviders: [
+          StoreProvider.apple,
+          StoreProvider.google,
+          StoreProvider.stripe,
+        ],
+        monthlyPlan: PlanDetails(
+          enabled: true,
+          isRecommended: false,
+          appleProductId: 'com.newshub.premium.monthly',
+          googleProductId: 'premium_monthly',
+          stripePriceId: 'price_monthly_premium_stripe',
+        ),
+        annualPlan: PlanDetails(
+          enabled: true,
+          isRecommended: true,
+          appleProductId: 'com.newshub.premium.annual',
+          googleProductId: 'premium_annual',
+          stripePriceId: 'price_annual_premium_stripe',
+        ),
+      ),
       analytics: AnalyticsConfig(
         enabled: true,
         activeProvider: AnalyticsProvider.firebase,
@@ -111,11 +133,11 @@ final remoteConfigsFixturesData = <RemoteConfig>[
           enabled: true,
           adType: AdType.native,
           visibleTo: {
-            AppUserRole.guestUser: FeedAdFrequencyConfig(
+            AccessTier.guest: FeedAdFrequencyConfig(
               adFrequency: 5,
               adPlacementInterval: 3,
             ),
-            AppUserRole.standardUser: FeedAdFrequencyConfig(
+            AccessTier.standard: FeedAdFrequencyConfig(
               adFrequency: 10,
               adPlacementInterval: 5,
             ),
@@ -124,11 +146,11 @@ final remoteConfigsFixturesData = <RemoteConfig>[
         navigationAdConfiguration: NavigationAdConfiguration(
           enabled: true,
           visibleTo: {
-            AppUserRole.guestUser: NavigationAdFrequencyConfig(
+            AccessTier.guest: NavigationAdFrequencyConfig(
               internalNavigationsBeforeShowingInterstitialAd: 5,
               externalNavigationsBeforeShowingInterstitialAd: 5,
             ),
-            AppUserRole.standardUser: NavigationAdFrequencyConfig(
+            AccessTier.standard: NavigationAdFrequencyConfig(
               internalNavigationsBeforeShowingInterstitialAd: 8,
               externalNavigationsBeforeShowingInterstitialAd: 8,
             ),
@@ -142,48 +164,36 @@ final remoteConfigsFixturesData = <RemoteConfig>[
             category: FeedDecoratorCategory.callToAction,
             enabled: true,
             visibleTo: {
-              AppUserRole.guestUser: FeedDecoratorRoleConfig(
-                daysBetweenViews: 3,
-              ),
+              AccessTier.guest: FeedDecoratorRoleConfig(daysBetweenViews: 3),
             },
           ),
           FeedDecoratorType.upgrade: FeedDecoratorConfig(
             category: FeedDecoratorCategory.callToAction,
             enabled: true,
             visibleTo: {
-              AppUserRole.standardUser: FeedDecoratorRoleConfig(
-                daysBetweenViews: 7,
-              ),
+              AccessTier.standard: FeedDecoratorRoleConfig(daysBetweenViews: 7),
             },
           ),
           FeedDecoratorType.rateApp: FeedDecoratorConfig(
             category: FeedDecoratorCategory.callToAction,
             enabled: true,
             visibleTo: {
-              AppUserRole.guestUser: FeedDecoratorRoleConfig(
-                daysBetweenViews: 14,
-              ),
-              AppUserRole.standardUser: FeedDecoratorRoleConfig(
+              AccessTier.guest: FeedDecoratorRoleConfig(daysBetweenViews: 14),
+              AccessTier.standard: FeedDecoratorRoleConfig(
                 daysBetweenViews: 30,
               ),
-              AppUserRole.premiumUser: FeedDecoratorRoleConfig(
-                daysBetweenViews: 90,
-              ),
+              AccessTier.premium: FeedDecoratorRoleConfig(daysBetweenViews: 90),
             },
           ),
           FeedDecoratorType.enableNotifications: FeedDecoratorConfig(
             category: FeedDecoratorCategory.callToAction,
             enabled: true,
             visibleTo: {
-              AppUserRole.guestUser: FeedDecoratorRoleConfig(
-                daysBetweenViews: 5,
-              ),
-              AppUserRole.standardUser: FeedDecoratorRoleConfig(
+              AccessTier.guest: FeedDecoratorRoleConfig(daysBetweenViews: 5),
+              AccessTier.standard: FeedDecoratorRoleConfig(
                 daysBetweenViews: 10,
               ),
-              AppUserRole.premiumUser: FeedDecoratorRoleConfig(
-                daysBetweenViews: 20,
-              ),
+              AccessTier.premium: FeedDecoratorRoleConfig(daysBetweenViews: 20),
             },
           ),
           FeedDecoratorType.suggestedTopics: FeedDecoratorConfig(
@@ -191,10 +201,8 @@ final remoteConfigsFixturesData = <RemoteConfig>[
             enabled: true,
             itemsToDisplay: 5,
             visibleTo: {
-              AppUserRole.guestUser: FeedDecoratorRoleConfig(
-                daysBetweenViews: 7,
-              ),
-              AppUserRole.standardUser: FeedDecoratorRoleConfig(
+              AccessTier.guest: FeedDecoratorRoleConfig(daysBetweenViews: 7),
+              AccessTier.standard: FeedDecoratorRoleConfig(
                 daysBetweenViews: 14,
               ),
             },
@@ -204,10 +212,8 @@ final remoteConfigsFixturesData = <RemoteConfig>[
             enabled: true,
             itemsToDisplay: 5,
             visibleTo: {
-              AppUserRole.guestUser: FeedDecoratorRoleConfig(
-                daysBetweenViews: 7,
-              ),
-              AppUserRole.standardUser: FeedDecoratorRoleConfig(
+              AccessTier.guest: FeedDecoratorRoleConfig(daysBetweenViews: 7),
+              AccessTier.standard: FeedDecoratorRoleConfig(
                 daysBetweenViews: 14,
               ),
             },
