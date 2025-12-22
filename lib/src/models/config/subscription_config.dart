@@ -42,8 +42,12 @@ class SubscriptionConfig extends Equatable {
   Map<String, dynamic> toJson() => _$SubscriptionConfigToJson(this);
 
   @override
-  List<Object?> get props =>
-      [enabled, enabledProviders, monthlyPlan, annualPlan];
+  List<Object?> get props => [
+    enabled,
+    enabledProviders,
+    monthlyPlan,
+    annualPlan,
+  ];
 
   /// Creates a copy of this [SubscriptionConfig] but with the given fields
   /// replaced with the new values.

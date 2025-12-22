@@ -1,5 +1,6 @@
-import 'package:core/core.dart';
 import 'dart:math';
+
+import 'package:core/core.dart';
 
 /// Generates a list of predefined reports for fixture data.
 ///

@@ -68,7 +68,7 @@ class FeaturesConfig extends Equatable {
     PushNotificationConfig? pushNotifications,
     FeedConfig? feed,
     CommunityConfig? community,
-    SubscriptionConfig? subscription
+    SubscriptionConfig? subscription,
   }) {
     return FeaturesConfig(
       analytics: analytics ?? this.analytics,
