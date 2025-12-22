@@ -106,14 +106,16 @@ void main() {
 
         // 1. Check that the explicitly provided value is preserved
         expect(
-          userContext.feedDecoratorStatus[FeedDecoratorType.rateApp]
+          userContext
+              .feedDecoratorStatus[FeedDecoratorType.rateApp]
               ?.isCompleted,
           isTrue,
         );
 
         // 2. Check that a missing key (e.g., linkAccount) was hydrated
         expect(
-          userContext.feedDecoratorStatus[FeedDecoratorType.linkAccount]
+          userContext
+              .feedDecoratorStatus[FeedDecoratorType.linkAccount]
               ?.isCompleted,
           isFalse,
         );
