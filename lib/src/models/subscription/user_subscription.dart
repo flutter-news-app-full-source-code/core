@@ -11,6 +11,18 @@ part 'user_subscription.g.dart';
 ///
 /// This is a database entity managed by the backend, created and updated based
 /// on validated purchase events from payment providers.
+///
+/// ### Architectural Design: Scope & Security
+///
+/// 1.  **No Billing Data (PCI Compliance):** This model intentionally excludes
+///     sensitive billing details (credit cards, CVV). Payment processing is
+///     strictly offloaded to native SDKs (Apple, Google, Stripe) to ensure
+///     security and compliance. The app never touches raw payment data.
+///
+/// 2.  **External Management:** There are no "Edit Subscription" models because
+///     management (upgrades, cancellations) is handled natively by the OS or
+///     provider portals. This model serves as a **read-only reflection** of
+///     the external state.
 /// {@endtemplate}
 @immutable
 @JsonSerializable(explicitToJson: true, includeIfNull: true, checked: true)
