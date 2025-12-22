@@ -1,6 +1,4 @@
-import 'package:core/src/enums/subscription_enums.dart';
-import 'package:core/src/models/analytics/payloads/analytics_event_payload.dart';
-import 'package:core/src/models/analytics/payloads/analytics_parameter_keys.dart';
+import 'package:core/core.dart';
 
 /// {@template subscription_tier_changed_payload}
 /// Payload for the `subscriptionTierChanged` analytics event.
@@ -23,7 +21,10 @@ class SubscriptionTierChangedPayload extends AnalyticsEventPayload {
 
   @override
   Map<String, dynamic> toMap() {
-    return {'fromTier': fromTier.name, 'toTier': toTier.name};
+    return {
+      AnalyticsParameterKeys.fromRole: fromTier.name,
+      AnalyticsParameterKeys.toRole: toTier.name,
+    };
   }
 
   @override
