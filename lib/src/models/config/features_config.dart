@@ -58,6 +58,7 @@ class FeaturesConfig extends Equatable {
     pushNotifications,
     feed,
     community,
+    subscription,
   ];
 
   /// Creates a copy of this [FeaturesConfig] but with the given fields
