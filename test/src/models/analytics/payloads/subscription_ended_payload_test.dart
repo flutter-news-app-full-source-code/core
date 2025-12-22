@@ -5,7 +5,7 @@ void main() {
   group('SubscriptionEndedPayload', () {
     const payload = SubscriptionEndedPayload(
       productId: 'premium_monthly',
-      reason: 'billing_error',
+      reason: SubscriptionEndedReason.billingError,
     );
 
     group('toMap', () {
@@ -13,7 +13,7 @@ void main() {
         final map = payload.toMap();
         expect(map, {
           AnalyticsParameterKeys.productId: 'premium_monthly',
-          AnalyticsParameterKeys.reason: 'billing_error',
+          AnalyticsParameterKeys.reason: 'billingError',
         });
       });
     });
@@ -23,7 +23,7 @@ void main() {
         const instance1 = payload;
         const instance2 = SubscriptionEndedPayload(
           productId: 'premium_monthly',
-          reason: 'billing_error',
+          reason: SubscriptionEndedReason.billingError,
         );
         expect(instance1, equals(instance2));
       });
@@ -32,7 +32,7 @@ void main() {
         const instance1 = payload;
         const instance2 = SubscriptionEndedPayload(
           productId: 'premium_yearly',
-          reason: 'user_cancelled',
+          reason: SubscriptionEndedReason.userCanceled,
         );
         expect(instance1, isNot(equals(instance2)));
       });
