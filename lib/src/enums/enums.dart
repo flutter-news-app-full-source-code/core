@@ -14,7 +14,6 @@ export 'chart_type.dart';
 export 'comment_report_reason.dart';
 export 'content_status.dart';
 export 'content_type.dart';
-export 'dashboard_user_role.dart';
 export 'device_platform.dart';
 export 'engageable_type.dart';
 export 'engagement_mode.dart';
