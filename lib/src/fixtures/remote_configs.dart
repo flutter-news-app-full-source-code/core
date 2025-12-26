@@ -85,24 +85,17 @@ final remoteConfigsFixturesData = <RemoteConfig>[
     features: const FeaturesConfig(
       subscription: SubscriptionConfig(
         enabled: true,
-        enabledProviders: [
-          StoreProvider.apple,
-          StoreProvider.google,
-          StoreProvider.stripe,
-        ],
         monthlyPlan: PlanDetails(
           enabled: true,
           isRecommended: false,
           appleProductId: 'com.newshub.premium.monthly',
           googleProductId: 'premium_monthly',
-          stripePriceId: 'price_monthly_premium_stripe',
         ),
         annualPlan: PlanDetails(
           enabled: true,
           isRecommended: true,
           appleProductId: 'com.newshub.premium.annual',
           googleProductId: 'premium_annual',
-          stripePriceId: 'price_annual_premium_stripe',
         ),
       ),
       analytics: AnalyticsConfig(
