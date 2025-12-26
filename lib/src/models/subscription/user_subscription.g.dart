@@ -65,5 +65,4 @@ const _$SubscriptionStatusEnumMap = {
 const _$StoreProviderEnumMap = {
   StoreProvider.apple: 'apple',
   StoreProvider.google: 'google',
-  StoreProvider.stripe: 'stripe',
 };

@@ -15,7 +15,6 @@ PlanDetails _$PlanDetailsFromJson(Map<String, dynamic> json) => $checkedCreate(
       isRecommended: $checkedConvert('isRecommended', (v) => v as bool),
       appleProductId: $checkedConvert('appleProductId', (v) => v as String?),
       googleProductId: $checkedConvert('googleProductId', (v) => v as String?),
-      stripePriceId: $checkedConvert('stripePriceId', (v) => v as String?),
     );
     return val;
   },
@@ -27,5 +26,4 @@ Map<String, dynamic> _$PlanDetailsToJson(PlanDetails instance) =>
       'isRecommended': instance.isRecommended,
       'appleProductId': instance.appleProductId,
       'googleProductId': instance.googleProductId,
-      'stripePriceId': instance.stripePriceId,
     };
