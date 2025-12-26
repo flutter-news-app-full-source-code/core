@@ -46,7 +46,7 @@ Map<String, dynamic> _$ChartCardDataToJson(ChartCardData instance) =>
 const _$ChartCardIdEnumMap = {
   ChartCardId.usersRegistrationsOverTime: 'users_registrations_over_time',
   ChartCardId.usersActiveUsersOverTime: 'users_active_users_over_time',
-  ChartCardId.usersRoleDistribution: 'users_role_distribution',
+  ChartCardId.usersTierDistribution: 'users_tier_distribution',
   ChartCardId.contentHeadlinesViewsOverTime:
       'content_headlines_views_over_time',
   ChartCardId.contentHeadlinesLikesOverTime:
@@ -78,6 +78,10 @@ const _$ChartCardIdEnumMap = {
       'engagements_app_reviews_positive_vs_negative',
   ChartCardId.engagementsAppReviewsStoreRequestsOverTime:
       'engagements_app_reviews_store_requests_over_time',
+  ChartCardId.subscriptionsActiveOverTime: 'subscriptions_active_over_time',
+  ChartCardId.subscriptionsStatusDistribution:
+      'subscriptions_status_distribution',
+  ChartCardId.subscriptionsByStoreProvider: 'subscriptions_by_store_provider',
 };
 
 const _$ChartTypeEnumMap = {ChartType.line: 'line', ChartType.bar: 'bar'};
