@@ -240,6 +240,38 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
         KpiTimeFrame.year: KpiTimeFrameData(value: 240, trend: '+240'),
       },
     ),
+
+    // --- Subscriptions Management ---
+    KpiCardData(
+      id: KpiCardId.subscriptionsActiveCount,
+      label: labels[KpiCardId.subscriptionsActiveCount]!,
+      timeFrames: const {
+        KpiTimeFrame.day: KpiTimeFrameData(value: 100, trend: '+2'),
+        KpiTimeFrame.week: KpiTimeFrameData(value: 105, trend: '+5'),
+        KpiTimeFrame.month: KpiTimeFrameData(value: 120, trend: '+15'),
+        KpiTimeFrame.year: KpiTimeFrameData(value: 150, trend: '+50'),
+      },
+    ),
+    KpiCardData(
+      id: KpiCardId.subscriptionsCanceledCount,
+      label: labels[KpiCardId.subscriptionsCanceledCount]!,
+      timeFrames: const {
+        KpiTimeFrame.day: KpiTimeFrameData(value: 1, trend: '0'),
+        KpiTimeFrame.week: KpiTimeFrameData(value: 5, trend: '+1'),
+        KpiTimeFrame.month: KpiTimeFrameData(value: 20, trend: '+2'),
+        KpiTimeFrame.year: KpiTimeFrameData(value: 200, trend: '+50'),
+      },
+    ),
+    KpiCardData(
+      id: KpiCardId.subscriptionsExpiredCount,
+      label: labels[KpiCardId.subscriptionsExpiredCount]!,
+      timeFrames: const {
+        KpiTimeFrame.day: KpiTimeFrameData(value: 0, trend: '0'),
+        KpiTimeFrame.week: KpiTimeFrameData(value: 2, trend: '-1'),
+        KpiTimeFrame.month: KpiTimeFrameData(value: 10, trend: '+2'),
+        KpiTimeFrame.year: KpiTimeFrameData(value: 50, trend: '+10'),
+      },
+    ),
   ];
 }
 
@@ -267,6 +299,9 @@ final Map<String, Map<KpiCardId, String>> _kpiLabels = {
     KpiCardId.engagementsAppReviewsTotalFeedback: 'Total Feedback',
     KpiCardId.engagementsAppReviewsPositiveFeedback: 'Positive Feedback',
     KpiCardId.engagementsAppReviewsStoreRequests: 'Store Requests',
+    KpiCardId.subscriptionsActiveCount: 'Active Subscriptions',
+    KpiCardId.subscriptionsCanceledCount: 'Canceled Subscriptions',
+    KpiCardId.subscriptionsExpiredCount: 'Expired Subscriptions',
   },
   'ar': {
     KpiCardId.usersTotalRegistered: 'إجمالي المستخدمين',
@@ -290,5 +325,8 @@ final Map<String, Map<KpiCardId, String>> _kpiLabels = {
     KpiCardId.engagementsAppReviewsTotalFeedback: 'إجمالي التقييمات',
     KpiCardId.engagementsAppReviewsPositiveFeedback: 'تقييمات إيجابية',
     KpiCardId.engagementsAppReviewsStoreRequests: 'طلبات تقييم المتجر',
+    KpiCardId.subscriptionsActiveCount: 'الاشتراكات النشطة',
+    KpiCardId.subscriptionsCanceledCount: 'الاشتراكات الملغاة',
+    KpiCardId.subscriptionsExpiredCount: 'الاشتراكات المنتهية',
   },
 };
