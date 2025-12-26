@@ -21,12 +21,10 @@ class PlanDetails extends Equatable {
     required this.isRecommended,
     this.appleProductId,
     this.googleProductId,
-    this.stripePriceId,
   }) : assert(
          !enabled ||
              ((appleProductId != null && appleProductId != '') ||
-                 (googleProductId != null && googleProductId != '') ||
-                 (stripePriceId != null && stripePriceId != '')),
+                 (googleProductId != null && googleProductId != '')),
          'An enabled plan must have at least one valid product ID.',
        );
 
@@ -47,9 +45,6 @@ class PlanDetails extends Equatable {
   /// The Product ID from Google Play Console.
   final String? googleProductId;
 
-  /// The Price ID from your Stripe dashboard.
-  final String? stripePriceId;
-
   /// Converts this [PlanDetails] instance to JSON data.
   Map<String, dynamic> toJson() => _$PlanDetailsToJson(this);
 
@@ -59,7 +54,6 @@ class PlanDetails extends Equatable {
     isRecommended,
     appleProductId,
     googleProductId,
-    stripePriceId,
   ];
 
   /// Creates a copy of this [PlanDetails] with updated values.
@@ -68,7 +62,6 @@ class PlanDetails extends Equatable {
     bool? isRecommended,
     ValueWrapper<String?>? appleProductId,
     ValueWrapper<String?>? googleProductId,
-    ValueWrapper<String?>? stripePriceId,
   }) {
     return PlanDetails(
       enabled: enabled ?? this.enabled,
@@ -79,9 +72,6 @@ class PlanDetails extends Equatable {
       googleProductId: googleProductId != null
           ? googleProductId.value
           : this.googleProductId,
-      stripePriceId: stripePriceId != null
-          ? stripePriceId.value
-          : this.stripePriceId,
     );
   }
 }

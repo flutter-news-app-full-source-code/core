@@ -10,10 +10,10 @@ final List<UserSubscription> userSubscriptionsFixturesData = [
     userId: kAdminUserId,
     tier: AccessTier.premium,
     status: SubscriptionStatus.active,
-    provider: StoreProvider.stripe,
+    provider: StoreProvider.apple,
     validUntil: DateTime.now().add(const Duration(days: 365)),
     willAutoRenew: true,
-    originalTransactionId: 'tx_admin_annual_123',
+    originalTransactionId: '3000000123456789',
   ),
   // Subscription for the Premium Publisher
   UserSubscription(

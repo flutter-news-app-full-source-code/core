@@ -8,7 +8,6 @@ void main() {
       isRecommended: false,
       appleProductId: 'monthly_apple',
       googleProductId: 'monthly_google',
-      stripePriceId: 'monthly_stripe',
     );
 
     const annualPlan = PlanDetails(
@@ -16,12 +15,10 @@ void main() {
       isRecommended: true,
       appleProductId: 'annual_apple',
       googleProductId: 'annual_google',
-      stripePriceId: 'annual_stripe',
     );
 
     const subscriptionConfig = SubscriptionConfig(
       enabled: true,
-      enabledProviders: [StoreProvider.apple, StoreProvider.google],
       monthlyPlan: monthlyPlan,
       annualPlan: annualPlan,
     );
@@ -32,7 +29,6 @@ void main() {
         equals(
           const SubscriptionConfig(
             enabled: true,
-            enabledProviders: [StoreProvider.apple, StoreProvider.google],
             monthlyPlan: monthlyPlan,
             annualPlan: annualPlan,
           ),
@@ -41,12 +37,7 @@ void main() {
     });
 
     test('props are correct', () {
-      expect(subscriptionConfig.props, [
-        true,
-        [StoreProvider.apple, StoreProvider.google],
-        monthlyPlan,
-        annualPlan,
-      ]);
+      expect(subscriptionConfig.props, [true, monthlyPlan, annualPlan]);
     });
 
     group('copyWith', () {
@@ -59,13 +50,11 @@ void main() {
         expect(
           subscriptionConfig.copyWith(
             enabled: false,
-            enabledProviders: [StoreProvider.stripe],
             monthlyPlan: newMonthlyPlan,
           ),
           equals(
             SubscriptionConfig(
               enabled: false,
-              enabledProviders: const [StoreProvider.stripe],
               monthlyPlan: newMonthlyPlan,
               annualPlan: annualPlan,
             ),
@@ -78,7 +67,6 @@ void main() {
       test('works correctly', () {
         final json = {
           'enabled': true,
-          'enabledProviders': ['apple', 'google'],
           'monthlyPlan': monthlyPlan.toJson(),
           'annualPlan': annualPlan.toJson(),
         };
@@ -91,7 +79,6 @@ void main() {
         final json = subscriptionConfig.toJson();
         expect(json, {
           'enabled': true,
-          'enabledProviders': ['apple', 'google'],
           'monthlyPlan': monthlyPlan.toJson(),
           'annualPlan': annualPlan.toJson(),
         });

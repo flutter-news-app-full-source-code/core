@@ -11,7 +11,4 @@ enum StoreProvider {
 
   /// Google Play Store.
   google,
-
-  /// Stripe for direct payments.
-  stripe,
 }

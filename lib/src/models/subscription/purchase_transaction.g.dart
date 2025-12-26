@@ -30,5 +30,4 @@ Map<String, dynamic> _$PurchaseTransactionToJson(
 const _$StoreProviderEnumMap = {
   StoreProvider.apple: 'apple',
   StoreProvider.google: 'google',
-  StoreProvider.stripe: 'stripe',
 };

@@ -8,7 +8,6 @@ void main() {
       isRecommended: true,
       appleProductId: 'com.example.app.premium_monthly',
       googleProductId: 'premium_monthly',
-      stripePriceId: 'price_12345',
     );
 
     test('supports value equality', () {
@@ -20,7 +19,6 @@ void main() {
             isRecommended: true,
             appleProductId: 'com.example.app.premium_monthly',
             googleProductId: 'premium_monthly',
-            stripePriceId: 'price_12345',
           ),
         ),
       );
@@ -32,7 +30,6 @@ void main() {
         true, // isRecommended
         'com.example.app.premium_monthly', // appleProductId
         'premium_monthly', // googleProductId
-        'price_12345', // stripePriceId
       ]);
     });
 
@@ -48,7 +45,6 @@ void main() {
             isRecommended: false,
             appleProductId: const ValueWrapper('new_apple_id'),
             googleProductId: const ValueWrapper('new_google_id'),
-            stripePriceId: const ValueWrapper('new_stripe_id'),
           ),
           equals(
             const PlanDetails(
@@ -56,7 +52,6 @@ void main() {
               isRecommended: false,
               appleProductId: 'new_apple_id',
               googleProductId: 'new_google_id',
-              stripePriceId: 'new_stripe_id',
             ),
           ),
         );
@@ -68,7 +63,6 @@ void main() {
             enabled: false,
             appleProductId: const ValueWrapper(null),
             googleProductId: const ValueWrapper(null),
-            stripePriceId: const ValueWrapper(null),
           ),
           equals(
             const PlanDetails(
@@ -76,7 +70,6 @@ void main() {
               isRecommended: true,
               appleProductId: null,
               googleProductId: null,
-              stripePriceId: null,
             ),
           ),
         );
@@ -90,7 +83,6 @@ void main() {
           'isRecommended': true,
           'appleProductId': 'com.example.app.premium_monthly',
           'googleProductId': 'premium_monthly',
-          'stripePriceId': 'price_12345',
         };
         expect(PlanDetails.fromJson(json), equals(planDetails));
       });
@@ -104,7 +96,6 @@ void main() {
           'isRecommended': true,
           'appleProductId': 'com.example.app.premium_monthly',
           'googleProductId': 'premium_monthly',
-          'stripePriceId': 'price_12345',
         });
       });
     });
@@ -119,7 +110,6 @@ void main() {
               isRecommended: false,
               appleProductId: null,
               googleProductId: null,
-              stripePriceId: null,
             ),
             throwsA(isA<AssertionError>()),
           );
@@ -135,7 +125,6 @@ void main() {
               isRecommended: false,
               appleProductId: '',
               googleProductId: '',
-              stripePriceId: '',
             ),
             throwsA(isA<AssertionError>()),
           );
