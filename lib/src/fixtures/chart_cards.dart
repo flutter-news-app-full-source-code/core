@@ -47,19 +47,22 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.usersRoleDistribution,
-      label: labels[ChartCardId.usersRoleDistribution]!,
+      id: ChartCardId.usersTierDistribution,
+      label: labels[ChartCardId.usersTierDistribution]!,
       type: ChartType.bar,
       timeFrames: {
         ChartTimeFrame.week: _generateCategoricalSeries([
+          'Guest',
           'Standard',
           'Premium',
         ], 10),
         ChartTimeFrame.month: _generateCategoricalSeries([
+          'Guest',
           'Standard',
           'Premium',
         ], 11),
         ChartTimeFrame.year: _generateCategoricalSeries([
+          'Guest',
           'Standard',
           'Premium',
         ], 11),
@@ -331,6 +334,65 @@ List<ChartCardData> getChartCardsFixturesData({
         ChartTimeFrame.year: _generateTimeSeries(referenceTime, 365, 0),
       },
     ),
+
+    // --- Subscriptions Management ---
+    ChartCardData(
+      id: ChartCardId.subscriptionsActiveOverTime,
+      label: labels[ChartCardId.subscriptionsActiveOverTime]!,
+      type: ChartType.line,
+      timeFrames: {
+        ChartTimeFrame.week: _generateTimeSeries(referenceTime, 7, 100),
+        ChartTimeFrame.month: _generateTimeSeries(referenceTime, 30, 120),
+        ChartTimeFrame.year: _generateTimeSeries(referenceTime, 365, 150),
+      },
+    ),
+    ChartCardData(
+      id: ChartCardId.subscriptionsStatusDistribution,
+      label: labels[ChartCardId.subscriptionsStatusDistribution]!,
+      type: ChartType.bar,
+      timeFrames: {
+        ChartTimeFrame.week: _generateCategoricalSeries([
+          'Active',
+          'Grace Period',
+          'Billing Issue',
+          'Canceled',
+          'Expired',
+        ], 50),
+        ChartTimeFrame.month: _generateCategoricalSeries([
+          'Active',
+          'Grace Period',
+          'Billing Issue',
+          'Canceled',
+          'Expired',
+        ], 150),
+        ChartTimeFrame.year: _generateCategoricalSeries([
+          'Active',
+          'Grace Period',
+          'Billing Issue',
+          'Canceled',
+          'Expired',
+        ], 500),
+      },
+    ),
+    ChartCardData(
+      id: ChartCardId.subscriptionsByStoreProvider,
+      label: labels[ChartCardId.subscriptionsByStoreProvider]!,
+      type: ChartType.bar,
+      timeFrames: {
+        ChartTimeFrame.week: _generateCategoricalSeries([
+          'Apple',
+          'Google',
+        ], 50),
+        ChartTimeFrame.month: _generateCategoricalSeries([
+          'Apple',
+          'Google',
+        ], 150),
+        ChartTimeFrame.year: _generateCategoricalSeries([
+          'Apple',
+          'Google',
+        ], 500),
+      },
+    ),
   ];
 }
 
@@ -377,7 +439,7 @@ final Map<String, Map<ChartCardId, String>> _chartLabels = {
     // Users
     ChartCardId.usersRegistrationsOverTime: 'Registrations Over Time',
     ChartCardId.usersActiveUsersOverTime: 'Active Users Over Time',
-    ChartCardId.usersRoleDistribution: 'User Role Distribution',
+    ChartCardId.usersTierDistribution: 'User Tier Distribution',
     // Headlines
     ChartCardId.contentHeadlinesViewsOverTime: 'Views Over Time',
     ChartCardId.contentHeadlinesLikesOverTime: 'Likes Over Time',
@@ -409,12 +471,16 @@ final Map<String, Map<ChartCardId, String>> _chartLabels = {
         'Positive vs. Negative Feedback',
     ChartCardId.engagementsAppReviewsStoreRequestsOverTime:
         'Store Requests Over Time',
+    ChartCardId.subscriptionsActiveOverTime: 'Active Subscriptions Over Time',
+    ChartCardId.subscriptionsStatusDistribution:
+        'Subscription Status Distribution',
+    ChartCardId.subscriptionsByStoreProvider: 'Subscriptions by Store',
   },
   'ar': {
     // Users
     ChartCardId.usersRegistrationsOverTime: 'التسجيلات عبر الزمن',
     ChartCardId.usersActiveUsersOverTime: 'المستخدمون النشطون عبر الزمن',
-    ChartCardId.usersRoleDistribution: 'توزيع أدوار المستخدمين',
+    ChartCardId.usersTierDistribution: 'توزيع مستويات المستخدمين',
     // Headlines
     ChartCardId.contentHeadlinesViewsOverTime: 'المشاهدات عبر الزمن',
     ChartCardId.contentHeadlinesLikesOverTime: 'الإعجابات عبر الزمن',
@@ -446,5 +512,8 @@ final Map<String, Map<ChartCardId, String>> _chartLabels = {
         'التقييمات الإيجابية مقابل السلبية',
     ChartCardId.engagementsAppReviewsStoreRequestsOverTime:
         'طلبات تقييم المتجر عبر الزمن',
+    ChartCardId.subscriptionsActiveOverTime: 'الاشتراكات النشطة عبر الزمن',
+    ChartCardId.subscriptionsStatusDistribution: 'توزيع حالة الاشتراكات',
+    ChartCardId.subscriptionsByStoreProvider: 'الاشتراكات حسب المتجر',
   },
 };

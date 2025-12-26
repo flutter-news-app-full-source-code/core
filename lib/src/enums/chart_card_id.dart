@@ -17,9 +17,9 @@ enum ChartCardId {
   @JsonValue('users_active_users_over_time')
   usersActiveUsersOverTime,
 
-  /// Chart for user role distribution.
-  @JsonValue('users_role_distribution')
-  usersRoleDistribution,
+  /// Chart for user tier distribution (Guest, Standard, Premium).
+  @JsonValue('users_tier_distribution')
+  usersTierDistribution,
 
   // --- Content Management Page ---
   // Headlines Tab
@@ -104,4 +104,18 @@ enum ChartCardId {
   /// Chart for store review requests over time.
   @JsonValue('engagements_app_reviews_store_requests_over_time')
   engagementsAppReviewsStoreRequestsOverTime,
+
+  // --- Subscriptions Management Page ---
+  /// A line chart showing the trend of active subscribers over time.
+  @JsonValue('subscriptions_active_over_time')
+  subscriptionsActiveOverTime,
+
+  /// A bar chart showing the breakdown of all subscriptions by their status.
+  @JsonValue('subscriptions_status_distribution')
+  subscriptionsStatusDistribution,
+
+  /// A bar chart showing the distribution of subscriptions by store provider
+  /// (Apple vs. Google).
+  @JsonValue('subscriptions_by_store_provider')
+  subscriptionsByStoreProvider,
 }

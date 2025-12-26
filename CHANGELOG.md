@@ -13,12 +13,14 @@ and this project adheres to Semantic Versioning.
 - **feat(analytics)**: Added new analytics payloads for subscription events and access tier changes (`AccessTierChangedPayload`).
 - **feat(auth)**: Added `UserContext` model to separate ephemeral UI state (like `feedDecoratorStatus` and `dismissedHints`) from the core `User` identity.
 - **feat(auth)**: Added `DismissibleHintType` enum to categorize UI coach marks.
+- **feat(analytics)**: Added dashboard KPIs and charts for subscription management, including active subscriber trends, status distribution, and store provider breakdown.
 
 ### Changed
 - **BREAKING refactor(auth)**: Refactored the `User` model to use `AccessTier` for entitlements and `UserRole` for administrative permissions. This replaces the overloaded `AppUserRole` enum.
 - **BREAKING refactor(config)**: Updated `UserLimitsConfig`, `AdConfig`, and `FeedDecoratorConfig` to use `AccessTier` as the key for role-based configuration maps, replacing `AppUserRole`.
 - **refactor(subscription)**: Replaced the dynamic `SubscriptionPlan` list in `SubscriptionConfig` with explicit `monthlyPlan` and `annualPlan` configurations for better type safety and client handling.
 - **refactor(auth)**: Moved `feedDecoratorStatus` from the `User` model to the new `UserContext` model to cleanly separate identity from interaction state.
+- **refactor(analytics)**: Replaced the `usersRoleDistribution` chart with `usersTierDistribution` to align dashboard analytics with the new `AccessTier` monetization model.
 
 ### Fixed
 - **fix(config)**: Added missing `subscription` field to `FeaturesConfig` equality props.
