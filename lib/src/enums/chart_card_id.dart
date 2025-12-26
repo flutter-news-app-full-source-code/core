@@ -17,9 +17,9 @@ enum ChartCardId {
   @JsonValue('users_active_users_over_time')
   usersActiveUsersOverTime,
 
-  /// Chart for user role distribution.
-  @JsonValue('users_role_distribution')
-  usersRoleDistribution,
+  /// Chart for user tier distribution (Guest, Standard, Premium).
+  @JsonValue('users_tier_distribution')
+  usersTierDistribution,
 
   // --- Content Management Page ---
   // Headlines Tab

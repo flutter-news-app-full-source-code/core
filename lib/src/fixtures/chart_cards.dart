@@ -47,19 +47,22 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.usersRoleDistribution,
-      label: labels[ChartCardId.usersRoleDistribution]!,
+      id: ChartCardId.usersTierDistribution,
+      label: labels[ChartCardId.usersTierDistribution]!,
       type: ChartType.bar,
       timeFrames: {
         ChartTimeFrame.week: _generateCategoricalSeries([
+          'Guest',
           'Standard',
           'Premium',
         ], 10),
         ChartTimeFrame.month: _generateCategoricalSeries([
+          'Guest',
           'Standard',
           'Premium',
         ], 11),
         ChartTimeFrame.year: _generateCategoricalSeries([
+          'Guest',
           'Standard',
           'Premium',
         ], 11),
@@ -436,7 +439,7 @@ final Map<String, Map<ChartCardId, String>> _chartLabels = {
     // Users
     ChartCardId.usersRegistrationsOverTime: 'Registrations Over Time',
     ChartCardId.usersActiveUsersOverTime: 'Active Users Over Time',
-    ChartCardId.usersRoleDistribution: 'User Role Distribution',
+    ChartCardId.usersTierDistribution: 'User Tier Distribution',
     // Headlines
     ChartCardId.contentHeadlinesViewsOverTime: 'Views Over Time',
     ChartCardId.contentHeadlinesLikesOverTime: 'Likes Over Time',
@@ -477,7 +480,7 @@ final Map<String, Map<ChartCardId, String>> _chartLabels = {
     // Users
     ChartCardId.usersRegistrationsOverTime: 'التسجيلات عبر الزمن',
     ChartCardId.usersActiveUsersOverTime: 'المستخدمون النشطون عبر الزمن',
-    ChartCardId.usersRoleDistribution: 'توزيع أدوار المستخدمين',
+    ChartCardId.usersTierDistribution: 'توزيع مستويات المستخدمين',
     // Headlines
     ChartCardId.contentHeadlinesViewsOverTime: 'المشاهدات عبر الزمن',
     ChartCardId.contentHeadlinesLikesOverTime: 'الإعجابات عبر الزمن',
