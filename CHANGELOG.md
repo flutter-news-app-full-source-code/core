@@ -7,6 +7,8 @@ and this project adheres to Semantic Versioning.
 
 ## [Unreleased]
 
+## [1.6.0] - 2025-12-31
+
 ### Added
 - **feat(subscription)**: Introduced a complete **Subscription & Monetization System**. This includes the `UserSubscription` and `PurchaseTransaction` models, `SubscriptionConfig` for remote management of plans (monthly/annual), and a suite of analytics payloads for tracking the subscription lifecycle (`SubscriptionStarted`, `SubscriptionRenewed`, etc.).
 - **feat(subscription)**: Added `AccessTier` enum to strictly define user entitlement levels (`guest`, `standard`, `premium`), decoupling it from the user's identity or role.
