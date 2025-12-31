@@ -23,6 +23,7 @@ part 'user_context.g.dart';
 class UserContext extends Equatable {
   /// {@macro user_context}
   const UserContext({
+    required this.id,
     required this.userId,
     required this.feedDecoratorStatus,
     this.hasCompletedOnboarding = false,
@@ -33,6 +34,9 @@ class UserContext extends Equatable {
   /// Creates a [UserContext] from JSON data.
   factory UserContext.fromJson(Map<String, dynamic> json) =>
       _$UserContextFromJson(json);
+
+  /// The unique identifier for this user context.
+  final String id;
 
   /// The ID of the user this context belongs to.
   final String userId;
@@ -64,6 +68,7 @@ class UserContext extends Equatable {
 
   /// Creates a copy of this [UserContext] with updated values.
   UserContext copyWith({
+    String? id,
     String? userId,
     Map<FeedDecoratorType, UserFeedDecoratorStatus>? feedDecoratorStatus,
     bool? hasCompletedOnboarding,
@@ -71,6 +76,7 @@ class UserContext extends Equatable {
     Set<DismissibleHintType>? dismissedHints,
   }) {
     return UserContext(
+      id: id ?? this.id,
       userId: userId ?? this.userId,
       feedDecoratorStatus: feedDecoratorStatus ?? this.feedDecoratorStatus,
       hasCompletedOnboarding:
@@ -82,6 +88,7 @@ class UserContext extends Equatable {
 
   @override
   List<Object?> get props => [
+    id,
     userId,
     feedDecoratorStatus,
     hasCompletedOnboarding,

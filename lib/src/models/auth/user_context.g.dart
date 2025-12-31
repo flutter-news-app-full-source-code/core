@@ -9,6 +9,7 @@ part of 'user_context.dart';
 UserContext _$UserContextFromJson(Map<String, dynamic> json) =>
     $checkedCreate('UserContext', json, ($checkedConvert) {
       final val = UserContext(
+        id: $checkedConvert('id', (v) => v as String),
         userId: $checkedConvert('userId', (v) => v as String),
         feedDecoratorStatus: $checkedConvert(
           'feedDecoratorStatus',
@@ -36,6 +37,7 @@ UserContext _$UserContextFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$UserContextToJson(UserContext instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'userId': instance.userId,
       'feedDecoratorStatus': _feedDecoratorStatusToJson(
         instance.feedDecoratorStatus,

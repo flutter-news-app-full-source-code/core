@@ -16,6 +16,7 @@ final _defaultFeedDecoratorStatus = {
 final List<UserContext> userContextsFixturesData = usersFixturesData
     .map(
       (user) => UserContext(
+        id: user.id,
         userId: user.id,
         feedDecoratorStatus: _defaultFeedDecoratorStatus,
         hasCompletedOnboarding: true,

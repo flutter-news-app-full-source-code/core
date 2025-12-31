@@ -20,6 +20,7 @@ void main() {
       expect(
         userContextFixture.props,
         equals([
+          userContextFixture.id,
           userContextFixture.userId,
           userContextFixture.feedDecoratorStatus,
           userContextFixture.hasCompletedOnboarding,
@@ -92,6 +93,7 @@ void main() {
 
       test('hydrates missing feedDecoratorStatus entries with defaults', () {
         final partialJson = {
+          'id': 'test-id',
           'userId': 'test-user',
           'feedDecoratorStatus': {
             // Only provide one status, others should be hydrated
