@@ -40,5 +40,4 @@ Map<String, dynamic> _$AnalyticsConfigToJson(
 const _$AnalyticsProviderEnumMap = {
   AnalyticsProvider.firebase: 'firebase',
   AnalyticsProvider.mixpanel: 'mixpanel',
-  AnalyticsProvider.demo: 'demo',
 };
