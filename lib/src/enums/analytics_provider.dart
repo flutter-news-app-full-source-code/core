@@ -15,8 +15,4 @@ enum AnalyticsProvider {
   /// Mixpanel Analytics.
   @JsonValue('mixpanel')
   mixpanel,
-
-  /// A demo provider that logs events to the console for development.
-  @JsonValue('demo')
-  demo,
 }
