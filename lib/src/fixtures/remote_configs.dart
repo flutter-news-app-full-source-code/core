@@ -116,11 +116,6 @@ final remoteConfigsFixturesData = <RemoteConfig>[
             bannerAdId: 'ca-app-pub-3940256099942544/6300978111',
             interstitialAdId: 'ca-app-pub-3940256099942544/1033173712',
           ),
-          AdPlatformType.demo: AdPlatformIdentifiers(
-            nativeAdId: '_',
-            bannerAdId: '_',
-            interstitialAdId: '_',
-          ),
         },
         feedAdConfiguration: FeedAdConfiguration(
           enabled: true,

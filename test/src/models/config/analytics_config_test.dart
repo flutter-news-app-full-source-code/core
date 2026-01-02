@@ -55,11 +55,7 @@ void main() {
       test('should not equate instances with different properties', () {
         final config1 = analyticsConfigFixture.copyWith();
         final config2 = analyticsConfigFixture.copyWith(enabled: false);
-        final config3 = analyticsConfigFixture.copyWith(
-          activeProvider: AnalyticsProvider.demo,
-        );
         expect(config1, isNot(equals(config2)));
-        expect(config1, isNot(equals(config3)));
       });
 
       test('props list should contain all relevant fields', () {

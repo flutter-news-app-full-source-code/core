@@ -23,12 +23,12 @@ void main() {
     group('Equatable', () {
       test('should equate two identical instances', () {
         const instance1 = AdLoadFailedPayload(
-          adProvider: AdPlatformType.demo,
+          adProvider: AdPlatformType.admob,
           adType: AdType.banner,
           errorCode: 404,
         );
         const instance2 = AdLoadFailedPayload(
-          adProvider: AdPlatformType.demo,
+          adProvider: AdPlatformType.admob,
           adType: AdType.banner,
           errorCode: 404,
         );
@@ -38,7 +38,7 @@ void main() {
       test('should not equate instances with different properties', () {
         const instance1 = payload;
         const instance2 = AdLoadFailedPayload(
-          adProvider: AdPlatformType.demo,
+          adProvider: AdPlatformType.admob,
           adType: AdType.interstitial,
           errorCode: 2,
         );
