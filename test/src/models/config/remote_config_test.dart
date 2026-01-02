@@ -54,7 +54,6 @@ void main() {
       final newFeatures = remoteConfigFixture.features.copyWith(
         analytics: remoteConfigFixture.features.analytics.copyWith(
           enabled: false,
-          activeProvider: AnalyticsProvider.demo,
         ),
       );
 
