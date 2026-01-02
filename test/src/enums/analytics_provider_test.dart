@@ -6,10 +6,7 @@ void main() {
     test('has correct values', () {
       expect(
         AnalyticsProvider.values,
-        containsAll([
-          AnalyticsProvider.firebase,
-          AnalyticsProvider.mixpanel,
-        ]),
+        containsAll([AnalyticsProvider.firebase, AnalyticsProvider.mixpanel]),
       );
     });
 
