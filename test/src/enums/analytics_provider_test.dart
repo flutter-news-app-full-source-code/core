@@ -9,7 +9,6 @@ void main() {
         containsAll([
           AnalyticsProvider.firebase,
           AnalyticsProvider.mixpanel,
-          AnalyticsProvider.demo,
         ]),
       );
     });
@@ -17,7 +16,6 @@ void main() {
     test('has correct string names', () {
       expect(AnalyticsProvider.firebase.name, 'firebase');
       expect(AnalyticsProvider.mixpanel.name, 'mixpanel');
-      expect(AnalyticsProvider.demo.name, 'demo');
     });
 
     test('can be created from string names', () {
