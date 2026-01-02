@@ -7,6 +7,12 @@ and this project adheres to Semantic Versioning.
 
 ## [Unreleased]
 
+### Changed
+- **BREAKING refactor(enums)**: remove demo enums from production code
+- **refactor**(remote_configs): remove unused ad platform identifiers
+- **fix(tests)**: remove demo enums from tests
+
+
 ## [1.6.0] - 2025-12-31
 
 ### Added
