@@ -100,7 +100,7 @@ final remoteConfigsFixturesData = <RemoteConfig>[
       ),
       analytics: AnalyticsConfig(
         enabled: true,
-        activeProvider: AnalyticsProvider.firebase,
+        activeProvider: AnalyticsProviders.firebase,
 
         /// If an event is absent from this set, it is considered enabled by default
         disabledEvents: {AnalyticsEvent.contentReadingTime},

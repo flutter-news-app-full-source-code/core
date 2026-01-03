@@ -22,7 +22,7 @@ void main() {
 
     group('copyWith', () {
       test('should create a copy with updated values', () {
-        const updatedProvider = AnalyticsProvider.mixpanel;
+        const updatedProvider = AnalyticsProviders.mixpanel;
         const updatedDisabledEvents = {AnalyticsEvent.userLogin};
 
         final copiedConfig = analyticsConfigFixture.copyWith(

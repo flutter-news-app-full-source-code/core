@@ -1,7 +1,7 @@
 export 'ad_platform_type.dart';
 export 'ad_type.dart';
 export 'analytics_event.dart';
-export 'analytics_provider.dart';
+export 'analytics_providers.dart';
 export 'app_accent_theme.dart';
 export 'app_base_theme.dart';
 export 'app_font_weight.dart';
