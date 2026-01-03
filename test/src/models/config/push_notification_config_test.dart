@@ -51,7 +51,7 @@ void main() {
     test('copyWith creates a copy with updated values', () {
       // Arrange: Define updated values.
       const newEnabled = false;
-      const newPrimaryProvider = PushNotificationProvider.oneSignal;
+      const newPrimaryProvider = PushNotificationProviders.oneSignal;
 
       // Act: Create a copy with updated values.
       final copiedConfig = pushNotificationConfig.copyWith(

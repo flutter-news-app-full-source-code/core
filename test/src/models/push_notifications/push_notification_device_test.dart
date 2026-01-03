@@ -1,5 +1,5 @@
 import 'package:core/src/enums/device_platform.dart';
-import 'package:core/src/enums/push_notification_provider.dart';
+import 'package:core/src/enums/push_notification_providers.dart';
 import 'package:core/src/models/push_notifications/push_notification_device.dart';
 import 'package:test/test.dart';
 
@@ -9,8 +9,8 @@ void main() {
     const userId = 'user-id-1';
     const platform = DevicePlatform.android;
     const providerTokens = {
-      PushNotificationProvider.firebase: 'firebase-token-string',
-      PushNotificationProvider.oneSignal: 'onesignal-token-string',
+      PushNotificationProviders.firebase: 'firebase-token-string',
+      PushNotificationProviders.oneSignal: 'onesignal-token-string',
     };
     final createdAt = DateTime.parse('2023-01-01T10:00:00.000Z');
     final updatedAt = DateTime.parse('2023-01-01T11:00:00.000Z');
@@ -78,7 +78,7 @@ void main() {
     test('copyWith creates a copy with updated values', () {
       // Arrange: Define the updated values.
       const newProviderTokens = {
-        PushNotificationProvider.firebase: 'new-firebase-token',
+        PushNotificationProviders.firebase: 'new-firebase-token',
       };
       final newUpdatedAt = DateTime.parse('2023-02-01T12:00:00.000Z');
 

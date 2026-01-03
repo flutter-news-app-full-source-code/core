@@ -1,5 +1,5 @@
 import 'package:core/src/enums/device_platform.dart';
-import 'package:core/src/enums/push_notification_provider.dart';
+import 'package:core/src/enums/push_notification_providers.dart';
 import 'package:core/src/utils/date_time_converter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -41,7 +41,7 @@ class PushNotificationDevice extends Equatable {
 
   /// A map of push notification provider tokens for this device.
   @JsonKey(fromJson: _providerTokensFromJson, toJson: _providerTokensToJson)
-  final Map<PushNotificationProvider, String> providerTokens;
+  final Map<PushNotificationProviders, String> providerTokens;
 
   /// The timestamp when this device was first registered.
   @DateTimeConverter()
@@ -55,12 +55,12 @@ class PushNotificationDevice extends Equatable {
   Map<String, dynamic> toJson() => _$PushNotificationDeviceToJson(this);
 
   /// Custom deserializer for the `providerTokens` map.
-  static Map<PushNotificationProvider, String> _providerTokensFromJson(
+  static Map<PushNotificationProviders, String> _providerTokensFromJson(
     Map<String, dynamic> json,
   ) {
     return json.map(
       (key, value) => MapEntry(
-        PushNotificationProvider.values.byName(key),
+        PushNotificationProviders.values.byName(key),
         value as String,
       ),
     );
@@ -68,7 +68,7 @@ class PushNotificationDevice extends Equatable {
 
   /// Custom serializer for the `providerTokens` map.
   static Map<String, dynamic> _providerTokensToJson(
-    Map<PushNotificationProvider, String> tokens,
+    Map<PushNotificationProviders, String> tokens,
   ) {
     return tokens.map((key, value) => MapEntry(key.name, value));
   }
@@ -89,7 +89,7 @@ class PushNotificationDevice extends Equatable {
     String? id,
     String? userId,
     DevicePlatform? platform,
-    Map<PushNotificationProvider, String>? providerTokens,
+    Map<PushNotificationProviders, String>? providerTokens,
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {

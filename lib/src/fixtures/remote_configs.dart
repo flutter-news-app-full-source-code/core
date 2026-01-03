@@ -210,7 +210,7 @@ final remoteConfigsFixturesData = <RemoteConfig>[
       ),
       pushNotifications: PushNotificationConfig(
         enabled: true,
-        primaryProvider: PushNotificationProvider.firebase,
+        primaryProvider: PushNotificationProviders.firebase,
         deliveryConfigs: {
           PushNotificationSubscriptionDeliveryType.breakingOnly: true,
           PushNotificationSubscriptionDeliveryType.dailyDigest: true,
