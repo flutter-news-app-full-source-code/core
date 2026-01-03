@@ -29,7 +29,7 @@ class PurchaseTransaction extends Equatable {
   final String planId;
 
   /// The store provider that processed the payment.
-  final StoreProvider provider;
+  final StoreProviders provider;
 
   /// The raw receipt data or token from the native payment provider
   /// (e.g., Apple App Store receipt, Google Play purchase token).
@@ -44,7 +44,7 @@ class PurchaseTransaction extends Equatable {
   /// Creates a copy of this [PurchaseTransaction] with updated values.
   PurchaseTransaction copyWith({
     String? planId,
-    StoreProvider? provider,
+    StoreProviders? provider,
     String? providerReceipt,
   }) {
     return PurchaseTransaction(

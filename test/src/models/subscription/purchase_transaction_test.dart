@@ -5,7 +5,7 @@ void main() {
   group('PurchaseTransaction', () {
     const purchaseTransaction = PurchaseTransaction(
       planId: 'premium_monthly',
-      provider: StoreProvider.apple,
+      provider: StoreProviders.apple,
       providerReceipt: 'base64_receipt_data',
     );
 
@@ -15,7 +15,7 @@ void main() {
         equals(
           const PurchaseTransaction(
             planId: 'premium_monthly',
-            provider: StoreProvider.apple,
+            provider: StoreProviders.apple,
             providerReceipt: 'base64_receipt_data',
           ),
         ),
@@ -25,7 +25,7 @@ void main() {
     test('props are correct', () {
       expect(purchaseTransaction.props, [
         'premium_monthly',
-        StoreProvider.apple,
+        StoreProviders.apple,
         'base64_receipt_data',
       ]);
     });
@@ -37,11 +37,11 @@ void main() {
 
       test('returns a new object with updated values', () {
         expect(
-          purchaseTransaction.copyWith(provider: StoreProvider.google),
+          purchaseTransaction.copyWith(provider: StoreProviders.google),
           equals(
             const PurchaseTransaction(
               planId: 'premium_monthly',
-              provider: StoreProvider.google,
+              provider: StoreProviders.google,
               providerReceipt: 'base64_receipt_data',
             ),
           ),

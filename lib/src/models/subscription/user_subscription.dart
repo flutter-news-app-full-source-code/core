@@ -56,7 +56,7 @@ class UserSubscription extends Equatable {
   final SubscriptionStatus status;
 
   /// The payment provider through which this subscription was purchased.
-  final StoreProvider provider;
+  final StoreProviders provider;
 
   /// The date and time when the subscription access expires.
   @DateTimeConverter()
@@ -89,7 +89,7 @@ class UserSubscription extends Equatable {
     String? userId,
     AccessTier? tier,
     SubscriptionStatus? status,
-    StoreProvider? provider,
+    StoreProviders? provider,
     DateTime? validUntil,
     bool? willAutoRenew,
     String? originalTransactionId,
