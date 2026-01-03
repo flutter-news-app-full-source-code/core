@@ -1,7 +1,7 @@
 export 'ad_platform_type.dart';
 export 'ad_type.dart';
 export 'analytics_event.dart';
-export 'analytics_provider.dart';
+export 'analytics_providers.dart';
 export 'app_accent_theme.dart';
 export 'app_base_theme.dart';
 export 'app_font_weight.dart';
@@ -28,7 +28,7 @@ export 'kpi_time_frame.dart';
 export 'limited_action.dart';
 export 'moderation_status.dart';
 export 'positive_interaction_type.dart';
-export 'push_notification_provider.dart';
+export 'push_notification_providers.dart';
 export 'push_notification_subscription_delivery_type.dart';
 export 'ranked_list_card_id.dart';
 export 'ranked_list_time_frame.dart';

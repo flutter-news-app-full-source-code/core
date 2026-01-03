@@ -31,7 +31,7 @@ class AnalyticsConfig extends Equatable {
   final bool enabled;
 
   /// The primary analytics service provider to be used by the system.
-  final AnalyticsProvider activeProvider;
+  final AnalyticsProviders activeProvider;
 
   /// A set of specific events that should NOT be logged.
   ///
@@ -73,7 +73,7 @@ class AnalyticsConfig extends Equatable {
   /// replaced with the new values.
   AnalyticsConfig copyWith({
     bool? enabled,
-    AnalyticsProvider? activeProvider,
+    AnalyticsProviders? activeProvider,
     Set<AnalyticsEvent>? disabledEvents,
     Map<AnalyticsEvent, double>? eventSamplingRates,
   }) {

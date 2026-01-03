@@ -34,7 +34,7 @@ class PushNotificationConfig extends Equatable {
   /// The primary push notification service provider to be used by the system.
   ///
   /// This allows for dynamically switching between providers like Firebase
-  final PushNotificationProvider primaryProvider;
+  final PushNotificationProviders primaryProvider;
 
   /// A map to globally enable or disable each specific notification type
   /// for all users.
@@ -50,7 +50,7 @@ class PushNotificationConfig extends Equatable {
   /// replaced with the new values.
   PushNotificationConfig copyWith({
     bool? enabled,
-    PushNotificationProvider? primaryProvider,
+    PushNotificationProviders? primaryProvider,
     Map<PushNotificationSubscriptionDeliveryType, bool>? deliveryConfigs,
   }) {
     return PushNotificationConfig(

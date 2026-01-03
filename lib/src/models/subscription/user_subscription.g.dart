@@ -21,7 +21,7 @@ UserSubscription _$UserSubscriptionFromJson(Map<String, dynamic> json) =>
         ),
         provider: $checkedConvert(
           'provider',
-          (v) => $enumDecode(_$StoreProviderEnumMap, v),
+          (v) => $enumDecode(_$StoreProvidersEnumMap, v),
         ),
         validUntil: $checkedConvert(
           'validUntil',
@@ -42,7 +42,7 @@ Map<String, dynamic> _$UserSubscriptionToJson(UserSubscription instance) =>
       'userId': instance.userId,
       'tier': _$AccessTierEnumMap[instance.tier]!,
       'status': _$SubscriptionStatusEnumMap[instance.status]!,
-      'provider': _$StoreProviderEnumMap[instance.provider]!,
+      'provider': _$StoreProvidersEnumMap[instance.provider]!,
       'validUntil': const DateTimeConverter().toJson(instance.validUntil),
       'willAutoRenew': instance.willAutoRenew,
       'originalTransactionId': instance.originalTransactionId,
@@ -62,7 +62,7 @@ const _$SubscriptionStatusEnumMap = {
   SubscriptionStatus.expired: 'expired',
 };
 
-const _$StoreProviderEnumMap = {
-  StoreProvider.apple: 'apple',
-  StoreProvider.google: 'google',
+const _$StoreProvidersEnumMap = {
+  StoreProviders.apple: 'apple',
+  StoreProviders.google: 'google',
 };

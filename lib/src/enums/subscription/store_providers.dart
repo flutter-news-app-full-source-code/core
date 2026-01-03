@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 /// This MUST remain distinct to handle provider-specific SDKs and backend
 /// validation logic.
 @JsonEnum()
-enum StoreProvider {
+enum StoreProviders {
   /// Apple App Store.
   apple,
 

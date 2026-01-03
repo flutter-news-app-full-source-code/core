@@ -12,7 +12,7 @@ AnalyticsConfig _$AnalyticsConfigFromJson(Map<String, dynamic> json) =>
         enabled: $checkedConvert('enabled', (v) => v as bool),
         activeProvider: $checkedConvert(
           'activeProvider',
-          (v) => $enumDecode(_$AnalyticsProviderEnumMap, v),
+          (v) => $enumDecode(_$AnalyticsProvidersEnumMap, v),
         ),
         disabledEvents: $checkedConvert(
           'disabledEvents',
@@ -32,12 +32,12 @@ Map<String, dynamic> _$AnalyticsConfigToJson(
   AnalyticsConfig instance,
 ) => <String, dynamic>{
   'enabled': instance.enabled,
-  'activeProvider': _$AnalyticsProviderEnumMap[instance.activeProvider]!,
+  'activeProvider': _$AnalyticsProvidersEnumMap[instance.activeProvider]!,
   'disabledEvents': _disabledEventsToJson(instance.disabledEvents),
   'eventSamplingRates': _eventSamplingRatesToJson(instance.eventSamplingRates),
 };
 
-const _$AnalyticsProviderEnumMap = {
-  AnalyticsProvider.firebase: 'firebase',
-  AnalyticsProvider.mixpanel: 'mixpanel',
+const _$AnalyticsProvidersEnumMap = {
+  AnalyticsProviders.firebase: 'firebase',
+  AnalyticsProviders.mixpanel: 'mixpanel',
 };

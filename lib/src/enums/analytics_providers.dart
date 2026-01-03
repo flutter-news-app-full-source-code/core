@@ -1,13 +1,13 @@
 import 'package:json_annotation/json_annotation.dart';
 
-/// {@template analytics_provider}
+/// {@template analytics_providers}
 /// Defines the supported analytics service providers.
 ///
 /// This allows for dynamically switching between providers based on remote
 /// configuration.
 /// {@endtemplate}
 @JsonEnum()
-enum AnalyticsProvider {
+enum AnalyticsProviders {
   /// Firebase Analytics.
   @JsonValue('firebase')
   firebase,

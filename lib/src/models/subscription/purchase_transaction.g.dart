@@ -12,7 +12,7 @@ PurchaseTransaction _$PurchaseTransactionFromJson(Map<String, dynamic> json) =>
         planId: $checkedConvert('planId', (v) => v as String),
         provider: $checkedConvert(
           'provider',
-          (v) => $enumDecode(_$StoreProviderEnumMap, v),
+          (v) => $enumDecode(_$StoreProvidersEnumMap, v),
         ),
         providerReceipt: $checkedConvert('providerReceipt', (v) => v as String),
       );
@@ -23,11 +23,11 @@ Map<String, dynamic> _$PurchaseTransactionToJson(
   PurchaseTransaction instance,
 ) => <String, dynamic>{
   'planId': instance.planId,
-  'provider': _$StoreProviderEnumMap[instance.provider]!,
+  'provider': _$StoreProvidersEnumMap[instance.provider]!,
   'providerReceipt': instance.providerReceipt,
 };
 
-const _$StoreProviderEnumMap = {
-  StoreProvider.apple: 'apple',
-  StoreProvider.google: 'google',
+const _$StoreProvidersEnumMap = {
+  StoreProviders.apple: 'apple',
+  StoreProviders.google: 'google',
 };
