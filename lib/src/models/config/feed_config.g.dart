@@ -43,9 +43,8 @@ const _$FeedItemClickBehaviorEnumMap = {
 
 const _$FeedDecoratorTypeEnumMap = {
   FeedDecoratorType.linkAccount: 'linkAccount',
-  FeedDecoratorType.upgrade: 'upgrade',
+  FeedDecoratorType.unlockRewards: 'unlockRewards',
   FeedDecoratorType.rateApp: 'rateApp',
-  FeedDecoratorType.enableNotifications: 'enableNotifications',
   FeedDecoratorType.suggestedTopics: 'suggestedTopics',
   FeedDecoratorType.suggestedSources: 'suggestedSources',
 };

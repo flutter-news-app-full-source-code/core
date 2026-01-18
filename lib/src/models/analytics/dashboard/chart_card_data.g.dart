@@ -78,10 +78,8 @@ const _$ChartCardIdEnumMap = {
       'engagements_app_reviews_positive_vs_negative',
   ChartCardId.engagementsAppReviewsStoreRequestsOverTime:
       'engagements_app_reviews_store_requests_over_time',
-  ChartCardId.subscriptionsActiveOverTime: 'subscriptions_active_over_time',
-  ChartCardId.subscriptionsStatusDistribution:
-      'subscriptions_status_distribution',
-  ChartCardId.subscriptionsByStoreProvider: 'subscriptions_by_store_provider',
+  ChartCardId.rewardsAdsWatchedOverTime: 'rewards_ads_watched_over_time',
+  ChartCardId.rewardsActiveByType: 'rewards_active_by_type',
 };
 
 const _$ChartTypeEnumMap = {ChartType.line: 'line', ChartType.bar: 'bar'};
