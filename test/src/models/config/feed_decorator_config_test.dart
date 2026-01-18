@@ -20,7 +20,6 @@ void main() {
       final guestRoleConfig = rateAppDecorator.visibleTo[AccessTier.guest]!;
       final standardRoleConfig =
           rateAppDecorator.visibleTo[AccessTier.standard]!;
-      final premiumRoleConfig = rateAppDecorator.visibleTo[AccessTier.premium]!;
 
       expect(
         rateAppDecorator,
@@ -31,7 +30,6 @@ void main() {
             visibleTo: {
               AccessTier.guest: guestRoleConfig,
               AccessTier.standard: standardRoleConfig,
-              AccessTier.premium: premiumRoleConfig,
             },
           ),
         ),
@@ -83,7 +81,6 @@ void main() {
       final guestRoleConfig = rateAppDecorator.visibleTo[AccessTier.guest]!;
       final standardRoleConfig =
           rateAppDecorator.visibleTo[AccessTier.standard]!;
-      final premiumRoleConfig = rateAppDecorator.visibleTo[AccessTier.premium]!;
       expect(
         rateAppDecorator.props,
         equals([
@@ -92,7 +89,6 @@ void main() {
           {
             AccessTier.guest: guestRoleConfig,
             AccessTier.standard: standardRoleConfig,
-            AccessTier.premium: premiumRoleConfig,
           },
           null,
         ]),
@@ -108,7 +104,6 @@ void main() {
             'visibleTo': {
               'guest': {'daysBetweenViews': 14},
               'standard': {'daysBetweenViews': 30},
-              'premium': {'daysBetweenViews': 60},
             },
           }),
           isA<FeedDecoratorConfig>(),
@@ -136,8 +131,6 @@ void main() {
         final guestRoleConfig = rateAppDecorator.visibleTo[AccessTier.guest]!;
         final standardRoleConfig =
             rateAppDecorator.visibleTo[AccessTier.standard]!;
-        final premiumRoleConfig =
-            rateAppDecorator.visibleTo[AccessTier.premium]!;
         expect(
           rateAppDecorator.toJson(),
           equals({
@@ -146,7 +139,6 @@ void main() {
             'visibleTo': {
               'guest': guestRoleConfig.toJson(),
               'standard': standardRoleConfig.toJson(),
-              'premium': premiumRoleConfig.toJson(),
             },
             'itemsToDisplay': null,
           }),

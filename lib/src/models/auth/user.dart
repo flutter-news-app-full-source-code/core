@@ -1,5 +1,4 @@
-import 'package:core/src/enums/subscription/access_tier.dart';
-import 'package:core/src/enums/user_role.dart';
+import 'package:core/src/enums/enums.dart';
 import 'package:core/src/utils/date_time_converter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';

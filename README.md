@@ -25,7 +25,7 @@ artifacts, categorized as follows:
 
 *   **Enumerations:** A collection of strongly-typed enums that define
     controlled vocabularies for application states, types, and categories
-    (e.g., `ContentStatus`, `UserRole`, `AccessTier`). This eliminates the use
+    (e.g., `ContentStatus`, `UserRole`, `RewardType`). This eliminates the use
     of "magic strings" and ensures compile-time safety.
 
 *   **Utilities & Exceptions:** Common helper functions (e.g.,

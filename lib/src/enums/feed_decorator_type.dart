@@ -8,14 +8,11 @@ enum FeedDecoratorType {
   /// A call-to-action to link an anonymous account to an email.
   linkAccount,
 
-  /// A call-to-action to upgrade to a premium subscription.
-  upgrade,
+  /// A call-to-action to unlock rewards (e.g. Ad-Free) by watching ads.
+  unlockRewards,
 
   /// A call-to-action to prompt users to rate the application.
   rateApp,
-
-  /// A call-to-action to turn on push notifications.
-  enableNotifications,
 
   /// A content collection of suggested topics to follow.
   suggestedTopics,

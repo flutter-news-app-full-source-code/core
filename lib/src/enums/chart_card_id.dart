@@ -105,17 +105,12 @@ enum ChartCardId {
   @JsonValue('engagements_app_reviews_store_requests_over_time')
   engagementsAppReviewsStoreRequestsOverTime,
 
-  // --- Subscriptions Management Page ---
-  /// A line chart showing the trend of active subscribers over time.
-  @JsonValue('subscriptions_active_over_time')
-  subscriptionsActiveOverTime,
+  // --- Rewards Management Page ---
+  /// A line chart showing the trend of ads watched for rewards over time.
+  @JsonValue('rewards_ads_watched_over_time')
+  rewardsAdsWatchedOverTime,
 
-  /// A bar chart showing the breakdown of all subscriptions by their status.
-  @JsonValue('subscriptions_status_distribution')
-  subscriptionsStatusDistribution,
-
-  /// A bar chart showing the distribution of subscriptions by store provider
-  /// (Apple vs. Google).
-  @JsonValue('subscriptions_by_store_provider')
-  subscriptionsByStoreProvider,
+  /// A bar chart showing the distribution of active rewards by type (e.g. Ad-Free vs Digest).
+  @JsonValue('rewards_active_by_type')
+  rewardsActiveByType,
 }

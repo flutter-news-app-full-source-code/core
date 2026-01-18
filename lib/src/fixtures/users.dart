@@ -1,5 +1,4 @@
-import 'package:core/src/enums/subscription/access_tier.dart';
-import 'package:core/src/enums/user_role.dart';
+import 'package:core/src/enums/enums.dart';
 import 'package:core/src/fixtures/fixture_ids.dart';
 import 'package:core/src/models/auth/user.dart';
 
@@ -17,17 +16,17 @@ final List<User> usersFixturesData = [
     email: 'admin@example.com',
     name: 'Admin User',
     role: UserRole.admin,
-    tier: AccessTier.premium,
+    tier: AccessTier.standard,
     photoUrl: 'https://i.pravatar.cc/150?u=admin',
     createdAt: _now,
   ),
   User(
-    id: kPublisherPremiumId,
+    id: kPublisherUser1Id,
     email: 'publisher@example.com',
-    name: 'Premium Publisher',
+    name: 'Publisher One',
     role: UserRole.publisher,
-    tier: AccessTier.premium,
-    photoUrl: 'https://i.pravatar.cc/150?u=pub-premium',
+    tier: AccessTier.standard,
+    photoUrl: 'https://i.pravatar.cc/150?u=pub-one',
     createdAt: _now,
   ),
   User(
@@ -61,29 +60,20 @@ final List<User> usersFixturesData = [
     createdAt: _now,
   ),
   User(
-    id: kPremiumUserId,
-    email: 'premium.user@example.com',
-    name: 'Premium User',
+    id: kRewardedUserId,
+    email: 'rewarded.user@example.com',
+    name: 'Rewarded User',
     role: UserRole.user,
-    tier: AccessTier.premium,
-    photoUrl: 'https://i.pravatar.cc/150?u=premium',
+    tier: AccessTier.standard,
+    photoUrl: 'https://i.pravatar.cc/150?u=rewarded',
     createdAt: _now,
   ),
   User(
-    id: kGracePeriodUserId,
-    email: 'grace.period.user@example.com',
-    name: 'Grace Period User',
+    id: kExpiredRewardUserId,
+    email: 'expired.reward.user@example.com',
+    name: 'Expired Reward User',
     role: UserRole.user,
-    tier: AccessTier.premium, // Still has premium access
-    photoUrl: 'https://i.pravatar.cc/150?u=grace',
-    createdAt: _now,
-  ),
-  User(
-    id: kExpiredSubUserId,
-    email: 'expired.sub.user@example.com',
-    name: 'Expired Sub User',
-    role: UserRole.user,
-    tier: AccessTier.standard, // Reverted to standard
+    tier: AccessTier.standard,
     photoUrl: 'https://i.pravatar.cc/150?u=expired',
     createdAt: _now,
   ),

@@ -8,7 +8,4 @@ enum AccessTier {
 
   /// The standard service level. Typically for registered, non-paying users.
   standard,
-
-  /// The highest service level. Typically for paid subscribers.
-  premium,
 }

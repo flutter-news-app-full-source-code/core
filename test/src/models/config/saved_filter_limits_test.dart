@@ -26,12 +26,11 @@ void main() {
         fullModel,
         equals(
           const SavedFilterLimits(
-            total: 10,
-            pinned: 5,
+            total: 25,
+            pinned: 10,
             notificationSubscriptions: {
-              PushNotificationSubscriptionDeliveryType.breakingOnly: 3,
-              PushNotificationSubscriptionDeliveryType.dailyDigest: 2,
-              PushNotificationSubscriptionDeliveryType.weeklyRoundup: 2,
+              PushNotificationSubscriptionDeliveryType.breakingOnly: 10,
+              PushNotificationSubscriptionDeliveryType.dailyDigest: 10,
             },
           ),
         ),
@@ -45,9 +44,8 @@ void main() {
           fullModel.total,
           fullModel.pinned,
           {
-            PushNotificationSubscriptionDeliveryType.breakingOnly: 3,
-            PushNotificationSubscriptionDeliveryType.dailyDigest: 2,
-            PushNotificationSubscriptionDeliveryType.weeklyRoundup: 2,
+            PushNotificationSubscriptionDeliveryType.breakingOnly: 10,
+            PushNotificationSubscriptionDeliveryType.dailyDigest: 10,
           },
         ]),
       );

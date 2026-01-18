@@ -72,9 +72,8 @@ const _$KpiCardIdEnumMap = {
       'engagements_app_reviews_positive_feedback',
   KpiCardId.engagementsAppReviewsStoreRequests:
       'engagements_app_reviews_store_requests',
-  KpiCardId.subscriptionsActiveCount: 'subscriptions_active_count',
-  KpiCardId.subscriptionsCanceledCount: 'subscriptions_canceled_count',
-  KpiCardId.subscriptionsExpiredCount: 'subscriptions_expired_count',
+  KpiCardId.rewardsAdsWatchedTotal: 'rewards_ads_watched_total',
+  KpiCardId.rewardsActiveUsersCount: 'rewards_active_users_count',
 };
 
 const _$KpiTimeFrameEnumMap = {

@@ -241,35 +241,25 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
 
-    // --- Subscriptions Management ---
+    // --- Rewards Management ---
     KpiCardData(
-      id: KpiCardId.subscriptionsActiveCount,
-      label: labels[KpiCardId.subscriptionsActiveCount]!,
+      id: KpiCardId.rewardsAdsWatchedTotal,
+      label: labels[KpiCardId.rewardsAdsWatchedTotal]!,
       timeFrames: const {
-        KpiTimeFrame.day: KpiTimeFrameData(value: 100, trend: '+2'),
-        KpiTimeFrame.week: KpiTimeFrameData(value: 105, trend: '+5'),
-        KpiTimeFrame.month: KpiTimeFrameData(value: 120, trend: '+15'),
-        KpiTimeFrame.year: KpiTimeFrameData(value: 150, trend: '+50'),
+        KpiTimeFrame.day: KpiTimeFrameData(value: 150, trend: '+12'),
+        KpiTimeFrame.week: KpiTimeFrameData(value: 1050, trend: '+50'),
+        KpiTimeFrame.month: KpiTimeFrameData(value: 4500, trend: '+150'),
+        KpiTimeFrame.year: KpiTimeFrameData(value: 54000, trend: '+5000'),
       },
     ),
     KpiCardData(
-      id: KpiCardId.subscriptionsCanceledCount,
-      label: labels[KpiCardId.subscriptionsCanceledCount]!,
+      id: KpiCardId.rewardsActiveUsersCount,
+      label: labels[KpiCardId.rewardsActiveUsersCount]!,
       timeFrames: const {
-        KpiTimeFrame.day: KpiTimeFrameData(value: 1, trend: '0'),
-        KpiTimeFrame.week: KpiTimeFrameData(value: 5, trend: '+1'),
-        KpiTimeFrame.month: KpiTimeFrameData(value: 20, trend: '+2'),
-        KpiTimeFrame.year: KpiTimeFrameData(value: 200, trend: '+50'),
-      },
-    ),
-    KpiCardData(
-      id: KpiCardId.subscriptionsExpiredCount,
-      label: labels[KpiCardId.subscriptionsExpiredCount]!,
-      timeFrames: const {
-        KpiTimeFrame.day: KpiTimeFrameData(value: 0, trend: '0'),
-        KpiTimeFrame.week: KpiTimeFrameData(value: 2, trend: '-1'),
-        KpiTimeFrame.month: KpiTimeFrameData(value: 10, trend: '+2'),
-        KpiTimeFrame.year: KpiTimeFrameData(value: 50, trend: '+10'),
+        KpiTimeFrame.day: KpiTimeFrameData(value: 45, trend: '+5'),
+        KpiTimeFrame.week: KpiTimeFrameData(value: 300, trend: '+20'),
+        KpiTimeFrame.month: KpiTimeFrameData(value: 1200, trend: '+100'),
+        KpiTimeFrame.year: KpiTimeFrameData(value: 1200, trend: '+1200'),
       },
     ),
   ];
@@ -299,9 +289,8 @@ final Map<String, Map<KpiCardId, String>> _kpiLabels = {
     KpiCardId.engagementsAppReviewsTotalFeedback: 'Total Feedback',
     KpiCardId.engagementsAppReviewsPositiveFeedback: 'Positive Feedback',
     KpiCardId.engagementsAppReviewsStoreRequests: 'Store Requests',
-    KpiCardId.subscriptionsActiveCount: 'Active Subscriptions',
-    KpiCardId.subscriptionsCanceledCount: 'Canceled Subscriptions',
-    KpiCardId.subscriptionsExpiredCount: 'Expired Subscriptions',
+    KpiCardId.rewardsAdsWatchedTotal: 'Ads Watched',
+    KpiCardId.rewardsActiveUsersCount: 'Active Reward Users',
   },
   'ar': {
     KpiCardId.usersTotalRegistered: 'إجمالي المستخدمين',
@@ -325,8 +314,7 @@ final Map<String, Map<KpiCardId, String>> _kpiLabels = {
     KpiCardId.engagementsAppReviewsTotalFeedback: 'إجمالي التقييمات',
     KpiCardId.engagementsAppReviewsPositiveFeedback: 'تقييمات إيجابية',
     KpiCardId.engagementsAppReviewsStoreRequests: 'طلبات تقييم المتجر',
-    KpiCardId.subscriptionsActiveCount: 'الاشتراكات النشطة',
-    KpiCardId.subscriptionsCanceledCount: 'الاشتراكات الملغاة',
-    KpiCardId.subscriptionsExpiredCount: 'الاشتراكات المنتهية',
+    KpiCardId.rewardsAdsWatchedTotal: 'الإعلانات المشاهدة',
+    KpiCardId.rewardsActiveUsersCount: 'مستخدمو المكافآت النشطون',
   },
 };

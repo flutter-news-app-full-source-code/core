@@ -45,5 +45,4 @@ const _$UserRoleEnumMap = {
 const _$AccessTierEnumMap = {
   AccessTier.guest: 'guest',
   AccessTier.standard: 'standard',
-  AccessTier.premium: 'premium',
 };

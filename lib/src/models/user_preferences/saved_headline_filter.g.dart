@@ -48,5 +48,4 @@ Map<String, dynamic> _$SavedHeadlineFilterToJson(
 const _$PushNotificationSubscriptionDeliveryTypeEnumMap = {
   PushNotificationSubscriptionDeliveryType.breakingOnly: 'breakingOnly',
   PushNotificationSubscriptionDeliveryType.dailyDigest: 'dailyDigest',
-  PushNotificationSubscriptionDeliveryType.weeklyRoundup: 'weeklyRoundup',
 };

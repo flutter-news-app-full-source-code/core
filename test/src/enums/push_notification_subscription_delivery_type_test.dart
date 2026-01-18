@@ -8,12 +8,11 @@ void main() {
       const expectedValues = {
         PushNotificationSubscriptionDeliveryType.breakingOnly,
         PushNotificationSubscriptionDeliveryType.dailyDigest,
-        PushNotificationSubscriptionDeliveryType.weeklyRoundup,
       };
 
       // Assert
       // Check that the number of enum values is correct.
-      expect(PushNotificationSubscriptionDeliveryType.values.length, 3);
+      expect(PushNotificationSubscriptionDeliveryType.values.length, 2);
 
       // Check that all expected values are present in the enum's values list.
       for (final value in expectedValues) {

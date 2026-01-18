@@ -19,7 +19,6 @@ export 'push_notification_config.dart';
 export 'remote_config.dart';
 export 'reporting_config.dart';
 export 'saved_filter_limits.dart';
-export 'subscription_config.dart';
 export 'update_config.dart';
 export 'user_config.dart';
 export 'user_limits_config.dart';

@@ -8,9 +8,8 @@ void main() {
         FeedDecoratorType.values,
         containsAll([
           FeedDecoratorType.linkAccount,
-          FeedDecoratorType.upgrade,
+          FeedDecoratorType.unlockRewards,
           FeedDecoratorType.rateApp,
-          FeedDecoratorType.enableNotifications,
           FeedDecoratorType.suggestedTopics,
           FeedDecoratorType.suggestedSources,
         ]),
@@ -19,9 +18,8 @@ void main() {
 
     test('has correct string values', () {
       expect(FeedDecoratorType.linkAccount.name, 'linkAccount');
-      expect(FeedDecoratorType.upgrade.name, 'upgrade');
+      expect(FeedDecoratorType.unlockRewards.name, 'unlockRewards');
       expect(FeedDecoratorType.rateApp.name, 'rateApp');
-      expect(FeedDecoratorType.enableNotifications.name, 'enableNotifications');
       expect(FeedDecoratorType.suggestedTopics.name, 'suggestedTopics');
       expect(FeedDecoratorType.suggestedSources.name, 'suggestedSources');
     });
@@ -32,16 +30,12 @@ void main() {
         FeedDecoratorType.linkAccount,
       );
       expect(
-        FeedDecoratorType.values.byName('upgrade'),
-        FeedDecoratorType.upgrade,
+        FeedDecoratorType.values.byName('unlockRewards'),
+        FeedDecoratorType.unlockRewards,
       );
       expect(
         FeedDecoratorType.values.byName('rateApp'),
         FeedDecoratorType.rateApp,
-      );
-      expect(
-        FeedDecoratorType.values.byName('enableNotifications'),
-        FeedDecoratorType.enableNotifications,
       );
       expect(
         FeedDecoratorType.values.byName('suggestedTopics'),
@@ -58,12 +52,11 @@ void main() {
         FeedDecoratorType.linkAccount.toString(),
         'FeedDecoratorType.linkAccount',
       );
-      expect(FeedDecoratorType.upgrade.toString(), 'FeedDecoratorType.upgrade');
-      expect(FeedDecoratorType.rateApp.toString(), 'FeedDecoratorType.rateApp');
       expect(
-        FeedDecoratorType.enableNotifications.toString(),
-        'FeedDecoratorType.enableNotifications',
+        FeedDecoratorType.unlockRewards.toString(),
+        'FeedDecoratorType.unlockRewards',
       );
+      expect(FeedDecoratorType.rateApp.toString(), 'FeedDecoratorType.rateApp');
       expect(
         FeedDecoratorType.suggestedTopics.toString(),
         'FeedDecoratorType.suggestedTopics',
