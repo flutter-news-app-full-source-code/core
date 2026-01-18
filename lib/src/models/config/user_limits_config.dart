@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/models/config/saved_filter_limits.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';

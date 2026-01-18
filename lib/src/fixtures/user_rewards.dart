@@ -24,5 +24,5 @@ final List<UserRewards> userRewardsFixturesData = [
   ),
 
   // Standard User: No rewards
-  UserRewards(id: 'rew_003', userId: kStandardUserId, activeRewards: {}),
+  const UserRewards(id: 'rew_003', userId: kStandardUserId, activeRewards: {}),
 ];

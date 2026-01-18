@@ -1,4 +1,8 @@
+import 'package:core/core.dart' show User;
 import 'package:core/src/enums/reward_type.dart';
+import 'package:core/src/models/auth/auth.dart' show User;
+import 'package:core/src/models/auth/user.dart' show User;
+import 'package:core/src/models/models.dart' show User;
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';

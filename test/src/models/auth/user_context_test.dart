@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/enums/dismissible_hint_type.dart';
 import 'package:test/test.dart';
 
 void main() {
