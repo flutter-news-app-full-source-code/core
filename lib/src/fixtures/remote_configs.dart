@@ -134,7 +134,7 @@ final remoteConfigsFixturesData = <RemoteConfig>[
               ),
             },
           ),
-          
+
           FeedDecoratorType.suggestedTopics: FeedDecoratorConfig(
             category: FeedDecoratorCategory.contentCollection,
             enabled: true,
