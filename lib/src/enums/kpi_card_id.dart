@@ -101,16 +101,12 @@ enum KpiCardId {
   @JsonValue('engagements_app_reviews_store_requests')
   engagementsAppReviewsStoreRequests,
 
-  // --- Subscriptions Management Page ---
-  /// KPI card for the total number of active subscribers.
-  @JsonValue('subscriptions_active_count')
-  subscriptionsActiveCount,
+  // --- Rewards Management Page ---
+  /// KPI card for the total number of ads watched to earn rewards.
+  @JsonValue('rewards_ads_watched_total')
+  rewardsAdsWatchedTotal,
 
-  /// KPI card for subscriptions that have been canceled (auto-renew off).
-  @JsonValue('subscriptions_canceled_count')
-  subscriptionsCanceledCount,
-
-  /// KPI card for subscriptions that have expired (churned).
-  @JsonValue('subscriptions_expired_count')
-  subscriptionsExpiredCount,
+  /// KPI card for the number of users with currently active rewards.
+  @JsonValue('rewards_active_users_count')
+  rewardsActiveUsersCount,
 }
