@@ -8,6 +8,10 @@ and this project adheres to Semantic Versioning.
 ## [Unreleased]
 
 ### Changed
+- **BREAKING refactor(auth)**: Removed `AccessTier.premium`. The system now uses a flattened `guest`/`standard` tier model.
+- **BREAKING refactor(subscription)**: Removed the entire Subscription domain (`UserSubscription`, `SubscriptionConfig`, etc.) in favor of a new Reward System.
+- **feat(rewards)**: Introduced Time-Based Reward System (`UserRewards`, `RewardsConfig`, `RewardType`) allowing users to unlock features by watching ads.
+- **refactor(config)**: Flattened `UserLimitsConfig` to remove premium limits, upgrading standard users to maximum capacity.
 - **BREAKING refactor(enums)**: standardize the naming conventions for various provider-related enums within the system. By changing singular enum names to their plural counterparts (e.g., AnalyticsProvider to AnalyticsProviders), it enhances code clarity and consistency. This change propagates throughout the codebase, affecting enum definitions, their usage in models, configurations, data fixtures, and associated test files, ensuring a more intuitive and maintainable structure.
 - **BREAKING refactor(enums)**: remove demo enums from production code
 - **refactor**(remote_configs): remove unused ad platform identifiers
