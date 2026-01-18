@@ -27,30 +27,6 @@ final List<AppSettings> appSettingsFixturesData = [
     ),
   ),
   AppSettings(
-    id: kPublisherPremiumId,
-    displaySettings: const DisplaySettings(
-      baseTheme: AppBaseTheme.system,
-      accentTheme: AppAccentTheme.defaultBlue,
-      fontFamily: 'SystemDefault',
-      textScaleFactor: AppTextScaleFactor.medium,
-      fontWeight: AppFontWeight.regular,
-    ),
-    language: Language(
-      id: 'lang-en',
-      code: 'en',
-      name: 'English',
-      nativeName: 'English',
-      createdAt: DateTime.now(),
-      updatedAt: DateTime.now(),
-      status: ContentStatus.active,
-    ),
-    feedSettings: const FeedSettings(
-      feedItemDensity: FeedItemDensity.standard,
-      feedItemImageStyle: FeedItemImageStyle.smallThumbnail,
-      feedItemClickBehavior: FeedItemClickBehavior.defaultBehavior,
-    ),
-  ),
-  AppSettings(
     id: kPublisherStandardId,
     displaySettings: const DisplaySettings(
       baseTheme: AppBaseTheme.dark,

@@ -50,25 +50,6 @@ List<UserContentPreferences> getUserContentPreferencesFixturesData({
           .toList(),
     ),
     UserContentPreferences(
-      id: kPublisherPremiumId, // Publisher (Premium)
-      followedCountries: const [],
-      followedSources: [
-        sources[0], // TechCrunch
-        sources[1], // BBC News
-      ],
-      followedTopics: [
-        topics[0], // Technology
-        topics[6], // Business
-      ],
-      savedHeadlines: [headlines[2], headlines[3]],
-      savedHeadlineFilters: savedHeadlineFilters
-          .map((e) => e.copyWith(userId: kPublisherPremiumId))
-          .toList(),
-      savedSourceFilters: savedSourceFilters
-          .map((e) => e.copyWith(userId: kPublisherPremiumId))
-          .toList(),
-    ),
-    UserContentPreferences(
       id: kPublisherStandardId, // Publisher (Standard)
       followedCountries: const [],
       followedSources: [
