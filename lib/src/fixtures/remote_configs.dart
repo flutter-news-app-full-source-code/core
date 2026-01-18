@@ -1,4 +1,6 @@
 import 'package:core/core.dart';
+import 'package:core/src/enums/reward_type.dart';
+import 'package:core/src/models/config/rewards_config.dart';
 
 final remoteConfigsFixturesData = <RemoteConfig>[
   RemoteConfig(
@@ -21,16 +23,8 @@ final remoteConfigsFixturesData = <RemoteConfig>[
     ),
     user: const UserConfig(
       limits: UserLimitsConfig(
-        followedItems: {
-          AccessTier.guest: 5,
-          AccessTier.standard: 15,
-          AccessTier.premium: 30,
-        },
-        savedHeadlines: {
-          AccessTier.guest: 10,
-          AccessTier.standard: 30,
-          AccessTier.premium: 100,
-        },
+        followedItems: {AccessTier.guest: 5, AccessTier.standard: 30},
+        savedHeadlines: {AccessTier.guest: 10, AccessTier.standard: 100},
         savedHeadlineFilters: {
           AccessTier.guest: SavedFilterLimits(
             total: 3,
@@ -42,15 +36,6 @@ final remoteConfigsFixturesData = <RemoteConfig>[
             },
           ),
           AccessTier.standard: SavedFilterLimits(
-            total: 10,
-            pinned: 5,
-            notificationSubscriptions: {
-              PushNotificationSubscriptionDeliveryType.breakingOnly: 3,
-              PushNotificationSubscriptionDeliveryType.dailyDigest: 2,
-              PushNotificationSubscriptionDeliveryType.weeklyRoundup: 2,
-            },
-          ),
-          AccessTier.premium: SavedFilterLimits(
             total: 25,
             pinned: 10,
             notificationSubscriptions: {
@@ -62,41 +47,20 @@ final remoteConfigsFixturesData = <RemoteConfig>[
         },
         savedSourceFilters: {
           AccessTier.guest: SavedFilterLimits(total: 3, pinned: 3),
-          AccessTier.standard: SavedFilterLimits(total: 10, pinned: 5),
-          AccessTier.premium: SavedFilterLimits(total: 25, pinned: 10),
+          AccessTier.standard: SavedFilterLimits(total: 25, pinned: 10),
         },
-        reactionsPerDay: {
-          AccessTier.guest: 20,
-          AccessTier.standard: 100,
-          AccessTier.premium: 500,
-        },
-        commentsPerDay: {
-          AccessTier.guest: 0,
-          AccessTier.standard: 10,
-          AccessTier.premium: 50,
-        },
-        reportsPerDay: {
-          AccessTier.guest: 1,
-          AccessTier.standard: 5,
-          AccessTier.premium: 20,
-        },
+        reactionsPerDay: {AccessTier.guest: 20, AccessTier.standard: 500},
+        commentsPerDay: {AccessTier.guest: 0, AccessTier.standard: 50},
+        reportsPerDay: {AccessTier.guest: 1, AccessTier.standard: 20},
       ),
     ),
     features: const FeaturesConfig(
-      subscription: SubscriptionConfig(
+      rewards: RewardsConfig(
         enabled: true,
-        monthlyPlan: PlanDetails(
-          enabled: true,
-          isRecommended: false,
-          appleProductId: 'com.newshub.premium.monthly',
-          googleProductId: 'premium_monthly',
-        ),
-        annualPlan: PlanDetails(
-          enabled: true,
-          isRecommended: true,
-          appleProductId: 'com.newshub.premium.annual',
-          googleProductId: 'premium_annual',
-        ),
+        rewards: {
+          RewardType.adFree: RewardDetails(enabled: true, durationDays: 1),
+          RewardType.dailyDigest: RewardDetails(enabled: true, durationDays: 7),
+        },
       ),
       analytics: AnalyticsConfig(
         enabled: true,
@@ -157,7 +121,7 @@ final remoteConfigsFixturesData = <RemoteConfig>[
           ),
           FeedDecoratorType.upgrade: FeedDecoratorConfig(
             category: FeedDecoratorCategory.callToAction,
-            enabled: true,
+            enabled: false,
             visibleTo: {
               AccessTier.standard: FeedDecoratorRoleConfig(daysBetweenViews: 7),
             },
@@ -170,7 +134,6 @@ final remoteConfigsFixturesData = <RemoteConfig>[
               AccessTier.standard: FeedDecoratorRoleConfig(
                 daysBetweenViews: 30,
               ),
-              AccessTier.premium: FeedDecoratorRoleConfig(daysBetweenViews: 90),
             },
           ),
           FeedDecoratorType.enableNotifications: FeedDecoratorConfig(
@@ -181,7 +144,6 @@ final remoteConfigsFixturesData = <RemoteConfig>[
               AccessTier.standard: FeedDecoratorRoleConfig(
                 daysBetweenViews: 10,
               ),
-              AccessTier.premium: FeedDecoratorRoleConfig(daysBetweenViews: 20),
             },
           ),
           FeedDecoratorType.suggestedTopics: FeedDecoratorConfig(
