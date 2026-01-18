@@ -32,7 +32,7 @@ final remoteConfigsFixturesData = <RemoteConfig>[
             notificationSubscriptions: {
               PushNotificationSubscriptionDeliveryType.breakingOnly: 1,
               PushNotificationSubscriptionDeliveryType.dailyDigest: 0,
-              PushNotificationSubscriptionDeliveryType.weeklyRoundup: 0,
+              
             },
           ),
           AccessTier.standard: SavedFilterLimits(
@@ -41,7 +41,7 @@ final remoteConfigsFixturesData = <RemoteConfig>[
             notificationSubscriptions: {
               PushNotificationSubscriptionDeliveryType.breakingOnly: 10,
               PushNotificationSubscriptionDeliveryType.dailyDigest: 10,
-              PushNotificationSubscriptionDeliveryType.weeklyRoundup: 10,
+              
             },
           ),
         },
@@ -176,7 +176,7 @@ final remoteConfigsFixturesData = <RemoteConfig>[
         deliveryConfigs: {
           PushNotificationSubscriptionDeliveryType.breakingOnly: true,
           PushNotificationSubscriptionDeliveryType.dailyDigest: true,
-          PushNotificationSubscriptionDeliveryType.weeklyRoundup: true,
+          
         },
       ),
       community: CommunityConfig(
