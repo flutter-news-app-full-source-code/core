@@ -37,5 +37,4 @@ Map<String, dynamic> _$SavedFilterLimitsToJson(SavedFilterLimits instance) =>
 const _$PushNotificationSubscriptionDeliveryTypeEnumMap = {
   PushNotificationSubscriptionDeliveryType.breakingOnly: 'breakingOnly',
   PushNotificationSubscriptionDeliveryType.dailyDigest: 'dailyDigest',
-  PushNotificationSubscriptionDeliveryType.weeklyRoundup: 'weeklyRoundup',
 };

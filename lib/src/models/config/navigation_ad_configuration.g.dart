@@ -41,7 +41,6 @@ Map<String, dynamic> _$NavigationAdConfigurationToJson(
 const _$AccessTierEnumMap = {
   AccessTier.guest: 'guest',
   AccessTier.standard: 'standard',
-  AccessTier.premium: 'premium',
 };
 
 const _$AdTypeEnumMap = {

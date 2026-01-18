@@ -42,7 +42,6 @@ Map<String, dynamic> _$PushNotificationPayloadToJson(
 const _$PushNotificationSubscriptionDeliveryTypeEnumMap = {
   PushNotificationSubscriptionDeliveryType.breakingOnly: 'breakingOnly',
   PushNotificationSubscriptionDeliveryType.dailyDigest: 'dailyDigest',
-  PushNotificationSubscriptionDeliveryType.weeklyRoundup: 'weeklyRoundup',
 };
 
 const _$ContentTypeEnumMap = {

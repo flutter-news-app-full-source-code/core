@@ -95,5 +95,4 @@ Map<String, dynamic> _$UserLimitsConfigToJson(UserLimitsConfig instance) =>
 const _$AccessTierEnumMap = {
   AccessTier.guest: 'guest',
   AccessTier.standard: 'standard',
-  AccessTier.premium: 'premium',
 };
