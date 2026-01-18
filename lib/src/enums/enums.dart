@@ -37,5 +37,4 @@ export 'reportable_entity.dart';
 export 'sort_order.dart';
 export 'source_report_reason.dart';
 export 'source_type.dart';
-export 'subscription/subscription.dart';
 export 'user_role.dart';
