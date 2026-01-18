@@ -42,7 +42,7 @@ void main() {
 
     test('copyWith creates a copy with updated values', () {
       final updatedConfig = userLimitsConfigFixture.copyWith(
-        followedItems: {AccessTier.guest: 100},
+        followedItems: {AccessTier.guest: 100, AccessTier.standard: 200},
       );
 
       expect(updatedConfig.followedItems[AccessTier.guest], 100);
