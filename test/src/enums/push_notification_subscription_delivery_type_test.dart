@@ -8,7 +8,6 @@ void main() {
       const expectedValues = {
         PushNotificationSubscriptionDeliveryType.breakingOnly,
         PushNotificationSubscriptionDeliveryType.dailyDigest,
-        PushNotificationSubscriptionDeliveryType.weeklyRoundup,
       };
 
       // Assert
