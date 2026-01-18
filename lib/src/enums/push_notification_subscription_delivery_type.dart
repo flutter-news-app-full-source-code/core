@@ -12,8 +12,4 @@ enum PushNotificationSubscriptionDeliveryType {
   /// Delivers a single, AI-powered summary of all matching headlines from the
   /// past day, sent at a scheduled time.
   dailyDigest,
-
-  /// Delivers a single, AI-powered summary of all matching headlines from the
-  /// past week, sent on a recurring day.
-  weeklyRoundup,
 }
