@@ -15,24 +15,16 @@ const kRemoteConfigId = '6643b1b7a4a4e6e1a8e7b1c2';
 /// ID for the singleton DashboardSummary fixture.
 const kDashboardSummaryId = '6643b1b7a4a4e6e1a8e7b1c3';
 
-// --- Subscription Fixture IDs ---
-const kAdminSubscriptionId = 'sub_admin_active_annual_01';
-const kPublisherPremiumSubscriptionId = 'sub_pub_prem_active_month_01';
-const kPremiumUserSubscriptionId = 'sub_prem_user_active_month_01';
-const kGracePeriodUserSubscriptionId = 'sub_grace_user_grace_month_01';
-const kExpiredUserSubscriptionId = 'sub_exp_user_expired_month_01';
-
 // --- User Fixture IDs ---
 const kAdminUserId = 'usr_admin_0000000000000001';
-const kPublisherPremiumId = 'usr_pub_prem_00000000000001';
+const kPublisherUser1Id = 'usr_pub_01_000000000000001';
 const kPublisherStandardId = 'usr_pub_std_00000000000002';
 
 // Demo Scenario Users
 const kGuestUserId = 'usr_guest_anon_000000000001';
 const kStandardUserId = 'usr_std_user_0000000000001';
-const kPremiumUserId = 'usr_prem_user_000000000001';
-const kGracePeriodUserId = 'usr_grace_user_00000000001';
-const kExpiredSubUserId = 'usr_exp_user_000000000001';
+const kRewardedUserId = 'usr_rewarded_user_00000001';
+const kExpiredRewardUserId = 'usr_exp_reward_user_000001';
 
 // Generic users for lists
 const kUser3Id = 'usr_generic_00000000000003';
