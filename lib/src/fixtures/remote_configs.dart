@@ -32,7 +32,6 @@ final remoteConfigsFixturesData = <RemoteConfig>[
             notificationSubscriptions: {
               PushNotificationSubscriptionDeliveryType.breakingOnly: 1,
               PushNotificationSubscriptionDeliveryType.dailyDigest: 0,
-              
             },
           ),
           AccessTier.standard: SavedFilterLimits(
@@ -41,7 +40,6 @@ final remoteConfigsFixturesData = <RemoteConfig>[
             notificationSubscriptions: {
               PushNotificationSubscriptionDeliveryType.breakingOnly: 10,
               PushNotificationSubscriptionDeliveryType.dailyDigest: 10,
-              
             },
           ),
         },
@@ -119,7 +117,7 @@ final remoteConfigsFixturesData = <RemoteConfig>[
               AccessTier.guest: FeedDecoratorRoleConfig(daysBetweenViews: 3),
             },
           ),
-          FeedDecoratorType.upgrade: FeedDecoratorConfig(
+          FeedDecoratorType.unlockRewards: FeedDecoratorConfig(
             category: FeedDecoratorCategory.callToAction,
             enabled: false,
             visibleTo: {
@@ -136,16 +134,7 @@ final remoteConfigsFixturesData = <RemoteConfig>[
               ),
             },
           ),
-          FeedDecoratorType.enableNotifications: FeedDecoratorConfig(
-            category: FeedDecoratorCategory.callToAction,
-            enabled: true,
-            visibleTo: {
-              AccessTier.guest: FeedDecoratorRoleConfig(daysBetweenViews: 5),
-              AccessTier.standard: FeedDecoratorRoleConfig(
-                daysBetweenViews: 10,
-              ),
-            },
-          ),
+          
           FeedDecoratorType.suggestedTopics: FeedDecoratorConfig(
             category: FeedDecoratorCategory.contentCollection,
             enabled: true,
@@ -176,7 +165,6 @@ final remoteConfigsFixturesData = <RemoteConfig>[
         deliveryConfigs: {
           PushNotificationSubscriptionDeliveryType.breakingOnly: true,
           PushNotificationSubscriptionDeliveryType.dailyDigest: true,
-          
         },
       ),
       community: CommunityConfig(
