@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/models/config/rewards_config.dart';
 
 final remoteConfigsFixturesData = <RemoteConfig>[
   RemoteConfig(

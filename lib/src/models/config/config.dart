@@ -18,6 +18,7 @@ export 'navigation_ad_frequency_config.dart';
 export 'push_notification_config.dart';
 export 'remote_config.dart';
 export 'reporting_config.dart';
+export 'rewards_config.dart';
 export 'saved_filter_limits.dart';
 export 'update_config.dart';
 export 'user_config.dart';
