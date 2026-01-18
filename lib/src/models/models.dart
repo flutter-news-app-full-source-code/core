@@ -7,7 +7,6 @@ export 'notifications/notifications.dart';
 export 'push_notifications/push_notifications.dart';
 export 'query/query.dart';
 export 'responses/responses.dart';
-export 'subscription/subscription.dart';
 export 'user_generated_content/user_generated_content.dart';
 export 'user_preferences/user_preferences.dart';
 export 'user_settings/user_settings.dart';
