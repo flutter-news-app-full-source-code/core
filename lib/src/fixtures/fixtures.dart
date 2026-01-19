@@ -19,4 +19,5 @@ export 'sources.dart';
 export 'topics.dart';
 export 'user_content_preferences.dart';
 export 'user_contexts.dart';
+export 'user_rewards.dart';
 export 'users.dart';
