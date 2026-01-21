@@ -46,34 +46,34 @@ Map<String, dynamic> _$KpiCardDataToJson(KpiCardData instance) =>
     };
 
 const _$KpiCardIdEnumMap = {
-  KpiCardId.usersTotalRegistered: 'users_total_registered',
-  KpiCardId.usersNewRegistrations: 'users_new_registrations',
-  KpiCardId.usersActiveUsers: 'users_active_users',
-  KpiCardId.contentHeadlinesTotalPublished: 'content_headlines_total_published',
-  KpiCardId.contentHeadlinesTotalViews: 'content_headlines_total_views',
-  KpiCardId.contentHeadlinesTotalLikes: 'content_headlines_total_likes',
-  KpiCardId.contentSourcesTotalSources: 'content_sources_total_sources',
-  KpiCardId.contentSourcesNewSources: 'content_sources_new_sources',
-  KpiCardId.contentSourcesTotalFollowers: 'content_sources_total_followers',
-  KpiCardId.contentTopicsTotalTopics: 'content_topics_total_topics',
-  KpiCardId.contentTopicsNewTopics: 'content_topics_new_topics',
-  KpiCardId.contentTopicsTotalFollowers: 'content_topics_total_followers',
-  KpiCardId.engagementsTotalReactions: 'engagements_total_reactions',
-  KpiCardId.engagementsTotalComments: 'engagements_total_comments',
+  KpiCardId.usersTotalRegistered: 'usersTotalRegistered',
+  KpiCardId.usersNewRegistrations: 'usersNewRegistrations',
+  KpiCardId.usersActiveUsers: 'usersActiveUsers',
+  KpiCardId.contentHeadlinesTotalPublished: 'contentHeadlinesTotalPublished',
+  KpiCardId.contentHeadlinesTotalViews: 'contentHeadlinesTotalViews',
+  KpiCardId.contentHeadlinesTotalLikes: 'contentHeadlinesTotalLikes',
+  KpiCardId.contentSourcesTotalSources: 'contentSourcesTotalSources',
+  KpiCardId.contentSourcesNewSources: 'contentSourcesNewSources',
+  KpiCardId.contentSourcesTotalFollowers: 'contentSourcesTotalFollowers',
+  KpiCardId.contentTopicsTotalTopics: 'contentTopicsTotalTopics',
+  KpiCardId.contentTopicsNewTopics: 'contentTopicsNewTopics',
+  KpiCardId.contentTopicsTotalFollowers: 'contentTopicsTotalFollowers',
+  KpiCardId.engagementsTotalReactions: 'engagementsTotalReactions',
+  KpiCardId.engagementsTotalComments: 'engagementsTotalComments',
   KpiCardId.engagementsAverageEngagementRate:
-      'engagements_average_engagement_rate',
-  KpiCardId.engagementsReportsPending: 'engagements_reports_pending',
-  KpiCardId.engagementsReportsResolved: 'engagements_reports_resolved',
+      'engagementsAverageEngagementRate',
+  KpiCardId.engagementsReportsPending: 'engagementsReportsPending',
+  KpiCardId.engagementsReportsResolved: 'engagementsReportsResolved',
   KpiCardId.engagementsReportsAverageResolutionTime:
-      'engagements_reports_average_resolution_time',
+      'engagementsReportsAverageResolutionTime',
   KpiCardId.engagementsAppReviewsTotalFeedback:
-      'engagements_app_reviews_total_feedback',
+      'engagementsAppReviewsTotalFeedback',
   KpiCardId.engagementsAppReviewsPositiveFeedback:
-      'engagements_app_reviews_positive_feedback',
+      'engagementsAppReviewsPositiveFeedback',
   KpiCardId.engagementsAppReviewsStoreRequests:
-      'engagements_app_reviews_store_requests',
-  KpiCardId.rewardsAdsWatchedTotal: 'rewards_ads_watched_total',
-  KpiCardId.rewardsActiveUsersCount: 'rewards_active_users_count',
+      'engagementsAppReviewsStoreRequests',
+  KpiCardId.rewardsAdsWatchedTotal: 'rewardsAdsWatchedTotal',
+  KpiCardId.rewardsActiveUsersCount: 'rewardsActiveUsersCount',
 };
 
 const _$KpiTimeFrameEnumMap = {

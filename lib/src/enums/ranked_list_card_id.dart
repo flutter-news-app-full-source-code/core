@@ -7,18 +7,14 @@ import 'package:json_annotation/json_annotation.dart';
 @JsonEnum()
 enum RankedListCardId {
   /// Ranked list for most viewed headlines.
-  @JsonValue('overview_headlines_most_viewed')
   overviewHeadlinesMostViewed,
 
   /// Ranked list for most liked headlines.
-  @JsonValue('overview_headlines_most_liked')
   overviewHeadlinesMostLiked,
 
   /// Ranked list for most followed sources.
-  @JsonValue('overview_sources_most_followed')
   overviewSourcesMostFollowed,
 
   /// Ranked list for most followed topics.
-  @JsonValue('overview_topics_most_followed')
   overviewTopicsMostFollowed,
 }

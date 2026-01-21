@@ -40,12 +40,10 @@ Map<String, dynamic> _$RankedListCardDataToJson(RankedListCardData instance) =>
     };
 
 const _$RankedListCardIdEnumMap = {
-  RankedListCardId.overviewHeadlinesMostViewed:
-      'overview_headlines_most_viewed',
-  RankedListCardId.overviewHeadlinesMostLiked: 'overview_headlines_most_liked',
-  RankedListCardId.overviewSourcesMostFollowed:
-      'overview_sources_most_followed',
-  RankedListCardId.overviewTopicsMostFollowed: 'overview_topics_most_followed',
+  RankedListCardId.overviewHeadlinesMostViewed: 'overviewHeadlinesMostViewed',
+  RankedListCardId.overviewHeadlinesMostLiked: 'overviewHeadlinesMostLiked',
+  RankedListCardId.overviewSourcesMostFollowed: 'overviewSourcesMostFollowed',
+  RankedListCardId.overviewTopicsMostFollowed: 'overviewTopicsMostFollowed',
 };
 
 const _$RankedListTimeFrameEnumMap = {
