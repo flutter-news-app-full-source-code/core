@@ -8,6 +8,8 @@ and this project adheres to Semantic Versioning.
 ## [Unreleased]
 
 ### Changed
+- **BREAKING refactor(config)**: Split `AdPlatformIdentifiers` into explicit `android` and `ios` fields (e.g., `androidNativeAdId`, `iosNativeAdId`) to support platform-specific ad units directly in configuration.
+- **feat(analytics)**: Added comprehensive Rewards System analytics events (`rewardsHubViewed`, `rewardOfferClicked`, `rewardGranted`) and associated payloads to track the user journey from offer to fulfillment.
 - **BREAKING refactor(auth)**: Removed `AccessTier.premium`. The system now uses a flattened `guest`/`standard` tier model.
 - **BREAKING refactor(subscription)**: Removed the entire Subscription domain (`UserSubscription`, `SubscriptionConfig`, etc.) in favor of a new Reward System.
 - **feat(rewards)**: Introduced Time-Based Reward System (`UserRewards`, `RewardsConfig`, `RewardType`) allowing users to unlock features by watching ads.
