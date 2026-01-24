@@ -12,11 +12,11 @@ void main() {
     test('can be instantiated (AdMob)', () {
       expect(admobIdentifiersFixture, isA<AdPlatformIdentifiers>());
       expect(
-        admobIdentifiersFixture.nativeAdId,
+        admobIdentifiersFixture.androidNativeAdId,
         'ca-app-pub-3940256099942544/2247696110',
       );
       expect(
-        admobIdentifiersFixture.interstitialAdId,
+        admobIdentifiersFixture.androidInterstitialAdId,
         'ca-app-pub-3940256099942544/1033173712',
       );
     });
@@ -29,12 +29,12 @@ void main() {
 
     test('copyWith returns a new instance with updated values', () {
       final updatedIdentifiers = admobIdentifiersFixture.copyWith(
-        nativeAdId: 'new_native_id',
-        interstitialAdId: 'new_interstitial_id',
+        androidNativeAdId: 'new_native_id',
+        androidInterstitialAdId: 'new_interstitial_id',
       );
 
-      expect(updatedIdentifiers.nativeAdId, 'new_native_id');
-      expect(updatedIdentifiers.interstitialAdId, 'new_interstitial_id');
+      expect(updatedIdentifiers.androidNativeAdId, 'new_native_id');
+      expect(updatedIdentifiers.androidInterstitialAdId, 'new_interstitial_id');
       expect(updatedIdentifiers, isNot(equals(admobIdentifiersFixture)));
     });
 

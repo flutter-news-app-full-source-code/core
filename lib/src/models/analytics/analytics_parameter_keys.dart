@@ -161,6 +161,11 @@ abstract final class AnalyticsParameterKeys {
   /// Used in: [AdRewardEarnedPayload].
   static const String rewardAmount = 'rewardAmount';
 
+  /// The type of reward being interacted with (e.g., 'adFree', 'dailyDigest').
+  ///
+  /// Used in: [RewardOfferClickedPayload], [RewardGrantedPayload].
+  static const String rewardType = 'rewardType';
+
   /// The density setting for a feed.
   ///
   /// Used in: [FeedDensityChangedPayload].
@@ -170,6 +175,11 @@ abstract final class AnalyticsParameterKeys {
   ///
   /// Used in: [SubscriptionEndedPayload].
   static const String reason = 'reason';
+
+  /// The duration of the granted reward in days.
+  ///
+  /// Used in: [RewardGrantedPayload].
+  static const String durationDays = 'durationDays';
 
   /// The UI element or event that triggered an action.
   ///
@@ -203,4 +213,9 @@ abstract final class AnalyticsParameterKeys {
   /// [HeadlineFilterUsedPayload], [SourceFilterCreatedPayload],
   /// [SourceFilterUpdatedPayload], [SourceFilterUsedPayload].
   static const String criteriaSummary = 'criteriaSummary';
+
+  /// The screen or feature from which the user navigated.
+  ///
+  /// Used in: [RewardsHubViewedPayload].
+  static const String referrer = 'referrer';
 }

@@ -344,6 +344,16 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
+      id: ChartCardId.rewardsGrantedOverTime,
+      label: labels[ChartCardId.rewardsGrantedOverTime]!,
+      type: ChartType.line,
+      timeFrames: {
+        ChartTimeFrame.week: _generateTimeSeries(referenceTime, 7, 48),
+        ChartTimeFrame.month: _generateTimeSeries(referenceTime, 30, 38),
+        ChartTimeFrame.year: _generateTimeSeries(referenceTime, 365, 28),
+      },
+    ),
+    ChartCardData(
       id: ChartCardId.rewardsActiveByType,
       label: labels[ChartCardId.rewardsActiveByType]!,
       type: ChartType.bar,
@@ -441,6 +451,7 @@ final Map<String, Map<ChartCardId, String>> _chartLabels = {
     ChartCardId.engagementsAppReviewsStoreRequestsOverTime:
         'Store Requests Over Time',
     ChartCardId.rewardsAdsWatchedOverTime: 'Ads Watched Over Time',
+    ChartCardId.rewardsGrantedOverTime: 'Rewards Granted Over Time',
     ChartCardId.rewardsActiveByType: 'Active Rewards by Type',
   },
   'ar': {
@@ -480,6 +491,7 @@ final Map<String, Map<ChartCardId, String>> _chartLabels = {
     ChartCardId.engagementsAppReviewsStoreRequestsOverTime:
         'طلبات تقييم المتجر عبر الزمن',
     ChartCardId.rewardsAdsWatchedOverTime: 'الإعلانات المشاهدة عبر الزمن',
+    ChartCardId.rewardsGrantedOverTime: 'المكافآت الممنوحة عبر الزمن',
     ChartCardId.rewardsActiveByType: 'المكافآت النشطة حسب النوع',
   },
 };

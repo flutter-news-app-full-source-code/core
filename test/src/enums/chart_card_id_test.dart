@@ -5,7 +5,7 @@ void main() {
   group('ChartCardId', () {
     test('has correct number of values', () {
       // This test is fragile and will need updates if the enum changes.
-      expect(ChartCardId.values.length, 23);
+      expect(ChartCardId.values.length, 24);
     });
 
     test('has correct string names', () {

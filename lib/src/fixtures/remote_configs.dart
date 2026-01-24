@@ -72,9 +72,14 @@ final remoteConfigsFixturesData = <RemoteConfig>[
         primaryAdPlatform: AdPlatformType.admob,
         platformAdIdentifiers: {
           AdPlatformType.admob: AdPlatformIdentifiers(
-            nativeAdId: 'ca-app-pub-3940256099942544/2247696110',
-            bannerAdId: 'ca-app-pub-3940256099942544/6300978111',
-            interstitialAdId: 'ca-app-pub-3940256099942544/1033173712',
+            androidNativeAdId: 'ca-app-pub-3940256099942544/2247696110',
+            androidBannerAdId: 'ca-app-pub-3940256099942544/6300978111',
+            androidInterstitialAdId: 'ca-app-pub-3940256099942544/1033173712',
+            androidRewardedAdId: 'ca-app-pub-3940256099942544/5224354917',
+            iosNativeAdId: 'ca-app-pub-3940256099942544/3986624511',
+            iosBannerAdId: 'ca-app-pub-3940256099942544/2934735716',
+            iosInterstitialAdId: 'ca-app-pub-3940256099942544/4411468910',
+            iosRewardedAdId: 'ca-app-pub-3940256099942544/1712485313',
           ),
         },
         feedAdConfiguration: FeedAdConfiguration(

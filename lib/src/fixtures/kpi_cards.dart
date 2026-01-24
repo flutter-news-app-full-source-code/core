@@ -253,6 +253,16 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
+      id: KpiCardId.rewardsGrantedTotal,
+      label: labels[KpiCardId.rewardsGrantedTotal]!,
+      timeFrames: const {
+        KpiTimeFrame.day: KpiTimeFrameData(value: 145, trend: '+10'),
+        KpiTimeFrame.week: KpiTimeFrameData(value: 1000, trend: '+45'),
+        KpiTimeFrame.month: KpiTimeFrameData(value: 4300, trend: '+140'),
+        KpiTimeFrame.year: KpiTimeFrameData(value: 52000, trend: '+4800'),
+      },
+    ),
+    KpiCardData(
       id: KpiCardId.rewardsActiveUsersCount,
       label: labels[KpiCardId.rewardsActiveUsersCount]!,
       timeFrames: const {
@@ -290,6 +300,7 @@ final Map<String, Map<KpiCardId, String>> _kpiLabels = {
     KpiCardId.engagementsAppReviewsPositiveFeedback: 'Positive Feedback',
     KpiCardId.engagementsAppReviewsStoreRequests: 'Store Requests',
     KpiCardId.rewardsAdsWatchedTotal: 'Ads Watched',
+    KpiCardId.rewardsGrantedTotal: 'Rewards Granted',
     KpiCardId.rewardsActiveUsersCount: 'Active Reward Users',
   },
   'ar': {
@@ -315,6 +326,7 @@ final Map<String, Map<KpiCardId, String>> _kpiLabels = {
     KpiCardId.engagementsAppReviewsPositiveFeedback: 'تقييمات إيجابية',
     KpiCardId.engagementsAppReviewsStoreRequests: 'طلبات تقييم المتجر',
     KpiCardId.rewardsAdsWatchedTotal: 'الإعلانات المشاهدة',
+    KpiCardId.rewardsGrantedTotal: 'المكافآت الممنوحة',
     KpiCardId.rewardsActiveUsersCount: 'مستخدمو المكافآت النشطون',
   },
 };
