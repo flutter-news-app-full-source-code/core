@@ -5,9 +5,10 @@ void main() {
   group('AdRewardEarnedPayload', () {
     const payload = AdRewardEarnedPayload(
       adProvider: AdPlatformType.admob,
-      adType: AdType.video,
+      adType: AdType.rewarded,
       adPlacement: 'rewarded',
-      rewardAmount: 10,
+      rewardType: RewardType.adFree,
+      rewardAmount: 1,
     );
 
     group('toMap', () {
@@ -15,9 +16,10 @@ void main() {
         final map = payload.toMap();
         expect(map, {
           AnalyticsParameterKeys.adProvider: 'admob',
-          AnalyticsParameterKeys.adType: 'video',
+          AnalyticsParameterKeys.adType: 'rewarded',
           AnalyticsParameterKeys.adPlacement: 'rewarded',
-          AnalyticsParameterKeys.rewardAmount: 10,
+          AnalyticsParameterKeys.rewardType: 'adFree',
+          AnalyticsParameterKeys.rewardAmount: 1,
         });
       });
     });
@@ -27,9 +29,10 @@ void main() {
         const instance1 = payload;
         const instance2 = AdRewardEarnedPayload(
           adProvider: AdPlatformType.admob,
-          adType: AdType.video,
+          adType: AdType.rewarded,
           adPlacement: 'rewarded',
-          rewardAmount: 10,
+          rewardType: RewardType.adFree,
+          rewardAmount: 1,
         );
         expect(instance1, equals(instance2));
       });
@@ -39,6 +42,7 @@ void main() {
           payload.adProvider,
           payload.adType,
           payload.adPlacement,
+          payload.rewardType,
           payload.rewardAmount,
         ]);
       });

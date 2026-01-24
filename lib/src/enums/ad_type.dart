@@ -13,4 +13,7 @@ enum AdType {
 
   /// A full-screen interstitial advertisement.
   interstitial,
+
+  /// A rewarded advertisement that users watch to earn a reward.
+  rewarded,
 }
