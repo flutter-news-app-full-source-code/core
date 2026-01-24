@@ -88,6 +88,9 @@ enum ChartCardId {
   /// A line chart showing the trend of ads watched for rewards over time.
   rewardsAdsWatchedOverTime,
 
+  /// A line chart showing the trend of rewards successfully granted over time.
+  rewardsGrantedOverTime,
+
   /// A bar chart showing the distribution of active rewards by type (e.g. Ad-Free vs Digest).
   rewardsActiveByType,
 }
