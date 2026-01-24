@@ -84,6 +84,9 @@ enum KpiCardId {
   /// KPI card for the total number of ads watched to earn rewards.
   rewardsAdsWatchedTotal,
 
+  /// KPI card for the total number of rewards successfully granted (verified).
+  rewardsGrantedTotal,
+
   /// KPI card for the number of users with currently active rewards.
   rewardsActiveUsersCount,
 }
