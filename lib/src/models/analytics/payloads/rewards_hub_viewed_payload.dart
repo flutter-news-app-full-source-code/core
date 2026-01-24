@@ -1,4 +1,4 @@
-import 'package:core/src/models/analytics/analytics_event_payload.dart';
+import 'package:core/core.dart';
 
 /// {@template rewards_hub_viewed_payload}
 /// Payload for the `rewardsHubViewed` analytics event.
@@ -14,7 +14,7 @@ class RewardsHubViewedPayload extends AnalyticsEventPayload {
 
   @override
   Map<String, dynamic> toMap() {
-    return {if (referrer != null) 'referrer': referrer};
+    return {if (referrer != null) AnalyticsParameterKeys.referrer: referrer};
   }
 
   @override

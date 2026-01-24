@@ -213,4 +213,9 @@ abstract final class AnalyticsParameterKeys {
   /// [HeadlineFilterUsedPayload], [SourceFilterCreatedPayload],
   /// [SourceFilterUpdatedPayload], [SourceFilterUsedPayload].
   static const String criteriaSummary = 'criteriaSummary';
+
+  /// The screen or feature from which the user navigated.
+  ///
+  /// Used in: [RewardsHubViewedPayload].
+  static const String referrer = 'referrer';
 }
