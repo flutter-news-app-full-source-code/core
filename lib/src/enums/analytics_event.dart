@@ -158,9 +158,23 @@ enum AnalyticsEvent {
   /// Associated payload: [AdLoadFailedPayload].
   adLoadFailed,
 
+  // --- Rewards System ---
+
+  /// Triggered when the user views the Rewards Hub page.
+  /// Associated payload: [RewardsHubViewedPayload].
+  rewardsHubViewed,
+
+  /// Triggered when a user clicks on a specific reward offer.
+  /// Associated payload: [RewardOfferClickedPayload].
+  rewardOfferClicked,
+
   /// Triggered when a user earns a reward from a rewarded ad.
   /// Associated payload: [AdRewardEarnedPayload].
   adRewardEarned,
+
+  /// Triggered when a reward is successfully granted to the user (after validation).
+  /// Associated payload: [RewardGrantedPayload].
+  rewardGranted,
 
   // --- Settings & Preferences ---
 
