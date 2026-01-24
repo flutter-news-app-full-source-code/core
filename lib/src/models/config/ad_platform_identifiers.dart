@@ -13,9 +13,14 @@ part 'ad_platform_identifiers.g.dart';
 class AdPlatformIdentifiers extends Equatable {
   /// {@macro ad_platform_identifiers}
   const AdPlatformIdentifiers({
-    this.nativeAdId,
-    this.bannerAdId,
-    this.interstitialAdId,
+    this.androidNativeAdId,
+    this.androidBannerAdId,
+    this.androidInterstitialAdId,
+    this.androidRewardedAdId,
+    this.iosNativeAdId,
+    this.iosBannerAdId,
+    this.iosInterstitialAdId,
+    this.iosRewardedAdId,
   });
 
   /// Creates an [AdPlatformIdentifiers] from JSON data.
@@ -25,29 +30,64 @@ class AdPlatformIdentifiers extends Equatable {
   /// Converts this [AdPlatformIdentifiers] instance to JSON data.
   Map<String, dynamic> toJson() => _$AdPlatformIdentifiersToJson(this);
 
-  /// ID for native ads.
-  final String? nativeAdId;
+  /// Android ID for native ads.
+  final String? androidNativeAdId;
 
-  /// ID for banner ads.
-  final String? bannerAdId;
+  /// Android ID for banner ads.
+  final String? androidBannerAdId;
 
-  /// ID for interstitial ads.
-  final String? interstitialAdId;
+  /// Android ID for interstitial ads.
+  final String? androidInterstitialAdId;
+
+  /// Android ID for rewarded ads.
+  final String? androidRewardedAdId;
+
+  /// iOS ID for native ads.
+  final String? iosNativeAdId;
+
+  /// iOS ID for banner ads.
+  final String? iosBannerAdId;
+
+  /// iOS ID for interstitial ads.
+  final String? iosInterstitialAdId;
+
+  /// iOS ID for rewarded ads.
+  final String? iosRewardedAdId;
 
   @override
-  List<Object?> get props => [nativeAdId, bannerAdId, interstitialAdId];
+  List<Object?> get props => [
+    androidNativeAdId,
+    androidBannerAdId,
+    androidInterstitialAdId,
+    androidRewardedAdId,
+    iosNativeAdId,
+    iosBannerAdId,
+    iosInterstitialAdId,
+    iosRewardedAdId,
+  ];
 
   /// Creates a copy of this [AdPlatformIdentifiers] but with the given fields
   /// replaced with the new values.
   AdPlatformIdentifiers copyWith({
-    String? nativeAdId,
-    String? bannerAdId,
-    String? interstitialAdId,
+    String? androidNativeAdId,
+    String? androidBannerAdId,
+    String? androidInterstitialAdId,
+    String? androidRewardedAdId,
+    String? iosNativeAdId,
+    String? iosBannerAdId,
+    String? iosInterstitialAdId,
+    String? iosRewardedAdId,
   }) {
     return AdPlatformIdentifiers(
-      nativeAdId: nativeAdId ?? this.nativeAdId,
-      bannerAdId: bannerAdId ?? this.bannerAdId,
-      interstitialAdId: interstitialAdId ?? this.interstitialAdId,
+      androidNativeAdId: androidNativeAdId ?? this.androidNativeAdId,
+      androidBannerAdId: androidBannerAdId ?? this.androidBannerAdId,
+      androidInterstitialAdId:
+          androidInterstitialAdId ?? this.androidInterstitialAdId,
+      androidRewardedAdId: androidRewardedAdId ?? this.androidRewardedAdId,
+      iosNativeAdId: iosNativeAdId ?? this.iosNativeAdId,
+      iosBannerAdId: iosBannerAdId ?? this.iosBannerAdId,
+      iosInterstitialAdId: iosInterstitialAdId ?? this.iosInterstitialAdId,
+      iosRewardedAdId: iosRewardedAdId ?? this.iosRewardedAdId,
     );
   }
 }
