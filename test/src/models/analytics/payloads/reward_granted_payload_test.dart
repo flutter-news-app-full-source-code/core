@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core/src/models/analytics/payloads/reward_granted_payload.dart';
 import 'package:test/test.dart';
 
 void main() {
