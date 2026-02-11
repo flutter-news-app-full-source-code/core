@@ -24,11 +24,12 @@ void main() {
       test('should return a new instance with updated values', () {
         final updatedCard = rankedListCardDataFixture.copyWith(
           label: 'A New Label',
-          id: RankedListCardId.overviewHeadlinesMostLiked,
+          cardId: RankedListCardId.overviewHeadlinesMostLiked,
         );
 
         expect(updatedCard.label, 'A New Label');
-        expect(updatedCard.id, RankedListCardId.overviewHeadlinesMostLiked);
+        expect(updatedCard.cardId, RankedListCardId.overviewHeadlinesMostLiked);
+        expect(updatedCard.id, rankedListCardDataFixture.id);
         expect(
           updatedCard.timeFrames,
           equals(rankedListCardDataFixture.timeFrames),
@@ -53,12 +54,14 @@ void main() {
       test('should not equate instances with different properties', () {
         final instance1 = rankedListCardDataFixture;
         final instance2 = RankedListCardData(
-          id: RankedListCardId.overviewHeadlinesMostLiked, // Different ID
+          id: 'different-id', // Different ID
+          cardId: rankedListCardDataFixture.cardId,
           label: rankedListCardDataFixture.label,
           timeFrames: rankedListCardDataFixture.timeFrames,
         );
         final instance3 = RankedListCardData(
           id: rankedListCardDataFixture.id,
+          cardId: rankedListCardDataFixture.cardId,
           label: 'Different Label',
           timeFrames: rankedListCardDataFixture.timeFrames,
         );
@@ -69,6 +72,7 @@ void main() {
       test('props list should contain all relevant fields', () {
         expect(rankedListCardDataFixture.props, [
           rankedListCardDataFixture.id,
+          rankedListCardDataFixture.cardId,
           rankedListCardDataFixture.label,
           rankedListCardDataFixture.timeFrames,
         ]);
