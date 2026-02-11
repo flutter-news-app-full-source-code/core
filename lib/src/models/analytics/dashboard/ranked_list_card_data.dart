@@ -21,6 +21,7 @@ class RankedListCardData extends Equatable {
   /// {@macro ranked_list_card_data}
   const RankedListCardData({
     required this.id,
+    required this.cardId,
     required this.label,
     required this.timeFrames,
   });
@@ -29,8 +30,11 @@ class RankedListCardData extends Equatable {
   factory RankedListCardData.fromJson(Map<String, dynamic> json) =>
       _$RankedListCardDataFromJson(json);
 
-  /// The unique, type-safe identifier for this ranked list card.
-  final RankedListCardId id;
+  /// The unique identifier for the document, typically a MongoDB ObjectId.
+  final String id;
+
+  /// The logical, type-safe identifier for this ranked list card.
+  final RankedListCardId cardId;
 
   /// The display label for the card (e.g., 'Most Viewed Headlines').
   final String label;
@@ -48,17 +52,19 @@ class RankedListCardData extends Equatable {
   /// Creates a copy of this [RankedListCardData] with the given fields
   /// replaced with the new values.
   RankedListCardData copyWith({
-    RankedListCardId? id,
+    String? id,
+    RankedListCardId? cardId,
     String? label,
     Map<RankedListTimeFrame, List<RankedListItem>>? timeFrames,
   }) {
     return RankedListCardData(
       id: id ?? this.id,
+      cardId: cardId ?? this.cardId,
       label: label ?? this.label,
       timeFrames: timeFrames ?? this.timeFrames,
     );
   }
 
   @override
-  List<Object> get props => [id, label, timeFrames];
+  List<Object> get props => [id, cardId, label, timeFrames];
 }
