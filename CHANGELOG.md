@@ -8,6 +8,7 @@ and this project adheres to Semantic Versioning.
 ## [Unreleased]
 
 ### Changed
+- **BREAKING refactor(analytics)**: Refactored dashboard card models (`KpiCardData`, `ChartCardData`, `RankedListCardData`) to use a `String` `id` for the document `ObjectId` and a new `cardId` field for the logical enum identifier, ensuring compatibility with the generic data client architecture.
 - **BREAKING refactor(config)**: Split `AdPlatformIdentifiers` into explicit `android` and `ios` fields (e.g., `androidNativeAdId`, `iosNativeAdId`) to support platform-specific ad units directly in configuration.
 - **feat(analytics)**: Added comprehensive Rewards System analytics events (`rewardsHubViewed`, `rewardOfferClicked`, `rewardGranted`) and associated payloads to track the user journey from offer to fulfillment.
 - **BREAKING refactor(auth)**: Removed `AccessTier.premium`. The system now uses a flattened `guest`/`standard` tier model.
