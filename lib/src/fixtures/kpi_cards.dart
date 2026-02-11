@@ -1,5 +1,6 @@
 import 'package:core/src/enums/enums.dart';
 import 'package:core/src/models/analytics/dashboard/kpi_card_data.dart';
+import 'package:uuid/uuid.dart';
 
 /// Generates a list of predefined KPI card data fixtures.
 ///
@@ -17,13 +18,15 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
   final resolvedLanguageCode = ['en', 'ar'].contains(languageCode)
       ? languageCode
       : 'en';
+  const uuid = Uuid();
 
   final labels = _kpiLabels[resolvedLanguageCode]!;
 
   return [
     // --- Users Management ---
     KpiCardData(
-      id: KpiCardId.usersTotalRegistered,
+      id: uuid.v4(),
+      cardId: KpiCardId.usersTotalRegistered,
       label: labels[KpiCardId.usersTotalRegistered]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 11, trend: '+2'),
@@ -33,7 +36,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.usersNewRegistrations,
+      id: uuid.v4(),
+      cardId: KpiCardId.usersNewRegistrations,
       label: labels[KpiCardId.usersNewRegistrations]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 2, trend: '+1'),
@@ -43,7 +47,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.usersActiveUsers,
+      id: uuid.v4(),
+      cardId: KpiCardId.usersActiveUsers,
       label: labels[KpiCardId.usersActiveUsers]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 8, trend: '+15%'),
@@ -55,7 +60,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
 
     // --- Content Management: Headlines ---
     KpiCardData(
-      id: KpiCardId.contentHeadlinesTotalPublished,
+      id: uuid.v4(),
+      cardId: KpiCardId.contentHeadlinesTotalPublished,
       label: labels[KpiCardId.contentHeadlinesTotalPublished]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 100, trend: '+10'),
@@ -65,7 +71,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.contentHeadlinesTotalViews,
+      id: uuid.v4(),
+      cardId: KpiCardId.contentHeadlinesTotalViews,
       label: labels[KpiCardId.contentHeadlinesTotalViews]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 1250, trend: '+5.2%'),
@@ -75,7 +82,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.contentHeadlinesTotalLikes,
+      id: uuid.v4(),
+      cardId: KpiCardId.contentHeadlinesTotalLikes,
       label: labels[KpiCardId.contentHeadlinesTotalLikes]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 230, trend: '+8%'),
@@ -87,7 +95,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
 
     // --- Content Management: Sources ---
     KpiCardData(
-      id: KpiCardId.contentSourcesTotalSources,
+      id: uuid.v4(),
+      cardId: KpiCardId.contentSourcesTotalSources,
       label: labels[KpiCardId.contentSourcesTotalSources]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 90, trend: '+1'),
@@ -97,7 +106,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.contentSourcesNewSources,
+      id: uuid.v4(),
+      cardId: KpiCardId.contentSourcesNewSources,
       label: labels[KpiCardId.contentSourcesNewSources]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 1, trend: '0'),
@@ -107,7 +117,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.contentSourcesTotalFollowers,
+      id: uuid.v4(),
+      cardId: KpiCardId.contentSourcesTotalFollowers,
       label: labels[KpiCardId.contentSourcesTotalFollowers]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 1850, trend: '+25'),
@@ -119,7 +130,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
 
     // --- Content Management: Topics ---
     KpiCardData(
-      id: KpiCardId.contentTopicsTotalTopics,
+      id: uuid.v4(),
+      cardId: KpiCardId.contentTopicsTotalTopics,
       label: labels[KpiCardId.contentTopicsTotalTopics]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 10, trend: '0'),
@@ -129,7 +141,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.contentTopicsNewTopics,
+      id: uuid.v4(),
+      cardId: KpiCardId.contentTopicsNewTopics,
       label: labels[KpiCardId.contentTopicsNewTopics]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 0, trend: '0'),
@@ -139,7 +152,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.contentTopicsTotalFollowers,
+      id: uuid.v4(),
+      cardId: KpiCardId.contentTopicsTotalFollowers,
       label: labels[KpiCardId.contentTopicsTotalFollowers]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 3200, trend: '+50'),
@@ -151,7 +165,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
 
     // --- Engagements Management ---
     KpiCardData(
-      id: KpiCardId.engagementsTotalReactions,
+      id: uuid.v4(),
+      cardId: KpiCardId.engagementsTotalReactions,
       label: labels[KpiCardId.engagementsTotalReactions]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 66, trend: '+10%'),
@@ -161,7 +176,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.engagementsTotalComments,
+      id: uuid.v4(),
+      cardId: KpiCardId.engagementsTotalComments,
       label: labels[KpiCardId.engagementsTotalComments]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 66, trend: '-5%'),
@@ -171,7 +187,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.engagementsReportsPending,
+      id: uuid.v4(),
+      cardId: KpiCardId.engagementsReportsPending,
       label: labels[KpiCardId.engagementsReportsPending]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 2, trend: '+1'),
@@ -181,7 +198,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.engagementsAverageEngagementRate,
+      id: uuid.v4(),
+      cardId: KpiCardId.engagementsAverageEngagementRate,
       label: labels[KpiCardId.engagementsAverageEngagementRate]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 5, trend: '+0.5%'),
@@ -191,7 +209,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.engagementsReportsResolved,
+      id: uuid.v4(),
+      cardId: KpiCardId.engagementsReportsResolved,
       label: labels[KpiCardId.engagementsReportsResolved]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 1, trend: '+1'),
@@ -201,7 +220,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.engagementsReportsAverageResolutionTime,
+      id: uuid.v4(),
+      cardId: KpiCardId.engagementsReportsAverageResolutionTime,
       label: labels[KpiCardId.engagementsReportsAverageResolutionTime]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 12, trend: '-2h'),
@@ -211,7 +231,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.engagementsAppReviewsTotalFeedback,
+      id: uuid.v4(),
+      cardId: KpiCardId.engagementsAppReviewsTotalFeedback,
       label: labels[KpiCardId.engagementsAppReviewsTotalFeedback]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 5, trend: '+1'),
@@ -221,7 +242,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.engagementsAppReviewsPositiveFeedback,
+      id: uuid.v4(),
+      cardId: KpiCardId.engagementsAppReviewsPositiveFeedback,
       label: labels[KpiCardId.engagementsAppReviewsPositiveFeedback]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 4, trend: '+1'),
@@ -231,7 +253,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.engagementsAppReviewsStoreRequests,
+      id: uuid.v4(),
+      cardId: KpiCardId.engagementsAppReviewsStoreRequests,
       label: labels[KpiCardId.engagementsAppReviewsStoreRequests]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 1, trend: '0'),
@@ -243,7 +266,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
 
     // --- Rewards Management ---
     KpiCardData(
-      id: KpiCardId.rewardsAdsWatchedTotal,
+      id: uuid.v4(),
+      cardId: KpiCardId.rewardsAdsWatchedTotal,
       label: labels[KpiCardId.rewardsAdsWatchedTotal]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 150, trend: '+12'),
@@ -253,7 +277,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.rewardsGrantedTotal,
+      id: uuid.v4(),
+      cardId: KpiCardId.rewardsGrantedTotal,
       label: labels[KpiCardId.rewardsGrantedTotal]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 145, trend: '+10'),
@@ -263,7 +288,8 @@ List<KpiCardData> getKpiCardsFixturesData({String languageCode = 'en'}) {
       },
     ),
     KpiCardData(
-      id: KpiCardId.rewardsActiveUsersCount,
+      id: uuid.v4(),
+      cardId: KpiCardId.rewardsActiveUsersCount,
       label: labels[KpiCardId.rewardsActiveUsersCount]!,
       timeFrames: const {
         KpiTimeFrame.day: KpiTimeFrameData(value: 45, trend: '+5'),
