@@ -56,6 +56,7 @@ class KpiCardData extends Equatable {
   /// {@macro kpi_card_data}
   const KpiCardData({
     required this.id,
+    required this.cardId,
     required this.label,
     required this.timeFrames,
   });
@@ -64,8 +65,11 @@ class KpiCardData extends Equatable {
   factory KpiCardData.fromJson(Map<String, dynamic> json) =>
       _$KpiCardDataFromJson(json);
 
-  /// The unique, type-safe identifier for this KPI card.
-  final KpiCardId id;
+  /// The unique identifier for the document, typically a MongoDB ObjectId.
+  final String id;
+
+  /// The logical, type-safe identifier for this KPI card.
+  final KpiCardId cardId;
 
   /// The display label for the card (e.g., 'Total Views').
   final String label;
@@ -82,17 +86,19 @@ class KpiCardData extends Equatable {
   /// Creates a copy of this [KpiCardData] with the given fields
   /// replaced with the new values.
   KpiCardData copyWith({
-    KpiCardId? id,
+    String? id,
+    KpiCardId? cardId,
     String? label,
     Map<KpiTimeFrame, KpiTimeFrameData>? timeFrames,
   }) {
     return KpiCardData(
       id: id ?? this.id,
+      cardId: cardId ?? this.cardId,
       label: label ?? this.label,
       timeFrames: timeFrames ?? this.timeFrames,
     );
   }
 
   @override
-  List<Object> get props => [id, label, timeFrames];
+  List<Object> get props => [id, cardId, label, timeFrames];
 }

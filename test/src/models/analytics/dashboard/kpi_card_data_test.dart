@@ -83,11 +83,12 @@ void main() {
       test('should return a new instance with updated values', () {
         final updatedCard = kpiCardDataFixture.copyWith(
           label: 'A New Label',
-          id: KpiCardId.usersActiveUsers,
+          cardId: KpiCardId.usersActiveUsers,
         );
 
         expect(updatedCard.label, 'A New Label');
-        expect(updatedCard.id, KpiCardId.usersActiveUsers);
+        expect(updatedCard.cardId, KpiCardId.usersActiveUsers);
+        expect(updatedCard.id, kpiCardDataFixture.id);
         expect(updatedCard.timeFrames, equals(kpiCardDataFixture.timeFrames));
       });
 
@@ -107,12 +108,14 @@ void main() {
       test('should not equate instances with different properties', () {
         final instance1 = kpiCardDataFixture;
         final instance2 = KpiCardData(
-          id: KpiCardId.usersActiveUsers, // Different ID
+          id: 'different-id', // Different ID
+          cardId: kpiCardDataFixture.cardId,
           label: kpiCardDataFixture.label,
           timeFrames: kpiCardDataFixture.timeFrames,
         );
         final instance3 = KpiCardData(
           id: kpiCardDataFixture.id,
+          cardId: kpiCardDataFixture.cardId,
           label: 'Different Label',
           timeFrames: kpiCardDataFixture.timeFrames,
         );
@@ -123,6 +126,7 @@ void main() {
       test('props list should contain all relevant fields', () {
         expect(kpiCardDataFixture.props, [
           kpiCardDataFixture.id,
+          kpiCardDataFixture.cardId,
           kpiCardDataFixture.label,
           kpiCardDataFixture.timeFrames,
         ]);

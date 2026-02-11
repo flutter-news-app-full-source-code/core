@@ -21,7 +21,11 @@ Map<String, dynamic> _$KpiTimeFrameDataToJson(KpiTimeFrameData instance) =>
 KpiCardData _$KpiCardDataFromJson(Map<String, dynamic> json) =>
     $checkedCreate('KpiCardData', json, ($checkedConvert) {
       final val = KpiCardData(
-        id: $checkedConvert('id', (v) => $enumDecode(_$KpiCardIdEnumMap, v)),
+        id: $checkedConvert('id', (v) => v as String),
+        cardId: $checkedConvert(
+          'cardId',
+          (v) => $enumDecode(_$KpiCardIdEnumMap, v),
+        ),
         label: $checkedConvert('label', (v) => v as String),
         timeFrames: $checkedConvert(
           'timeFrames',
@@ -38,7 +42,8 @@ KpiCardData _$KpiCardDataFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$KpiCardDataToJson(KpiCardData instance) =>
     <String, dynamic>{
-      'id': _$KpiCardIdEnumMap[instance.id]!,
+      'id': instance.id,
+      'cardId': _$KpiCardIdEnumMap[instance.cardId]!,
       'label': instance.label,
       'timeFrames': instance.timeFrames.map(
         (k, e) => MapEntry(_$KpiTimeFrameEnumMap[k]!, e.toJson()),
@@ -73,6 +78,7 @@ const _$KpiCardIdEnumMap = {
   KpiCardId.engagementsAppReviewsStoreRequests:
       'engagementsAppReviewsStoreRequests',
   KpiCardId.rewardsAdsWatchedTotal: 'rewardsAdsWatchedTotal',
+  KpiCardId.rewardsGrantedTotal: 'rewardsGrantedTotal',
   KpiCardId.rewardsActiveUsersCount: 'rewardsActiveUsersCount',
 };
 

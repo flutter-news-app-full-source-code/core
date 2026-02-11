@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:core/core.dart';
+import 'package:uuid/uuid.dart';
 
 /// Generates a list of predefined ranked list card data fixtures.
 ///
@@ -19,6 +20,7 @@ List<RankedListCardData> getRankedListCardsFixturesData({
   final resolvedLanguageCode = ['en', 'ar'].contains(languageCode)
       ? languageCode
       : 'en';
+  const uuid = Uuid();
   final labels = _rankedListLabels[resolvedLanguageCode]!;
 
   final allHeadlines = getHeadlinesFixturesData(
@@ -30,7 +32,8 @@ List<RankedListCardData> getRankedListCardsFixturesData({
   return [
     // --- Overview Page ---
     RankedListCardData(
-      id: RankedListCardId.overviewHeadlinesMostViewed,
+      id: uuid.v4(),
+      cardId: RankedListCardId.overviewHeadlinesMostViewed,
       label: labels[RankedListCardId.overviewHeadlinesMostViewed]!,
       timeFrames: {
         RankedListTimeFrame.day: _getRankedHeadlines(allHeadlines, 5, 1000),
@@ -40,7 +43,8 @@ List<RankedListCardData> getRankedListCardsFixturesData({
       },
     ),
     RankedListCardData(
-      id: RankedListCardId.overviewHeadlinesMostLiked,
+      id: uuid.v4(),
+      cardId: RankedListCardId.overviewHeadlinesMostLiked,
       label: labels[RankedListCardId.overviewHeadlinesMostLiked]!,
       timeFrames: {
         RankedListTimeFrame.day: _getRankedHeadlines(allHeadlines, 5, 200),
@@ -50,7 +54,8 @@ List<RankedListCardData> getRankedListCardsFixturesData({
       },
     ),
     RankedListCardData(
-      id: RankedListCardId.overviewSourcesMostFollowed,
+      id: uuid.v4(),
+      cardId: RankedListCardId.overviewSourcesMostFollowed,
       label: labels[RankedListCardId.overviewSourcesMostFollowed]!,
       timeFrames: {
         RankedListTimeFrame.day: _getRankedSources(allSources, 5, 50),
@@ -60,7 +65,8 @@ List<RankedListCardData> getRankedListCardsFixturesData({
       },
     ),
     RankedListCardData(
-      id: RankedListCardId.overviewTopicsMostFollowed,
+      id: uuid.v4(),
+      cardId: RankedListCardId.overviewTopicsMostFollowed,
       label: labels[RankedListCardId.overviewTopicsMostFollowed]!,
       timeFrames: {
         RankedListTimeFrame.day: _getRankedTopics(allTopics, 5, 80),

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:core/core.dart';
+import 'package:uuid/uuid.dart';
 
 /// Generates a list of predefined chart card data fixtures.
 ///
@@ -23,11 +24,14 @@ List<ChartCardData> getChartCardsFixturesData({
       : 'en';
   final labels = _chartLabels[resolvedLanguageCode]!;
   final referenceTime = now ?? DateTime.now();
+  // Use a UUID generator for creating unique IDs for fixtures.
+  const uuid = Uuid();
 
   return [
     // --- Users Management ---
     ChartCardData(
-      id: ChartCardId.usersRegistrationsOverTime,
+      id: uuid.v4(),
+      cardId: ChartCardId.usersRegistrationsOverTime,
       label: labels[ChartCardId.usersRegistrationsOverTime]!,
       type: ChartType.line,
       timeFrames: {
@@ -37,7 +41,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.usersActiveUsersOverTime,
+      id: uuid.v4(),
+      cardId: ChartCardId.usersActiveUsersOverTime,
       label: labels[ChartCardId.usersActiveUsersOverTime]!,
       type: ChartType.line,
       timeFrames: {
@@ -47,7 +52,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.usersTierDistribution,
+      id: uuid.v4(),
+      cardId: ChartCardId.usersTierDistribution,
       label: labels[ChartCardId.usersTierDistribution]!,
       type: ChartType.bar,
       timeFrames: {
@@ -68,7 +74,8 @@ List<ChartCardData> getChartCardsFixturesData({
 
     // --- Content Management: Headlines ---
     ChartCardData(
-      id: ChartCardId.contentHeadlinesViewsOverTime,
+      id: uuid.v4(),
+      cardId: ChartCardId.contentHeadlinesViewsOverTime,
       label: labels[ChartCardId.contentHeadlinesViewsOverTime]!,
       type: ChartType.line,
       timeFrames: {
@@ -78,7 +85,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.contentHeadlinesLikesOverTime,
+      id: uuid.v4(),
+      cardId: ChartCardId.contentHeadlinesLikesOverTime,
       label: labels[ChartCardId.contentHeadlinesLikesOverTime]!,
       type: ChartType.line,
       timeFrames: {
@@ -88,7 +96,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.contentHeadlinesViewsByTopic,
+      id: uuid.v4(),
+      cardId: ChartCardId.contentHeadlinesViewsByTopic,
       label: labels[ChartCardId.contentHeadlinesViewsByTopic]!,
       type: ChartType.bar,
       timeFrames: {
@@ -115,7 +124,8 @@ List<ChartCardData> getChartCardsFixturesData({
 
     // --- Content Management: Sources ---
     ChartCardData(
-      id: ChartCardId.contentSourcesHeadlinesPublishedOverTime,
+      id: uuid.v4(),
+      cardId: ChartCardId.contentSourcesHeadlinesPublishedOverTime,
       label: labels[ChartCardId.contentSourcesHeadlinesPublishedOverTime]!,
       type: ChartType.line,
       timeFrames: {
@@ -125,7 +135,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.contentSourcesEngagementByType,
+      id: uuid.v4(),
+      cardId: ChartCardId.contentSourcesEngagementByType,
       label: labels[ChartCardId.contentSourcesEngagementByType]!,
       type: ChartType.bar,
       timeFrames: {
@@ -135,7 +146,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.contentSourcesStatusDistribution,
+      id: uuid.v4(),
+      cardId: ChartCardId.contentSourcesStatusDistribution,
       label: labels[ChartCardId.contentSourcesStatusDistribution]!,
       type: ChartType.bar,
       timeFrames: {
@@ -156,7 +168,8 @@ List<ChartCardData> getChartCardsFixturesData({
 
     // --- Content Management: Topics ---
     ChartCardData(
-      id: ChartCardId.contentHeadlinesBreakingNewsDistribution,
+      id: uuid.v4(),
+      cardId: ChartCardId.contentHeadlinesBreakingNewsDistribution,
       label: labels[ChartCardId.contentHeadlinesBreakingNewsDistribution]!,
       type: ChartType.bar,
       timeFrames: {
@@ -175,7 +188,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.contentTopicsHeadlinesPublishedOverTime,
+      id: uuid.v4(),
+      cardId: ChartCardId.contentTopicsHeadlinesPublishedOverTime,
       label: labels[ChartCardId.contentTopicsHeadlinesPublishedOverTime]!,
       type: ChartType.line,
       timeFrames: {
@@ -185,7 +199,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.contentTopicsEngagementByTopic,
+      id: uuid.v4(),
+      cardId: ChartCardId.contentTopicsEngagementByTopic,
       label: labels[ChartCardId.contentTopicsEngagementByTopic]!,
       type: ChartType.bar,
       timeFrames: {
@@ -212,7 +227,8 @@ List<ChartCardData> getChartCardsFixturesData({
 
     // --- Engagements Management ---
     ChartCardData(
-      id: ChartCardId.engagementsReactionsOverTime,
+      id: uuid.v4(),
+      cardId: ChartCardId.engagementsReactionsOverTime,
       label: labels[ChartCardId.engagementsReactionsOverTime]!,
       type: ChartType.line,
       timeFrames: {
@@ -222,7 +238,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.engagementsCommentsOverTime,
+      id: uuid.v4(),
+      cardId: ChartCardId.engagementsCommentsOverTime,
       label: labels[ChartCardId.engagementsCommentsOverTime]!,
       type: ChartType.line,
       timeFrames: {
@@ -232,7 +249,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.engagementsReactionsByType,
+      id: uuid.v4(),
+      cardId: ChartCardId.engagementsReactionsByType,
       label: labels[ChartCardId.engagementsReactionsByType]!,
       type: ChartType.bar,
       timeFrames: {
@@ -254,7 +272,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.engagementsReportsSubmittedOverTime,
+      id: uuid.v4(),
+      cardId: ChartCardId.engagementsReportsSubmittedOverTime,
       label: labels[ChartCardId.engagementsReportsSubmittedOverTime]!,
       type: ChartType.line,
       timeFrames: {
@@ -264,7 +283,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.engagementsReportsResolutionTimeOverTime,
+      id: uuid.v4(),
+      cardId: ChartCardId.engagementsReportsResolutionTimeOverTime,
       label: labels[ChartCardId.engagementsReportsResolutionTimeOverTime]!,
       type: ChartType.line,
       timeFrames: {
@@ -274,7 +294,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.engagementsReportsByReason,
+      id: uuid.v4(),
+      cardId: ChartCardId.engagementsReportsByReason,
       label: labels[ChartCardId.engagementsReportsByReason]!,
       type: ChartType.bar,
       timeFrames: {
@@ -293,7 +314,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.engagementsAppReviewsFeedbackOverTime,
+      id: uuid.v4(),
+      cardId: ChartCardId.engagementsAppReviewsFeedbackOverTime,
       label: labels[ChartCardId.engagementsAppReviewsFeedbackOverTime]!,
       type: ChartType.line,
       timeFrames: {
@@ -303,7 +325,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.engagementsAppReviewsPositiveVsNegative,
+      id: uuid.v4(),
+      cardId: ChartCardId.engagementsAppReviewsPositiveVsNegative,
       label: labels[ChartCardId.engagementsAppReviewsPositiveVsNegative]!,
       type: ChartType.bar,
       timeFrames: {
@@ -322,7 +345,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.engagementsAppReviewsStoreRequestsOverTime,
+      id: uuid.v4(),
+      cardId: ChartCardId.engagementsAppReviewsStoreRequestsOverTime,
       label: labels[ChartCardId.engagementsAppReviewsStoreRequestsOverTime]!,
       type: ChartType.line,
       timeFrames: {
@@ -334,7 +358,8 @@ List<ChartCardData> getChartCardsFixturesData({
 
     // --- Rewards Management ---
     ChartCardData(
-      id: ChartCardId.rewardsAdsWatchedOverTime,
+      id: uuid.v4(),
+      cardId: ChartCardId.rewardsAdsWatchedOverTime,
       label: labels[ChartCardId.rewardsAdsWatchedOverTime]!,
       type: ChartType.line,
       timeFrames: {
@@ -344,7 +369,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.rewardsGrantedOverTime,
+      id: uuid.v4(),
+      cardId: ChartCardId.rewardsGrantedOverTime,
       label: labels[ChartCardId.rewardsGrantedOverTime]!,
       type: ChartType.line,
       timeFrames: {
@@ -354,7 +380,8 @@ List<ChartCardData> getChartCardsFixturesData({
       },
     ),
     ChartCardData(
-      id: ChartCardId.rewardsActiveByType,
+      id: uuid.v4(),
+      cardId: ChartCardId.rewardsActiveByType,
       label: labels[ChartCardId.rewardsActiveByType]!,
       type: ChartType.bar,
       timeFrames: {

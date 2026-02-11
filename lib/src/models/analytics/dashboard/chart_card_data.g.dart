@@ -9,7 +9,11 @@ part of 'chart_card_data.dart';
 ChartCardData _$ChartCardDataFromJson(Map<String, dynamic> json) =>
     $checkedCreate('ChartCardData', json, ($checkedConvert) {
       final val = ChartCardData(
-        id: $checkedConvert('id', (v) => $enumDecode(_$ChartCardIdEnumMap, v)),
+        id: $checkedConvert('id', (v) => v as String),
+        cardId: $checkedConvert(
+          'cardId',
+          (v) => $enumDecode(_$ChartCardIdEnumMap, v),
+        ),
         label: $checkedConvert('label', (v) => v as String),
         type: $checkedConvert(
           'type',
@@ -32,7 +36,8 @@ ChartCardData _$ChartCardDataFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$ChartCardDataToJson(ChartCardData instance) =>
     <String, dynamic>{
-      'id': _$ChartCardIdEnumMap[instance.id]!,
+      'id': instance.id,
+      'cardId': _$ChartCardIdEnumMap[instance.cardId]!,
       'label': instance.label,
       'type': _$ChartTypeEnumMap[instance.type]!,
       'timeFrames': instance.timeFrames.map(
@@ -75,6 +80,7 @@ const _$ChartCardIdEnumMap = {
   ChartCardId.engagementsAppReviewsStoreRequestsOverTime:
       'engagementsAppReviewsStoreRequestsOverTime',
   ChartCardId.rewardsAdsWatchedOverTime: 'rewardsAdsWatchedOverTime',
+  ChartCardId.rewardsGrantedOverTime: 'rewardsGrantedOverTime',
   ChartCardId.rewardsActiveByType: 'rewardsActiveByType',
 };
 
