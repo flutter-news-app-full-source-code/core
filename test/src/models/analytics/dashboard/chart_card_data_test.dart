@@ -24,12 +24,14 @@ void main() {
       test('should return a new instance with updated values', () {
         final updatedCard = chartCardDataFixture.copyWith(
           label: 'A New Label',
+          cardId: ChartCardId.usersActiveUsersOverTime,
           type: ChartType.bar,
         );
 
         expect(updatedCard.label, 'A New Label');
+        expect(updatedCard.cardId, ChartCardId.usersActiveUsersOverTime);
         expect(updatedCard.type, ChartType.bar);
-        expect(updatedCard.id, equals(chartCardDataFixture.id));
+        expect(updatedCard.id, chartCardDataFixture.id);
         expect(updatedCard.timeFrames, equals(chartCardDataFixture.timeFrames));
       });
 
@@ -49,19 +51,22 @@ void main() {
       test('should not equate instances with different properties', () {
         final instance1 = chartCardDataFixture;
         final instance2 = ChartCardData(
-          id: ChartCardId.contentHeadlinesViewsByTopic, // Different ID
+          id: 'different-id', // Different ID
+          cardId: chartCardDataFixture.cardId,
           label: chartCardDataFixture.label,
           type: chartCardDataFixture.type,
           timeFrames: chartCardDataFixture.timeFrames,
         );
         final instance3 = ChartCardData(
           id: chartCardDataFixture.id,
+          cardId: chartCardDataFixture.cardId,
           label: 'Different Label',
           type: chartCardDataFixture.type,
           timeFrames: chartCardDataFixture.timeFrames,
         );
         final instance4 = ChartCardData(
           id: chartCardDataFixture.id,
+          cardId: chartCardDataFixture.cardId,
           label: chartCardDataFixture.label,
           type: ChartType.bar, // Different type
           timeFrames: chartCardDataFixture.timeFrames,
@@ -74,6 +79,7 @@ void main() {
       test('props list should contain all relevant fields', () {
         expect(chartCardDataFixture.props, [
           chartCardDataFixture.id,
+          chartCardDataFixture.cardId,
           chartCardDataFixture.label,
           chartCardDataFixture.type,
           chartCardDataFixture.timeFrames,
