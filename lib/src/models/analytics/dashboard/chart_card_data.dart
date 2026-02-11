@@ -21,6 +21,7 @@ class ChartCardData extends Equatable {
   /// {@macro chart_card_data}
   const ChartCardData({
     required this.id,
+    required this.cardId,
     required this.label,
     required this.type,
     required this.timeFrames,
@@ -30,8 +31,11 @@ class ChartCardData extends Equatable {
   factory ChartCardData.fromJson(Map<String, dynamic> json) =>
       _$ChartCardDataFromJson(json);
 
-  /// The unique, type-safe identifier for this chart card.
-  final ChartCardId id;
+  /// The unique identifier for the document, typically a MongoDB ObjectId.
+  final String id;
+
+  /// The logical, type-safe identifier for this chart card.
+  final ChartCardId cardId;
 
   /// The display label for the card (e.g., 'Views Over Time').
   final String label;
@@ -52,13 +56,15 @@ class ChartCardData extends Equatable {
   /// Creates a copy of this [ChartCardData] with the given fields
   /// replaced with the new values.
   ChartCardData copyWith({
-    ChartCardId? id,
+    String? id,
+    ChartCardId? cardId,
     String? label,
     ChartType? type,
     Map<ChartTimeFrame, List<DataPoint>>? timeFrames,
   }) {
     return ChartCardData(
       id: id ?? this.id,
+      cardId: cardId ?? this.cardId,
       label: label ?? this.label,
       type: type ?? this.type,
       timeFrames: timeFrames ?? this.timeFrames,
@@ -66,5 +72,5 @@ class ChartCardData extends Equatable {
   }
 
   @override
-  List<Object> get props => [id, label, type, timeFrames];
+  List<Object> get props => [id, cardId, label, type, timeFrames];
 }
