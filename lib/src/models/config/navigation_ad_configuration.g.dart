@@ -48,4 +48,5 @@ const _$AdTypeEnumMap = {
   AdType.native: 'native',
   AdType.video: 'video',
   AdType.interstitial: 'interstitial',
+  AdType.rewarded: 'rewarded',
 };
