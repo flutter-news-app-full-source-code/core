@@ -19,7 +19,7 @@ final List<UserContext> userContextsFixturesData = usersFixturesData
         id: user.id,
         userId: user.id,
         feedDecoratorStatus: _defaultFeedDecoratorStatus,
-        hasCompletedOnboarding: true,
+        hasCompletedInitialPersonalization: true,
         lastSeenAppVersion: '1.0.0',
       ),
     )

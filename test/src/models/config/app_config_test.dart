@@ -22,6 +22,7 @@ void main() {
           appConfigFixture.maintenance,
           appConfigFixture.update,
           appConfigFixture.general,
+          appConfigFixture.initialPersonalization,
         ]),
       );
     });
@@ -39,9 +40,17 @@ void main() {
     test('copyWith creates a copy with updated values', () {
       final updatedConfig = appConfigFixture.copyWith(
         maintenance: const MaintenanceConfig(isUnderMaintenance: true),
+        initialPersonalization: const InitialPersonalizationConfig(
+          isEnabled: false,
+          isCountrySelectionEnabled: false,
+          isTopicSelectionEnabled: false,
+          isSourceSelectionEnabled: false,
+          minSelectionsRequired: 0,
+        ),
       );
 
       expect(updatedConfig.maintenance.isUnderMaintenance, isTrue);
+      expect(updatedConfig.initialPersonalization.isEnabled, isFalse);
       expect(updatedConfig.update, equals(appConfigFixture.update));
       expect(updatedConfig, isNot(equals(appConfigFixture)));
     });

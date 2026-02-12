@@ -18,6 +18,13 @@ final remoteConfigsFixturesData = <RemoteConfig>[
         termsOfServiceUrl: 'https://example.com/terms',
         privacyPolicyUrl: 'https://example.com/privacy',
       ),
+      initialPersonalization: InitialPersonalizationConfig(
+        isEnabled: true,
+        isCountrySelectionEnabled: true,
+        isTopicSelectionEnabled: true,
+        isSourceSelectionEnabled: true,
+        minSelectionsRequired: 3,
+      ),
     ),
     user: const UserConfig(
       limits: UserLimitsConfig(
