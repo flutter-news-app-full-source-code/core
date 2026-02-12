@@ -21,6 +21,11 @@ AppConfig _$AppConfigFromJson(Map<String, dynamic> json) =>
           'general',
           (v) => GeneralAppConfig.fromJson(v as Map<String, dynamic>),
         ),
+        initialPersonalization: $checkedConvert(
+          'initialPersonalization',
+          (v) =>
+              InitialPersonalizationConfig.fromJson(v as Map<String, dynamic>),
+        ),
       );
       return val;
     });
@@ -29,4 +34,5 @@ Map<String, dynamic> _$AppConfigToJson(AppConfig instance) => <String, dynamic>{
   'maintenance': instance.maintenance.toJson(),
   'update': instance.update.toJson(),
   'general': instance.general.toJson(),
+  'initialPersonalization': instance.initialPersonalization.toJson(),
 };

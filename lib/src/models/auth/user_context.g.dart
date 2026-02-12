@@ -15,8 +15,8 @@ UserContext _$UserContextFromJson(Map<String, dynamic> json) =>
           'feedDecoratorStatus',
           (v) => _feedDecoratorStatusFromJson(v as Map<String, dynamic>),
         ),
-        hasCompletedOnboarding: $checkedConvert(
-          'hasCompletedOnboarding',
+        hasCompletedInitialPersonalization: $checkedConvert(
+          'hasCompletedInitialPersonalization',
           (v) => v as bool? ?? false,
         ),
         lastSeenAppVersion: $checkedConvert(
@@ -42,7 +42,8 @@ Map<String, dynamic> _$UserContextToJson(UserContext instance) =>
       'feedDecoratorStatus': _feedDecoratorStatusToJson(
         instance.feedDecoratorStatus,
       ),
-      'hasCompletedOnboarding': instance.hasCompletedOnboarding,
+      'hasCompletedInitialPersonalization':
+          instance.hasCompletedInitialPersonalization,
       'lastSeenAppVersion': instance.lastSeenAppVersion,
       'dismissedHints': instance.dismissedHints
           .map((e) => _$DismissibleHintTypeEnumMap[e]!)
