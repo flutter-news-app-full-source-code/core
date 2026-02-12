@@ -33,6 +33,10 @@ FeaturesConfig _$FeaturesConfigFromJson(Map<String, dynamic> json) =>
           'rewards',
           (v) => RewardsConfig.fromJson(v as Map<String, dynamic>),
         ),
+        onboarding: $checkedConvert(
+          'onboarding',
+          (v) => OnboardingConfig.fromJson(v as Map<String, dynamic>),
+        ),
       );
       return val;
     });
@@ -45,4 +49,5 @@ Map<String, dynamic> _$FeaturesConfigToJson(FeaturesConfig instance) =>
       'feed': instance.feed.toJson(),
       'community': instance.community.toJson(),
       'rewards': instance.rewards.toJson(),
+      'onboarding': instance.onboarding.toJson(),
     };

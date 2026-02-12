@@ -11,6 +11,7 @@ InitialPersonalizationConfig _$InitialPersonalizationConfigFromJson(
 ) => $checkedCreate('InitialPersonalizationConfig', json, ($checkedConvert) {
   final val = InitialPersonalizationConfig(
     isEnabled: $checkedConvert('isEnabled', (v) => v as bool),
+    isSkippable: $checkedConvert('isSkippable', (v) => v as bool),
     isCountrySelectionEnabled: $checkedConvert(
       'isCountrySelectionEnabled',
       (v) => v as bool,
@@ -35,6 +36,7 @@ Map<String, dynamic> _$InitialPersonalizationConfigToJson(
   InitialPersonalizationConfig instance,
 ) => <String, dynamic>{
   'isEnabled': instance.isEnabled,
+  'isSkippable': instance.isSkippable,
   'isCountrySelectionEnabled': instance.isCountrySelectionEnabled,
   'isTopicSelectionEnabled': instance.isTopicSelectionEnabled,
   'isSourceSelectionEnabled': instance.isSourceSelectionEnabled,
