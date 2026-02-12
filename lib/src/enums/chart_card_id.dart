@@ -8,6 +8,15 @@ import 'package:json_annotation/json_annotation.dart';
 /// {@endtemplate}
 @JsonEnum()
 enum ChartCardId {
+  // --- Onboarding & First-Time User Experience ---
+  /// A bar chart representing a funnel, showing user progression through the pre-auth app tour
+  /// steps.
+  overviewAppTourFunnel,
+
+  /// A bar chart representing a funnel, showing user progression and drop-off (skips) in the
+  /// post-auth initial personalization flow.
+  overviewInitialPersonalizationFunnel,
+
   // --- Users Management Page ---
   /// Chart for new user registrations over time.
   usersRegistrationsOverTime,
