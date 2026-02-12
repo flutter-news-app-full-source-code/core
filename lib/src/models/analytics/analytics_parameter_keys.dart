@@ -214,6 +214,16 @@ abstract final class AnalyticsParameterKeys {
   /// [SourceFilterUpdatedPayload], [SourceFilterUsedPayload].
   static const String criteriaSummary = 'criteriaSummary';
 
+  /// The index of a step in a multi-step flow (e.g., app tour).
+  ///
+  /// Used in: [AppTourStepViewedPayload].
+  static const String stepIndex = 'step_index';
+
+  /// The name of a step in a multi-step flow (e.g., initial personalization).
+  ///
+  /// Used in: [InitialPersonalizationStepViewedPayload].
+  static const String stepName = 'step_name';
+
   /// The screen or feature from which the user navigated.
   ///
   /// Used in: [RewardsHubViewedPayload].
