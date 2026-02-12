@@ -62,5 +62,44 @@ void main() {
         expect(copiedConfig, equals(appConfigFixture));
       },
     );
+
+    test('InitialPersonalizationConfig can be created from JSON', () {
+      final initialPersonalizationConfig =
+          appConfigFixture.initialPersonalization;
+      final json = initialPersonalizationConfig.toJson();
+      final fromJson = InitialPersonalizationConfig.fromJson(json);
+      expect(fromJson, equals(initialPersonalizationConfig));
+    });
+
+    test(
+      'InitialPersonalizationConfig copyWith creates a copy with updated values',
+      () {
+        final initialPersonalizationConfig =
+            appConfigFixture.initialPersonalization;
+        final updatedConfig = initialPersonalizationConfig.copyWith(
+          isEnabled: false,
+          isCountrySelectionEnabled: false,
+          isTopicSelectionEnabled: false,
+          isSourceSelectionEnabled: false,
+          minSelectionsRequired: 0,
+        );
+
+        expect(updatedConfig.isEnabled, isFalse);
+        expect(updatedConfig.isCountrySelectionEnabled, isFalse);
+        expect(updatedConfig.isTopicSelectionEnabled, isFalse);
+        expect(updatedConfig.isSourceSelectionEnabled, isFalse);
+        expect(updatedConfig.minSelectionsRequired, 0);
+      },
+    );
+
+    test(
+      'InitialPersonalizationConfig copyWith creates an identical copy when no arguments are provided',
+      () {
+        final initialPersonalizationConfig =
+            appConfigFixture.initialPersonalization;
+        final copiedConfig = initialPersonalizationConfig.copyWith();
+        expect(copiedConfig, equals(initialPersonalizationConfig));
+      },
+    );
   });
 }
