@@ -26,7 +26,7 @@ class UserContext extends Equatable {
     required this.id,
     required this.userId,
     required this.feedDecoratorStatus,
-    this.hasCompletedOnboarding = false,
+    this.hasCompletedInitialPersonalization = false,
     this.lastSeenAppVersion,
     this.dismissedHints = const {},
   });
@@ -52,7 +52,7 @@ class UserContext extends Equatable {
   final Map<FeedDecoratorType, UserFeedDecoratorStatus> feedDecoratorStatus;
 
   /// Indicates whether the user has completed the initial onboarding flow.
-  final bool hasCompletedOnboarding;
+  final bool hasCompletedInitialPersonalization;
 
   /// The version string of the application (e.g., "1.2.0") that the user
   /// last opened.
@@ -71,7 +71,7 @@ class UserContext extends Equatable {
     String? id,
     String? userId,
     Map<FeedDecoratorType, UserFeedDecoratorStatus>? feedDecoratorStatus,
-    bool? hasCompletedOnboarding,
+    bool? hasCompletedInitialPersonalization,
     String? lastSeenAppVersion,
     Set<DismissibleHintType>? dismissedHints,
   }) {
@@ -79,8 +79,9 @@ class UserContext extends Equatable {
       id: id ?? this.id,
       userId: userId ?? this.userId,
       feedDecoratorStatus: feedDecoratorStatus ?? this.feedDecoratorStatus,
-      hasCompletedOnboarding:
-          hasCompletedOnboarding ?? this.hasCompletedOnboarding,
+      hasCompletedInitialPersonalization:
+          hasCompletedInitialPersonalization ??
+          this.hasCompletedInitialPersonalization,
       lastSeenAppVersion: lastSeenAppVersion ?? this.lastSeenAppVersion,
       dismissedHints: dismissedHints ?? this.dismissedHints,
     );
@@ -91,7 +92,7 @@ class UserContext extends Equatable {
     id,
     userId,
     feedDecoratorStatus,
-    hasCompletedOnboarding,
+    hasCompletedInitialPersonalization,
     lastSeenAppVersion,
     dismissedHints,
   ];
