@@ -22,7 +22,7 @@ void main() {
           userContextFixture.id,
           userContextFixture.userId,
           userContextFixture.feedDecoratorStatus,
-          userContextFixture.hasCompletedOnboarding,
+          userContextFixture.hasCompletedInitialPersonalization,
           userContextFixture.lastSeenAppVersion,
           userContextFixture.dismissedHints,
         ]),
@@ -41,12 +41,12 @@ void main() {
 
     test('copyWith creates a copy with updated values', () {
       final updatedContext = userContextFixture.copyWith(
-        hasCompletedOnboarding: false,
+        hasCompletedInitialPersonalization: false,
         lastSeenAppVersion: '2.0.0',
         dismissedHints: {DismissibleHintType.feedFilterTooltip},
       );
 
-      expect(updatedContext.hasCompletedOnboarding, isFalse);
+      expect(updatedContext.hasCompletedInitialPersonalization, isFalse);
       expect(updatedContext.lastSeenAppVersion, equals('2.0.0'));
       expect(
         updatedContext.dismissedHints,
@@ -98,7 +98,7 @@ void main() {
             // Only provide one status, others should be hydrated
             'rateApp': {'isCompleted': true, 'lastShownAt': null},
           },
-          'hasCompletedOnboarding': true,
+          'hasCompletedInitialPersonalization': true,
         };
 
         final userContext = UserContext.fromJson(partialJson);
