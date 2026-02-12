@@ -2,6 +2,7 @@ import 'package:core/src/models/config/ad_config.dart';
 import 'package:core/src/models/config/analytics_config.dart';
 import 'package:core/src/models/config/community_config.dart';
 import 'package:core/src/models/config/feed_config.dart';
+import 'package:core/src/models/config/onboarding_config.dart';
 import 'package:core/src/models/config/push_notification_config.dart';
 import 'package:core/src/models/config/rewards_config.dart';
 import 'package:equatable/equatable.dart';
@@ -24,6 +25,7 @@ class FeaturesConfig extends Equatable {
     required this.feed,
     required this.community,
     required this.rewards,
+    required this.onboarding,
   });
 
   /// Creates a [FeaturesConfig] from JSON data.
@@ -48,6 +50,9 @@ class FeaturesConfig extends Equatable {
   /// Configuration for the rewards system.
   final RewardsConfig rewards;
 
+  /// Configuration for all onboarding-related features.
+  final OnboardingConfig onboarding;
+
   /// Converts this [FeaturesConfig] instance to JSON data.
   Map<String, dynamic> toJson() => _$FeaturesConfigToJson(this);
 
@@ -59,6 +64,7 @@ class FeaturesConfig extends Equatable {
     feed,
     community,
     rewards,
+    onboarding,
   ];
 
   /// Creates a copy of this [FeaturesConfig] but with the given fields
@@ -70,6 +76,7 @@ class FeaturesConfig extends Equatable {
     FeedConfig? feed,
     CommunityConfig? community,
     RewardsConfig? rewards,
+    OnboardingConfig? onboarding,
   }) {
     return FeaturesConfig(
       analytics: analytics ?? this.analytics,
@@ -78,6 +85,7 @@ class FeaturesConfig extends Equatable {
       feed: feed ?? this.feed,
       community: community ?? this.community,
       rewards: rewards ?? this.rewards,
+      onboarding: onboarding ?? this.onboarding,
     );
   }
 }
