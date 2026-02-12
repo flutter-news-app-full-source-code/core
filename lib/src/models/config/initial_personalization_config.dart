@@ -18,6 +18,7 @@ class InitialPersonalizationConfig extends Equatable {
   /// {@macro initial_personalization_config}
   const InitialPersonalizationConfig({
     required this.isEnabled,
+    required this.isSkippable,
     required this.isCountrySelectionEnabled,
     required this.isTopicSelectionEnabled,
     required this.isSourceSelectionEnabled,
@@ -30,6 +31,9 @@ class InitialPersonalizationConfig extends Equatable {
 
   /// A master switch to enable or disable the entire personalization flow.
   final bool isEnabled;
+
+  /// A switch to allow users to skip the initial ersonalization flow.
+  final bool isSkippable;
 
   /// A switch to enable or disable the country selection step.
   final bool isCountrySelectionEnabled;
@@ -60,6 +64,7 @@ class InitialPersonalizationConfig extends Equatable {
   /// fields replaced with the new values.
   InitialPersonalizationConfig copyWith({
     bool? isEnabled,
+    bool? isSkippable,
     bool? isCountrySelectionEnabled,
     bool? isTopicSelectionEnabled,
     bool? isSourceSelectionEnabled,
@@ -67,6 +72,7 @@ class InitialPersonalizationConfig extends Equatable {
   }) {
     return InitialPersonalizationConfig(
       isEnabled: isEnabled ?? this.isEnabled,
+      isSkippable: isSkippable ?? this.isSkippable,
       isCountrySelectionEnabled:
           isCountrySelectionEnabled ?? this.isCountrySelectionEnabled,
       isTopicSelectionEnabled:
