@@ -32,7 +32,7 @@ class InitialPersonalizationConfig extends Equatable {
   /// A master switch to enable or disable the entire personalization flow.
   final bool isEnabled;
 
-  /// A switch to allow users to skip the initial ersonalization flow.
+  /// A switch to allow users to skip the initial personalization flow.
   final bool isSkippable;
 
   /// A switch to enable or disable the country selection step.

@@ -30,6 +30,18 @@ enum AnalyticsEvent {
   /// Associated payload: [InitialPersonalizationStartedPayload].
   initialPersonalizationStarted,
 
+  /// Triggered for each step view within the initial personalization flow.
+  /// Associated payload: [InitialPersonalizationStepViewedPayload].
+  initialPersonalizationStepViewed,
+
+  /// Triggered upon successful completion of the initial personalization flow.
+  /// Associated payload: [InitialPersonalizationCompletedPayload].
+  initialPersonalizationCompleted,
+
+  /// Triggered if the user skips the initial personalization flow.
+  /// Associated payload: [InitialPersonalizationSkippedPayload].
+  initialPersonalizationSkipped,
+
   /// Triggered when a new user is successfully registered.
   /// Associated payload: [UserRegisteredPayload].
   userRegistered,
@@ -45,18 +57,6 @@ enum AnalyticsEvent {
   /// Triggered when a user's role changes (e.g., standard to premium).
   /// Associated payload: [UserRoleChangedPayload].
   userRoleChanged,
-
-  /// Triggered for each step view within the initial personalization flow.
-  /// Associated payload: [InitialPersonalizationStepViewedPayload].
-  initialPersonalizationStepViewed,
-
-  /// Triggered upon successful completion of the initial personalization flow.
-  /// Associated payload: [InitialPersonalizationCompletedPayload].
-  initialPersonalizationCompleted,
-
-  /// Triggered if the user skips the initial personalization flow.
-  /// Associated payload: [InitialPersonalizationSkippedPayload].
-  initialPersonalizationSkipped,
 
   // --- Content Consumption ---
 
