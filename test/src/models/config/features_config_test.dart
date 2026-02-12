@@ -25,6 +25,7 @@ void main() {
           featuresConfigFixture.feed,
           featuresConfigFixture.community,
           featuresConfigFixture.rewards,
+          featuresConfigFixture.onboarding,
         ]),
       );
     });

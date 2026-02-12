@@ -10,6 +10,38 @@ import 'package:core/src/models/analytics/payloads/payloads.dart';
 enum AnalyticsEvent {
   // --- Authentication & User Progression ---
 
+  /// Triggered when the pre-authentication app tour is shown for the first time.
+  /// Associated payload: [AppTourStartedPayload].
+  appTourStarted,
+
+  /// Triggered for each page view within the app tour.
+  /// Associated payload: [AppTourStepViewedPayload].
+  appTourStepViewed,
+
+  /// Triggered when the user completes the app tour.
+  /// Associated payload: [AppTourCompletedPayload].
+  appTourCompleted,
+
+  /// Triggered if the user skips the app tour.
+  /// Associated payload: [AppTourSkippedPayload].
+  appTourSkipped,
+
+  /// Triggered when the post-authentication initial personalization flow begins.
+  /// Associated payload: [InitialPersonalizationStartedPayload].
+  initialPersonalizationStarted,
+
+  /// Triggered for each step view within the initial personalization flow.
+  /// Associated payload: [InitialPersonalizationStepViewedPayload].
+  initialPersonalizationStepViewed,
+
+  /// Triggered upon successful completion of the initial personalization flow.
+  /// Associated payload: [InitialPersonalizationCompletedPayload].
+  initialPersonalizationCompleted,
+
+  /// Triggered if the user skips the initial personalization flow.
+  /// Associated payload: [InitialPersonalizationSkippedPayload].
+  initialPersonalizationSkipped,
+
   /// Triggered when a new user is successfully registered.
   /// Associated payload: [UserRegisteredPayload].
   userRegistered,

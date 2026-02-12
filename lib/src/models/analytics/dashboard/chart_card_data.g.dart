@@ -49,6 +49,9 @@ Map<String, dynamic> _$ChartCardDataToJson(ChartCardData instance) =>
     };
 
 const _$ChartCardIdEnumMap = {
+  ChartCardId.overviewAppTourFunnel: 'overviewAppTourFunnel',
+  ChartCardId.overviewInitialPersonalizationFunnel:
+      'overviewInitialPersonalizationFunnel',
   ChartCardId.usersRegistrationsOverTime: 'usersRegistrationsOverTime',
   ChartCardId.usersActiveUsersOverTime: 'usersActiveUsersOverTime',
   ChartCardId.usersTierDistribution: 'usersTierDistribution',

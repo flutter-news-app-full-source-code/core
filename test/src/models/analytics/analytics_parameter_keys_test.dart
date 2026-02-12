@@ -39,6 +39,9 @@ void main() {
       expect(AnalyticsParameterKeys.isPinned, 'isPinned');
       expect(AnalyticsParameterKeys.deliveryTypes, 'deliveryTypes');
       expect(AnalyticsParameterKeys.criteriaSummary, 'criteriaSummary');
+      expect(AnalyticsParameterKeys.stepIndex, 'step_index');
+      expect(AnalyticsParameterKeys.stepName, 'step_name');
+      expect(AnalyticsParameterKeys.referrer, 'referrer');
     });
   });
 }
