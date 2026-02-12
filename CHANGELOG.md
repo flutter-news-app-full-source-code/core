@@ -9,7 +9,8 @@ and this project adheres to Semantic Versioning.
 
 ### Added
 - **feat(analytics)**: Added new analytics events and payloads for "App Tour" (`appTourStarted`, `appTourStepViewed`, `appTourCompleted`, `appTourSkipped`) and "Initial Personalization" (`initialPersonalizationStarted`, `initialPersonalizationStepViewed`, `initialPersonalizationCompleted`, `initialPersonalizationSkipped`) to track user onboarding funnels.
-- **feat(config)**: Added `InitialPersonalizationConfig` to control the initial personalization flow.
+- **feat(dashboard)**: Added new `ChartCardId` enums for tracking "App Tour" and "Initial Personalization" funnels, enabling enhanced dashboard monitoring and analysis.
+- **feat(config)**: Added `OnboardingConfig` to control new users pre/post auth personalization flow.
 - **feat(analytics)**: Added `step_index` and `step_name` to `AnalyticsParameterKeys` to support multi-step event tracking.
 
 ### Changed
