@@ -7,6 +7,11 @@ and this project adheres to Semantic Versioning.
 
 ## [Unreleased]
 
+### Added
+- **feat(analytics)**: Added new analytics events and payloads for "App Tour" (`appTourStarted`, `appTourStepViewed`, `appTourCompleted`, `appTourSkipped`) and "Initial Personalization" (`initialPersonalizationStarted`, `initialPersonalizationStepViewed`, `initialPersonalizationCompleted`, `initialPersonalizationSkipped`) to track user onboarding funnels.
+- **feat(config)**: Added `InitialPersonalizationConfig` to control the initial personalization flow.
+- **feat(analytics)**: Added `step_index` and `step_name` to `AnalyticsParameterKeys` to support multi-step event tracking.
+
 ### Changed
 - **BREAKING refactor(analytics)**: Refactored dashboard card models (`KpiCardData`, `ChartCardData`, `RankedListCardData`) to use a `String` `id` for the document `ObjectId` and a new `cardId` field for the logical enum identifier, ensuring compatibility with the generic data client architecture.
 - **BREAKING refactor(config)**: Split `AdPlatformIdentifiers` into explicit `android` and `ios` fields (e.g., `androidNativeAdId`, `iosNativeAdId`) to support platform-specific ad units directly in configuration.
@@ -44,6 +49,7 @@ and this project adheres to Semantic Versioning.
 ## [1.5.0] - 2025-12-21
 
 ### Added
+- **feat(config)**: Added `InitialPersonalizationConfig` to `AppConfig`.
 - **feat(analytics)**: Established a robust and extensible analytics event tracking system. It standardizes event definitions and their associated data through type-safe enums and payload models, ensuring consistency and reducing errors. The changes also introduce a new, modular approach to dashboard data representation, moving away from a single summary model to dedicated models for charts, KPIs, and ranked lists, all configurable via remote settings.
 
 ### Changed
