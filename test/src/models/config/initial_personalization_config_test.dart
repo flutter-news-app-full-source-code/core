@@ -16,7 +16,7 @@ void main() {
     });
 
     test('supports value equality', () {
-      final anotherConfig = const InitialPersonalizationConfig(
+      const anotherConfig = InitialPersonalizationConfig(
         isEnabled: true,
         isCountrySelectionEnabled: true,
         isTopicSelectionEnabled: true,
