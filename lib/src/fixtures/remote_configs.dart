@@ -18,13 +18,6 @@ final remoteConfigsFixturesData = <RemoteConfig>[
         termsOfServiceUrl: 'https://example.com/terms',
         privacyPolicyUrl: 'https://example.com/privacy',
       ),
-      initialPersonalization: InitialPersonalizationConfig(
-        isEnabled: true,
-        isCountrySelectionEnabled: true,
-        isTopicSelectionEnabled: true,
-        isSourceSelectionEnabled: true,
-        minSelectionsRequired: 3,
-      ),
     ),
     user: const UserConfig(
       limits: UserLimitsConfig(
@@ -58,6 +51,17 @@ final remoteConfigsFixturesData = <RemoteConfig>[
       ),
     ),
     features: const FeaturesConfig(
+      onboarding: OnboardingConfig(
+        appTour: AppTourConfig(isEnabled: true, isSkippable: false),
+        initialPersonalization: InitialPersonalizationConfig(
+          isEnabled: true,
+          isSkippable: true,
+          isCountrySelectionEnabled: true,
+          isTopicSelectionEnabled: true,
+          isSourceSelectionEnabled: true,
+          minSelectionsRequired: 3,
+        ),
+      ),
       rewards: RewardsConfig(
         enabled: true,
         rewards: {
