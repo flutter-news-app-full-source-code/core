@@ -52,6 +52,7 @@ final remoteConfigsFixturesData = <RemoteConfig>[
     ),
     features: const FeaturesConfig(
       onboarding: OnboardingConfig(
+        isEnabled: true,
         appTour: AppTourConfig(isEnabled: true, isSkippable: false),
         initialPersonalization: InitialPersonalizationConfig(
           isEnabled: true,

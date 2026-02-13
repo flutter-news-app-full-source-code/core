@@ -9,6 +9,7 @@ part of 'onboarding_config.dart';
 OnboardingConfig _$OnboardingConfigFromJson(Map<String, dynamic> json) =>
     $checkedCreate('OnboardingConfig', json, ($checkedConvert) {
       final val = OnboardingConfig(
+        isEnabled: $checkedConvert('isEnabled', (v) => v as bool),
         appTour: $checkedConvert(
           'appTour',
           (v) => AppTourConfig.fromJson(v as Map<String, dynamic>),
@@ -24,6 +25,7 @@ OnboardingConfig _$OnboardingConfigFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$OnboardingConfigToJson(OnboardingConfig instance) =>
     <String, dynamic>{
+      'isEnabled': instance.isEnabled,
       'appTour': instance.appTour.toJson(),
       'initialPersonalization': instance.initialPersonalization.toJson(),
     };

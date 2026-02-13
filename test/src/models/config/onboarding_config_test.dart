@@ -4,6 +4,7 @@ import 'package:test/test.dart';
 void main() {
   group('OnboardingConfig', () {
     const onboardingConfig = OnboardingConfig(
+      isEnabled: true,
       appTour: AppTourConfig(isEnabled: true, isSkippable: true),
       initialPersonalization: InitialPersonalizationConfig(
         isEnabled: true,
@@ -21,6 +22,7 @@ void main() {
 
     test('supports value equality', () {
       const anotherConfig = OnboardingConfig(
+        isEnabled: true,
         appTour: AppTourConfig(isEnabled: true, isSkippable: true),
         initialPersonalization: InitialPersonalizationConfig(
           isEnabled: true,
@@ -36,10 +38,12 @@ void main() {
 
     test('copyWith returns a new instance with updated values', () {
       final updatedConfig = onboardingConfig.copyWith(
+        isEnabled: false,
         appTour: const AppTourConfig(isEnabled: false, isSkippable: false),
       );
 
       expect(updatedConfig.appTour.isEnabled, isFalse);
+      expect(updatedConfig.isEnabled, isFalse);
       expect(
         updatedConfig.initialPersonalization,
         equals(onboardingConfig.initialPersonalization),

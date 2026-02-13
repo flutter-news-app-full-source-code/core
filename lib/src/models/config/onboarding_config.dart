@@ -14,6 +14,7 @@ part 'onboarding_config.g.dart';
 class OnboardingConfig extends Equatable {
   /// {@macro onboarding_config}
   const OnboardingConfig({
+    required this.isEnabled,
     required this.appTour,
     required this.initialPersonalization,
   });
@@ -21,6 +22,9 @@ class OnboardingConfig extends Equatable {
   /// Creates an [OnboardingConfig] from JSON data.
   factory OnboardingConfig.fromJson(Map<String, dynamic> json) =>
       _$OnboardingConfigFromJson(json);
+
+  /// A master switch to enable or disable the entire onboarding flow.
+  final bool isEnabled;
 
   /// Configuration for the pre-authentication app tour.
   final AppTourConfig appTour;
@@ -32,15 +36,17 @@ class OnboardingConfig extends Equatable {
   Map<String, dynamic> toJson() => _$OnboardingConfigToJson(this);
 
   @override
-  List<Object> get props => [appTour, initialPersonalization];
+  List<Object> get props => [isEnabled, appTour, initialPersonalization];
 
   /// Creates a copy of this [OnboardingConfig] but with the given fields
   /// replaced with the new values.
   OnboardingConfig copyWith({
+    bool? isEnabled,
     AppTourConfig? appTour,
     InitialPersonalizationConfig? initialPersonalization,
   }) {
     return OnboardingConfig(
+      isEnabled: isEnabled ?? this.isEnabled,
       appTour: appTour ?? this.appTour,
       initialPersonalization:
           initialPersonalization ?? this.initialPersonalization,
