@@ -22,7 +22,6 @@ class InitialPersonalizationConfig extends Equatable {
     required this.isCountrySelectionEnabled,
     required this.isTopicSelectionEnabled,
     required this.isSourceSelectionEnabled,
-    required this.minSelectionsRequired,
   });
 
   /// Creates an [InitialPersonalizationConfig] from JSON data.
@@ -46,7 +45,6 @@ class InitialPersonalizationConfig extends Equatable {
 
   /// The minimum number of items a user must select across all enabled
   /// categories to complete the flow.
-  final int minSelectionsRequired;
 
   /// Converts this [InitialPersonalizationConfig] instance to JSON data.
   Map<String, dynamic> toJson() => _$InitialPersonalizationConfigToJson(this);
@@ -57,7 +55,6 @@ class InitialPersonalizationConfig extends Equatable {
     isCountrySelectionEnabled,
     isTopicSelectionEnabled,
     isSourceSelectionEnabled,
-    minSelectionsRequired,
   ];
 
   /// Creates a copy of this [InitialPersonalizationConfig] but with the given
@@ -68,7 +65,6 @@ class InitialPersonalizationConfig extends Equatable {
     bool? isCountrySelectionEnabled,
     bool? isTopicSelectionEnabled,
     bool? isSourceSelectionEnabled,
-    int? minSelectionsRequired,
   }) {
     return InitialPersonalizationConfig(
       isEnabled: isEnabled ?? this.isEnabled,
@@ -79,8 +75,6 @@ class InitialPersonalizationConfig extends Equatable {
           isTopicSelectionEnabled ?? this.isTopicSelectionEnabled,
       isSourceSelectionEnabled:
           isSourceSelectionEnabled ?? this.isSourceSelectionEnabled,
-      minSelectionsRequired:
-          minSelectionsRequired ?? this.minSelectionsRequired,
     );
   }
 }

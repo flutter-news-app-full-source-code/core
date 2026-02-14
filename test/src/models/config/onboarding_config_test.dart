@@ -12,7 +12,6 @@ void main() {
         isCountrySelectionEnabled: true,
         isTopicSelectionEnabled: true,
         isSourceSelectionEnabled: true,
-        minSelectionsRequired: 3,
       ),
     );
 
@@ -29,7 +28,6 @@ void main() {
           isCountrySelectionEnabled: true,
           isTopicSelectionEnabled: true,
           isSourceSelectionEnabled: true,
-          minSelectionsRequired: 3,
           isSkippable: true,
         ),
       );

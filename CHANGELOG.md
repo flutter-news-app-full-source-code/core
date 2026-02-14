@@ -13,6 +13,9 @@ and this project adheres to Semantic Versioning.
 - **feat(config)**: Added `OnboardingConfig` to control new users pre/post auth personalization flow.
 - **feat(analytics)**: Added `step_index` and `step_name` to `AnalyticsParameterKeys` to support multi-step event tracking.
 
+
+## [1.6.0] - 2026-02-12
+
 ### Changed
 - **BREAKING refactor(analytics)**: Refactored dashboard card models (`KpiCardData`, `ChartCardData`, `RankedListCardData`) to use a `String` `id` for the document `ObjectId` and a new `cardId` field for the logical enum identifier, ensuring compatibility with the generic data client architecture.
 - **BREAKING refactor(config)**: Split `AdPlatformIdentifiers` into explicit `android` and `ios` fields (e.g., `androidNativeAdId`, `iosNativeAdId`) to support platform-specific ad units directly in configuration.

@@ -24,10 +24,6 @@ InitialPersonalizationConfig _$InitialPersonalizationConfigFromJson(
       'isSourceSelectionEnabled',
       (v) => v as bool,
     ),
-    minSelectionsRequired: $checkedConvert(
-      'minSelectionsRequired',
-      (v) => (v as num).toInt(),
-    ),
   );
   return val;
 });
@@ -40,5 +36,4 @@ Map<String, dynamic> _$InitialPersonalizationConfigToJson(
   'isCountrySelectionEnabled': instance.isCountrySelectionEnabled,
   'isTopicSelectionEnabled': instance.isTopicSelectionEnabled,
   'isSourceSelectionEnabled': instance.isSourceSelectionEnabled,
-  'minSelectionsRequired': instance.minSelectionsRequired,
 };

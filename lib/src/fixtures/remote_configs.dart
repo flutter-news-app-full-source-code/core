@@ -60,7 +60,6 @@ final remoteConfigsFixturesData = <RemoteConfig>[
           isCountrySelectionEnabled: true,
           isTopicSelectionEnabled: true,
           isSourceSelectionEnabled: true,
-          minSelectionsRequired: 3,
         ),
       ),
       rewards: RewardsConfig(

@@ -9,7 +9,6 @@ void main() {
       isCountrySelectionEnabled: true,
       isTopicSelectionEnabled: true,
       isSourceSelectionEnabled: true,
-      minSelectionsRequired: 3,
     );
 
     test('can be instantiated', () {
@@ -22,7 +21,6 @@ void main() {
         isCountrySelectionEnabled: true,
         isTopicSelectionEnabled: true,
         isSourceSelectionEnabled: true,
-        minSelectionsRequired: 3,
         isSkippable: true,
       );
       expect(initialPersonalizationConfig, equals(anotherConfig));
@@ -31,12 +29,10 @@ void main() {
     test('copyWith returns a new instance with updated values', () {
       final updatedConfig = initialPersonalizationConfig.copyWith(
         isEnabled: false,
-        minSelectionsRequired: 5,
         isSkippable: false,
       );
 
       expect(updatedConfig.isEnabled, false);
-      expect(updatedConfig.minSelectionsRequired, 5);
       expect(updatedConfig.isSkippable, isFalse);
     });
 
