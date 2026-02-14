@@ -7,6 +7,9 @@ and this project adheres to Semantic Versioning.
 
 ## [Unreleased]
 
+## [1.8.0] - 2026-02-14
+
+
 ### Added
 - **feat(analytics)**: Added new analytics events and payloads for "App Tour" (`appTourStarted`, `appTourStepViewed`, `appTourCompleted`, `appTourSkipped`) and "Initial Personalization" (`initialPersonalizationStarted`, `initialPersonalizationStepViewed`, `initialPersonalizationCompleted`, `initialPersonalizationSkipped`) to track user onboarding funnels.
 - **feat(dashboard)**: Added new `ChartCardId` enums for tracking "App Tour" and "Initial Personalization" funnels, enabling enhanced dashboard monitoring and analysis.
@@ -14,7 +17,7 @@ and this project adheres to Semantic Versioning.
 - **feat(analytics)**: Added `step_index` and `step_name` to `AnalyticsParameterKeys` to support multi-step event tracking.
 
 
-## [1.6.0] - 2026-02-12
+## [1.7.0] - 2026-02-12
 
 ### Changed
 - **BREAKING refactor(analytics)**: Refactored dashboard card models (`KpiCardData`, `ChartCardData`, `RankedListCardData`) to use a `String` `id` for the document `ObjectId` and a new `cardId` field for the logical enum identifier, ensuring compatibility with the generic data client architecture.
