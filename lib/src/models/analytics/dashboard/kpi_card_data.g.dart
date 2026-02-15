@@ -80,6 +80,9 @@ const _$KpiCardIdEnumMap = {
   KpiCardId.rewardsAdsWatchedTotal: 'rewardsAdsWatchedTotal',
   KpiCardId.rewardsGrantedTotal: 'rewardsGrantedTotal',
   KpiCardId.rewardsActiveUsersCount: 'rewardsActiveUsersCount',
+  KpiCardId.mediaTotalUploads: 'mediaTotalUploads',
+  KpiCardId.mediaFailedUploads: 'mediaFailedUploads',
+  KpiCardId.mediaAverageUploadTime: 'mediaAverageUploadTime',
 };
 
 const _$KpiTimeFrameEnumMap = {

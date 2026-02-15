@@ -85,6 +85,9 @@ const _$ChartCardIdEnumMap = {
   ChartCardId.rewardsAdsWatchedOverTime: 'rewardsAdsWatchedOverTime',
   ChartCardId.rewardsGrantedOverTime: 'rewardsGrantedOverTime',
   ChartCardId.rewardsActiveByType: 'rewardsActiveByType',
+  ChartCardId.mediaUploadsOverTime: 'mediaUploadsOverTime',
+  ChartCardId.mediaUploadsByPurpose: 'mediaUploadsByPurpose',
+  ChartCardId.mediaUploadsSuccessVsFailure: 'mediaUploadsSuccessVsFailure',
 };
 
 const _$ChartTypeEnumMap = {ChartType.line: 'line', ChartType.bar: 'bar'};
