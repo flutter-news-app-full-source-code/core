@@ -17,6 +17,7 @@ void main() {
         adminUserFixture.email,
         adminUserFixture.name,
         adminUserFixture.photoUrl,
+        adminUserFixture.mediaAssetId,
         adminUserFixture.role,
         adminUserFixture.tier,
         adminUserFixture.createdAt,
@@ -42,12 +43,14 @@ void main() {
         const newRole = UserRole.publisher;
         const newTier = AccessTier.standard;
         const newName = 'New Name';
+        const newMediaAssetId = 'new-media-asset-id';
 
         final copied = adminUserFixture.copyWith(
           email: newEmail,
           role: newRole,
           tier: newTier,
-          name: newName,
+          name: const ValueWrapper(newName),
+          mediaAssetId: const ValueWrapper(newMediaAssetId),
         );
 
         expect(copied.id, adminUserFixture.id);
@@ -55,6 +58,15 @@ void main() {
         expect(copied.role, newRole);
         expect(copied.tier, newTier);
         expect(copied.name, newName);
+        expect(copied.mediaAssetId, newMediaAssetId);
+      });
+
+      test('updates a field to null correctly', () {
+        expect(adminUserFixture.name, isNotNull);
+        final copied = adminUserFixture.copyWith(
+          name: const ValueWrapper(null),
+        );
+        expect(copied.name, isNull);
       });
     });
 
