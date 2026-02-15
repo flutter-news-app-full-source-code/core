@@ -22,13 +22,14 @@ class Source extends FeedItem {
     required this.name,
     required this.description,
     required this.url,
-    required this.logoUrl,
     required this.sourceType,
     required this.language,
     required this.headquarters,
     required this.createdAt,
     required this.updatedAt,
     required this.status,
+    this.logoUrl,
+    this.mediaAssetId,
   }) : super(type: 'source');
 
   /// Factory method to create a [Source] instance from a JSON map.
@@ -48,7 +49,10 @@ class Source extends FeedItem {
   final String url;
 
   /// The URL for the source's logo.
-  final String logoUrl;
+  /// This is nullable as it may be populated asynchronously by the backend
+  /// after a media asset has been processed.
+  @JsonKey(includeIfNull: false)
+  final String? logoUrl;
 
   /// The type of the source (e.g., newsAgency, blog).
   /// If an unknown value is encountered during deserialization,
@@ -75,6 +79,11 @@ class Source extends FeedItem {
   /// ensuring backward compatibility.
   final ContentStatus status;
 
+  /// The ID of the associated [MediaAsset]. This is used to link the source
+  /// to a logo managed by the application's media system.
+  @JsonKey(includeIfNull: false)
+  final String? mediaAssetId;
+
   /// Converts this [Source] instance to a JSON map.
   Map<String, dynamic> toJson() {
     final json = _$SourceToJson(this);
@@ -95,6 +104,7 @@ class Source extends FeedItem {
     createdAt,
     updatedAt,
     status,
+    mediaAssetId,
     type,
   ];
 
@@ -105,13 +115,14 @@ class Source extends FeedItem {
     String? name,
     String? description,
     String? url,
-    String? logoUrl,
+    String? logoUrl, // Should be ValueWrapper<String?>
     SourceType? sourceType,
     Language? language,
     Country? headquarters,
     DateTime? createdAt,
     DateTime? updatedAt,
     ContentStatus? status,
+    String? mediaAssetId, // Should be ValueWrapper<String?>
   }) {
     return Source(
       id: id ?? this.id,
@@ -119,6 +130,7 @@ class Source extends FeedItem {
       description: description ?? this.description,
       url: url ?? this.url,
       logoUrl: logoUrl ?? this.logoUrl,
+      mediaAssetId: mediaAssetId ?? this.mediaAssetId,
       sourceType: sourceType ?? this.sourceType,
       language: language ?? this.language,
       headquarters: headquarters ?? this.headquarters,
