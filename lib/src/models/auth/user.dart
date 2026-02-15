@@ -54,6 +54,7 @@ class User extends Equatable {
   @JsonKey(includeIfNull: false)
   final String? photoUrl;
 
+  @JsonKey(includeIfNull: false)
   final String? mediaAssetId;
 
   /// The user's administrative role.

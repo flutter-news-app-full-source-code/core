@@ -31,7 +31,7 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
   'email': instance.email,
   'name': instance.name,
   'photoUrl': ?instance.photoUrl,
-  'mediaAssetId': instance.mediaAssetId,
+  'mediaAssetId': ?instance.mediaAssetId,
   'role': _$UserRoleEnumMap[instance.role]!,
   'tier': _$AccessTierEnumMap[instance.tier]!,
   'createdAt': const DateTimeConverter().toJson(instance.createdAt),
