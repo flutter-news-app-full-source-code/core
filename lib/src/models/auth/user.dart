@@ -32,6 +32,7 @@ class User extends Equatable {
     required this.createdAt,
     this.name,
     this.photoUrl,
+    this.mediaAssetId,
     this.isAnonymous = false,
   });
 
@@ -50,7 +51,10 @@ class User extends Equatable {
   final String? name;
 
   /// The URL to the user's profile photo.
+  @JsonKey(includeIfNull: false)
   final String? photoUrl;
+
+  final String? mediaAssetId;
 
   /// The user's administrative role.
   ///
@@ -76,8 +80,8 @@ class User extends Equatable {
   User copyWith({
     String? id,
     String? email,
-    String? name,
-    String? photoUrl,
+    String? name, // Should be ValueWrapper<String?>
+    String? photoUrl, // Should be ValueWrapper<String?>
     UserRole? role,
     AccessTier? tier,
     DateTime? createdAt,
@@ -88,6 +92,7 @@ class User extends Equatable {
       email: email ?? this.email,
       name: name ?? this.name,
       photoUrl: photoUrl ?? this.photoUrl,
+      mediaAssetId: mediaAssetId ?? this.mediaAssetId,
       role: role ?? this.role,
       tier: tier ?? this.tier,
       createdAt: createdAt ?? this.createdAt,
@@ -101,6 +106,7 @@ class User extends Equatable {
     email,
     name,
     photoUrl,
+    mediaAssetId,
     role,
     tier,
     createdAt,
