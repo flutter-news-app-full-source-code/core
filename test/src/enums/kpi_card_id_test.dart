@@ -5,7 +5,7 @@ void main() {
   group('KpiCardId', () {
     test('has correct number of values', () {
       // This test is fragile and will need updates if the enum changes.
-      expect(KpiCardId.values.length, 24);
+      expect(KpiCardId.values.length, 27);
     });
 
     test('has correct string names', () {
