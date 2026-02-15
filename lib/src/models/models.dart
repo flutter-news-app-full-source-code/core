@@ -3,6 +3,7 @@ export 'auth/auth.dart';
 export 'config/config.dart';
 export 'entities/entities.dart';
 export 'feed/feed.dart';
+export 'media/media.dart';
 export 'notifications/notifications.dart';
 export 'push_notifications/push_notifications.dart';
 export 'query/query.dart';
