@@ -156,6 +156,11 @@ abstract final class AnalyticsParameterKeys {
   /// Used in: [AdLoadFailedPayload].
   static const String errorCode = 'errorCode';
 
+  /// The reason for a failure event.
+  ///
+  /// Used in: [MediaUploadFailedPayload].
+  static const String failureReason = 'failureReason';
+
   /// The amount of a reward earned.
   ///
   /// Used in: [AdRewardEarnedPayload].
@@ -175,6 +180,11 @@ abstract final class AnalyticsParameterKeys {
   ///
   /// Used in: [SubscriptionEndedPayload].
   static const String reason = 'reason';
+
+  /// The intended use of an asset.
+  ///
+  /// Used in: [MediaUploadStartedPayload], [MediaUploadCompletedPayload], [MediaUploadFailedPayload].
+  static const String purpose = 'purpose';
 
   /// The duration of the granted reward in days.
   ///
@@ -228,4 +238,24 @@ abstract final class AnalyticsParameterKeys {
   ///
   /// Used in: [RewardsHubViewedPayload].
   static const String referrer = 'referrer';
+
+  /// The name of an uploaded file.
+  ///
+  /// Used in: [MediaUploadStartedPayload], [MediaUploadCompletedPayload],
+  /// [MediaUploadFailedPayload].
+  static const String fileName = 'fileName';
+
+  /// The size of an uploaded file in bytes.
+  ///
+  /// Used in: [MediaUploadStartedPayload], [MediaUploadCompletedPayload].
+  static const String fileSize = 'fileSize';
+
+  /// The unique ID of a successfully uploaded media asset.
+  ///
+  /// Used in: [MediaUploadCompletedPayload].
+  static const String mediaAssetId = 'mediaAssetId';
+
+  /// The duration of an upload in seconds.
+  /// Used in: [MediaUploadCompletedPayload].
+  static const String uploadDurationSeconds = 'uploadDurationSeconds';
 }
