@@ -25,19 +25,30 @@ void main() {
       test('should create a copy with updated values', () {
         const updatedTitle = 'Updated Title';
         const updatedUrl = 'http://example.com/updated';
+        const updatedMediaAssetId = 'media-asset-id-456';
         final copiedHeadline = headlineFixture.copyWith(
           title: updatedTitle,
           url: updatedUrl,
+          mediaAssetId: const ValueWrapper(updatedMediaAssetId),
         );
 
         expect(copiedHeadline.id, headlineFixture.id);
         expect(copiedHeadline.title, updatedTitle);
         expect(copiedHeadline.url, updatedUrl);
+        expect(copiedHeadline.mediaAssetId, updatedMediaAssetId);
         expect(copiedHeadline.imageUrl, headlineFixture.imageUrl);
         expect(copiedHeadline.source, headlineFixture.source);
         expect(copiedHeadline.topic, headlineFixture.topic);
         expect(copiedHeadline.createdAt, headlineFixture.createdAt);
         expect(copiedHeadline.updatedAt, headlineFixture.updatedAt);
+      });
+
+      test('should create a copy with a null value using ValueWrapper', () {
+        expect(headlineFixture.imageUrl, isNotNull);
+        final copied = headlineFixture.copyWith(
+          imageUrl: const ValueWrapper(null),
+        );
+        expect(copied.imageUrl, isNull);
       });
 
       test('should create an identical copy if no values are provided', () {
@@ -62,7 +73,7 @@ void main() {
       });
 
       test('props list should contain all relevant fields', () {
-        expect(headlineFixture.props.length, 12);
+        expect(headlineFixture.props.length, 13);
         expect(headlineFixture.props, [
           headlineFixture.id,
           headlineFixture.title,
@@ -75,6 +86,7 @@ void main() {
           headlineFixture.eventCountry,
           headlineFixture.topic,
           headlineFixture.isBreaking,
+          headlineFixture.mediaAssetId,
           headlineFixture.type,
         ]);
       });

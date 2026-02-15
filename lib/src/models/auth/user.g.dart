@@ -20,6 +20,7 @@ User _$UserFromJson(Map<String, dynamic> json) => $checkedCreate('User', json, (
     ),
     name: $checkedConvert('name', (v) => v as String?),
     photoUrl: $checkedConvert('photoUrl', (v) => v as String?),
+    mediaAssetId: $checkedConvert('mediaAssetId', (v) => v as String?),
     isAnonymous: $checkedConvert('isAnonymous', (v) => v as bool? ?? false),
   );
   return val;
@@ -29,7 +30,8 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
   'id': instance.id,
   'email': instance.email,
   'name': instance.name,
-  'photoUrl': instance.photoUrl,
+  'photoUrl': ?instance.photoUrl,
+  'mediaAssetId': ?instance.mediaAssetId,
   'role': _$UserRoleEnumMap[instance.role]!,
   'tier': _$AccessTierEnumMap[instance.tier]!,
   'createdAt': const DateTimeConverter().toJson(instance.createdAt),

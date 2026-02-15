@@ -1,4 +1,4 @@
-import 'package:core/src/enums/enums.dart';
+import 'package:core/core.dart';
 import 'package:core/src/utils/date_time_converter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -32,6 +32,7 @@ class User extends Equatable {
     required this.createdAt,
     this.name,
     this.photoUrl,
+    this.mediaAssetId,
     this.isAnonymous = false,
   });
 
@@ -50,7 +51,11 @@ class User extends Equatable {
   final String? name;
 
   /// The URL to the user's profile photo.
+  @JsonKey(includeIfNull: false)
   final String? photoUrl;
+
+  @JsonKey(includeIfNull: false)
+  final String? mediaAssetId;
 
   /// The user's administrative role.
   ///
@@ -76,8 +81,9 @@ class User extends Equatable {
   User copyWith({
     String? id,
     String? email,
-    String? name,
-    String? photoUrl,
+    ValueWrapper<String?>? name,
+    ValueWrapper<String?>? photoUrl,
+    ValueWrapper<String?>? mediaAssetId,
     UserRole? role,
     AccessTier? tier,
     DateTime? createdAt,
@@ -86,8 +92,11 @@ class User extends Equatable {
     return User(
       id: id ?? this.id,
       email: email ?? this.email,
-      name: name ?? this.name,
-      photoUrl: photoUrl ?? this.photoUrl,
+      name: name != null ? name.value : this.name,
+      photoUrl: photoUrl != null ? photoUrl.value : this.photoUrl,
+      mediaAssetId: mediaAssetId != null
+          ? mediaAssetId.value
+          : this.mediaAssetId,
       role: role ?? this.role,
       tier: tier ?? this.tier,
       createdAt: createdAt ?? this.createdAt,
@@ -101,6 +110,7 @@ class User extends Equatable {
     email,
     name,
     photoUrl,
+    mediaAssetId,
     role,
     tier,
     createdAt,

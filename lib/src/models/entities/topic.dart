@@ -1,6 +1,5 @@
-import 'package:core/src/enums/enums.dart';
-import 'package:core/src/models/feed/feed_item.dart';
-import 'package:core/src/utils/utils.dart';
+import 'package:core/core.dart';
+import 'package:core/src/utils/date_time_converter.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -17,10 +16,11 @@ class Topic extends FeedItem {
     required this.id,
     required this.name,
     required this.description,
-    required this.iconUrl,
     required this.createdAt,
     required this.updatedAt,
     required this.status,
+    this.iconUrl,
+    this.mediaAssetId,
   }) : super(type: 'topic');
 
   /// Creates a Topic instance from a JSON map.
@@ -37,7 +37,10 @@ class Topic extends FeedItem {
   final String description;
 
   /// The URL for an icon representing the topic.
-  final String iconUrl;
+  /// This is nullable as it may be populated asynchronously by the backend
+  /// after a media asset has been processed.
+  @JsonKey(includeIfNull: false)
+  final String? iconUrl;
 
   /// The creation timestamp of the topic.
   @DateTimeConverter()
@@ -49,6 +52,11 @@ class Topic extends FeedItem {
 
   /// The current status of the topic.
   final ContentStatus status;
+
+  /// The ID of the associated [MediaAsset]. This is used to link the topic
+  /// to an icon managed by the application's media system.
+  @JsonKey(includeIfNull: false)
+  final String? mediaAssetId;
 
   /// Converts this Topic instance to a JSON map.
   Map<String, dynamic> toJson() {
@@ -66,6 +74,7 @@ class Topic extends FeedItem {
     createdAt,
     updatedAt,
     status,
+    mediaAssetId,
     type,
   ];
 
@@ -78,16 +87,20 @@ class Topic extends FeedItem {
     String? id,
     String? name,
     String? description,
-    String? iconUrl,
+    ValueWrapper<String?>? iconUrl,
     DateTime? createdAt,
     DateTime? updatedAt,
     ContentStatus? status,
+    ValueWrapper<String?>? mediaAssetId,
   }) {
     return Topic(
       id: id ?? this.id,
       name: name ?? this.name,
       description: description ?? this.description,
-      iconUrl: iconUrl ?? this.iconUrl,
+      iconUrl: iconUrl != null ? iconUrl.value : this.iconUrl,
+      mediaAssetId: mediaAssetId != null
+          ? mediaAssetId.value
+          : this.mediaAssetId,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
       status: status ?? this.status,

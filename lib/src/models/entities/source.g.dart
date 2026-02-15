@@ -13,7 +13,6 @@ Source _$SourceFromJson(Map<String, dynamic> json) =>
         name: $checkedConvert('name', (v) => v as String),
         description: $checkedConvert('description', (v) => v as String),
         url: $checkedConvert('url', (v) => v as String),
-        logoUrl: $checkedConvert('logoUrl', (v) => v as String),
         sourceType: $checkedConvert(
           'sourceType',
           (v) => $enumDecode(_$SourceTypeEnumMap, v),
@@ -38,6 +37,8 @@ Source _$SourceFromJson(Map<String, dynamic> json) =>
           'status',
           (v) => $enumDecode(_$ContentStatusEnumMap, v),
         ),
+        logoUrl: $checkedConvert('logoUrl', (v) => v as String?),
+        mediaAssetId: $checkedConvert('mediaAssetId', (v) => v as String?),
       );
       return val;
     });
@@ -47,13 +48,14 @@ Map<String, dynamic> _$SourceToJson(Source instance) => <String, dynamic>{
   'name': instance.name,
   'description': instance.description,
   'url': instance.url,
-  'logoUrl': instance.logoUrl,
+  'logoUrl': ?instance.logoUrl,
   'sourceType': _$SourceTypeEnumMap[instance.sourceType]!,
   'language': instance.language.toJson(),
   'headquarters': instance.headquarters.toJson(),
   'createdAt': const DateTimeConverter().toJson(instance.createdAt),
   'updatedAt': const DateTimeConverter().toJson(instance.updatedAt),
   'status': _$ContentStatusEnumMap[instance.status]!,
+  'mediaAssetId': ?instance.mediaAssetId,
 };
 
 const _$SourceTypeEnumMap = {

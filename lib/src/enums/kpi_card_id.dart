@@ -8,7 +8,7 @@ import 'package:json_annotation/json_annotation.dart';
 /// {@endtemplate}
 @JsonEnum()
 enum KpiCardId {
-  // --- Users Management Page ---
+  // --- Users Management ---
   /// KPI card for total registered users.
   usersTotalRegistered,
 
@@ -18,7 +18,7 @@ enum KpiCardId {
   /// KPI card for active users.
   usersActiveUsers,
 
-  // --- Content Management Page ---
+  // --- Content Management ---
   // Headlines Tab
   /// KPI card for total headlines published.
   contentHeadlinesTotalPublished,
@@ -49,7 +49,7 @@ enum KpiCardId {
   /// KPI card for total followers across all topics.
   contentTopicsTotalFollowers,
 
-  // --- Engagements Management Page ---
+  // --- Engagements Management ---
   // Engagements Tab (Reactions & Comments)
   /// KPI card for total reactions.
   engagementsTotalReactions,
@@ -80,7 +80,7 @@ enum KpiCardId {
   /// KPI card for native store review requests made.
   engagementsAppReviewsStoreRequests,
 
-  // --- Rewards Management Page ---
+  // --- Rewards Management ---
   /// KPI card for the total number of ads watched to earn rewards.
   rewardsAdsWatchedTotal,
 
@@ -89,4 +89,14 @@ enum KpiCardId {
 
   /// KPI card for the number of users with currently active rewards.
   rewardsActiveUsersCount,
+
+  // --- Media Management ---
+  /// KPI card for the total number of media files uploaded.
+  mediaTotalUploads,
+
+  /// KPI card for the number of failed media uploads.
+  mediaFailedUploads,
+
+  /// KPI card for the average upload time in seconds.
+  mediaAverageUploadTime,
 }

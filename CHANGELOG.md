@@ -8,8 +8,11 @@ and this project adheres to Semantic Versioning.
 ## [Unreleased]
 
 ### Added
-- **feat(media)**: Added `MediaAsset` model and related enums (`MediaAssetPurpose`, `MediaAssetStatus`, `MediaAssetEntityType`) to establish a shared contract for the media upload system.
-- **feat(media)**: Added strongly-typed API contract models `RequestUploadUrlRequest` and `RequestUploadUrlResponse` to harden the media upload endpoints.
+- **feat(media)**: Introduced a comprehensive, platform-agnostic media upload system. This includes a `MediaRepository` and `MediaClient` to handle two-stage signed URL uploads, operating on `Uint8List` for full compatibility with mobile and web.
+- **feat(analytics)**: Added robust analytics for the media upload feature, including new events (`mediaUploadStarted`, `mediaUploadCompleted`, `mediaUploadFailed`) with detailed payloads, and new dashboard KPI and Chart IDs (`mediaTotalUploads`, `mediaUploadsOverTime`, etc.) for monitoring.
+
+### Changed
+- **BREAKING refactor(models)**: To support asynchronous media uploads, core models (`Headline`, `Source`, `Topic`, `User`) have been refactored. Image URL fields are now nullable, and a `mediaAssetId` field has been added to link entities to managed media assets. The `copyWith` methods now use a `ValueWrapper` to correctly handle explicit null assignments.
 
 ## [1.8.0] - 2026-02-14
 

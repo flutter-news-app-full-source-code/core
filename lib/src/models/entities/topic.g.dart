@@ -13,7 +13,6 @@ Topic _$TopicFromJson(Map<String, dynamic> json) =>
         id: $checkedConvert('id', (v) => v as String),
         name: $checkedConvert('name', (v) => v as String),
         description: $checkedConvert('description', (v) => v as String),
-        iconUrl: $checkedConvert('iconUrl', (v) => v as String),
         createdAt: $checkedConvert(
           'createdAt',
           (v) => const DateTimeConverter().fromJson(v as String),
@@ -26,6 +25,8 @@ Topic _$TopicFromJson(Map<String, dynamic> json) =>
           'status',
           (v) => $enumDecode(_$ContentStatusEnumMap, v),
         ),
+        iconUrl: $checkedConvert('iconUrl', (v) => v as String?),
+        mediaAssetId: $checkedConvert('mediaAssetId', (v) => v as String?),
       );
       return val;
     });
@@ -34,10 +35,11 @@ Map<String, dynamic> _$TopicToJson(Topic instance) => <String, dynamic>{
   'id': instance.id,
   'name': instance.name,
   'description': instance.description,
-  'iconUrl': instance.iconUrl,
+  'iconUrl': ?instance.iconUrl,
   'createdAt': const DateTimeConverter().toJson(instance.createdAt),
   'updatedAt': const DateTimeConverter().toJson(instance.updatedAt),
   'status': _$ContentStatusEnumMap[instance.status]!,
+  'mediaAssetId': ?instance.mediaAssetId,
 };
 
 const _$ContentStatusEnumMap = {

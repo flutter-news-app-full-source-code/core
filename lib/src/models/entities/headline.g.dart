@@ -12,7 +12,6 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) =>
         id: $checkedConvert('id', (v) => v as String),
         title: $checkedConvert('title', (v) => v as String),
         url: $checkedConvert('url', (v) => v as String),
-        imageUrl: $checkedConvert('imageUrl', (v) => v as String),
         source: $checkedConvert(
           'source',
           (v) => Source.fromJson(v as Map<String, dynamic>),
@@ -38,6 +37,8 @@ Headline _$HeadlineFromJson(Map<String, dynamic> json) =>
           (v) => $enumDecode(_$ContentStatusEnumMap, v),
         ),
         isBreaking: $checkedConvert('isBreaking', (v) => v as bool),
+        imageUrl: $checkedConvert('imageUrl', (v) => v as String?),
+        mediaAssetId: $checkedConvert('mediaAssetId', (v) => v as String?),
       );
       return val;
     });
@@ -46,7 +47,7 @@ Map<String, dynamic> _$HeadlineToJson(Headline instance) => <String, dynamic>{
   'id': instance.id,
   'title': instance.title,
   'url': instance.url,
-  'imageUrl': instance.imageUrl,
+  'imageUrl': ?instance.imageUrl,
   'source': instance.source.toJson(),
   'eventCountry': instance.eventCountry.toJson(),
   'createdAt': const DateTimeConverter().toJson(instance.createdAt),
@@ -54,6 +55,7 @@ Map<String, dynamic> _$HeadlineToJson(Headline instance) => <String, dynamic>{
   'status': _$ContentStatusEnumMap[instance.status]!,
   'isBreaking': instance.isBreaking,
   'topic': instance.topic.toJson(),
+  'mediaAssetId': ?instance.mediaAssetId,
 };
 
 const _$ContentStatusEnumMap = {

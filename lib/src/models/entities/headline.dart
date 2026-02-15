@@ -1,8 +1,4 @@
-import 'package:core/src/enums/enums.dart';
-import 'package:core/src/models/entities/country.dart';
-import 'package:core/src/models/entities/source.dart';
-import 'package:core/src/models/entities/topic.dart';
-import 'package:core/src/models/feed/feed_item.dart';
+import 'package:core/core.dart';
 import 'package:core/src/utils/date_time_converter.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -22,7 +18,6 @@ class Headline extends FeedItem {
     required this.id,
     required this.title,
     required this.url,
-    required this.imageUrl,
     required this.source,
     required this.eventCountry,
     required this.topic,
@@ -30,6 +25,8 @@ class Headline extends FeedItem {
     required this.updatedAt,
     required this.status,
     required this.isBreaking,
+    this.imageUrl,
+    this.mediaAssetId,
   }) : super(type: 'headline');
 
   /// Creates a [Headline] instance from a JSON map.
@@ -46,7 +43,10 @@ class Headline extends FeedItem {
   final String url;
 
   /// URL to an image associated with the headline.
-  final String imageUrl;
+  /// This is nullable as it may be populated asynchronously by the backend
+  /// after a media asset has been processed.
+  @JsonKey(includeIfNull: false)
+  final String? imageUrl;
 
   /// Source or origin of the headline.
   final Source source;
@@ -79,6 +79,11 @@ class Headline extends FeedItem {
   /// Topic of the current headline.
   final Topic topic;
 
+  /// The ID of the associated [MediaAsset]. This is used to link the headline
+  /// to an image managed by the application's media system.
+  @JsonKey(includeIfNull: false)
+  final String? mediaAssetId;
+
   /// Converts this [Headline] instance to a JSON map.
   Map<String, dynamic> toJson() {
     final json = _$HeadlineToJson(this);
@@ -99,6 +104,7 @@ class Headline extends FeedItem {
     eventCountry,
     topic,
     isBreaking,
+    mediaAssetId,
     type,
   ];
 
@@ -111,7 +117,7 @@ class Headline extends FeedItem {
     String? id,
     String? title,
     String? url,
-    String? imageUrl,
+    ValueWrapper<String?>? imageUrl,
     DateTime? createdAt,
     DateTime? updatedAt,
     ContentStatus? status,
@@ -119,12 +125,16 @@ class Headline extends FeedItem {
     Country? eventCountry,
     Topic? topic,
     bool? isBreaking,
+    ValueWrapper<String?>? mediaAssetId,
   }) {
     return Headline(
       id: id ?? this.id,
       title: title ?? this.title,
       url: url ?? this.url,
-      imageUrl: imageUrl ?? this.imageUrl,
+      imageUrl: imageUrl != null ? imageUrl.value : this.imageUrl,
+      mediaAssetId: mediaAssetId != null
+          ? mediaAssetId.value
+          : this.mediaAssetId,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
       status: status ?? this.status,

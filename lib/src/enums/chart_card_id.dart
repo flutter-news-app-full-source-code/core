@@ -17,7 +17,7 @@ enum ChartCardId {
   /// post-auth initial personalization flow.
   overviewInitialPersonalizationFunnel,
 
-  // --- Users Management Page ---
+  // --- Users Management ---
   /// Chart for new user registrations over time.
   usersRegistrationsOverTime,
 
@@ -27,7 +27,7 @@ enum ChartCardId {
   /// Chart for user tier distribution (Guest, Standard, Premium).
   usersTierDistribution,
 
-  // --- Content Management Page ---
+  // --- Content Management ---
   // Headlines Tab
   /// Chart for headline views over time.
   contentHeadlinesViewsOverTime,
@@ -62,7 +62,7 @@ enum ChartCardId {
   /// Chart for engagement by topic.
   contentTopicsEngagementByTopic,
 
-  // --- Engagements Management Page ---
+  // --- Engagements Management ---
   // Engagements Tab (Reactions & Comments)
   /// Chart for reactions over time.
   engagementsReactionsOverTime,
@@ -93,7 +93,7 @@ enum ChartCardId {
   /// Chart for store review requests over time.
   engagementsAppReviewsStoreRequestsOverTime,
 
-  // --- Rewards Management Page ---
+  // --- Rewards Management ---
   /// A line chart showing the trend of ads watched for rewards over time.
   rewardsAdsWatchedOverTime,
 
@@ -102,4 +102,14 @@ enum ChartCardId {
 
   /// A bar chart showing the distribution of active rewards by type (e.g. Ad-Free vs Digest).
   rewardsActiveByType,
+
+  // --- Media Management ---
+  /// A line chart showing the trend of media uploads over time.
+  mediaUploadsOverTime,
+
+  /// A bar chart showing the distribution of uploads by their purpose.
+  mediaUploadsByPurpose,
+
+  /// A bar chart comparing successful vs. failed uploads.
+  mediaUploadsSuccessVsFailure,
 }
