@@ -190,6 +190,20 @@ enum AnalyticsEvent {
   /// Associated payload: [AdLoadFailedPayload].
   adLoadFailed,
 
+  // --- Media Uploads ---
+
+  /// Triggered when a user initiates a file upload.
+  /// Associated payload: [MediaUploadStartedPayload].
+  mediaUploadStarted,
+
+  /// Triggered when a file upload completes successfully.
+  /// Associated payload: [MediaUploadCompletedPayload].
+  mediaUploadCompleted,
+
+  /// Triggered when a file upload fails.
+  /// Associated payload: [MediaUploadFailedPayload].
+  mediaUploadFailed,
+
   // --- Rewards System ---
 
   /// Triggered when the user views the Rewards Hub page.
