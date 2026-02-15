@@ -1,8 +1,4 @@
-import 'package:core/src/enums/enums.dart';
-import 'package:core/src/models/entities/country.dart';
-import 'package:core/src/models/entities/source.dart';
-import 'package:core/src/models/entities/topic.dart';
-import 'package:core/src/models/feed/feed_item.dart';
+import 'package:core/core.dart';
 import 'package:core/src/utils/date_time_converter.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -121,7 +117,7 @@ class Headline extends FeedItem {
     String? id,
     String? title,
     String? url,
-    String? imageUrl, // Should be ValueWrapper<String?>
+    ValueWrapper<String?>? imageUrl,
     DateTime? createdAt,
     DateTime? updatedAt,
     ContentStatus? status,
@@ -129,14 +125,16 @@ class Headline extends FeedItem {
     Country? eventCountry,
     Topic? topic,
     bool? isBreaking,
-    String? mediaAssetId, // Should be ValueWrapper<String?>
+    ValueWrapper<String?>? mediaAssetId,
   }) {
     return Headline(
       id: id ?? this.id,
       title: title ?? this.title,
       url: url ?? this.url,
-      imageUrl: imageUrl ?? this.imageUrl,
-      mediaAssetId: mediaAssetId ?? this.mediaAssetId,
+      imageUrl: imageUrl != null ? imageUrl.value : this.imageUrl,
+      mediaAssetId: mediaAssetId != null
+          ? mediaAssetId.value
+          : this.mediaAssetId,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
       status: status ?? this.status,

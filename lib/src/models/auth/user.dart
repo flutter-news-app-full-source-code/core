@@ -1,4 +1,4 @@
-import 'package:core/src/enums/enums.dart';
+import 'package:core/core.dart';
 import 'package:core/src/utils/date_time_converter.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
@@ -80,8 +80,9 @@ class User extends Equatable {
   User copyWith({
     String? id,
     String? email,
-    String? name, // Should be ValueWrapper<String?>
-    String? photoUrl, // Should be ValueWrapper<String?>
+    ValueWrapper<String?>? name,
+    ValueWrapper<String?>? photoUrl,
+    ValueWrapper<String?>? mediaAssetId,
     UserRole? role,
     AccessTier? tier,
     DateTime? createdAt,
@@ -90,9 +91,11 @@ class User extends Equatable {
     return User(
       id: id ?? this.id,
       email: email ?? this.email,
-      name: name ?? this.name,
-      photoUrl: photoUrl ?? this.photoUrl,
-      mediaAssetId: mediaAssetId ?? this.mediaAssetId,
+      name: name != null ? name.value : this.name,
+      photoUrl: photoUrl != null ? photoUrl.value : this.photoUrl,
+      mediaAssetId: mediaAssetId != null
+          ? mediaAssetId.value
+          : this.mediaAssetId,
       role: role ?? this.role,
       tier: tier ?? this.tier,
       createdAt: createdAt ?? this.createdAt,

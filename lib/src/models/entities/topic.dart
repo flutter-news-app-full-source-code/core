@@ -1,6 +1,5 @@
-import 'package:core/src/enums/enums.dart';
-import 'package:core/src/models/feed/feed_item.dart';
-import 'package:core/src/utils/utils.dart';
+import 'package:core/core.dart';
+import 'package:core/src/utils/date_time_converter.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
@@ -88,18 +87,20 @@ class Topic extends FeedItem {
     String? id,
     String? name,
     String? description,
-    String? iconUrl, // Should be ValueWrapper<String?>
+    ValueWrapper<String?>? iconUrl,
     DateTime? createdAt,
     DateTime? updatedAt,
     ContentStatus? status,
-    String? mediaAssetId, // Should be ValueWrapper<String?>
+    ValueWrapper<String?>? mediaAssetId,
   }) {
     return Topic(
       id: id ?? this.id,
       name: name ?? this.name,
       description: description ?? this.description,
-      iconUrl: iconUrl ?? this.iconUrl,
-      mediaAssetId: mediaAssetId ?? this.mediaAssetId,
+      iconUrl: iconUrl != null ? iconUrl.value : this.iconUrl,
+      mediaAssetId: mediaAssetId != null
+          ? mediaAssetId.value
+          : this.mediaAssetId,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
       status: status ?? this.status,

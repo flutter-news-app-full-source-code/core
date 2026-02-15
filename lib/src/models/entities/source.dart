@@ -1,7 +1,4 @@
-import 'package:core/src/enums/enums.dart';
-import 'package:core/src/models/entities/country.dart';
-import 'package:core/src/models/entities/language.dart';
-import 'package:core/src/models/feed/feed_item.dart';
+import 'package:core/core.dart';
 import 'package:core/src/utils/utils.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
@@ -115,22 +112,24 @@ class Source extends FeedItem {
     String? name,
     String? description,
     String? url,
-    String? logoUrl, // Should be ValueWrapper<String?>
+    ValueWrapper<String?>? logoUrl,
     SourceType? sourceType,
     Language? language,
     Country? headquarters,
     DateTime? createdAt,
     DateTime? updatedAt,
     ContentStatus? status,
-    String? mediaAssetId, // Should be ValueWrapper<String?>
+    ValueWrapper<String?>? mediaAssetId,
   }) {
     return Source(
       id: id ?? this.id,
       name: name ?? this.name,
       description: description ?? this.description,
       url: url ?? this.url,
-      logoUrl: logoUrl ?? this.logoUrl,
-      mediaAssetId: mediaAssetId ?? this.mediaAssetId,
+      logoUrl: logoUrl != null ? logoUrl.value : this.logoUrl,
+      mediaAssetId: mediaAssetId != null
+          ? mediaAssetId.value
+          : this.mediaAssetId,
       sourceType: sourceType ?? this.sourceType,
       language: language ?? this.language,
       headquarters: headquarters ?? this.headquarters,
