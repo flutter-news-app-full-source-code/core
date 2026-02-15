@@ -37,6 +37,7 @@ void main() {
             sourceFixture.createdAt,
             sourceFixture.updatedAt,
             sourceFixture.status,
+            sourceFixture.mediaAssetId,
             'source',
           ]),
         );
@@ -96,13 +97,24 @@ void main() {
       test('updates individual fields correctly', () {
         const updatedName = 'Updated Source Name';
         const updatedLogo = 'https://example.com/logo.png';
+        const updatedMediaAssetId = 'media-asset-id-123';
         final updatedCopy = sourceFixture.copyWith(
           name: updatedName,
-          logoUrl: updatedLogo,
+          logoUrl: const ValueWrapper(updatedLogo),
+          mediaAssetId: const ValueWrapper(updatedMediaAssetId),
         );
         expect(updatedCopy.name, updatedName);
         expect(updatedCopy.id, sourceFixture.id);
         expect(updatedCopy.logoUrl, updatedLogo);
+        expect(updatedCopy.mediaAssetId, updatedMediaAssetId);
+      });
+
+      test('updates a field to null correctly', () {
+        expect(sourceFixture.logoUrl, isNotNull);
+        final updatedCopy = sourceFixture.copyWith(
+          logoUrl: const ValueWrapper(null),
+        );
+        expect(updatedCopy.logoUrl, isNull);
       });
 
       test('updates multiple fields simultaneously', () {
