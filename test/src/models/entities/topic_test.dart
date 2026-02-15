@@ -26,6 +26,7 @@ void main() {
         topicFixture.createdAt,
         topicFixture.updatedAt,
         topicFixture.status,
+        topicFixture.mediaAssetId,
         'topic',
       ]);
     });
@@ -69,12 +70,22 @@ void main() {
         expect(updated.id, topicFixture.id);
       });
 
+      test('returns a new object with a null value', () {
+        expect(topicFixture.iconUrl, isNotNull);
+        final updated = topicFixture.copyWith(
+          iconUrl: const ValueWrapper(null),
+        );
+        expect(updated.iconUrl, isNull);
+      });
+
       test('returns a new object with multiple updated properties', () {
         final updated = topicFixture.copyWith(
+          mediaAssetId: const ValueWrapper('new-media-id'),
           name: 'Updated',
           description: 'Updated Desc',
           status: ContentStatus.archived,
         );
+        expect(updated.mediaAssetId, 'new-media-id');
         expect(updated.name, 'Updated');
         expect(updated.description, 'Updated Desc');
         expect(updated.status, ContentStatus.archived);
