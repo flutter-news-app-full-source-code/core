@@ -7,8 +7,11 @@ and this project adheres to Semantic Versioning.
 
 ## [Unreleased]
 
-## [1.8.0] - 2026-02-14
+### Added
+- **feat(media)**: Added `MediaAsset` model and related enums (`MediaAssetPurpose`, `MediaAssetStatus`, `MediaAssetEntityType`) to establish a shared contract for the media upload system.
+- **feat(media)**: Added strongly-typed API contract models `RequestUploadUrlRequest` and `RequestUploadUrlResponse` to harden the media upload endpoints.
 
+## [1.8.0] - 2026-02-14
 
 ### Added
 - **feat(analytics)**: Added new analytics events and payloads for "App Tour" (`appTourStarted`, `appTourStepViewed`, `appTourCompleted`, `appTourSkipped`) and "Initial Personalization" (`initialPersonalizationStarted`, `initialPersonalizationStepViewed`, `initialPersonalizationCompleted`, `initialPersonalizationSkipped`) to track user onboarding funnels.
