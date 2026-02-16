@@ -1,8 +1,6 @@
-import 'package:core/core.dart' show Headline, Source, Topic;
-import 'package:core/src/models/entities/entities.dart'
-    show Headline, Source, Topic;
+import 'package:core/core.dart' show Headline, Source, Topic, User;
 import 'package:core/src/models/media/media_asset.dart' show MediaAsset;
-import 'package:core/src/models/models.dart' show Headline, Source, Topic;
+import 'package:core/src/models/models.dart' show Headline, Source, Topic, User;
 import 'package:json_annotation/json_annotation.dart';
 
 /// {@template media_asset_entity_type}
@@ -13,6 +11,9 @@ import 'package:json_annotation/json_annotation.dart';
 /// {@endtemplate}
 @JsonEnum()
 enum MediaAssetEntityType {
+  /// The asset is associated with a [User].
+  user,
+
   /// The asset is associated with a [Headline].
   headline,
 

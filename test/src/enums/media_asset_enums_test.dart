@@ -5,6 +5,7 @@ void main() {
   group('MediaAssetEntityType', () {
     test('has correct values', () {
       expect(MediaAssetEntityType.values, [
+        MediaAssetEntityType.user,
         MediaAssetEntityType.headline,
         MediaAssetEntityType.topic,
         MediaAssetEntityType.source,
