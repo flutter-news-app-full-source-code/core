@@ -3,13 +3,16 @@ import 'package:test/test.dart';
 
 void main() {
   group('RequestUploadUrlResponse', () {
+    const fields = {'key': 'value'};
     const response = RequestUploadUrlResponse(
-      signedUrl: 'https://example.com/upload',
+      url: 'https://example.com/upload',
+      fields: fields,
       mediaAssetId: 'asset123',
     );
 
     const responseJson = {
-      'signedUrl': 'https://example.com/upload',
+      'url': 'https://example.com/upload',
+      'fields': fields,
       'mediaAssetId': 'asset123',
     };
 
@@ -20,7 +23,8 @@ void main() {
     test('supports value equality', () {
       expect(
         const RequestUploadUrlResponse(
-          signedUrl: 'https://example.com/upload',
+          url: 'https://example.com/upload',
+          fields: fields,
           mediaAssetId: 'asset123',
         ),
         equals(response),
@@ -30,7 +34,7 @@ void main() {
     test('props are correct', () {
       expect(
         response.props,
-        equals(['https://example.com/upload', 'asset123']),
+        equals(['https://example.com/upload', fields, 'asset123']),
       );
     });
 
