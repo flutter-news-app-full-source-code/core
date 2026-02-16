@@ -53,7 +53,7 @@ void main() {
           () => mediaClient.requestUploadUrl(any()),
         ).thenAnswer((_) async => response);
         when(
-          () => mediaClient.uploadFileToSignedUrl(
+          () => mediaClient.uploadFileWithSignedPolicy(
             url: response.url,
             fields: response.fields,
             fileName: fileName,
@@ -73,7 +73,7 @@ void main() {
         expect(mediaAssetId, equals(response.mediaAssetId));
         verify(() => mediaClient.requestUploadUrl(request)).called(1);
         verify(
-          () => mediaClient.uploadFileToSignedUrl(
+          () => mediaClient.uploadFileWithSignedPolicy(
             url: response.url,
             fields: response.fields,
             fileName: fileName,
@@ -95,7 +95,7 @@ void main() {
           () => mediaClient.requestUploadUrl(any()),
         ).thenAnswer((_) async => response);
         when(
-          () => mediaClient.uploadFileToSignedUrl(
+          () => mediaClient.uploadFileWithSignedPolicy(
             url: any(named: 'url'),
             fields: any(named: 'fields'),
             fileName: any(named: 'fileName'),
@@ -120,7 +120,7 @@ void main() {
           fallbackContentType,
         );
         verify(
-          () => mediaClient.uploadFileToSignedUrl(
+          () => mediaClient.uploadFileWithSignedPolicy(
             url: response.url,
             fields: response.fields,
             fileName: unknownFileName,
