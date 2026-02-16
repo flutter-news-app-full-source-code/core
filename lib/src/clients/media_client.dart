@@ -24,9 +24,9 @@ abstract class MediaClient {
   /// Uploads a file to the specified URL using a multipart/form-data request.
   ///
   /// This is the second stage, where the client uses the `url` and `fields`
-  /// from the [RequestUploadUrlResponse] to perform a GCS V4 Policy Signed
-  /// POST.
-  Future<void> uploadFileToSignedUrl({
+  /// from the [RequestUploadUrlResponse] to perform a policy-based upload.
+  /// This pattern is common for direct-to-cloud storage uploads.
+  Future<void> uploadFileWithSignedPolicy({
     required String url,
     required Map<String, String> fields,
     required String fileName,
