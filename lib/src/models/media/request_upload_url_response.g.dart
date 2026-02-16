@@ -10,7 +10,11 @@ RequestUploadUrlResponse _$RequestUploadUrlResponseFromJson(
   Map<String, dynamic> json,
 ) => $checkedCreate('RequestUploadUrlResponse', json, ($checkedConvert) {
   final val = RequestUploadUrlResponse(
-    signedUrl: $checkedConvert('signedUrl', (v) => v as String),
+    url: $checkedConvert('url', (v) => v as String),
+    fields: $checkedConvert(
+      'fields',
+      (v) => Map<String, String>.from(v as Map),
+    ),
     mediaAssetId: $checkedConvert('mediaAssetId', (v) => v as String),
   );
   return val;
@@ -19,6 +23,7 @@ RequestUploadUrlResponse _$RequestUploadUrlResponseFromJson(
 Map<String, dynamic> _$RequestUploadUrlResponseToJson(
   RequestUploadUrlResponse instance,
 ) => <String, dynamic>{
-  'signedUrl': instance.signedUrl,
+  'url': instance.url,
+  'fields': instance.fields,
   'mediaAssetId': instance.mediaAssetId,
 };
