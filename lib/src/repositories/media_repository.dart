@@ -16,7 +16,7 @@ class MediaRepository {
 
   final MediaClient _mediaClient;
 
-  /// Orchestrates the two-stage file upload process for GCS V4 Signed POSTs.
+  /// Orchestrates the two-stage file upload process.
   ///
   /// First, it requests a signed URL and policy fields from the backend. Then,
   /// it uses that data to upload the file directly to cloud storage via a
@@ -35,7 +35,7 @@ class MediaRepository {
       purpose: purpose,
     );
     final response = await _mediaClient.requestUploadUrl(request);
-    await _mediaClient.uploadFileToSignedUrl(
+    await _mediaClient.uploadFileWithSignedPolicy(
       url: response.url,
       fields: response.fields,
       fileName: fileName,
