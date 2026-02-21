@@ -7,6 +7,9 @@ and this project adheres to Semantic Versioning.
 
 ## [Unreleased]
 
+
+## [1.9.0] - 2026-02-21
+
 ### Added
 - **feat(media)**: Introduced a comprehensive, platform-agnostic media upload system. This includes a `MediaRepository` and `MediaClient` to handle two-stage signed URL uploads, operating on `Uint8List` for full compatibility with mobile and web.
 - **feat(analytics)**: Added robust analytics for the media upload feature, including new events (`mediaUploadStarted`, `mediaUploadCompleted`, `mediaUploadFailed`) with detailed payloads, and new dashboard KPI and Chart IDs (`mediaTotalUploads`, `mediaUploadsOverTime`, etc.) for monitoring.
